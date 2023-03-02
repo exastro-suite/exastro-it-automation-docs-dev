@@ -1,0 +1,231 @@
+{#
+    exastro_documents/layout.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Sphinx layout template for the "Exastro documents" theme.
+
+#}
+{%- extends "basic/layout.html" %}
+
+{%- block htmltitle %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {{ super() }}
+{%- endblock %}
+
+{%- block scripts %}
+    {{ super() }}
+{%- endblock %}
+
+{%- block body_tag %}
+<body {% if pagename == 'index' %}id="index" {% else %}id="page" {% endif %}class="{{ language }}">
+{% endblock %}
+
+{%- block header %}
+
+<div id="container">
+
+<div id="header">
+  <header class="divInner">
+    <!-- Exastro logo -->
+    <div id="logo"><a href="/"><img src="{{ pathto('_static/img/exastro.svg', 1) }}" alt="Exastro"></a></div>
+    <!-- Project name -->
+    <div id="projectName"><a href="{{ pathto( master_doc ) }}">{{ project }}</a></div>
+    <!-- Heaedr navigation -->
+    <div id="headerSearch">
+      <form class="search" action="{{ pathto('search') }}" method="get">
+        <input type="text" name="q" aria-labelledby="searchlabel">
+        <button type="submit" value="{{ _('Go') }}"><img src="{{ pathto('_static/img/search.png', 1) }}" alt="{{ _('Go') }}"></button>
+      </form>
+    </div>
+  </header>
+</div><!-- End #header -->
+{% endblock %}
+
+{%- block relbar1 %}{% endblock %}
+
+{%- block content %}
+
+{%- block sidebar1 %}{% endblock %}
+
+<div id="toolbar">
+  <div class="divInner">
+    
+    <div id="documentVersion">
+      <dl>
+        <dt>Document version</dt>
+        <dd>
+          <div>
+            <select name="version" onchange="location.href=value;">
+              {%- for display_ver, path_ver in versions.items() %}
+                {%- set doc_path = pagename.split('/', 2) %}
+                {%- set doc_ver = doc_path[0] %}
+                {%- set doc_lang = doc_path[1] %}
+                {%- set doc_file = doc_path[2] %}
+                {%- set file_path = '' %}
+                {%- if doc_ver != None and doc_ver != "index" %}
+                  {%- set file_path = path_ver %}
+                  {%- if doc_lang != None and doc_lang != "index" %}
+                    {%- set file_path = file_path ~ '/' ~ doc_lang %}
+                    {%- if doc_file != None and doc_file != "index" %}
+                      {%- set file_path = file_path ~ '/' ~ doc_file %}
+                    {%- else %}
+                      {%- set file_path = file_path ~ '/index' %}
+                    {%- endif %}
+                  {%- else %}
+                    {%- set file_path = file_path ~ '/index' %}
+                  {%- endif %}
+                {%- else %}
+                  {%- set file_path = 'index' %}
+                {%- endif %}
+                file_path: {{ file_path }}
+                {%- if hasdoc(file_path) %}
+                  <option value="{{ pathto(file_path) }}"
+                  {%- if path_ver == doc_ver %}
+                  selected
+                  {%- endif %}
+                  >{{ display_ver }}</option>
+                {%- endif %}
+              {%- endfor %}
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="documentLanguage">
+      <dl>
+        <dt>Language</dt>
+        <dd>
+          <div>
+            <select name="lang" onchange="location.href=value;">
+              {%- for lang, display_lang in languages.items() %}
+                {%- set doc_path = pagename.split('/', 2) %}
+                {%- set doc_ver = doc_path[0] %}
+                {%- set doc_lang = doc_path[1] %}
+                {%- set doc_file = doc_path[2] %}
+                {%- set file_path = '' %}
+                {%- if doc_ver != None and doc_ver != "index" %}
+                  {%- set file_path = doc_ver %}
+                  {%- if doc_lang != None and doc_lang != "index" %}
+                    {%- set file_path = file_path ~ '/' ~ lang %}
+                    {%- if doc_file != None and doc_file != "index" %}
+                      {%- set file_path = file_path ~ '/' ~ doc_file %}
+                    {%- else %}
+                      {%- set file_path = file_path ~ '/index' %}
+                    {%- endif %}
+                  {%- else %}
+                    {%- set file_path = file_path ~ '/index' %}
+                  {%- endif %}
+                {%- else %}
+                  {%- set file_path = 'index' %}
+                {%- endif %}
+                file_path: {{ file_path }}
+                hasdoc: {{hasdoc(file_path)}}
+                {%- if hasdoc(file_path) %}
+                  <option value="{{ pathto(file_path) }}"
+                  {%- if lang == doc_lang %}
+                  selected
+                  {%- endif %}
+                  >{{ display_lang }}</option>
+                {%- endif %}
+              {%- endfor %}
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div id="toolbarNavigation">
+      <ul>
+        {%- if prev %}
+        <li class="prev"><a href="{{ prev.link|e }}" title="{{ _('Previous topic') }}">{{ prev.title }}</a></li>
+        {%- endif %}
+        {%- if next %}
+        <li class="next"><a href="{{ next.link|e }}" title="{{ _('Next topic') }}">{{ next.title }}</a></li>
+        {%- endif %}
+      </ul>
+    </div>
+  </div>
+</div><!-- End #toolbar -->
+
+<div id="sideMenu">
+
+  <div id="menuButton"></div>
+  
+  <aside class="divInner">
+    {{ toctree( collapse=true, maxdepth=5 ) }}
+    <!-- <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">索引</a></li>
+    </ul> -->
+    
+  </aside>
+</div><!-- End #sideMenu -->
+
+{% if not pagename.endswith('index') %}
+<div id="tableOfContents">
+  <div id="tocButton"></div>
+  {{ toc }}
+</div>
+{% endif %}
+
+<div id="contents">
+<main class="divInner">
+
+ <div id="breadcrumbs">
+  <ul>
+    <li><a href="{{ pathto( master_doc ) }}">HOME</a></li>
+    {% for doc in parents %}<li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+    {% endfor %}
+    <li>{{ title }}</li>
+  </ul>
+</div>
+
+<div id="article">
+<article class="divInner">
+
+{%- block document %}
+<div class="body" role="main">
+{% block body %} {% endblock %}
+</div>
+{%- endblock %}
+
+{% if not pagename.endswith('index') %}
+<div id="articleNavigation">
+  <ul>
+    {%- if prev %}
+    <li class="prev"><a href="{{ prev.link|e }}" title="{{ _('Previous topic') }}"><span>{{ _('Previous topic') }}</span>{{ prev.title }}</a></li>
+    {%- endif %}
+    {%- if next %}
+    <li class="next"><a href="{{ next.link|e }}" title="{{ _('Next topic') }}"><span>{{ _('Next topic') }}</span>{{ next.title }}</a></li>
+    {%- endif %}
+  </ul>
+</div>
+{% endif %}
+
+<div id="pageTopLink">
+  <a href="#container"><i>↑</i> Page Top</a>
+</div>
+
+</article>
+</div>
+{%- block sidebar2 %}{% endblock %}
+</main>
+</div><!-- End #contents -->
+{%- endblock %}
+
+{%- block relbar2 %}{% endblock %}
+
+{%- block footer %}
+<div id="footer">
+  <footer class="divInner">
+    <small>Copyright © {{ copyright }}</small>
+    <small><a href="/terms/{{ language }}.html">サイト規約</a></small>
+  </footer>
+</div><!-- End #footer -->
+
+<div id="overlay"></div>
+<div id="grayBack"></div>
+
+</div><!-- End #container -->
+{%- endblock %}

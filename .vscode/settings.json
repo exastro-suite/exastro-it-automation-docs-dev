@@ -1,0 +1,6 @@
+{
+    "restructuredtext.pythonRecommendation.disabled": true,
+    "esbonio.sphinx.confDir": "",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 1
+}

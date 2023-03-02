@@ -1,0 +1,63 @@
+name: RST2HTML
+on:
+  push:
+    branches:
+    - '**'
+
+jobs:
+  if_merged:
+    name: Build
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'auto rebuilding site') \
+      && ((github.repository_owner == 'exastro-suite' && github.ref_name == 'main') \
+       || (github.repository_owner != 'exastro-suite' && github.ref_name != 'main'))"
+    steps:
+    - name: Deploy Configuration
+      env:
+        GITHUB_USER: "builduser"
+        GITHUB_EMAIL: "test-builduser@example.com"
+      run: |
+          mkdir ~/.ssh
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.MY_ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+          git config --global user.name "${GITHUB_USER}"
+          git config --global user.email "${GITHUB_EMAIL}"
+
+    - name: Checkout
+      run: |
+          git clone git@github.com:${GITHUB_REPOSITORY}.git work -b main
+
+    - name: Merge ${{ github.ref_name }} to main
+      run: |
+          cd work
+          git merge -m "auto merge" origin/${{ github.ref_name }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+          cd work
+          python -m pip install --upgrade pip
+          pip install -r src/requirements.txt
+
+    - name: Build
+      run: |
+          cd work/src
+          rm -rf html
+          make html
+
+    - name: Commit
+      run: |
+          cd work
+          git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
+          git add -f docs
+          git commit -m "auto rebuilding site"
+
+    - name: Push
+      run: |
+          cd work
+          git push origin main
