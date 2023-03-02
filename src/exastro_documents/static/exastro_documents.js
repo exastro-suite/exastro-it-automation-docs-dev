@@ -30,7 +30,7 @@ $(function () {
     }
   });
 
-  $("img").click(function () {
+  $("figure img").click(function () {
     $("#grayBack").html($(this).prop("outerHTML"));
     $("#grayBack").fadeIn(200);
     return false;
