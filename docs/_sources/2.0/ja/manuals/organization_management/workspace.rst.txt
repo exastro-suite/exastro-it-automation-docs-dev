@@ -14,7 +14,7 @@ Workspase (ワークスペース)
 | ワークスペースとは、システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。
 | 1つのシステムの過去・現在・未来の設定値、設定ファイル、自動化ソフトウェアのIaCといったシステムを構成・管理・維持するために必要な情報を一元管理するための仕組みを提供します。
 
-.. figure:: /images/ja/overview_of_the_workspace.png
+.. figure:: /images/ja/diagram/overview_of_the_workspace.png
     :alt: ワークスペース全体図
 
 ワークスペースの作成
