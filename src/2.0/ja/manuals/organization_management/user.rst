@@ -36,7 +36,7 @@
       - | ・上記2つ以外のすべてのユーザーです。
         | ・Exastro の各ツールの操作を実行出来ます。
         
-.. figure:: /images/ja/overview_of_the_users.png
+.. figure:: /images/ja/diagram/overview_of_the_users.png
     :alt: ユーザー全体図
 
 | 上記のユーザー毎に作成方法が異なりますので、それぞれの方法について説明します。
