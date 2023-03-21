@@ -15,7 +15,7 @@ Exastro IT Automation Documentation 2.0
 
    ja/configuration/index
    ja/installation/index
-   .. ja/learn/index
+   ja/learn/index
    ja/manuals/index
    ja/reference/index
    ja/contribute/index

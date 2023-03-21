@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/exastro_documents.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/exastro_documents.css?v=3" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/swagger/swagger-ui.css" />
     
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
@@ -120,6 +120,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#id1">日本語</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../platform_management/index.html">システム管理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../organization_management/index.html">オーガナイゼーション管理</a></li>
@@ -172,164 +173,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="general_operations.html">Ansible-driver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="general_operations.html#id1">はじめに</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id2">Ansible driver概要</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible-core">Ansible Coreについて</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible-automation-controller">Ansible Automation Controllerについて</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id3">Ansible driverについて</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#general-operations-variable-handling-in-ansible-driver">Ansible driverでの変数取り扱い</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#general-operations-variable-handling">変数の種類</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id6">通常変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id7">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#playbook">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id8">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id9">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#wrong-description-example">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id11">複数具体値変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id12">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id13">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id14">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id15">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id16">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id17">多段変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id18">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id19">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id20">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id21">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id22">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id23">グローバル変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id24">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id25">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id26">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id27">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id28">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id29">テンプレート埋込変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id30">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id31">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id32">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id33">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id34">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id35">ファイル埋込変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id36">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id37">playbookにおける表記</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id38">書式</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id39">正しい記述例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id40">誤った記述例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ita">ITA独自変数</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id41">概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id42">機器一覧</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id43">オペレーション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id44">データ連携</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id45">変数の抜出および具体値登録</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id46">代入値登録による変数の扱い</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id47">Ansible driver コンソールメニュー構成</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id48">メニュー/画面一覧</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id49">Ansible driver利用手順</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible-legacyrole">Ansible-LegacyRole作業フロー</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id50">Ansible driver機能・操作方法説明</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id51">基本コンソール</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-input-operation-list">オペレーション一覧</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible">Ansible共通コンソール</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-device-list">機器一覧</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-interface-information">インターフェース情報</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-ansible-automation-controlller-hosts">Ansible Automation Controller ホスト一覧</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-global-variable-list">グローバル変数管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-file-list">ファイル管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-template-list">テンプレート管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-unmanaged-var-list">管理対象外変数リスト</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id60">Ansible-LegacyRoleコンソール</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#movement">Movement一覧</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-role-package-list-ansible-legacy-role-only">ロールパッケージ管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-movement-details">Movement-ロール紐付</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-nested-variable-list-ansible-legacy-role-only">変数ネスト管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-substitution-value-auto-registration-setting">代入値自動登録設定</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-execution">作業実行</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-check-operation-status">作業状態確認</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-execution-list">作業管理</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-target-host">作業対象ホスト</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#general-operations-substitution-value-list">代入値管理</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id70">構築コード記述方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible-legacy-role">ロールパッケージ（Ansible-Legacy Role）の記述</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id72">マスターPlaybook</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#id73">① へッダーセクション</a></li>
-<li class="toctree-l5"><a class="reference internal" href="general_operations.html#roles">② rolesセクション</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#ansible-role-directory-structure">Ansible Role Directory Structureにおける所定ディクレトリのサブディレクトリについて注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id74">ロールパッケージ内のロール名をディレクトリ階層にした場合の留意点</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#itareadme-ansible-legacy-role">ITAreadme（Ansible-Legacy Role）の記述</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#ita-readme">ITA readmeのファイル名の命名規則</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id75">ITA readmeのフォーマット</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ita-readme-ansible-legacy-role">「ita_readme」の活用例（Ansible-Legacy Role）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#backyard">BackYardコンテンツ</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id76">変数自動登録</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id77">付録</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansibleita">Ansible実行時に使用される投入データとITAメニューの紐づけ</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id78">Ansible-LegacyRole投入データ</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#id79">Ansible実行時に作成される結果データ</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#legacy-role">Legacy-Role 結果データに保存されるファイル一覧</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#general-operations-option-parameter-list">オプションパラメータ一覧</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#ansible-automation-controllerita">Ansible Automation ControllerでITA独自変数を利用する場合の留意事項</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id81">ITA独自変数を利用して作成したファイルの取り扱い</a></li>
-<li class="toctree-l4"><a class="reference internal" href="general_operations.html#id82">留意事項</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="general_operations.html#general-operations-data-resources-deleted-when-executing">実行時データ削除で削除されるデータリソース</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id2">Ansible driver概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#general-operations-variable-handling-in-ansible-driver">Ansible driverでの変数取り扱い</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id47">Ansible driver コンソールメニュー構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id49">Ansible driver利用手順</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id50">Ansible driver機能・操作方法説明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id70">構築コード記述方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_operations.html#id77">付録</a></li>
 </ul>
 </li>
 </ul>

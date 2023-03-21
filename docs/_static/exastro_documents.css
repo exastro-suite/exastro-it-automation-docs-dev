@@ -6,9 +6,9 @@
 @font-face {
  font-family: 'exastro-ui-icons';
  src:
-  url('../fonts/exastro-ui-icons.ttf?t729c9') format('truetype'),
-  url('../fonts/exastro-ui-icons.woff?t729c9') format('woff'),
-  url('../fonts/exastro-ui-icons.svg?t729c9#exastro-ui-icons') format('svg');
+  url('./fonts/exastro-ui-icons.ttf?t729c9') format('truetype'),
+  url('./fonts/exastro-ui-icons.woff?t729c9') format('woff'),
+  url('./fonts/exastro-ui-icons.svg?t729c9#exastro-ui-icons') format('svg');
  font-weight: normal;
  font-style: normal;
  font-display: block;
@@ -589,7 +589,7 @@ body {
 }
 
 html {
- font-family: "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif", "oase-web-font";
+ font-family: "exastro-ui-icons", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif", "oase-web-font";
  font-size: 12px;
 }
 
@@ -597,7 +597,7 @@ input,
 textarea,
 select,
 option {
- line-height: 1;
+ line-height: 1.2rem;
  font-family: inherit;
  font-size: 100%;
 }
@@ -920,6 +920,13 @@ span.highlighted {
 #sideMenu li.toctree-l2>a {
  padding: 8px 2em 8px 2em;
  border-top: 1px solid #222;
+ font-size: 1.1rem;
+ font-weight: bolder;
+ text-decoration: underline;
+}
+
+#sideMenu li.toctree-l2>ul {
+ margin-left: 6px;
 }
 
 #sideMenu li.toctree-l3>a {
@@ -1280,7 +1287,7 @@ span.highlighted {
 
 #article h4 {
  margin: 4px 0 16px;
- padding: 6px 16px;
+ padding: 3px 16px;
  border-left: 6px solid;
  line-height: 1.1;
  font-size: 1.4rem;
@@ -1397,7 +1404,7 @@ span.highlighted {
 #article ul.simple>li,
 #article ol.simple>li {
  list-style-type: "● ";
- line-height: 1.7;
+ color: #aaa;
 }
 
 #article ol.arabic>li {
@@ -1418,11 +1425,12 @@ span.highlighted {
 
 #article ul.simple>li>p,
 #article ol.simple>li>p {
- margin: 0;
- line-height: 1;
+ margin: 0 0 9px;
+ line-height: 1.8rem;
  font-weight: bold;
- display: inline-block;
- border-bottom: solid 1px #ffa500;
+ text-decoration-line: underline;
+ text-decoration-color: #aaa;
+ text-underline-offset: 0.3rem;
 }
 
 #article ul.simple>li>p>a,
@@ -1577,7 +1585,7 @@ span.highlighted {
 }
 
 #article table.filter-table span.icon-filter:before {
- content: "\e936";
+ content: "\e90d";
  display: inline-block;
  padding: 2px 2px;
 }
@@ -1603,7 +1611,7 @@ span.highlighted {
 }
 
 #article table.filter-table .icon-filter:before {
- content: "\e936";
+ content: "\e90c";
 }
 
 #article table.filter-table .ft-filter {
@@ -1630,6 +1638,10 @@ span.highlighted {
  background-color: #FFA500;
  color: #FFF;
  border-radius: 2px;
+}
+
+#article table.filter-table .ft-button.selected.icon-filter:before {
+ content: "\e90c";
 }
 
 #article table.filter-table .ft-list {
@@ -1755,7 +1767,7 @@ span.highlighted {
  overflow: hidden;
  position: relative;
  margin: 12px;
- padding: 9px 9px 0px 24px;
+ padding: 9px 9px 9px 24px;
  background-color: #FFF;
  border: 2px solid #DDD;
  border-radius: 4px;
@@ -1948,14 +1960,51 @@ span.highlighted {
 } */
 
 #article .glossary {
- padding: 12px;
+ padding: 12px 12px 12px 48px;
+ border: solid 1px #bbb;
+ border-radius: 6px;
+ width: fit-content;
+ margin: 12px;
 }
 
+#article .glossary:before {
+ content: "\e90b";
+ color: #888;
+ font-size: 2rem;
+ /* margin: 10px; */
+ display: block;
+ position: relative;
+ left: -36px;
+ top: -6px;
+ height: 0px;
+}
 
-#article .glossary dt {
+#article .glossary dt:first-child {
  font-size: 1.2rem;
  font-weight: bold;
- color: #444;
+ margin: 0;
+}
+
+#article .glossary dt:first-child::before {
+ content: "❝";
+ position: relative;
+ right: 3px;
+}
+
+#article .glossary dt:first-child::after {
+ content: "❞";
+ right: 12px;
+ position: relative;
+}
+
+#article .glossary dt {
+ font-weight: normal;
+ margin: 12px 12px 0px 12px;
+ color: #888;
+}
+
+#article .glossary dt:last-child {
+ margin-bottom: 0px;
 }
 
 #article .glossary dd {
@@ -1969,7 +2018,7 @@ span.highlighted {
 }
 
 #article .toctree-wrapper li {
- margin-left: 2em;
+ margin-left: 1em;
 }
 
 #article .toctree-wrapper li:first-child {
@@ -1985,6 +2034,22 @@ span.highlighted {
  color: #333;
  font-size: 0.8em;
  font-weight: bold;
+}
+
+
+#article div:not(#multiColumnIndex) .toctree-wrapper a {
+ text-decoration: none;
+ color: #333;
+ font-size: 1.0em;
+ font-weight: bold;
+ line-height: 23px;
+ border-bottom: solid 1px #ccc;
+ display: block;
+}
+
+#article div:not(#multiColumnIndex) .toctree-wrapper a:before {
+ content: "\e930  ";
+ color: #ccc;
 }
 
 #article .toctree-wrapper a:hover {
@@ -2005,7 +2070,7 @@ span.highlighted {
 }
 
 #article .toctree-wrapper .toctree-l4 {
- font-size: 1rem;
+ font-size: 1.2rem;
 }
 
 #article .toctree-wrapper .toctree-l4:last-child {
