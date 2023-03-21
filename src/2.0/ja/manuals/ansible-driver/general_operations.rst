@@ -421,6 +421,7 @@ playbookにおける表記
 -  | エラーの例(実行ログ)
    | :command:`Template embedded variable is not registered in the template list. (Role:roles/echo PlayBook:roles/echo/tasks/main.yml line:3 Template embedded variable:TPF_aa)`
 
+.. _ita_unique_variables:
 
 ITA独自変数
 -----------

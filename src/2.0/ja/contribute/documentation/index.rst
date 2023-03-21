@@ -8,3 +8,4 @@
 
    rule
    syntax
+   icons

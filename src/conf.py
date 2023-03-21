@@ -24,13 +24,19 @@ author = 'NEC'
 # The full version, including alpha/beta/rc tags
 release = ''
 
+gettext_compact = False
 
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.blockdiag', 'sphinx_copybutton', 'sphinx_tabs.tabs']
+extensions = [
+    'sphinxcontrib.blockdiag',
+    'sphinx_copybutton',
+    'sphinx_tabs.tabs',
+    'sphinx_toolbox.collapse'
+]
 
 # Fontpath for blockdiag (truetype font)
 blockdiag_fontpath = '/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf'
@@ -65,7 +71,7 @@ html_theme_path = ['.']
 html_static_path = ['_static']
 
 html_css_files = [
-    'exastro_documents.css?v=2',
+    'exastro_documents.css?v=3',
     'swagger/swagger-ui.css',
 ]
 
