@@ -52,6 +52,7 @@
 
    scenario1
    scenario2
+   scenario3
 
 .. .. raw:: html
 

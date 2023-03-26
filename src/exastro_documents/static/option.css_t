@@ -48,6 +48,3 @@
   border-left-color:  {{ theme_border_color }} !important;
   font-size: 1.5em;
 }
-#article .menuselection {
-  border-bottom: solid 1px {{ theme_border_color }} !important;
-}
