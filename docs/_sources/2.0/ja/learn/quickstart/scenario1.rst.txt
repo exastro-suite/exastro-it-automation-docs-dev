@@ -33,6 +33,10 @@
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/オペレーション登録.gif
+   :width: 1200px
+   :alt: オペレーション登録
+
 .. list-table:: オペレーション登録内容
    :widths: 15 10
    :header-rows: 1
@@ -66,6 +70,10 @@
 
 | ホスト名を管理するためのパラメータシートを作成します。
 | :menuselection:`メニュー作成 --> メニュー定義・作成` から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/メニュー作成.png
+   :width: 1200px
+   :alt: メニュー作成
 
 .. list-table:: メニュー作成(サーバー基本情報)の項目の設定値
    :widths: 10 10
@@ -130,6 +138,10 @@
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 の接続情報を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/機器一覧登録.gif
+   :width: 1200px
+   :alt: 機器一覧登録
+
 .. list-table:: 機器一覧の設定値
    :widths: 10 10 20 10 10 20
    :header-rows: 3
@@ -177,6 +189,10 @@
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/Movement登録.png
+   :width: 1200px
+   :alt: Movement登録
+
 .. list-table:: Movement 情報の設定値
    :widths: 10 10
    :header-rows: 2
@@ -199,6 +215,10 @@ Ansible Role 登録
 
 | :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` から、ダウンロードした `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/ロールパッケージ管理.gif
+   :width: 1200px
+   :alt: ロールパッケージ管理
+
 .. list-table:: Ansible Role パッケージ情報の登録
   :widths: 10 20
   :header-rows: 1
@@ -213,6 +233,10 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` から、Movement と Ansible Role パッケージの紐付けを行います。
 | 本シナリオでは、 `ホスト名管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_hostname/OS_build>`_ を利用します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/Movement-ロール紐付け.png
+   :width: 1200px
+   :alt: Movement-ロール紐付け
 
 .. list-table:: Movement-ロール紐付け情報の登録
   :widths: 10 30 10
@@ -231,6 +255,10 @@ Movement と Ansible Role の紐付け
 | OS-RHEL8 Ansible Role パッケージでは、:kbd:`VAR_RH_hostname` という変数にホスト名を代入することで、対象サーバーのホスト名を設定することができます。
 
 | :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Role パッケージの :kbd:`VAR_RH_hostname` に代入する設定を行います。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/代入値自動登録設定.gif
+   :width: 1200px
+   :alt: 代入値自動登録設定
 
 .. list-table:: 代入値自動登録設定の設定値
   :widths: 40 10 20 20 30
@@ -263,6 +291,10 @@ Movement と Ansible Role の紐付け
 --------------
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ホストに対するパラメータを登録します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/パラメータ登録.gif
+   :width: 1200px
+   :alt: パラメータ登録
 
 .. list-table:: サーバー基本情報パラメータの設定値
   :widths: 5 20 5
@@ -306,6 +338,10 @@ Movement と Ansible Role の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/作業実行.gif
+   :width: 1200px
+   :alt: 作業実行
+
 3. 事後確認
 
    | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
@@ -335,6 +371,10 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。
 
+.. figure:: ../../../../images/learn/quickstart/scenario1/パラメータ設定.png
+   :width: 1200px
+   :alt: パラメータ設定
+
 .. list-table:: サーバー基本情報パラメータの設定値
   :widths: 5 10 5
   :header-rows: 2
@@ -356,6 +396,10 @@ Movement と Ansible Role の紐付け
 | 作業対象となるサーバー server01 のホスト名を db01 に変更します。
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 のホスト名を db01 に更新します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/機器一覧変更.png
+   :width: 1200px
+   :alt: パラメータ登録
 
 .. list-table:: 機器一覧の設定値
    :widths: 10 10 20 10 10 20
@@ -397,6 +441,10 @@ Movement と Ansible Role の紐付け
    | 最後に、実行内容を確認し、:guilabel:`作業実行` を押下します。
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario1/作業実行.gif
+   :width: 1200px
+   :alt: 作業実行
 
 2. 事後確認
 
