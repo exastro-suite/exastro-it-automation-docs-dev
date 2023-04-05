@@ -28,6 +28,10 @@
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario2/オペレーション登録.png
+   :width: 1200px
+   :alt: オペレーション登録
+
 .. list-table:: オペレーション登録内容
    :widths: 15 10
    :header-rows: 1
@@ -70,6 +74,10 @@
 | データシートを作成します。
 
 | :menuselection:`メニュー作成 --> メニュー定義・作成` から、データシートを登録します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/データシートの作成.gif
+   :width: 1200px
+   :alt: データシートの作成
 
 .. list-table:: データシートの項目の設定値
    :widths: 10 10
@@ -125,6 +133,9 @@
 | パラメータリスト内に表示するパラメータを設定します。
 | :menuselection:`入力用 --> 状態` から、パッケージのあるべきインストール状態を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario2/選択肢を登録.gif
+   :width: 1200px
+   :alt: 選択肢を登録
 
 .. list-table:: 状態の設定値
    :widths: 10 10
@@ -149,10 +160,13 @@
 | そこで、本シナリオでは縦メニューというパラメータシートを使い、複数のパラメータを管理する方法を紹介します。
 
 | :menuselection:`メニュー作成 --> メニュー定義・作成` から、パラメータシートを登録します。
-
 | 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_create_datasheet` で登録したデータシートを参照できるようになります。
 
-.. list-table:: パラメータ項目の設定値
+.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ項目設定.gif
+   :width: 1200px
+   :alt: パラメータ項目設定
+
+.. list-table:: パラメータ項目設定
    :widths: 10 10 10
    :header-rows: 1
    :class: filter-table
@@ -199,6 +213,10 @@
      - 
 
 | メニュー作成情報で :menuselection:`縦メニュー利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/メニュー作成情報設定.png
+   :width: 1200px
+   :alt: メニュー作成情報設定
 
 .. list-table:: メニュー作成情報の設定値
    :widths: 5 10
@@ -247,6 +265,10 @@ Movement 登録
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario2/Movement登録.png
+   :width: 1200px
+   :alt: Movement登録
+
 .. list-table:: Movement 情報の設定値
    :widths: 10 10
    :header-rows: 2
@@ -268,6 +290,10 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` から、Movement と Ansible Role パッケージの紐付けを行います。
 | 本シナリオでは、 `RPM管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_rpm/OS_build>`_ を利用します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/MovementとRole紐づけ.png
+   :width: 1200px
+   :alt: MovementとRole紐づけ
 
 .. list-table:: Movement-ロール紐付け情報の登録
   :widths: 10 30 10
@@ -307,6 +333,12 @@ Movement と Ansible Role の紐付け
 | VAR_RH_rpm のような多段変数の場合、その上限数を予め決めておく必要があります。
 | 本シナリオでは、管理するパッケージ数を 10 として、設定しておくこととします。
 
+| :menuselection:`Ansible-LegacyRole --> 変数ネスト管理` から、管理するパッケージ数の上限値の設定を行います。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/変数ネスト管理.gif
+   :width: 1200px
+   :alt: 変数ネスト管理
+
 .. list-table:: 変数ネスト情報の登録
    :widths: 10 10 20 10
    :header-rows: 1
@@ -326,6 +358,10 @@ Movement と Ansible Role の紐付け
 | OS-RHEL8 Ansible Role パッケージでは、:kbd:`VAR_RH_rpm` という変数に管理するパッケージ名と状態を代入することで、対象サーバーのホスト名を設定することができます。
 
 | :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、導入パッケージパラメータシートのパッケージ名と状態の項目に入るパラメータと Ansible Role パッケージの :kbd:`VAR_RH_rpm` 内の変数の紐付けを行います。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/代入値自動登録設定.png
+   :width: 1200px
+   :alt: 代入値自動登録設定
 
 .. list-table:: 代入値自動登録設定の設定値
   :widths: 40 10 10 20 20 30
@@ -347,122 +383,122 @@ Movement と Ansible Role の紐付け
     - :kbd:`1`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[0].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[0].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`1`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[0].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[0].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`2`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[1].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[1].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`2`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[1].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[1].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`3`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[2].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[2].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`3`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[2].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[2].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`4`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[3].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[3].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`4`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[3].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[3].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`5`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[4].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[4].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`5`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[4].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[4].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`6`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[5].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[5].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`6`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[5].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[5].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`7`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[6].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[6].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`7`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[6].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[6].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`8`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[7].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[7].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`8`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[7].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[7].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`9`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[8].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[8].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`9`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[8].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[8].action`
   * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
     - :kbd:`10`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[9].pkg_name`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[9].pkg_name`
   * - :kbd:`代入値自動登録用:導入パッケージ:状態`
     - :kbd:`10`
     - :kbd:`Value型`
     - :kbd:`パッケージ管理`
-    - :kbd:`Install:VAR_RH_rpm`
-    - :kbd:`Install:VAR_RH_rpm:[9].action`
+    - :kbd:`パッケージ管理:VAR_RH_rpm`
+    - :kbd:`パッケージ管理:VAR_RH_rpm:[9].action`
 
 | これだけの項目の設定に設定値を入力するのは Web 画面の操作では、かなり苦労することでしょう。
 | このような大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
@@ -477,6 +513,10 @@ Movement と Ansible Role の紐付け
 --------------
 
 | :menuselection:`入力用 --> 導入パッケージ` から、ホストに対するパラメータを登録します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ設定.gif
+   :width: 1200px
+   :alt: パラメータ設定
 
 .. list-table:: 導入パッケージパラメータの設定値
   :widths: 5 20 5 10 5
@@ -523,6 +563,10 @@ Movement と Ansible Role の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
+   .. figure:: ../../../../images/learn/quickstart/scenario2/作業実行.gif
+      :width: 1200px
+      :alt: 作業実行
+
 3. 事後確認
 
    | 再度サーバに SSH ログインし、postgresql-server のインストール状況を確認し postgresql-server がインストールされていることを確認します。
@@ -549,6 +593,10 @@ Movement と Ansible Role の紐付け
 --------------
 
 | :menuselection:`入力用 --> 導入パッケージ` から、新たなパラメータを登録します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ設定2.png
+   :width: 1200px
+   :alt: パラメータ設定2
 
 .. list-table:: 導入パッケージパラメータの設定値
   :widths: 5 20 5 10 5
@@ -612,6 +660,10 @@ Movement と Ansible Role の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
+   .. figure:: ../../../../images/learn/quickstart/scenario2/作業実行2.gif
+      :width: 1200px
+      :alt: 作業実行2
+
 3. 事後確認
 
    | 再度サーバに SSH ログインし、postgresql-server がアンインストールされ、mariadb-server がインストールされていることを確認します。
@@ -647,4 +699,4 @@ Movement と Ansible Role の紐付け
 - 複数かつ数が不定のパラメータを管理する場合は、「縦メニュー」を利用することで柔軟なパラメータ管理が行なえます。
 - 大量のパラメータを設定する場合には、「全件ダウンロード・ファイル一括登録」を利用することでファイルからのデータ登録を行うことが可能です。
 
-| :doc:`次のシナリオ <scenario3>`では、一連の作業を実行する方法について紹介をします。
+| :doc:`次のシナリオ <scenario3>` では、一連の作業を実行する方法について紹介をします。
