@@ -2297,15 +2297,15 @@ $(window).on('load', function () {
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
 <div class="code-block-caption"><span class="caption-number">リスト 1.18 </span><span class="caption-text">storage-class-exastro-suite.yaml</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">apiVersion: storage.k8s.io/v1</span>
-<span class="linenos"> 2</span><span class="w">kind: StorageClass</span>
-<span class="linenos"> 3</span><span class="w">metadata:</span>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>apiVersion: storage.k8s.io/v1
+<span class="linenos"> 2</span>kind: StorageClass
+<span class="linenos"> 3</span>metadata:
 <span class="linenos"> 4</span><span class="w"> </span> name: exastro-suite-azurefile-csi-nfs
-<span class="linenos"> 5</span><span class="w">provisioner: file.csi.azure.com</span>
-<span class="linenos"> 6</span><span class="w">allowVolumeExpansion: true</span>
-<span class="linenos"> 7</span><span class="w">parameters:</span>
+<span class="linenos"> 5</span>provisioner: file.csi.azure.com
+<span class="linenos"> 6</span>allowVolumeExpansion: true
+<span class="linenos"> 7</span>parameters:
 <span class="linenos"> 8</span><span class="w"> </span> protocol: nfs
-<span class="linenos"> 9</span><span class="w">mountOptions:</span>
+<span class="linenos"> 9</span>mountOptions:
 <span class="linenos">10</span><span class="w"> </span> - nconnect=8
 </pre></div>
 </div>
@@ -2361,12 +2361,12 @@ $(window).on('load', function () {
 </div>
 <div class="literal-block-wrapper docutils container" id="id52">
 <div class="code-block-caption"><span class="caption-number">リスト 1.21 </span><span class="caption-text">pv-database.yaml (データベース用ボリューム)</span><a class="headerlink" href="#id52" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"># pv-database.yaml</span>
-<span class="linenos"> 2</span><span class="w">apiVersion: v1</span>
-<span class="linenos"> 3</span><span class="w">kind: PersistentVolume</span>
-<span class="linenos"> 4</span><span class="w">metadata:</span>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span># pv-database.yaml
+<span class="linenos"> 2</span>apiVersion: v1
+<span class="linenos"> 3</span>kind: PersistentVolume
+<span class="linenos"> 4</span>metadata:
 <span class="linenos"> 5</span><span class="w"> </span> name: pv-database
-<span class="linenos"> 6</span><span class="w">spec:</span>
+<span class="linenos"> 6</span>spec:
 <span class="linenos"> 7</span><span class="w"> </span> capacity:
 <span class="linenos"> 8</span><span class="w"> </span>   storage: 20Gi
 <span class="linenos"> 9</span><span class="w"> </span> accessModes:
@@ -2380,12 +2380,12 @@ $(window).on('load', function () {
 </div>
 <div class="literal-block-wrapper docutils container" id="id53">
 <div class="code-block-caption"><span class="caption-number">リスト 1.22 </span><span class="caption-text">pv-ita-common.yaml (ファイル用ボリューム)</span><a class="headerlink" href="#id53" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"># pv-ita-common.yaml</span>
-<span class="linenos"> 2</span><span class="w">apiVersion: v1</span>
-<span class="linenos"> 3</span><span class="w">kind: PersistentVolume</span>
-<span class="linenos"> 4</span><span class="w">metadata:</span>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span># pv-ita-common.yaml
+<span class="linenos"> 2</span>apiVersion: v1
+<span class="linenos"> 3</span>kind: PersistentVolume
+<span class="linenos"> 4</span>metadata:
 <span class="linenos"> 5</span><span class="w"> </span> name: pv-ita-common
-<span class="linenos"> 6</span><span class="w">spec:</span>
+<span class="linenos"> 6</span>spec:
 <span class="linenos"> 7</span><span class="w"> </span> capacity:
 <span class="linenos"> 8</span><span class="w"> </span>   storage: 10Gi
 <span class="linenos"> 9</span><span class="w"> </span> accessModes:

@@ -34,6 +34,10 @@
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario3/オペレーション登録.png
+   :width: 1200px
+   :alt: オペレーション登録
+
 .. list-table:: オペレーション登録内容
    :widths: 15 10
    :header-rows: 1
@@ -61,6 +65,10 @@
 | 作業対象となるサーバー db01 のホスト名を web01 に変更します。
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である db01 のホスト名を web01 に更新します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario3/機器情報の更新.gif
+   :width: 1200px
+   :alt: 機器情報の更新
 
 .. list-table:: 機器一覧の設定値
    :widths: 10 10 20 10 10 20
@@ -111,6 +119,10 @@
 
 | :menuselection:`Conductor --> Conductor編集/作業実行` から、ジョブフローを定義します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario3/ジョブフローの作成.gif
+   :width: 1200px
+   :alt: ジョブフローの作成
+
 | 1. 右上のペイン :menuselection:`Conductor情報 --> 名称`  に、 :kbd:`サーバー構築` と入力します。
 | 2. 右下のペインに、 :doc:`scenario1` と :doc:`scenario2` で作成した :kbd:`ホスト名設定` と :kbd:`パッケージ管理` の2つの Movement があります。これらを画面中央にドラッグアンドドロップします。
 | 3. 各 Node 間を下記の様に接続します。
@@ -159,6 +171,10 @@
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ホスト名に関するパラメータを登録します。
 
+.. figure:: ../../../../images/learn/quickstart/scenario3/サーバ基本情報登録.png
+   :width: 1200px
+   :alt: サーバ基本情報登録
+
 .. list-table:: サーバー基本情報パラメータの設定値
   :widths: 5 20 10
   :header-rows: 2
@@ -174,6 +190,10 @@
     - :kbd:`"{{ __loginhostname__ }}"`
 
 | :menuselection:`入力用 --> 導入パッケージ` から、パッケージに関するパラメータを登録します。
+
+.. figure:: ../../../../images/learn/quickstart/scenario3/導入パッケージ登録.gif
+   :width: 1200px
+   :alt: 導入パッケージ登録
 
 .. list-table:: 導入パッケージパラメータの設定値
   :widths: 5 20 5 10 5
@@ -251,6 +271,10 @@
 
    | :menuselection:`Conductor作業確認` 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。
 
+   .. figure:: ../../../../images/learn/quickstart/scenario3/Conductor作業実行.gif
+      :width: 1200px
+      :alt: Conductor作業実行
+
 4. 事後確認
 
    | 再度サーバに SSH ログインし、Web サーバーに作り直しされていることを確認します。
@@ -300,4 +324,4 @@
 - Conductor を利用することで、複数の Movement をまとめて実行することが可能です。
 - Conductor は様々な制御機能を持っています。
 
-.. | :doc:`次のシナリオ <practice1>` では、これまで扱ってきた各機能の確認をします。
+| :doc:`次のシナリオ <practice1>` では、これまで扱ってきた各機能の確認をします。

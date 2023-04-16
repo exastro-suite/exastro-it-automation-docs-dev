@@ -642,7 +642,6 @@ Movement と Ansible Role の紐付け
       # 環境ごとにバージョンは異なります
       postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 
-
    .. code-block:: bash
       :caption: コマンド
 
@@ -677,7 +676,6 @@ Movement と Ansible Role の紐付け
       :caption: 実行結果
 
       package postgresql-server is not installed
-
 
    .. code-block:: bash
       :caption: コマンド

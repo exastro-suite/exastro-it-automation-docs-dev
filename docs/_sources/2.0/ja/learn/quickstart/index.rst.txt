@@ -53,6 +53,8 @@
    scenario1
    scenario2
    scenario3
+   practice1
+   answer1
 
 .. .. raw:: html
 
