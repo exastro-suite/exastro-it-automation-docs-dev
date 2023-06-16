@@ -41,19 +41,19 @@ RUN set -eux && \
     mkdir -p /workspace && \
     chown ${USER_UID}:${USER_GID} /workspace
 
-RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" \
-    && chmod +x ./kubectl \
-    && mv ./kubectl /usr/local/bin/kubectl
+# RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" \
+#     && chmod +x ./kubectl \
+#     && mv ./kubectl /usr/local/bin/kubectl
 
-RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \
-    && chmod 700 get_helm.sh \
-    && ./get_helm.sh
+# RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \
+#     && chmod 700 get_helm.sh \
+#     && ./get_helm.sh
 
 USER ${USERNAME}
 
-ADD files/talisman_hook_script /home/ubuntu/.talisman/bin/talisman_hook_script
+ADD files/talisman_hook_script /home/sphinx/.talisman/bin/talisman_hook_script
 
-ADD files/talisman_linux_amd64 /home/ubuntu/.talisman/bin/talisman_linux_amd64
+ADD files/talisman_linux_amd64 /home/sphinx/.talisman/bin/talisman_linux_amd64
 
 RUN mkdir -p /home/sphinx/.git-template/hooks \
     && ln -s /home/sphinx/.talisman/bin/talisman_hook_script /home/sphinx/.git-template/hooks/pre-commit
