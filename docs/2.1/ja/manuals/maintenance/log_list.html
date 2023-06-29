@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../../../genindex.html" />
     <link rel="search" title="検索" href="../../../../search.html" />
-    <link rel="next" title="2. データバックアップ・リストア" href="backup_and_restore.html" />
+    <link rel="next" title="2. ログレベル" href="log_level.html" />
     <link rel="prev" title="メンテナンス" href="index.html" /> 
   </head>
 <body id="page" class="ja">
@@ -68,16 +68,17 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-                file_path: 2.0/ja/manuals/maintenance/log_list
-                  <option value="../../../../2.0/ja/manuals/maintenance/log_list.html"
-                  >current</option>
-                file_path: 2.0/ja/manuals/maintenance/log_list
-                  <option value="../../../../2.0/ja/manuals/maintenance/log_list.html"
-                  >2.0 (current)</option>
                 file_path: 2.1/ja/manuals/maintenance/log_list
                   <option value="#"
                   selected
-                  >2.1</option>
+                  >current</option>
+                file_path: 2.0/ja/manuals/maintenance/log_list
+                  <option value="../../../../2.0/ja/manuals/maintenance/log_list.html"
+                  >2.0 </option>
+                file_path: 2.1/ja/manuals/maintenance/log_list
+                  <option value="#"
+                  selected
+                  >2.1(current)</option>
             </select>
           </div>
         </dd>
@@ -105,7 +106,7 @@
     <div id="toolbarNavigation">
       <ul>
         <li class="prev"><a href="index.html" title="前のトピックへ">メンテナンス</a></li>
-        <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span class="section-number">2. </span>データバックアップ・リストア</a></li>
+        <li class="next"><a href="log_level.html" title="次のトピックへ"><span class="section-number">2. </span>ログレベル</a></li>
       </ul>
     </div>
   </div>
@@ -128,12 +129,15 @@
 <li class="toctree-l4"><a class="reference internal" href="../organization_management/index.html">オーガナイゼーション管理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../it_automation_base/index.html">基本操作</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../create_param/index.html">パラメータ管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../host_group/index.html">ホストグループ</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../ansible-driver/index.html">Ansible ドライバ</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../terraform_driver/index.html">Terraform ドライバ</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../export_import/index.html">エクスポート・インポート</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="index.html">メンテナンス</a><ul class="current">
 <li class="toctree-l5 current"><a class="current reference internal" href="#">1. ログ一覧</a></li>
-<li class="toctree-l5"><a class="reference internal" href="backup_and_restore.html">2. データバックアップ・リストア</a></li>
+<li class="toctree-l5"><a class="reference internal" href="log_level.html">2. ログレベル</a></li>
+<li class="toctree-l5"><a class="reference internal" href="backup_and_restore.html">3. データバックアップ・リストア</a></li>
+<li class="toctree-l5"><a class="reference internal" href="file_autoclean.html">4. ファイル削除機能</a></li>
 </ul>
 </li>
 </ul>
@@ -401,7 +405,7 @@
 </div>
 </div>
 <table class="docutils align-left" id="id9">
-<caption><span class="caption-number">表 1.156 </span><span class="caption-text">commonでログ保存を指定した場合</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.165 </span><span class="caption-text">commonでログ保存を指定した場合</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 21%" />
@@ -553,7 +557,7 @@
 <div class="line">combinedフォーマットは、commonフォーマットに以下の項目が追加されています。</div>
 </div>
 <table class="docutils align-left" id="id10">
-<caption><span class="caption-number">表 1.157 </span><span class="caption-text">combinedフォーマットでログ保存を指定した場合</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.166 </span><span class="caption-text">combinedフォーマットでログ保存を指定した場合</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 21%" />
@@ -620,7 +624,7 @@
 <div class="line">combinedioフォーマットは、combinedフォーマットに以下の項目が追加されています。</div>
 </div>
 <table class="docutils align-left" id="id11">
-<caption><span class="caption-number">表 1.158 </span><span class="caption-text">combinedioフォーマットでログ保存を指定した場合</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.167 </span><span class="caption-text">combinedioフォーマットでログ保存を指定した場合</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 21%" />
 <col style="width: 21%" />
@@ -1088,7 +1092,7 @@
 <div id="articleNavigation">
   <ul>
     <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>メンテナンス</a></li>
-    <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">2. </span>データバックアップ・リストア</a></li>
+    <li class="next"><a href="log_level.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">2. </span>ログレベル</a></li>
   </ul>
 </div>
 
