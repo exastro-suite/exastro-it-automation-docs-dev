@@ -41,16 +41,6 @@
 
 | 管理コンソールの画面について説明します。
 
-DashBoard
----------
-
-| DashBoardにはメニューグループの一覧が表示されます。
-
-.. figure:: /images/ja/management_console/menu_group_list/DashBoard.png
-   :alt: DashBoard
-   :width: 800px
-   :align: center
-
 管理コンソールへのアクセス方法
 ------------------------------
 
@@ -69,6 +59,8 @@ DashBoard
 ==================
 
 | 各メニュー個別の情報を説明します。
+
+.. _system_setting:
 
 システム設定
 ------------
