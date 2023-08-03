@@ -703,7 +703,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">しかし、<span class="menuselection">機器一覧</span> でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。</div>
 </div>
 <div class="line-block">
-<div class="line">Exastro IT Automation では、機器の情報を <a class="reference internal" href="../../../../2.0/ja/manuals/ansible-driver/general_operations.html#ita-unique-variables"><span class="std std-ref">ITA独自変数</span></a> で取得することができ、ログイン先のホスト名は  <kbd class="kbd docutils literal notranslate">__loginhostname__</kbd> という、変数を使うことで取得できるため、パラメータの一元管理が可能となります。</div>
+<div class="line">Exastro IT Automation では、機器の情報を <a class="reference internal" href="../../../../2.0/ja/manuals/ansible-driver/general_operations.html#ita-unique-variables"><span class="std std-ref">ITA独自変数</span></a> で取得することができ、ログイン先のホスト名は  <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> という、変数を使うことで取得できるため、パラメータの一元管理が可能となります。</div>
 </div>
 <section id="id16">
 <h3><span class="section-number">1.6.1. </span>パラメータ設定<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h3>
@@ -733,7 +733,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">server01</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_RHEL8のホスト名変更作業</kbd></kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">&quot;{{</kbd> <kbd class="kbd docutils literal notranslate">__loginhostname__</kbd> <kbd class="kbd docutils literal notranslate">}}&quot;</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">&quot;{{</kbd> <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> <kbd class="kbd docutils literal notranslate">}}&quot;</kbd></kbd></p></td>
 </tr>
 </tbody>
 </table>
