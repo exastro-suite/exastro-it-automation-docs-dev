@@ -19,7 +19,7 @@
 | ホストグループとは、ホスト群を論理的な単位（機能・役割）でまとめたグループのことを指します。
 | ホストグループの概念図は下のようになります。
 
-.. figure:: /images/ja/host_group/overview_base.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_base.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -57,7 +57,7 @@
 | 下図の例では、dc1に設定したパラメータ（例えばユーザのパスワードなど）がzabbix1にも同じパラメータの設定が継承されます。
 | ただし、具体値がない場合は継承されません。
 
-.. figure:: /images/ja/host_group/overview_inheritance_1.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_inheritance_1.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -71,7 +71,7 @@
 | 下図の例では、zabbixサーバを1台追加した際に、zabbix12をzabbix1に紐付けています。
 | これにより、zabbix12には、zabbix11と同じように、zabbix1の設定が継承されます。
 
-.. figure:: /images/ja/host_group/overview_inheritance_2.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_inheritance_2.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -82,7 +82,7 @@
 | 子ホストグループは複数の親ホストグループに紐付けることができ、親ホストグループが複数ある場合のパラメータの継承について説明します。
 | 下図の例では、zabbix11、zabbix12はzabbix1とvirtualserverに属しています。
 
-.. figure:: /images/ja/host_group/overview_inheritance_3.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_inheritance_3.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -494,7 +494,7 @@
 
 | :menuselection:`ホストグループ一覧` メニューを使用してホストグループを登録します。
 
-.. figure:: /images/ja/host_group/hostgroup_management_register.png
+.. figure:: ../../../images/ja/host_group/hostgroup_management_register.png
    :alt: ホストグループの登録
    :width: 6.4939in
    :height: 4.56706in
@@ -531,7 +531,7 @@
 
 | :menuselection:`ホストグループ親子紐付` メニューを使用してホストグループの親子関係を定義します。
 
-.. figure:: /images/ja/host_group/hostgroup_parent_child_link_list_register.png
+.. figure:: ../../../images/ja/host_group/hostgroup_parent_child_link_list_register.png
    :alt: ホストグループ親子紐付
    :width: 6.33388in
    :height: 4.82042in
@@ -559,7 +559,7 @@
 .. tip:: | 親子関係がループしているホストグループがあれば、登録、更新時にエラーが表示されます。
          | 下記の例では、「HG1（親）とHG2(子)」と「HG2（親）とHG3(子)」の親子関係が既に定義されているにも関わらず、更に「HG3（親）とHG1(子)」という逆の親子関係を定義しており、親子関係がループとなっています。
 
-.. figure:: /images/ja/host_group/hostgroup_parent_child_link_list_error_loop.png
+.. figure:: ../../../images/ja/host_group/hostgroup_parent_child_link_list_error_loop.png
    :alt: 一覧/更新：エラー（親子関係がループ）
    :width: 5.22863in
    :height: 0.99251in
@@ -574,7 +574,7 @@
 
 | :menuselection:`ホスト紐付管理` メニューを使用してホストグループとオペレーションに紐付く作業対象ホストを登録します。
 
-.. figure:: /images/ja/host_group/host_link_list_register.png
+.. figure:: ../../../images/ja/host_group/host_link_list_register.png
    :alt: ホストグループ管理
    :width: 5.92051in
    :height: 4.22037in
@@ -612,7 +612,7 @@
 - | 例1
   | ホストグループに所属する全てのホストを作業対象ホストとしたい場合
 
-.. figure:: /images/ja/diagram/ホストグループ_作業対象ホスト1.png
+.. figure:: ../../../images/ja/diagram/ホストグループ_作業対象ホスト1.png
    :alt: 作業対象ホスト
    :width: 4.72721in
    :height: 4.6604in
@@ -620,7 +620,7 @@
 - | 例2
   | 一部のホストを作業対象ホストとしたい場合
 
-.. figure:: /images/ja/diagram/ホストグループ_作業対象ホスト2.png
+.. figure:: ../../../images/ja/diagram/ホストグループ_作業対象ホスト2.png
    :alt: 作業対象ホスト
    :width: 4.72721in
    :height: 4.6604in
@@ -628,7 +628,7 @@
 - | 例3
   | 例２のパターンの組み合わせ
 
-.. figure:: /images/ja/diagram/ホストグループ_作業対象ホスト3.png
+.. figure:: ../../../images/ja/diagram/ホストグループ_作業対象ホスト3.png
    :alt: 作業対象ホスト
    :width: 4.72721in
    :height: 4.6604in
@@ -636,12 +636,12 @@
 
 - |  :menuselection:`ホスト紐付管理` のオペレーション設定例
 
-.. figure:: /images/ja/host_group/hostgroup_parent_child_link_list_ex1.png
+.. figure:: ../../../images/ja/host_group/hostgroup_parent_child_link_list_ex1.png
    :alt: ホストグループ親子紐付（例1）
    :width: 6.22721in
    :height: 4.6604in
 
-.. figure:: /images/ja/host_group/host_link_list_ex1.png
+.. figure:: ../../../images/ja/host_group/host_link_list_ex1.png
    :alt: ホスト紐付管理（例1）
    :width: 6.29388in
    :height: 2.78024in
@@ -651,7 +651,7 @@
 
 - | オペレーション「OP10」でのホストグループ紐付
 
-.. figure:: /images/ja/host_group/overview_inheritance_ex1_op1.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_inheritance_ex1_op1.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -659,7 +659,7 @@
 
 - | オペレーション「OP10」以外でのホストグループ紐付
 
-.. figure:: /images/ja/host_group/overview_inheritance_ex1_op10.drawio.png
+.. figure:: ../../../images/ja/host_group/overview_inheritance_ex1_op10.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -674,7 +674,7 @@
 | 「 :ref:`para_create`」で作成したホストグループ用のパラメータシートメニューで、作業対象ホストまたはホストグループがもつ項目に、オペレーションごとの具体値を登録します。
 | 登録後は参照/更新/廃止/復活が可能です。
 
-.. figure:: /images/ja/host_group/parameter_sheet_as_hostgroup_register.png
+.. figure:: ../../../images/ja/host_group/parameter_sheet_as_hostgroup_register.png
    :alt: パラメータシート(ホストグループ利用)
    :width: 5.36046in
    :height: 4.67374in
@@ -734,7 +734,7 @@
 | 作業対象ホスト単位に継承された情報は、「 :ref:`para_create`」で作成したホスト用のパラメータシートメニューで参照することができます。
 | 代入値自動登録用のメニューグループに所属するメニューになります。 参照のみ可能で、登録/更新/廃止/復活は不可です。
 
-.. figure:: /images/ja/host_group/parameter_sheet_as_hg_subst_filter_0.png
+.. figure:: ../../../images/ja/host_group/parameter_sheet_as_hg_subst_filter_0.png
    :alt: ホスト化(代入値自動登録用メニュー)
    :width: 6.45389in
    :height: 4.55373in
@@ -814,12 +814,12 @@
 
 #. | （1）～（3）に情報が登録されている状態でホスト化が行われると、レコードは以下の内容となり、ホストグループに所属している作業対象ホスト単位に情報が設定されていることがわかります。
 
-.. figure:: /images/ja/host_group/parameter_sheet_as_hg_filter.png
+.. figure:: ../../../images/ja/host_group/parameter_sheet_as_hg_filter.png
    :alt: ホスト化(入力用メニュー)
    :width: 6.45389in
    :height: 4.55373in
 
-.. figure:: /images/ja/host_group/parameter_sheet_as_hg_subst_filter.png
+.. figure:: ../../../images/ja/host_group/parameter_sheet_as_hg_subst_filter.png
    :alt: ホスト化(代入値自動登録用メニュー)
    :width: 6.45389in
    :height: 4.55373in

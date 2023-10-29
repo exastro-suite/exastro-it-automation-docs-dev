@@ -35,7 +35,7 @@ Ansible driverについて
 
 | Ansible driverは、ITAの機能で、ITAで登録した作業対象のサーバ・ストレージ・ネットワーク各機器に対し、Ansible Core、Ansible Automation Controllerのどちらを経由するかを選択し、Playbookの処理を自動的に行います。
 
-.. image:: /images/ja/diagram/overview.png
+.. image:: ../../../images/ja/diagram/overview.png
    :width: 6.68819in
    :height: 3.35972in
    :alt: Exastro概要
@@ -605,7 +605,7 @@ Ansible-Legacy
 | 作業実行時に :menuselection:`Ansible-Legacy --> 代入値管理` を介してホスト変数ファイルに変数の具体値が出力されるまでの関係を、以下の図に示します。
 | パラメータシートについての詳細は、「 :doc:`../create_param/menu_creation` 」を参照してください。
 
-.. figure:: /images/ja/diagram/hensuu_nukidashi_legacy.png
+.. figure:: ../../../images/ja/diagram/hensuu_nukidashi_legacy.png
    :alt: Ansible-Legacy ホスト変数ファイルに変数の具体値が出力されるまでの流れ
    :width: 800px
 
@@ -623,7 +623,7 @@ Ansible-Pioneer
 | 抜出された変数の具体値はパラメータシートの項目に具体値を設定し :menuselection:`Ansible-Pioneer --> 代入値自動登録設定` で各変数に紐付けを行うことで設定され、作業実行時にホスト変数ファイルへ出力されます。
 | 作業実行時に :menuselection:`Ansible-Pioneer --> 代入値管理` を介してホスト変数ファイルに変数の具体値が出力されるまでの関係を、以下の図に示します。
 
-.. figure:: /images/ja/diagram/hensuu_nukidashi_pioneer.png
+.. figure:: ../../../images/ja/diagram/hensuu_nukidashi_pioneer.png
    :alt: Ansible-Pioneer ホスト変数ファイルに変数の具体値が出力されるまでの流れ
    :width: 800px
 
@@ -642,7 +642,7 @@ Ansible-LegacyRole
 | 抜出された変数の具体値はパラメータシートの項目に具体値を設定し :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` で各変数に紐付けを行うことで設定され、作業実行時にホスト変数ファイルへ出力されます。
 | 作業実行時に :menuselection:`Ansible-LegacyRole --> 代入値管理` を介してホスト変数ファイルに変数の具体値が出力されるまでの関係を、以下の図に示します。
 
-.. figure:: /images/ja/diagram/hensuu_nukidashi_legacyrole.png
+.. figure:: ../../../images/ja/diagram/hensuu_nukidashi_legacyrole.png
    :alt: Ansible-LegacyRole ホスト変数ファイルに変数の具体値が出力されるまでの流れ
    :width: 800px
 
@@ -689,7 +689,7 @@ Ansible共通メニュー構成
 
 #. |  作業対象となる機器情報のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible_common/devaicelist/device_list.png
+   .. figure:: ../../../images/ja/ansible_common/devaicelist/device_list.png
       :width: 800px
       :alt: サブメニュー画面（機器一覧）
 
@@ -697,7 +697,7 @@ Ansible共通メニュー構成
 
 #. |  :guilabel:`登録` ボタンより、作業対象となる機器情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/devaicelist/registration_device_list.gif
+   .. figure:: ../../../images/ja/ansible_common/devaicelist/registration_device_list.gif
       :width: 800px
       :alt: 登録画面（機器一覧）
 
@@ -931,7 +931,7 @@ Ansible共通メニュー構成
 
 #. | Ansible Core、Ansible Automation Controllerのいずれかを実行エンジンに選択し、実行エンジンのサーバへの接続インターフェース情報のメンテナンス（閲覧/更新）を行います。
 
-   .. figure:: /images/ja/ansible_common/Interface_information/interface_information.png
+   .. figure:: ../../../images/ja/ansible_common/Interface_information/interface_information.png
       :width: 800px
       :alt: サブメニュー画面（インタフェース情報）
 
@@ -939,7 +939,7 @@ Ansible共通メニュー構成
 
 #. | :guilabel:`編集` ボタンより、インターフェース情報の更新を行います。
 
-   .. figure:: /images/ja/ansible_common/Interface_information/registration_interface_information.gif
+   .. figure:: ../../../images/ja/ansible_common/Interface_information/registration_interface_information.gif
       :width: 800px
       :alt: 登録画面（インタフェース情報）
 
@@ -1149,7 +1149,7 @@ Ansible Automation Controller ホスト一覧
    | クラスタ構成の場合は、構成している全てのホストを登録してください。
    | ただし、Ansible Automation Controllerのhop nodeの登録は不要です。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
+   .. figure:: ../../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
       :width: 800px
       :alt: サブメニュー画面（Ansible Automation Controller ホスト一覧）
 
@@ -1157,7 +1157,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`登録` ボタンより、Ansible Automation Controllerのホスト情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
+   .. figure:: ../../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
       :width: 800px
       :alt: 登録画面（Ansible Automation Controller ホスト一覧）
 
@@ -1259,7 +1259,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | Playbookや対話ファイルで共通利用するグローバル変数名のメンテナンス(閲覧/登録/更新/廃止)を行います。
 
-   .. figure:: /images/ja/ansible_common/global_variable/global_variable_list.png
+   .. figure:: ../../../images/ja/ansible_common/global_variable/global_variable_list.png
       :width: 800px
       :alt: サブメニュー画面（グローバル変数管理）
 
@@ -1267,7 +1267,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`登録` ボタンより、グローバル変数の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/global_variable/global_variable_list.gif
+   .. figure:: ../../../images/ja/ansible_common/global_variable/global_variable_list.gif
       :width: 800px
       :alt: 登録画面（グローバル変数管理）
 
@@ -1323,7 +1323,7 @@ Ansible Automation Controller ホスト一覧
 #. | Playbookや対話ファイルで共通利用するファイル素材とファイル埋込変数のメンテナンス（閲覧/登録/更新/廃止）を行います。
    | ファイル素材を登録しておくことで、Playbook内で使用するファイル素材をファイル埋込変数名で指定することができます。
 
-   .. figure:: /images/ja/ansible_common/file_management/contents_list.png
+   .. figure:: ../../../images/ja/ansible_common/file_management/contents_list.png
       :width: 800px
       :alt: サブメニュー画面（ファイル管理）
 
@@ -1331,7 +1331,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`登録` ボタンより、ファイル埋込変数の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/file_management/contents_list.gif
+   .. figure:: ../../../images/ja/ansible_common/file_management/contents_list.gif
       :width: 800px
       :alt: 登録画面（ファイル管理）
 
@@ -1498,7 +1498,7 @@ Ansible Automation Controller ホスト一覧
 #. | Playbookや対話ファイルで共通利用するテンプレートファイル素材とテンプレート埋込変数のメンテナンス（閲覧/登録/更新/廃止）を行います。
    | テンプレートファイル素材を登録しておくことで、Playbook内で使用するテンプレートファイル素材をテンプレート埋込変数で指定することができます。
 
-   .. figure:: /images/ja/ansible_common/template_management/template_list.png
+   .. figure:: ../../../images/ja/ansible_common/template_management/template_list.png
       :width: 800px
       :alt: サブメニュー画面（テンプレート管理）
 
@@ -1506,7 +1506,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`登録` ボタンより、テンプレート埋込変数の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/template_management/template_list.gif
+   .. figure:: ../../../images/ja/ansible_common/template_management/template_list.gif
       :width: 800px
       :alt: 登録画面（テンプレート管理）
 
@@ -1646,7 +1646,7 @@ Ansible Automation Controller ホスト一覧
 #. | 「 :ref:`ansible_common_var_listup` 」で抜出した変数で、 :menuselection:`各モード --> 代入値自動登録設定` の :menuselection:`Movement名:変数名` に表示したくない変数のメンテナンス（参照/更新/廃止/復活）を行います。
    | ITAインストール時にansibleマジック変数が登録されます。
 
-   .. figure:: /images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.png
+   .. figure:: ../../../images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.png
       :width: 800px
       :alt: サブメニュー画面（管理対象外変数リスト）
 
@@ -1654,7 +1654,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`登録` ボタンより、管理対象外変数の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.gif
+   .. figure:: ../../../images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.gif
       :width: 800px
       :alt: 登録画面（管理対象外変数リスト）
 

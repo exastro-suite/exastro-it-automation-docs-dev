@@ -72,7 +72,7 @@
 
 #. | Exastro Platformのメニューより :menuselection:`ロール管理` をクリックします。
 
-   .. image:: /images/ja/manuals/platform/platform_menu.png
+   .. image:: ../../../images/ja/manuals/platform/platform_menu.png
       :width: 200px
       :align: left
       
@@ -80,19 +80,19 @@
 
 #. | :menuselection:`ロール一覧` 画面が表示されるので、:guilabel:`作成` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/role/platform_role_create.png
+   .. figure:: ../../../images/ja/manuals/platform/role/platform_role_create.png
       :width: 600px
       :align: left
 
 #. | :menuselection:`新規ロール` 画面が表示されるので、ロールの情報を入力し、:guilabel:`登録` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/role/platform_role_register.png
+   .. figure:: ../../../images/ja/manuals/platform/role/platform_role_register.png
       :width: 600px
       :align: left
 
 | :menuselection:`使用ワークスペース` にワークスペースの一覧が表示されるので、当該ロールに紐づけるワークスペースを選択します。
     
-.. figure:: /images/ja/manuals/platform/role/platform_role_workspace_used.png
+.. figure:: ../../../images/ja/manuals/platform/role/platform_role_workspace_used.png
    :width: 600px
    :align: left
 
@@ -106,7 +106,7 @@
 #. | Exastro Platformにオーガナイゼーション管理者 または _${ワークスペースID}-adminロールに紐づくユーザでログインします。
 #. | Exastro Platformのメニューより :menuselection:`ロール管理` をクリックします。
 
-   .. image:: /images/ja/manuals/platform/platform_menu.png
+   .. image:: ../../../images/ja/manuals/platform/platform_menu.png
       :width: 200px
       :align: left
 
@@ -114,12 +114,12 @@
 
 #. | :menuselection:`ロール一覧` 画面が表示されるので、ユーザとロールの紐づけを変更したいロールを選択し :guilabel:`ユーザ` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/role/platform_role_list.png
+   .. figure:: ../../../images/ja/manuals/platform/role/platform_role_list.png
       :width: 600px
       :align: left
 
 #. | :menuselection:`ロール付与・解除` 画面が表示されるので、ロールとの紐づけを変更したいユーザを選択し、 :guilabel:`付与` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/role/platform_role_grant.png
+   .. figure:: ../../../images/ja/manuals/platform/role/platform_role_grant.png
       :width: 600px
       :align: left

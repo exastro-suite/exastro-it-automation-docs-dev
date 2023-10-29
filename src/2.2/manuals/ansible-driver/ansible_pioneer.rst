@@ -213,7 +213,7 @@ OS種別
 ~~~~~~
 #. | 作業対象となる機器のOS種別のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/os_type_list/os_type_list.png
+   .. figure:: ../../../images/ja/ansible_pioneer/os_type_list/os_type_list.png
       :width: 800px
       :alt: サブメニュー画面（OS種別）
 
@@ -221,7 +221,7 @@ OS種別
 
 #. | :guilabel:`登録` ボタンより、OS種別の登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/os_type_list/registration_os_type_list.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/os_type_list/registration_os_type_list.gif
       :width: 800px
       :alt: 登録画面（OS種別）
 
@@ -257,7 +257,7 @@ Movement一覧
 
 #. | Movement情報のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/movement_list/movement_list.png
+   .. figure:: ../../../images/ja/ansible_pioneer/movement_list/movement_list.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -265,7 +265,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/movement_list/registration_movement_list.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/movement_list/registration_movement_list.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -329,7 +329,7 @@ Movement一覧
 #. | 対話種別のメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Ansible-Pioneerでは、「OS種別」ごとの差異を対話ファイルごとに定義し、同一目的の対話ファイルを「対話種別」として纏めて機器差分を吸収（抽象化）します。
 
-   .. figure:: /images/ja/ansible_pioneer/dialog_type_list/dialog_type_list.png
+   .. figure:: ../../../images/ja/ansible_pioneer/dialog_type_list/dialog_type_list.png
       :width: 800px
       :alt: サブメニュー画面（対話種別）
 
@@ -337,7 +337,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、対話種別の登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/dialog_type_list/registration_dialog_type_list.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/dialog_type_list/registration_dialog_type_list.gif
       :width: 800px
       :alt: 登録画面（対話種別）
 
@@ -382,7 +382,7 @@ Movement一覧
    | 対話種別とOS種別の組み合わせごとに対話ファイルを登録します。
    | １つの対話種別で複数のOSに対応させたい場合は、同じ対話種別で、OS種別それぞれについて対話ファイルを登録してください。
 
-   .. figure:: /images/ja/ansible_pioneer/dialog_list/dialog_list.png
+   .. figure:: ../../../images/ja/ansible_pioneer/dialog_list/dialog_list.png
       :width: 6.4939in
       :height: 2.90025in
       :alt: サブメニュー画面（対話ファイル素材集）
@@ -391,7 +391,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、対話ファイル素材の登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/dialog_list/registration_dialog_list.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/dialog_list/registration_dialog_list.gif
       :width: 5.19507in
       :height: 0.90966in
       :alt: 登録画面（対話ファイル素材集）
@@ -452,7 +452,7 @@ Movement-対話種別紐付
 
 #. | Movementでインクルードする対話ファイルに対応した対話種別のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/movement_dialog_link/movement_dialog_link.png
+   .. figure:: ../../../images/ja/ansible_pioneer/movement_dialog_link/movement_dialog_link.png
       :width: 800px
       :alt: サブメニュー画面（Movement-対話種別紐付）
 
@@ -460,7 +460,7 @@ Movement-対話種別紐付
 
 #. | :guilabel:`登録` ボタンより、Movementでインクルードする対話ファイルに対応した対話種別の登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/movement_dialog_link/registration_movement_dialog_link.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/movement_dialog_link/registration_movement_dialog_link.gif
       :width: 800px
       :alt: 登録画面（Movement-対話種別紐付）
 
@@ -517,7 +517,7 @@ Movement-対話種別紐付
 #. | パラメータシートの項目の設定値とMovementの変数との紐付管理（閲覧/登録/更新/廃止）を行います。
    | 登録した情報は作業実行により :menuselection:`Ansible-Pioneer --> 代入値管理` と :menuselection:`Ansible-Pioneer--> 作業対象ホスト` に反映されます。
 
-   .. figure:: /images/ja/ansible_pioneer/substitution_value_automatic_setting/substitution_value_auto_registration_setting.png
+   .. figure:: ../../../images/ja/ansible_pioneer/substitution_value_automatic_setting/substitution_value_auto_registration_setting.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -525,7 +525,7 @@ Movement-対話種別紐付
 
 #. | :guilabel:`登録` ボタンより、パラメータシートの項目の設定値とMovementの変数との紐付登録を行います。
 
-   .. figure:: /images/ja/ansible_pioneer/substitution_value_automatic_setting/registration_substitution_value_automatic_setting.gif
+   .. figure:: ../../../images/ja/ansible_pioneer/substitution_value_automatic_setting/registration_substitution_value_automatic_setting.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -613,7 +613,7 @@ Movement-対話種別紐付
    | パラメータシート（バンドル）のリピート設定されている項目とMovementの変数を紐付ける場合、 :menuselection:`Ansible-Pioneer --> 代入値自動登録設定` でパラメータシート（From） の代入順序を入力する必要があります。
    | パラメータシート（バンドル）と代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: /images/ja/diagram/parameter.png
+   .. figure:: ../../../images/ja/diagram/parameter.png
       :width: 600px
       :alt: パラメータシート（バンドル）使用時の代入値自動登録設定登録方法
 
@@ -733,7 +733,7 @@ Movement-対話種別紐付
 
    #. | :menuselection:`パラメータシート定義・作成` で「Ansible共通:ファイル管理:ファイル埋込変数名」「Ansible共通:テンプレート管理:テンプレート埋込変数名」をパラメータシートの項目としてパラメータシート作成後、パラメータシートで項目の設定値としてファイル埋込変数とテンプレート埋込変数を登録します。
 
-      .. figure:: /images/ja/ansible_common/menu_definition_and_create/menu_create.png
+      .. figure:: ../../../images/ja/ansible_common/menu_definition_and_create/menu_create.png
          :width: 800px
          :alt: パラメータシート定義・作成画面
 
@@ -769,7 +769,7 @@ Movement-対話種別紐付
 
    #. | :menuselection:`Ansible-Pioneer --> 作業状態確認` の :guilabel:`代入値確認` ボタンで具体値に '{{ CPF_test }}' '{{ TPF_sample }}' が反映されていることが確認できます。
 
-      .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
+      .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
          :width: 800px
          :alt: 作業状態確認の代入値管理
 
@@ -784,7 +784,7 @@ Movement-対話種別紐付
 | 作業対象のオペレーションをオペレーション一覧から選択します。
 | 作業実行には、3種類の実行種別があります。実行種別に応じたボタンをクリックすることで :menuselection:`Ansible-Pioneer --> 作業状態確認` に遷移し、実行されます。
 
-.. figure:: /images/ja/ansible_pioneer/execution/execution_screen.gif
+.. figure:: ../../../images/ja/ansible_pioneer/execution/execution_screen.gif
    :width: 800px
    :alt: 作業実行画面
 
@@ -814,7 +814,7 @@ Movement-対話種別紐付
 
 | 作業の実行状態を監視します。
 
-.. figure:: /images/ja/ansible_pioneer/check_work_status/check_operation_status.png
+.. figure:: ../../../images/ja/ansible_pioneer/check_work_status/check_operation_status.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -882,7 +882,7 @@ Movement-対話種別紐付
 | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、該当する作業の履歴を閲覧できます。
 | :guilabel:`詳細` ボタンで :menuselection:`Ansible-Pioneer --> 作業状態確認` に遷移し、実行状態の詳細を閲覧することができます。
 
-.. figure:: /images/ja/ansible_pioneer/work_management/execution_list.png
+.. figure:: ../../../images/ja/ansible_pioneer/work_management/execution_list.png
    :width: 800px
    :alt: サブメニュー画面（作業管理）
 
@@ -960,7 +960,7 @@ Movement-対話種別紐付
 
 #. | 作業実行毎の作業対象ホストを閲覧できます。
 
-   .. figure:: /images/ja/ansible_pioneer/work_taget_host/target_host.png
+   .. figure:: ../../../images/ja/ansible_pioneer/work_taget_host/target_host.png
       :width: 800px
       :alt: サブメニュー画面（作業対象ホスト）
 
@@ -998,7 +998,7 @@ Movement-対話種別紐付
 #. | 作業実行毎の変数の具体値を閲覧できます。
 
 
-   .. figure:: /images/ja/ansible_pioneer/assigned_value_management/substitution_value_list.png
+   .. figure:: ../../../images/ja/ansible_pioneer/assigned_value_management/substitution_value_list.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 
@@ -1067,7 +1067,7 @@ Movement-対話種別紐付
       * - 標準出力
         - 作業対象サーバーにコマンド投入後、コマンドプロンプトより前に出力されるコマンドの処理結果です。
 
-.. figure:: /images/ja/diagram/ansible_pioneer_command_prompt.png
+.. figure:: ../../../images/ja/diagram/ansible_pioneer_command_prompt.png
    :alt: コマンドプロンプトと標準出力
 
    コマンドプロンプトと標準出力
@@ -1153,7 +1153,7 @@ expectモジュール
 | 作業対象ホストからのコマンドプロンプトを待受け後、コマンドを投入します。
 | expectモジュールの動作概要は以下の図のとおりです。
    
-.. figure:: /images/ja/diagram/ansible-pioneer-expect-exec.png
+.. figure:: ../../../images/ja/diagram/ansible-pioneer-expect-exec.png
    :alt: expectモジュールの動作概要
 
 
@@ -1213,7 +1213,7 @@ stateモジュール
 | 作業対象ホストにコマンドを投入しコマンドプロンプトを待受け後、標準出力の内容を外部Shellで解析し結果判定を行います。
 | stateモジュールの動作概要は以下の図のとおりです。
    
-.. figure:: /images/ja/diagram/ansible-pioneer-state.png
+.. figure:: ../../../images/ja/diagram/ansible-pioneer-state.png
    :alt: stateモジュールの動作概要
 
 
@@ -1450,7 +1450,7 @@ commandモジュール
 | 作業対象ホストにコマンドの連続投入が可能で、投入前後に条件分岐を行うことができます。
 | commandモジュールの動作概要は以下の図のとおりです。
    
-.. figure:: /images/ja/diagram/ansible_pioneer_command.png
+.. figure:: ../../../images/ja/diagram/ansible_pioneer_command.png
    :alt: commandモジュールの動作概要
 
 
@@ -2032,7 +2032,7 @@ stateモジュールとcommandモジュールの使用時の注意事項
 
 | 各モジュールのパラメータは、パラメータ全体をクォーテーションで囲んでください。
 
-.. figure:: /images/ja/diagram/ansible_pioneer_yaml_syntax.png       
+.. figure:: ../../../images/ja/diagram/ansible_pioneer_yaml_syntax.png       
    :width: 800px
    :alt: 対話ファイルをyaml形式で記載する際の注意事項
 

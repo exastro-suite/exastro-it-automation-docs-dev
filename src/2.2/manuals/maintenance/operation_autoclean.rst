@@ -39,7 +39,7 @@
      - オペレーションが保存期間切れのデータを削除する情報をメンテナンス(閲覧/登録/更新/廃止)出来ます。
 
 
-.. figure:: /images/ja/operation_autoclean/operation_autoclean_list_filter.png
+.. figure:: ../../../images/ja/operation_autoclean/operation_autoclean_list_filter.png
    :width: 5.22863in
    :height: 0.99251in
    :alt: オペレーション削除機能画面
@@ -138,7 +138,7 @@
      - 
 
 
-.. figure:: /images/ja/operation_autoclean/operation_autoclean_list_edit.png
+.. figure:: ../../../images/ja/operation_autoclean/operation_autoclean_list_edit.png
    :width: 5.22863in
    :height: 0.99251in
    :alt: オペレーション削除機能編集画面

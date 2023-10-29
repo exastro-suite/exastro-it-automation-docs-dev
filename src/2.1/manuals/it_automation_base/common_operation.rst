@@ -23,7 +23,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 | ITAシステムが提供する各メニュー画面は基本的に同じ要素で構成されています。
 | その構成要素は次の通りです。
 
-.. figure:: /images/ja/diagram/画面構成.png
+.. figure:: ../../../images/ja/diagram/画面構成.png
    :alt: 画面構成
    :align: center
    :width: 800px
@@ -78,7 +78,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   | 登録内容は各メニューによって異なりますので、各利用手順マニュアルを参照して下さい。
   | エクセル形式、JSON形式のファイルを使用する一括登録については「\ :ref:`management_console_download_all_and_edit_file_uploads`\ 」をご確認下さい。
 
-  .. figure:: /images/ja/management_console/menu_group_list/menu_register.gif
+  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_register.gif
      :alt: メインメニュー
      :width: 800px
      :align: center
@@ -101,7 +101,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   .. note:: | **プルダウンによる入力項目について**
             | 登録/更新時の入力項目で、プルダウンによる選択が可能な項目は、以下の仕様となっています。
 
-            .. figure:: /images/ja/management_console/menu_group_list/プルダウンによる入力項目.gif
+            .. figure:: ../../../images/ja/management_console/menu_group_list/プルダウンによる入力項目.gif
                :alt:  プルダウンによる入力項目
                :align: center
                :width: 6in
@@ -114,7 +114,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   .. tip:: | **ファイルアップロード項目について**
             | 登録/更新時の入力項目で、ファイルアップロードが可能項目は、以下の仕様となっています。
 
-            .. figure:: /images/ja/management_console/common_operation/fileupload_operation_edit.gif
+            .. figure:: ../../../images/ja/management_console/common_operation/fileupload_operation_edit.gif
                :alt:  ファイルアップロードの入力項目
                :align: center
                :width: 6in
@@ -133,7 +133,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   | 検索条件、検索項目はメニューごとに異なります。ここでは共通機能について説明します。
   | 「一覧」タブ内右上の \ :guilabel:`フィルタ|開く/閉じる`\  をクリックすることで表示／非表示の切替が可能です。
 
-  .. figure:: /images/ja/management_console/menu_group_list/表示フィルタ画面.gif
+  .. figure:: ../../../images/ja/management_console/menu_group_list/表示フィルタ画面.gif
      :alt: 表示フィルタ画面
      :align: center
      :width: 800px
@@ -167,7 +167,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   .. tip:: | **ファイルアップロード項目について**
             | 一覧時で、ファイルアップロードが可能項目は、以下の仕様となっています。
 
-            .. figure:: /images/ja/management_console/common_operation/fileupload_operation_filter.gif
+            .. figure:: ../../../images/ja/management_console/common_operation/fileupload_operation_filter.gif
                :alt:  ファイルアップロードの入力項目(一覧)
                :align: center
                :width: 6in
@@ -181,7 +181,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   | 登録されている項目の更新を行います。
   | 編集内容は各メニューによって異なりますので、各利用手順マニュアルを参照して下さい。
 
-  .. figure:: /images/ja/management_console/menu_group_list/menu_update.gif
+  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_update.gif
      :alt: 編集の操作
      :align: center
      :width: 800px
@@ -216,7 +216,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
      | 登録/編集画面に遷移したら \ :guilabel:`複製`\  をクリックします。
   #. | 対象項目の値を反映した状態の新規登録用レコードが表示されます。
 
-  .. figure:: /images/ja/management_console/menu_group_list/menu_copy.gif
+  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_copy.gif
      :alt: 編集の操作
      :align: center
      :width: 800px
@@ -231,14 +231,14 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   - | 共通設定：全メニューのサブメニューの共通部分に対して適用されます。
   - | 個別設定：設定したメニューでのみ適用されます。各項目で共通設定が選択されている場合、共通設定で選択されているものが適用されます。
 
-.. figure:: /images/ja/management_console/common_operation/table_setting_individual.png
+.. figure:: ../../../images/ja/management_console/common_operation/table_setting_individual.png
    :alt: テーブル設定_個別設定
    :width: 300px
    :align: center
 
    テーブル設定_個別設定
 
-.. figure:: /images/ja/management_console/common_operation/table_setting_common.png
+.. figure:: ../../../images/ja/management_console/common_operation/table_setting_common.png
    :alt: テーブル設定_共通設定
    :width: 300px
    :align: center
@@ -312,14 +312,14 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 .. note:: | **各項目の設定による表示について**
           | 項目表示方向:表示方向が切り替わります。
 
-          .. figure:: /images/ja/management_console/common_operation/filter_vertical.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_vertical.png
               :alt: メニューグループ(項目表示方向：縦)
               :width: 300px
               :align: center
 
               メニューグループ(項目表示方向：縦)
 
-          .. figure:: /images/ja/management_console/common_operation/filter_horizontal.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_horizontal.png
               :alt: メニューグループ(項目表示方向：横)
               :width: 300px
               :align: center
@@ -328,14 +328,14 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
           | フィルタ表示位置:表示位置が切り替わります。
 
-          .. figure:: /images/ja/management_console/common_operation/filter_vertical.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_vertical.png
               :alt: メニューグループ(フィルタ表示位置：内側)
               :width: 300px
               :align: center
 
               メニューグループ(フィルタ表示位置：内側)
 
-          .. figure:: /images/ja/management_console/common_operation/filter_vertical_outside.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_vertical_outside.png
               :alt: メニューグループ(フィルタ表示位置：外側)
               :width: 300px
               :align: center
@@ -344,14 +344,14 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
           | 項目メニュー表示：省略選択時は、各レコードの :guilabel:`` を選択することで、項目メニューが表示されます。
 
-          .. figure:: /images/ja/management_console/common_operation/filter_vertical_omit.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_vertical_omit.png
               :alt: メニューグループ(項目メニュー表示：省略)
               :width: 300px
               :align: center
 
               メニューグループ(項目メニュー表示：省略)
 
-          .. figure:: /images/ja/management_console/common_operation/filter_vertical_show.png
+          .. figure:: ../../../images/ja/management_console/common_operation/filter_vertical_show.png
               :alt: メニューグループ(項目メニュー表示：表示)
               :width: 300px
               :align: center
@@ -368,7 +368,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
      | もしくは、「一覧」タブの対象項目の \ :guilabel:`…`\  > \ :guilabel:`履歴`\  を順にクリックすると変更履歴を表示することが出来ます。
   #. | 変更実施日時が新しい順に一覧表示され、前回との変更箇所がオレンジ色太文字で表示されます。
 
-  .. figure:: /images/ja/management_console/menu_group_list/変更履歴操作.gif
+  .. figure:: ../../../images/ja/management_console/menu_group_list/変更履歴操作.gif
      :alt: 変更履歴の操作
      :width: 800px
      :align: center
@@ -384,7 +384,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
      - | データシート「マスタ001」
 
-       .. figure:: /images/ja/menu_creation/menu_definition_and_create/データシート「マスタ001」.png
+       .. figure:: ../../../images/ja/menu_creation/menu_definition_and_create/データシート「マスタ001」.png
           :alt: 「パラメータシート定義・作成」メニューで作成したデータシート
           :align: center
           :width: 6in
@@ -393,7 +393,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
      - | パラメータシート「ぱらむ001」
 
-       .. figure:: /images/ja/management_console/menu_group_list/パラメータシート「ぱらむ001」.png
+       .. figure:: ../../../images/ja/management_console/menu_group_list/パラメータシート「ぱらむ001」.png
           :alt: 「パラメータシート定義・作成」メニューで作成したパラメータシート
           :align: center
           :width: 6in
@@ -406,7 +406,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   #. | 入力用メニューグループ>マスタ001メニューからパラメータ「マスタ」の値を編集し「mas1-3」で更新を行います。
   #. | 入力用メニューグループ>ぱらむ001メニューから先ほど登録した対象の「ぱらむA」を編集し、更新を行います。
 
-     .. figure:: /images/ja/management_console/menu_group_list/プルダウン選択を含んだ変更履歴の操作.gif
+     .. figure:: ../../../images/ja/management_console/menu_group_list/プルダウン選択を含んだ変更履歴の操作.gif
         :alt: プルダウン選択を含んだ変更履歴の操作
         :align: center
         :width: 800px
@@ -417,14 +417,14 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
   #. | 以下のような結果になります。
 
-  .. figure:: /images/ja/management_console/menu_group_list/マスタ001変更履歴.png
+  .. figure:: ../../../images/ja/management_console/menu_group_list/マスタ001変更履歴.png
      :alt:  データシート「マスタ001」の変更履歴
      :align: center
      :width: 5in
 
      データシート「マスタ001」の変更履歴
 
-  .. figure:: /images/ja/management_console/menu_group_list/ぱらむ001変更履歴.png
+  .. figure:: ../../../images/ja/management_console/menu_group_list/ぱらむ001変更履歴.png
      :alt:  パラメータシート「ぱらむ001」の変更履歴
      :align: center
      :width: 5in
@@ -442,7 +442,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
    .. tab:: Excel
 
-      .. figure:: /images/ja//management_console/menu_group_list/file_all_register.gif
+      .. figure:: ../../../images/ja//management_console/menu_group_list/file_all_register.gif
          :alt: ファイル一括登録の操作(Excel)
          :align: center
          :width: 800px
@@ -460,7 +460,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
 
    .. tab:: JSON
 
-      .. figure:: /images/ja//management_console/menu_group_list/json_register.gif
+      .. figure:: ../../../images/ja//management_console/menu_group_list/json_register.gif
          :alt: ファイル一括登録の操作(JSON)
          :align: center
          :width: 800px

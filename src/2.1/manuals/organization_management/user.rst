@@ -36,7 +36,7 @@
       - | ・上記2つ以外のすべてのユーザーです。
         | ・Exastro の各ツールの操作を実行出来ます。
         
-.. figure:: /images/ja/diagram/overview_of_the_users.png
+.. figure:: ../../../images/ja/diagram/overview_of_the_users.png
     :alt: ユーザー全体図
 
 | 上記のユーザー毎に作成方法が異なりますので、それぞれの方法について説明します。
@@ -69,7 +69,7 @@
 
 2. | Keycloakのログイン画面から登録済みのシステム管理者アカウントでログインします。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_login.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_login.png
    :width: 600px
    :alt: Keycloakログイン画面 
 
@@ -77,7 +77,7 @@
 
 .. note:: | システム管理者アカウントを未登録の場合は、インストール時に platform-secret.yaml に設定し、keycloakの環境変数へ登録されている値でログインします。
    
-   .. figure:: /images/ja/diagram/keycloak_user_password.png
+   .. figure:: ../../../images/ja/diagram/keycloak_user_password.png
         :width: 400px
         :alt: platform-secret.yaml 
 
@@ -88,7 +88,7 @@
 
 - | :menuselection:`「keycloak管理コンソール」 --> 「ユーザー」画面` の :guilabel:`ユーザーの追加` ボタンをクリックします。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_management_console.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_management_console.png
    :width: 600px
    :alt: keycloak管理コンソール_ユーザー画面 
 
@@ -97,7 +97,7 @@
 
 - | :menuselection:`「ユーザー追加」画面` で、登録するシステム管理者の情報を入力し :guilabel:`保存` ボタンをクリックします。
   
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_add_user.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_add_user.png
    :width: 600px
    :alt: ユーザー追加画面
 
@@ -105,7 +105,7 @@
 
 - | ユーザーの追加後の画面で :guilabel:`クレデンシャルタブ` をクリックします。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_credential_tab.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_credential_tab.png
    :width: 600px
    :alt: クレデンシャルタブ
 
@@ -113,7 +113,7 @@
 
 - | クレデンシャルタブの画面で、パスワード、新しいパスワード（確認）を入力し :guilabel:`パスワードを設定` をクリックします。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_password_setting.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_password_setting.png
    :width: 600px
    :alt: パスワード設定
 
@@ -125,7 +125,7 @@
 
 - | :guilabel:`ロールマッピング` タブを選択し、レルムロールの中の「admin」をアサイン済みロールに設定します。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak_role_mapping.png
+.. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_role_mapping.png
    :width: 600px
    :alt: ロールマッピング
 
@@ -157,7 +157,7 @@
 
 #. | Exastro Platformのメニューより :menuselection:`ユーザー管理` をクリックします。
 
-   .. image:: /images/ja/manuals/platform/platform_menu.png
+   .. image:: ../../../images/ja/manuals/platform/platform_menu.png
       :width: 200px
       :align: left
 
@@ -167,27 +167,27 @@
 
 #. | Keycloakのユーザー画面が表示されるので、 :guilabel:`ユーザーの追加` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_management_console.png
+   .. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_management_console.png
       :width: 600px
       :align: left
 
 #. | Keycloakのユーザーの追加画面が表示されるので、ユーザーの情報を入力して :guilabel:`保存` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_add_user_member01.png
+   .. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_add_user_member01.png
       :width: 600px
       :align: left
 
 
 #. | 登録が正常に終了すると、以下の画面が表示されるので、 :menuselection:`クレデンシャル` タブをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_credential_tab_member01.png
+   .. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_credential_tab_member01.png
       :width: 600px
       :align: left
 
 
 #. | 「パスワード」および「新しいパスワード（確認）」に初期パスワードを入力し :guilabel:`パスワードを設定` をクリックします。
 
-   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_password_setting_member01.png
+   .. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_password_setting_member01.png
       :width: 600px
       :align: left
 
@@ -196,6 +196,6 @@
 
 #. | 確認ダイアログが表示されるので、 :guilabel:`Set password` ボタンをクリックします。
 
-   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_set_password.png
+   .. figure:: ../../../images/ja/manuals/platform/keycloak/keycloak_set_password.png
       :width: 600px
       :align: left

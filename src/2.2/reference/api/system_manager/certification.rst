@@ -268,7 +268,7 @@ Bearer認証
 
 2. | 未ログインの際は、ログイン画面が表示されますのでログインしてください
 
-.. figure:: /images/ja/manuals/platform/login/exastro-login.png
+.. figure:: ../../../../images/ja/manuals/platform/login/exastro-login.png
    :width: 400px
    :alt: ログイン画面
 
@@ -277,7 +277,7 @@ Bearer認証
   
   1. | 「Realm Settings」の「Tokens」を選択します。
    
-  .. figure:: /images/ja/manuals/platform/keycloak/keycloak_tokens.png
+  .. figure:: ../../../../images/ja/manuals/platform/keycloak/keycloak_tokens.png
      :width: 500px
      :alt: Tokens
 
@@ -289,7 +289,7 @@ Bearer認証
      - | Offline Session Idle：365 Days
      - | Offline Session Max：365 Days
 
-  .. figure:: /images/ja/manuals/platform/keycloak/keycloak_offline_session_max_limited.png
+  .. figure:: ../../../../images/ja/manuals/platform/keycloak/keycloak_offline_session_max_limited.png
      :width: 500px
      :alt: Offline Session Max Limited
 
@@ -297,13 +297,13 @@ Bearer認証
   
   1. | 「Clients」を選択します。
 
-  .. figure:: /images/ja/manuals/platform/keycloak/keycloak_clients.png
+  .. figure:: ../../../../images/ja/manuals/platform/keycloak/keycloak_clients.png
      :width: 500px
      :alt: Clients
 
   2. | 「_platform-api」を選択します。
 
-  .. figure:: /images/ja/manuals/platform/keycloak/keycloak_platform-api.png
+  .. figure:: ../../../../images/ja/manuals/platform/keycloak/keycloak_platform-api.png
      :width: 500px
      :alt: platform-api
    
@@ -316,7 +316,7 @@ Bearer認証
      - | Client Session Idle：1 Days
      - | Client Session Max：1 Days
 
-  .. figure:: /images/ja/manuals/platform/keycloak/keycloak_advanced_settings.png
+  .. figure:: ../../../../images/ja/manuals/platform/keycloak/keycloak_advanced_settings.png
      :width: 500px
      :alt: Advanced Settings
    

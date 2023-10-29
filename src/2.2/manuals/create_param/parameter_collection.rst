@@ -50,7 +50,7 @@
 
 | パラメータシートを検索条件に基づいて取得します。
 
-.. figure:: /images/ja/parameter_collection/initial_display.png
+.. figure:: ../../../images/ja/parameter_collection/initial_display.png
    :width: 800px
    :alt: パラメータ集初期表示
    :align: center
@@ -104,14 +104,14 @@
    | ②パラメータモード選択済み、対象ホスト選択済みの状態で対象パラメータ選択
    | ③パラメータモードがオペレーション、対象パラメータ選択済み、対象ホスト選択済みの状態でオペレーション変更
 
-.. figure:: /images/ja/parameter_collection/mode_host_execute.png
+.. figure:: ../../../images/ja/parameter_collection/mode_host_execute.png
    :width: 800px
    :alt: パラメータモードがホストでのパラメータ表示実行
    :align: center
 
    パラメータモードがホストでのパラメータ表示実行
 
-.. figure:: /images/ja/parameter_collection/mode_operation_execute.png
+.. figure:: ../../../images/ja/parameter_collection/mode_operation_execute.png
    :width: 800px
    :alt: パラメータモードがオペレーションでのパラメータ表示実行
    :align: center
@@ -124,7 +124,7 @@
 | (1) パラメータシートの項目表示方向を選択できます。
 | :guilabel:`表示設定` ボタンを押下して項目表示方向を「横」か「縦」から選択します。
 
-.. figure:: /images/ja/parameter_collection/display_setting.gif
+.. figure:: ../../../images/ja/parameter_collection/display_setting.gif
    :width: 800px
    :alt: パラメータ項目表示方向設定
    :align: center
@@ -141,7 +141,7 @@
 | 登録したプリセットは更新、名称変更、削除することができます。
 | プリセットはワークスぺース単位で登録されます。
 
-.. figure:: /images/ja/parameter_collection/preset.gif
+.. figure:: ../../../images/ja/parameter_collection/preset.gif
    :width: 800px
    :alt: プリセット登録
    :align: center
@@ -154,7 +154,7 @@
 | (1) オペレーションタイムラインの表示・非表示を設定できます。
 | :guilabel:`オペレーションタイムライン` ボタンを押下して、表示・非表示を切り替えます。
 
-.. figure:: /images/ja/parameter_collection/operation_timeline.gif
+.. figure:: ../../../images/ja/parameter_collection/operation_timeline.gif
    :width: 800px
    :alt: オペレーションタイムライン非表示時画面
    :align: center
@@ -170,7 +170,7 @@
 | :menuselection:`ロール・メニュー紐付管理` メニューにて『紐付』項目が『閲覧のみ』のユーザは編集できません。
 | ホストグループを利用しているパラメータシートは、入力用のパラメータシートが表示されます。
 
-.. figure:: /images/ja/parameter_collection/parameter_maintanance.gif
+.. figure:: ../../../images/ja/parameter_collection/parameter_maintanance.gif
    :width: 800px
    :alt: パラメータシート編集画面
    :align: center
@@ -182,7 +182,7 @@
 | (1) パラメータ表示実行結果を印刷できます。
 | パラメータ表示実行後、プリントタブを押下します。
 
-.. figure:: /images/ja/parameter_collection/print.png
+.. figure:: ../../../images/ja/parameter_collection/print.png
    :width: 800px
    :alt: プリントタブ
    :align: center
@@ -196,7 +196,7 @@
 | 1パラメータシート1シートで出力されます。
 | シート順はパラメータ表示結果の表示順で出力されます。
 
-.. figure:: /images/ja/parameter_collection/excel_download.png
+.. figure:: ../../../images/ja/parameter_collection/excel_download.png
    :width: 800px
    :alt: EXCELダウンロードタブ
    :align: center

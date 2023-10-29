@@ -27,7 +27,7 @@ Terrform driverについて
 | また、Terraform driverは、Module中の変数を画面から設定することができます。
 | 詳細は「:ref:`terraform_common_variable_handling`」を参照してください。
 
-.. figure:: /images/ja/diagram/overview.png
+.. figure:: ../../../images/ja/diagram/overview.png
    :width: 800px
    :alt: ITAシステム概要
 
@@ -470,35 +470,35 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | string型
     
-      .. figure:: /images/ja/terraform_common/variable_string.png
+      .. figure:: ../../../images/ja/terraform_common/variable_string.png
          :alt: string型
          :align: left
          :width: 600px
                
    #. | number型
    
-      .. figure:: /images/ja/terraform_common/variable_number.png
+      .. figure:: ../../../images/ja/terraform_common/variable_number.png
          :alt: number型
          :align: left
          :width: 600px
    
    #. | bool型
    
-      .. figure:: /images/ja/terraform_common/variable_bool.png
+      .. figure:: ../../../images/ja/terraform_common/variable_bool.png
          :alt: bool型
          :align: left
          :width: 600px
 
    #. | list型
   
-      .. figure:: /images/ja/terraform_common/variable_list.png
+      .. figure:: ../../../images/ja/terraform_common/variable_list.png
          :alt: list型
          :align: left
          :width: 600px
   
    #. | set型
    
-      .. figure:: /images/ja/terraform_common/variable_set.png
+      .. figure:: ../../../images/ja/terraform_common/variable_set.png
          :alt: set型
          :align: left
          :width: 600px
@@ -506,14 +506,14 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | tuple型
  
-      .. figure:: /images/ja/terraform_common/variable_tuple.png
+      .. figure:: ../../../images/ja/terraform_common/variable_tuple.png
          :alt: tuple型
          :align: left
          :width: 600px
 
    #. | map型
    
-      .. figure:: /images/ja/terraform_common/variable_map.png
+      .. figure:: ../../../images/ja/terraform_common/variable_map.png
          :alt: map型
          :align: left
          :width: 600px
@@ -521,14 +521,14 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | object型
    
-      .. figure:: /images/ja/terraform_common/variable_object.png
+      .. figure:: ../../../images/ja/terraform_common/variable_object.png
          :alt: object型
          :align: left
          :width: 600px
 
    #. | any型
  
-      .. figure:: /images/ja/terraform_common/variable_any.png
+      .. figure:: ../../../images/ja/terraform_common/variable_any.png
          :alt: map型
          :align: left
          :width: 600px
@@ -536,7 +536,7 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | typeの記載がない
 
-      .. figure:: /images/ja/terraform_common/variable_no_type.png
+      .. figure:: ../../../images/ja/terraform_common/variable_no_type.png
          :alt: typeの記載がない
          :align: left
          :width: 600px
@@ -545,14 +545,14 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | list型の中にlist型
 
-      .. figure:: /images/ja/terraform_common/variable_list_list.png
+      .. figure:: ../../../images/ja/terraform_common/variable_list_list.png
          :alt: list型の中にlist型
          :align: left
          :width: 600px
 
    #. | list型の中にobject型
    
-      .. figure:: /images/ja/terraform_common/variable_list_object.png
+      .. figure:: ../../../images/ja/terraform_common/variable_list_object.png
          :alt: list型の中にobject型
          :align: left
          :width: 600px
@@ -560,7 +560,7 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | object型の中のlist型の中にobject型
 
-      .. figure:: /images/ja/terraform_common/variable_object_list_object.png
+      .. figure:: ../../../images/ja/terraform_common/variable_object_list_object.png
          :alt: object型の中のlist型の中にobject型
          :align: left
          :width: 600px
@@ -569,7 +569,7 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
    #. | list型の中にmap型
 
-      .. figure:: /images/ja/terraform_common/variable_list_map.png
+      .. figure:: ../../../images/ja/terraform_common/variable_list_map.png
          :alt: list型の中にmap型
          :align: left
          :width: 600px
@@ -583,14 +583,14 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 
 #. | **最大繰返数を増加させる**
 
-   .. figure:: /images/ja/terraform_common/nested_gain.png
+   .. figure:: ../../../images/ja/terraform_common/nested_gain.png
         :alt: 最大繰返数を増加させる
         :align: left
         :width: 600px
 
 #. | **最大繰返数を減少させる**
 
-   .. figure:: /images/ja/terraform_common/nested_decrease.png
+   .. figure:: ../../../images/ja/terraform_common/nested_decrease.png
         :alt: 最大繰返数を減少させる
         :align: left
         :width: 600px

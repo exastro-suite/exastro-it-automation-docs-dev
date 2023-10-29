@@ -3,7 +3,7 @@
    | クラスタ構成の場合は、構成している全てのサーバを登録してください。
    | ただし、Ansible Automation Controllerのhop nodeの登録は不要です。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
+   .. figure:: ../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
       :width: 800px
       :alt: サブメニュー画面（Ansible Automation Controller ホスト一覧）
    
@@ -11,7 +11,7 @@
 
 #. | :guilabel:`＋ 登録` ボタンより、Ansible Automation Controllerのホスト情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
+   .. figure:: ../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
       :width: 800px
       :alt: 登録画面（Ansible Automation Controller ホスト一覧）
 

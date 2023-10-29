@@ -217,7 +217,7 @@ Movement一覧
 
 #. | Movement情報のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/movement_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_list/movement_list.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -225,7 +225,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/registration_movement_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_list/registration_movement_list.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -358,7 +358,7 @@ Movement一覧
 #. | ユーザが作成したロールパッケージファイル（zip）のメンテナンス（閲覧/登録/更新/廃止）を行います。
    | ロールパッケージファイルは、「roles」のある階層のディレクトリをzipにて圧縮したものを登録してください。ロールパッケージディレクトリ構成などは「 :ref:`ansible_legacyrole_write_role_package_ansible_legacy_role` 」を参照してください。
 
-   .. figure:: /images/ja/ansible-legacyrole/role_packeage_management/role_package_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/role_packeage_management/role_package_list.png
       :width: 800px
       :alt: サブメニュー画面（ロールパッケージ管理）
 
@@ -366,7 +366,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、ロールパッケージの登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/role_packeage_management/registration_role_package_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/role_packeage_management/registration_role_package_list.gif
       :width: 800px
       :alt: 登録画面（ロールパッケージ管理）
 
@@ -469,7 +469,7 @@ Movement-ロール紐付
 
 #. | Movementでインクルードするロールパッケージのメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_role/movement_role.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_role/movement_role.png
       :width: 800px
       :alt: サブメニュー画面（Movement-ロール紐付）
 
@@ -477,7 +477,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`登録` ボタンより、Movementでインクルードするロールパッケージの登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_role/registration_movement_role.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_role/registration_movement_role.gif
       :width: 800px
       :alt: 登録画面（Movement-ロール紐付）
 
@@ -534,7 +534,7 @@ Movement-ロール紐付
 #. | :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` で登録した :menuselection:`ロールパッケージファイル（ZIP形式）` で定義されている多段変数で、繰返配列が定義されているメンバー変数の配列の最大繰返数のメンテナンス（閲覧/更新）を行います。
    | 利用方法については、「 :ref:`ansible_legacyrole_substitution_value_auto_registration_setting` 」を参照てください。
    
-   .. figure:: /images/ja/ansible-legacyrole/variable_nest_management/nested_variable_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/variable_nest_management/nested_variable_list.png
       :width: 800px
       :alt: サブメニュー画面（変数ネスト管理）
 
@@ -542,7 +542,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`編集` ボタンより最大繰返数の更新を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/variable_nest_management/registration_nested_variable_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/variable_nest_management/registration_nested_variable_list.gif
       :width: 800px
       :alt: 登録画面（変数ネスト管理）
 
@@ -590,7 +590,7 @@ Movement-ロール紐付
 #. | パラメータシートの項目の設定値とMovementの変数との紐付管理（閲覧/登録/更新/廃止）を行います。
    | 登録した情報は作業実行により :menuselection:`Ansible-LegacyRole --> 代入値管理` と :menuselection:`Ansible-LegacyRole--> 作業対象ホスト` に反映されます。
 
-   .. figure:: /images/ja/ansible-legacyrole/substitution_value_automatic_setting/substitution_value_auto_registration_setting_role.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/substitution_value_automatic_setting/substitution_value_auto_registration_setting_role.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -598,7 +598,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`登録` ボタンより、パラメータシートの項目の設定値とMovementの変数との紐付登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/substitution_value_automatic_setting/registration_substitution_value_auto_registration_setting_role.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/substitution_value_automatic_setting/registration_substitution_value_auto_registration_setting_role.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -691,7 +691,7 @@ Movement-ロール紐付
    | パラメータシート（バンドル）のリピート設定されている項目とMovementの変数を紐付ける場合、 :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` でパラメータシート（From） の代入順序を入力する必要があります。
    | パラメータシート（バンドル）と代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: /images/ja/diagram/parameter.png
+   .. figure:: ../../../images/ja/diagram/parameter.png
       :width: 600px
       :alt: パラメータシート（バンドル）使用時の代入値自動登録設定登録方法
 
@@ -1023,7 +1023,7 @@ Movement-ロール紐付
 
    #. | :menuselection:`パラメータシート定義・作成` で「Ansible共通:ファイル管理:ファイル埋込変数名」「Ansible共通:テンプレート管理:テンプレート埋込変数名」をパラメータシートの項目としてパラメータシート作成後、パラメータシートで項目の設定値としてファイル埋込変数とテンプレート埋込変数を登録します。
 
-      .. figure:: /images/ja/ansible_common/menu_definition_and_create/menu_create.png
+      .. figure:: ../../../images/ja/ansible_common/menu_definition_and_create/menu_create.png
          :width: 800px
          :alt: パラメータシート定義・作成画面
 
@@ -1059,7 +1059,7 @@ Movement-ロール紐付
 
    #. | :menuselection:`Ansible-LegacyRole --> 作業状態確認` の :guilabel:`代入値確認` ボタンで具体値に '{{ CPF_test }}' '{{ TPF_sample }}' が反映されていることが確認できます。
 
-      .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
+      .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
          :width: 800px
          :alt: 作業状態確認の代入値管理
 
@@ -1075,7 +1075,7 @@ Movement-ロール紐付
 | 作業対象のオペレーションをオペレーション一覧から選択します。
 | 作業実行には、3種類の実行種別があります。実行種別に応じたボタンをクリックすることで :menuselection:`Ansible-LegacyRole --> 作業状態確認` に遷移し、実行されます。
 
-.. figure:: /images/ja/ansible-legacyrole/execution/execution_screen.gif
+.. figure:: ../../../images/ja/ansible-legacyrole/execution/execution_screen.gif
    :width: 800px
    :alt: 作業実行画面
 
@@ -1105,7 +1105,7 @@ Movement-ロール紐付
 
 | 作業の実行状態を監視します。
 
-.. figure:: /images/ja/ansible-legacyrole/check_work_status/check_operation_status.png
+.. figure:: ../../../images/ja/ansible-legacyrole/check_work_status/check_operation_status.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -1173,7 +1173,7 @@ Movement-ロール紐付
 | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、該当する作業の履歴を閲覧できます。
 | :guilabel:`詳細` ボタンで :menuselection:`Ansible-LegacyRole --> 作業状態確認` に遷移し、実行状態の詳細を閲覧することができます。
 
-.. figure:: /images/ja/ansible-legacyrole/work_management/execution_list.png
+.. figure:: ../../../images/ja/ansible-legacyrole/work_management/execution_list.png
    :width: 800px
    :alt: サブメニュー画面（作業管理）
 
@@ -1251,7 +1251,7 @@ Movement-ロール紐付
 
 #. | 作業実行毎の作業対象ホストを閲覧できます。
 
-   .. figure:: /images/ja/ansible-legacyrole/work_taget_host/target_host.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/work_taget_host/target_host.png
       :width: 800px
       :alt: サブメニュー画面（作業対象ホスト）
 
@@ -1288,7 +1288,7 @@ Movement-ロール紐付
 
 #. | 作業実行毎の変数の具体値を閲覧できます。
 
-   .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/substitution_value_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/substitution_value_list.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 
@@ -1505,7 +1505,7 @@ Movement-ロール紐付
 #. | rolesセクション
    | アップロードさたロールパッケージ内のロールを、 :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` の :menuselection:`インクルード順序` に従いroleで実行します。
 
-   .. figure:: /images/ja/diagram/role_session.png
+   .. figure:: ../../../images/ja/diagram/role_session.png
       :align: center
       :width: 8.85417in
       :height: 6.67187in
@@ -1620,7 +1620,7 @@ ITA readmeのフォーマット
 | 前提として、Ansible-LegacyRole（「roles」ディレクトリ）は外部から取得したものとします。
 | 以下は、「ita_readme」を用いてアップロードから結果確認までを表した全体イメージ図です。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_base.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_base.png
    :width: 1000px
    :alt: 全体イメージ図
 
@@ -1655,7 +1655,7 @@ ITA readmeのフォーマット
   | 外部（Galaxy等）から取得したAnsible-LegacyRole（「roles」ディレクトリ）は編集を加えずに利用いただくことが可能です。
   | そのため「ita_readme」を「roles」ディレクトリの外に置いて、Ansible-LegacyRole（「roles」ディレクトリ）内で使われている変数にパラメータを与えることが可能となっております。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example1.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example1.png
    :width: 1000px
    :alt: 観点１のイメージ図
 
@@ -1668,7 +1668,7 @@ ITA readmeのフォーマット
   |
   | 具体値を与える方法を以降の観点で説明します。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example2.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example2.png
    :width: 1000px
    :alt: 観点２のイメージ図
 
@@ -1678,7 +1678,7 @@ ITA readmeのフォーマット
   | 「roles」配下の「defaults/main.yml」はそのまま変更なくansibleに渡されます。
   | 変数定義およびデフォルト値はhost_varsで定義されない限り有効となります。（例：『VAR_A：aaa』）
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example3.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example3.png
    :width: 1000px
    :alt: 観点３のイメージ図
 
@@ -1687,7 +1687,7 @@ ITA readmeのフォーマット
 - | **観点４：「host_varsファイル」と「ITAのパラメータシート」について**
   | host_varsファイルはITAのパラメータシートから実行ごとに自動作成されます。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example4.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example4.png
    :width: 1000px
    :alt: 観点４のイメージ図
 
@@ -1701,7 +1701,7 @@ ITA readmeのフォーマット
   |
   | ※下図のとおり、変数「VAR_H」を「ita_readme」に記述することで変数の追加が可能
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example5.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example5.png
    :width: 1000px
    :alt: 観点５のイメージ図
 
@@ -1712,7 +1712,7 @@ ITA readmeのフォーマット
   | 例えば、「defaults/main.yml」に『VAR_C:[]』がある状態で、変数「VAR_C」に具体値を与えずに実行した場合length＝0となります。
   | 反対に、何らかの具体値を与えて実行した場合length＞0となります。（例：『VAR_X:sss』）
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example6.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example6.png
    :width: 1000px
    :alt: 観点６のイメージ図
 
@@ -1725,7 +1725,7 @@ ITA readmeのフォーマット
   | 変数「VAR_G」に具体値を付与せず実行すると、「defaults/main.yml」および「host_vars」に定義されずに動作するためdefined→falseとなります。
   | 反対に、変数「VAR_H」に具体値「kkk」を付与し実行すると、「host_vars」に定義されて動作するためdefined→trueとなります。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example7.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example7.png
    :width: 1000px
    :alt: 観点７のイメージ図
 

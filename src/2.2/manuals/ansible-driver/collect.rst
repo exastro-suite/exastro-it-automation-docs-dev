@@ -27,7 +27,7 @@
 
 .. _overview_all:
 
-.. figure:: /images/ja/ansible_common/collect_flow/overview_all.drawio.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/overview_all.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -41,7 +41,7 @@
 | 以下は、収集機能のデータ登録処理の概要図です。
 | ファイル格納先、収集項目値管理の設定値に従い、パラメータシートへの登録、更新を行います。
 
-.. figure:: /images/ja/ansible_common/collect_flow/overview_process.drawio.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/overview_process.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -311,7 +311,7 @@
      - | 作業実行の出力結果（ソースファイル）と、パラメータシートの項目の紐づけ設定を行い、
        | 収集機能で登録する対象パラメータを管理します。
 
-.. figure:: /images/ja/ansible_common/collect_flow/collected_item_value_list.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/collected_item_value_list.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -344,7 +344,7 @@
      - 作業管理
      - 作業実行履歴を管理します。収集機能によるパラメータシートの登録状況、実行ログを参照します。
 
-.. figure:: /images/ja/ansible_common/collect_flow/execution_list_legacy.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/execution_list_legacy.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -418,7 +418,7 @@ Ansible 共通
 
 #. | :menuselection:`収集項目値管理` では、収集項目とパラメータシートの項目の紐付設定を行います。
 
-   .. figure:: /images/ja/ansible_common/collect_flow/submenu_collected_item_value_list.png
+   .. figure:: ../../../images/ja/ansible_common/collect_flow/submenu_collected_item_value_list.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -428,7 +428,7 @@ Ansible 共通
 
 #. | :menuselection:`一覧 --> 登録 or 編集` より、収集項目の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/collect_flow/edit_collected_item_value_list.png
+   .. figure:: ../../../images/ja/ansible_common/collect_flow/edit_collected_item_value_list.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -585,7 +585,7 @@ Ansible-Legacy、Ansible-Pioneer、Ansible-LegacyRole
 
 | 各メニューグループ（:menuselection:`Ansible-Legacy` /:menuselection:`Ansible-Pioneer` /:menuselection:`Ansible-LegacyRole` ）の :menuselection:`作業管理` の画面では、完了した作業の収集状態の確認、ログファイルがDL可能です。
 
-.. figure:: /images/ja/ansible_common/collect_flow/submenu_execution_list_legacy.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/submenu_execution_list_legacy.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -887,7 +887,7 @@ BackYardコンテンツ
 
 1. 収集値項目管理の設定と対象メニュー-項目
 
-.. figure:: /images/ja/ansible_common/collect_flow/link_parameter_collected_item_value_list.drawio.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/link_parameter_collected_item_value_list.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -899,21 +899,21 @@ BackYardコンテンツ
 
 1. SAMPLE_01.yml の登録処理（登録）
 
-.. figure:: /images/ja/ansible_common/collect_flow/var_sample_01_register.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/var_sample_01_register.png
    :alt: SAMPLE_01.yml の登録処理（登録）
    :width: 6.00785in
    :height: 0.51786in
 
 2. SAMPLE_02.yml の登録処理（更新）
 
-.. figure:: /images/ja/ansible_common/collect_flow/var_sample_02_update.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/var_sample_02_update.png
    :alt: SAMPLE_02.yml の登録処理（更新）
    :width: 6.06086in
    :height: 0.52304in
 
 3. 収集機能完了後のレコードの状態
 
-.. figure:: /images/ja/ansible_common/collect_flow/var_sample_03_end.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/var_sample_03_end.png
    :alt: 収集機能完了後のレコードの状態
    :width: 6.06086in
    :height: 0.52834in
@@ -1164,14 +1164,14 @@ BackYardコンテンツ
 
 -  対象パラメータシートの画面上の表示結果
 
-.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item1_9.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/val_test_filter_item1_9.png
    :alt: 対象パラメータシートの画面上の表示結果1
    :width: 6.96252in
    :height: 1.98221in
 
    対象パラメータシートの画面上の表示結果1
 
-.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item10_18.png
+.. figure:: ../../../images/ja/ansible_common/collect_flow/val_test_filter_item10_18.png
    :alt: 対象パラメータシートの画面上の表示結果2
    :width: 6.96252in
    :height: 1.98221in

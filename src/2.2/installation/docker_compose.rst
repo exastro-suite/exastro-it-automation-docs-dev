@@ -434,6 +434,7 @@ Let's Try!!
 
 .. code-block:: bash
   :caption: コマンド
+
   # コンテナのみ削除する場合
   sh <(curl -sf https://ita.exastro.org/setup) install
   # コンテナ＋データを削除する場合

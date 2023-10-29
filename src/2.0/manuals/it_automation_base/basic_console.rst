@@ -60,7 +60,7 @@ ITA基本コンソール
 
 #. :guilabel:`+登録` より、オペレーション情報の登録を行います。
 
-   .. figure:: /images/ja/basic_console/operation/operation.gif
+   .. figure:: ../../../images/ja/basic_console/operation/operation.gif
       :width: 800px
       :alt: 登録画面（オペレーション一覧）
 
@@ -123,7 +123,7 @@ Movement一覧
 
 .. note:: | Movementの実際の登録は、各Driverの利用手順マニュアルを参照し、各オーケストレータのITA用ドライバーのコンソールメニューから行ってください。
 
-.. figure:: /images/ja/basic_console/movement/movement.png
+.. figure:: ../../../images/ja/basic_console/movement/movement.png
    :width: 800px
    :alt: サブメニュー画面（Movement一覧）
 

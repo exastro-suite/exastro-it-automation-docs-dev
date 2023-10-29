@@ -63,7 +63,7 @@ Ansible Automation Platform
 
       Ansible Automation Platform (ハイブリッドパターン)を下記に記載します。
 
-      .. figure:: /images/ja/diagram/aap_hybrid.png
+      .. figure:: ../../../images/ja/diagram/aap_hybrid.png
          :alt: Ansible Automation Platform (ハイブリッドパターン)
          :width: 900px
 
@@ -120,7 +120,7 @@ Ansible Automation Platform
 
       Ansible Automation Platform (実行ノード分離パターン)を下記に記載します。
 
-      .. figure:: /images/ja/diagram/aap_divide.png
+      .. figure:: ../../../images/ja/diagram/aap_divide.png
         :alt: Ansible Automation Platform (実行ノード分離パターン)
         :width: 1200px
 
@@ -188,7 +188,7 @@ Playbook連携
 
 | ITAとAnsible Automation Platform間のPlaybook連携について説明します。
 
-.. figure:: /images/ja/diagram/playbook_link_between_aap_and_container.png
+.. figure:: ../../../images/ja/diagram/playbook_link_between_aap_and_container.png
    :alt: ITAとAnsible Automation Platform2.xのPlaybook連携図
    :width: 600px
 
@@ -251,7 +251,7 @@ ITA作業用ディレクトリの公開
 
 | ブラウザより Ansible Automation Platform にログインし、:menuselection:`設定 --> ジョブ --> 分離されたジョブに公開するパス` に :file:`/var/lib/exastro/` を設定します。
 
-.. figure:: /images/ja/diagram/publish_ita_operation_director.png
+.. figure:: ../../../images/ja/diagram/publish_ita_operation_director.png
    :width: 600px
 
 
@@ -270,7 +270,7 @@ Ansible Automation Platform へのファイル転送ユーザーの準備
 .. warning:: 
  | awx ユーザー以外のユーザーを用意し使用し、SCM 管理パス(/var/lib/awx/projects)のパーミッションの変更を行う運用は Red Hat のサポート対象外となりますのでご注意ください。
 
-| 準備した Linux ユーザーは、ITA システムに登録する必要があります。 :ref:`general_operations_ansible_automation_controlller_hosts` を参照し、登録を行ってください。
+| 準備した Linux ユーザーは、ITA システムに登録する必要があります。 :ref:`ansible_common_ansible_automation_controlller_hosts` を参照し、登録を行ってください。
 
 
 Ansible Automation Platformと連携するGitへのユーザーの準備
@@ -314,7 +314,7 @@ Proxyの設定
 -  HTTP_PROXY
 -  NO_PROXY
 
-.. figure:: /images/ja/diagram/proxy_settings.png
+.. figure:: ../../../images/ja/diagram/proxy_settings.png
    :width: 600px
 
 .. warning::

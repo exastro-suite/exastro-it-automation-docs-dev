@@ -1673,21 +1673,21 @@ Exastro システム管理者の作成
 
 | 以下の画面が表示された場合、:menuselection:`Administration Console` を選択して、ログイン画面を開きます。
 
-.. figure:: /images/ja/manuals/platform/keycloak/administrator-console.png
+.. figure:: ../../images/ja/manuals/platform/keycloak/administrator-console.png
   :alt: administrator-console
   :width: 600px
   :name: 管理コンソール
 
 | ログイン ID とパスワードは :ref:`create_system_manager` で登録した、:kbd:`KEYCLOAK_USER` 及び :kbd:`KEYCLOAK_PASSWORD` です。
 
-.. figure:: /images/ja/manuals/platform/login/exastro-login.png
+.. figure:: ../../images/ja/manuals/platform/login/exastro-login.png
   :alt: login
   :width: 300px
   :name: ログイン画面
 
 | Keycloak の管理画面が開きます。
 
-.. figure:: /images/ja/manuals/platform/keycloak/keycloak-home.png
+.. figure:: ../../images/ja/manuals/platform/keycloak/keycloak-home.png
   :alt: login
   :width: 600px
   :name: Keycloak 管理画面

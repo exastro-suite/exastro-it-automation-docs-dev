@@ -48,7 +48,7 @@
 | メインメニューのDashBoardから管理コンソールを選ぶことで、管理コンソールへ遷移出来ます。
 | 左側のメニューグループタブから管理コンソールを選ぶことで、管理コンソール内のメニューを指定して遷移することも出来ます。
 
-.. figure:: /images/ja/management_console/menu_group_list/MainMenu.gif
+.. figure:: ../../../images/ja/management_console/menu_group_list/MainMenu.gif
    :alt: メインメニュー
    :width: 800px
    :align: center
@@ -190,7 +190,7 @@
 
 | 「Web表示最大行数」と「Web表示前確認行数」には次のような関係があります。
 
-.. figure:: /images/ja/diagram/Web表示最大行数の処理概要.png
+.. figure:: ../../../images/ja/diagram/Web表示最大行数の処理概要.png
    :alt:  Web表示最大行数の処理概要
    :align: center
    :width: 6in
@@ -209,7 +209,7 @@
 
 | Exastro Platform「ロール管理」で登録したロールと「:ref:`menu_list`」で登録したメニューがリストボックスに表示されるので（下図 ①,②）、それぞれを選択し、紐付タイプ（下図 ③）を選択します。
 
-.. figure:: /images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
+.. figure:: ../../../images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
    :alt:  グループメニュー権限の設定画面（ロール・メニュー紐付管理）
    :align: center
    :width: 5in

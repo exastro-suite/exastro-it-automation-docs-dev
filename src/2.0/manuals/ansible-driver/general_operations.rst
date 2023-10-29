@@ -35,7 +35,7 @@ Ansible driverについて
 
 | Ansible driverは、ITAシステムのオプションとして機能し、ITAシステムで登録した構築対象のサーバ・ストレージ・ネットワーク各機器に対し、Ansible Core、Ansible Automation Controllerのどちらを経由するかを選択し、実際の運用設定を自動的に行います。
 
-.. image:: /images/ja/diagram/overview.png
+.. image:: ../../../images/ja/diagram/overview.png
    :width: 6.68819in
    :height: 3.35972in
    :alt: Exastro概要
@@ -716,7 +716,7 @@ ITA独自変数
 | Playbookで定義した変数の値は代入値登録機能により上書きすることができます。
 | Playbook中の変数と、代入値管理機能で登録した変数の値の関係を、以下の図に示します。
 
-.. image:: /images/ja/diagram/hensu.png
+.. image:: ../../../images/ja/diagram/hensu.png
    :width: 6.68819in
    :height: 3.35972in
 
@@ -1338,7 +1338,7 @@ Ansible driver機能・操作方法説明
 | :menuselection:`基本コンソール-->オペレーション一覧` では、オーケストレータで実行する作業対象ホストに対するオペレーションを管理します。作業はITA基本コンソール内メニューより選択します。
 | 登録方法の詳細は、関連マニュアルの :doc:`../it_automation_base/basic_console` を参照してください。
 
-.. figure:: /images/ja/basic_console/operation_list/register.png
+.. figure:: ../../../images/ja/basic_console/operation_list/register.png
    :width: 800px
    :alt: サブメニュー画面（オペレーション一覧）
 
@@ -1359,7 +1359,7 @@ Ansible共通コンソール
    .. | 本書では、主にAnsible driverの動作に必要となる項目について説明します。
    .. | :doc:`../it_automation_base/basic_console` と合わせて参照してください。
 
-   .. figure:: /images/ja/ansible_common/devaicelist/device_list.png
+   .. figure:: ../../../images/ja/ansible_common/devaicelist/device_list.png
       :width: 800px
       :alt: サブメニュー画面（機器一覧）
 
@@ -1368,7 +1368,7 @@ Ansible共通コンソール
    .. #. | 「登録」-「登録開始」ボタンより、機器情報の登録を行います。
 #. | :guilabel:`＋ 登録` ボタンより、機器情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/devaicelist/registration_device_list.gif
+   .. figure:: ../../../images/ja/ansible_common/devaicelist/registration_device_list.gif
       :width: 800px
       :alt: 登録画面（機器一覧）
 
@@ -1890,7 +1890,7 @@ Ansible共通コンソール
         | Ansible Automation Controllerのawxユーザーから作業対象ホストにssh接続しています。
         | awxユーザーの公開鍵ファイルをログイン先ユーザーのauthorized_keysにコピーしてください。ブラウザよりAnsible Automation Controllerにログインし、「設定」→「ジョブ」→「分離されたジョブに公開するパス」に :file:`/var/lib/awx/.ssh/` を設定します。
       
-        .. image:: /images/ja/diagram/ansible_automationcontroller.png
+        .. image:: ../../../images/ja/diagram/ansible_automationcontroller.png
            :width: 4.97986in
            :height: 1.51304in
            :align: center
@@ -1906,7 +1906,7 @@ Ansible共通コンソール
 
 #. | :menuselection:`Ansible共通-->インターフェース情報` では、Ansible Core、AnsibleTower、Ansible Automation Controllerのいずれかを実行エンジンに選択し、ITAシステム・Ansible driverサーバと実行エンジンのサーバが共有するディレクトリのパスのおよび実行エンジンのサーバへの接続インターフェース情報のメンテナンス(閲覧/更新)を行います。
 
-   .. figure:: /images/ja/ansible_common/Interface_information/interface_information.png
+   .. figure:: ../../../images/ja/ansible_common/Interface_information/interface_information.png
       :width: 800px
       :alt: サブメニュー画面（インタフェース情報）
 
@@ -1914,7 +1914,7 @@ Ansible共通コンソール
 
 #. | :guilabel:`編集` ボタンより、インターフェース情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/Interface_information/registration_interface_information.gif
+   .. figure:: ../../../images/ja/ansible_common/Interface_information/registration_interface_information.gif
       :width: 800px
       :alt: 登録画面（インタフェース情報）
 
@@ -2537,7 +2537,7 @@ Ansible Automation Controller ホスト一覧
    | クラスタ構成の場合は、構成している全てのサーバを登録してください。
    | ただし、Ansible Automation Controllerのhop nodeの登録は不要です。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
+   .. figure:: ../../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.png
       :width: 800px
       :alt: サブメニュー画面（Ansible Automation Controller ホスト一覧）
    
@@ -2545,7 +2545,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、Ansible Automation Controllerのホスト情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
+   .. figure:: ../../../images/ja/ansible_common/ansible_automation_controller/ansible_automation_controller_host_list.gif
       :width: 800px
       :alt: 登録画面（Ansible Automation Controller ホスト一覧）
 
@@ -2657,7 +2657,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :menuselection:`Ansible共通-->グローバル変数管理` では、Playbookで利用するグローバル変数名のメンテナンス(閲覧/登録/更新/廃止)を行います。
 
-   .. figure:: /images/ja/ansible_common/global_variable/global_variable_list.png
+   .. figure:: ../../../images/ja/ansible_common/global_variable/global_variable_list.png
       :width: 800px
       :alt: サブメニュー画面（グローバル変数管理）
 
@@ -2665,7 +2665,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、グローバル変数管理情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/global_variable/global_variable_list.gif
+   .. figure:: ../../../images/ja/ansible_common/global_variable/global_variable_list.gif
       :width: 800px
       :alt: 登録画面（グローバル変数管理）
 
@@ -2720,7 +2720,7 @@ Ansible Automation Controller ホスト一覧
 #. | :menuselection:`Ansible共通-->ファイル管理` では、Playbook内で定義している各モジュールで使用するファイルとファイル埋込変数のメンテナンス(閲覧/登録/更新/廃止)を行います。
    | ファイル管理でファイル素材を登録しておくことで、Playbook内で定義している各モジュールで使用するファイルをファイル埋込変数名で指定することができます。
 
-   .. figure:: /images/ja/ansible_common/file_management/contents_list.png
+   .. figure:: ../../../images/ja/ansible_common/file_management/contents_list.png
       :width: 800px
       :alt: サブメニュー画面（ファイル管理）
 
@@ -2728,7 +2728,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、ファイル管理情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/file_management/contents_list.gif
+   .. figure:: ../../../images/ja/ansible_common/file_management/contents_list.gif
       :width: 800px
       :alt: 登録画面（ファイル管理）
    
@@ -2925,7 +2925,7 @@ Ansible Automation Controller ホスト一覧
 #. | :menuselection:`Ansible共通-->テンプレート管理` では、Playbookで定義しているtemplateモジュールやios_configモジュールなどのパラメータで使用するJinja2テンプレートファイルとテンプレート埋込変数のメンテナンス(閲覧/登録/更新/廃止)を行います。
    | テンプレート管理でテンプレート素材を登録しておくことで、Playbook内で定義しているtemplateモジュールなどで使用するtemplateファイルをテンプレート埋込変数で指定することができます。
 
-   .. figure:: /images/ja/ansible_common/template_management/template_list.png
+   .. figure:: ../../../images/ja/ansible_common/template_management/template_list.png
       :width: 800px
       :alt: サブメニュー画面（テンプレート管理）
 
@@ -2933,7 +2933,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、テンプレート管理情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/template_management/template_list.gif
+   .. figure:: ../../../images/ja/ansible_common/template_management/template_list.gif
       :width: 800px
       :alt: 登録画面（テンプレート管理）
 
@@ -3130,7 +3130,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :menuselection:`Ansible共通-->管理対象外変数リスト` では、ロールパッケージ管理のデフォルト変数定義やテンプレート管理の変数定義で定義している変数で、代入値自動登録の変数一覧に表示したくない変数のメンテナンス(参照/更新/廃止/復活)を行います。
 
-   .. figure:: /images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.png
+   .. figure:: ../../../images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.png
       :width: 800px
       :alt: サブメニュー画面（管理対象外変数リスト）
 
@@ -3138,7 +3138,7 @@ Ansible Automation Controller ホスト一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、オペレーション情報の登録を行います。
 
-   .. figure:: /images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.gif
+   .. figure:: ../../../images/ja/ansible_common/unmanaged_variables/unmanaged_var_list.gif
       :width: 800px
       :alt: 登録画面（管理対象外変数リスト）
 
@@ -3279,7 +3279,7 @@ Movement一覧
 
 #. | :menuselection:`Ansible-LegacyRole-->Movement一覧` ではMovement名のメンテナンス(閲覧/登録/更新/廃止)を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/movement_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_list/movement_list.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -3287,7 +3287,7 @@ Movement一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/registration_movement_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_list/registration_movement_list.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -3636,7 +3636,7 @@ Movement一覧
 #. | ユーザーが作成したロールパッケージファイルのメンテナンス(閲覧/登録/更新/廃止)を行います。
    | ロールパッケージファイルは、「roles」のある階層のディレクトリをzipにて圧縮したものを登録してください。ロールパッケージディレクトリ構成などは「 :ref:`general_operations_write_role_package_ansible_legacy_role` 」を参照してください。
 
-   .. figure:: /images/ja/ansible-legacyrole/role_packeage_management/role_package_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/role_packeage_management/role_package_list.png
       :width: 800px
       :alt: サブメニュー画面（ロールパッケージ管理）
    
@@ -3644,7 +3644,7 @@ Movement一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、ロールパッケージ情報の登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/role_packeage_management/registration_role_package_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/role_packeage_management/registration_role_package_list.gif
       :width: 800px
       :alt: 登録画面（ロールパッケージ管理）
    
@@ -3870,7 +3870,7 @@ Movement-ロール紐付
 
 #. | Movementで実行するロールパッケージのメンテナンス(閲覧/登録/更新/廃止)を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_role/movement_role.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_role/movement_role.png
       :width: 800px
       :alt: サブメニュー画面（Movement-ロール紐付）
 
@@ -3881,7 +3881,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement-ロール紐付の登録を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_role/registration_movement_role.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/movement_role/registration_movement_role.gif
       :width: 800px
       :alt: 登録画面（Movement-ロール紐付）
 
@@ -4028,7 +4028,7 @@ Movement-ロール紐付
 
 #. | :menuselection:`Ansible-LegacyRole-->変数ネスト管理` では、「 :ref:`general_operations_role_package_list_ansible_legacy_role_only` 」で登録したロールパッケージで定義されている多段変数内で繰返配列定義されているメンバー変数の配列の最大繰返数のメンテナンス(閲覧/更新)を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/variable_nest_management/nested_variable_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/variable_nest_management/nested_variable_list.png
       :width: 800px
       :alt: サブメニュー画面（変数ネスト管理）
    
@@ -4036,7 +4036,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`編集` ボタンより最大繰返数の更新を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/variable_nest_management/registration_nested_variable_list.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/variable_nest_management/registration_nested_variable_list.gif
       :width: 800px
       :alt: 登録画面（変数ネスト管理）
    
@@ -4173,7 +4173,7 @@ Movement-ロール紐付
 
 #. | メニュー作成機能で作成したパラメータシートの項目の設定値とMovementの変数を紐付けます。登録した情報は内部の処理により代入値管理と作業対象ホストに反映されます。
 
-   .. figure:: /images/ja/ansible-legacyrole/substitution_value_automatic_setting/substitution_value_auto_registration_setting_role.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/substitution_value_automatic_setting/substitution_value_auto_registration_setting_role.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -4181,7 +4181,7 @@ Movement-ロール紐付
 
 #. | :guilabel:`＋ 登録` ボタンより代入値自動登録設定を行います。
 
-   .. figure:: /images/ja/ansible-legacyrole/substitution_value_automatic_setting/registration_substitution_value_auto_registration_setting_role.gif
+   .. figure:: ../../../images/ja/ansible-legacyrole/substitution_value_automatic_setting/registration_substitution_value_auto_registration_setting_role.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -4329,7 +4329,7 @@ Movement-ロール紐付
    | パラメータシート(縦メニュー)のリピート設定されている項目とMovementの変数を紐付ける場合、 :menuselection:`Ansible-LegacyRole-->代入値自動登録設定` でパラメータシート(From) の代入順序を入力する必要があります。
    | パラメータシート(縦メニュー)と代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: /images/ja/diagram/parameter.png
+   .. figure:: ../../../images/ja/diagram/parameter.png
       :width: 600px
       :alt: パラメータシート(縦メニュー)使用時の代入値自動登録設定登録方法
 
@@ -4624,7 +4624,7 @@ Movement-ロール紐付
 
    #. | :menuselection:`メニュー作成-->メニュー定義・作成` で「Ansible共通:ファイル管理:ファイル埋込変数名」「Ansible共通:テンプレート管理:テンプレート埋込変数名」をパラメータシートの項目としてメニュー作成後、 :menuselection:`入力用-->サンプルパラメータシート(メニュー名)` で項目の設定値としてファイル埋込変数とテンプレート埋込変数を登録します。
       
-      .. figure:: /images/ja/menu_creation/menu_definition_and_create/legacyrole_menucreate.png
+      .. figure:: ../../../images/ja/menu_creation/menu_definition_and_create/legacyrole_menucreate.png
          :width: 800px
          :alt: メニュー定義・作成画面
 
@@ -4657,7 +4657,7 @@ Movement-ロール紐付
    #. | :menuselection:`Ansible-LegacyRole-->作業状態確認` の :guilabel:`代入値確認` ボタンで具体値に '{{ CPF_test }}' '{{ TPF_sample }}' が反映されていることが確認できます。
       | また、作業実行後、作業対象サーバに1. で登録したファイル素材とテンプレート素材が設置されます。
 
-      .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
+      .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
          :width: 800px
          :alt: 作業状態確認の代入値確認画面
 
@@ -4736,7 +4736,7 @@ Movement-ロール紐付
 
 | 作業の実行を指示します。Movement一覧、オペレーション一覧からそれぞれラジオボタンで選択し、 :guilabel:`作業実行` ボタンを押すと、「 :ref:`general_operations_check_operation_status` 」に遷移し、実行されます。
 
-.. figure:: /images/ja/ansible-legacyrole/execution/execution_screen.gif
+.. figure:: ../../../images/ja/ansible-legacyrole/execution/execution_screen.gif
    :width: 800px
    :alt: 作業実行画面
 
@@ -4814,7 +4814,7 @@ Movement-ロール紐付
 
 | 作業の実行状態を監視します。
 
-.. figure:: /images/ja/ansible-legacyrole/check_work_status/check_operation_status.png
+.. figure:: ../../../images/ja/ansible-legacyrole/check_work_status/check_operation_status.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -4892,7 +4892,7 @@ Movement-ロール紐付
 | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、作業一覧テーブルを表示します。
 | :guilabel:`詳細` ボタンで :ref:`general_operations_check_operation_status` に遷移し、実行状態の詳細を見ることができます。
 
-.. figure:: /images/ja/ansible-legacyrole/work_management/execution_list.png
+.. figure:: ../../../images/ja/ansible-legacyrole/work_management/execution_list.png
    :width: 800px
    :alt: サブメニュー画面（作業管理）
 
@@ -4908,7 +4908,7 @@ Movement-ロール紐付
 
 #. | :menuselection:`Ansible-LegacyRole-->作業対象ホスト` では、オペレーションに紐付くMovementおよびホストを閲覧できます。
 
-   .. figure:: /images/ja/ansible-legacyrole/work_taget_host/target_host.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/work_taget_host/target_host.png
       :width: 800px
       :alt: サブメニュー画面（作業対象ホスト）
 
@@ -4993,7 +4993,7 @@ Movement-ロール紐付
 #. | オペレーションに紐付くMovementで利用されるRole内の変数に代入する具体値を閲覧できます。
 
 
-   .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/substitution_value_list.png
+   .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/substitution_value_list.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 
@@ -6500,7 +6500,7 @@ Movement-ロール紐付
 *******************
 | アップロードさたロールパッケージ内のロールを、「 :ref:`general_operations_movement_details` 」のインクルード順序に従いroleで実行します。
 
-.. figure:: /images/ja/diagram/role_session.png
+.. figure:: ../../../images/ja/diagram/role_session.png
    :align: center
    :width: 8.85417in
    :height: 6.67187in
@@ -6589,7 +6589,7 @@ ITA readmeのフォーマット
 |
 | ITA readmeファイルと、代入値管理機能の関係を以下の図に示します。
 
-.. figure:: /images/ja/diagram/readme_format.png
+.. figure:: ../../../images/ja/diagram/readme_format.png
    :align: center
    :width: 8.85417in
    :height: 6.67187in
@@ -6773,7 +6773,7 @@ ITA readmeのフォーマット
 | 前提として、Ansible-Legacy Role（「roles」ディレクトリ）は外部から取得したものとします。
 | 以下は、「ita_readme」を用いてアップロードから結果確認までを表した全体イメージ図です。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example1.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example1.png
    :width: 1000px
    :alt: 全体イメージ図
 
@@ -6839,7 +6839,7 @@ ITA readmeのフォーマット
   | 外部(Galaxy等)から取得したAnsible-Legacy Role（「roles」ディレクトリ）は編集を加えずに利用いただくことが可能です。
   | そのため「ita_readme」を「roles」ディレクトリの外に置いて、Ansible-Legacy Role（「roles」ディレクトリ）内で使われている変数にパラメータを与えることが可能となっております。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example2.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example2.png
    :width: 1000px
    :alt: 観点１のイメージ図
 
@@ -6852,7 +6852,7 @@ ITA readmeのフォーマット
   |
   | 具体値を与える方法を以降の観点で説明します。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example3.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example3.png
    :width: 1000px
    :alt: 観点２のイメージ図
 
@@ -6862,7 +6862,7 @@ ITA readmeのフォーマット
   | 「roles」配下の「defaults/main.yml」はそのまま変更なくansibleに渡されます。
   | 変数定義およびデフォルト値はhost_varsで定義されない限り有効となります。(例：『VAR_A：aaa』)
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example4.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example4.png
    :width: 1000px
    :alt: 観点３のイメージ図
 
@@ -6871,7 +6871,7 @@ ITA readmeのフォーマット
 - | **観点４：「host_varsファイル」と「ITAのCMDB」について**
   | host_varsファイルはITAのCMDB（パラメータシート）から実行ごとに自動作成されます。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example5.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example5.png
    :width: 1000px
    :alt: 観点４のイメージ図
 
@@ -6885,7 +6885,7 @@ ITA readmeのフォーマット
   |
   | ※下図のとおり、変数「VAR_H」を「ita_readme」に記述することで変数の追加が可能
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example6.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example6.png
    :width: 1000px
    :alt: 観点５のイメージ図
 
@@ -6896,7 +6896,7 @@ ITA readmeのフォーマット
   | 例えば、「defaults/main.yml」に『VAR_C:[]』がある状態で、変数「VAR_C」に具体値を与えずに実行した場合length＝0となります。
   | 反対に、何らかの具体値を与えて実行した場合length＞0となります。（例：『VAR_X:sss』）
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example7.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example7.png
    :width: 1000px
    :alt: 観点６のイメージ図
 
@@ -6909,7 +6909,7 @@ ITA readmeのフォーマット
   | 変数「VAR_G」に具体値を付与せず実行すると、「defaults/main.yml」および「host_vars」に定義されずに動作するためdefined→falseとなります。
   | 反対に、変数「VAR_H」に具体値「kkk」を付与し実行すると、「host_vars」に定義されて動作するためdefined→trueとなります。
 
-.. figure:: /images/ja/diagram/ansible-legacyrole_usage_example8.png
+.. figure:: ../../../images/ja/diagram/ansible-legacyrole_usage_example8.png
    :width: 1000px
    :alt: 観点７のイメージ図
 
@@ -7922,7 +7922,7 @@ ITA独自変数を利用して作成したファイルの取り扱い
 
 | ITA独自変数を利用して作成したファイルの出力先ディレクトリパスはAnsible Automation ControllerのITA作業用ディレクトリ配下「/var/lib/exastro」に設定されます。Movement実行前に結果データをAnsible Automation Controller（各実行ノード）のITA作業用ディレクトリ配下「/var/lib/exastro」にファイル転送します。Movement実行でここに作成されたファイルは、Movement実行後に各Ansible Automation Controller（各実行ノード）より結果データに上書きモードでファイル転送します。同一ファイル名でファイルを作成している場合、更新したファイルが結果データに正しく反映されない場合があります。
 
-.. figure:: /images/ja/ansible_common/template_management/original_hensu.png
+.. figure:: ../../../images/ja/ansible_common/template_management/original_hensu.png
    :width: 7.49606in
    :height: 5.84593in
    :align: center

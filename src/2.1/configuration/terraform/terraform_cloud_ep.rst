@@ -26,7 +26,7 @@ Terraform Cloud/EP
 システム構成イメージ
 --------------------
 
-.. figure:: /images/ja/diagram/terraform_cloud_ep.png
+.. figure:: ../../../images/ja/diagram/terraform_cloud_ep.png
     :alt: Terraform Cloud/EP システム構成イメージ
     :width: 800px
 
@@ -121,7 +121,7 @@ Terraform Cloud/EP
 | ブラウザより、Terraform にログインし [User Settings] > [Tokens] > [Create an API token]の順に押下することで発行されます。
 
 
-.. figure:: /images/ja/terraform_cloud_ep_driver/common/create_user_token.png
+.. figure:: ../../../images/ja/terraform_cloud_ep_driver/common/create_user_token.png
     :alt: ユーザトークン発行
     :width: 800px
 
