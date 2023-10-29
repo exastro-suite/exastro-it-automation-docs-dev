@@ -14,7 +14,7 @@ ENV HTTP_PROXY=${HTTP_PROXY} \
 
 RUN echo $HTTP_PROXY
 RUN apt-get update
-RUN apt-get install -y ca-certificates fonts-ipafont plantuml lsof \
+RUN apt-get install -y ca-certificates fonts-ipafont plantuml lsof gettext \
  && update-ca-certificates
 
 # RUN mkdir -p /root/.pip/ && \
