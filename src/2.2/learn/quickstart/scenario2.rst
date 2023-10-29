@@ -28,7 +28,7 @@
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/オペレーション登録.png
+.. figure:: /../../images/learn/quickstart/scenario2/オペレーション登録.png
    :width: 1200px
    :alt: オペレーション登録
 
@@ -66,16 +66,16 @@
 .. glossary:: データシート
    Exastro IT Automation が使用する固定値のパラメータを管理するデータ構造のことです。
 
-.. _quickstart_create_datasheet:
+.. _quickstart_create_datasheet_v2.1:
 
 データシートの作成
 ^^^^^^^^^^^^^^^^^^
 
 | データシートを作成します。
 
-| :menuselection:`メニュー作成 --> メニュー定義・作成` から、データシートを登録します。
+| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、データシートを登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/データシートの作成.gif
+.. figure:: /../../images/learn/quickstart/scenario2/データシートの作成.gif
    :width: 1200px
    :alt: データシートの作成
 
@@ -106,7 +106,7 @@
    * - 備考
      - 
 
-.. list-table:: メニュー作成情報の設定値
+.. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
    :header-rows: 1
 
@@ -133,7 +133,7 @@
 | パラメータリスト内に表示するパラメータを設定します。
 | :menuselection:`入力用 --> 状態` から、パッケージのあるべきインストール状態を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/選択肢を登録.gif
+.. figure:: /../../images/learn/quickstart/scenario2/選択肢を登録.gif
    :width: 1200px
    :alt: 選択肢を登録
 
@@ -157,12 +157,12 @@
 | 例えば、IP アドレスやユーザなどのように、一つの機器上に複数の値を管理する必要がある場合があります。
 | こういったパラメータをテーブル形式で管理する場合、IPアドレスやユーザが増えるごとにテーブル内の項目を増やす必要があるため、パラメータシートのフォーマット修正が都度必要となり、管理が煩雑になってしまいます。
 
-| そこで、本シナリオでは縦メニューというパラメータシートを使い、複数のパラメータを管理する方法を紹介します。
+| そこで、本シナリオではバンドルというパラメータシートを使い、複数のパラメータを管理する方法を紹介します。
 
-| :menuselection:`メニュー作成 --> メニュー定義・作成` から、パラメータシートを登録します。
-| 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_create_datasheet` で登録したデータシートを参照できるようになります。
+| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
+| 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_create_datasheet_v2.1` で登録したデータシートを参照できるようになります。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ項目設定.gif
+.. figure:: /../../images/learn/quickstart/scenario2/パラメータ項目設定.gif
    :width: 1200px
    :alt: パラメータ項目設定
 
@@ -212,13 +212,13 @@
      - 
      - 
 
-| メニュー作成情報で :menuselection:`縦メニュー利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+| パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/メニュー作成情報設定.png
+.. figure:: /../../images/learn/quickstart/scenario2/パラメータシート作成情報設定.png
    :width: 1200px
-   :alt: メニュー作成情報設定
+   :alt: パラメータシート作成情報設定
 
-.. list-table:: メニュー作成情報の設定値
+.. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
    :header-rows: 1
    :class: filter-table
@@ -235,7 +235,7 @@
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
    * - 表示順序
      - :kbd:`2`
-   * - 縦メニュー利用
+   * - バンドル利用
      - 「利用する」にチェックを入れる(有効)
    * - 最終更新日時
      - (自動入力)
@@ -265,7 +265,7 @@ Movement 登録
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/Movement登録.png
+.. figure:: /../../images/learn/quickstart/scenario2/Movement登録.png
    :width: 1200px
    :alt: Movement登録
 
@@ -291,7 +291,7 @@ Movement と Ansible Role の紐付け
 | :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` から、Movement と Ansible Role パッケージの紐付けを行います。
 | 本シナリオでは、 `RPM管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_rpm/OS_build>`_ を利用します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/MovementとRole紐づけ.png
+.. figure:: /../../images/learn/quickstart/scenario2/MovementとRole紐づけ.png
    :width: 1200px
    :alt: MovementとRole紐づけ
 
@@ -335,7 +335,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`Ansible-LegacyRole --> 変数ネスト管理` から、管理するパッケージ数の上限値の設定を行います。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/変数ネスト管理.gif
+.. figure:: /../../images/learn/quickstart/scenario2/変数ネスト管理.gif
    :width: 1200px
    :alt: 変数ネスト管理
 
@@ -359,7 +359,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、導入パッケージパラメータシートのパッケージ名と状態の項目に入るパラメータと Ansible Role パッケージの :kbd:`VAR_RH_rpm` 内の変数の紐付けを行います。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/代入値自動登録設定.png
+.. figure:: /../../images/learn/quickstart/scenario2/代入値自動登録設定.png
    :width: 1200px
    :alt: 代入値自動登録設定
 
@@ -503,7 +503,7 @@ Movement と Ansible Role の紐付け
 | これだけの項目の設定に設定値を入力するのは Web 画面の操作では、かなり苦労することでしょう。
 | このような大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/代入値自動登録設定_一括登録.gif
+.. figure:: /../../images/learn/quickstart/scenario2/代入値自動登録設定_一括登録.gif
    :width: 1200px
    :alt: 代入値自動登録設定(一括登録)
 
@@ -519,7 +519,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`入力用 --> 導入パッケージ` から、ホストに対するパラメータを登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ設定.gif
+.. figure:: /../../images/learn/quickstart/scenario2/パラメータ設定.gif
    :width: 1200px
    :alt: パラメータ設定
 
@@ -568,7 +568,7 @@ Movement と Ansible Role の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-   .. figure:: ../../../../images/learn/quickstart/scenario2/作業実行.gif
+   .. figure:: /../../images/learn/quickstart/scenario2/作業実行.gif
       :width: 1200px
       :alt: 作業実行
 
@@ -599,7 +599,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`入力用 --> 導入パッケージ` から、新たなパラメータを登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ設定2.png
+.. figure:: /../../images/learn/quickstart/scenario2/パラメータ設定2.png
    :width: 1200px
    :alt: パラメータ設定2
 
@@ -664,7 +664,7 @@ Movement と Ansible Role の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-   .. figure:: ../../../../images/learn/quickstart/scenario2/作業実行2.gif
+   .. figure:: /../../images/learn/quickstart/scenario2/作業実行2.gif
       :width: 1200px
       :alt: 作業実行2
 
@@ -699,7 +699,7 @@ Movement と Ansible Role の紐付け
 | 本シナリオでは、RHEL8 サーバ上のパッケージを管理するシナリオを通して、Exastro IT Automation のパラメータシートの運用方法について紹介をしました。
 
 - 入力値が確定している様な場合は、データシートを利用して入力ミスを防ぐことが可能です。
-- 複数かつ数が不定のパラメータを管理する場合は、「縦メニュー」を利用することで柔軟なパラメータ管理が行なえます。
+- 複数かつ数が不定のパラメータを管理する場合は、「バンドル」を利用することで柔軟なパラメータ管理が行なえます。
 - 大量のパラメータを設定する場合には、「全件ダウンロード・ファイル一括登録」を利用することでファイルからのデータ登録を行うことが可能です。
 
 | :doc:`次のシナリオ <scenario3>` では、一連の作業を実行する方法について紹介をします。

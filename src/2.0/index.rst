@@ -7,18 +7,15 @@ Exastro IT Automation Documentation 2.0
    </div>
    <div id="multiColumnIndex">
    
-日本語
-======
-
 .. toctree::
    :maxdepth: 2
 
-   ja/configuration/index
-   ja/installation/index
-   ja/learn/index
-   ja/manuals/index
-   ja/reference/index
-   ja/contribute/index
+   configuration/index
+   installation/index
+   learn/index
+   manuals/index
+   reference/index
+   contribute/index
 
 .. raw:: html
 
