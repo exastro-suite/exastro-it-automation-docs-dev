@@ -16,7 +16,7 @@ ITA独自変数を利用して作成したファイルの取り扱い
 
 | ITA独自変数を利用して作成したファイルの出力先ディレクトリパスはAnsible Automation ControllerのITA作業用ディレクトリ配下「/var/lib/exastro」に設定されます。Movement実行前に結果データをAnsible Automation Controller（各実行ノード）のITA作業用ディレクトリ配下「/var/lib/exastro」にファイル転送します。Movement実行でここに作成されたファイルは、Movement実行後に各Ansible Automation Controller（各実行ノード）より結果データに上書きモードでファイル転送します。同一ファイル名でファイルを作成している場合、更新したファイルが結果データに正しく反映されない場合があります。
 
-.. figure:: ../../images/ja/ansible_common/template_management/original_hensu.png
+.. figure:: /images/ja/ansible_common/template_management/original_hensu.png
    :width: 7.49606in
    :height: 5.84593in
    :align: center

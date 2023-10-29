@@ -42,7 +42,7 @@ DashBoard
 
 | DashBoardにはメニューグループの一覧が表示されます。
 
-.. figure:: ../../../images/ja/management_console/menu_group_list/DashBoard.png
+.. figure:: /images/ja/management_console/menu_group_list/DashBoard.png
    :alt: DashBoard
    :width: 800px
    :align: center
@@ -54,7 +54,7 @@ DashBoard
 | メインメニューのDashBoardから管理コンソールを選ぶことで、管理コンソールへ遷移出来ます。
 | 左側のメニューグループタブから管理コンソールを選ぶことで、管理コンソール内のメニューを指定して遷移することも出来ます。
 
-.. figure:: ../../../images/ja/management_console/menu_group_list/MainMenu.gif
+.. figure:: /images/ja/management_console/menu_group_list/MainMenu.gif
    :alt: メインメニュー
    :width: 800px
    :align: center
@@ -65,7 +65,7 @@ DashBoard
 | ITAシステムが提供する各メニュー画面は基本的に同じ要素で構成されています。
 | その構成要素は次の通りです。
 
-.. figure:: ../../../images/ja/diagram/画面構成.png
+.. figure:: /images/ja/diagram/画面構成.png
    :alt: 画面構成
    :align: center
    :width: 800px
@@ -112,7 +112,7 @@ DashBoard
   | 登録内容は各メニューによって異なりますので、各利用手順マニュアルを参照して下さい。
   | エクセル形式、JSON形式のファイルを使用する一括登録については「\ :ref:`management_console_download_all_and_edit_file_uploads`\ 」をご確認下さい。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_register.gif
+  .. figure:: /images/ja/management_console/menu_group_list/menu_register.gif
      :alt: メインメニュー
      :width: 800px
      :align: center
@@ -135,7 +135,7 @@ DashBoard
   .. note:: | **プルダウンによる入力項目について**
             | 登録/更新時の入力項目で、プルダウンによる選択が可能な項目は、以下の仕様となっています。
 
-            .. figure:: ../../../images/ja/management_console/menu_group_list/プルダウンによる入力項目.gif
+            .. figure:: /images/ja/management_console/menu_group_list/プルダウンによる入力項目.gif
                :alt:  プルダウンによる入力項目
                :align: center
                :width: 6in
@@ -151,7 +151,7 @@ DashBoard
   | 検索条件、検索項目はメニューごとに異なります。ここでは共通機能について説明します。
   | 「一覧」タブ内右上の \ :guilabel:`フィルタ|開く/閉じる`\  をクリックすることで表示／非表示の切替が可能です。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/表示フィルタ画面.gif
+  .. figure:: /images/ja/management_console/menu_group_list/表示フィルタ画面.gif
      :alt: 表示フィルタ画面
      :align: center
      :width: 800px
@@ -181,7 +181,7 @@ DashBoard
   | 登録されている項目の更新を行います。
   | 編集内容は各メニューによって異なりますので、各利用手順マニュアルを参照して下さい。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_update.gif
+  .. figure:: /images/ja/management_console/menu_group_list/menu_update.gif
      :alt: 編集の操作
      :align: center
      :width: 800px
@@ -216,7 +216,7 @@ DashBoard
      | 登録/編集画面に遷移したら \ :guilabel:`複製`\  をクリックします。
   #. | 対象項目の値を反映した状態の新規登録用レコードが表示されます。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/menu_copy.gif
+  .. figure:: /images/ja/management_console/menu_group_list/menu_copy.gif
      :alt: 編集の操作
      :align: center
      :width: 800px
@@ -233,7 +233,7 @@ DashBoard
      | もしくは、「一覧」タブの対象項目の \ :guilabel:`…`\  > \ :guilabel:`履歴`\  を順にクリックすると変更履歴を表示することが出来ます。
   #. | 変更実施日時が新しい順に一覧表示され、前回との変更箇所がオレンジ色太文字で表示されます。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/変更履歴操作.gif
+  .. figure:: /images/ja/management_console/menu_group_list/変更履歴操作.gif
      :alt: 変更履歴の操作
      :width: 800px
      :align: center
@@ -249,7 +249,7 @@ DashBoard
 
      - | データシート「マスタ001」
 
-       .. figure:: ../../../images/ja/menu_creation/menu_definition_and_create/データシート「マスタ001」.png
+       .. figure:: /images/ja/menu_creation/menu_definition_and_create/データシート「マスタ001」.png
           :alt: 「メニュー定義・作成」メニューで作成したデータシート
           :align: center
           :width: 6in
@@ -258,7 +258,7 @@ DashBoard
 
      - | パラメータシート「ぱらむ001」
 
-       .. figure:: ../../../images/ja/management_console/menu_group_list/パラメータシート「ぱらむ001」.png
+       .. figure:: /images/ja/management_console/menu_group_list/パラメータシート「ぱらむ001」.png
           :alt: 「メニュー定義・作成」メニューで作成したパラメータシート
           :align: center
           :width: 6in
@@ -271,7 +271,7 @@ DashBoard
   #. | 入力用メニューグループ>マスタ001メニューからパラメータ「マスタ」の値を編集し「mas1-3」で更新を行います。
   #. | 入力用メニューグループ>ぱらむ001メニューから先ほど登録した対象の「ぱらむA」を編集し、更新を行います。
 
-     .. figure:: ../../../images/ja/management_console/menu_group_list/プルダウン選択を含んだ変更履歴の操作.gif
+     .. figure:: /images/ja/management_console/menu_group_list/プルダウン選択を含んだ変更履歴の操作.gif
         :alt: プルダウン選択を含んだ変更履歴の操作
         :align: center
         :width: 800px
@@ -282,14 +282,14 @@ DashBoard
 
   #. | 以下のような結果になります。
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/マスタ001変更履歴.png
+  .. figure:: /images/ja/management_console/menu_group_list/マスタ001変更履歴.png
      :alt:  データシート「マスタ001」の変更履歴
      :align: center
      :width: 5in
 
      データシート「マスタ001」の変更履歴
 
-  .. figure:: ../../../images/ja/management_console/menu_group_list/ぱらむ001変更履歴.png
+  .. figure:: /images/ja/management_console/menu_group_list/ぱらむ001変更履歴.png
      :alt:  パラメータシート「ぱらむ001」の変更履歴
      :align: center
      :width: 5in
@@ -307,7 +307,7 @@ DashBoard
 
    .. tab:: Excel
 
-      .. figure:: ../../../images/ja//management_console/menu_group_list/file_all_register.gif
+      .. figure:: /images/ja//management_console/menu_group_list/file_all_register.gif
          :alt: ファイル一括登録の操作(Excel)
          :align: center
          :width: 800px
@@ -325,7 +325,7 @@ DashBoard
 
    .. tab:: JSON
 
-      .. figure:: ../../../images/ja//management_console/menu_group_list/json_register.gif
+      .. figure:: /images/ja//management_console/menu_group_list/json_register.gif
          :alt: ファイル一括登録の操作(JSON)
          :align: center
          :width: 800px
@@ -473,7 +473,7 @@ DashBoard
 
 | 「Web表示最大行数」と「Web表示前確認行数」には次のような関係があります。
 
-.. figure:: ../../../images/ja/diagram/Web表示最大行数の処理概要.png
+.. figure:: /images/ja/diagram/Web表示最大行数の処理概要.png
    :alt:  Web表示最大行数の処理概要
    :align: center
    :width: 6in
@@ -492,7 +492,7 @@ DashBoard
 
 | Exastro Platform「ロール管理」で登録したロールと「:ref:`menu_list`」で登録したメニューがリストボックスに表示されるので（下図 ①,②）、それぞれを選択し、紐付タイプ（下図 ③）を選択します。
 
-.. figure:: ../../../images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
+.. figure:: /images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
    :alt:  グループメニュー権限の設定画面（ロール・メニュー紐付管理）
    :align: center
    :width: 5in

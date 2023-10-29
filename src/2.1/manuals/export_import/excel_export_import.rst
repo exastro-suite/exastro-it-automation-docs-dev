@@ -76,7 +76,7 @@ Excel一括エクスポート
 | (2) エクスポートするメニューを選択します
 | 表示されるメニューは :menuselection:`ロール・メニュー紐付管理` メニューの『紐付』項目が『メンテナンス可』もしくは『閲覧のみ』かつ、編集用Excelファイルのあるメニューのみです。
 
-.. figure:: ../../../images/ja/export_import/excel_export_menu_list.png
+.. figure:: /images/ja/export_import/excel_export_menu_list.png
    :width: 800px
    :alt: Excel一括エクスポート メニューリスト
    :align: center
@@ -86,7 +86,7 @@ Excel一括エクスポート
 | (3) メニューを選択後、《エクスポート》ボタンを押下します。
 | エクスポート処理の実行№が表示されるので、 :menuselection:`Excel一括エクスポート・インポート管理` メニューで処理のステータスを確認してください。
 
-.. figure:: ../../../images/ja/export_import/excel_export_execute.gif
+.. figure:: /images/ja/export_import/excel_export_execute.gif
    :width: 800px
    :alt: Excel一括エクスポート エクスポート実行
    :align: center
@@ -203,7 +203,7 @@ Excel一括インポート
 
    #. | 《ファイル選択》ボタンを押下し、インポートするzipをアップロードします。
 
-      .. figure:: ../../../images/ja/export_import/excel_upload_execute.gif
+      .. figure:: /images/ja/export_import/excel_upload_execute.gif
          :width: 800px
          :alt: Excel一括インポート アップロード実行
          :align: center
@@ -215,7 +215,7 @@ Excel一括インポート
       | インポートする必要がないメニューは、チェックを外してください。
       | インポート処理の実行№が表示されるので、 :menuselection:`Excel一括エクスポート・インポート管理` メニューで処理のステータスを確認してください。
 
-      .. figure:: ../../../images/ja/export_import/excel_import_menu_list.png
+      .. figure:: /images/ja/export_import/excel_import_menu_list.png
          :width: 800px
          :alt: Excel一括インポートメニューリスト
          :align: center
@@ -238,7 +238,7 @@ Excel一括エクスポート・インポート管理
 
 |  :menuselection:`Excel一括エクスポート` メニューで実行したエクスポートと、 :menuselection:`Excel一括インポート` メニューで実行したインポートの状況を管理します。
 
-.. figure:: ../../../images/ja/export_import/excel_export_import_list.png
+.. figure:: /images/ja/export_import/excel_export_import_list.png
    :width: 800px
    :alt: Excel一括エクスポート・インポート管理
    :align: center

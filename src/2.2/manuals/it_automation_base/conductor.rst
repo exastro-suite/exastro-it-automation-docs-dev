@@ -102,7 +102,7 @@ Conductorインターフェース情報
 
 1. :menuselection:`「Conductorインターフェース情報」メニュー` では、Conductorから実行される各Movementで共有するディレクトリのパスと :menuselection:`「Conductor作業確認」メニュー` のリフレッシュ間隔を設定します。
 
-   .. figure:: ../../../images/ja/conductor/conductor_interface/conductor_interface.png
+   .. figure:: /images/ja/conductor/conductor_interface/conductor_interface.png
       :width: 800px
       :alt: Conductorインターフェース情報
 
@@ -133,7 +133,7 @@ Conductor通知先定義
 
 1. :menuselection:`「Conductor通知先定義」` メニューでは、Conductor で作業時に実行される通知に関する定義を設定出来ます。
 
-   .. figure:: ../../../images/ja/conductor/conductor_notice/conductor_notice.png
+   .. figure:: /images/ja/conductor/conductor_notice/conductor_notice.png
       :width: 800px
       :alt: Conductor通知先定義
 
@@ -281,7 +281,7 @@ Conductor一覧
 
    | :menuselection:`「一覧」サブメニュー` の  :guilabel:`詳細` をクリックすると、 :ref:`conductor_editandexcute` 画面へ遷移出来ます。
 
-.. figure:: ../../../images/ja/conductor/conductor_class_list/conductor-list.gif
+.. figure:: /images/ja/conductor/conductor_class_list/conductor-list.gif
    :width: 800px
    :alt: 「Conductor一覧」メニュー
 
@@ -327,7 +327,7 @@ Conductor編集/作業実行
 * | Conductor 名称、作業フローを構成する各パーツ（以下、Node）を登録します。
 * | 選択したNodeにより、画面右上（詳細情報）に表示される内容が変わります。
   
-.. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_edit_mode.png
+.. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_edit_mode.png
    :width: 800px
    :alt: Conductor編集/作業実行メニュー画面(編集モード)
 
@@ -431,31 +431,31 @@ Node一覧
 
 
 
-.. |image1| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_start.png
+.. |image1| image:: /images/ja/conductor/condudtor_edit_and_excute/conductor_start.png
    :width: 1.1811in
    :height: 0.4086in
-.. |image2| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_end.png
+.. |image2| image:: /images/ja/conductor/condudtor_edit_and_excute/conductor_end.png
    :width: 1.1811in
    :height: 0.4086in
-.. |image3| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_pause.png
+.. |image3| image:: /images/ja/conductor/condudtor_edit_and_excute/conductor_pause.png
    :width: 1.1811in
    :height: 0.31287in
-.. |image4| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/node_conductor_call.png
+.. |image4| image:: /images/ja/conductor/condudtor_edit_and_excute/node_conductor_call.png
    :width: 1.22047in
    :height: 0.34259in
-.. |image6| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_branch.png
+.. |image6| image:: /images/ja/conductor/condudtor_edit_and_excute/conductor_branch.png
    :width: 1.1811in
    :height: 0.67068in
-.. |image7| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/parallel_branch.png
+.. |image7| image:: /images/ja/conductor/condudtor_edit_and_excute/parallel_branch.png
    :width: 1.1811in
    :height: 0.9765in
-.. |image8| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/parallel_merge.png
+.. |image8| image:: /images/ja/conductor/condudtor_edit_and_excute/parallel_merge.png
    :width: 1.1811in
    :height: 0.67667in
-.. |image9| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/status_file_branch.png
+.. |image9| image:: /images/ja/conductor/condudtor_edit_and_excute/status_file_branch.png
    :width: 1.12963in
    :height: 0.59834in
-.. |image10| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/node_movement_alr.png
+.. |image10| image:: /images/ja/conductor/condudtor_edit_and_excute/node_movement_alr.png
    :width: 1.1811in
    :height: 1.49864in
 
@@ -464,7 +464,7 @@ Node一覧
 
   * | 登録/更新を行うには、全てのNodeのIN/OUTが接続されている必要があります。
 
-  .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/Node制約事項正常例Parallel_branch.png
+  .. figure:: /images/ja/conductor/condudtor_edit_and_excute/Node制約事項正常例Parallel_branch.png
       :width: 600px
       :alt: Node制約事項（正常例：Parallel branch）
 
@@ -472,7 +472,7 @@ Node一覧
 
   * | Parallel mergeを使用する場合、Parallel branchを使用している必要があります。
 
-  .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例Parallel_branch.png
+  .. figure:: /images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例Parallel_branch.png
      :width: 600px
      :alt: Node制約事項（NG例：Parallel branch）
 
@@ -480,7 +480,7 @@ Node一覧
 
   * | Conditional branch で分岐されたフローについてParallel mergeでマージする事はできません。
 
-  .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例Conditional_branch.png
+  .. figure:: /images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例Conditional_branch.png
      :width: 600px
      :alt: Node制約事項（NG例：Conditional branch）
 
@@ -488,7 +488,7 @@ Node一覧
 
   * | Parallel branch、Conditional branch、Parallel merge、Conductor pauseについて、連続して同じ種類のNodeを接続する事はできません。
   
-  .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例連続使用.png
+  .. figure:: /images/ja/conductor/condudtor_edit_and_excute/Node制約事項NG例連続使用.png
      :width: 600px
      :alt: Node制約事項（NG例：連続使用）
 
@@ -518,7 +518,7 @@ Node一覧
 
      * | :guilabel:`通知設定` ボタンをクリックすると「通知設定」のポップアップが表示されます。
 
-     .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_notice_popup.png
+     .. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_notice_popup.png
         :width: 600px
         :alt: Conductor通知設定ポップアップ
 
@@ -858,7 +858,7 @@ Node一覧
      * Nodeを複数選択する方法については、ドラッグアンドドロップでの範囲選択の他、「shift」キーをクリックしながらの選択が可能です。
      * タブ内の項目は以下の通りです。
      
-     .. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_align_nodes.gif
+     .. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_align_nodes.gif
         :width: 800px
         :alt: Nodeの整列
 
@@ -915,28 +915,28 @@ Node一覧
           - 選択
           - \-
 
-.. |image11| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/left_align.png
+.. |image11| image:: /images/ja/conductor/condudtor_edit_and_excute/left_align.png
    :width: 0.3937in
    :height: 0.3937in
-.. |image12| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/LR_Center_align.png
+.. |image12| image:: /images/ja/conductor/condudtor_edit_and_excute/LR_Center_align.png
    :width: 0.3937in
    :height: 0.43032in
-.. |image13| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/right_align.png
+.. |image13| image:: /images/ja/conductor/condudtor_edit_and_excute/right_align.png
    :width: 0.3937in
    :height: 0.41045in
-.. |image14| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/top_align.png
+.. |image14| image:: /images/ja/conductor/condudtor_edit_and_excute/top_align.png
    :width: 0.3937in
    :height: 0.38532in
-.. |image15| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/TB_Center_align.png
+.. |image15| image:: /images/ja/conductor/condudtor_edit_and_excute/TB_Center_align.png
    :width: 0.3937in
    :height: 0.41082in
-.. |image16| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/bottom_align.png
+.. |image16| image:: /images/ja/conductor/condudtor_edit_and_excute/bottom_align.png
    :width: 0.3937in
    :height: 0.40276in
-.. |image17| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/LR_Equal_space.png
+.. |image17| image:: /images/ja/conductor/condudtor_edit_and_excute/LR_Equal_space.png
    :width: 0.37391in
    :height: 0.39758in
-.. |image18| image:: ../../../images/ja/conductor/condudtor_edit_and_excute/TB_Equal_space.png
+.. |image18| image:: /images/ja/conductor/condudtor_edit_and_excute/TB_Equal_space.png
    :width: 0.3937in
    :height: 0.40298in
 
@@ -1002,7 +1002,7 @@ Node一覧
 
 | 「Conductor一覧」メニューから遷移した場合や、登録が完了した場合は、以下の画面が表示されます。
 
-.. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_view_mode.png
+.. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_view_mode.png
    :width: 800px
    :alt: 「Conductor編集/作業実行」メニュー（「閲覧」モード）
 
@@ -1031,7 +1031,7 @@ Node一覧
 
 | 閲覧モードにて :guilabel:`編集` をクリックした場合は、以下の画面が表示されます。
 
-.. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_update_mode.png
+.. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_update_mode.png
    :width: 800px
    :alt: 「Conductor編集/作業実行」メニュー（「更新」モード）
 
@@ -1104,7 +1104,7 @@ Conductor作業実行について
      - ボタン
      - 
 
-.. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_execute.gif
+.. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_execute.gif
    :width: 800px
    :alt: 作業実行
 
@@ -1151,7 +1151,7 @@ Conductor作業確認
 *  | 「 :ref:`conductor_conductor_job_list_v2.1` 」の :guilabel:`詳細` をクリックすると、選択したConductor作業の処理状況をモニター表示します。状況に応じて「予約取消」、「停止解除」や「緊急停止」の投入が可能です。
    | ※「Movement」、「Conductor Call」のNodeについては、Node選択後に、画面右側に表示される :guilabel:`作業情報確認` からも「作業状態確認」メニューに遷移出来ます。
 
-.. figure:: ../../../images/ja/conductor/condudtor_edit_and_excute/conductor_job_detail.gif
+.. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_job_detail.gif
    :width: 800px
    :alt: Conductor作業実行
 
@@ -1191,13 +1191,13 @@ Conductor作業確認
         - ボタン
         - 予約日時が設定されていて、かつ未実行の場合に表示される。
 
-.. figure:: ../../../images/ja/conductor/conductor_verification/conductor_pause_status.png
+.. figure:: /images/ja/conductor/conductor_verification/conductor_pause_status.png
    :width: 800px
    :alt: Conductor実行中/Conductor Pause状態画面
 
    Conductor実行中/Conductor Pause状態画面
    
-.. figure:: ../../../images/ja/conductor/conductor_verification/conductor_reserved.png
+.. figure:: /images/ja/conductor/conductor_verification/conductor_reserved.png
    :width: 800px
    :alt: 日時予約されたConductor実行画面（未実行）
 
@@ -1338,7 +1338,7 @@ Conductor定期作業実行
 
 3. :guilabel:`登録` ボタンより、定期作業実行の登録を行います。 
 
-.. figure:: ../../../images/ja/conductor/conductor_scheduled_execution/conductor_scheduled_execution_register.gif
+.. figure:: /images/ja/conductor/conductor_scheduled_execution/conductor_scheduled_execution_register.gif
    :width: 800px
    :alt: Conductor定期作業実行登録
 
@@ -1346,7 +1346,7 @@ Conductor定期作業実行
 
    スケジュールの詳細は :guilabel:`スケジュール設定` ボタンをクリックすることで表示されるウインドウからのみ設定できます。
 
-.. figure:: ../../../images/ja/conductor/conductor_scheduled_execution/conductor_scheduled_execution.png
+.. figure:: /images/ja/conductor/conductor_scheduled_execution/conductor_scheduled_execution.png
    :width: 600px
    :alt: Conductor定期作業実行 スケジュール設定
 
@@ -1507,7 +1507,7 @@ Conductor通知先定義設定例
    | 終了日時              |                                                  |
    +-----------------------+--------------------------------------------------+
 
-.. figure:: ../../../images/ja/conductor/conductor_notice/conductor_teams_notice.png
+.. figure:: /images/ja/conductor/conductor_notice/conductor_teams_notice.png
    :alt: Teams通知表示例
 
    Teams通知表示例
@@ -1549,7 +1549,7 @@ Conductor通知先定義設定例
    | 終了日時              |                                                  |
    +-----------------------+--------------------------------------------------+
 
-.. figure:: ../../../images/ja/conductor/conductor_notice/conductor_slack_notice.png
+.. figure:: /images/ja/conductor/conductor_notice/conductor_slack_notice.png
    :alt: Slack通知表示例
 
    Slack通知表示例

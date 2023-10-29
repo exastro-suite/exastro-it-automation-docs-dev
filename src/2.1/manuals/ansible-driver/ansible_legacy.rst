@@ -202,7 +202,7 @@ Movement一覧
 
 #. | Movement情報のメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/movement_list/movement_list.png
+   .. figure:: /images/ja/ansible-legacy/movement_list/movement_list.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -210,7 +210,7 @@ Movement一覧
 
 #. | :guilabel:`登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/movement_list/registration_movement_list.gif
+   .. figure:: /images/ja/ansible-legacy/movement_list/registration_movement_list.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -337,7 +337,7 @@ Playbook素材集
 #. | ユーザが作成したPlaybookのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Playbookの記述など関しては、「 :ref:`ansible_legacy_write_playbook_ansible_legacy` 」を参照してください。
 
-   .. figure:: ../../../images/ja/ansible-legacy/playbook_list/playbook_list.png
+   .. figure:: /images/ja/ansible-legacy/playbook_list/playbook_list.png
       :width: 800px
       :alt: サブメニュー画面（Playbook素材集）
 
@@ -345,7 +345,7 @@ Playbook素材集
 
 #. | :guilabel:`登録` ボタンより、Playbookの登録を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/playbook_list/registration_playbook_list.gif
+   .. figure:: /images/ja/ansible-legacy/playbook_list/registration_playbook_list.gif
       :width: 800px
       :alt: 登録画面（Playbook素材集）
 
@@ -396,7 +396,7 @@ Movement-Playbook紐付
 
 #. | MovementでインクルードするPlaybookのメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/movement_playbook_link/movement_playbook_link.png
+   .. figure:: /images/ja/ansible-legacy/movement_playbook_link/movement_playbook_link.png
       :width: 800px
       :alt: サブメニュー画面（Movement-Playbook紐付）
 
@@ -404,7 +404,7 @@ Movement-Playbook紐付
 
 #. | :guilabel:`登録` ボタンより、MovementでインクルードするPlaybookの登録を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/movement_playbook_link/registration_movement_playbook_link.gif
+   .. figure:: /images/ja/ansible-legacy/movement_playbook_link/registration_movement_playbook_link.gif
       :width: 800px
       :alt: 登録画面（Movement-Playbook紐付）
 
@@ -460,7 +460,7 @@ Movement-Playbook紐付
 #. | パラメータシートの項目の設定値とMovementの変数との紐付管理（閲覧/登録/更新/廃止）を行います。
    | 登録した情報は作業実行により :menuselection:`Ansible-Legacy --> 代入値管理` と :menuselection:`Ansible-Legacy --> 作業対象ホスト` に反映されます。
 
-   .. figure:: ../../../images/ja/ansible-legacy/substitution_value_automatic_setting/substitution_value_auto_registration_setting.png
+   .. figure:: /images/ja/ansible-legacy/substitution_value_automatic_setting/substitution_value_auto_registration_setting.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -468,7 +468,7 @@ Movement-Playbook紐付
 
 #. | :guilabel:`登録` ボタンより、パラメータシートの項目の設定値とMovementの変数との紐付登録を行います。
 
-   .. figure:: ../../../images/ja/ansible-legacy/substitution_value_automatic_setting/registration_substitution_value_automatic_setting.gif
+   .. figure:: /images/ja/ansible-legacy/substitution_value_automatic_setting/registration_substitution_value_automatic_setting.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -556,7 +556,7 @@ Movement-Playbook紐付
    | パラメータシート（バンドル）のリピート設定されている項目とMovementの変数を紐付ける場合、 :menuselection:`Ansible-Legacy --> 代入値自動登録設定` でパラメータシート（From） の代入順序を入力する必要があります。
    | パラメータシート（バンドル）と代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: ../../../images/ja/diagram/parameter.png
+   .. figure:: /images/ja/diagram/parameter.png
       :width: 600px
       :alt: パラメータシート（バンドル）使用時の代入値自動登録設定登録方法
 
@@ -672,7 +672,7 @@ Movement-Playbook紐付
 
    #. | :menuselection:`パラメータシート定義・作成` で「Ansible共通:ファイル管理:ファイル埋込変数名」「Ansible共通:テンプレート管理:テンプレート埋込変数名」をパラメータシートの項目としてパラメータシート作成後、パラメータシートで項目の設定値としてファイル埋込変数とテンプレート埋込変数を登録します。
 
-      .. figure:: ../../../images/ja/ansible_common/menu_definition_and_create/menu_create.png
+      .. figure:: /images/ja/ansible_common/menu_definition_and_create/menu_create.png
          :width: 800px
          :alt: パラメータシート定義・作成画面
 
@@ -708,7 +708,7 @@ Movement-Playbook紐付
 
    #. | :menuselection:`Ansible-Legacy --> 作業状態確認` の :guilabel:`代入値確認` ボタンで具体値に '{{ CPF_test }}' '{{ TPF_sample }}' が反映されていることが確認できます。
 
-      .. figure:: ../../../images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
+      .. figure:: /images/ja/ansible-legacyrole/assigned_value_management/general_operations_note.png
          :width: 800px
          :alt: 作業状態確認の代入値管理
 
@@ -724,7 +724,7 @@ Movement-Playbook紐付
 | 作業対象のオペレーションをオペレーション一覧から選択します。
 | 作業実行には、3種類の実行種別があります。実行種別に応じたボタンをクリックすることで :menuselection:`Ansible-Legacy --> 作業状態確認` に遷移し、実行されます。
 
-.. figure:: ../../../images/ja/ansible-legacy/execution/execution_screen.gif
+.. figure:: /images/ja/ansible-legacy/execution/execution_screen.gif
    :width: 800px
    :alt: 作業実行画面
 
@@ -754,7 +754,7 @@ Movement-Playbook紐付
 
 | 作業の実行状態を監視します。
 
-.. figure:: ../../../images/ja/ansible-legacy/check_work_status/check_operation_status.png
+.. figure:: /images/ja/ansible-legacy/check_work_status/check_operation_status.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -822,7 +822,7 @@ Movement-Playbook紐付
 | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、該当する作業の履歴を閲覧できます。
 | :guilabel:`詳細` ボタンで :menuselection:`Ansible-Legacy --> 作業状態確認` に遷移し、実行状態の詳細を閲覧することができます。
 
-.. figure:: ../../../images/ja/ansible-legacy/work_management/execution_list.png
+.. figure:: /images/ja/ansible-legacy/work_management/execution_list.png
    :width: 800px
    :alt: サブメニュー画面（作業管理）
 
@@ -901,7 +901,7 @@ Movement-Playbook紐付
 
 #. | 作業実行毎の作業対象ホストを閲覧できます。
 
-   .. figure:: ../../../images/ja/ansible-legacy/work_taget_host/target_host.png
+   .. figure:: /images/ja/ansible-legacy/work_taget_host/target_host.png
       :width: 800px
       :alt: サブメニュー画面（作業対象ホスト）
 
@@ -939,7 +939,7 @@ Movement-Playbook紐付
 #. | 作業実行毎の変数の具体値を閲覧できます。
 
 
-   .. figure:: ../../../images/ja/ansible-legacy/assigned_value_management/substitution_value_list.png
+   .. figure:: /images/ja/ansible-legacy/assigned_value_management/substitution_value_list.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 
@@ -1033,7 +1033,7 @@ tasksセクション
 
 | アップロードさたPlaybookは、 :menuselection:`Ansible-Legacy --> Movement-Playbook紐付` の :menuselection:`インクルード順序` に従いincludeします。
 
-.. figure:: ../../../images/ja/diagram/legacy_session.png
+.. figure:: /images/ja/diagram/legacy_session.png
    :align: center
    :width: 8.85417in
    :height: 6.67187in

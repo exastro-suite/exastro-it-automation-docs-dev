@@ -14,7 +14,7 @@ Workspace (ワークスペース)
 | ワークスペースとは、システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。
 | 1つのシステムの過去・現在・未来の設定値、設定ファイル、自動化ソフトウェアのIaCといったシステムを構成・管理・維持するために必要な情報を一元管理するための仕組みを提供します。
 
-.. figure:: ../../../images/ja/diagram/overview_of_the_workspace.png
+.. figure:: /images/ja/diagram/overview_of_the_workspace.png
     :alt: ワークスペース全体図
 
 ワークスペースの作成
@@ -30,7 +30,7 @@ Workspace (ワークスペース)
 
 #. | :menuselection:`メインメニュー --> ワークスペース一覧` で、 :guilabel:`作成` をクリックします。
 
-   .. figure:: ../../../images/ja/manuals/platform/workspace/ワークスペース一覧.png
+   .. figure:: /images/ja/manuals/platform/workspace/ワークスペース一覧.png
       :width: 600px
       :align: left
 
@@ -39,7 +39,7 @@ Workspace (ワークスペース)
 
 #. | 新規ワークスペース画面が表示されるので、ワークスペースの情報を入力し、 :guilabel:`登録` をクリックします。
 
-   .. figure:: ../../../images/ja/manuals/platform/workspace/新規ワークスペース作成画面.png
+   .. figure:: /images/ja/manuals/platform/workspace/新規ワークスペース作成画面.png
       :width: 600px
       :align: left
 

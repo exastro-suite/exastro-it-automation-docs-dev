@@ -36,7 +36,7 @@
 
 | という手順を踏むことで、データベースのバックアップやバージョンアップを実行する前に、動作中のバックヤード処理を無くすことができます。
 
-.. figure:: ../../../images/ja/maintenance_mode/purpose_of_use.png
+.. figure:: /images/ja/maintenance_mode/purpose_of_use.png
    :width: 600px
    :alt: メンテナンスモードの利用用途
 
@@ -44,7 +44,7 @@
 
 | メンテナンスモードを有効にすると、Web画面の上部にメンテナンス中である旨のメッセージが表示されます。
 
-.. figure:: ../../../images/ja/maintenance_mode/mode_message.png
+.. figure:: /images/ja/maintenance_mode/mode_message.png
    :width: 600px
    :alt: メンテナンスモード中のWeb画面
 

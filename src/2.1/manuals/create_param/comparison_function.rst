@@ -22,7 +22,7 @@
 
 | 以下は、比較機能実行までの全体の概要図です。
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/overview_all.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/overview_all.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -37,7 +37,7 @@
 | 以下は、比較機能の処理の概要図です。
 | :menuselection:`比較設定` 、:menuselection:`比較詳細設定`、実行時に指定する条件に従い、比較結果を出力します。
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/overview_process.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/overview_process.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -54,7 +54,7 @@
 |
 | ・パラメータシートの紐付（比較対象のパラメータシートの項目が一致している場合）
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/example_parameter_sheet_match.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/example_parameter_sheet_match.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -65,7 +65,7 @@
 |
 | ・パラメータシートの紐付（比較対象のパラメータシートの項目が不一致の場合）
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/example_parameter_sheet_unmatch.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/example_parameter_sheet_unmatch.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -81,7 +81,7 @@
 | 基準日時とは、該当のオペレーションが過去に一度でも実行されたことがあれば「最終実行日時」、一度も実行されたことがなければ「実施予定日時」が「基準日時」となります。
 | 基準日時については、「:doc:`../create_param/menu_creation`」を参照してください。
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/basedate.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/basedate.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -124,7 +124,7 @@
 | 以下をパラメータとして設定し比較を実行できます。
 | :menuselection:`比較設定` については、後述の「:ref:`about_compare_list`」を参照。
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/compare_execute.png
+.. figure:: /images/ja/menu_creation/comparison_function/compare_execute.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -342,7 +342,7 @@
 
 | 比較のメニュー一覧を以下に記述します。
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/compare_menu_list.png
+.. figure:: /images/ja/menu_creation/comparison_function/compare_menu_list.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -427,7 +427,7 @@
 
 #. |  :menuselection:`比較設定` では、比較実行時に使用する設定情報（対象のパラメータシートの紐付）の登録、更新を行います。
 
-   .. figure:: ../../../images/ja/menu_creation/comparison_function/submenu_compare_list.png
+   .. figure:: /images/ja/menu_creation/comparison_function/submenu_compare_list.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -437,7 +437,7 @@
 
 #. | :menuselection:`一覧 --> 登録 or 編集` より、 :menuselection:`比較設定` の登録を行います。
 
-   .. figure:: ../../../images/ja/menu_creation/comparison_function/edit_compare_list.png
+   .. figure:: /images/ja/menu_creation/comparison_function/edit_compare_list.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -498,7 +498,7 @@
 
 #. |  :menuselection:`比較詳細設定` では、比較対象の項目名とパラメータシートの項目同士の紐付設定を行います。
 
-   .. figure:: ../../../images/ja/menu_creation/comparison_function/submenu_compare_detail.png
+   .. figure:: /images/ja/menu_creation/comparison_function/submenu_compare_detail.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -509,7 +509,7 @@
 
 #. | :menuselection:`一覧 --> 登録 or 編集` より、比較項目の登録を行います。
 
-   .. figure:: ../../../images/ja/menu_creation/comparison_function/edit_compare_detail.png
+   .. figure:: /images/ja/menu_creation/comparison_function/edit_compare_detail.png
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -579,7 +579,7 @@
 | ・ バンドル利用時のパラメータシートの比較は、 同一項目名、もしくは、 :menuselection:`比較詳細設定` で紐づけた項目の同一代入順序同士で比較されます。
 
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/compare_execute.gif
+.. figure:: /images/ja/menu_creation/comparison_function/compare_execute.gif
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -630,7 +630,7 @@
 
 - | パラメータシートの比較
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/result_compare_execute.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/result_compare_execute.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -640,7 +640,7 @@
 
 - | パラメータシート(バンドル利用時)の比較
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/result_compare_execute_bundle.drawio.png
+.. figure:: /images/ja/menu_creation/comparison_function/result_compare_execute_bundle.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -650,7 +650,7 @@
 
 - | パラメータシート(ファイルアップロード項目)の比較
 
-.. figure:: ../../../images/ja/menu_creation/comparison_function/result_compare_execute_file.png
+.. figure:: /images/ja/menu_creation/comparison_function/result_compare_execute_file.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left

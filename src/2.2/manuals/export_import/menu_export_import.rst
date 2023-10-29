@@ -20,7 +20,7 @@
 
 | メニューエクスポート・インポートは、移行したいITAのメニューを選択し、メニュー単位でデータを上書きで移行します。
 
-.. figure:: ../../../images/ja/export_import/overview/export_import_simple_diagram.png
+.. figure:: /images/ja/export_import/overview/export_import_simple_diagram.png
   :width: 600px
   :align: center
 
@@ -33,7 +33,7 @@
 
 | 指定メニューのすべてのデータをエクスポートします。インポート先のデータをすべて置き換えます。
 
-.. figure:: ../../../images/ja/export_import/overview/environmental_transition_diagram.png
+.. figure:: /images/ja/export_import/overview/environmental_transition_diagram.png
   :width: 600px
   :align: center
 
@@ -43,7 +43,7 @@
 
 | 例：2023年1月2日 17:00を指定した場合
 
-.. figure:: ../../../images/ja/export_import/overview/time_designation_transition_diagram.png
+.. figure:: /images/ja/export_import/overview/time_designation_transition_diagram.png
   :width: 720px
   :align: center
 
@@ -64,7 +64,7 @@
 | ※環境移行後はワークスペースBでデータの登録・更新を行えます。その後、再度ワークスペースAからデータを移行すると不整合が発生する可能性があるため非推奨です。
 | ※双方向でのデータの移行は、データの不整合が発生する可能性があるため非推奨です。
 
-.. figure:: ../../../images/ja/export_import/overview/environment_replication.png
+.. figure:: /images/ja/export_import/overview/environment_replication.png
   :width: 1000px
   :align: center
 
@@ -82,7 +82,7 @@
 | ※ワークスペースBにて作業の実行中にデータを移行する際は、実行中のデータに影響を与えないようにするため、時刻指定モードで差分データのみを移行するようにしてください。
 | ※双方向でのデータの移行は、データの不整合が発生する可能性があるため非推奨です。
 
-.. figure:: ../../../images/ja/export_import/overview/separate_servers.png
+.. figure:: /images/ja/export_import/overview/separate_servers.png
   :width: 1000px
   :align: center
 
@@ -254,7 +254,7 @@
 
 | (2) エクスポートするメニューを選択して《エクスポート》ボタンを押下します。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_export_1.png
+.. figure:: /images/ja/export_import/overview/menu_export_1.png
    :width: 1000px
    :alt: メニューエクスポート画面(1)
    :align: center
@@ -271,7 +271,7 @@
 
 | (3) エクスポート確認のポップアップ画面が表示されますので、内容を確認して《エクスポート開始》ボタンを押下します。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_export_2.png
+.. figure:: /images/ja/export_import/overview/menu_export_2.png
    :width: 1000px
    :alt: メニューエクスポート画面(2)
    :align: center
@@ -281,7 +281,7 @@
 | (4) メニューを選択後、《エクスポート》ボタンを押下します。
 | 自動でメニューエクスポート・インポート管理画面に遷移するのでエクスポート処理のステータスを確認してください。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_export_3.png
+.. figure:: /images/ja/export_import/overview/menu_export_3.png
    :width: 1000px
    :alt: メニューエクスポート・インポート管理画面
    :align: center
@@ -295,14 +295,14 @@
 
 | (1) 《ファイル選択》ボタンを押下して、インポートするファイルを選択し、《開く》ボタンを押下します。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_import_1.png
+.. figure:: /images/ja/export_import/overview/menu_import_1.png
    :width: 1000px
    :alt: メニューインポート画面(1)
    :align: center
 
    メニューインポート画面(1)
 
-.. figure:: ../../../images/ja/export_import/overview/menu_import_2.png
+.. figure:: /images/ja/export_import/overview/menu_import_2.png
    :width: 1000px
    :alt: メニューインポート画面(2)
    :align: center
@@ -313,7 +313,7 @@
 | チェックボックスがチェックされているメニューがインポート対象となります。
 | インポートする必要がないメニューは、チェックは外してください。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_import_3.png
+.. figure:: /images/ja/export_import/overview/menu_import_3.png
    :width: 1000px
    :alt: メニューインポート画面(3)
    :align: center
@@ -322,7 +322,7 @@
 
 | (3) インポート確認のポップアップ画面が表示されますので、内容を確認して《インポート開始》ボタンを押下します。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_import_4.png
+.. figure:: /images/ja/export_import/overview/menu_import_4.png
    :width: 1000px
    :alt: メニューインポート画面(4)
    :align: center
@@ -335,7 +335,7 @@
    | インポートのステータスが「実行中」の時にすぐに他の操作（画面の更新、他のメニューへの遷移など）を行うと
    | データ入れ替えのためタイミングによってはシステムエラーになる可能性がありますので少し時間を置いてから操作をするようにしてください。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_import_5.png
+.. figure:: /images/ja/export_import/overview/menu_import_5.png
    :width: 1000px
    :alt: メニューエクスポート・インポート管理画面
    :align: center
@@ -347,7 +347,7 @@
 
 | [メニューエクスポート]メニューで実行したエクスポートと、[メニューインポート]メニューで実行したインポートの状況を管理します。
 
-.. figure:: ../../../images/ja/export_import/overview/menu_export_import_1.png
+.. figure:: /images/ja/export_import/overview/menu_export_import_1.png
    :width: 1000px
    :alt: メニューエクスポート・インポート管理画面
    :align: center

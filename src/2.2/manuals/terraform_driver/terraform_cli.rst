@@ -120,7 +120,7 @@ Terraform CLI作業フロー
 | Terraform CLI の各メニューにおける標準的な作業フローは以下のとおりです。
 | 各作業の詳細は次項に記載しています。
 
-.. figure:: ../../../images/ja/terraform_cli_driver/common/work_flow.png
+.. figure:: /images/ja/terraform_cli_driver/common/work_flow.png
    :align: left
    :width: 600px
    :alt: 作業フロー
@@ -199,7 +199,7 @@ Terraform CLI作業フロー
 | :menuselection:`基本コンソール-->オペレーション一覧` では、オーケストレータで実行するオペレーションを管理します。作業は基本コンソール内メニューより選択します。
 | 登録方法の詳細は、関連マニュアルの :doc:`../it_automation_base/basic_console` を参照してください。
 
-.. figure:: ../../../images/ja/basic_console/operation_list/register.png
+.. figure:: /images/ja/basic_console/operation_list/register.png
    :width: 800px
    :alt: サブメニュー画面（オペレーション一覧）
 
@@ -218,7 +218,7 @@ Terraform CLI driver メニュー
 
 #. | :menuselection:`Terraform CLI-->インターフェース情報` では、作業実行の情報をメンテナンス（閲覧/更新）することができます。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/interface_information_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/interface_information_menu.png
       :width: 800px
       :alt: サブメニュー画面（インタフェース情報）
 
@@ -226,7 +226,7 @@ Terraform CLI driver メニュー
 
 #. | :guilabel:`編集` ボタンより、インターフェース情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/interface_information_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/interface_information_register.gif
       :width: 800px
       :alt: 登録画面（インタフェース情報）
 
@@ -282,7 +282,7 @@ Workspaces管理
    | WorkspaceはTerraformコマンドを実行するためのディレクトリとして利用します。
    | 同一のWorkspaceを対象とした作業実行を行う場合、Terraformが生成するstateファイルはWorkspace単位で管理され、冪等性が保たれます。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/workspace_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/workspace_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Workspace管理）
 
@@ -290,7 +290,7 @@ Workspaces管理
 
 #. | :guilabel:`＋ 登録` ボタンより、Workspace情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/workspace_list_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/workspace_list_register.gif
       :width: 800px
       :alt: 登録画面（Workspace管理）
 
@@ -342,7 +342,7 @@ Movement一覧
 #. | :menuselection:`Terraform CLI-->Movement一覧` では、Movement名についてのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | MovementはTerraform利用情報としてWorkspaceと紐付ける必要があるため、先に「:ref:`terraform_cli_workspace_list`」にて対象を登録しておく必要があります。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/movement_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/movement_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -350,7 +350,7 @@ Movement一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/movement_list_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/movement_list_register.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -424,7 +424,7 @@ Module素材集
 #. | :menuselection:`Terraform CLI-->Module素材集` ではユーザーが作成したModuleのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Moduleの記述などに関しては、「:ref:`terraform_common_module_description`」を参照してください。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/module_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/module_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Module素材集）
 
@@ -432,7 +432,7 @@ Module素材集
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/module_loist_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/module_loist_register.gif
       :width: 800px
       :alt: 登録画面（Module素材集）
 
@@ -481,7 +481,7 @@ Movement-Module紐付
    | Movementを実行する際、紐付けたModule素材が適用されます。
    | Movementに対して複数のModule素材を紐付けることが可能です。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/movement_module_link_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/movement_module_link_menu.png
       :width: 800px
       :alt: サブメニュー画面（Movement-Module紐付）
 
@@ -489,7 +489,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement-Module紐付の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/movement_module_link_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/movement_module_link_register.gif
       :width: 800px
       :alt: 登録画面（Movement-Module紐付）
 
@@ -531,7 +531,7 @@ Movement-Module紐付
    | 本メニューはModule素材集を元に内部機能がレコードを管理するため、登録・廃止・復活はできません。
    | 変数ネストの管理フロー例については「:ref:`terraform_nested_example`」をご参照ください。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/nested_variable_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/nested_variable_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（変数ネスト管理）
 
@@ -539,7 +539,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 更新` ボタンより、最大繰返数の更新を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/nested_variable_list_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/nested_variable_list_register.gif
       :width: 800px
       :alt: 登録画面（変数ネスト管理）
 
@@ -594,7 +594,7 @@ Movement-Module紐付
    | 登録した情報は内部の処理により作業実行時に「:ref:`terraform_cli_substitution_value_list`」に反映されます。
 
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_auto_registration_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_auto_registration_menu.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -602,7 +602,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、代入値自動登録設定の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_auto_registration_register.gif
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_auto_registration_register.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -729,7 +729,7 @@ Movement-Module紐付
    | バンドルが有効なパラメータシートの項目とMovementの変数を紐付ける場合、 :menuselection:`Terraform CLI-->代入値自動登録設定` でパラメータシート(From) の代入順序を入力する必要があります。
    | バンドルが有効なパラメータシートと代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: ../../../images/ja/diagram/parameter_no_host.png
+   .. figure:: /images/ja/diagram/parameter_no_host.png
       :width: 600px
       :alt: バンドルが有効なパラメータシート使用時の代入値自動登録設定登録方法
 
@@ -758,7 +758,7 @@ Movement-Module紐付
 | :menuselection:`Terraform CLI-->作業実行` では作業の実行を指示します。
 | Movement一覧、オペレーション一覧からそれぞれラジオボタンで選択し、 :guilabel:`作業実行` ボタンを押すと、「:ref:`terraform_cli_check_operation_status`」に遷移し、実行されます。
 
-.. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/execution_menu.gif
+.. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/execution_menu.gif
    :width: 800px
    :alt: サブメニュー画面（作業実行）
 
@@ -838,7 +838,7 @@ Movement-Module紐付
 
 | :menuselection:`Terraform CLI-->作業状態確認` では作業の実行状態を監視します。
 
-.. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/operation_status_menu.png
+.. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/operation_status_menu.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -947,7 +947,7 @@ Movement-Module紐付
    | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、作業一覧テーブルを表示します。
    | :guilabel:`詳細` ボタンで :ref:`terraform_cli_check_operation_status` に遷移し、実行状態の詳細を見ることができます。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/execution_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/execution_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（作業管理）
 
@@ -1048,7 +1048,7 @@ Movement-Module紐付
 
 #. | :menuselection:`Terraform CLI-->代入値管理` では、オペレーションに紐付くMovementで利用されるModule素材の変数に代入する具体値を閲覧できます。
 
-   .. figure:: ../../../images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_list_menu.png
+   .. figure:: /images/ja/terraform_cli_driver/operation_method_explanation/substitution_value_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 

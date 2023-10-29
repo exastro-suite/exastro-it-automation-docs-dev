@@ -22,7 +22,7 @@ Terraform CLI
 システム構成イメージ
 --------------------
 
-.. figure:: ../../../images/ja/diagram/terraform_cli.png
+.. figure:: /images/ja/diagram/terraform_cli.png
     :alt: Terraform CLI システム構成イメージ
     :width: 800px
 

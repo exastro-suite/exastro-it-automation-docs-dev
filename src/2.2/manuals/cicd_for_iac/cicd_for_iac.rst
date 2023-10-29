@@ -71,7 +71,7 @@ CI/CD For IaC機能の概要
 | CI/CD For IaC機能の概要図を以下に示します。
 
 
-.. image:: ../../../images/ja/cicd_for_iac/CICD_overviews.png
+.. image:: /images/ja/cicd_for_iac/CICD_overviews.png
    :width: 800px
 
 CI/CD For IaC機能 メニュー構成
@@ -122,7 +122,7 @@ CI/CD For IaC機能 利用手順
 | CI/CD For IaC機能の標準的な作業フローは以下のとおりです。
 | 各作業の詳細は次項に記載しています。
 
-.. image:: ../../../images/ja/cicd_for_iac/CICD_flow.png
+.. image:: /images/ja/cicd_for_iac/CICD_flow.png
    :width: 5.68819in
    :height: 3.35972in
 
@@ -166,7 +166,7 @@ CI/CD For IaC メニュー
 
 1. | 「リモートリポジトリ」メニューでは、連携するGItリポジトリの情報を登録します。
 
-.. figure:: ../../../images/ja/cicd_for_iac/remote_repository_menu.png
+.. figure:: /images/ja/cicd_for_iac/remote_repository_menu.png
    :width: 800px
    :alt: サブメニュー画面（リモートリポジトリ）
 
@@ -407,7 +407,7 @@ CI/CD For IaC メニュー
 1. | 「資材紐付」メニューでは、紐付元資材と紐付先資材を紐付し、紐付先資材の動作検証を行う為のオペレーションとMovementを登録します。
    | 紐付元資材が更新されると、内部機能で紐付先資材を自動更新し、動作検証を行う為のオペレーションとMovementで作業実行を行い、処理結果が表示されます。
 
-.. figure:: ../../../images/ja/cicd_for_iac/file_link_menu.png
+.. figure:: /images/ja/cicd_for_iac/file_link_menu.png
    :width: 800px
    :alt: サブメニュー画面（資材紐付）
 
@@ -667,7 +667,7 @@ CI/CD For IaC メニュー
 
 4. | 紐付先資材の更新処理の流れ
 
-   .. image:: ../../../images/ja/cicd_for_iac/CICD_flow2.png
+   .. image:: /images/ja/cicd_for_iac/CICD_flow2.png
       :width: 600px
 
 | ※1 紐付先資材タイプが「Ansible-Pioneer/対話ファイル素材集」の場合、紐付先資材名は対話種別とOS種別の組み合わせになります。
@@ -699,7 +699,7 @@ CI/CD For IaC 非表示メニュー
    | レコード追加・更新・削除は行わないで下さい。
 
 
-.. figure:: ../../../images/ja/cicd_for_iac/remote_repository_file_menu.png
+.. figure:: /images/ja/cicd_for_iac/remote_repository_file_menu.png
    :width: 800px
    :alt: サブメニュー画面（リモートリポジトリ資材）
 
@@ -807,6 +807,6 @@ CI/CD For IaC 非表示メニュー
                             
 | 「:ref:`cicd_for_iac_file_link`」メニューの資材パスに「sample/roles」が表示されます。「Ansible-LegacyRole/ロールパッケージ管理」メニューに紐付ける資材パスには、「sample/roles」を選択して下さい。
 
-.. figure:: ../../../images/ja/cicd_for_iac/sample_roles.png
+.. figure:: /images/ja/cicd_for_iac/sample_roles.png
    :width: 800px
    :alt: sample_role

@@ -144,7 +144,7 @@ Terraform Cloud/EP 作業フロー
 | Terraform Cloud/EP driver の各メニューにおける標準的な作業フローは以下のとおりです。
 | 各作業の詳細は次項に記載しています。
 
-.. figure:: ../../../images/ja/terraform_cloud_ep_driver/common/work_flow.png
+.. figure:: /images/ja/terraform_cloud_ep_driver/common/work_flow.png
    :align: left
    :width: 600px
    :alt: 作業フロー
@@ -244,7 +244,7 @@ Policy/PolicySet/Workspaceの紐付けについて
 
 | 作業実行時にMovementに紐付いたWorkspaceに対し、Policy setとそれに紐付けられたPolicyが適用されます。
 
-.. figure:: ../../../images/ja/terraform_cloud_ep_driver/common/policy_setting.png
+.. figure:: /images/ja/terraform_cloud_ep_driver/common/policy_setting.png
    :align: left
    :width: 800px
    :alt: Policyの適用
@@ -269,7 +269,7 @@ Policy/PolicySet/Workspaceの紐付けについて
 | :menuselection:`基本コンソール-->オペレーション一覧` では、オーケストレータで実行するオペレーションを管理します。作業は基本コンソール内メニューより選択します。
 | 登録方法の詳細は、関連マニュアルの :doc:`../it_automation_base/basic_console` を参照してください。
 
-.. figure:: ../../../images/ja/basic_console/operation_list/register.png
+.. figure:: /images/ja/basic_console/operation_list/register.png
    :width: 800px
    :alt: サブメニュー画面（オペレーション一覧）
 
@@ -289,7 +289,7 @@ Terraform Cloud/EP メニュー
 #. | :menuselection:`Terraform Cloud/EP-->インターフェース情報` では、ITAと連携するTerraformの情報をメンテナンス（閲覧/更新）することができます。
    | 連携対象となるTerraformのHostnameと、TerraformのUserが発行したUserTokenが必要となります。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/interface_information_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/interface_information_menu.png
       :width: 800px
       :alt: サブメニュー画面（インタフェース情報）
 
@@ -297,7 +297,7 @@ Terraform Cloud/EP メニュー
 
 #. | :guilabel:`編集` ボタンより、インターフェース情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/interface_information_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/interface_information_register.gif
       :width: 800px
       :alt: 登録画面（インタフェース情報）
 
@@ -402,7 +402,7 @@ Organization管理
 #. | :menuselection:`Terraform Cloud/EP-->Organization管理` では、Terraformで利用するOrganizationについてのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | また、ITAに登録したOrganizationをTerraformへの連携（登録/更新/削除）をすることができます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Organization管理）
 
@@ -410,7 +410,7 @@ Organization管理
 
 #. | :guilabel:`＋ 登録` ボタンより、Organization情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_register.gif
       :width: 800px
       :alt: 登録画面（Organization管理）
 
@@ -423,7 +423,7 @@ Organization管理
    | 「6.2.1インターフェース情報」で登録した「Hostname」および「UserToken」に誤りがあると、Terraformとの連携が失敗し、連携状態に以下のメッセージが表示されます。
    | 『Terraformとの接続に失敗しました。インターフェース情報を確認して下さい。』
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_terraform_link.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_terraform_link.gif
       :width: 800px
       :alt: Terraform連携（Organization管理）
 
@@ -491,7 +491,7 @@ Workspace管理
 #. | :menuselection:`Terraform Cloud/EP-->Workspace管理` では、Terraformで利用するWorkspaceについてのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | また、ITAに登録したWorkspaceをTerraformへの連携（登録/更新/削除）とリソース削除（terraform destroy）を実行することができます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Workspace管理）
 
@@ -499,7 +499,7 @@ Workspace管理
 
 #. | :guilabel:`＋ 登録` ボタンより、Workspace情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_register.gif
       :width: 800px
       :alt: 登録画面（Workspace管理）
 
@@ -513,7 +513,7 @@ Workspace管理
    | 『Terraformとの接続に失敗しました。インターフェース情報を確認して下さい。』
    | また、選択したOrganizationがTerraformに連携（登録）されていない場合も同様のメッセージが表示されます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_terraform_link.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_terraform_link.gif
       :width: 800px
       :alt: Terraform連携（Workspace管理）
 
@@ -603,7 +603,7 @@ Movement一覧
 #. | :menuselection:`Terraform Cloud/EP-->Movement一覧` では、Movement名についてのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | MovementはTerraform利用情報としてOrganization:Workspaceと紐付ける必要があるため、先に「:ref:`terraform_cloud_ep_organization_list`」「:ref:`terraform_cloud_ep_workspace_list`」にて対象を登録しておく必要があります。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Movement一覧）
 
@@ -611,7 +611,7 @@ Movement一覧
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_list_register.gif
       :width: 800px
       :alt: 登録画面（Movement一覧）
 
@@ -687,7 +687,7 @@ Module素材集
 #. | :menuselection:`Terraform Cloud/EP-->Module素材集` ではユーザーが作成したModuleのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Moduleの記述などに関しては、「:ref:`terraform_common_module_description`」を参照してください。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/module_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/module_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Module素材集）
 
@@ -695,7 +695,7 @@ Module素材集
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement情報の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/module_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/module_list_register.gif
       :width: 800px
       :alt: 登録画面（Module素材集）
 
@@ -742,7 +742,7 @@ Policy管理
 #. | :menuselection:`Terraform Cloud/EP-->Policy管理` ではユーザーが作成したPolicyのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Moduleの記述などに関しては、「:ref:`terraform_common_policy_description`」を参照してください。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policy_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policy_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Policy管理）
 
@@ -750,7 +750,7 @@ Policy管理
 
 #. | :guilabel:`＋ 登録` ボタンより、Policyの登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policy_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policy_list_register.gif
       :width: 800px
       :alt: 登録画面（Policy管理）
 
@@ -793,7 +793,7 @@ Policy Set管理
 #. | :menuselection:`Terraform Cloud/EP-->Policy set管理` ではPolicy setのメンテナンス（閲覧/登録/更新/廃止）を行います。
    | Policy Setは「:ref:`terraform_cloud_ep_policyset_policy_link`」「:ref:`terraform_cloud_ep_policyset_workspace_link`」にてPolicyおよびWorkspaceと紐付けることで、作業実行時にWorkspaceに対してPolicyを適用させます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（Policy set管理）
 
@@ -801,7 +801,7 @@ Policy Set管理
 
 #. | :guilabel:`＋ 登録` ボタンより、Policy setの登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_list_register.gif
       :width: 800px
       :alt: 登録画面（Policy set管理）
 
@@ -838,7 +838,7 @@ Policy set-Policy紐付
 
 #. | :menuselection:`Terraform Cloud/EP-->Policy set-Policy紐付` では、「:ref:`terraform_cloud_ep_policyset_list`」にて登録したPolicy setと「:ref:`terraform_cloud_ep_policy_list`」にて登録したPolicyの紐付けについてメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_policy_link_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_policy_link_menu.png
       :width: 800px
       :alt: サブメニュー画面（Policy set-Policy紐付）
 
@@ -846,7 +846,7 @@ Policy set-Policy紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、Policy set-Policy紐付の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_policy_link_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_policy_link_register.gif
       :width: 800px
       :alt: 登録画面（Policy set-Policy紐付）
 
@@ -887,7 +887,7 @@ PolicySet-Workspace紐付
 
 #. | :menuselection:`Terraform Cloud/EP-->Policy set-Workspace紐付` では、「:ref:`terraform_cloud_ep_policyset_list`」にて登録したPolicy setと「:ref:`terraform_cloud_ep_workspace_list`」にて登録したWorkspaceの紐付けについてメンテナンス（閲覧/登録/更新/廃止）を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_workspace_link_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_workspace_link_menu.png
       :width: 800px
       :alt: サブメニュー画面（Policy set-Workspace紐付）
 
@@ -895,7 +895,7 @@ PolicySet-Workspace紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、Policy set-Policy紐付の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_workspace_link_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/policyset_workspace_link_register.gif
       :width: 800px
       :alt: 登録画面（Policy set-Workspace紐付）
 
@@ -938,7 +938,7 @@ Movement-Module紐付
    | Movementを実行する際、紐付けたModule素材が適用されます。
    | Movementに対して複数のModule素材を紐付けることが可能です。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_module_link_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_module_link_menu.png
       :width: 800px
       :alt: サブメニュー画面（Movement-Module紐付）
 
@@ -946,7 +946,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、Movement-Module紐付の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_module_link_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/movement_module_link_register.gif
       :width: 800px
       :alt: 登録画面（Movement-Module紐付）
 
@@ -989,7 +989,7 @@ Movement-Module紐付
    | 本メニューはModule素材集を元に内部機能がレコードを管理するため、登録・廃止・復活はできません。
    | 変数ネストの管理フロー例については「:ref:`terraform_nested_example`」をご参照ください。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/nested_variable_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/nested_variable_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（変数ネスト管理）
 
@@ -997,7 +997,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 更新` ボタンより、最大繰返数の更新を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/nested_variable_list_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/nested_variable_list_register.gif
       :width: 800px
       :alt: 登録画面（変数ネスト管理）
 
@@ -1051,7 +1051,7 @@ Movement-Module紐付
    | 登録した情報は内部の処理により作業実行時に「:ref:`terraform_cloud_ep_substitution_value_list`」に反映されます。
 
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_auto_registration_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_auto_registration_menu.png
       :width: 800px
       :alt: サブメニュー画面（代入値自動登録設定）
 
@@ -1059,7 +1059,7 @@ Movement-Module紐付
 
 #. | :guilabel:`＋ 登録` ボタンより、代入値自動登録設定の登録を行います。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_auto_registration_register.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_auto_registration_register.gif
       :width: 800px
       :alt: 登録画面（代入値自動登録設定）
 
@@ -1187,7 +1187,7 @@ Movement-Module紐付
    | バンドルが有効なパラメータシートの項目とMovementの変数を紐付ける場合、 :menuselection:`Terraform Cloud/EP-->代入値自動登録設定` でパラメータシート(From) の代入順序を入力する必要があります。
    | バンドルが有効なパラメータシートと代入値自動登録設定の関係を以下の図に示します。
 
-   .. figure:: ../../../images/ja/diagram/parameter_no_host.png
+   .. figure:: /images/ja/diagram/parameter_no_host.png
       :width: 600px
       :alt: バンドルが有効なパラメータシート使用時の代入値自動登録設定登録方法
 
@@ -1212,7 +1212,7 @@ Movement-Module紐付
 | :menuselection:`Terraform Cloud/EP-->作業実行` では作業の実行を指示します。
 | Movement一覧、オペレーション一覧からそれぞれラジオボタンで選択し、 :guilabel:`作業実行` ボタンを押すと、「:ref:`terraform_cloud_ep_check_operation_status`」に遷移し、実行されます。
 
-.. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/execution_menu.gif
+.. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/execution_menu.gif
    :width: 800px
    :alt: サブメニュー画面（作業実行）
 
@@ -1291,7 +1291,7 @@ Movement-Module紐付
 
 | :menuselection:`Terraform Cloud/EP-->作業状態確認` では作業の実行状態を監視します。
 
-.. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/operation_status_menu.png
+.. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/operation_status_menu.png
    :width: 800px
    :alt: サブメニュー画面（作業状態確認）
 
@@ -1396,7 +1396,7 @@ Movement-Module紐付
    | 条件を指定し :guilabel:`フィルタ` ボタンをクリックすると、作業一覧テーブルを表示します。
    | :guilabel:`詳細` ボタンで :ref:`terraform_cloud_ep_check_operation_status` に遷移し、実行状態の詳細を見ることができます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/execution_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/execution_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（作業管理）
 
@@ -1502,7 +1502,7 @@ Movement-Module紐付
 
 #. | :menuselection:`Terraform Cloud/EP-->代入値管理` では、オペレーションに紐付くMovementで利用されるModule素材の変数に代入する具体値を閲覧できます。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_list_menu.png
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/substitution_value_list_menu.png
       :width: 800px
       :alt: サブメニュー画面（代入値管理）
 
@@ -1577,7 +1577,7 @@ Movement-Module紐付
    | また、Policy setに紐付いたWorkspaceおよびPolicyの紐付けを解除することができます。
    | ※このページ上で行う操作について、ITA側の登録対象に影響はありません。
 
-   .. figure:: ../../../images/ja/terraform_cloud_ep_driver/operation_method_explanation/linked_terraform_management.gif
+   .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/linked_terraform_management.gif
       :width: 800px
       :alt: サブメニュー画面（連携先Terrraform管理）
 

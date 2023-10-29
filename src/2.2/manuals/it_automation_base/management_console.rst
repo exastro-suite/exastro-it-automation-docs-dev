@@ -48,7 +48,7 @@
 | メインメニューのDashBoardから管理コンソールを選ぶことで、管理コンソールへ遷移出来ます。
 | 左側のメニューグループタブから管理コンソールを選ぶことで、管理コンソール内のメニューを指定して遷移することも出来ます。
 
-.. figure:: ../../../images/ja/management_console/menu_group_list/MainMenu.gif
+.. figure:: /images/ja/management_console/menu_group_list/MainMenu.gif
    :alt: メインメニュー
    :width: 800px
    :align: center
@@ -186,7 +186,7 @@
 
 | 「Web表示最大行数」と「Web表示前確認行数」には次のような関係があります。
 
-.. figure:: ../../../images/ja/diagram/Web表示最大行数の処理概要.png
+.. figure:: /images/ja/diagram/Web表示最大行数の処理概要.png
    :alt:  Web表示最大行数の処理概要
    :align: center
    :width: 6in
@@ -218,7 +218,7 @@
 
 | Exastro Platform「ロール管理」で登録したロールと「:ref:`menu_list`」で登録したメニューがリストボックスに表示されるので（下図 ①,②）、それぞれを選択し、紐付タイプ（下図 ③）を選択します。
 
-.. figure:: ../../../images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
+.. figure:: /images/ja/management_console/role_menu_link_list/ロール・メニュー紐付管理_設定画面.png
    :alt:  グループメニュー権限の設定画面（ロール・メニュー紐付管理）
    :align: center
    :width: 5in
@@ -272,7 +272,7 @@
 | (1) :menuselection:`メニュー管理` メニューで「独自メニュー用素材」を登録し、新規メニューを作成します。
 | 登録する「独自メニュー用素材」は :ref:`sample_file` を参考に作成してください。
 
-.. figure:: ../../../images/ja/management_console/custom_menu/sample1_menu_regist.png
+.. figure:: /images/ja/management_console/custom_menu/sample1_menu_regist.png
    :alt: 新規メニュー登録
    :width: 800px
    :align: center
@@ -281,7 +281,7 @@
    
 | (2) :menuselection:`ロール・メニュー紐付管理` メニューで登録したメニューに対して、「メンテナンス可」または「閲覧のみ」の権限を付与します。
 
-.. figure:: ../../../images/ja/management_console/custom_menu/sample1_role_regist.png
+.. figure:: /images/ja/management_console/custom_menu/sample1_role_regist.png
    :alt: ロール・メニュー紐付管理登録
    :width: 800px
    :align: center
@@ -299,7 +299,7 @@
 | 1枚の画像と :guilabel:`Hello` ボタンを押下すると「Hello」というアラートを表示します。
 | :download:`サンプル①素材 <../../files/sample.zip>`
 
-.. figure:: ../../../images/ja/management_console/custom_menu/sample_menu1.png
+.. figure:: /images/ja/management_console/custom_menu/sample_menu1.png
    :alt: サンプル①
    :width: 800px
    :align: center
@@ -310,7 +310,7 @@
 | 他のITAのメニューと同じようなメニューを表示します。
 | :download:`サンプル②素材 <../../files/sample2.zip>`
 
-.. figure:: ../../../images/ja/management_console/custom_menu/sample_menu2.png
+.. figure:: /images/ja/management_console/custom_menu/sample_menu2.png
    :alt: サンプル②
    :width: 800px
    :align: center
@@ -320,7 +320,7 @@
 | サンプル③
 | 「独自メニュー用素材」を登録せずに作成したメニューを表示した場合
 
-.. figure:: ../../../images/ja/management_console/custom_menu/sample_menu3.png
+.. figure:: /images/ja/management_console/custom_menu/sample_menu3.png
    :alt: サンプル③
    :width: 800px
    :align: center

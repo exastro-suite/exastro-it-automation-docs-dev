@@ -43,7 +43,7 @@ Ansible Core
 システム構成イメージ
 --------------------------------------------------------
 
-.. figure:: ../../../images/ja/diagram/ansible_core.png
+.. figure:: /images/ja/diagram/ansible_core.png
     :alt: Ansible Core
     :width: 600px
 
@@ -91,7 +91,7 @@ Playbook連携
 | Exastro IT Automation と Ansible Core との Playbook 連携について説明します。
 | Exastro IT Automation は Playbook やパラメータ値のやり取りのためにファイルシステムを中継した連携を行います。
 
-.. figure:: ../../../images/ja/diagram/playbook_link_containers.png
+.. figure:: /images/ja/diagram/playbook_link_containers.png
    :alt: Exastro IT Automation と Ansible Core 間のファイル連携図
    :width: 750px
 

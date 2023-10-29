@@ -19,7 +19,7 @@ DashBoard
    | No.1～5のWidgetがデフォルトで表示されます。
    | No.6～9はデフォルトでは表示されません。（ :guilabel:`Dashboard編集` → :guilabel:`Widget追加` を押下することで追加できます）
 
-.. figure:: ../../../images/ja/dashboard/dashboard_base.drawio.png
+.. figure:: /images/ja/dashboard/dashboard_base.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -91,7 +91,7 @@ DashBoardの編集
 
 | 画面右上の「:guilabel:`DashBoard編集` 」ボタンを押下することで編集画面に移行します。
 
-.. figure:: ../../../images/ja/dashboard/dashboard_edit.drawio.png
+.. figure:: /images/ja/dashboard/dashboard_edit.drawio.png
    :width: 6.67391in
    :height: 3.20028in
    :alt: DashBoard編集ボタン
@@ -119,7 +119,7 @@ Widget追加
 #. | :guilabel:` Widget追加` で選択すると、Widget選択が表示されます。
    | 追加したいWidgetを選択し、:guilabel:`適用` を押下すると、選択したWidgetが追加されます。
 
-   .. figure:: ../../../images/ja/dashboard/dashboard_add_widget.gif
+   .. figure:: /images/ja/dashboard/dashboard_add_widget.gif
       :width: 6.67391in
       :height: 3.20028in
       :align: left
@@ -132,7 +132,7 @@ Widget追加
          | :guilabel:`＋Blank` 押下後、Blankが1行追加されます。
          | 行内にWidgetが配置されていない場合、Blank上を選択すると、Blankが1行削除されます。
 
-         .. figure:: ../../../images/ja/dashboard/dashboard_blank.gif
+         .. figure:: /images/ja/dashboard/dashboard_blank.gif
             :width: 6.67391in
             :height: 3.20028in
             :align: left
@@ -143,7 +143,7 @@ Widget追加
 .. tip:: | メニューセットについて
          | 「メニューグループ」Widgetから「メニューセット」へ、パネルをドラッグ＆ドロップで移動させることができます。
 
-         .. figure:: ../../../images/ja/dashboard/dashboard_edit_menuset.gif
+         .. figure:: /images/ja/dashboard/dashboard_edit_menuset.gif
             :width: 6.67391in
             :height: 3.20028in
             :align: left
@@ -161,7 +161,7 @@ Widget編集、削除
 - | ：Widget編集が表示されます。各Widgetの編集項目は以下を参照してください。
 - | ：Widgetを削除します。
 
-.. figure:: ../../../images/ja/dashboard/dashboard_widget_edit_del.gif
+.. figure:: /images/ja/dashboard/dashboard_widget_edit_del.gif
    :width: 6.67391in
    :height: 3.20028in
    :align: left
@@ -176,7 +176,7 @@ Widget編集、削除
 
       | Widget共通の基本設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_common.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_common.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -229,7 +229,7 @@ Widget編集、削除
 
       | メニューグループ個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_menugroup.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_menugroup.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -274,7 +274,7 @@ Widget編集、削除
 
       | Movement登録数の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_movement.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_movement.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -302,7 +302,7 @@ Widget編集、削除
 
       | Conductor作業状況の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_conductor_status.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_conductor_status.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -330,7 +330,7 @@ Widget編集、削除
 
       | Conductor作業結果の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_conductor_result.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_conductor_result.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -358,7 +358,7 @@ Widget編集、削除
 
       | Conductor作業履歴の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_conductor_history.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_conductor_history.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -391,7 +391,7 @@ Widget編集、削除
 
       | メニューセットの個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_menugroup.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_menugroup.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -436,7 +436,7 @@ Widget編集、削除
 
       | リンクリストの個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_link_list.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_link_list.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -477,7 +477,7 @@ Widget編集、削除
 
       | Conductor予約作業確認の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_conductor_reserve.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_conductor_reserve.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left
@@ -510,7 +510,7 @@ Widget編集、削除
 
       | 画像の個別設定は以下です。
 
-      .. figure:: ../../../images/ja/dashboard/dashboard_widget_setting_image.png
+      .. figure:: /images/ja/dashboard/dashboard_widget_setting_image.png
          :width: 3.67391in
          :height: 3.20028in
          :align: left

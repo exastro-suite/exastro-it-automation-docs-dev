@@ -45,7 +45,7 @@
 
 | 例） １月まで「最大ワークスペース数＝５のリソースプラン」、２月から「最大ワークスペース数＝３のリソースプラン」に変更
 
-.. figure:: ../../../images/ja/diagram/operation_and_system_movement_num.png
+.. figure:: /images/ja/diagram/operation_and_system_movement_num.png
     :alt: 運用とシステムの動き
 
 1. | ユーザーから「最大ワークスペース数＝３」へのリソースプラン変更申し込みがあった場合、登録済みデータが「ワークスペース数＝４」であるため、2月からリミット値が超過することをシステム管理者から警告します。

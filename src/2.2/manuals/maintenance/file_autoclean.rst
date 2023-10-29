@@ -39,7 +39,7 @@
      - | 保存期間切れのデータを削除する情報を管理します。
 
 
-.. figure:: ../../../images/ja/file_autoclean/file_delete_list_filter.png
+.. figure:: /images/ja/file_autoclean/file_delete_list_filter.png
    :alt: ファイル削除機能画面
    :width: 5.22863in
    :height: 0.99251in
@@ -112,7 +112,7 @@
      - Temporary directory for Export/Import
 
 
-.. figure:: ../../../images/ja/file_autoclean/file_delete_list_edit.png
+.. figure:: /images/ja/file_autoclean/file_delete_list_edit.png
    :alt: ファイル削除登録画面
    :width: 5.22863in
    :height: 0.99251in
