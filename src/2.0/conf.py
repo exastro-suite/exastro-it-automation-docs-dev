@@ -24,7 +24,6 @@ author = 'NEC'
 # The full version, including alpha/beta/rc tags
 release = ''
 
-locale_dirs = ['locale/']
 gettext_compact = False
 
 # -- General configuration ---------------------------------------------------
@@ -102,6 +101,7 @@ numfig = True
 copybutton_prompt_text = "Copied it!"
 
 version = '2.0'
+locale_dirs = ['../locale/' + version ]
 
 html_context = {
     'languages': {

@@ -8,5 +8,10 @@ fi
 echo ${sp_port}"port process kill."
 lsof -i :$sp_port | grep -c $sp_port && kill -9 `lsof -i :$sp_port|grep $sp_port|awk '{print $2}'`
 
+version=`git branch --contains | cut -d " " -f 2`
+
+make html-${version}
+
 echo "start sphinx_autobuild."
-python -msphinx_autobuild /workspace/src /workspace/docs --port=$sp_port
+python -msphinx_autobuild /workspace/src /workspace/docs --port=$sp_port &
+python -msphinx_autobuild /workspace/src/${version} /workspace/docs/ja/${version} --port=0
