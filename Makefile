@@ -6,7 +6,7 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 PROJECTDIR    = .
-VERSION       = `git branch --contains | cut -d " " -f 2`
+VERSION       = 2.2
 VERSIONS      = 2.0 2.1 2.2
 SOURCEDIR     = $(PROJECTDIR)/src
 BUILDDIR      = $(PROJECTDIR)/_build
