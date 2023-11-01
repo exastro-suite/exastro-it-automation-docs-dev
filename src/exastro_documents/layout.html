@@ -59,8 +59,8 @@
           <div>
             <select name="version" onchange="location.href=value;">
               {%- for display_ver, path_ver in versions.items() %}
-              {%- set file_path = '../../' ~ language ~ '/' ~ path_ver ~ '/' ~ pagename %}
-              <option value="{{ pathto(file_path) }}" {%- if path_ver == version %} selected{%- endif -%}>{{ display_ver }}</option>
+              {%- set file_path = language ~ '/' ~ path_ver ~ '/' ~ pagename %}
+              <option value="../../{{ pathto(file_path) }}" {%- if path_ver == version %} selected{%- endif -%}>{{ display_ver }}</option>
               {%- endfor %}
             </select>
           </div>
@@ -75,8 +75,8 @@
           <div>
             <select name="lang" onchange="location.href=value;">
               {%- for lang, display_lang in languages.items() %}
-              {%- set file_path = '../../' ~ lang ~ '/' ~ version ~ '/' ~ pagename %}
-              <option value="{{ pathto(file_path) }}" {%- if lang == language %} selected{%- endif %}>{{ display_lang }}</option>
+              {%- set file_path = lang ~ '/' ~ version ~ '/' ~ pagename %}
+              <option value="../../{{ pathto(file_path) }}" {%- if lang == language %} selected{%- endif %}>{{ display_lang }}</option>
               {%- endfor %}
             </select>
           </div>
