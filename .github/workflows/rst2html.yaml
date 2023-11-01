@@ -60,5 +60,5 @@ jobs:
 
     - name: Push
       run: |
-          cd work
+          cd workspace
           git push origin main
