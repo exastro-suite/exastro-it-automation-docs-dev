@@ -42,10 +42,11 @@ resources: gettext
 	sphinx-intl update -p $(POTDIR) -l $$lang ; \
 	done
 
-resources-all:
+resources-all: gettext-all
 	@for version in $(VERSIONS) ; do \
+	cd $(SOURCEDIR)/$$version ; \
  for lang in $(LANGUAGES) ; do \
-	sphinx-intl update -p "$(BUILDDIR)/$$version/gettext" -l $$lang ; \
+	sphinx-intl update -p ../../$(BUILDDIR)/$$version/gettext -l $$lang ; \
 	done ; \
 	done
 
