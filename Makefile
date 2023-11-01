@@ -5,7 +5,7 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
-PROJECTDIR    = /workspace
+PROJECTDIR    = .
 VERSION       = `git branch --contains | cut -d " " -f 2`
 VERSIONS      = 2.0 2.1 2.2
 SOURCEDIR     = $(PROJECTDIR)/src
@@ -30,9 +30,7 @@ help:
 gettext:
 	@$(SPHINXBUILD) -M gettext $(SOURCEDIR)/$(VERSION) $(BUILDDIR)/$(VERSION)
 
-gettext-%: $(addprefix gettext-, $(NAMES))
-
-gettext-%:
+gettext-all:
 	@for version in $(VERSIONS) ; do \
 	$(SPHINXBUILD) -M gettext $(SOURCEDIR)/$$version $(BUILDDIR)/$$version ; \
 	done
@@ -46,11 +44,8 @@ resources: gettext
 
 resources-all:
 	@for version in $(VERSIONS) ; do \
-	cd $(SOURCEDIR)/$$version ; \
-	pwd ; \
  for lang in $(LANGUAGES) ; do \
-	echo "$$version" ; \
-	sphinx-intl update -p $(POTDIR) -l $$lang ; \
+	sphinx-intl update -p "$(BUILDDIR)/$$version/gettext" -l $$lang ; \
 	done ; \
 	done
 
@@ -80,5 +75,6 @@ html-all: resources-all
 	version=$(VERSION) ; \
 	sed -e "s/#__version__#/$$version/" $(SOURCEDIR)/index.html > $(DOCSDIR)/index.html
 
-echo:
-	@echo $(VERSION)
+clean:
+	rm -rf $(BUILDDIR) $(DOCSDIR)/*
+	
