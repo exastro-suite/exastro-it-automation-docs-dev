@@ -30,6 +30,8 @@ help:
 gettext:
 	@$(SPHINXBUILD) -M gettext $(SOURCEDIR)/$(VERSION) $(BUILDDIR)/$(VERSION)
 
+gettext-%: $(addprefix gettext-, $(NAMES))
+
 gettext-%:
 	@for version in $(VERSIONS) ; do \
 	$(SPHINXBUILD) -M gettext $(SOURCEDIR)/$$version $(BUILDDIR)/$$version ; \
@@ -37,17 +39,26 @@ gettext-%:
 
 # resources ターゲット: .po ファイルを更新し、.mo ファイルを生成
 resources: gettext
-	cd $(SOURCEDIR)/$(VERSION) ;
 	@for lang in $(LANGUAGES) ; do \
 	cd $(SOURCEDIR)/$(VERSION) ; \
-	pwd ; \
 	sphinx-intl update -p $(POTDIR) -l $$lang ; \
 	done
 
+resources-all:
+	@for version in $(VERSIONS) ; do \
+	cd $(SOURCEDIR)/$$version ; \
+	pwd ; \
+ for lang in $(LANGUAGES) ; do \
+	echo "$$version" ; \
+	sphinx-intl update -p $(POTDIR) -l $$lang ; \
+	done ; \
+	done
 
 html: Makefile
-	@$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(DOCSDIR)" $(SPHINXOPTS) $(O)
-	touch $(DOCSDIR)/.nojekyll
+# 	@$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(DOCSDIR)" $(SPHINXOPTS) $(O)
+# 	touch $(DOCSDIR)/.nojekyll
+	version=$(VERSION) ; \
+	sed -e "s/#__version__#/$$version/" $(SOURCEDIR)/index.html > $(DOCSDIR)/index.html
 
 html-%: $(addprefix html-, $(NAMES))
 
@@ -55,6 +66,19 @@ html-%: resources
 	@for lang in $(LANGUAGES) ; do \
 	$(SPHINXBUILD) -b html -D language="$$lang" "$(SOURCEDIR)/${@:html-%=%}" "$(DOCSDIR)/$$lang/${@:html-%=%}" $(SPHINXOPTS) $(O) ; \
 	done
+	touch $(DOCSDIR)/.nojekyll
+	version=$(VERSION) ; \
+	sed -e "s/#__version__#/$$version/" $(SOURCEDIR)/index.html > $(DOCSDIR)/index.html
+
+html-all: resources-all
+	@for version in $(VERSIONS) ; do \
+	for lang in $(LANGUAGES) ; do \
+	$(SPHINXBUILD) -b html -D language="$$lang" "$(SOURCEDIR)/$$version" "$(DOCSDIR)/$$lang/$$version" $(SPHINXOPTS) $(O) ; \
+	done ; \
+	done
+	touch $(DOCSDIR)/.nojekyll
+	version=$(VERSION) ; \
+	sed -e "s/#__version__#/$$version/" $(SOURCEDIR)/index.html > $(DOCSDIR)/index.html
 
 echo:
 	@echo $(VERSION)
