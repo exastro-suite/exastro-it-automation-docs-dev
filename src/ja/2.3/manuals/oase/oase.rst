@@ -65,7 +65,7 @@ OASE 利用手順
 OASE作業フロー
 -----------------------
 
-| OASE の各メニューにおける標準的な作業フローは以下のとおりです。
+| OASE の各メニューにおける標準的な作業フローは以下の通りです。
 | 各作業の詳細は次項に記載しています。
 
 .. figure:: /images/ja/oase/oase/oase_rule_process_v2-3.png
@@ -858,11 +858,12 @@ OASE メニュー
                "lastchange": 1696403830.0,
                "subject": "test mail",
                "body": "sample\r\n"
-               "_exastro_event_collection_settings_id": "d0c9a70c-a1c0-4c7b-9e96-82e602ebc55e",
-               "_exastro_fetched_time": 1696406510,
-               "_exastro_end_time": 1696406810,
-               "_exastro_type": "event"
-           }],
+               "_exastro_event_collection_settings_id": "d0c9a70c-a1c0-4c7b-9e96-82e602ebc55e",
+               "_exastro_fetched_time": 1696406510,
+               "_exastro_end_time": 1696406810,
+               "_exastro_type": "event"
+               "_exastro_event_collection_settings_name": "agent01"
+           }]
    }
 
 .. _loop_care_notes:
