@@ -193,6 +193,9 @@ OASE管理 メニュー
      - | ・ユーザー名
        | ・パスワード
 
+.. tip::
+   | 本バージョン（2.3）で取り扱い可能なメールの文字コードは「UTF-8」のみとなります。
+
 .. _notification_template_common:
 
 通知テンプレート（共通）
@@ -334,4 +337,68 @@ OASE管理 メニュー
 
 
 付録
-=====
+====
+
+.. _oase_agent_flow:
+
+OASE Agentの処理フローと.envの設定値
+------------------------------------
+
+| 本項では、以下について示します。
+| - OASE Agentの処理フロー
+| - OASE Agentのインストール時、.envに設定した、一部の設定値について
+
+.. figure:: /images/ja/oase/oase_management/agent_detailed_flow_v2-3.png
+   :width: 1000px
+   :alt: OASE Agent フロー図
+
+   OASE Agent処理フロー図
+
+.. list-table:: 
+ :widths: 5, 7
+ :header-rows: 1
+
+ * - パラメータ
+   - 説明
+ * - AGENT_NAME
+   - 起動する OASEエージェントの名前および、内部データベースのファイル名として使用されます。
+ * - EXASTRO_URL
+   - ITAに対してAPIリクエストをする際に、リクエスト先として使用されます。
+ * - EXASTRO_ORGANIZATION_ID
+   - ITAに対してAPIリクエストをする際に、Organizationを識別するために使用されます。
+ * - EXASTRO_WORKSPACE_ID
+   - ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。
+
+     EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。
+ * - EXASTRO_USERNAME
+   - ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。
+ * - EXASTRO_PASSWORD
+   - ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。
+ * - EVENT_COLLECTION_SETTINGS_NAMES
+   - このパラメータで設定されている値から、イベント収集設定をITAから取得し、設定ファイルを生成します。
+ * - ITERATION
+   - 上記フロー図にて緑色の矢印で示されているループ処理を、このパラメータで設定している数だけ行います。
+ * - EXECUTE_INTERVAL
+   - 上記フロー図にて緑色の矢印で示されているループ処理の実行間隔です。
+
+
+イベント収集設定の即時反映について
+----------------------------------
+| 本項では、イベント収集設定を変更した際に、OASE Agentに即時反映させる方法について説明します。
+
+1. | OASE Agentのbashシェルを開始します。
+   
+   .. code-block:: shell
+   
+      docker exec -it <OASE Agentのコンテナ名> bash
+
+2. | /tmp内の設定ファイル「event_collection_settings.json」を削除します。
+
+   .. code-block:: shell
+   
+      rm /tmp/event_collection_settings.json
+
+.. tip::
+   | OASE Agentでは、設定ファイル「event_collection_settings.json」が存在しない場合、ITAからイベント収集設定を取得し、設定ファイルを作成します。
+   | 設定ファイルを削除することで最新の設定を反映させることができます。
+   | ※この操作を行わない場合、:ref:`前項<oase_agent_flow>` で示した「ITERATION」の数だけループする処理が終了するまで、変更後の設定が反映されません。
