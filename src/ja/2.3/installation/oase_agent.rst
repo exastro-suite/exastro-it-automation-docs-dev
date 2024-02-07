@@ -155,6 +155,8 @@ OASE Agent
 パラメータ一覧
 ==============
 
+| Exastro OASE Agentの仕様と一部のパラメータの関連については、:ref:`oase_agent_flow` にて説明しています。
+
 .. list-table:: 
  :widths: 5, 7, 1, 5
  :header-rows: 1
@@ -221,6 +223,8 @@ OASE Agent
    - 無し
  * - EXASTRO_USERNAME
    - Exastro IT Automation で作成した ユーザー名
+
+     ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
    - 可
    - admin
  * - EXASTRO_PASSWORD
