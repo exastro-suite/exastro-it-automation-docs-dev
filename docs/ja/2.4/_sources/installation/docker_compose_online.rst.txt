@@ -222,6 +222,9 @@ Docker Compose - Online
 .. note::
    | インストーラがOSを判断して、DockerまたはPodmanを選択します。
 
+.. note::
+   | インストールに失敗した場合は、 :ref:`docker_compose_uninstall` の :ref:`docker_compose_uninstall_all` または :ref:`docker_compose_uninstall_container` を実施して、再度インストールを実施してください。
+
 | 最も簡単なインストール方法はインストールスクリプトを利用するインストールです。
 | 1回のコマンド実行と対話型による設定が可能です。
 | 以下、ユーザーはtest_user、ホームディレクトリは/home/test_userで実行した例です。
@@ -441,6 +444,7 @@ Let's Try!!
 
   sh <(curl -sf https://ita.exastro.org/setup) install
 
+.. _docker_compose_uninstall:
 
 アンインストール
 ================
@@ -454,19 +458,66 @@ Let's Try!!
   | アンインストール実施前に、バックアップを取得しておくことを推奨します。
   | バックアップ対象は :file:`~/exastro-docker-compose/.volumes` です。
 
+
 アンインストール
 ----------------
 
-アンインストール実施
-^^^^^^^^^^^^^^^^^^^^
+.. _docker_compose_uninstall_all:
 
-| アンインストールを実施します。
+コンテナ＋データを削除する場合
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| コンテナイメージも削除されます。
 
 .. code-block:: bash
    :caption: コマンド
 
-   # コンテナのみ削除する場合
+   sh <(curl -sf https://ita.exastro.org/setup) remove -c
+
+
+.. _docker_compose_uninstall_container:
+
+コンテナイメージを残す場合
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+コンテナ削除
+************
+
+.. code-block:: bash
+   :caption: コマンド
+
    sh <(curl -sf https://ita.exastro.org/setup) remove
 
-   # コンテナ＋データを削除する場合
-   sh <(curl -sf https://ita.exastro.org/setup) remove -c
+volumeを削除
+************
+
+.. code-block:: bash
+   :caption: コマンド
+
+   docker volume rm $(docker volume ls -qf dangling=true)
+
+   # volumeが消えていることを確認
+   docker volume ls
+
+.volumesを削除
+****************
+
+.. code-block:: bash
+   :caption: コマンド
+
+   cd ~/exastro-docker-compose
+
+   sudo rm -rf .volumes
+
+.volumesを再作成
+****************
+
+.. note::
+   | 再インストールする場合は下記を実施してください。
+
+.. code-block:: bash
+   :caption: コマンド
+
+   cd ~/exastro-docker-compose
+   
+   git checkout .volumes

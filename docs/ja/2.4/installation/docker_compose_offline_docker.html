@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>Docker Compose on Docker - Offline &#8212; Documentation  ドキュメント</title>
+    <title>2. Docker Compose on Docker - Offline &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -33,7 +33,9 @@
     <script src="../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="3. Docker Compose on Podman - Offline" href="docker_compose_offline_podman.html" />
+    <link rel="prev" title="1. Docker Compose - Online" href="docker_compose_online.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -93,6 +95,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="docker_compose_online.html" title="前のトピックへ"><span class="section-number">1. </span>Docker Compose - Online</a></li>
+        <li class="next"><a href="docker_compose_offline_podman.html" title="次のトピックへ"><span class="section-number">3. </span>Docker Compose on Podman - Offline</a></li>
       </ul>
     </div>
   </div>
@@ -103,9 +107,27 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">構成・構築ガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">インストール</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">インストール</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="docker_compose_online.html">1. Docker Compose - Online</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Docker Compose on Docker - Offline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.2. 特徴</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.3. 前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-prep">2.4. 事前準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-docker-compose">2.5. 全体の流れ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.6. オンライン環境(インターネットに接続できる環境)での作業</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.7. オフライン環境(インターネットに接続できない環境)での作業</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">2.8. エラー対応</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker_compose_offline_podman.html">3. Docker Compose on Podman - Offline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helm_on_kubernetes.html">4. Helm chart (Kubernetes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oase_agent_docker_compose.html">5. OASE Agent (Docker Compose)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oase_agent_kubernetes.html">6. OASE Agent (Kubernetes)</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../learn/index.html">Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../templates/index.html">テンプレート</a></li>
@@ -124,15 +146,15 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">Docker Compose on Docker - Offline</a><ul>
-<li><a class="reference internal" href="#id1">目的</a></li>
-<li><a class="reference internal" href="#id2">特徴</a></li>
-<li><a class="reference internal" href="#id3">前提条件</a></li>
-<li><a class="reference internal" href="#docker-prep">事前準備</a></li>
-<li><a class="reference internal" href="#install-docker-compose">全体の流れ</a></li>
-<li><a class="reference internal" href="#id6">オンライン環境(インターネットに接続できる環境)での作業</a></li>
-<li><a class="reference internal" href="#id7">オフライン環境(インターネットに接続できない環境)での作業</a></li>
-<li><a class="reference internal" href="#id8">エラー対応</a></li>
+<li><a class="reference internal" href="#">2. Docker Compose on Docker - Offline</a><ul>
+<li><a class="reference internal" href="#id1">2.1. 目的</a></li>
+<li><a class="reference internal" href="#id2">2.2. 特徴</a></li>
+<li><a class="reference internal" href="#id3">2.3. 前提条件</a></li>
+<li><a class="reference internal" href="#docker-prep">2.4. 事前準備</a></li>
+<li><a class="reference internal" href="#install-docker-compose">2.5. 全体の流れ</a></li>
+<li><a class="reference internal" href="#id6">2.6. オンライン環境(インターネットに接続できる環境)での作業</a></li>
+<li><a class="reference internal" href="#id7">2.7. オフライン環境(インターネットに接続できない環境)での作業</a></li>
+<li><a class="reference internal" href="#id8">2.8. エラー対応</a></li>
 </ul>
 </li>
 </ul>
@@ -146,8 +168,9 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../index.html">HOME</a></li>
+    <li><a href="index.html">インストール</a></li>
     
-    <li>Docker Compose on Docker - Offline</li>
+    <li><span class="section-number">2. </span>Docker Compose on Docker - Offline</li>
   </ul>
 </div>
 
@@ -168,22 +191,22 @@ $(window).on('load', function () {
    },200);
 });
 </script><section id="docker-compose-on-docker-offline">
-<h1>Docker Compose on Docker - Offline<a class="headerlink" href="#docker-compose-on-docker-offline" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>Docker Compose on Docker - Offline<a class="headerlink" href="#docker-compose-on-docker-offline" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>目的<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>目的<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Exastro IT Automation を利用する際に必要となる、Exastro Platform および Exastro IT Automation を Docker もしくは Podman 上に導入する手順について説明します。</div>
 </div>
 </section>
 <section id="id2">
-<h2>特徴<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>特徴<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">最も簡単に Exastro IT Automation の利用を開始するための導入方法となります。</div>
 <div class="line">高い可用性やサービスレベルを必要とする場合には、<a class="reference internal" href="helm_on_kubernetes.html"><span class="doc">Kubernetes 版</span></a> の利用を推奨します。</div>
 </div>
 </section>
 <section id="id3">
-<h2>前提条件<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.3. </span>前提条件<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">インターネットに接続できる環境で必要な資材を収集し、記憶媒体等でオフライン環境に持ち込んだ後 インストールを行います。</div>
 <div class="line">資材を収集する環境とインストールする環境で構築状態(OSのバージョン および インストール済のパッケージ)を一致させる必要があります。</div>
@@ -194,7 +217,7 @@ $(window).on('load', function () {
 <div class="line">動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。</div>
 </div>
 <table class="docutils align-default" id="id9">
-<caption><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.9 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -217,7 +240,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id10">
-<caption><span class="caption-text">ハードウェア要件(推奨構成)</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.10 </span><span class="caption-text">ハードウェア要件(推奨構成)</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -250,7 +273,7 @@ $(window).on('load', function () {
 </li>
 <li><p>通信要件</p>
 <table class="docutils align-default" id="id11">
-<caption><span class="caption-text">通信要件</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.11 </span><span class="caption-text">通信要件</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 33.3%" />
@@ -303,7 +326,7 @@ $(window).on('load', function () {
 <li><p>動作確認済みオペレーティングシステム</p>
 <p>以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id12">
-<caption><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.12 </span><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -330,7 +353,7 @@ $(window).on('load', function () {
 <p>手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
 以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id13">
-<caption><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.13 </span><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 66.7%" />
 <col style="width: 33.3%" />
@@ -368,7 +391,7 @@ $(window).on('load', function () {
 </div>
 </section>
 <section id="docker-prep">
-<span id="id4"></span><h2>事前準備<a class="headerlink" href="#docker-prep" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id4"></span><h2><span class="section-number">2.4. </span>事前準備<a class="headerlink" href="#docker-prep" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">コンテナイメージの取得 及び 実行にはシェルスクリプトを使用します。</div>
 </div>
@@ -379,7 +402,7 @@ $(window).on('load', function () {
 <div class="line">サービス公開用の URL を準備しておく必要があります。</div>
 </div>
 <table class="docutils align-default" id="id14">
-<caption><span class="caption-text">例1) IPアドレスによるサービス公開</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.14 </span><span class="caption-text">例1) IPアドレスによるサービス公開</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -402,7 +425,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-text">例2) ドメインによるサービス公開</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.15 </span><span class="caption-text">例2) ドメインによるサービス公開</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -425,7 +448,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id16">
-<caption><span class="caption-text">例3) LoadBalancer を経由したサービス公開</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.16 </span><span class="caption-text">例3) LoadBalancer を経由したサービス公開</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -456,7 +479,7 @@ $(window).on('load', function () {
 </div>
 </section>
 <section id="install-docker-compose">
-<span id="id5"></span><h2>全体の流れ<a class="headerlink" href="#install-docker-compose" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h2><span class="section-number">2.5. </span>全体の流れ<a class="headerlink" href="#install-docker-compose" title="この見出しへのパーマリンク">¶</a></h2>
 <p>オンライン環境での作業完了後に、オフライン環境にてインストールを実施します。</p>
 <p>▼オンライン環境での手順</p>
 <ol class="arabic simple">
@@ -512,7 +535,7 @@ $(window).on('load', function () {
 </dl>
 </section>
 <section id="id6">
-<h2>オンライン環境(インターネットに接続できる環境)での作業<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.6. </span>オンライン環境(インターネットに接続できる環境)での作業<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">まずは資源の収集を行います。</div>
 <div class="line">以下、ユーザーはalmalinux、ホームディレクトリは/home/almalinuxで実行した例です。</div>
@@ -624,7 +647,7 @@ curl -OL <a class="reference external" href="https://github.com/exastro-suite/ex
 </dl>
 </section>
 <section id="id7">
-<h2>オフライン環境(インターネットに接続できない環境)での作業<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.7. </span>オフライン環境(インターネットに接続できない環境)での作業<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
 <blockquote>
 <div><p>オンライン環境での作業完了後、オフライン環境にて下記の手順を実施します。</p>
 <p>1. マウントの設定
@@ -820,7 +843,7 @@ GitLab deployment:                false</p>
 </div>
 </section>
 <section id="id8">
-<h2>エラー対応<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.8. </span>エラー対応<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
 <p>発生する可能性のあるエラーと対処方法は下記の通りです。</p>
 <blockquote>
 <div><dl>
@@ -865,6 +888,8 @@ sudo dnf -y --disablerepo=* --enablerepo=docker-repo-almalinux install container
 
 <div id="articleNavigation">
   <ul>
+    <li class="prev"><a href="docker_compose_online.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">1. </span>Docker Compose - Online</a></li>
+    <li class="next"><a href="docker_compose_offline_podman.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">3. </span>Docker Compose on Podman - Offline</a></li>
   </ul>
 </div>
 

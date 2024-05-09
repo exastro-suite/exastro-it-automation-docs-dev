@@ -27,7 +27,7 @@ Helm chart (Kubernetes)
 ====
 
 | 高い可用性やサービスレベルを必要とされる際の、Exastro IT Automation の導入方法となります。
-| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版<docker_compose>` の利用を推奨します。
+| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版<docker_compose_online>` の利用を推奨します。
 
 前提条件
 ========
@@ -671,6 +671,9 @@ GitLab 連携設定
 
 インストール
 ============
+
+.. note::
+   | インストールに失敗した場合は、 :ref:`ita_uninstall` を実施して、再度インストールを実施してください。
 
 永続ボリュームの作成
 --------------------
