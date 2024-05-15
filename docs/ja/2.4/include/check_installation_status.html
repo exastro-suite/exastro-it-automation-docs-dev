@@ -145,47 +145,53 @@
 <div class="body" role="main">
 
   <div class="line-block">
-<div class="line">コマンドラインから以下のコマンドを入力して、インストールが完了していることを確認します。</div>
+<div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
-
-<span class="p">|</span><span class="w"> </span>正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが<span class="w"> </span>“Completed”<span class="w"> </span>、その他すべてが<span class="w"> </span>“Running”<span class="w"> </span>となります。
-<span class="p">|</span><span class="w"> </span>※正常に起動するまで数分かかる場合があります。
 </pre></div>
 </div>
+</div>
+<div class="line-block">
+<div class="line">正常に起動している場合は、<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> と <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
+<div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">出力結果</span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
-ita-api-admin-64657656c6-r4s2l<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-api-organization-75ff9d599c-gthvl<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-execute-fdd8dfc57-7676h<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-role-vars-listup-6cd558d78b-xxl6x<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-vars-listup-5db44d54d8-zxqj7<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-pioneer-vars-listup-6bf744f5b6-k8ctx<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-towermaster-sync-59594b5d84-phbg7<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-cicd-for-iac-f6855c588-r6w4k<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-collector-6fc8c7b4d4-hjwck<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-regularly-5897dcb9f6-4npz7<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-synchronize-6fd6dcd5f4-qgdhx<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-excel-export-import-df76d77c4-ms4j2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-hostgroup-split-86746f758-b796k<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-create-8588c9747d-66xwn<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-export-import-6b8498f476-zwml7<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-execute-8478554d8d-qztbv<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-vars-listup-bf688659d-zgh8d<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-execute-5dbbb599b-qh8rc<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-vars-listup-5564fcb5b-nphm7<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-migration-1.0.4-0wdt<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-ita-web-server-854bcdbbf4-s7fdb<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-keycloak-56d8b4556c-tndnv<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-api-bddb446db-s9zjh<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-auth-799f57fb6c-wlbtf<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-migration-1.4.2-6sks<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-platform-web-88db7c489-wkmn9<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
+ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-organization-559d7d8f89-ptphh<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-execute-5dc444c999-w6gmr<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-towermaster-sync-6759486f8f-wrbbp<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-cicd-for-iac-7b75cc56f5-rrrvg<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-collector-7748d54f59-8j5r2<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-regularly-779ff79775-xnt29<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-synchronize-5d5485479-5df54<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-excel-export-import-6f84f97dcf-hlm4h<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-hostgroup-split-59b698f479-cxggd<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-create-796bdc9c75-l79zq<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-export-import-849d796bb5-5mpw2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-oase-conclusion-b484595d7-kssv4<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-execute-769d874d7-sknn6<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-migration-1-3-6-lydz<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-web-server-b4cd4cdf8-wkx78<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+keycloak-0<span class="w">                                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mariadb-778786f7d-ss4cq<span class="w">                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mongo-0<span class="w">                                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-api-ffb78f578-svd5t<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-auth-75895d784-9hhxw<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-job-864c47d4f-8vvvq<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-migration-1-8-0-rjwr<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-web-6644884657-dmwp6<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 </pre></div>
 </div>
 </div>
