@@ -152,7 +152,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#id27">2.6.2.1. サービス停止</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id28">2.6.2.2. アップグレード実施</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id29">2.6.2.3. サービス再開</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id30">2.6.2.4. アップグレード状況確認</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#helm-on-kubernetes-upgrade-status">2.6.2.4. アップグレード状況確認</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +231,7 @@
 <li><a class="reference internal" href="#id27">2.6.2.1. サービス停止</a></li>
 <li><a class="reference internal" href="#id28">2.6.2.2. アップグレード実施</a></li>
 <li><a class="reference internal" href="#id29">2.6.2.3. サービス再開</a></li>
-<li><a class="reference internal" href="#id30">2.6.2.4. アップグレード状況確認</a></li>
+<li><a class="reference internal" href="#helm-on-kubernetes-upgrade-status">2.6.2.4. アップグレード状況確認</a></li>
 </ul>
 </li>
 </ul>
@@ -1488,22 +1488,33 @@ $(window).on('load', function () {
 <li><p>データベースコンテナ</p></li>
 </ul>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">外部データベース</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">データベースコンテナ</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ul class="simple">
-<li><p>特徴</p></li>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">外部データベース</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">データベースコンテナ</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">外部データベースを利用する場合は、以下の内容に従ってインストールを進める必要があります。</div>
+</div>
+<ul>
+<li><div class="line-block">
+<div class="line">特徴</div>
+</div>
+</li>
 </ul>
 <div class="line-block">
 <div class="line">マネージドデータベースや別途用意した Kubernetes クラスタ外のデータベースを利用します。</div>
 <div class="line">Kubernetes クラスタ外にあるため、環境を分離して管理することが可能です。</div>
 </div>
-<div class="admonition warning">
+<blockquote>
+<div><div class="admonition warning">
 <p class="admonition-title">警告</p>
 <div class="line-block">
 <div class="line">複数のITAを構築する場合はlower_case_table_namesの設定を統一してください。</div>
 <div class="line">※統一しないと環境間でのメニューエクスポート・インポートが正常に動作しなくなる可能性があります。</div>
 </div>
 </div>
-<ul class="simple">
-<li><p>設定例</p></li>
+</div></blockquote>
+<ul>
+<li><div class="line-block">
+<div class="line">設定例</div>
+</div>
+</li>
 </ul>
 <div class="line-block">
 <div class="line">外部データベースを操作するために必要な接続情報を設定します。</div>
@@ -1519,9 +1530,23 @@ $(window).on('load', function () {
 <div class="line-block">
 <div class="line">認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)</div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line"><strong class="command">DB_ADMIN_USER</strong> で指定するDBの管理ユーザーには、データベースとユーザーを作成する権限が必要です。</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)</div>
+</div>
+</div>
 </div>
 <ol class="arabic">
-<li><p>Exastro IT Automation 用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro IT Automation 用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">データベースの接続情報を設定します。</div>
 </div>
@@ -1638,7 +1663,9 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-<li><p>Exastro 共通基盤用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro 共通基盤用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">データベースの接続情報を設定します。</div>
 </div>
@@ -1847,8 +1874,10 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-<li><p>データベースコンテナの無効化</p>
-<div class="line-block">
+<li><p>データベースコンテナの無効化</p></li>
+</ol>
+<blockquote>
+<div><div class="line-block">
 <div class="line">データベースコンテナが起動しないように設定します。</div>
 </div>
 <table class="filter-table docutils align-left" id="id62">
@@ -1951,7 +1980,8 @@ $(window).on('load', function () {
 </pre></div>
 </div>
 </div>
-</li>
+</div></blockquote>
+<ol class="arabic" start="5">
 <li><p>MongoDBコンテナの無効化</p>
 <div class="line-block">
 <div class="line">MongoDBコンテナが起動しないように設定します。(OASEを利用しない場合も設定必要)</div>
@@ -2083,15 +2113,21 @@ $(window).on('load', function () {
 </div>
 </li>
 </ol>
-</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul class="simple">
-<li><p>特徴</p></li>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul>
+<li><div class="line-block">
+<div class="line">特徴</div>
+</div>
+</li>
 </ul>
 <div class="line-block">
 <div class="line">Kubernetes クラスタ内にデプロイしたデータベースコンテナを利用します。</div>
 <div class="line">Exastro と同じ Kubernetes クラスタにコンテナとして管理できます。</div>
 </div>
-<ul class="simple">
-<li><p>設定例</p></li>
+<ul>
+<li><div class="line-block">
+<div class="line">設定例</div>
+</div>
+</li>
 </ul>
 <div class="line-block">
 <div class="line">データベースコンテナの root パスワードを作成し、他のコンテナからもアクセスできるように作成した root アカウントのパスワードを設定します。</div>
@@ -2110,7 +2146,9 @@ $(window).on('load', function () {
 </div>
 </div>
 <ol class="arabic" id="configuration-database-container">
-<li><p>データベースコンテナの設定</p>
+<li><div class="line-block">
+<div class="line">データベースコンテナの設定</div>
+</div>
 <div class="line-block">
 <div class="line">データベースコンテナの root パスワードを設定します。</div>
 <div class="line">また、データベースのデータを永続化するために利用するストレージを指定します。</div>
@@ -2241,7 +2279,9 @@ $(window).on('load', function () {
 </div>
 </div></div>
 </li>
-<li><p>Exastro IT Automation 用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro IT Automation 用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">Exastro IT Automation コンテナがデータベースに接続できるようにするために、<a class="reference internal" href="#database-setup"><span class="std std-ref">データベース連携</span></a> で作成した root アカウントのパスワードを設定します。</div>
 </div>
@@ -2348,7 +2388,9 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-<li><p>Exastro 共通基盤用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro 共通基盤用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">Exastro 共通基盤のコンテナがデータベースに接続できるようにするために、「1.  データベースコンテナの設定」で作成した root アカウントのパスワードを設定します。</div>
 </div>
@@ -2702,7 +2744,9 @@ $(window).on('load', function () {
 </div>
 </div>
 <ol class="arabic">
-<li><p>Exastro IT Automation 用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro IT Automation 用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">アプリケーションが利用・作成する DB ユーザーを設定します。</div>
 </div>
@@ -2811,7 +2855,9 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-<li><p>Keycloak 用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Keycloak 用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">アプリケーションが利用・作成する DB ユーザーを設定します。</div>
 </div>
@@ -2940,7 +2986,9 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-<li><p>Exastro 共通基盤用データベースの設定</p>
+<li><div class="line-block">
+<div class="line">Exastro 共通基盤用データベースの設定</div>
+</div>
 <div class="line-block">
 <div class="line">アプリケーションが利用・作成する DB ユーザーを設定します。</div>
 </div>
@@ -3650,7 +3698,7 @@ pv-mongo<span class="w">        </span>20Gi<span class="w">       </span>RWO<spa
 <li><p>Helm コマンドを使い Kubernetes 環境にインストールを行います。</p>
 <div class="literal-block-wrapper docutils container" id="id98">
 <div class="code-block-caption"><span class="caption-number">リスト 2.33 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id98" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--values<span class="w"> </span>exastro.yaml
 </pre></div>
@@ -3707,47 +3755,53 @@ Exastro<span class="w"> </span>install<span class="w"> </span>completion!
 <div class="line">インストール状況確認</div>
 </div>
 <div class="line-block">
-<div class="line">コマンドラインから以下のコマンドを入力して、インストールが完了していることを確認します。</div>
+<div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id100">
 <div class="code-block-caption"><span class="caption-number">リスト 2.35 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id100" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
-
-<span class="p">|</span><span class="w"> </span>正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが<span class="w"> </span>“Completed”<span class="w"> </span>、その他すべてが<span class="w"> </span>“Running”<span class="w"> </span>となります。
-<span class="p">|</span><span class="w"> </span>※正常に起動するまで数分かかる場合があります。
 </pre></div>
 </div>
+</div>
+<div class="line-block">
+<div class="line">正常に起動している場合は、<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> と <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
+<div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id101">
 <div class="code-block-caption"><span class="caption-number">リスト 2.36 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id101" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
-ita-api-admin-64657656c6-r4s2l<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-api-organization-75ff9d599c-gthvl<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-execute-fdd8dfc57-7676h<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-role-vars-listup-6cd558d78b-xxl6x<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-vars-listup-5db44d54d8-zxqj7<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-pioneer-vars-listup-6bf744f5b6-k8ctx<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-towermaster-sync-59594b5d84-phbg7<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-cicd-for-iac-f6855c588-r6w4k<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-collector-6fc8c7b4d4-hjwck<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-regularly-5897dcb9f6-4npz7<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-synchronize-6fd6dcd5f4-qgdhx<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-excel-export-import-df76d77c4-ms4j2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-hostgroup-split-86746f758-b796k<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-create-8588c9747d-66xwn<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-export-import-6b8498f476-zwml7<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-execute-8478554d8d-qztbv<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-vars-listup-bf688659d-zgh8d<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-execute-5dbbb599b-qh8rc<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-vars-listup-5564fcb5b-nphm7<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-migration-1.0.4-0wdt<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-ita-web-server-854bcdbbf4-s7fdb<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-keycloak-56d8b4556c-tndnv<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-api-bddb446db-s9zjh<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-auth-799f57fb6c-wlbtf<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-migration-1.4.2-6sks<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-platform-web-88db7c489-wkmn9<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
+ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-organization-559d7d8f89-ptphh<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-execute-5dc444c999-w6gmr<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-towermaster-sync-6759486f8f-wrbbp<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-cicd-for-iac-7b75cc56f5-rrrvg<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-collector-7748d54f59-8j5r2<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-regularly-779ff79775-xnt29<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-synchronize-5d5485479-5df54<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-excel-export-import-6f84f97dcf-hlm4h<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-hostgroup-split-59b698f479-cxggd<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-create-796bdc9c75-l79zq<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-export-import-849d796bb5-5mpw2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-oase-conclusion-b484595d7-kssv4<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-execute-769d874d7-sknn6<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-migration-1-3-6-lydz<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-web-server-b4cd4cdf8-wkx78<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+keycloak-0<span class="w">                                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mariadb-778786f7d-ss4cq<span class="w">                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mongo-0<span class="w">                                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-api-ffb78f578-svd5t<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-auth-75895d784-9hhxw<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-job-864c47d4f-8vvvq<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-migration-1-8-0-rjwr<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-web-6644884657-dmwp6<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 </pre></div>
 </div>
 </div>
@@ -3830,7 +3884,7 @@ http://exastro-suite-mng.example.local/auth/
 <li><p>Helm コマンドを使い Kubernetes 環境にインストールを行います。</p>
 <div class="literal-block-wrapper docutils container" id="id108">
 <div class="code-block-caption"><span class="caption-number">リスト 2.42 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id108" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--values<span class="w"> </span>exastro.yaml
 </pre></div>
@@ -3892,47 +3946,53 @@ Exastro<span class="w"> </span>install<span class="w"> </span>completion!
 <div class="line">インストール状況確認</div>
 </div>
 <div class="line-block">
-<div class="line">コマンドラインから以下のコマンドを入力して、インストールが完了していることを確認します。</div>
+<div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id110">
 <div class="code-block-caption"><span class="caption-number">リスト 2.44 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id110" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
-
-<span class="p">|</span><span class="w"> </span>正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが<span class="w"> </span>“Completed”<span class="w"> </span>、その他すべてが<span class="w"> </span>“Running”<span class="w"> </span>となります。
-<span class="p">|</span><span class="w"> </span>※正常に起動するまで数分かかる場合があります。
 </pre></div>
 </div>
+</div>
+<div class="line-block">
+<div class="line">正常に起動している場合は、<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> と <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
+<div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id111">
 <div class="code-block-caption"><span class="caption-number">リスト 2.45 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id111" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
-ita-api-admin-64657656c6-r4s2l<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-api-organization-75ff9d599c-gthvl<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-execute-fdd8dfc57-7676h<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-role-vars-listup-6cd558d78b-xxl6x<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-vars-listup-5db44d54d8-zxqj7<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-pioneer-vars-listup-6bf744f5b6-k8ctx<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-towermaster-sync-59594b5d84-phbg7<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-cicd-for-iac-f6855c588-r6w4k<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-collector-6fc8c7b4d4-hjwck<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-regularly-5897dcb9f6-4npz7<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-synchronize-6fd6dcd5f4-qgdhx<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-excel-export-import-df76d77c4-ms4j2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-hostgroup-split-86746f758-b796k<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-create-8588c9747d-66xwn<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-export-import-6b8498f476-zwml7<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-execute-8478554d8d-qztbv<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-vars-listup-bf688659d-zgh8d<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-execute-5dbbb599b-qh8rc<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-vars-listup-5564fcb5b-nphm7<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-migration-1.0.4-0wdt<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-ita-web-server-854bcdbbf4-s7fdb<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-keycloak-56d8b4556c-tndnv<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-api-bddb446db-s9zjh<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-auth-799f57fb6c-wlbtf<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-migration-1.4.2-6sks<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-platform-web-88db7c489-wkmn9<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
+ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-organization-559d7d8f89-ptphh<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-execute-5dc444c999-w6gmr<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-towermaster-sync-6759486f8f-wrbbp<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-cicd-for-iac-7b75cc56f5-rrrvg<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-collector-7748d54f59-8j5r2<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-regularly-779ff79775-xnt29<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-synchronize-5d5485479-5df54<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-excel-export-import-6f84f97dcf-hlm4h<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-hostgroup-split-59b698f479-cxggd<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-create-796bdc9c75-l79zq<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-export-import-849d796bb5-5mpw2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-oase-conclusion-b484595d7-kssv4<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-execute-769d874d7-sknn6<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-migration-1-3-6-lydz<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-web-server-b4cd4cdf8-wkx78<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+keycloak-0<span class="w">                                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mariadb-778786f7d-ss4cq<span class="w">                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mongo-0<span class="w">                                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-api-ffb78f578-svd5t<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-auth-75895d784-9hhxw<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-job-864c47d4f-8vvvq<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-migration-1-8-0-rjwr<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-web-6644884657-dmwp6<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 </pre></div>
 </div>
 </div>
@@ -4036,7 +4096,7 @@ http://172.16.20.XXX:31798
 <li><p>Helm コマンドを使い Kubernetes 環境にインストールを行います。</p>
 <div class="literal-block-wrapper docutils container" id="id119">
 <div class="code-block-caption"><span class="caption-number">リスト 2.52 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id119" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--values<span class="w"> </span>exastro.yaml
 </pre></div>
@@ -4097,47 +4157,53 @@ Exastro<span class="w"> </span>install<span class="w"> </span>completion!
 <div class="line">インストール状況確認</div>
 </div>
 <div class="line-block">
-<div class="line">コマンドラインから以下のコマンドを入力して、インストールが完了していることを確認します。</div>
+<div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id121">
 <div class="code-block-caption"><span class="caption-number">リスト 2.54 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id121" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
-
-<span class="p">|</span><span class="w"> </span>正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが<span class="w"> </span>“Completed”<span class="w"> </span>、その他すべてが<span class="w"> </span>“Running”<span class="w"> </span>となります。
-<span class="p">|</span><span class="w"> </span>※正常に起動するまで数分かかる場合があります。
 </pre></div>
 </div>
+</div>
+<div class="line-block">
+<div class="line">正常に起動している場合は、<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> と <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
+<div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id122">
 <div class="code-block-caption"><span class="caption-number">リスト 2.55 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id122" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
-ita-api-admin-64657656c6-r4s2l<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-api-organization-75ff9d599c-gthvl<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-execute-fdd8dfc57-7676h<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-role-vars-listup-6cd558d78b-xxl6x<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-legacy-vars-listup-5db44d54d8-zxqj7<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-pioneer-vars-listup-6bf744f5b6-k8ctx<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-ansible-towermaster-sync-59594b5d84-phbg7<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-cicd-for-iac-f6855c588-r6w4k<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-collector-6fc8c7b4d4-hjwck<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-regularly-5897dcb9f6-4npz7<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-conductor-synchronize-6fd6dcd5f4-qgdhx<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-excel-export-import-df76d77c4-ms4j2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-hostgroup-split-86746f758-b796k<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-create-8588c9747d-66xwn<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-menu-export-import-6b8498f476-zwml7<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-execute-8478554d8d-qztbv<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cli-vars-listup-bf688659d-zgh8d<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-execute-5dbbb599b-qh8rc<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-by-terraform-cloud-ep-vars-listup-5564fcb5b-nphm7<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-ita-migration-1.0.4-0wdt<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-ita-web-server-854bcdbbf4-s7fdb<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-keycloak-56d8b4556c-tndnv<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-api-bddb446db-s9zjh<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-auth-799f57fb6c-wlbtf<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
-platform-migration-1.4.2-6sks<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>30m
-platform-web-88db7c489-wkmn9<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>30m
+ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-api-organization-559d7d8f89-ptphh<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-execute-5dc444c999-w6gmr<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-ansible-towermaster-sync-6759486f8f-wrbbp<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-cicd-for-iac-7b75cc56f5-rrrvg<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-collector-7748d54f59-8j5r2<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-regularly-779ff79775-xnt29<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-conductor-synchronize-5d5485479-5df54<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-excel-export-import-6f84f97dcf-hlm4h<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-hostgroup-split-59b698f479-cxggd<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-create-796bdc9c75-l79zq<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-menu-export-import-849d796bb5-5mpw2<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-oase-conclusion-b484595d7-kssv4<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-execute-769d874d7-sknn6<span class="w">              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-migration-1-3-6-lydz<span class="w">                                  </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+ita-web-server-b4cd4cdf8-wkx78<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+keycloak-0<span class="w">                                                </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mariadb-778786f7d-ss4cq<span class="w">                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+mongo-0<span class="w">                                                   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-api-ffb78f578-svd5t<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-auth-75895d784-9hhxw<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-job-864c47d4f-8vvvq<span class="w">                              </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-migration-1-8-0-rjwr<span class="w">                             </span><span class="m">0</span>/1<span class="w">     </span>Completed<span class="w">   </span><span class="m">0</span><span class="w">          </span>7h40m
+platform-web-6644884657-dmwp6<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 </pre></div>
 </div>
 </div>
@@ -4337,7 +4403,7 @@ http://172.16.20.xxx:30080
 </div>
 <div class="literal-block-wrapper docutils container" id="id135">
 <div class="code-block-caption"><span class="caption-number">リスト 2.67 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id135" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>diff<span class="w"> </span>exastro.yaml<span class="w"> </span>&lt;<span class="o">(</span>helm<span class="w"> </span>show<span class="w"> </span>values<span class="w"> </span>exastro/exastro<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>diff<span class="w"> </span>-u<span class="w"> </span>exastro.yaml<span class="w"> </span>&lt;<span class="o">(</span>helm<span class="w"> </span>show<span class="w"> </span>values<span class="w"> </span>exastro/exastro<span class="o">)</span>
 </pre></div>
 </div>
 </div>
@@ -4454,142 +4520,158 @@ http://172.16.20.xxx:30080
 </div>
 <div class="literal-block-wrapper docutils container" id="id139">
 <div class="code-block-caption"><span class="caption-number">リスト 2.71 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id139" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">RS_AE</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-ansible-execute<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_ALRV</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-ansible-legacy-role-vars-listup<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_ATS</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-ansible-towermaster-sync<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_CS</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-conductor-synchronize<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_MC</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-menu-create<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_PA</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>platform-auth<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy,statefulset<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}:{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>-n<span class="w"> </span>exastro
 </pre></div>
 </div>
-</div>
-<div class="line-block">
-<div class="line">以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に実行してください。</div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">RS_ALV</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-ansible-legacy-vars-listup<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_APV</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-ansible-pioneer-vars-listup<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_CFI</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-cicd-for-iac<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_CR</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-conductor-regularly<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_COL</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-collector<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_EEI</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-excel-export-import<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_HS</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-hostgroup-split<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_MEI</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-menu-export-import<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_TCE</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-terraform-cli-execute<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_TCV</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-terraform-cli-vars-listup<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_TCEE</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-terraform-cloud-ep-execute<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-<span class="nv">RS_TCEV</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-terraform-cloud-ep-vars-listup<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line">以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。</div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">RS_OC</span><span class="o">=</span><span class="sb">`</span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>ita-by-oase-conclusion<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{@.spec.replicas}{&quot;\n&quot;}&#39;</span><span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="sb">`</span>
-</pre></div>
-</div>
-</li>
-<li><p>リバースプロキシの停止</p>
-<div class="line-block">
-<div class="line">リバースプロキシ (platform-auth) の Pod 起動数を 0 に変更し、エンドユーザーからのアクセスを制限します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id140">
-<div class="code-block-caption"><span class="caption-number">リスト 2.72 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id140" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>platform-auth<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
+<div class="code-block-caption"><span class="caption-number">リスト 2.72 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id140" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ita-api-admin:1
+ita-api-oase-receiver:1
+ita-api-organization:1
+ita-by-ansible-execute:1
+ita-by-ansible-legacy-role-vars-listup:1
+ita-by-ansible-legacy-vars-listup:1
+ita-by-ansible-pioneer-vars-listup:1
+ita-by-ansible-towermaster-sync:1
+ita-by-cicd-for-iac:1
+ita-by-collector:1
+ita-by-conductor-regularly:1
+ita-by-conductor-synchronize:1
+ita-by-excel-export-import:1
+ita-by-hostgroup-split:1
+ita-by-menu-create:1
+ita-by-menu-export-import:1
+ita-by-oase-conclusion:1
+ita-by-terraform-cli-execute:1
+ita-by-terraform-cli-vars-listup:1
+ita-by-terraform-cloud-ep-execute:1
+ita-by-terraform-cloud-ep-vars-listup:1
+ita-web-server:1
+mariadb:1
+platform-api:1
+platform-auth:1
+platform-job:1
+platform-web:1
+keycloak:1
+mongo:1
+:
 </pre></div>
 </div>
 </div>
-</li>
-<li><p>バックヤード処理の停止</p>
 <div class="line-block">
-<div class="line">バックヤード処理 (ita-by-***) の Pod 起動数を 0 に変更し、データベースの更新を停止します。</div>
+<div class="line">各Deployment, StatefulSetのサービス名、replicas数が表示されます。</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">バージョンによって、表示されるサービスが異なります。</div>
+</div>
+</div>
+</li>
+<li><p>アプリケーションの停止</p>
+<div class="line-block">
+<div class="line">アプリケーション (platform-auth) の Pod 起動数を 0 に変更し、アクセスを制限します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id141">
 <div class="code-block-caption"><span class="caption-number">リスト 2.73 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id141" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-legacy-role-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-towermaster-sync<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-conductor-synchronize<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-menu-create<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deploy,statefulset<span class="w"> </span>-n<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span><span class="w"> </span>--all<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </div>
+<div class="literal-block-wrapper docutils container" id="id142">
+<div class="code-block-caption"><span class="caption-number">リスト 2.74 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id142" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deployment.apps/ita-api-admin<span class="w"> </span>scaled
+deployment.apps/ita-api-oase-receiver<span class="w"> </span>scaled
+deployment.apps/ita-api-organization<span class="w"> </span>scaled
+deployment.apps/ita-by-ansible-execute<span class="w"> </span>scaled
+deployment.apps/ita-by-ansible-legacy-role-vars-listup<span class="w"> </span>scaled
+deployment.apps/ita-by-ansible-legacy-vars-listup<span class="w"> </span>scaled
+deployment.apps/ita-by-ansible-pioneer-vars-listup<span class="w"> </span>scaled
+deployment.apps/ita-by-ansible-towermaster-sync<span class="w"> </span>scaled
+deployment.apps/ita-by-cicd-for-iac<span class="w"> </span>scaled
+deployment.apps/ita-by-collector<span class="w"> </span>scaled
+deployment.apps/ita-by-conductor-regularly<span class="w"> </span>scaled
+deployment.apps/ita-by-conductor-synchronize<span class="w"> </span>scaled
+deployment.apps/ita-by-excel-export-import<span class="w"> </span>scaled
+deployment.apps/ita-by-hostgroup-split<span class="w"> </span>scaled
+deployment.apps/ita-by-menu-create<span class="w"> </span>scaled
+deployment.apps/ita-by-menu-export-import<span class="w"> </span>scaled
+deployment.apps/ita-by-oase-conclusion<span class="w"> </span>scaled
+deployment.apps/ita-by-terraform-cli-execute<span class="w"> </span>scaled
+deployment.apps/ita-by-terraform-cli-vars-listup<span class="w"> </span>scaled
+deployment.apps/ita-by-terraform-cloud-ep-execute<span class="w"> </span>scaled
+deployment.apps/ita-by-terraform-cloud-ep-vars-listup<span class="w"> </span>scaled
+deployment.apps/ita-web-server<span class="w"> </span>scaled
+deployment.apps/mariadb<span class="w"> </span>scaled
+deployment.apps/platform-api<span class="w"> </span>scaled
+deployment.apps/platform-auth<span class="w"> </span>scaled
+deployment.apps/platform-job<span class="w"> </span>scaled
+deployment.apps/platform-web<span class="w"> </span>scaled
+statefulset.apps/keycloak<span class="w"> </span>scaled
+statefulset.apps/mongo<span class="w"> </span>scaled
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
 <div class="line-block">
-<div class="line">以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に実行してください。</div>
+<div class="line">バージョンによって、表示されるサービスが異なります。</div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-legacy-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-pioneer-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-cicd-for-iac<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-collector<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-conductor-regularly<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-excel-export-import<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-hostgroup-split<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-menu-export-import<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cli-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cli-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cloud-ep-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cloud-ep-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line">以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。</div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-oase-conclusion<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
-</pre></div>
 </div>
 </li>
 <li><p>Pod 起動数の確認</p>
 <div class="line-block">
-<div class="line">上記で停止した対象の Pod 数が 0 になっていることを確認</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id142">
-<div class="code-block-caption"><span class="caption-number">リスト 2.74 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id142" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>--namespace<span class="w"> </span>exastro
-</pre></div>
-</div>
+<div class="line">上記で停止した対象の Pod 数が 0 になっていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id143">
-<div class="code-block-caption"><span class="caption-number">リスト 2.75 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id143" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
-mariadb<span class="w">                                  </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-ita-web-server<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-platform-web<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-ita-api-admin<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-ita-api-organization<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-platform-api<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-keycloak<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-ita-by-menu-create<span class="w">                       </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-ansible-execute<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-conductor-synchronize<span class="w">             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-platform-auth<span class="w">                            </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
+<div class="code-block-caption"><span class="caption-number">リスト 2.75 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id143" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy,statefulset<span class="w"> </span>-n<span class="w"> </span>exastro
 </pre></div>
 </div>
 </div>
+<div class="literal-block-wrapper docutils container" id="id144">
+<div class="code-block-caption"><span class="caption-number">リスト 2.76 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id144" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
+deployment.apps/ita-api-admin<span class="w">                            </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-api-oase-receiver<span class="w">                    </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-api-organization<span class="w">                     </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-execute<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-cicd-for-iac<span class="w">                      </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-collector<span class="w">                         </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-conductor-regularly<span class="w">               </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-conductor-synchronize<span class="w">             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-excel-export-import<span class="w">               </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-hostgroup-split<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-menu-create<span class="w">                       </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-menu-export-import<span class="w">                </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-oase-conclusion<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cli-execute<span class="w">             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/ita-web-server<span class="w">                           </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/mariadb<span class="w">                                  </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/platform-api<span class="w">                             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/platform-auth<span class="w">                            </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/platform-job<span class="w">                             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+deployment.apps/platform-web<span class="w">                             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>26h
+
+NAME<span class="w">                        </span>READY<span class="w">   </span>AGE
+statefulset.apps/keycloak<span class="w">   </span><span class="m">0</span>/0<span class="w">     </span>25h
+statefulset.apps/mongo<span class="w">      </span><span class="m">0</span>/0<span class="w">     </span>26h
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
 <div class="line-block">
-<div class="line">以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に確認してください。</div>
+<div class="line">バージョンによって、表示されるサービスが異なります。</div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
-ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-cicd-for-iac<span class="w">                      </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-collector<span class="w">                         </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-conductor-regularly<span class="w">               </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-excel-export-import<span class="w">               </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-hostgroup-split<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-menu-export-import<span class="w">                </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-terraform-cli-execute<span class="w">             </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line">以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。</div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
-ita-api-oase-receiver<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>3h41m
-ita-by-oase-conclusion<span class="w">                   </span><span class="m">0</span>/0<span class="w">     </span><span class="m">0</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>3h41m
-</pre></div>
 </div>
 </li>
 </ol>
@@ -4599,16 +4681,16 @@ ita-by-oase-conclusion<span class="w">                   </span><span class="m">
 <div class="line-block">
 <div class="line">アップグレードを実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id144">
-<div class="code-block-caption"><span class="caption-number">リスト 2.76 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id144" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>exastro<span class="w"> </span><span class="se">\</span>
+<div class="literal-block-wrapper docutils container" id="id145">
+<div class="code-block-caption"><span class="caption-number">リスト 2.77 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id145" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--values<span class="w"> </span>exastro.yaml
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id145">
-<div class="code-block-caption"><span class="caption-number">リスト 2.77 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id145" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id146">
+<div class="code-block-caption"><span class="caption-number">リスト 2.78 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id146" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME:<span class="w"> </span>exastro
 LAST<span class="w"> </span>DEPLOYED:<span class="w"> </span>Sat<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">15</span>:00:02<span class="w"> </span><span class="m">2023</span>
 NAMESPACE:<span class="w"> </span>exastro
@@ -4653,110 +4735,119 @@ Exastro<span class="w"> </span>install<span class="w"> </span>completion!
 </section>
 <section id="id29">
 <h4><span class="section-number">2.6.2.3. </span>サービス再開<a class="headerlink" href="#id29" title="この見出しへのパーマリンク">¶</a></h4>
+<p>※ <code class="file docutils literal notranslate"><span class="pre">exastro.yaml</span></code> で指定されたreplicasで、再開されますので、基本的には再開不要です。</p>
+<p><a class="reference internal" href="#helm-on-kubernetes-upgrade-status"><span class="std std-ref">アップグレード状況確認</span></a> にお進みください。</p>
 <ol class="arabic">
 <li><p>サービス再開</p>
 <div class="line-block">
 <div class="line">サービス停止時に取得した各 Deployment の Pod 起動数を元に戻します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id146">
-<div class="code-block-caption"><span class="caption-number">リスト 2.78 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id146" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_AE</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-legacy-role-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_ALRV</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-towermaster-sync<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_ATS</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-conductor-synchronize<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_CS</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-menu-create<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_MC</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>platform-auth<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_PA</span><span class="si">}</span>
+<div class="literal-block-wrapper docutils container" id="id147">
+<div class="code-block-caption"><span class="caption-number">リスト 2.79 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id147" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deploy,statefulset<span class="w"> </span>-n<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="m">1</span><span class="w"> </span>--all<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に実行してください。</div>
+<div class="line">個別にreplicas数を設定する場合は以下のコマンドで再開します。</div>
+<div class="line">サービス名は、停止時に確認した内容を入力してください。</div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-legacy-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_ALV</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-ansible-pioneer-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_APV</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-cicd-for-iac<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_CFI</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-conductor-regularly<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_CR</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-collector<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_COL</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-excel-export-import<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_EEI</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-hostgroup-split<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_HS</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-menu-export-import<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_MEI</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cli-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_TCE</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cli-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_TCV</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cloud-ep-execute<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_TCEE</span><span class="si">}</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-terraform-cloud-ep-vars-listup<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_TCEV</span><span class="si">}</span>
+<div class="literal-block-wrapper docutils container" id="id148">
+<div class="code-block-caption"><span class="caption-number">リスト 2.80 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id148" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span><span class="o">[</span>サービス名<span class="o">]</span><span class="w"> </span>-n<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=[</span>replicas数<span class="o">]</span>
 </pre></div>
+</div>
 </div>
 <div class="line-block">
-<div class="line">以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。</div>
+<div class="line">Ver.2.4.0以降、サービス名：keycloak、mongodbについては以下のコマンドで再開します。</div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>ita-by-oase-conclusion<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=</span><span class="si">${</span><span class="nv">RS_OC</span><span class="si">}</span>
+<div class="literal-block-wrapper docutils container" id="id149">
+<div class="code-block-caption"><span class="caption-number">リスト 2.81 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id149" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>scale<span class="w"> </span>statefulset<span class="w"> </span><span class="o">[</span>サービス名<span class="o">]</span><span class="w"> </span>-n<span class="w"> </span>exastro<span class="w"> </span>--replicas<span class="o">=[</span>replicas数<span class="o">]</span>
 </pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">サービス名を複数指定する場合は、カンマ区切りで複数のサービス名を指定することができます。</div>
+</div>
 </div>
 </li>
 <li><p>Pod 起動数の確認</p>
 <div class="line-block">
-<div class="line">上記で起動した対象の Pod 数が元に戻りすべて <kbd class="kbd docutils literal notranslate">READY</kbd> になっていることを確認</div>
+<div class="line">上記で起動した対象の Pod 数が元に戻りすべて <kbd class="kbd docutils literal notranslate">READY</kbd> になっていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id147">
-<div class="code-block-caption"><span class="caption-number">リスト 2.79 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id147" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>--namespace<span class="w"> </span>exastro
+<div class="literal-block-wrapper docutils container" id="id150">
+<div class="code-block-caption"><span class="caption-number">リスト 2.82 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id150" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy,statefulset<span class="w"> </span>-n<span class="w"> </span>exastro
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id148">
-<div class="code-block-caption"><span class="caption-number">リスト 2.80 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id148" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
-ita-api-admin<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-api-oase-receiver<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-api-organization<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-ansible-execute<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-cicd-for-iac<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-collector<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-conductor-regularly<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-conductor-synchronize<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-excel-export-import<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-hostgroup-split<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-menu-create<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-menu-export-import<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-oase-conclusion<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-terraform-cli-execute<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-ita-web-server<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-mariadb<span class="w">                                  </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-platform-api<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-platform-auth<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-platform-job<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
-platform-web<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>7h46m
+<div class="literal-block-wrapper docutils container" id="id151">
+<div class="code-block-caption"><span class="caption-number">リスト 2.83 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id151" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
+deployment.apps/ita-api-admin<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-api-oase-receiver<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-api-organization<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-execute<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-cicd-for-iac<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-collector<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-conductor-regularly<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-conductor-synchronize<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-excel-export-import<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-hostgroup-split<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-menu-create<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-menu-export-import<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-oase-conclusion<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cli-execute<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-web-server<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/mariadb<span class="w">                                  </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/platform-api<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/platform-auth<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/platform-job<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/platform-web<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+
+NAME<span class="w">                        </span>READY<span class="w">   </span>AGE
+statefulset.apps/keycloak<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>26h
+statefulset.apps/mongo<span class="w">      </span><span class="m">1</span>/1<span class="w">     </span>26h
 </pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">バージョンによって、表示されるサービスが異なります。</div>
 </div>
 </div>
 </li>
 </ol>
 </section>
-<section id="id30">
-<h4><span class="section-number">2.6.2.4. </span>アップグレード状況確認<a class="headerlink" href="#id30" title="この見出しへのパーマリンク">¶</a></h4>
+<section id="helm-on-kubernetes-upgrade-status">
+<span id="id30"></span><h4><span class="section-number">2.6.2.4. </span>アップグレード状況確認<a class="headerlink" href="#helm-on-kubernetes-upgrade-status" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line">コマンドラインから以下のコマンドを入力して、アップグレードが完了していることを確認します。</div>
+<div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id149">
-<div class="code-block-caption"><span class="caption-number">リスト 2.81 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id149" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id152">
+<div class="code-block-caption"><span class="caption-number">リスト 2.84 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id152" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが “Completed” 、その他すべてが “Running” となります。</div>
+<div class="line">正常に起動している場合は、<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> と <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd></kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
 <div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id150">
-<div class="code-block-caption"><span class="caption-number">リスト 2.82 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id150" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id153">
+<div class="code-block-caption"><span class="caption-number">リスト 2.85 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id153" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
 ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
@@ -4816,14 +4907,14 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 <div class="line-block">
 <div class="line">アンインストールを実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id151">
-<div class="code-block-caption"><span class="caption-number">リスト 2.83 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id151" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id154">
+<div class="code-block-caption"><span class="caption-number">リスト 2.86 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id154" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>uninstall<span class="w"> </span>exastro<span class="w"> </span>--namespace<span class="w"> </span>exastro
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id152">
-<div class="code-block-caption"><span class="caption-number">リスト 2.84 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id152" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id155">
+<div class="code-block-caption"><span class="caption-number">リスト 2.87 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id155" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>release<span class="w"> </span><span class="s2">&quot;exastro&quot;</span><span class="w"> </span>uninstalled
 </pre></div>
 </div>
@@ -4837,14 +4928,14 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 </div>
 <section id="id36">
 <h5><span class="section-number">2.7.2.2.1. </span>データベース用<a class="headerlink" href="#id36" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id153">
-<div class="code-block-caption"><span class="caption-number">リスト 2.85 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id153" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id156">
+<div class="code-block-caption"><span class="caption-number">リスト 2.88 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id156" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> </span>pv-database
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id154">
-<div class="code-block-caption"><span class="caption-number">リスト 2.86 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id154" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id157">
+<div class="code-block-caption"><span class="caption-number">リスト 2.89 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id157" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolume<span class="w"> </span><span class="s2">&quot;pv-database&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
@@ -4852,14 +4943,14 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 </section>
 <section id="id37">
 <h5><span class="section-number">2.7.2.2.2. </span>ファイル用<a class="headerlink" href="#id37" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id155">
-<div class="code-block-caption"><span class="caption-number">リスト 2.87 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id155" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id158">
+<div class="code-block-caption"><span class="caption-number">リスト 2.90 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id158" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> </span>pv-ita-common
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id156">
-<div class="code-block-caption"><span class="caption-number">リスト 2.88 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id156" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id159">
+<div class="code-block-caption"><span class="caption-number">リスト 2.91 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id159" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolume<span class="w"> </span><span class="s2">&quot;pv-ita-common&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
@@ -4867,26 +4958,26 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 </section>
 <section id="oase">
 <h5><span class="section-number">2.7.2.2.3. </span>OASE用<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id157">
-<div class="code-block-caption"><span class="caption-number">リスト 2.89 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id157" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id160">
+<div class="code-block-caption"><span class="caption-number">リスト 2.92 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id160" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> </span>pv-mongo
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id158">
-<div class="code-block-caption"><span class="caption-number">リスト 2.90 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id158" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id161">
+<div class="code-block-caption"><span class="caption-number">リスト 2.93 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id161" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolume<span class="w"> </span><span class="s2">&quot;pv-mongo&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id159">
-<div class="code-block-caption"><span class="caption-number">リスト 2.91 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id159" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id162">
+<div class="code-block-caption"><span class="caption-number">リスト 2.94 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id162" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>volume-mongo-storage-mongo-0<span class="w"> </span>--namespace<span class="w"> </span>exastro
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id160">
-<div class="code-block-caption"><span class="caption-number">リスト 2.92 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id160" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id163">
+<div class="code-block-caption"><span class="caption-number">リスト 2.95 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id163" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolumeclaim<span class="w"> </span><span class="s2">&quot;volume-mongo-storage-mongo-0&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
@@ -4894,14 +4985,14 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 </section>
 <section id="id38">
 <h5><span class="section-number">2.7.2.2.4. </span>GitLab用<a class="headerlink" href="#id38" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id161">
-<div class="code-block-caption"><span class="caption-number">リスト 2.93 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id161" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id164">
+<div class="code-block-caption"><span class="caption-number">リスト 2.96 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id164" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> </span>pv-gitlab
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id162">
-<div class="code-block-caption"><span class="caption-number">リスト 2.94 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id162" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id165">
+<div class="code-block-caption"><span class="caption-number">リスト 2.97 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id165" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolume<span class="w"> </span><span class="s2">&quot;pv-gitlab&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
@@ -4909,14 +5000,14 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 </section>
 <section id="id39">
 <h5><span class="section-number">2.7.2.2.5. </span>監査ログファイル用<a class="headerlink" href="#id39" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id163">
-<div class="code-block-caption"><span class="caption-number">リスト 2.95 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id163" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id166">
+<div class="code-block-caption"><span class="caption-number">リスト 2.98 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id166" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> </span>pv-auditlog
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id164">
-<div class="code-block-caption"><span class="caption-number">リスト 2.96 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id164" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id167">
+<div class="code-block-caption"><span class="caption-number">リスト 2.99 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id167" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>persistentvolume<span class="w"> </span><span class="s2">&quot;pv-auditlog&quot;</span><span class="w"> </span>deleted
 </pre></div>
 </div>
@@ -4933,8 +5024,8 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 <div class="line-block">
 <div class="line">下記コマンドは、Persistent Volume 作成時の hostPath に <code class="file docutils literal notranslate"><span class="pre">/var/data/exastro-suite/exastro-platform/database</span></code> を指定した場合の例です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id165">
-<div class="code-block-caption"><span class="caption-number">リスト 2.97 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id165" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id168">
+<div class="code-block-caption"><span class="caption-number">リスト 2.100 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id168" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 永続データがあるコントロールノードにログイン</span>
 ssh<span class="w"> </span>user@contol.node.example
 
@@ -4949,8 +5040,8 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 <div class="line-block">
 <div class="line">下記コマンドは、Persistent Volume 作成時の hostPath に <code class="file docutils literal notranslate"><span class="pre">/var/data/exastro-suite/exastro-it-automation/ita-common</span></code> を指定した場合の例です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id166">
-<div class="code-block-caption"><span class="caption-number">リスト 2.98 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id166" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id169">
+<div class="code-block-caption"><span class="caption-number">リスト 2.101 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id169" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 永続データがあるコントロールノードにログイン</span>
 ssh<span class="w"> </span>user@contol.node.example
 
@@ -4965,8 +5056,8 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 <div class="line-block">
 <div class="line">下記コマンドは、Persistent Volume 作成時の hostPath に <code class="file docutils literal notranslate"><span class="pre">/var/data/exastro-suite/exastro-platform/mongo</span></code> を指定した場合の例です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id167">
-<div class="code-block-caption"><span class="caption-number">リスト 2.99 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id167" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id170">
+<div class="code-block-caption"><span class="caption-number">リスト 2.102 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id170" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 永続データがあるコントロールノードにログイン</span>
 ssh<span class="w"> </span>user@contol.node.example
 
@@ -4981,8 +5072,8 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 <div class="line-block">
 <div class="line">下記コマンドは、Persistent Volume 作成時の hostPath に <code class="file docutils literal notranslate"><span class="pre">/var/data/exastro-suite/exastro-platform/gitlab</span></code> を指定した場合の例です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id168">
-<div class="code-block-caption"><span class="caption-number">リスト 2.100 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id168" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id171">
+<div class="code-block-caption"><span class="caption-number">リスト 2.103 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id171" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 永続データがあるコントロールノードにログイン</span>
 ssh<span class="w"> </span>user@contol.node.example
 
@@ -4997,8 +5088,8 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 <div class="line-block">
 <div class="line">下記コマンドは、Persistent Volume 作成時の hostPath に <code class="file docutils literal notranslate"><span class="pre">/var/log/exastro</span></code> を指定した場合の例です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id169">
-<div class="code-block-caption"><span class="caption-number">リスト 2.101 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id169" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id172">
+<div class="code-block-caption"><span class="caption-number">リスト 2.104 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id172" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 永続データがあるコントロールノードにログイン</span>
 ssh<span class="w"> </span>user@contol.node.example
 
