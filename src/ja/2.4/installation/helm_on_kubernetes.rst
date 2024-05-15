@@ -259,16 +259,19 @@ Helm リポジトリの登録
 
    .. tab:: 外部データベース
 
-      - 特徴
+      | 外部データベースを利用する場合は、以下の内容に従ってインストールを進める必要があります。
+
+      - | 特徴
 
       | マネージドデータベースや別途用意した Kubernetes クラスタ外のデータベースを利用します。
       | Kubernetes クラスタ外にあるため、環境を分離して管理することが可能です。
 
-      .. warning::
-        | 複数のITAを構築する場合はlower_case_table_namesの設定を統一してください。
-        | ※統一しないと環境間でのメニューエクスポート・インポートが正常に動作しなくなる可能性があります。
+        .. warning::
 
-      - 設定例
+           | 複数のITAを構築する場合はlower_case_table_namesの設定を統一してください。
+           | ※統一しないと環境間でのメニューエクスポート・インポートが正常に動作しなくなる可能性があります。
+
+      - | 設定例
 
       | 外部データベースを操作するために必要な接続情報を設定します。
 
@@ -278,27 +281,33 @@ Helm リポジトリの登録
       .. warning::
         | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
 
-      1.  Exastro IT Automation 用データベースの設定
+        .. warning::
+           | :command:`DB_ADMIN_USER` で指定するDBの管理ユーザーには、データベースとユーザーを作成する権限が必要です。
+        
+        .. warning::
+           | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
+      
+      1. | Exastro IT Automation 用データベースの設定
 
-          | データベースの接続情報を設定します。
+         | データベースの接続情報を設定します。
 
-          .. include:: ../include/helm_option_itaDatabaseDefinition.rst
+         .. include:: ../include/helm_option_itaDatabaseDefinition.rst
 
-          .. literalinclude:: literal_includes/exastro_ita_database.yaml
-             :diff: literal_includes/exastro.yaml
-             :caption: exastro.yaml
-             :language: yaml
+         .. literalinclude:: literal_includes/exastro_ita_database.yaml
+            :diff: literal_includes/exastro.yaml
+            :caption: exastro.yaml
+            :language: yaml
 
-      2.  Exastro 共通基盤用データベースの設定
+      2. | Exastro 共通基盤用データベースの設定
 
-          | データベースの接続情報を設定します。
+         | データベースの接続情報を設定します。
 
-          .. include:: ../include/helm_option_pfDatabaseDefinition.rst
+         .. include:: ../include/helm_option_pfDatabaseDefinition.rst
 
-          .. literalinclude:: literal_includes/exastro_pf_database.yaml
-             :diff: literal_includes/exastro.yaml
-             :caption: exastro.yaml
-             :language: yaml
+         .. literalinclude:: literal_includes/exastro_pf_database.yaml
+            :diff: literal_includes/exastro.yaml
+            :caption: exastro.yaml
+            :language: yaml
 
       3.  OASE用データベースの設定
 
@@ -319,14 +328,14 @@ Helm リポジトリの登録
 
       4.  データベースコンテナの無効化
 
-          | データベースコンテナが起動しないように設定します。
+         | データベースコンテナが起動しないように設定します。
 
-          .. include:: ../include/helm_option_databaseDefinition.rst
+         .. include:: ../include/helm_option_databaseDefinition.rst
 
-          .. literalinclude:: literal_includes/exastro_database_disabled.yaml
-             :diff: literal_includes/exastro.yaml
-             :caption: exastro.yaml
-             :language: yaml
+         .. literalinclude:: literal_includes/exastro_database_disabled.yaml
+            :diff: literal_includes/exastro.yaml
+            :caption: exastro.yaml
+            :language: yaml
 
       5.  MongoDBコンテナの無効化
 
@@ -341,12 +350,12 @@ Helm リポジトリの登録
 
    .. tab:: データベースコンテナ
 
-      - 特徴
+      - | 特徴
 
       | Kubernetes クラスタ内にデプロイしたデータベースコンテナを利用します。
       | Exastro と同じ Kubernetes クラスタにコンテナとして管理できます。
 
-      - 設定例
+      - | 設定例
 
       | データベースコンテナの root パスワードを作成し、他のコンテナからもアクセスできるように作成した root アカウントのパスワードを設定します。
       | また、データベースのデータを永続化するために利用するストレージを指定します。
@@ -359,30 +368,30 @@ Helm リポジトリの登録
 
       .. _configuration_database_container:
 
-      1.  データベースコンテナの設定
+      1. | データベースコンテナの設定
 
-          | データベースコンテナの root パスワードを設定します。
-          | また、データベースのデータを永続化するために利用するストレージを指定します。
+         | データベースコンテナの root パスワードを設定します。
+         | また、データベースのデータを永続化するために利用するストレージを指定します。
 
-          .. include:: ../include/helm_option_databaseDefinition.rst
+         .. include:: ../include/helm_option_databaseDefinition.rst
 
-          .. tabs::
+         .. tabs::
 
-            .. tab:: Storage Class 利用
+           .. tab:: Storage Class 利用
 
-               .. literalinclude:: literal_includes/exastro_database_storage_class.yaml
-                  :diff: literal_includes/exastro.yaml
-                  :caption: exastro.yaml
-                  :language: yaml
+              .. literalinclude:: literal_includes/exastro_database_storage_class.yaml
+                 :diff: literal_includes/exastro.yaml
+                 :caption: exastro.yaml
+                 :language: yaml
 
-            .. tab:: hostPath 利用
+           .. tab:: hostPath 利用
 
-               .. literalinclude:: literal_includes/exastro_database_hostpath.yaml
-                  :diff: literal_includes/exastro.yaml
-                  :caption: exastro.yaml
-                  :language: yaml
+              .. literalinclude:: literal_includes/exastro_database_hostpath.yaml
+                 :diff: literal_includes/exastro.yaml
+                 :caption: exastro.yaml
+                 :language: yaml
 
-      2.  Exastro IT Automation 用データベースの設定
+      2.  | Exastro IT Automation 用データベースの設定
 
           | Exastro IT Automation コンテナがデータベースに接続できるようにするために、:ref:`DATABASE_SETUP` で作成した root アカウントのパスワードを設定します。
 
@@ -393,7 +402,7 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      3.  Exastro 共通基盤用データベースの設定
+      3.  | Exastro 共通基盤用データベースの設定
 
           | Exastro 共通基盤のコンテナがデータベースに接続できるようにするために、「1.  データベースコンテナの設定」で作成した root アカウントのパスワードを設定します。
 
@@ -458,38 +467,38 @@ Helm リポジトリの登録
 .. warning::
   | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
 
-1.  Exastro IT Automation 用データベースの設定
+1. | Exastro IT Automation 用データベースの設定
 
-    | アプリケーションが利用・作成する DB ユーザーを設定します。
+   | アプリケーションが利用・作成する DB ユーザーを設定します。
 
-    .. include:: ../include/helm_option_itaDatabaseDefinition.rst
+   .. include:: ../include/helm_option_itaDatabaseDefinition.rst
 
-    .. literalinclude:: literal_includes/exastro_db_user_ita.yaml
-       :diff: literal_includes/exastro.yaml
-       :caption: exastro.yaml
-       :language: yaml
+   .. literalinclude:: literal_includes/exastro_db_user_ita.yaml
+      :diff: literal_includes/exastro.yaml
+      :caption: exastro.yaml
+      :language: yaml
 
-2.  Keycloak 用データベースの設定
+2. | Keycloak 用データベースの設定
 
-    | アプリケーションが利用・作成する DB ユーザーを設定します。
+   | アプリケーションが利用・作成する DB ユーザーを設定します。
 
-    .. include:: ../include/helm_option_keycloakDefinition.rst
+   .. include:: ../include/helm_option_keycloakDefinition.rst
 
-    .. literalinclude:: literal_includes/exastro_db_user_keycloak.yaml
-       :diff: literal_includes/exastro.yaml
-       :caption: exastro.yaml
-       :language: yaml
+   .. literalinclude:: literal_includes/exastro_db_user_keycloak.yaml
+      :diff: literal_includes/exastro.yaml
+      :caption: exastro.yaml
+      :language: yaml
 
-3.  Exastro 共通基盤用データベースの設定
+3. | Exastro 共通基盤用データベースの設定
 
-    | アプリケーションが利用・作成する DB ユーザーを設定します。
+   | アプリケーションが利用・作成する DB ユーザーを設定します。
 
-    .. include:: ../include/helm_option_pfDatabaseDefinition.rst
+   .. include:: ../include/helm_option_pfDatabaseDefinition.rst
 
-    .. literalinclude:: literal_includes/exastro_db_user_pf.yaml
-       :diff: literal_includes/exastro.yaml
-       :caption: exastro.yaml
-       :language: yaml
+   .. literalinclude:: literal_includes/exastro_db_user_pf.yaml
+      :diff: literal_includes/exastro.yaml
+      :caption: exastro.yaml
+      :language: yaml
 
 .. _installation_kubernetes_gitlablinkage:
 
@@ -734,10 +743,10 @@ GitLab 連携設定
          .. code-block:: bash
             :caption: コマンド
 
-            helm install exastro exastro/exastro \
+            helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
-      
+
          .. code-block:: bash
             :caption: 出力結果
       
@@ -825,10 +834,10 @@ GitLab 連携設定
          .. code-block:: bash
             :caption: コマンド
         
-            helm install exastro exastro/exastro \
+            helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
-  
+
          .. code-block:: bash
             :caption: 出力結果(例)
       
@@ -940,10 +949,10 @@ GitLab 連携設定
          .. code-block:: bash
             :caption: コマンド
         
-            helm install exastro exastro/exastro \
+            helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
-  
+
          .. code-block:: bash
             :caption: 出力結果
       
@@ -1147,8 +1156,7 @@ Helm リポジトリの更新
 .. code-block:: shell
    :caption: コマンド
 
-   diff exastro.yaml <(helm show values exastro/exastro)
-
+   diff -u exastro.yaml <(helm show values exastro/exastro)
 
 .. code-block:: diff
    :caption: 実行結果
@@ -1238,8 +1246,8 @@ Helm リポジトリの更新
 .. code-block:: bash
   :caption: コマンド
 
-  helm upgrade exastro exastro/exastro \
-    --namespace exastro \
+  helm upgrade exastro exastro/exastro --install \
+    --namespace exastro --create-namespace \
     --values exastro.yaml
 
 .. code-block:: bash
@@ -1288,57 +1296,20 @@ Helm リポジトリの更新
 サービス再開
 ^^^^^^^^^^^^
 
+※ :file:`exastro.yaml` で指定されたreplicasで、再開されますので、基本的には再開不要です。
+
+:ref:`helm_on_kubernetes_upgrade_status` にお進みください。
+
+
 .. include:: ../include/start_service_k8s.rst
+
+.. _helm_on_kubernetes_upgrade_status:
 
 アップグレード状況確認
 ^^^^^^^^^^^^^^^^^^^^^^
 
-| コマンドラインから以下のコマンドを入力して、アップグレードが完了していることを確認します。
+.. include:: ../include/check_installation_status.rst
 
-.. code-block:: bash
-   :caption: コマンド
-
-   # Pod の一覧を取得
-   kubectl get po --namespace exastro
-
-| 正常に起動している場合は、ita-migration-xxxとplatform-migration-xxxが “Completed” 、その他すべてが “Running” となります。
-| ※正常に起動するまで数分かかる場合があります。
-
-.. code-block:: bash
-   :caption: 出力結果
-
-   NAME                                                      READY   STATUS      RESTARTS   AGE
-   ita-api-admin-6b8567596d-rgjms                            1/1     Running     0          7h40m
-   ita-api-oase-receiver-6b74bdff6-zmcrw                     1/1     Running     0          7h40m
-   ita-api-organization-559d7d8f89-ptphh                     1/1     Running     0          7h40m
-   ita-by-ansible-execute-5dc444c999-w6gmr                   1/1     Running     0          7h40m
-   ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn   1/1     Running     0          7h40m
-   ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq         1/1     Running     0          7h40m
-   ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst       1/1     Running     0          7h40m
-   ita-by-ansible-towermaster-sync-6759486f8f-wrbbp          1/1     Running     0          7h40m
-   ita-by-cicd-for-iac-7b75cc56f5-rrrvg                      1/1     Running     0          7h40m
-   ita-by-collector-7748d54f59-8j5r2                         1/1     Running     0          7h40m
-   ita-by-conductor-regularly-779ff79775-xnt29               1/1     Running     0          7h40m
-   ita-by-conductor-synchronize-5d5485479-5df54              1/1     Running     0          7h40m
-   ita-by-excel-export-import-6f84f97dcf-hlm4h               1/1     Running     0          7h40m
-   ita-by-hostgroup-split-59b698f479-cxggd                   1/1     Running     0          7h40m
-   ita-by-menu-create-796bdc9c75-l79zq                       1/1     Running     0          7h40m
-   ita-by-menu-export-import-849d796bb5-5mpw2                1/1     Running     0          7h40m
-   ita-by-oase-conclusion-b484595d7-kssv4                    1/1     Running     0          7h40m
-   ita-by-terraform-cli-execute-769d874d7-sknn6              1/1     Running     0          7h40m
-   ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6         1/1     Running     0          7h40m
-   ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv        1/1     Running     0          7h40m
-   ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn    1/1     Running     0          7h40m
-   ita-migration-1-3-6-lydz                                  0/1     Completed   0          7h40m
-   ita-web-server-b4cd4cdf8-wkx78                            1/1     Running     0          7h40m
-   keycloak-0                                                1/1     Running     0          7h40m
-   mariadb-778786f7d-ss4cq                                   1/1     Running     0          7h40m
-   mongo-0                                                   1/1     Running     0          7h40m
-   platform-api-ffb78f578-svd5t                              1/1     Running     0          7h40m
-   platform-auth-75895d784-9hhxw                             1/1     Running     0          7h40m
-   platform-job-864c47d4f-8vvvq                              1/1     Running     0          7h40m
-   platform-migration-1-8-0-rjwr                             0/1     Completed   0          7h40m
-   platform-web-6644884657-dmwp6                             1/1     Running     0          7h40m
 
 .. _ita_uninstall:
 
