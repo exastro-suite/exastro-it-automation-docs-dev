@@ -253,7 +253,14 @@ Organization (オーガナイゼーション)
           ],
           "plan": {},
           "options": {},
-          "optionsIta": {}
+          "optionsIta": {
+            "drivers": {
+              "terraform_cloud_ep": true,
+              "terraform_cli": true,
+              "ci_cd": true,
+              "oase": true
+            }
+          }
         }'
 
 
