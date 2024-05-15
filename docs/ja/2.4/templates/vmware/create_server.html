@@ -118,18 +118,20 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2. VM作成</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">2.1. 概要</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">2.2. メニュー項目</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id3">2.2.1. サーバー作成</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#create-server">2.2.1. サーバー作成</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#vcenter">2.2.2. vCenter接続情報</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#ip">2.2.3. IPアドレス</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id4">2.2.4. フォルダ名</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id5">2.2.5. テンプレート</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#foldername">2.2.4. フォルダ名</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#template">2.2.5. テンプレート</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#cpu">2.2.6. CPU</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#mb">2.2.7. メモリ(MB)</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#gb">2.2.8. ディスク(GB)</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">2.3. 操作方法</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">2.4. 付録</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">2.3. 利用手順</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id7">2.3.1. VM作成作業フロー</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="resource_management.html">3. リソース管理</a></li>
@@ -157,18 +159,20 @@
 <li><a class="reference internal" href="#">2. VM作成</a><ul>
 <li><a class="reference internal" href="#id1">2.1. 概要</a></li>
 <li><a class="reference internal" href="#id2">2.2. メニュー項目</a><ul>
-<li><a class="reference internal" href="#id3">2.2.1. サーバー作成</a></li>
+<li><a class="reference internal" href="#create-server">2.2.1. サーバー作成</a></li>
 <li><a class="reference internal" href="#vcenter">2.2.2. vCenter接続情報</a></li>
 <li><a class="reference internal" href="#ip">2.2.3. IPアドレス</a></li>
-<li><a class="reference internal" href="#id4">2.2.4. フォルダ名</a></li>
-<li><a class="reference internal" href="#id5">2.2.5. テンプレート</a></li>
+<li><a class="reference internal" href="#foldername">2.2.4. フォルダ名</a></li>
+<li><a class="reference internal" href="#template">2.2.5. テンプレート</a></li>
 <li><a class="reference internal" href="#cpu">2.2.6. CPU</a></li>
 <li><a class="reference internal" href="#mb">2.2.7. メモリ(MB)</a></li>
 <li><a class="reference internal" href="#gb">2.2.8. ディスク(GB)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">2.3. 操作方法</a></li>
-<li><a class="reference internal" href="#id7">2.4. 付録</a></li>
+<li><a class="reference internal" href="#id6">2.3. 利用手順</a><ul>
+<li><a class="reference internal" href="#id7">2.3.1. VM作成作業フロー</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -196,7 +200,7 @@
   <section id="vm">
 <h1><span class="section-number">2. </span>VM作成<a class="headerlink" href="#vm" title="この見出しへのパーマリンク">¶</a></h1>
 <div class="line-block">
-<div class="line">本書では、VM作成の機能の例と意味を以下に記載します。</div>
+<div class="line">本書では、VM作成の機能および操作方法について説明します。</div>
 </div>
 <section id="id1">
 <h2><span class="section-number">2.1. </span>概要<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
@@ -204,8 +208,8 @@
 </section>
 <section id="id2">
 <h2><span class="section-number">2.2. </span>メニュー項目<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
-<section id="id3">
-<h3><span class="section-number">2.2.1. </span>サーバー作成<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="create-server">
+<span id="id3"></span><h3><span class="section-number">2.2.1. </span>サーバー作成<a class="headerlink" href="#create-server" title="この見出しへのパーマリンク">¶</a></h3>
 <p>VM作成を行うためのメニュー項目です。</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/menuCS_v2-4.png"><img alt="サーバー作成メニュー画面" src="../../_images/menuCS_v2-4.png" style="width: 800px;" /></a>
@@ -231,43 +235,43 @@
 <tr class="row-even"><td><p>vCenter表示名</p></td>
 <td><p>vCenter内に作成されるVMの表示名を指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-odd"><td><p>IPアドレス</p></td>
 <td><p>作成するVMに配布されるIPアドレスを指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>フォルダ</p></td>
 <td><p>作成するVMを格納するフォルダ名を指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-odd"><td><p>テンプレート</p></td>
 <td><p>作成するVMのテンプレート名を指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>CPU</p></td>
 <td><p>作成するVMのCPU数を指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-odd"><td><p>メモリ(MB)</p></td>
 <td><p>作成するVMのメモリ容量をMBで指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>ディスク(GB)</p></td>
 <td><p>作成するVMのディスク容量をGBで指定します。</p></td>
 <td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
+<td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-odd"><td><p>申請者</p></td>
@@ -286,7 +290,7 @@
 </table>
 </section>
 <section id="vcenter">
-<h3><span class="section-number">2.2.2. </span>vCenter接続情報<a class="headerlink" href="#vcenter" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="vcenter-connectinfo"></span><h3><span class="section-number">2.2.2. </span>vCenter接続情報<a class="headerlink" href="#vcenter" title="この見出しへのパーマリンク">¶</a></h3>
 <p>vCenterに接続する情報を入力するためのメニュー項目です。</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/menuVC_v2-4.png"><img alt="vCenter接続情報メニュー画面" src="../../_images/menuVC_v2-4.png" style="width: 800px;" /></a>
@@ -337,7 +341,7 @@
 </table>
 </section>
 <section id="ip">
-<h3><span class="section-number">2.2.3. </span>IPアドレス<a class="headerlink" href="#ip" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="ip-address"></span><h3><span class="section-number">2.2.3. </span>IPアドレス<a class="headerlink" href="#ip" title="この見出しへのパーマリンク">¶</a></h3>
 <p>vCenter内に作成されるIPアドレスを入力するためのメニュー項目です。</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/menuIP_v2-4.png"><img alt="IPアドレスメニュー画面" src="../../_images/menuIP_v2-4.png" style="width: 800px;" /></a>
@@ -393,8 +397,8 @@
 </tbody>
 </table>
 </section>
-<section id="id4">
-<h3><span class="section-number">2.2.4. </span>フォルダ名<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="foldername">
+<span id="id4"></span><h3><span class="section-number">2.2.4. </span>フォルダ名<a class="headerlink" href="#foldername" title="この見出しへのパーマリンク">¶</a></h3>
 <p>vCenter内に作成されるフォルダ名を入力するためのメニュー項目です。</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/menuFN_v2-4.png"><img alt="フォルダ名メニュー画面" src="../../_images/menuFN_v2-4.png" style="width: 800px;" /></a>
@@ -426,8 +430,8 @@
 </tbody>
 </table>
 </section>
-<section id="id5">
-<h3><span class="section-number">2.2.5. </span>テンプレート<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="template">
+<span id="id5"></span><h3><span class="section-number">2.2.5. </span>テンプレート<a class="headerlink" href="#template" title="この見出しへのパーマリンク">¶</a></h3>
 <p>vCenter内に作成されるテンプレートを入力するためのメニュー項目です。</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/menuTE_v2-4.png"><img alt="テンプレートメニュー画面" src="../../_images/menuTE_v2-4.png" style="width: 800px;" /></a>
@@ -602,149 +606,94 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">2.3. </span>操作方法<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
-<p>1.VMWareのメニューを選択します。</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/mainmenu_v2-4.png"><img alt="メインメニュー画面" src="../../_images/mainmenu_v2-4.png" style="width: 800px;" /></a>
-</figure>
-<p>2.サーバー作成のメニューを選択します。</p>
-<p>3.サーバー作成では、サーバー作成のメンテナンス(閲覧/登録/更新/廃止)ができます。サーバー作成の入力画面の項目は以下の通りです。</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/createserver_v2-4.png"><img alt="サーバー作成入力画面" src="../../_images/createserver_v2-4.png" style="width: 800px;" /></a>
-</figure>
-<table class="docutils align-left" id="id16">
-<caption><span class="caption-number">表 2.105 </span><span class="caption-text">入力画面項目一覧（サーバー作成）</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
-<colgroup>
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 16.7%" />
-<col style="width: 16.7%" />
-<col style="width: 16.7%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>項目</p></th>
-<th class="head"><p>説明</p></th>
-<th class="head"><p>入力必須</p></th>
-<th class="head"><p>入力方法</p></th>
-<th class="head"><p>制約事項</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>vCenter表示名</p></td>
-<td><p>vCenter内に作成されるVMの表示名を指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-odd"><td><p>IPアドレス</p></td>
-<td><p>作成するVMに配布されるIPアドレスを指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-even"><td><p>フォルダ</p></td>
-<td><p>作成するVMを格納するフォルダ名を指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-odd"><td><p>テンプレート</p></td>
-<td><p>作成するVMのテンプレート名を指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-even"><td><p>CPU</p></td>
-<td><p>作成するVMのCPU数を指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-odd"><td><p>メモリ(MB)</p></td>
-<td><p>作成するVMのメモリ容量をMBで指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-even"><td><p>ディスク(GB)</p></td>
-<td><p>作成するVMのディスク容量をGBで指定します。</p></td>
-<td><p>〇</p></td>
-<td><p>プルダウン選択</p></td>
-<td><p>ー</p></td>
-</tr>
-<tr class="row-odd"><td><p>申請者</p></td>
-<td><p>VM作成の申請者を入力します。</p></td>
-<td><p>〇</p></td>
-<td><p>手動入力</p></td>
-<td><p>最大長32バイト</p></td>
-</tr>
-<tr class="row-even"><td><p>用途</p></td>
-<td><p>作成するVMの用途を入力します。</p></td>
-<td><p>ー</p></td>
-<td><p>手動入力</p></td>
-<td><p>最大長128バイト</p></td>
-</tr>
-</tbody>
-</table>
-<p>4.メインメニューからConductorのメニューを選択します。</p>
-<p>5.Condutor一覧のメニューを選択します。</p>
-<p>6.詳細ボタンより、サーバー作成を選択します。</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/conductorlist_v2-4.png"><img alt="Conductor一覧画面" src="../../_images/conductorlist_v2-4.png" style="width: 800px;" /></a>
-</figure>
-<p>7.作業実行ボタンをクリックします。</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/conductorCS_v2-4.png"><img alt="Conductorサーバー作成画面" src="../../_images/conductorCS_v2-4.png" style="width: 800px;" /></a>
-</figure>
-<p>8.オペレーション選択ボタンより、サーバー作成を行うオペレーションを選択します。</p>
-<p>9.スケジュールボタンより、サーバー作成を行う日時を選択します。</p>
-<p>10.作業実行ボタンより、サーバー作成の作業を実行します。</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/executeCS_v2-4.png"><img alt="サーバー作成作業実行画面" src="../../_images/executeCS_v2-4.png" style="width: 800px;" /></a>
-</figure>
-</section>
+<h2><span class="section-number">2.3. </span>利用手順<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">VM作成の利用手順について説明します。</div>
+</div>
 <section id="id7">
-<h2><span class="section-number">2.4. </span>付録<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
-<p>モジュールを追加する必要があります。</p>
-<p>1.RHEL環境に接続します。</p>
-<p>2.以下のコマンドを入力し、クローンを作成します。</p>
-<div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-number">リスト 2.132 </span><span class="caption-text">形式</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">su</span> <span class="o">-</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">exastro</span><span class="o">-</span><span class="n">suite</span><span class="o">/</span><span class="n">exastro</span><span class="o">-</span><span class="n">it</span><span class="o">-</span><span class="n">automation</span><span class="o">.</span><span class="n">git</span> <span class="o">-</span><span class="n">b</span> <span class="mf">2.2.0</span>
-</pre></div>
+<h3><span class="section-number">2.3.1. </span>VM作成作業フロー<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">以下は、VM作成でサーバー作成を実行するまでの流れです。</div>
+</div>
+<ul>
+<li><p><strong>作業フロー詳細と参照先</strong></p>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line"><strong>オペレーション名の登録</strong></div>
+<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業用のオペレーション名を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="../../manuals/it_automation_base/basic_console.html#basic-console-operation"><span class="std std-ref">オペレーション一覧</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>グローバル変数管理の編集</strong></div>
+<div class="line"><span class="menuselection">Ansible共通 ‣ グローバル変数管理</span> から、対象のグローバル変数の具体値を編集します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="../../manuals/ansible-driver/ansible_common.html#ansible-common-global-variable-list"><span class="std std-ref">グローバル変数管理</span></a> 」を参照してください。</div>
+</div>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../../_images/global_variable_list_v2-4.png"><img alt="具体値を編集する" src="../../_images/global_variable_list_v2-4.png" style="width: 600px;" /></a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>作業対象へのvCenter接続情報を登録</strong></div>
+<div class="line"><span class="menuselection">VM作成 ‣ vCenter接続情報</span> から、作業対象へのvCenter接続情報を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="#vcenter-connectinfo"><span class="std std-ref">vCenter接続情報</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>作業対象のIPアドレスを登録</strong></div>
+<div class="line"><span class="menuselection">VM作成 ‣ IPアドレス</span> から、作業対象のIPアドレスを登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="#ip-address"><span class="std std-ref">IPアドレス</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>作業対象のフォルダ名を登録</strong></div>
+<div class="line"><span class="menuselection">VM作成 ‣ フォルダ名</span> から、作業対象のフォルダ名を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="#foldername"><span class="std std-ref">フォルダ名</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>作業対象のテンプレートを登録</strong></div>
+<div class="line"><span class="menuselection">VM作成 ‣ テンプレート</span> から、作業対象のテンプレートを登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="#template"><span class="std std-ref">テンプレート</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>作業対象の情報を登録</strong></div>
+<div class="line"><span class="menuselection">VM作成 ‣ サーバー作成</span> から、作業対象の情報を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="#create-server"><span class="std std-ref">サーバー作成</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>サーバー作成を選択</strong></div>
+<div class="line"><span class="menuselection">Condutor ‣ Condutor一覧</span> から、サーバー作成の詳細をクリックします。</div>
+<div class="line">詳細は「 <a class="reference internal" href="../../manuals/it_automation_base/conductor.html#conductor-list"><span class="std std-ref">Conductor一覧</span></a> 」を参照してください。</div>
+</div>
+<figure class="align-left">
+<a class="reference internal image-reference" href="../../_images/conductor_create_server_v2-4.png"><img alt="サーバー作成" src="../../_images/conductor_create_server_v2-4.png" style="width: 600px;" /></a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>サーバー作成を実行</strong></div>
+<div class="line">サーバー作成の作業実行ボタンをクリックします。</div>
+<div class="line">詳細は「 <a class="reference internal" href="../../manuals/it_automation_base/conductor.html#conductor-editandexcute-list"><span class="std std-ref">「Conductor編集/作業実行」メニュー実行操作一覧</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>サーバー作成の実行状況を確認</strong></div>
+<div class="line"><span class="menuselection">Condutor ‣ Condutor作業一覧</span> から、サーバー作成の作業状態を確認できます。</div>
+<div class="line">詳細は「 <a class="reference internal" href="../../manuals/it_automation_base/conductor.html#conductor-conductor-job-list"><span class="std std-ref">Conductor作業一覧</span></a> 」を参照してください。</div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">Conductor作業一覧で「想定外エラー」や「異常終了」になっている場合は <span class="menuselection">VM作成</span> の各メニューや <span class="menuselection">Ansible共通 ‣ グローバル変数管理</span> に入力した情報に誤りが無いか確認してみてください。</div>
 </div>
 </div>
-<p>3.クローン作成後、以下のコマンドを入力し、Dockerファイルのあるフォルダに移動し、Dockerファイルを開きます。</p>
-<div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-number">リスト 2.133 </span><span class="caption-text">形式</span><a class="headerlink" href="#id18" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">exastro</span><span class="o">-</span><span class="n">it</span><span class="o">-</span><span class="n">automation</span>
-<span class="n">vim</span> <span class="n">ita_root</span><span class="o">/</span><span class="n">ita_by_ansible_execute</span><span class="o">/</span><span class="n">ita_ansible_agent</span><span class="o">/</span><span class="n">Dockerfile</span>
-</pre></div>
-</div>
-</div>
-<p>4.Dockerファイル内の「useradd -m -s /bin/bash -g $GROUPNAME $USERNAME 」の記述がある行の下に、以下のコマンドを入力します。</p>
-<div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-number">リスト 2.134 </span><span class="caption-text">形式</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;&amp;</span> <span class="n">ansible</span><span class="o">-</span><span class="n">galaxy</span> <span class="n">collection</span> <span class="n">install</span> <span class="n">community</span><span class="o">.</span><span class="n">vmware</span>
-</pre></div>
-</div>
-</div>
-<p>5.入力後、Dockerファイルの上書きを行います。</p>
-<p>6.以下のコマンドを入力し、ビルドを行います。</p>
-<div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 2.135 </span><span class="caption-text">形式</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">build</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">docker</span> <span class="o">-</span><span class="n">f</span> <span class="n">ita_root</span><span class="o">/</span><span class="n">ita_by_ansible_execute</span><span class="o">/</span><span class="n">ita_ansible_agent</span><span class="o">/</span><span class="n">Dockerfile</span> <span class="o">-</span><span class="n">t</span> <span class="n">exastro</span><span class="o">/</span><span class="n">ita</span><span class="o">-</span><span class="n">ansible</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span><span class="mf">2.3.0</span> <span class="o">.</span>
-</pre></div>
-</div>
-</div>
-<p>7.以下のコマンドを入力し、ビルド後にできたtarファイルをITAに反映させます。</p>
-<div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 2.136 </span><span class="caption-text">形式</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">save</span> <span class="n">localhost</span><span class="o">/</span><span class="n">exastro</span><span class="o">/</span><span class="n">ita</span><span class="o">-</span><span class="n">ansible</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span><span class="mf">2.3.0</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">ita</span><span class="o">-</span><span class="n">agent1</span><span class="o">.</span><span class="n">tar</span>
-</pre></div>
-</div>
-</div>
+</section>
 </section>
 </section>
 
