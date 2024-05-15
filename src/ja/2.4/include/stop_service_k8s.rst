@@ -4,132 +4,138 @@
    | 作業前の Pod 起動数の確認をし、状態を記録します。
 
    .. code-block:: bash
-     :caption: コマンド
+      :caption: コマンド
 
-     RS_AE=`kubectl get deploy ita-by-ansible-execute -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_ALRV=`kubectl get deploy ita-by-ansible-legacy-role-vars-listup -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_ATS=`kubectl get deploy ita-by-ansible-towermaster-sync -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_CS=`kubectl get deploy ita-by-conductor-synchronize -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_MC=`kubectl get deploy ita-by-menu-create -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_PA=`kubectl get deploy platform-auth -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-
-   | 以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に実行してください。
+      kubectl get deploy,statefulset -o jsonpath='{range .items[*]}{@.metadata.name}:{@.spec.replicas}{"\n"}' -n exastro
 
    .. code-block:: bash
+      :caption: 実行結果
 
-     RS_ALV=`kubectl get deploy ita-by-ansible-legacy-vars-listup -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_APV=`kubectl get deploy ita-by-ansible-pioneer-vars-listup -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_CFI=`kubectl get deploy ita-by-cicd-for-iac -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_CR=`kubectl get deploy ita-by-conductor-regularly -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_COL=`kubectl get deploy ita-by-collector -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_EEI=`kubectl get deploy ita-by-excel-export-import -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_HS=`kubectl get deploy ita-by-hostgroup-split -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_MEI=`kubectl get deploy ita-by-menu-export-import -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_TCE=`kubectl get deploy ita-by-terraform-cli-execute -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_TCV=`kubectl get deploy ita-by-terraform-cli-vars-listup -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_TCEE=`kubectl get deploy ita-by-terraform-cloud-ep-execute -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
-     RS_TCEV=`kubectl get deploy ita-by-terraform-cloud-ep-vars-listup -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
- 
-   | 以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。
+      ita-api-admin:1
+      ita-api-oase-receiver:1
+      ita-api-organization:1
+      ita-by-ansible-execute:1
+      ita-by-ansible-legacy-role-vars-listup:1
+      ita-by-ansible-legacy-vars-listup:1
+      ita-by-ansible-pioneer-vars-listup:1
+      ita-by-ansible-towermaster-sync:1
+      ita-by-cicd-for-iac:1
+      ita-by-collector:1
+      ita-by-conductor-regularly:1
+      ita-by-conductor-synchronize:1
+      ita-by-excel-export-import:1
+      ita-by-hostgroup-split:1
+      ita-by-menu-create:1
+      ita-by-menu-export-import:1
+      ita-by-oase-conclusion:1
+      ita-by-terraform-cli-execute:1
+      ita-by-terraform-cli-vars-listup:1
+      ita-by-terraform-cloud-ep-execute:1
+      ita-by-terraform-cloud-ep-vars-listup:1
+      ita-web-server:1
+      mariadb:1
+      platform-api:1
+      platform-auth:1
+      platform-job:1
+      platform-web:1
+      keycloak:1
+      mongo:1
+      :
 
-   .. code-block:: bash 
+   | 各Deployment, StatefulSetのサービス名、replicas数が表示されます。
 
-     RS_OC=`kubectl get deploy ita-by-oase-conclusion -o jsonpath='{@.spec.replicas}{"\n"}' --namespace exastro`
+   .. warning::
+      | バージョンによって、表示されるサービスが異なります。
 
-2. リバースプロキシの停止
+2. アプリケーションの停止
 
-   | リバースプロキシ (platform-auth) の Pod 起動数を 0 に変更し、エンドユーザーからのアクセスを制限します。
-
-   .. code-block:: bash
-     :caption: コマンド
-
-     kubectl scale deployment platform-auth --namespace exastro --replicas=0
-
-3. バックヤード処理の停止
-
-   | バックヤード処理 (ita-by-\*\*\*) の Pod 起動数を 0 に変更し、データベースの更新を停止します。
-
-   .. code-block:: bash
-     :caption: コマンド
-
-     kubectl scale deployment ita-by-ansible-execute --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-ansible-legacy-role-vars-listup --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-ansible-towermaster-sync --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-conductor-synchronize --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-menu-create --namespace exastro --replicas=0
-
-   | 以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に実行してください。
-
-   .. code-block:: bash
-
-     kubectl scale deployment ita-by-ansible-legacy-vars-listup --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-ansible-pioneer-vars-listup --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-cicd-for-iac --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-collector --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-conductor-regularly --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-excel-export-import --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-hostgroup-split --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-menu-export-import --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-terraform-cli-execute --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-terraform-cli-vars-listup --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-terraform-cloud-ep-execute --namespace exastro --replicas=0
-     kubectl scale deployment ita-by-terraform-cloud-ep-vars-listup --namespace exastro --replicas=0
-
-   | 以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。
-
-   .. code-block:: bash 
-
-     kubectl scale deployment ita-by-oase-conclusion --namespace exastro --replicas=0
-
-4. Pod 起動数の確認
-
-   | 上記で停止した対象の Pod 数が 0 になっていることを確認
+   | アプリケーション (platform-auth) の Pod 起動数を 0 に変更し、アクセスを制限します。
 
    .. code-block:: bash
      :caption: コマンド
 
-     kubectl get deployment --namespace exastro
+     kubectl scale deploy,statefulset -n exastro --replicas=0 --all=true
 
    .. code-block:: bash
      :caption: 実行結果
 
-     NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
-     mariadb                                  1/1     1            1           3h41m
-     ita-web-server                           1/1     1            1           3h41m
-     platform-web                             1/1     1            1           3h41m
-     ita-api-admin                            1/1     1            1           3h41m
-     ita-api-organization                     1/1     1            1           3h41m
-     platform-api                             1/1     1            1           3h41m
-     keycloak                                 1/1     1            1           3h41m
-     ita-by-menu-create                       0/0     0            0           3h41m
-     ita-by-ansible-execute                   0/0     0            0           3h41m
-     ita-by-ansible-legacy-role-vars-listup   0/0     0            0           3h41m
-     ita-by-ansible-towermaster-sync          0/0     0            0           3h41m
-     ita-by-conductor-synchronize             0/0     0            0           3h41m
-     platform-auth                            0/0     0            0           3h41m
+     deployment.apps/ita-api-admin scaled
+     deployment.apps/ita-api-oase-receiver scaled
+     deployment.apps/ita-api-organization scaled
+     deployment.apps/ita-by-ansible-execute scaled
+     deployment.apps/ita-by-ansible-legacy-role-vars-listup scaled
+     deployment.apps/ita-by-ansible-legacy-vars-listup scaled
+     deployment.apps/ita-by-ansible-pioneer-vars-listup scaled
+     deployment.apps/ita-by-ansible-towermaster-sync scaled
+     deployment.apps/ita-by-cicd-for-iac scaled
+     deployment.apps/ita-by-collector scaled
+     deployment.apps/ita-by-conductor-regularly scaled
+     deployment.apps/ita-by-conductor-synchronize scaled
+     deployment.apps/ita-by-excel-export-import scaled
+     deployment.apps/ita-by-hostgroup-split scaled
+     deployment.apps/ita-by-menu-create scaled
+     deployment.apps/ita-by-menu-export-import scaled
+     deployment.apps/ita-by-oase-conclusion scaled
+     deployment.apps/ita-by-terraform-cli-execute scaled
+     deployment.apps/ita-by-terraform-cli-vars-listup scaled
+     deployment.apps/ita-by-terraform-cloud-ep-execute scaled
+     deployment.apps/ita-by-terraform-cloud-ep-vars-listup scaled
+     deployment.apps/ita-web-server scaled
+     deployment.apps/mariadb scaled
+     deployment.apps/platform-api scaled
+     deployment.apps/platform-auth scaled
+     deployment.apps/platform-job scaled
+     deployment.apps/platform-web scaled
+     statefulset.apps/keycloak scaled
+     statefulset.apps/mongo scaled
 
-   | 以下はITA2.1.0以降からITA2.1.1以降にバージョンアップする際に確認してください。
+   .. warning::
+      | バージョンによって、表示されるサービスが異なります。
+
+3. Pod 起動数の確認
+
+   | 上記で停止した対象の Pod 数が 0 になっていることを確認します。
 
    .. code-block:: bash
+     :caption: コマンド
 
-     NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
-     ita-by-ansible-legacy-vars-listup        0/0     0            0           3h41m
-     ita-by-ansible-pioneer-vars-listup       0/0     0            0           3h41m
-     ita-by-cicd-for-iac                      0/0     0            0           3h41m
-     ita-by-collector                         0/0     0            0           3h41m
-     ita-by-conductor-regularly               0/0     0            0           3h41m
-     ita-by-excel-export-import               0/0     0            0           3h41m
-     ita-by-hostgroup-split                   0/0     0            0           3h41m
-     ita-by-menu-export-import                0/0     0            0           3h41m
-     ita-by-terraform-cli-execute             0/0     0            0           3h41m
-     ita-by-terraform-cli-vars-listup         0/0     0            0           3h41m
-     ita-by-terraform-cloud-ep-execute        0/0     0            0           3h41m
-     ita-by-terraform-cloud-ep-vars-listup    0/0     0            0           3h41m
-
-   | 以下はITA2.3.0以降からITA2.4.0以降にバージョンアップする際に実行してください。
+     kubectl get deploy,statefulset -n exastro
 
    .. code-block:: bash
+     :caption: 実行結果
 
-     NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
-     ita-api-oase-receiver                    1/1     1            1           3h41m
-     ita-by-oase-conclusion                   0/0     0            0           3h41m
+     NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
+     deployment.apps/ita-api-admin                            0/0     0            0           26h
+     deployment.apps/ita-api-oase-receiver                    0/0     0            0           26h
+     deployment.apps/ita-api-organization                     0/0     0            0           26h
+     deployment.apps/ita-by-ansible-execute                   0/0     0            0           26h
+     deployment.apps/ita-by-ansible-legacy-role-vars-listup   0/0     0            0           26h
+     deployment.apps/ita-by-ansible-legacy-vars-listup        0/0     0            0           26h
+     deployment.apps/ita-by-ansible-pioneer-vars-listup       0/0     0            0           26h
+     deployment.apps/ita-by-ansible-towermaster-sync          0/0     0            0           26h
+     deployment.apps/ita-by-cicd-for-iac                      0/0     0            0           26h
+     deployment.apps/ita-by-collector                         0/0     0            0           26h
+     deployment.apps/ita-by-conductor-regularly               0/0     0            0           26h
+     deployment.apps/ita-by-conductor-synchronize             0/0     0            0           26h
+     deployment.apps/ita-by-excel-export-import               0/0     0            0           26h
+     deployment.apps/ita-by-hostgroup-split                   0/0     0            0           26h
+     deployment.apps/ita-by-menu-create                       0/0     0            0           26h
+     deployment.apps/ita-by-menu-export-import                0/0     0            0           26h
+     deployment.apps/ita-by-oase-conclusion                   0/0     0            0           26h
+     deployment.apps/ita-by-terraform-cli-execute             0/0     0            0           26h
+     deployment.apps/ita-by-terraform-cli-vars-listup         0/0     0            0           26h
+     deployment.apps/ita-by-terraform-cloud-ep-execute        0/0     0            0           26h
+     deployment.apps/ita-by-terraform-cloud-ep-vars-listup    0/0     0            0           26h
+     deployment.apps/ita-web-server                           0/0     0            0           26h
+     deployment.apps/mariadb                                  0/0     0            0           26h
+     deployment.apps/platform-api                             0/0     0            0           26h
+     deployment.apps/platform-auth                            0/0     0            0           26h
+     deployment.apps/platform-job                             0/0     0            0           26h
+     deployment.apps/platform-web                             0/0     0            0           26h
+
+     NAME                        READY   AGE
+     statefulset.apps/keycloak   0/0     25h
+     statefulset.apps/mongo      0/0     26h
+
+   .. warning::
+      | バージョンによって、表示されるサービスが異なります。
