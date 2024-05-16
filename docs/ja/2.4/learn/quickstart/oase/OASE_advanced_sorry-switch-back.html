@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>7. ルールに複数の条件を設定した場合のイベントのTTL問題について &#8212; Documentation  ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/option.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/jquery-3.6.3.min.js"></script>
+    <script src="../../../_static/exastro_documents.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-bundle.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" /> 
+  </head>
+<body id="page" class="ja">
+
+
+<div id="container">
+
+<div id="header">
+  <header class="divInner">
+    <!-- Exastro logo -->
+    <div id="logo"><a href="https://ita.exastro.org/"><img src="../../../_static/img/exastro.svg" alt="Exastro"></a></div>
+    <!-- Project name -->
+    <div id="projectName"><a href="../../../index.html">Documentation</a></div>
+    <!-- Heaedr navigation -->
+    <div id="headerSearch">
+      <form class="search" action="../../../search.html" method="get">
+        <input type="text" name="q" aria-labelledby="searchlabel">
+        <button type="submit" value="検索"><img src="../../../_static/img/search.png" alt="検索"></button>
+      </form>
+    </div>
+  </header>
+</div><!-- End #header -->
+
+
+<div id="toolbar">
+  <div class="divInner">
+    
+    <div id="documentVersion">
+      <dl>
+        <dt>Document version</dt>
+        <dd>
+          <div>
+            <select name="version" onchange="location.href=value;">
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html" selected>current</option>
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html" selected>2.4(current)</option>
+              <option value="../../../../../ja/2.3/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html">2.3</option>
+              <option value="../../../../../ja/2.2/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html">2.2</option>
+              <option value="../../../../../ja/2.1/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html">2.1</option>
+              <option value="../../../../../ja/2.0/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html">2.0</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="documentLanguage">
+      <dl>
+        <dt>Language</dt>
+        <dd>
+          <div>
+            <select name="lang" onchange="location.href=value;">
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html" selected>日本語</option>
+              <option value="../../../../../en/2.4/learn/quickstart/oase/OASE_advanced_sorry-switch-back.html">English</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div id="toolbarNavigation">
+      <ul>
+      </ul>
+    </div>
+  </div>
+</div><!-- End #toolbar -->
+
+<div id="sideMenu">
+
+  <div id="menuButton"></div>
+  
+  <aside class="divInner">
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/index.html">構成・構築ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">マニュアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../templates/index.html">テンプレート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">貢献</a></li>
+</ul>
+
+    <!-- <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">索引</a></li>
+    </ul> -->
+    
+  </aside>
+</div><!-- End #sideMenu -->
+
+
+<div id="tableOfContents">
+  <div id="tocButton"></div>
+  <ul>
+<li><a class="reference internal" href="#">7. ルールに複数の条件を設定した場合のイベントのTTL問題について</a><ul>
+<li><a class="reference internal" href="#id1">7.1. 状況の整理</a><ul>
+<li><a class="reference internal" href="#id2">7.1.1. ラベルの作成</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">7.2. ルールの設定</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+<div id="contents">
+<main class="divInner">
+
+ <div id="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">HOME</a></li>
+    
+    <li><span class="section-number">7. </span>ルールに複数の条件を設定した場合のイベントのTTL問題について</li>
+  </ul>
+</div>
+
+<div id="article">
+<article class="divInner">
+<div class="body" role="main">
+
+  <section id="ttl">
+<h1><span class="section-number">7. </span>ルールに複数の条件を設定した場合のイベントのTTL問題について<a class="headerlink" href="#ttl" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">7.1. </span>状況の整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">今回、Sorry画面切り戻しの設定でも明らかなように、複数のフィルターを条件に設定することが可能です。</div>
+<div class="line">そこで条件が成立するためには、それぞれのフィルターで検知されるイベントがTTL内である必要があります。</div>
+<div class="line">例えば今回のシナリオでは、後続するリクエスト数が閾値内に回復するイベントが、先行するSorry画面切り替えをした結論イベントのTTL内に発生する必要があります。</div>
+<div class="line">ただ、後続するイベントがいつ発生するかは正確には把握できない場合も多いと思います。</div>
+<div class="line">こうした状況に対処するには、以下の二つの方法が有効です。</div>
+</div>
+<ol class="upperalpha">
+<li><p>TTLをできるだけ長くする
+| TTLは最大で2147483647秒（＝約68年）まで設定することが可能です。
+| 余裕をもって設定することで、ルールに評価されるまで時間切れになることを避けることができます。</p></li>
+<li><p>TTLが過ぎたら、改めて、同じラベルが付与された結論イベントを発生させる
+| ルールの条件にしたフィルターで検出されるためには、同じラベルが付与されたTTL内のイベントが発生していれば問題ありません。
+| そのため、すでに発生しているイベントのTTLが切れそうになったら、</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">「必要な後続のイベント発生まで同じラベルが付与された新たなイベントを発生させる」</div>
+</div>
+<p>ということを続ければ、後続のイベントの発生時期が正確にわからない場合にも対応が可能になります。</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line">まず、同じラベルが付与されたイベントを発生させ続けるには、イベントの発生とフィルターでの検知をループさせる設定をすることで実現できます。</div>
+<div class="line">具体的には、以下のような動きになります。</div>
+</div>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>「ラベルA」を検知するフィルターとそのフィルターを条件にしたルールを作成する。その際に、元のイベントに付与されている「ラベルA」を結論イベントに継承するように設定する。</p></li>
+<li><p>「ラベルA」が付与されたイベントが発生する</p></li>
+<li><p>a.で作成したフィルターに検知され、ルールに従い、「ラベルA」が付与されたイベントが発生する  →  b.に戻る</p></li>
+<li><p>b.とc.の工程がループする形になり、「ラベルA」が付与されたイベントが発生し続ける</p></li>
+</ol>
+</div></blockquote>
+<div class="line-block">
+<div class="line">また、同じフィルターが別のルールの条件の一部となっている場合、一方のフィルターに合致するイベントのTTLが経過するまで、どちらのルールの条件に合致するかどうかの評価を待ちます。</div>
+<div class="line">そして、TTL経過までに条件が揃わなければ、そのフィルターのみを条件とするルールの条件が揃ったと評価される仕様となっています。</div>
+<div class="line">この仕様を利用して、後続のイベントが発生したらそちらのルールが適用され、ループを抜けることができます。</div>
+</div>
+</li>
+</ol>
+<section id="id2">
+<h3><span class="section-number">7.1.1. </span>ラベルの作成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">ループして作成された、後続イベント待ちのイベントに付与する結論ラベルに使用するラベルを作成します。</div>
+</div>
+<div class="line-block">
+<div class="line"><span class="menuselection">OASE ‣ ラベル ‣ ラベル作成</span> から、ラベルを作成します。</div>
+</div>
+<div class="line-block">
+<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
+</div>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id4" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ラベルキー</p></th>
+<th class="head"><p>カラーコード</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">event_status</kbd></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h2><span class="section-number">7.2. </span>ルールの設定<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">前のシナリオで作成した「sorry画面切り戻し」のルールでは、「sorry_switch」というフィルターが条件の一部になっています。</div>
+<div class="line">そこに、「sorry_switch」というフィルターのみを条件とした、「Sorry表示中」のルールを作成してみましょう。</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
+</div>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id5" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+<col style="width: 10.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>有効</p></th>
+<th class="head"><p>ルール名</p></th>
+<th class="head"><p>ルールラベル名</p></th>
+<th class="head"><p>優先順位</p></th>
+<th class="head"><p>条件</p></th>
+<th class="head"><p>アクション</p></th>
+<th class="head"><p>結論イベント</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>フィルターA</p></th>
+<th class="head"><p>アクションID</p></th>
+<th class="head"></th>
+<th class="head"><p>元イベントのラベル継承</p></th>
+<th class="head"></th>
+<th class="head"><p>結論ラベル設定</p></th>
+<th class="head"><p>TTL</p></th>
+</tr>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"><p>アクション</p></th>
+<th class="head"><p>イベント</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Sorry表示中</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Sorry表示中</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">2</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
+<td></td>
+<td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;event_status&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;progress&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">ルール名やルールラベル名は任意で設定可能です。わかりやすいものを設定しましょう。</div>
+<div class="line">必要な結論イベントを発生させるためのルールなので、選択するアクションはありません。</div>
+</div>
+<div class="line-block">
+<div class="line">優先順位「1」である「sorry画面切り戻し」のルールに対して、優先順位は「2」にします。</div>
+<div class="line">「元イベントのラベル継承」の「イベント」を「true」とすることで、結論ラベルに、フィルター「sorry_switch」で検知された元のイベントのラベルを引き継ぐことができます。</div>
+<div class="line">結論ラベルには、結論イベントの性格がわかるようなラベルを設定しておくことで、イベントの判別が容易になります。</div>
+</div>
+<div class="line-block">
+<div class="line">これにより、「sorry_switch」というフィルターに合致する[[&quot;page&quot;, &quot;==&quot;, &quot;sorry&quot;], [&quot;_exastro_type&quot;, &quot;==&quot;, &quot;conclusion&quot;]]のラベルが付与された結論イベントが発生したら以下のような動きとなります。</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">[&quot;_exastro_type&quot;, &quot;==&quot;, &quot;conclusion&quot;]のラベルは、結論イベントにシステム側で付与するデフォルトのラベルになります。</div>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>そのイベントのTTLが経過するまで、優先順位「1」の「sorry画面切り戻し」のルールに沿うか、評価を待ちます。</p></li>
+</ol>
+<blockquote>
+<div><div class="line-block">
+<div class="line">「sorry画面切り戻し」の条件がそろえば、「sorry画面切り戻し」のルールに従って動作します。</div>
+</div>
+<div class="line-block">
+<div class="line">「sorry画面切り戻し」のルールの沿う条件が揃う ＝ もう一つの条件である「request_range_max」というフィルターに合致するイベントが発生する</div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>もしTTLが経過するまで 「sorry画面切り戻し」のルールの沿う条件がそろわなければ、「Sorry表示中」のルールの評価対象となり、ルールに従って、結論イベントが改めて発生することになります。</p></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">以下の画像のようにTTLを必要以上に短くすると、ループしてイベントを発生させる回数が必要以上に多くなってしまいます。</div>
+<div class="line">ループを抜けるための、後続するイベントが発生するまでの予測される期間に合わせて、適切なTTLを設定しましょう。</div>
+</div>
+</div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="learn/quickstart/oase/ラベル作成画面.png"><img alt="イベントフロー_結論イベント" src="learn/quickstart/oase/ラベル作成画面.png" style="width: 1200px;" /></a>
+</figure>
+</section>
+</section>
+
+
+</div>
+
+
+<div id="articleNavigation">
+  <ul>
+  </ul>
+</div>
+
+
+<div id="pageTopLink">
+  <a href="#container"><i>↑</i> Page Top</a>
+</div>
+
+</article>
+</div>
+</main>
+</div><!-- End #contents -->
+<div id="footer">
+  <footer class="divInner">
+    <small>Copyright © 2019-2023 NEC Corporation</small>
+    <small><a href="/terms/ja.html">サイト規約</a></small>
+  </footer>
+</div><!-- End #footer -->
+
+<div id="overlay"></div>
+<div id="grayBack"></div>
+
+</div><!-- End #container -->
+  </body>
+</html>

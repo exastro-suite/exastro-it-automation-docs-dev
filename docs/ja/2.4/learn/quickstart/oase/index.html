@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>リクエスト数に応じた運用保守 &#8212; Documentation  ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/option.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/jquery-3.6.3.min.js"></script>
+    <script src="../../../_static/exastro_documents.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-bundle.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" /> 
+  </head>
+<body id="page" class="ja">
+
+
+<div id="container">
+
+<div id="header">
+  <header class="divInner">
+    <!-- Exastro logo -->
+    <div id="logo"><a href="https://ita.exastro.org/"><img src="../../../_static/img/exastro.svg" alt="Exastro"></a></div>
+    <!-- Project name -->
+    <div id="projectName"><a href="../../../index.html">Documentation</a></div>
+    <!-- Heaedr navigation -->
+    <div id="headerSearch">
+      <form class="search" action="../../../search.html" method="get">
+        <input type="text" name="q" aria-labelledby="searchlabel">
+        <button type="submit" value="検索"><img src="../../../_static/img/search.png" alt="検索"></button>
+      </form>
+    </div>
+  </header>
+</div><!-- End #header -->
+
+
+<div id="toolbar">
+  <div class="divInner">
+    
+    <div id="documentVersion">
+      <dl>
+        <dt>Document version</dt>
+        <dd>
+          <div>
+            <select name="version" onchange="location.href=value;">
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/index.html" selected>current</option>
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/index.html" selected>2.4(current)</option>
+              <option value="../../../../../ja/2.3/learn/quickstart/oase/index.html">2.3</option>
+              <option value="../../../../../ja/2.2/learn/quickstart/oase/index.html">2.2</option>
+              <option value="../../../../../ja/2.1/learn/quickstart/oase/index.html">2.1</option>
+              <option value="../../../../../ja/2.0/learn/quickstart/oase/index.html">2.0</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="documentLanguage">
+      <dl>
+        <dt>Language</dt>
+        <dd>
+          <div>
+            <select name="lang" onchange="location.href=value;">
+              <option value="../../../../../ja/2.4/learn/quickstart/oase/index.html" selected>日本語</option>
+              <option value="../../../../../en/2.4/learn/quickstart/oase/index.html">English</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div id="toolbarNavigation">
+      <ul>
+      </ul>
+    </div>
+  </div>
+</div><!-- End #toolbar -->
+
+<div id="sideMenu">
+
+  <div id="menuButton"></div>
+  
+  <aside class="divInner">
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/index.html">構成・構築ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">マニュアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../templates/index.html">テンプレート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">貢献</a></li>
+</ul>
+
+    <!-- <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">索引</a></li>
+    </ul> -->
+    
+  </aside>
+</div><!-- End #sideMenu -->
+
+
+
+<div id="contents">
+<main class="divInner">
+
+ <div id="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">HOME</a></li>
+    
+    <li>リクエスト数に応じた運用保守</li>
+  </ul>
+</div>
+
+<div id="article">
+<article class="divInner">
+<div class="body" role="main">
+
+  <section id="id1">
+<h1>リクエスト数に応じた運用保守<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<div class="line-block">
+<div class="line">本シナリオでは、簡単な例として、以下のようなリクエスト数に応じた運用保守を題材に OASE の基本操作を学習します。</div>
+<div class="line">本シナリオでは、リクエスト数に応じた運用保守を行うことを題材として扱いますが、様々なイベントをもとに運用保守することも可能で、本シナリオはあくまで数ある運用保守パターンの一例であることを理解してください。</div>
+</div>
+<div class="line-block">
+<div class="line">今回は、以下のような構成を想定しています。</div>
+</div>
+<ol class="arabic simple">
+<li><p>インスタンス1台につき、50リクエスト/minを閾値とする。</p></li>
+<li><p>通常は1台稼働である。</p></li>
+<li><p>Webサーバ前のLBを監視し、Webサーバへの総リクエスト数に関してメールで通知する。</p></li>
+<li><p>リクエスト数が閾値に達したらスケールアウトをする。</p></li>
+<li><p>スケールアウトの上限は3台とし、それ以上のリクエスト数があった場合は、Sorry画面へ切り替える。</p></li>
+<li><p>リクエスト数が閾値内に回復したら、切り戻しを行う。</p></li>
+</ol>
+<div class="line-block">
+<div class="line">今回はリクエスト数に関するメール通知をイベントとして、イベント発生に合わせて4.と5.、6.の保守作業を行うよう、OASEの設定を行います。</div>
+</div>
+<div class="line-block">
+<div class="line">またOASEでは、以下のような流れで自動化を実現します。</div>
+</div>
+<ol class="arabic simple">
+<li><p>イベントを外部サービスから収集する</p></li>
+<li><p>収集したイベントの属性に合わせてラベルを付与する</p></li>
+<li><p>ラベルが条件に合ったときに、保守作業を自動的に実行する</p></li>
+</ol>
+<div class="line-block">
+<div class="line">リクエスト数を通知するメールの内容は以下のものを想定しています。</div>
+</div>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>通知内容</p></th>
+<th class="head"><p>リクエスト数超過</p></th>
+<th class="head"><p>リクエスト数閾値内回復</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">件名</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[alert]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">reached</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[info]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">recovery</kbd></kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">本文</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd> <cite>RequestCount &gt; 150</cite></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値内に回復しました。</kbd> <cite>RequestCount &lt; 150</cite></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">備考</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">値は、50，100，150のどれか</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">値は、50，100，150のどれか</kbd></p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">まずは、リクエスト数が閾値を超過した時の対応について学習し、演習問題でリクエスト数が閾値内に回復した時の対応について実際に自分で設定してみましょう。</div>
+</div>
+<section id="id2">
+<h2>前提<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">本シナリオを操作するに必要となる条件は、下記の通りです。</div>
+</div>
+<ol class="arabic simple">
+<li><p>OASEのインストール</p></li>
+<li><p>作業用ワークスペース</p></li>
+<li><p>メールアカウント</p></li>
+<li><p>各種Conductor・オペレーション</p></li>
+</ol>
+<dl class="simple glossary">
+<dt id="term-0">ワークスペース<a class="headerlink" href="#term-0" title="この用語の解説へ">¶</a></dt><dt id="term-1">システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。<a class="headerlink" href="#term-1" title="この用語の解説へ">¶</a></dt><dd></dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>シナリオの展開に合わせて、以下の名称のConductor・オペレーションが必要になります。</p>
+</div>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Conductor・オペレーション一覧</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 100.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>インスタンススケールアウト</p></td>
+</tr>
+<tr class="row-even"><td><p>インスタンススケールイン</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sorry画面切り替え</p></td>
+</tr>
+<tr class="row-even"><td><p>Sorry画面切り戻し</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2>自動化する作業について<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">今回のシナリオでは、以下の保守作業を自動的に実行します。</div>
+</div>
+<ol class="upperalpha simple">
+<li><p>インスタンスをスケールアウトする作業</p></li>
+<li><p>Sorry画面へ切り替える作業</p></li>
+<li><p>インスタンスをスケールインする作業</p></li>
+<li><p>Sorry画面から切り戻す作業</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2>シナリオの流れ<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">OASEの設定は、以下の流れになります。</div>
+</div>
+<p>1. イベント収集設定
+- どの外部サービスからイベントを収集するかを設定
+2. ラベルの設定
+- 収集したイベントを特定するために付与するラベルに関する設定
+3. OASEエージェントの設定
+- 外部サービスからイベントを収集するOASEエージェントの設定
+4. ルールの設定
+- 収集されたイベントをもとに保守作業を実行するための設定</p>
+<div class="line-block">
+<div class="line">それでは、各作業について、具体的にOASEの設定を行っていきましょう。</div>
+</div>
+</section>
+<section id="id5">
+<h2>シナリオ<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="OASE_scenario_scale-out.html">1. インスタンスのスケールアウト実施</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#id2">1.1. 今回のシナリオで自動化する作業について</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#id3">1.2. 具体的な設定の検討</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#id4">1.3. イベント収集設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#id6">1.4. ラベルの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#oase">1.5. OASEエージェントの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_scale-out.html#id10">1.6. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_scenario_sorry-switch.html">2. Sorry画面への切り替え実施</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#id1">2.1. 今回のシナリオで自動化する作業について</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#id2">2.2. 具体的な設定の検討</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#id3">2.3. イベント収集設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#id5">2.4. ラベルの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#oase">2.5. OASEエージェントの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_scenario_sorry-switch.html#id9">2.6. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_practice_scale-in.html">3. インスタンスのスケールイン実施 (演習問題)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_practice_scale-in.html#id2">3.1. 問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_practice_scale-in.html#id3">3.2. 解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_answer_scale-in.html">4. インスタンスのスケールイン実施 (解答)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#id2">4.1. 問題 (再掲)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#id3">4.2. 自動化する作業の具体的な検討</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#id4">4.3. イベント収集設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#id6">4.4. ラベルの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#oase">4.5. OASEエージェントの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_scale-in.html#id10">4.6. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_practice_sorry-switch-back.html">5. Sorry画面切り戻し実施 (演習問題)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_practice_sorry-switch-back.html#id1">5.1. 問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_practice_sorry-switch-back.html#id2">5.2. 解答</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_answer_sorry-switch-back.html">6. Sorry画面からの切り戻し実施 (解答)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#id1">6.1. 問題 (再掲)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#id2">6.2. 自動化する作業の具体的な検討</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#id3">6.3. イベント収集設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#id5">6.4. ラベルの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#oase">6.5. OASEエージェントの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_answer_sorry-switch-back.html#id9">6.6. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_advanced_sorry-switch-back.html">7. ルールに複数の条件を設定した場合のイベントのTTL問題について</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced_sorry-switch-back.html#id1">7.1. 状況の整理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced_sorry-switch-back.html#id3">7.2. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_advanced2_sorry-switch-back.html">8. 不要になったイベントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced2_sorry-switch-back.html#id2">8.1. 状況の整理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced2_sorry-switch-back.html#id3">8.2. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OASE_advanced3_sorry-switch-back.html">9. 不要になったイベントについて2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced3_sorry-switch-back.html#id2">9.1. 状況の整理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OASE_advanced3_sorry-switch-back.html#id3">9.2. ルールの設定</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+</div>
+
+
+
+<div id="pageTopLink">
+  <a href="#container"><i>↑</i> Page Top</a>
+</div>
+
+</article>
+</div>
+</main>
+</div><!-- End #contents -->
+<div id="footer">
+  <footer class="divInner">
+    <small>Copyright © 2019-2023 NEC Corporation</small>
+    <small><a href="/terms/ja.html">サイト規約</a></small>
+  </footer>
+</div><!-- End #footer -->
+
+<div id="overlay"></div>
+<div id="grayBack"></div>
+
+</div><!-- End #container -->
+  </body>
+</html>
