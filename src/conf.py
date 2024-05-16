@@ -37,7 +37,8 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_tabs.tabs',
     'sphinx_toolbox.collapse',
-    'sphinx.ext.todo'
+    'sphinx.ext.todo',
+    'sphinxcontrib.googleanalytics'
 ]
 
 # Fontpath for blockdiag (truetype font)
@@ -58,7 +59,6 @@ languages = ["ja", "en"]
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_*"]
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -99,6 +99,9 @@ latex_docclass = {'manual': 'jsbook'}
 
 # 図や表に番号を自動で振る設定
 numfig = True
+
+# Google Analytics tracking code ID
+googleanalytics_id = 'UA-144561796-1'
 
 copybutton_prompt_text = "Copied it!"
 
