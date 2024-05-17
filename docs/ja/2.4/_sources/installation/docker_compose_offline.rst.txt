@@ -136,7 +136,7 @@ Docker Compose on Docker - Offline
    * - ソフトウェア
      - バージョン
    * - Podman Engine ※Podman 利用時
-     - バージョン	4.4
+     - バージョン	4.6
    * - Docker Compose ※Podman 利用時
      - バージョン	2.20
    * - Docker Engine ※Docker 利用時
@@ -157,7 +157,7 @@ Docker Compose on Docker - Offline
 事前準備
 ========
 
-| Exastro の起動にはdocker-composeを使用するため、docker-compose-linux-x86_64を下記URLからダウンロードします。
+| Exastro の起動にはdocker-composeを使用するため、下記URLからdocker-compose-linux-x86_64をダウンロードします	。
 | https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-linux-x86_64
 | サービス公開用の URL を準備しておく必要があります。
 
@@ -212,111 +212,31 @@ Docker Compose on Docker - Offline
 ==========
 | オンライン環境での作業完了後に、オフライン環境にてインストールを実施します。
 											
+.. figure:: /images/ja/installation/docker_compose/flow_images.png
+   :width: 800px
+   :alt: フローイメージ
 													
 オンライン環境での手順
 ^^^^^^^^^^^^^^^^^^^^^^
 													
-| 1.マウントの設定 				
-| 1-1 設定ファイルを開く												
-| 1-2 マウント設定を記述する												
-| 1-3 設定を反映し、マウントを行う																							
-													
-| 2.コンテナイメージのダウンロード													
-| 2-1 シェルスクリプトを作成する												
-| 2-2 シェルスクリプトを実行する												
-												
-| 3.RPMパッケージのダウンロード													
-| 3-1 RPMパッケージをダウンロードする												
-| 3-2 createrepoをインストールする												
-| 3-3 ローカルリポジトリを作成する																							
-| 3-4 ダウンロードしたRMPパッケージを格納する												
-													
-| 4.Exastroリソースのダウンロード													
-| 4-1 Exastroリソースをダウンロードする												
-| 4-2 ダウンロードしたExastroリソースを格納する												
+| ①コンテナイメージのダウンロード		
+| ②RPMパッケージのダウンロード
+| ③Exastroリソースのダウンロード
 
 
-オフライン環境での手順			
+オンライン環境での手順
 ^^^^^^^^^^^^^^^^^^^^^^
-       
-| 1.マウントの設定							
-| 1-1 設定ファイルを開く						
-| 1-2 マウント設定を記述する						
-| 1-3 設定を反映し、マウントを行う									
-       
-| 2.docker-compose-linux-x86_64の取得							
-| 2-1 docker-compose-linux-x86_64を取得する						
-       
-| 3.RPMパッケージのダウンロード							
-| 3-1 RPMパッケージを取得する						
-| 3-2 リポジトリファイルを作成する						
-| 3-3 リポジトリ情報を記載する						
-| 3-4 パッケージをインストールする						
-| 3-5 エラー対応						
-| 3-5-1 エラーとなったパッケージを削除する					
-| 3-5-2 パッケージを再インストールする					
-       
-| 4.コンテナイメージのダウンロード							
-| 4-1 シェルスクリプトを作成する					
-| 4-2 シェルスクリプトを実行する						
-       
-| 5.Exastroリソースのインストール						
-| 5-1 Exastroリソースを取得する						
-| 5-2 Exastroリソースをインストールする						
-| 5-3 Exastroを起動する						
-
+| ④RPMパッケージのインストール
+| ⑤コンテナイメージのアップロード
+| ⑥Exastroリソースのインストール
+| ⑦Exastro ITA起動
 
 
 オンライン環境(インターネットに接続できる環境)での作業
 ======================================================
 
 | 資材の収集を行います。
-| ここではNFSにマウントする方法で資材の受け渡しを実施しています。
-| 以下、ユーザーはtestuser、ホームディレクトリは/home/testuserで実行した例です。
-
-
-マウントの設定
-^^^^^^^^^^^^^^^^
-
-設定ファイルを開く
-----------------------
-
-| 下記を順に実行し、資材受け渡し用のマウント設定を行います。	
-
-.. code-block:: shell
-   :linenos:
-   :caption: コマンド	
-
-   sudo su -		
-   vi /etc/fstab		
-
-
-マウント設定を記述する		
---------------------------
-
-| viエディタで開いた/etc/fstabに下記のマウント設定を追記します。	
-
-.. code-block:: shell
-   :caption: 記載例
-
-   /dev/sda1 /mnt/mainte nfs defaults 0 0
-
-
-設定を反映し、マウントを行う
---------------------------------
-
-|	下記を順に実行し、設定を反映します。	
-
-.. code-block:: shell
-   :linenos:
-   :caption: コマンド
-
-   mkdir /mnt/mainte 
-   systemctl daemon-reload
-   mount -a 
-   df
-   exit
-
+| 以下、ユーザーはtest_user、ホームディレクトリは/home/test_userで実行した例です。
 
 コンテナイメージのダウンロード		
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -328,8 +248,6 @@ Docker Compose on Docker - Offline
 .. code-block:: shell
    :caption: コマンド
 
-   cd /mnt/mainte/exastro/container-images
-   touch image.list
    vi image.list
 
 .. code-block:: shell
@@ -379,7 +297,6 @@ Docker Compose on Docker - Offline
 .. code-block:: shell
    :caption: コマンド
 
-   touch save.sh
    vi save.sh
 
 .. code-block:: shell
@@ -439,12 +356,12 @@ RPMパッケージをダウンロードする
 
    .. group-tab:: docker
     
-      | ダウンロード先ディレクトリを/tmp/docker-repo-almalinux、インストール先ディレクトリを/tmp/docker-installroot-almalinuxとしています。
+      | ダウンロード先ディレクトリを/tmp/docker-repo、インストール先ディレクトリを/tmp/docker-installrootとした例です。
 
       .. code-block:: shell
          :caption: コマンド
 
-         sudo dnf install -y --downloadonly --downloaddir=/tmp/docker-repo-almalinux --installroot=/tmp/docker-installroot-almalinux --releasever=8.9 git			
+         sudo dnf install -y --downloadonly --downloaddir=/tmp/docker-repo --installroot=/tmp/docker-installroot --releasever=8.9 git			
            
       .. note::
          | 各オプションの説明		
@@ -482,20 +399,8 @@ RPMパッケージをダウンロードする
       .. code-block:: shell
          :caption: コマンド
 
-         sudo createrepo /tmp/docker-repo-almalinux														
-                           
-                      
-      | RPMパッケージを受け渡し用のディレクトリに格納します。
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド
-
-         cd /tmp
-         cp -irp /tmp/docker-repo-almalinux <受け渡し用ディレクトリ>
-         #/mnt/mainte/exastro/almalinux/dockerを受け渡し用ディレクトリとする場合	
-         cp -irp /tmp/docker-repo-almalinux /mnt/mainte/exastro/almalinux/docker														
-
+         sudo createrepo /tmp/docker-repo												
+                                   			
 
    .. group-tab:: podman
 
@@ -548,17 +453,6 @@ RPMパッケージをダウンロードする
          sudo createrepo /tmp/podman-repo														
                            
                       
-      | RPMパッケージを受け渡し用のディレクトリに格納します。
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド
-
-         cd /tmp
-         cp -irp /tmp/podman-repo <受け渡し用ディレクトリ>
-         #/mnt/mainte/exastro/rhel9/podmanを受け渡し用ディレクトリとする場合	
-         cp -irp /tmp/podman-repo /mnt/mainte/exastro/rhel9/podman				
-
 Exastroリソースのダウンロード																
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -577,18 +471,8 @@ Exastroリソースをダウンロードする
 
          cd /tmp														
          curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip	
-                    
-                      
-      | ダウンロードしたExastroリソースを受け渡し用ディレクトリに格納します。
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド
-         
          unzip main.zip && mv exastro-docker-compose-main exastro-docker-compose	
-         #受け渡し用ディレクトリを/mnt/mainte/exastro/almalinux/dockerとする場合
-         cp -irp /tmp/exastro-docker-compose  /mnt/mainte/exastro/almalinux/docker														
-
+ 
 
    .. group-tab:: podman
 
@@ -598,18 +482,18 @@ Exastroリソースをダウンロードする
 
          cd /tmp														
          curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip	
-                    
-                      
-      | ダウンロードしたExastroリソースを受け渡し用ディレクトリに格納します。
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド
-         
          unzip main.zip && mv exastro-docker-compose-main exastro-docker-compose	
-         #受け渡し用ディレクトリを/mnt/mainte/exastro/rhel9/podmanとする場合
-         cp -irp /tmp/exastro-docker-compose  /mnt/mainte/exastro/rhel9/podman		
-															
+                    
+
+資材の転送	
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+| オンライン環境で収集した資材をFTP、SCP、SFTP等でオフライン環境に転送します。
+| 資材は下記のディレクトリに配置します。
+
+- コンテナイメージ:任意のディレクトリ
+- RPMパッケージ:オンライン環境でのダウンロード時に指定したディレクトリ
+- Exastroリソース:一般ユーザーのホームディレクトリ直下
+- 事前に取得したdocker-compose-linux-x86_64:/usr/local/bin/docker-compose
 
 
 オフライン環境(インターネットに接続できない環境)での作業
@@ -617,89 +501,23 @@ Exastroリソースをダウンロードする
 
 | オンライン環境での作業完了後、オフライン環境にて下記の手順を実施します。														
 															
-
-マウントの設定
-^^^^^^^^^^^^^^^^
-
-設定ファイルを開く			
-------------------
-
-| 下記を順に実行し、資材受け渡し用のマウント設定を行います。					
-
-.. code-block:: shell
-   :linenos:
-   :caption: コマンド			
-
-   sudo su -												
-   vi /etc/fstab												
-              
-              
-マウント設定を記述する		
-----------------------
-
-| viエディタで開いた/etc/fstabに下記のマウント設定を追記します。
-
-.. code-block:: shell
-   :caption: 記載例
-
-   /dev/sda1 /mnt/mainte nfs defaults 0 0				
-              
-              
-設定を反映し、マウントを行う		
-----------------------------
-
-| 下記を順に実行し、設定を反映します。			
-
-.. code-block:: shell
-   :linenos:
-   :caption: コマンド	
-
-   mkdir /mnt/mainte 												
-   systemctl daemon-reload												
-   mount -a 												
-   df												
-   exit												
-              
-              
-docker-compose-linux-x86_64の取得	
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-docker-compose-linux-x86_64を取得する						
--------------------------------------
-
-| 事前に取得したdocker-compose-linux-x86_64を下記ディレクトリに格納し、パーミッションを変更します。							
-| 格納先 /usr/local/bin/docker-compose					
-
-.. code-block:: shell
-   :caption: コマンド	
-
-   sudo chmod a+x /usr/local/bin/docker-compose								
-			
-
+										
 RPMパッケージのインストール			
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-RPMパッケージを取得する			
-------------------------
+RPMパッケージをインストールする			
+-------------------------------
 
 .. tabs::
 
    .. group-tab:: docker
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド	
-
-         cd /tmp
-         cp -irp /mnt/mainte/exastro/almalinux/docker/docker-repo-almalinux .
-
 
       | ローカルリポジトリの設定ファイルを作成します。								
 
       .. code-block:: shell
          :caption: コマンド		
 
-         sudo touch /etc/yum.repos.d/docker-repo-almalinux.repo														
+         sudo touch /etc/yum.repos.d/docker-repo.repo														
                       
 
       |	作成した設定ファイルに下記の情報を記載します。(※file: の後ろのスラッシュは3つ)				
@@ -707,16 +525,16 @@ RPMパッケージを取得する
       .. code-block:: shell
          :caption: コマンド
 
-         sudo vi /etc/yum.repos.d/docker-repo-almalinux.repo														
+         sudo vi /etc/yum.repos.d/docker-repo.repo														
                       
          [docker-repo-almalinux]														
          name=RedHat-$releaserver - docker														
-         baseurl=file:///tmp/docker-repo-almalinux														
+         baseurl=file:///tmp/docker-repo														
          enabled=1														
          gpgcheck=0														
          gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release														
                       
-      | docker-repo-almalinuxのstatusがenabledになっていることを確認します。
+      | docker-repoのstatusがenabledになっていることを確認します。
 
       .. code-block:: shell
          :caption: コマンド			
@@ -729,18 +547,10 @@ RPMパッケージを取得する
       .. code-block:: shell
          :caption: コマンド
 
-         sudo dnf -y --disablerepo=\* --enablerepo=docker-repo-almalinux install git
+         sudo dnf -y --disablerepo=\* --enablerepo=docker-repo install git
            
 
    .. group-tab:: podman
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド	
-
-         cd /tmp
-         cp -irp /mnt/mainte/exastro/rhel9/podman/podman-repo .
-
 
       | ローカルリポジトリの設定ファイルを作成します。								
 
@@ -810,20 +620,18 @@ RPMパッケージを取得する
          sudo dnf -y --disablerepo=\* --enablerepo=podman-repo install podman         
 
 
-コンテナイメージの実行	
+コンテナイメージのアップロード	
 ^^^^^^^^^^^^^^^^^^^^^^
 
 シェルスクリプトを作成する						
 --------------------------
 
-| コンテナイメージを実行するシェルスクリプトを作成します。
+| コンテナイメージをアップロードするシェルスクリプトを作成します。
 
 .. code-block:: shell
    :linenos:
    :caption: コマンド		
    		
-   cd /mnt/mainte/exastro/container-images
-   touch load.sh
    vi load.sh
 
 .. code-block:: shell
@@ -876,17 +684,7 @@ Exastroリソースを取得する
 
 .. tabs::
 
-   .. group-tab:: docker
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド		
-
-         #一般ユーザーのホームディレクトリを/home/testuser、受け渡し用ディレクトリを/mnt/mainte/exastro/almalinux/dockerとする場合
-         cd  /home/testuser													
-         cp -irp /mnt/mainte/exastro/almalinux/docker/exastro-docker-compose .																										
-                      
-                      	
+   .. group-tab:: docker            	
 
       | Exastro ServiceのパッケージとExastro source fileのインストールを行います。				
 
@@ -988,15 +786,7 @@ Exastroリソースを取得する
 																			
 
    .. group-tab:: podman
-
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド		
-
-         #一般ユーザーのホームディレクトリを/home/testuser、受け渡し用ディレクトリを/mnt/mainte/exastro/rhel9/podmanとする場合
-         cd  /home/testuser													
-         cp -irp /mnt/mainte/exastro/rhel9/podman/exastro-docker-compose .																										
-                      
+			                      
       | SELinuxの動作モードを変更します。
 
       .. code-block:: shell
@@ -1150,109 +940,67 @@ Exastroリソースを取得する
 エラー対応
 ^^^^^^^^^^^
 
-エラー対応
-----------
+エラー対応(podman)
+------------------
 			
-| Exastroのインストール時にエラーが起きた際の対応についてです。	
-
-.. tabs::
-
-   .. group-tab:: docker
-
-      | setup.sh実行時に発生する可能性のあるエラーと対処方法です。		
-      | 下記エラーはインストール済みパッケージ(container-selinux)のバージョンが原因で発生したものです。																				
-      | rpm -q パッケージ名 で対象パッケージのバージョンを確認し、オンライン環境とオフライン環境でそれぞれの手順を実行します。																				
-
-      .. code-block:: shell					
-         :caption: エラーメッセージ
-
-         Error:																			
-         Problem 1: cannot install the best candidate for the job																			
-          - nothing provides container-selinux >= 2:2.74 needed by docker-ce-3:26.1.0-1.el8.x86_64 from docker-ce-stable																			
-         Problem 2: cannot install the best candidate for the job																			
-          - nothing provides container-selinux >= 2:2.74 needed by containerd.io-1.6.31-3.1.el8.x86_64 from docker-ce-stable																			
-         (try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)																			
-                            
-                            
-      .. code-block:: shell
-         :linenos:
-         :caption: オンライン環境での手順	                     
-                         
-         sudo dnf install -y --downloadonly --downloaddir=/tmp/docker-repo-almalinux --installroot=/tmp/docker-installroot-almalinux --releasever=8.9 container-selinux																				
-         createrepo --update /tmp/docker-repo-almalinux																				
-         cd /tmp
-         cp -irp /tmp/docker-repo-almalinux /mnt/mainte/exastro/almalinux/docker																						
-                        
-
-      .. code-block:: shell					
-         :linenos:	
-         :caption: オフライン環境での手順		
-
-         cd /tmp
-         cp -irp /mnt/mainte/exastro/almalinux/docker/docker-repo-almalinux .																																																					
-         sudo dnf -y --disablerepo=\* --enablerepo=docker-repo-almalinux install container-selinux	
+| Exastroインストール時に発生する可能性のあるエラーと対処方法です。		
+| 下記エラーはSELinuxの動作モードが原因で発生したものです。																				
+| オフライン環境にて下記手順を実行し、SELinuxの動作モードをPermissiveに変更します。	
 
 
-   .. group-tab:: podman
+.. code-block:: shell					
+   :caption: エラーメッセージ
+           
+   [ERROR]: In Rootless Podman environment, SELinux only supports Permissive mode.
+                      
+.. code-block:: shell
+   :linenos:
+   :caption: コマンド                     
+                   
+   sudo vi /etc/selinux/config
 
-      | Exastroインストール時に発生する可能性のあるエラーと対処方法です。		
-      | 下記エラーはSELinuxの動作モードが原因で発生したものです。																				
-      | オフライン環境にて下記手順を実行し、SELinuxの動作モードをPermissiveに変更します。	
+.. code-block:: shell
+   :caption: /etc/selinux/config記載例
 
+   # This file controls the state of SELinux on the system.
+   # SELINUX= can take one of these three values:
+   #     enforcing - SELinux security policy is enforced.
+   #     permissive - SELinux prints warnings instead of enforcing.
+   #     disabled - No SELinux policy is loaded.
+   # See also:
+   # https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-selinux/#getting-started-with-selinux-selinux-states-and-modes
+   #
+   # NOTE: In earlier Fedora kernel builds, SELINUX=disabled would also
+   # fully disable SELinux during boot. If you need a system with SELinux
+   # fully disabled instead of SELinux running with no policy loaded, you
+   # need to pass selinux=0 to the kernel command line. You can use grubby
+   # to persistently set the bootloader to boot with selinux=0:
+   #
+   #    grubby --update-kernel ALL --args selinux=0
+   #
+   # To revert back to SELinux enabled:
+   #
+   #    grubby --update-kernel ALL --remove-args selinux
+   #
+   SELINUX=permissive
+   # SELINUXTYPE= can take one of these three values:
+   #     targeted - Targeted processes are protected,
+   #     minimum - Modification of targeted policy. Only selected processes are protected.
+   #     mls - Multi Level Security protection.
+   SELINUXTYPE=targeted
 
-      .. code-block:: shell					
-         :caption: エラーメッセージ
-																	
-         [ERROR]: In Rootless Podman environment, SELinux only supports Permissive mode.
-                            
-      .. code-block:: shell
-         :linenos:
-         :caption: コマンド                     
-                         
-         sudo vi /etc/selinux/config
+.. code-block:: shell
+   :caption: コマンド
 
-      .. code-block:: shell
-         :caption: /etc/selinux/config記載例
+   sudo reboot			
 
-         # This file controls the state of SELinux on the system.
-         # SELINUX= can take one of these three values:
-         #     enforcing - SELinux security policy is enforced.
-         #     permissive - SELinux prints warnings instead of enforcing.
-         #     disabled - No SELinux policy is loaded.
-         # See also:
-         # https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-selinux/#getting-started-with-selinux-selinux-states-and-modes
-         #
-         # NOTE: In earlier Fedora kernel builds, SELINUX=disabled would also
-         # fully disable SELinux during boot. If you need a system with SELinux
-         # fully disabled instead of SELinux running with no policy loaded, you
-         # need to pass selinux=0 to the kernel command line. You can use grubby
-         # to persistently set the bootloader to boot with selinux=0:
-         #
-         #    grubby --update-kernel ALL --args selinux=0
-         #
-         # To revert back to SELinux enabled:
-         #
-         #    grubby --update-kernel ALL --remove-args selinux
-         #
-         SELINUX=permissive
-         # SELINUXTYPE= can take one of these three values:
-         #     targeted - Targeted processes are protected,
-         #     minimum - Modification of targeted policy. Only selected processes are protected.
-         #     mls - Multi Level Security protection.
-         SELINUXTYPE=targeted
+| 再度オフライン環境に接続します。
+| SELinuxの動作モードがPermissiveになっていることを確認し、エラーとなった手順を再度実行します。
 
-      .. code-block:: shell
-         :caption: コマンド
+.. code-block:: shell
+   :caption: コマンド
 
-         sudo reboot			
-
-      | 再度オフライン環境に接続します。
-      | SELinuxの動作モードがPermissiveになっていることを確認し、エラーとなった手順を再度実行します。
-
-      .. code-block:: shell
-         :caption: コマンド
-
-         getenforce
+   getenforce
 
 
 ログイン
