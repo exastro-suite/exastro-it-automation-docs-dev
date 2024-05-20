@@ -16,7 +16,7 @@
 | 監査ログは、platform-auth コンテナ内の"/var/log/exastro"ディレクトリに、ファイル名"exastro-audio.log"(デフォルト)で出力されます。
 | 
 | Kubernetes環境においては、永続ボリュームを指定することにより、永続ボリューム側のディレクトリに出力されます。
-| ※永続ボリュームについては、インストール編 :doc:`../../installation/helm_on_kubernetes` を参照してください。
+| ※永続ボリュームについては、インストール編 :doc:`../../installation/online/exastro/kubernetes` を参照してください。
 
 監査ログの設定項目
 ------------------

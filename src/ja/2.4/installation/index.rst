@@ -2,12 +2,17 @@
 インストール
 ============
 
-.. toctree::
-   :maxdepth: 2
-   :numbered: 6
+.. .. raw:: html
 
-   docker_compose_online
-   helm_on_kubernetes
-   oase_agent_docker_compose
-   oase_agent_kubernetes
+..    </div>
+..    <div id="multiColumnIndex">
+
+.. toctree::
+   :maxdepth: 3
+
+   online/index
+   offline/index
    
+.. .. raw:: html
+
+..    </div>
