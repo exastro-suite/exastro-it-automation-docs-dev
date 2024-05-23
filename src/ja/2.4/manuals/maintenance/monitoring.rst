@@ -342,7 +342,8 @@ Zabbixエージェントの設定
 
 | ZabbixのWebコンソール画面で、追加したホストにログファイルのアイテムを追加します
 | アイテムはログファイル毎（ログローテーション用の日付部分を除く）に設定する必要があります
-| ※TODO:ログファイル一覧へのリンクを付ける
+| ログ一覧は :doc:`./log_list` を参照
+| 監視対象のログファイル（正規表現）は、 :kbd:`^exastro-suite\\.exastro\\.{ログ一覧のサービス}\\..*\\.log$` になります
 
 .. tip::
    | 以下のコマンドで監視対象のログファイル（正規表現）の一覧を取得できます。
@@ -385,8 +386,8 @@ Zabbixエージェントの設定
    - {ログ集約先のディレクトリ}/{監視対象のログファイル（正規表現）}
    - 例) /var/PersistentVolume/ha-conf-k8s/exastro-logs/^exastro-suite\.exastro\.ita-api-admin\..*\.log$
  * - logrt <regexp> パラメータ
-   - "[ []ログ一覧より監視対象とするキーワード[ \\]]"
-   - 例1) "[ []ERRROR[ \\]]" / 例2) "[ [](FATAL|ERROR)[ \\]]"
+   - ログファイル毎のログレベルの指定の表参照
+   - 例1) "[ []ERROR[ \\]]" / 例2) "[ [](FATAL|ERROR)[ \\]]"
  * - logrt <encoding> パラメータ
    - "UTF-8"
    - 
@@ -414,6 +415,35 @@ Zabbixエージェントの設定
  * - ヒストリの保存期間
    - 任意の期間
    - 問題なければデフォルト値の90dとする
+
+- | ログファイル毎のログレベルの指定
+
+  .. list-table:: 
+   :widths: 20, 20, 20
+   :header-rows: 1
+
+   * - 監視対象のログファイル
+     - logrt <regexp> パラメータ
+     - 備考
+   * - exastro-suite.exastro.ita-*
+     - "[ []ERROR[ \\]]"
+     - 
+   * - exastro-suite.exastro.platform-*
+     - "[ []ERROR[ \\]]"
+     - 
+   * - exastro-suite.exastro.keycloak
+     - 公式のドキュメンテーションより監視対象とするログのキーワード指定してください
+     - ログの詳細は `keycloak ログ <https://www.keycloak.org/server/logging>`_ を参照
+   * - exastro-suite.exastro.mariadb
+     - 公式のドキュメンテーションより監視対象とするログのキーワード指定してください
+     - ログの詳細は `mariadb ログ <https://mariadb.com/kb/en/error-log/>`_ を参照
+   * - exastro-suite.exastro.mongodb
+     - 公式のドキュメンテーションより監視対象とするログのキーワード指定してください
+     - ログの詳細は `mongodb ログ <https://www.mongodb.com/docs/manual/reference/log-messages/>`_ を参照
+   * - exastro-suite.exastro.gitlab
+     - 公式のドキュメンテーションより監視対象とするログのキーワード指定してください
+     - ログの詳細は `gitlab ログ <https://docs.gitlab.com/ee/administration/logs/>`_ を参照
+
 
 トリガーの追加
 ^^^^^^^^^^^^^^
