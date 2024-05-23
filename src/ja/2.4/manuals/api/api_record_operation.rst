@@ -745,7 +745,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
 
 .. _api_apply:
 
-適用（API）
+パラメータ適用（API）
 =============================
 
 | 本APIは、オペレーションの生成からパラメータの適用までを行いConductor作業実行を行うAPIです。
@@ -767,7 +767,7 @@ request形式
    * - APIカテゴリ
      - Apply
    * - API名
-     - 適用
+     - パラメータ適用
    * - URL
      - /api/{organizaiton_id}/workspaces/{workspace_id}/ita/apply/ 
    * - method
