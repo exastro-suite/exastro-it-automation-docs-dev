@@ -183,7 +183,7 @@ Platformログ
    * -  %\(levelname\)s
      -  ログレベル
      -  INFO
-     -  DEBUG, INFO, WARNING, ERROR のいずれかが出力される。
+     -  DEBUG, INFO, WARNING, ERROR のいずれかが出力されます。
    * -  \(%\(userid\)s\)
      -  アクセスユーザー（Noneは指定なし）
      -  （None）
@@ -350,7 +350,7 @@ PlatformJobログ
    * - | [%(levelname)s]
      - | ログレベル
      - | [INFO]
-     - |
+     - | DEBUG, INFO, WARNING, ERROR のいずれかが出力されます。
    * - | %\(message\)s
      - | メッセージ
      - | Get keycloak service account token. realm_name=master
@@ -387,7 +387,7 @@ Keycloakログ
    * - | %-5p
      - | ログレベル
      - | INFO
-     - | DEBUG, INFO, WARN, ERROR, FATAL のいずれかが出力される。
+     - | DEBUG, INFO, WARN, ERROR, FATAL のいずれかが出力されます。
    * - | \[%c\]
      - | ログ　カテゴリ名
      - | \[org.keycloak.events\]
