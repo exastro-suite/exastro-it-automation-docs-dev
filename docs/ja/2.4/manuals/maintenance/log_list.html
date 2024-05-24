@@ -801,7 +801,7 @@
 <tr class="row-odd"><td><p>%(levelname)s</p></td>
 <td><p>ログレベル</p></td>
 <td><p>INFO</p></td>
-<td><p>DEBUG, INFO, WARNING, ERROR, CRITICAL のいずれかが出力される。</p></td>
+<td><p>DEBUG, INFO, WARNING, ERROR のいずれかが出力される。</p></td>
 </tr>
 <tr class="row-even"><td><p>(%(userid)s)</p></td>
 <td><p>アクセスユーザー（Noneは指定なし）</p></td>
@@ -1161,7 +1161,7 @@
 </div>
 <div class="literal-block-wrapper docutils container" id="id15">
 <div class="code-block-caption"><span class="caption-number">リスト 1.19 </span><span class="caption-text">例</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span> <span class="mi">18</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span><span class="mi">875</span><span class="p">]</span> <span class="p">[:]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">xxxxxxxxxx</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2023</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span> <span class="mi">18</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">22</span><span class="p">,</span><span class="mi">875</span><span class="p">]</span> <span class="p">[</span><span class="mi">000000</span><span class="p">:</span><span class="n">MainThread</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Get</span> <span class="n">keycloak</span> <span class="n">service</span> <span class="n">account</span> <span class="n">token</span><span class="o">.</span> <span class="n">realm_name</span><span class="o">=</span><span class="n">master</span>
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1218,7 @@
 </div>
 </td>
 <td><div class="line-block">
-<div class="line">[]</div>
+<div class="line">[000000:MainThread]</div>
 </div>
 </td>
 <td><div class="line-block">
@@ -1252,7 +1252,7 @@
 </div>
 </td>
 <td><div class="line-block">
-<div class="line">platform initialize setting start</div>
+<div class="line">Get keycloak service account token. realm_name=master</div>
 </div>
 </td>
 <td><div class="line-block">
@@ -1334,7 +1334,7 @@
 </div>
 </td>
 <td><div class="line-block">
-<div class="line">DEBUG, INFO, WARN, ERROR のいずれかが出力される。</div>
+<div class="line">DEBUG, INFO, WARN, ERROR, FATAL のいずれかが出力される。</div>
 </div>
 </td>
 </tr>

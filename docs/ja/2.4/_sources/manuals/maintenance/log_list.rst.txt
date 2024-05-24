@@ -183,7 +183,7 @@ Platformログ
    * -  %\(levelname\)s
      -  ログレベル
      -  INFO
-     -  DEBUG, INFO, WARNING, ERROR, CRITICAL のいずれかが出力される。
+     -  DEBUG, INFO, WARNING, ERROR のいずれかが出力される。
    * -  \(%\(userid\)s\)
      -  アクセスユーザー（Noneは指定なし）
      -  （None）
@@ -328,7 +328,7 @@ PlatformJobログ
 .. code-block:: 
   :caption: 例
   
-  [2023-01-05 18:05:22,875] [:] [INFO] xxxxxxxxxx
+  [2023-01-05 18:05:22,875] [000000:MainThread] [INFO] Get keycloak service account token. realm_name=master
 
 .. list-table:: 
    :widths: 15 15 20 20
@@ -345,7 +345,7 @@ PlatformJobログ
      - |
    * - | [%(process)06d:%(threadName)s]
      - | プロセスID:スレッド名
-     - | []
+     - | [000000:MainThread]
      - | 
    * - | [%(levelname)s]
      - | ログレベル
@@ -353,7 +353,7 @@ PlatformJobログ
      - |
    * - | %\(message\)s
      - | メッセージ
-     - | platform initialize setting start
+     - | Get keycloak service account token. realm_name=master
      - |
 
 Keycloakログ
@@ -387,7 +387,7 @@ Keycloakログ
    * - | %-5p
      - | ログレベル
      - | INFO
-     - | DEBUG, INFO, WARN, ERROR のいずれかが出力される。
+     - | DEBUG, INFO, WARN, ERROR, FATAL のいずれかが出力される。
    * - | \[%c\]
      - | ログ　カテゴリ名
      - | \[org.keycloak.events\]
