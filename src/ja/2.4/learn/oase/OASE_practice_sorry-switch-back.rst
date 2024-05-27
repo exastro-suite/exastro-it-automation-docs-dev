@@ -19,7 +19,8 @@ Sorry画面切り戻し実施 (演習問題)
    * - :kbd:`件名`
      - :kbd:`[info] Requests: Threshold recovery`
    * - :kbd:`本文`
-     - :kbd:`リクエスト数が、閾値内に回復しました。` `RequestCount < 150`
+     - | :kbd:`リクエスト数が、閾値内に回復しました。`
+       | :kbd:`RequestCount < 150`
 
 .. danger::
   | Sorry画面に切り替えが行われているのかどうかは、Sorry画面に切り替えたアクションの結論イベントに付与したラベルから特定することができます。

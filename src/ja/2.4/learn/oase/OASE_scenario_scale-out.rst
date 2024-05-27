@@ -5,44 +5,39 @@
 今回のシナリオで自動化する作業について
 =======================================
 
-| 今回のシナリオでは、以下の保守作業を自動的に実行します。
+| このシナリオでは、以下の保守作業を自動的に実行します。
 
-A. インスタンスをスケールアウトする作業
+- 作業A インスタンスをスケールアウトする作業
+|
 
-| 作業が実行されるのはどのような場合か、今回想定している構成から具体的に考えてみましょう。
+| 今回想定している構成から作業Aが実行されるのは、
 
-A. インスタンスをスケールアウトする作業
+ | リクエスト数が閾値を超過したとき。ただし、稼働するインスタンス数は3台まで
 
-   →リクエスト数が閾値を超過したとき。ただし、稼働するインスタンス数は3台まで。
+| となります。
    
-   =通常は1台稼働なのでリクエスト数が閾値を超過しスケールアウトする状況は、
+| つまり通常は1台稼働なので、リクエスト数が閾値を超過しスケールアウトする状況は、
 
-      1台稼働の閾値である50リクエスト/minを超えたとき
-      2台稼働の閾値である100リクエスト/minを超えたとき
+ | 1台稼働の閾値である50リクエスト/minを超えたとき
 
-    になります。
+ | 2台稼働の閾値である100リクエスト/minを超えたとき
+
+| になります。
 
 具体的な設定の検討
 ===================
 
 | では具体的に今回の運用保守の一連の流れをどのようにOASEで設定するか、作業計画を立てましょう。
 
-| 今回のシナリオで以下のように、自動化する作業が実行されるにはそれぞれ前提となる条件がありました。
+| 作業Aを条件に合わせて実行するようにするためには、OASEで以下のような設定を行う必要があります。
 
-.. note::
-   A. インスタンスをスケールアウトする作業
-   - 1台稼働の閾値である50リクエスト/minを超えたとき
-   - 2台稼働の閾値である100リクエスト/minを超えたとき
+- 設定a 外部サービスからイベントを収集する設定
+- 設定b 収集したイベントの中から、リクエスト数超過に関するイベントを特定する設定
+- 設定c リクエスト数超過に関するイベントの中から自動化する作業Aの条件に合うイベントを検知する条件の設定
+- 設定d 自動化する作業Aの登録
+- 設定e 設定cで設定した振り分け条件と設定dで登録した作業を紐づける設定
 
-| 以上の内容をOASEで実現するためには、以下のような設定を行う必要があります。
-
-a. 外部サービスからイベントを収集する設定
-b. 収集したイベントの中から、リクエスト数超過に関するイベントを特定する設定
-c. リクエスト数超過に関するイベントの中から自動化する作業Aの条件に合うイベントを検知する条件の設定
-d. 自動化する作業Aの登録
-e. c.で設定した振り分け条件とd.で登録した作業を紐づける設定
-
-| ここまで整理できたら、具体的に以下のOASEの設定を行っていきましょう。
+| ここまで整理できたら、具体的に以下の順にOASEの設定を行っていきましょう。
 
 1. イベント収集設定
 2. ラベルの設定
@@ -66,9 +61,9 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
 
 | :menuselection:`OASE管理 --> エージェント` から、外部サービスの情報を登録します。
 
-| :menuselection:`登録` ボタンを押し、以下のエージェントの登録をしていきます。
+| :guilabel:`登録` ボタンを押し、以下のエージェントの登録をしていきます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_エージェント登録詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_エージェント登録詳細画面.png
    :width: 1200px
    :alt: エージェント登録画面
 
@@ -98,7 +93,7 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
      - :kbd:`**`
      - :kbd:`60`
 
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
 
 .. tip::
    | `*` の部分は、各自の外部サービスの情報を入力してください。
@@ -107,9 +102,14 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
 ============
 
 | 収集するイベントに付与するラベルの作成と付与する条件を設定します。
-| 今回必要なラベルは以下の通りです。
 
-.. list-table:: ラベル一覧
+.. glossary:: ラベル
+   ラベルは「キー」と「値」から成り、付与されたイベントの属性を表します。
+   イベントは、付与された「キー」と「値」によって認識されます。
+
+| 今回必要なラベルキーは以下の通りです。
+
+.. list-table:: ラベルキー一覧
    :widths: 10 15
    :header-rows: 1
 
@@ -132,10 +132,10 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
 
 | :menuselection:`OASE --> ラベル --> ラベル作成` から、ラベルを作成します。
 
-| :menuselection:`登録` ボタンを押し、以下のラベルの設定を追加していきます。
-| 必要に応じて、:menuselection:`追加` ボタンを押して行数を追加しましょう。
+| :guilabel:`登録` ボタンを押し、以下のラベルの設定を追加していきます。
+| 必要に応じて、:guilabel:`追加` ボタンを押して行数を追加しましょう。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ラベル作成登録詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ラベル作成登録詳細画面.png
    :width: 1200px
    :alt: ラベル作成画面
 
@@ -152,7 +152,7 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
    * - :kbd:`instance`
      - :kbd:`#00FF33`
   
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
 
 .. note::
    | ラベルそれぞれにカラーコードを設定することで、付与されたときに見分けやすくなります。
@@ -165,15 +165,15 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
 
 | :menuselection:`OASE --> ラベル --> ラベル付与` から、ラベルを付与するための設定を行います。
 
-| :menuselection:`登録` ボタンを押し、以下のラベル付与の設定を追加していきます。
-| 必要に応じて、:menuselection:`追加` ボタンを押して行数を追加しましょう。
+| :guilabel:`登録` ボタンを押し、以下のラベル付与の設定を追加していきます。
+| 必要に応じて、:guilabel:`追加` ボタンを押して行数を追加しましょう。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ラベル付与詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ラベル付与詳細画面.png
    :width: 1200px
    :alt: ラベル付与
 
 .. list-table:: ラベル付与の設定値
-   :widths: 10 10 10 10 10 10 10 10
+   :widths: 10 10 10 10 10 20 10 10
    :header-rows: 2
 
    * - ラベリング設定名
@@ -205,11 +205,11 @@ e. c.で設定した振り分け条件とd.で登録した作業を紐づける�
      - :kbd:`body.plain`
      - :kbd:`その他`
      - :kbd:`RegExp`
-     - :kbd:`RequestCount . (\d{2,3})`
+     - :kbd:`RequestCount . (\\d{2,3})`
      - :kbd:`requestcount`
-     - :kbd:`\1`
+     - :kbd:`\\1`
 
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
   
 .. tip::
    | ラベリング設定名とイベント収集設定名は任意で設定可能です。わかりやすいものを設定しましょう。
@@ -231,9 +231,9 @@ OASEエージェントの設定
 
 | .envのの項目にこれまでの工程で設定した値を設定します。
 
-| :menuselection:`exastro-docker-compose/ita_ag_oase/.env` に下記の内容を入力します。
+| :file:`exastro-docker-compose/ita_ag_oase/.env` に下記の内容を入力します。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_OASEエージェント設定画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_OASEエージェント設定画面.png
    :width: 1200px
    :alt: .env
 
@@ -277,7 +277,7 @@ OASEエージェントの設定
 
    docker compose up -d  --wait  
 
-| 状態がHelthyになっていることを確認します。
+| 状態が``Helthy``になっていることを確認します。
 
 | 正常に接続できているか、以下のコマンドでLogの確認をします。
 
@@ -292,13 +292,13 @@ OASEエージェントの設定
 ==============
 
 | :menuselection:`ルール` では、イベントを特定する条件と、その条件に合致したイベントが発生した場合に実行したい作業を紐づけることができます。
-| イベントを特定する条件は:menuselection:`フィルター` 、実行したい作業は:menuselection:`アクション` 、でそれぞれ設定します。
-| :menuselection:`ルール` では、:menuselection:`フィルター` と:menuselection:`アクション` を紐づける形で設定します。
+| イベントを特定する条件は :menuselection:`フィルター` 、実行したい作業は :menuselection:`アクション` 、でそれぞれ設定します。
+| :menuselection:`ルール` では、:menuselection:`フィルター` と :menuselection:`アクション` を紐づける形で設定します。
 
 .. note::
   | :menuselection:`イベントフロー` では、OASEエージェントが収集したイベント等、イベントが時系列に表示されます。
   | 表示されたイベントには、ラベル付与での設定に沿ってラベルが付与されています。
-  | この画面から:menuselection:`フィルター` 、:menuselection:`アクション` 、:menuselection:`ルール` の設定をそれぞれ行うこともできます。
+  | この画面から :menuselection:`フィルター` 、:menuselection:`アクション` 、:menuselection:`ルール` の設定をそれぞれ行うこともできます。
 
 | まずは、以下のような、1台稼働の時にリクエスト数超過のイベントを発生させて、設定を進めましょう。
 
@@ -311,12 +311,13 @@ OASEエージェントの設定
    * - :kbd:`件名`
      - :kbd:`[alert] Requests: Threshold reached`
    * - :kbd:`本文`
-     - :kbd:`リクエスト数が、閾値を超えました。` `RequestCount > 50`
+     - | :kbd:`リクエスト数が、閾値を超えました。`
+       | :kbd:`RequestCount > 50`
 
 フィルターの設定
 ------------------
 
-| :menuselection:`フィルター` では、ラベルをもとにイベントを指定するための条件を設定します。
+| :menuselection:`フィルター` では、ラベルをもとにイベントを検知するための条件を設定します。
 | イベントの件名と本文からスケールアウトを実施する条件に合うイベントを特定できるように条件を設定してみましょう。
 
 .. note::
@@ -325,14 +326,14 @@ OASEエージェントの設定
 
 | :menuselection:`OASE --> ルール --> フィルター` から、:menuselection:`フィルター` を設定します。
 
-| :menuselection:`登録` ボタンを押し、以下のフィルターの設定を追加していきます。
+| :guilabel:`登録` ボタンを押し、以下のフィルターの設定を追加していきます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_フィルター設定詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_フィルター設定詳細画面.png
    :width: 1200px
    :alt: フィルター
 
 .. list-table:: フィルターの設定値
-   :widths: 10 10 10 10
+   :widths: 10 10 20 10
    :header-rows: 1
 
    * - 有効
@@ -344,7 +345,7 @@ OASEエージェントの設定
      - :kbd:`[["subject", "==", "リクエスト数超過"], ["requestcount", "≠", "150"]]`
      - :kbd:`ユニーク`
 
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
 
 .. tip::
    | フィルター名は任意で設定可能です。わかりやすいものを設定しましょう。
@@ -354,9 +355,9 @@ OASEエージェントの設定
    | 今回は、閾値として50か100の場合を条件として同じアクションを実行するので150以外と設定しましたが、それぞれの閾値でアクションを変えるなど、個別の設定がしたい場合は、それぞれの閾値で別のフィルターを設定しましょう。
 
    | ラベル「requestcount」だけでは超過したイベントなのか回復したイベントなのか判別できないため、ラベル「subject」をフィルター条件に設定し、イベントを一意に特定できるようにします。
-   | このように、ラベルを特定のイベントごとに付与しなくても、必要に応じてフィルター条件を複数設定することで、イベントを一意に特定することできます。
+   | このように、イベントごとに特定のラベルを付与しなくても、必要に応じてフィルター条件を複数設定することで、イベントを一意に特定することできます。
 
-| フィルターは:menuselection:`OASE --> イベント --> イベントフロー` からも設定することが可能です。
+| フィルターは :menuselection:`OASE --> イベント --> イベントフロー` からも設定することが可能です。
 
 .. note::
   | 未知のイベントが発生した場合は、:menuselection:`OASE --> イベント --> イベントフロー` からの設定がおすすめです。
@@ -364,7 +365,7 @@ OASEエージェントの設定
 
 | :menuselection:`OASE --> イベント --> イベントフロー` からは以下のように設定します。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_フィルター設定.gif
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_フィルター設定.gif
    :width: 1200px
    :alt: イベントフロー_フィルター
 
@@ -374,12 +375,12 @@ OASEエージェントの設定
 アクションの設定
 -----------------
 
-| :menuselection:`アクション` では、ITAで作成したConductorを指定できます。
+| :menuselection:`アクション` では、ITAで作成したConductorとオペレーションを指定できます。
 | インスタンスを1台スケールアウトするアクションを登録してみましょう。
 
 | :menuselection:`OASE --> イベント --> イベントフロー` から、:menuselection:`アクション` を設定してみます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_アクション設定.gif
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_アクション設定.gif
    :width: 1200px
    :alt: イベントフロー_アクション
 
@@ -410,19 +411,19 @@ OASEエージェントの設定
 
 | :menuselection:`OASE --> ルール --> アクション` からは以下のように設定します。
 
-| :menuselection:`登録` ボタンを押し、以下のアクションの設定を追加していきます。
+| :guilabel:`登録` ボタンを押し、以下のアクションの設定を追加していきます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_アクション設定詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_アクション設定詳細画面.png
    :width: 1200px
    :alt: アクション
 
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
 
 ルールの設定
 ------------
 
 | :menuselection:`ルール` では、フィルターとアクションを紐づけます。
-| フィルターで特定したイベントが発生した場合に実行したいアクションを紐づけましょう。
+| そのフィルターでイベントを検知した場合に実行したいアクションを紐づけましょう。
 
 .. note::
   | スケールアウトを実施するのは、インスタンスが3台未満の稼働の状態で、リクエスト数が閾値を超過する場合です。
@@ -430,11 +431,11 @@ OASEエージェントの設定
 
 | :menuselection:`OASE --> イベント --> イベントフロー` から、:menuselection:`ルール` を設定してみます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_ルールの設定.gif
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_ルールの設定.gif
    :alt: イベントフロー_ルール
 
 .. list-table:: ルールの設定値
-   :widths: 10 10 10 10 10 10 10 10 10 10
+   :widths: 10 10 10 10 10 10 20 10 15 10
    :header-rows: 3
 
    * - 有効
@@ -450,9 +451,9 @@ OASEエージェントの設定
    * - 
      - 
      - 
+     - 
      - フィルターA
      - アクションID
-     - 
      - 元イベントのラベル継承
      - 
      - 結論ラベル設定
@@ -495,13 +496,13 @@ OASEエージェントの設定
 
 | :menuselection:`OASE --> ルール --> ルール` からは以下のように設定します。
 
-| :menuselection:`登録` ボタンを押し、以下のルールの設定を追加していきます。
+| :guilabel:`登録` ボタンを押し、以下のルールの設定を追加していきます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ルール設定詳細画面.png
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/OASE_scenario_scale-out_ルール設定詳細画面.png
    :width: 1200px
    :alt: ルール
 
-| 入力が終わったら、:menuselection:`編集確認` ボタンを押して登録します。
+| 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
 
 結果の確認
 ----------
@@ -517,14 +518,15 @@ OASEエージェントの設定
    * - 通知内容
      - リクエスト数超過
    * - :kbd:`件名`
-     - :kbd:`[alert] Requests: Threshold reached`
+     - :kbd:`[alert] Requests: Threshold reached`  
    * - :kbd:`本文`
-     - :kbd:`リクエスト数が、閾値を超えました。` `RequestCount > 50`
+     - | :kbd:`リクエスト数が、閾値を超えました。`
+       | :kbd:`RequestCount > 50`
 
-| :menuselection:`OASE --> イベント --> イベントフロー` の画面では、時系列に沿ってイベントが発生している様子が確認できます。
-| アクションが実行されたことを示す結論イベントに:menuselection:`ルール` で設定したラベルが付与されていることも確認しましょう。
+| :menuselection:`OASE --> イベント --> イベントフロー` の画面では、時系列に沿ってイベントが発生している様子を確認できます。
+| アクションが実行されたことを示す結論イベントに :menuselection:`ルール` で設定したラベルが付与されていることも確認しましょう。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_イベントフロー.gif
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_イベントフロー.gif
    :width: 1200px
    :alt: イベントフロー_結論イベント
 
@@ -538,13 +540,13 @@ OASEエージェントの設定
      - リクエスト数超過
    * - :kbd:`件名`
      - :kbd:`[alert] Requests: Threshold reached`
-   * - :kbd:`本文`
-     - :kbd:`リクエスト数が、閾値を超えました。` `RequestCount > 100`
+   * - | :kbd:`リクエスト数が、閾値を超えました。`
+       | :kbd:`RequestCount > 100`
 
 | そうすると、事前に設定したルールが適用され、結論イベントの発生まで確認できます。
 
-.. figure::/src/images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_イベントフロー2回目.gif
+.. figure:: /images/learn/quickstart/oase/OASE_scenario_scale-out/scale-out_イベントフロー2回目.gif
    :width: 1200px
    :alt: イベントフロー_結論イベント_2回目
 
-| このように一度設定し有効にしている限り、フィルターに合致するイベントが発生するたびに適用されます。
+| このように一度設定し有効にしている限り、フィルターに合致するイベントが発生するたびにルールは適用されます。
