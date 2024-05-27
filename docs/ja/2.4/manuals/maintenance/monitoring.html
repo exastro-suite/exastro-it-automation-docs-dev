@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>4. 監視 &#8212; Documentation  ドキュメント</title>
+    <title>5. 監視 &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -43,8 +43,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="5. メンテナンスモード" href="maintenance_mode.html" />
-    <link rel="prev" title="3. ログの集約" href="log_aggregation.html" /> 
+    <link rel="next" title="6. メンテナンスモード" href="maintenance_mode.html" />
+    <link rel="prev" title="4. ログの集約" href="log_aggregation.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -104,8 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="log_aggregation.html" title="前のトピックへ"><span class="section-number">3. </span>ログの集約</a></li>
-        <li class="next"><a href="maintenance_mode.html" title="次のトピックへ"><span class="section-number">5. </span>メンテナンスモード</a></li>
+        <li class="prev"><a href="log_aggregation.html" title="前のトピックへ"><span class="section-number">4. </span>ログの集約</a></li>
+        <li class="next"><a href="maintenance_mode.html" title="次のトピックへ"><span class="section-number">6. </span>メンテナンスモード</a></li>
       </ul>
     </div>
   </div>
@@ -133,23 +133,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../oase/index.html">OASE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/index.html">API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">メンテナンス</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="log_list.html">1. ログ一覧</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log_level.html">2. ログレベル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log_aggregation.html">3. ログの集約</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">4. 監視</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">4.1. はじめに</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#zabbix-kubernetes">4.2. Zabbixによる監視設定(Kubernetes)</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id3">4.2.1. 前提条件</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#kubernetes">4.2.2. Kubernetes監視設定</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id9">4.2.3. ログ監視設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_list.html">1. サービス一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_list.html">2. ログ一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_level.html">3. ログレベル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_aggregation.html">4. ログの集約</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5. 監視</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">5.1. はじめに</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zabbix-kubernetes">5.2. Zabbixによる監視設定(Kubernetes)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id3">5.2.1. 前提条件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#kubernetes">5.2.2. Kubernetes監視設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">5.2.3. ログ監視設定</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="maintenance_mode.html">5. メンテナンスモード</a></li>
-<li class="toctree-l3"><a class="reference internal" href="backup_and_restore.html">6. データバックアップ・リストア</a></li>
-<li class="toctree-l3"><a class="reference internal" href="file_autoclean.html">7. ファイル削除機能</a></li>
-<li class="toctree-l3"><a class="reference internal" href="operation_autoclean.html">8. オペレーション削除管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maintenance_mode.html">6. メンテナンスモード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup_and_restore.html">7. データバックアップ・リストア</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file_autoclean.html">8. ファイル削除機能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operation_autoclean.html">9. オペレーション削除管理</a></li>
 </ul>
 </li>
 </ul>
@@ -170,11 +171,11 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">4. 監視</a><ul>
-<li><a class="reference internal" href="#id2">4.1. はじめに</a></li>
-<li><a class="reference internal" href="#zabbix-kubernetes">4.2. Zabbixによる監視設定(Kubernetes)</a><ul>
-<li><a class="reference internal" href="#id3">4.2.1. 前提条件</a></li>
-<li><a class="reference internal" href="#kubernetes">4.2.2. Kubernetes監視設定</a><ul>
+<li><a class="reference internal" href="#">5. 監視</a><ul>
+<li><a class="reference internal" href="#id2">5.1. はじめに</a></li>
+<li><a class="reference internal" href="#zabbix-kubernetes">5.2. Zabbixによる監視設定(Kubernetes)</a><ul>
+<li><a class="reference internal" href="#id3">5.2.1. 前提条件</a></li>
+<li><a class="reference internal" href="#kubernetes">5.2.2. Kubernetes監視設定</a><ul>
 <li><a class="reference internal" href="#kuberneteszabbix">KubernetesクラスターにZabbixエージェントインストール</a><ul>
 <li><a class="reference internal" href="#zabbix-helm-charts-values-yaml">Zabbixエージェント: helm charts values.yamlの準備</a></li>
 <li><a class="reference internal" href="#zabbix">Zabbixエージェント: インストール</a></li>
@@ -197,7 +198,7 @@
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9">4.2.3. ログ監視設定</a><ul>
+<li><a class="reference internal" href="#id9">5.2.3. ログ監視設定</a><ul>
 <li><a class="reference internal" href="#id10">ログ収集先サーバーにZabbixエージェントインストール</a></li>
 <li><a class="reference internal" href="#id11">Zabbixエージェントの設定</a><ul>
 <li><a class="reference internal" href="#id13">ホストの追加</a></li>
@@ -230,7 +231,7 @@
     <li><a href="../index.html">マニュアル</a></li>
     <li><a href="index.html">メンテナンス</a></li>
     
-    <li><span class="section-number">4. </span>監視</li>
+    <li><span class="section-number">5. </span>監視</li>
   </ul>
 </div>
 
@@ -239,15 +240,15 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">4. </span>監視<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">5. </span>監視<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">4.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Exastroシステムの監視を行う方法について説明します。</div>
 </div>
 </section>
 <section id="zabbix-kubernetes">
-<h2><span class="section-number">4.2. </span>Zabbixによる監視設定(Kubernetes)<a class="headerlink" href="#zabbix-kubernetes" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Zabbixによる監視設定(Kubernetes)<a class="headerlink" href="#zabbix-kubernetes" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">Zabbix 6を使用して、Kubernetes上のExastroシステムを監視する設定の例を記載します。</div>
 <div class="line">本手順では以下を実施します。</div>
@@ -275,7 +276,7 @@
 </li>
 </ul>
 <section id="id3">
-<h3><span class="section-number">4.2.1. </span>前提条件<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>前提条件<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">本説明で使用する環境の前提条件は以下の通りとなります。</div>
 </div>
@@ -295,7 +296,7 @@
 </ul>
 </section>
 <section id="kubernetes">
-<h3><span class="section-number">4.2.2. </span>Kubernetes監視設定<a class="headerlink" href="#kubernetes" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Kubernetes監視設定<a class="headerlink" href="#kubernetes" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">ZabbixのKubernetes nodes by HTTPテンプレートおよびKubernetes cluster state by HTTP テンプレートを使用して、Exastroシステムが稼働するKubernetesクラスターの監視設定を行います。</div>
 </div>
@@ -311,7 +312,7 @@
 <div class="line">helm chartsでインストールする際に使用する <kbd class="kbd docutils literal notranslate">values.yaml</kbd> は、以下のコマンドで抽出して、編集する</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-number">リスト 4.3 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.51 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>show<span class="w"> </span>values<span class="w"> </span>zabbix-chart-6.4/zabbix-helm-chrt<span class="w"> </span>&gt;<span class="w"> </span>./zabbix_agent_values.yaml
 </pre></div>
 </div>
@@ -322,7 +323,7 @@
 <div class="line">Zabbixエージェントのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> を実行する前に１度だけ必要となります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 4.4 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.52 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zabbixエージェントの Helm リポジトリを登録</span>
 helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>zabbix-chart-6.4<span class="w">  </span>https://cdn.zabbix.com/zabbix/integrations/kubernetes-helm/6.4
 <span class="c1"># リポジトリ情報の更新</span>
@@ -335,7 +336,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">出力された <kbd class="kbd docutils literal notranslate">zabbix_agent_values.yaml</kbd> を以下のように修正します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 4.5 </span><span class="caption-text">zabbix_agent_values.yaml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.53 </span><span class="caption-text">zabbix_agent_values.yaml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gd">--- /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/ja/2.4/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.org.yaml</span>
 <span class="linenos"> 2</span><span class="gi">+++ /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/ja/2.4/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.yaml</span>
 <span class="linenos"> 3</span><span class="gu">@@ -56,7 +56,7 @@</span>
@@ -382,7 +383,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">namespaceの作成</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-number">リスト 4.6 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.54 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>monitoring
 </pre></div>
 </div>
@@ -392,7 +393,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">Zabbixエージェント: インストール</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-number">リスト 4.7 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.55 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>zabbix<span class="w"> </span>zabbix-chart-6.4/zabbix-helm-chrt<span class="w"> </span>--dependency-update<span class="w"> </span>-f<span class="w"> </span>./zabbix_agent_values.yaml<span class="w"> </span>-n<span class="w"> </span>monitoring
 </pre></div>
 </div>
@@ -402,13 +403,13 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">インストールされた <kbd class="kbd docutils literal notranslate">Zabbixエージェント</kbd> の確認</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 4.8 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.56 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>-n<span class="w"> </span>monitoring
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 4.9 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.57 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                               </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
 zabbix-agent-85cmm<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>54s
 zabbix-agent-86r8k<span class="w">                                 </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>54s
@@ -431,7 +432,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">ZabbixのKubernetes nodes by HTTPテンプレートの設定に必要なtokenを取得します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id26">
-<div class="code-block-caption"><span class="caption-number">リスト 4.10 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id26" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.58 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id26" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>zabbix-service-account<span class="w"> </span>-n<span class="w"> </span>monitoring<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">={</span>.data.token<span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
 </pre></div>
 </div>
@@ -444,7 +445,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">マクロで設定可能な項目の詳細は <a class="reference external" href="https://www.zabbix.com/integrations/kubernetes#kubernetes_nodes_http">公式サイト: Zabbix + Kubernetes (Kubernetes nodes by HTTP)</a> を参照</div>
 </div>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 4.50 </span><span class="caption-text">ホストタブ指定</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.43 </span><span class="caption-text">ホストタブ指定</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -472,7 +473,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </tbody>
 </table>
 <table class="docutils align-default" id="id28">
-<caption><span class="caption-number">表 4.51 </span><span class="caption-text">マクロタブ指定</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.44 </span><span class="caption-text">マクロタブ指定</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -505,7 +506,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">ZabbixのKubernetes nodes by HTTPテンプレートの設定に必要なtokenを取得します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 4.11 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.59 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>zabbix-service-account<span class="w"> </span>-n<span class="w"> </span>monitoring<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">={</span>.data.token<span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
 </pre></div>
 </div>
@@ -518,7 +519,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">マクロで設定可能な項目の詳細は <a class="reference external" href="https://www.zabbix.com/integrations/kubernetes#kubernetes_state_http">公式サイト: Zabbix + Kubernetes (Kubernetes cluster state by HTTP)</a> を参照</div>
 </div>
 <table class="docutils align-default" id="id30">
-<caption><span class="caption-number">表 4.52 </span><span class="caption-text">ホストタブ指定</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.45 </span><span class="caption-text">ホストタブ指定</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -546,7 +547,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </tbody>
 </table>
 <table class="docutils align-default" id="id31">
-<caption><span class="caption-number">表 4.53 </span><span class="caption-text">マクロタブ指定</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.46 </span><span class="caption-text">マクロタブ指定</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -592,7 +593,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">ZabbixのWebコンソール画面で、トリガーアクションを追加します</div>
 </div>
 <table class="docutils align-default" id="id32">
-<caption><span class="caption-number">表 4.54 </span><span class="caption-text">アクションタブ指定</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.47 </span><span class="caption-text">アクションタブ指定</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -628,7 +629,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </tbody>
 </table>
 <table class="docutils align-default" id="id33">
-<caption><span class="caption-number">表 4.55 </span><span class="caption-text">実行内容タブ指定</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.48 </span><span class="caption-text">実行内容タブ指定</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -659,7 +660,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </section>
 </section>
 <section id="id9">
-<h3><span class="section-number">4.2.3. </span>ログ監視設定<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>ログ監視設定<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
 <section id="id10">
 <h4>ログ収集先サーバーにZabbixエージェントインストール<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
@@ -759,7 +760,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">以下のコマンドで監視対象のログファイル（正規表現）の一覧を取得できます。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 4.12 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.60 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="se">\</span>
 <span class="w">  </span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>-n<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}{&quot;\n&quot;}&#39;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>kubectl<span class="w"> </span>get<span class="w"> </span>sts<span class="w">  </span>-n<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}{&quot;\n&quot;}&#39;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
@@ -770,7 +771,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-number">リスト 4.13 </span><span class="caption-text">実行結果（抜粋）</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.61 </span><span class="caption-text">実行結果（抜粋）</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>^exastro-suite<span class="se">\.</span>exastro<span class="se">\.</span>ita-api-admin<span class="se">\.</span>.*<span class="se">\.</span>log$
 ^exastro-suite<span class="se">\.</span>exastro<span class="se">\.</span>ita-api-oase-receiver<span class="se">\.</span>.*<span class="se">\.</span>log$
 ^exastro-suite<span class="se">\.</span>exastro<span class="se">\.</span>ita-api-organization<span class="se">\.</span>.*<span class="se">\.</span>log$
@@ -985,7 +986,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">トリガーアクションには作成したトリガー全てを追加する必要があります</div>
 </div>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-number">表 4.56 </span><span class="caption-text">アクションタブ指定</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.49 </span><span class="caption-text">アクションタブ指定</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1021,7 +1022,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </tbody>
 </table>
 <table class="docutils align-default" id="id37">
-<caption><span class="caption-number">表 4.57 </span><span class="caption-text">実行内容タブ指定</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 5.50 </span><span class="caption-text">実行内容タブ指定</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1060,8 +1061,8 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="log_aggregation.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">3. </span>ログの集約</a></li>
-    <li class="next"><a href="maintenance_mode.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">5. </span>メンテナンスモード</a></li>
+    <li class="prev"><a href="log_aggregation.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">4. </span>ログの集約</a></li>
+    <li class="next"><a href="maintenance_mode.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">6. </span>メンテナンスモード</a></li>
   </ul>
 </div>
 

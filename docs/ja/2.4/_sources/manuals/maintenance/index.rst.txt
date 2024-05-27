@@ -6,6 +6,7 @@
    :maxdepth: 2
    :numbered: 3
 
+   service_list
    log_list
    log_level
    log_aggregation

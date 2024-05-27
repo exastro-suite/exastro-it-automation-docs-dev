@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>5. メンテナンスモード &#8212; Documentation  ドキュメント</title>
+    <title>6. メンテナンスモード &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -43,8 +43,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="6. データバックアップ・リストア" href="backup_and_restore.html" />
-    <link rel="prev" title="4. 監視" href="monitoring.html" /> 
+    <link rel="next" title="7. データバックアップ・リストア" href="backup_and_restore.html" />
+    <link rel="prev" title="5. 監視" href="monitoring.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -104,8 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="monitoring.html" title="前のトピックへ"><span class="section-number">4. </span>監視</a></li>
-        <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span class="section-number">6. </span>データバックアップ・リストア</a></li>
+        <li class="prev"><a href="monitoring.html" title="前のトピックへ"><span class="section-number">5. </span>監視</a></li>
+        <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span class="section-number">7. </span>データバックアップ・リストア</a></li>
       </ul>
     </div>
   </div>
@@ -133,29 +133,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../oase/index.html">OASE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/index.html">API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">メンテナンス</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="log_list.html">1. ログ一覧</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log_level.html">2. ログレベル</a></li>
-<li class="toctree-l3"><a class="reference internal" href="log_aggregation.html">3. ログの集約</a></li>
-<li class="toctree-l3"><a class="reference internal" href="monitoring.html">4. 監視</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">5. メンテナンスモード</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">5.1. はじめに</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">5.2. メンテナンスモードとは</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#ita-maintenance-mode-purpose-of-use">5.2.1. メンテナンスモードの利用用途</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#ita-maintenance-mode-setting-value">5.2.2. メンテナンスモードの種類と設定値について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service_list.html">1. サービス一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_list.html">2. ログ一覧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_level.html">3. ログレベル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log_aggregation.html">4. ログの集約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">5. 監視</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6. メンテナンスモード</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.1. はじめに</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.2. メンテナンスモードとは</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ita-maintenance-mode-purpose-of-use">6.2.1. メンテナンスモードの利用用途</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ita-maintenance-mode-setting-value">6.2.2. メンテナンスモードの種類と設定値について</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">5.3. メンテナンスモードの確認、設定変更について</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ita-maintenance-mode-get-backyard-execute-check">5.4. バックヤード起動状態一括取得</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id8">5.4.1. 前提条件</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id9">5.4.2. 事前準備</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id10">5.4.3. バックヤード起動状態一括取得の実行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.3. メンテナンスモードの確認、設定変更について</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ita-maintenance-mode-get-backyard-execute-check">6.4. バックヤード起動状態一括取得</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id8">6.4.1. 前提条件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">6.4.2. 事前準備</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id10">6.4.3. バックヤード起動状態一括取得の実行</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="backup_and_restore.html">6. データバックアップ・リストア</a></li>
-<li class="toctree-l3"><a class="reference internal" href="file_autoclean.html">7. ファイル削除機能</a></li>
-<li class="toctree-l3"><a class="reference internal" href="operation_autoclean.html">8. オペレーション削除管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup_and_restore.html">7. データバックアップ・リストア</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file_autoclean.html">8. ファイル削除機能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="operation_autoclean.html">9. オペレーション削除管理</a></li>
 </ul>
 </li>
 </ul>
@@ -176,18 +177,18 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">5. メンテナンスモード</a><ul>
-<li><a class="reference internal" href="#id2">5.1. はじめに</a></li>
-<li><a class="reference internal" href="#id3">5.2. メンテナンスモードとは</a><ul>
-<li><a class="reference internal" href="#ita-maintenance-mode-purpose-of-use">5.2.1. メンテナンスモードの利用用途</a></li>
-<li><a class="reference internal" href="#ita-maintenance-mode-setting-value">5.2.2. メンテナンスモードの種類と設定値について</a></li>
+<li><a class="reference internal" href="#">6. メンテナンスモード</a><ul>
+<li><a class="reference internal" href="#id2">6.1. はじめに</a></li>
+<li><a class="reference internal" href="#id3">6.2. メンテナンスモードとは</a><ul>
+<li><a class="reference internal" href="#ita-maintenance-mode-purpose-of-use">6.2.1. メンテナンスモードの利用用途</a></li>
+<li><a class="reference internal" href="#ita-maintenance-mode-setting-value">6.2.2. メンテナンスモードの種類と設定値について</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">5.3. メンテナンスモードの確認、設定変更について</a></li>
-<li><a class="reference internal" href="#ita-maintenance-mode-get-backyard-execute-check">5.4. バックヤード起動状態一括取得</a><ul>
-<li><a class="reference internal" href="#id8">5.4.1. 前提条件</a></li>
-<li><a class="reference internal" href="#id9">5.4.2. 事前準備</a></li>
-<li><a class="reference internal" href="#id10">5.4.3. バックヤード起動状態一括取得の実行</a></li>
+<li><a class="reference internal" href="#id6">6.3. メンテナンスモードの確認、設定変更について</a></li>
+<li><a class="reference internal" href="#ita-maintenance-mode-get-backyard-execute-check">6.4. バックヤード起動状態一括取得</a><ul>
+<li><a class="reference internal" href="#id8">6.4.1. 前提条件</a></li>
+<li><a class="reference internal" href="#id9">6.4.2. 事前準備</a></li>
+<li><a class="reference internal" href="#id10">6.4.3. バックヤード起動状態一括取得の実行</a></li>
 </ul>
 </li>
 </ul>
@@ -206,7 +207,7 @@
     <li><a href="../index.html">マニュアル</a></li>
     <li><a href="index.html">メンテナンス</a></li>
     
-    <li><span class="section-number">5. </span>メンテナンスモード</li>
+    <li><span class="section-number">6. </span>メンテナンスモード</li>
   </ul>
 </div>
 
@@ -215,22 +216,22 @@
 <div class="body" role="main">
 
   <section id="ita-maintenance-mode">
-<span id="id1"></span><h1><span class="section-number">5. </span>メンテナンスモード<a class="headerlink" href="#ita-maintenance-mode" title="この見出しへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">6. </span>メンテナンスモード<a class="headerlink" href="#ita-maintenance-mode" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">5.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">6.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、ITAにおける メンテナンスモード について説明します。</div>
 <div class="line">メンテナンスモードの設定はシステム管理者のみ可能です（オーガナイゼーションユーザーからはアクセス出来ません）。</div>
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">5.2. </span>メンテナンスモードとは<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">6.2. </span>メンテナンスモードとは<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">データの閲覧は可能な状態で、データベースに対する登録・更新やバックヤード処理を止め、データベースのバックアップやバージョンアップをより安全に行うための機能です。</div>
 <div class="line">メンテナンスモードは、システム上の全オーガナイゼーション・ワークスペースに対して適用されます。</div>
 </div>
 <section id="ita-maintenance-mode-purpose-of-use">
-<span id="id4"></span><h3><span class="section-number">5.2.1. </span>メンテナンスモードの利用用途<a class="headerlink" href="#ita-maintenance-mode-purpose-of-use" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">6.2.1. </span>メンテナンスモードの利用用途<a class="headerlink" href="#ita-maintenance-mode-purpose-of-use" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードには「サーバーサイドジョブ停止」と「読み取り専用モード」の2つの種類があります。</div>
 <div class="line">「サーバーサイドジョブ停止」をONにすると、作業実行などを行うバックヤード機能が、新たに処理を実行しなくなります。</div>
@@ -261,7 +262,7 @@
 <figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../../_images/purpose_of_use_v2-4.png"><img alt="メンテナンスモードの利用用途" src="../../_images/purpose_of_use_v2-4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 5.17 </span><span class="caption-text">メンテナンスモードの利用用途</span><a class="headerlink" href="#id11" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 6.3 </span><span class="caption-text">メンテナンスモードの利用用途</span><a class="headerlink" href="#id11" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -270,17 +271,17 @@
 <figure class="align-default" id="id12">
 <a class="reference internal image-reference" href="../../_images/mode_message.png"><img alt="メンテナンスモード中のWeb画面" src="../../_images/mode_message.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 5.18 </span><span class="caption-text">メンテナンスモード中のWeb画面</span><a class="headerlink" href="#id12" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 6.4 </span><span class="caption-text">メンテナンスモード中のWeb画面</span><a class="headerlink" href="#id12" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="ita-maintenance-mode-setting-value">
-<span id="id5"></span><h3><span class="section-number">5.2.2. </span>メンテナンスモードの種類と設定値について<a class="headerlink" href="#ita-maintenance-mode-setting-value" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">6.2.2. </span>メンテナンスモードの種類と設定値について<a class="headerlink" href="#ita-maintenance-mode-setting-value" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードの種類と設定値は以下です。</div>
 </div>
 <table class="docutils align-left" id="id13">
-<caption><span class="caption-number">表 5.43 </span><span class="caption-text">メンテナンスモードの種類と設定値について</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 6.18 </span><span class="caption-text">メンテナンスモードの種類と設定値について</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -330,7 +331,7 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">5.3. </span>メンテナンスモードの確認、設定変更について<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">6.3. </span>メンテナンスモードの確認、設定変更について<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">メンテナンスモードの確認および設定変更は、下記の手順で行ないます。</div>
 </div>
@@ -380,7 +381,7 @@
 </ol>
 </section>
 <section id="ita-maintenance-mode-get-backyard-execute-check">
-<span id="id7"></span><h2><span class="section-number">5.4. </span>バックヤード起動状態一括取得<a class="headerlink" href="#ita-maintenance-mode-get-backyard-execute-check" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id7"></span><h2><span class="section-number">6.4. </span>バックヤード起動状態一括取得<a class="headerlink" href="#ita-maintenance-mode-get-backyard-execute-check" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">システム上のすべてのオーガナイゼーションおよびワークスペースにおける、以下のバックヤードが行う処理についてステータスが「準備中」「実行中」「実行中(遅延)」である対象を取得します。</div>
 </div>
@@ -420,7 +421,7 @@
 <div class="line">（Conductor内で実行される各ドライバの処理はカウントされます。）</div>
 </div>
 <section id="id8">
-<h3><span class="section-number">5.4.1. </span>前提条件<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>前提条件<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">本作業には下記のコマンドが必要となるため、事前にインストールをしてください。</div>
 </div>
@@ -435,7 +436,7 @@
 </ul>
 </section>
 <section id="id9">
-<h3><span class="section-number">5.4.2. </span>事前準備<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">6.4.2. </span>事前準備<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">GitHub リポジトリから取得した資材の中にある、シェルスクリプトを実行しバックヤード起動状態を一括取得します。</div>
 <div class="line">confファイルは、各種設定・取得シェルで使用します。</div>
@@ -473,7 +474,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/exast
 </ol>
 </section>
 <section id="id10">
-<h3><span class="section-number">5.4.3. </span>バックヤード起動状態一括取得の実行<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>バックヤード起動状態一括取得の実行<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
 <ul>
 <li><p>コマンド</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./get-backyard-execute-check.sh
@@ -704,8 +705,8 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="monitoring.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">4. </span>監視</a></li>
-    <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">6. </span>データバックアップ・リストア</a></li>
+    <li class="prev"><a href="monitoring.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">5. </span>監視</a></li>
+    <li class="next"><a href="backup_and_restore.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">7. </span>データバックアップ・リストア</a></li>
   </ul>
 </div>
 
