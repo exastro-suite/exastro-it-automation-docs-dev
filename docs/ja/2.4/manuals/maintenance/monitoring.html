@@ -766,7 +766,11 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <span class="w">  </span>kubectl<span class="w"> </span>get<span class="w"> </span>sts<span class="w">  </span>-n<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}{&quot;\n&quot;}&#39;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>kubectl<span class="w"> </span>get<span class="w"> </span>ds<span class="w">  </span>-n<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}{&quot;\n&quot;}&#39;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>kubectl<span class="w"> </span>get<span class="w"> </span>cj<span class="w">  </span>-n<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{range .items[*]}{@.metadata.name}{&quot;\n&quot;}&#39;</span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/^$/d&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|^|^exastro-suite\\.exastro\\.|&#39;</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s|$|\\..*\\.log$|&#39;</span>
+<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;/^$/d&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;/^ita-web-server/d&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;/^platform-web/d&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;s|^|^exastro-suite\\.exastro\\.|&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-e<span class="w"> </span><span class="s1">&#39;s|$|\\..*\\.log$|&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -810,7 +814,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <td><p>例) /var/PersistentVolume/ha-conf-k8s/exastro-logs/^exastro-suite.exastro.ita-api-admin..*.log$</p></td>
 </tr>
 <tr class="row-even"><td><p>logrt &lt;regexp&gt; パラメータ</p></td>
-<td><p>ログファイル毎のログレベルの指定の表参照</p></td>
+<td><p>ログファイル毎のログ抽出条件の指定の表参照</p></td>
 <td><p>例1) &quot;[ []ERROR[ \]]&quot; / 例2) &quot;[ [](FATAL|ERROR)[ \]]&quot;</p></td>
 </tr>
 <tr class="row-odd"><td><p>logrt &lt;encoding&gt; パラメータ</p></td>
@@ -853,7 +857,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 </table>
 <ul>
 <li><div class="line-block">
-<div class="line">ログファイル毎のログレベルの指定</div>
+<div class="line">ログファイル毎のログ抽出条件の指定</div>
 </div>
 <table class="docutils align-default">
 <colgroup>
@@ -877,20 +881,20 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <td></td>
 </tr>
 <tr class="row-even"><td><p>exastro-suite.exastro.keycloak</p></td>
-<td><p>公式のドキュメンテーションより監視対象とするログのキーワード指定してください</p></td>
-<td><p>ログの詳細は <a class="reference external" href="https://www.keycloak.org/server/logging">keycloak ログ</a> を参照</p></td>
+<td><p>&quot;[ [](FATAL|ERROR)[ \]]&quot;</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>exastro-suite.exastro.mariadb</p></td>
-<td><p>公式のドキュメンテーションより監視対象とするログのキーワード指定してください</p></td>
-<td><p>ログの詳細は <a class="reference external" href="https://mariadb.com/kb/en/error-log/">mariadb ログ</a> を参照</p></td>
+<td><p>&quot;[ []ERROR[ \]]&quot;</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>exastro-suite.exastro.mongodb</p></td>
-<td><p>公式のドキュメンテーションより監視対象とするログのキーワード指定してください</p></td>
-<td><p>ログの詳細は <a class="reference external" href="https://www.mongodb.com/docs/manual/reference/log-messages/">mongodb ログ</a> を参照</p></td>
+<td><p>&quot;\&quot;s\&quot;: \&quot;(E|F)\&quot;&quot;</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>exastro-suite.exastro.gitlab</p></td>
-<td><p>公式のドキュメンテーションより監視対象とするログのキーワード指定してください</p></td>
-<td><p>ログの詳細は <a class="reference external" href="https://docs.gitlab.com/ee/administration/logs/">gitlab ログ</a> を参照</p></td>
+<td><p>&quot;[ [](FATAL|ERROR)[ \]]&quot;</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
