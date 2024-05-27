@@ -214,7 +214,7 @@
 <div class="line">結論から述べると、よりTTLが短いイベントに置き換えることで、不要なイベントをTTL切れにすることが可能です。</div>
 </div>
 <div class="line-block">
-<div class="line">よりTTLが短いイベントに置き換えるには、元のイベントを検知するフィルターを条件にしTTLを最小値に設定した新たなルールを設定することで実現可能です。</div>
+<div class="line">よりTTLが短いイベントに置き換えるには、元のイベントを検知するフィルターを条件にしTTLを最小値に設定した新たなルールを設定します。</div>
 </div>
 </section>
 <section id="id3">
@@ -227,21 +227,17 @@
 <h3><span class="section-number">8.2.1. </span>ルールの設定<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">Sorry画面表示の結論イベントを検知するフィルターは、「sorry_switch」です。</div>
-<div class="line">このフィルターを条件として、TTLを最小値に設定したルールを作成しましょう。</div>
+<div class="line">このフィルターを条件として、TTLを最小値に設定したルールを作成します。</div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">警告</p>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> では、TTL切れを防ぐ方法として以下の二つの方法を提示しました。</div>
 </div>
-<blockquote>
-<div><ol class="upperalpha simple">
+<ol class="arabic simple">
 <li><p>TTLをできるだけ長くする</p></li>
 <li><p>TTLが過ぎたら、改めて、同じラベルが付与された結論イベントを発生させる</p></li>
 </ol>
-</div></blockquote>
 <div class="line-block">
-<div class="line">Bでは、Sorry画面表示の結論イベントを発生させ続けるための「sorry表示中」というルールを新たに設定しましたが、そのイベントを発生させ続ける必要はなくなりました。</div>
+<div class="line">2.では、Sorry画面表示の結論イベントを発生させ続けるための「sorry表示中」というルールを新たに設定しましたが、そのイベントを発生させ続ける必要はなくなりました。</div>
 <div class="line">まずは、イベントの発生を止めましょう。</div>
 <div class="line">イベントの発生は、ルールを「false」にするか、ルール自体を廃止することで止められます。</div>
 </div>
@@ -250,9 +246,11 @@
 <div class="line">これから作成するルールと、「sorry表示中」というルールの条件が被ってしまいますので、今回は「sorry表示中」というルールを廃止しましょう。</div>
 <div class="line">ルールの廃止は、<span class="menuselection">OASE ‣ ルール ‣ ルール</span> から以下のように設定します。</div>
 </div>
-</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_advanced2_sorry-switch-back_ルール廃止.gif"><img alt="ルール廃止" src="../../_images/OASE_advanced2_sorry-switch-back_%E3%83%AB%E3%83%BC%E3%83%AB%E5%BB%83%E6%AD%A2.gif" style="width: 1200px;" /></a>
+</figure>
 <div class="line-block">
-<div class="line">また、今回作成するルールで対象となるイベントにすぐに適用されるように、優先順位「1」だった「Sorry画面切り戻し」のルールは、「false」に設定しましょう。</div>
+<div class="line">また、今回作成するルールで対象となるイベントにすぐに適用されるように、「Sorry画面切り戻し」のルールは、「false」に設定しましょう。</div>
 </div>
 <div class="line-block">
 <div class="line">今回は、以下のような設定でルールを作成します。</div>
@@ -260,16 +258,16 @@
 <table class="docutils align-default" id="id6">
 <caption><span class="caption-number">表 8.1 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
+<col style="width: 8.3%" />
+<col style="width: 8.3%" />
+<col style="width: 8.3%" />
+<col style="width: 8.3%" />
+<col style="width: 8.3%" />
+<col style="width: 8.3%" />
+<col style="width: 16.7%" />
+<col style="width: 8.3%" />
+<col style="width: 20.8%" />
+<col style="width: 4.2%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>有効</p></th>
@@ -286,9 +284,9 @@
 <tr class="row-even"><th class="head"></th>
 <th class="head"></th>
 <th class="head"></th>
+<th class="head"></th>
 <th class="head"><p>フィルターA</p></th>
 <th class="head"><p>アクションID</p></th>
-<th class="head"></th>
 <th class="head"><p>元イベントのラベル継承</p></th>
 <th class="head"></th>
 <th class="head"><p>結論ラベル設定</p></th>
@@ -335,9 +333,12 @@
 <div class="line">ではルールの設定から結論イベントが発生するまでを、<span class="menuselection">イベントフロー</span> 画面から確認してみましょう。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子が確認できます。</div>
-<div class="line">TTLが短い結論イベントに:menuselection:<cite>ルール</cite> で設定したラベルが付与されていることも確認しましょう。</div>
+<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子を確認できます。</div>
+<div class="line">TTLが短い結論イベントに <span class="menuselection">ルール</span> で設定したラベルが付与されていることも確認しましょう。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_advanced2_sorry-switch-back_結果確認.gif"><img alt="イベントフロー_結論イベント" src="../../_images/OASE_advanced2_sorry-switch-back_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" /></a>
+</figure>
 </section>
 </section>
 </section>

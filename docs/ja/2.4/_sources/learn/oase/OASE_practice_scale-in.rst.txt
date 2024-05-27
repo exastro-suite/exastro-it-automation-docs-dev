@@ -10,7 +10,7 @@
 | 以下のようなリクエスト数が閾値内に回復したイベントが発生したときに、スケールインのアクションが実行されるようにOASEの設定を行ってください。
 
 .. list-table:: 通知メール一覧
-   :widths: 5 10 10 10
+   :widths: 5 10 10
    :header-rows: 1
 
    * - 通知内容
@@ -20,8 +20,10 @@
      - :kbd:`[info] Requests: Threshold recovery`
      - :kbd:`[info] Requests: Threshold recovery`
    * - :kbd:`本文`
-     - :kbd:`リクエスト数が、閾値内に回復しました。` `RequestCount < 50`
-     - :kbd:`リクエスト数が、閾値内に回復しました。` `RequestCount < 100`
+     - | :kbd:`リクエスト数が、閾値内に回復しました。`
+       | :kbd:`RequestCount < 50`
+     - | :kbd:`リクエスト数が、閾値内に回復しました。`
+       | :kbd:`RequestCount < 100`
 
 解答
 =======

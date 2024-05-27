@@ -224,21 +224,34 @@
 <div class="line-block">
 <div class="line">今回のシナリオでは、以下の保守作業を自動的に実行します。</div>
 </div>
-<ol class="upperalpha simple" start="2">
-<li><p>Sorry画面へ切り替える作業</p></li>
-</ol>
+<ul class="simple">
+<li><p>作業B Sorry画面へ切り替える作業</p></li>
+</ul>
 <div class="line-block">
-<div class="line">作業が実行されるのはどのような場合か、今回想定している構成から具体的に考えてみましょう。</div>
+<div class="line"><br /></div>
 </div>
-<ol class="upperalpha" start="2">
-<li><p>Sorry画面へ切り替える作業</p>
-<p>→稼働するインスタンス数が上限である3台のときに、リクエスト数が閾値を超過したとき。</p>
-<p>=3台稼働の閾値である150リクエスト/minを超えたときになります。</p>
+<div class="line-block">
+<div class="line">今回想定している構成から作業Bが実行されるのは、</div>
+</div>
 <blockquote>
-<div><p>になります。</p>
+<div><div class="line-block">
+<div class="line">稼働するインスタンス数が上限である3台のときに、リクエスト数が閾値を超過したとき</div>
+</div>
 </div></blockquote>
-</li>
-</ol>
+<div class="line-block">
+<div class="line">となります。</div>
+</div>
+<div class="line-block">
+<div class="line">つまり、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">3台稼働の閾値である150リクエスト/minを超えたとき</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">になります。</div>
+</div>
 </section>
 <section id="id2">
 <h2><span class="section-number">2.2. </span>具体的な設定の検討<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
@@ -246,25 +259,17 @@
 <div class="line">では具体的に今回の運用保守の一連の流れをどのようにOASEで設定するか、作業計画を立てましょう。</div>
 </div>
 <div class="line-block">
-<div class="line">今回のシナリオで以下のように、自動化する作業が実行されるにはそれぞれ前提となる条件がありました。</div>
+<div class="line">作業Bを条件に合わせて実行するようにするためには、OASEで以下のような設定を行う必要があります。</div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>B. Sorry画面へ切り替える作業
-- 3台稼働の閾値である150リクエスト/minを超えたとき</p>
-</div>
+<ul class="simple">
+<li><p>設定a 外部サービスからイベントを収集する設定</p></li>
+<li><p>設定b 収集したイベントの中から、リクエスト数超過に関するイベントを特定する設定</p></li>
+<li><p>設定c リクエスト数超過に関するイベントの中から自動化する作業Bの条件に合うイベントを検知する条件の設定</p></li>
+<li><p>設定d 自動化する作業Bの登録</p></li>
+<li><p>設定e 設定cで設定した振り分け条件と設定dで登録した作業を紐づける設定</p></li>
+</ul>
 <div class="line-block">
-<div class="line">以上の内容をOASEで実現するためには、以下のような設定を行う必要があります。</div>
-</div>
-<ol class="loweralpha simple">
-<li><p>外部サービスからイベントを収集する設定</p></li>
-<li><p>収集したイベントの中から、リクエスト数超過に関するイベントを特定する設定</p></li>
-<li><p>リクエスト数超過に関するイベントの中から自動化する作業Bの条件に合うイベントを検知する条件の設定</p></li>
-<li><p>自動化する作業Bの登録</p></li>
-<li><p>c.で設定した振り分け条件とd.で登録した作業を紐づける設定</p></li>
-</ol>
-<div class="line-block">
-<div class="line">ここまで整理できたら、具体的に以下のOASEの設定を行っていきましょう。</div>
+<div class="line">ここまで整理できたら、具体的に以下の順にOASEの設定を行っていきましょう。</div>
 </div>
 <ol class="arabic simple">
 <li><p>イベント収集設定</p></li>
@@ -301,8 +306,11 @@
 <div class="line"><span class="menuselection">OASE管理 ‣ エージェント</span> から、外部サービスの情報を登録します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のエージェントの登録をしていきます。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のエージェントの登録をしていきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_エージェント登録詳細画面.png"><img alt="エージェント登録画面" src="../../_images/OASE_scenario_sorry-switch_%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id14">
 <caption><span class="caption-number">表 2.22 </span><span class="caption-text">イベント収集設定値</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -344,7 +352,7 @@
 </tbody>
 </table>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -358,6 +366,11 @@
 <h2><span class="section-number">2.4. </span>ラベルの設定<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">収集するイベントに付与するラベルの作成と付与する条件を設定します。</div>
+</div>
+<dl class="simple glossary">
+<dt id="term-0">ラベル<a class="headerlink" href="#term-0" title="この用語の解説へ">¶</a></dt><dt id="term-1">ラベルは「キー」と「値」から成り、付与されたイベントの属性を表します。<a class="headerlink" href="#term-1" title="この用語の解説へ">¶</a></dt><dt id="term-2">イベントは、付与された「キー」と「値」によって認識されます。<a class="headerlink" href="#term-2" title="この用語の解説へ">¶</a></dt><dd></dd>
+</dl>
+<div class="line-block">
 <div class="line">今回必要なラベルは以下の通りです。</div>
 </div>
 <table class="docutils align-default" id="id15">
@@ -404,9 +417,12 @@
 <div class="line"><span class="menuselection">OASE ‣ ラベル ‣ ラベル作成</span> から、ラベルを作成します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
-<div class="line">必要に応じて、<span class="menuselection">追加</span> ボタンを押して行数を追加しましょう。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
+<div class="line">必要に応じて、<span class="guilabel">追加</span> ボタンを押して行数を追加しましょう。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_ラベル作成詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_scenario_sorry-switch_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id16">
 <caption><span class="caption-number">表 2.24 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -431,7 +447,7 @@
 </tbody>
 </table>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -456,20 +472,23 @@
 <div class="line"><span class="menuselection">OASE ‣ ラベル ‣ ラベル付与</span> から、ラベルを付与するための設定を行います。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のラベル付与の設定を追加していきます。</div>
-<div class="line">必要に応じて、<span class="menuselection">追加</span> ボタンを押して行数を追加しましょう。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベル付与の設定を追加していきます。</div>
+<div class="line">必要に応じて、<span class="guilabel">追加</span> ボタンを押して行数を追加しましょう。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_ラベル付与詳細画面.png"><img alt="ラベル付与" src="../../_images/OASE_scenario_sorry-switch_%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E4%B8%8E%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id17">
 <caption><span class="caption-number">表 2.25 </span><span class="caption-text">ラベル付与の設定値</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 22.2%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ラベリング設定名</p></th>
@@ -506,21 +525,21 @@
 <td><p><kbd class="kbd docutils literal notranslate">body.plain</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">その他</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">RegExp</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">.</kbd> <kbd class="kbd docutils literal notranslate">(d{2,3})</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">.</kbd> <kbd class="kbd docutils literal notranslate">(\d{2,3})</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">requestcount</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">\1</kbd></p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
 <div class="line">ラベリング設定名とイベント収集設定名は任意で設定可能です。わかりやすいものを設定しましょう。</div>
 <div class="line">メールの件名から通知内容が特定する、「subject」のラベルを付与する設定を行います。</div>
-<div class="line">メールの本文から通知の基準となった閾値を参照する、requestcountのラベルを付与する設定を行います。</div>
+<div class="line">メールの本文から通知の基準となった閾値を参照する、「requestcount」のラベルを付与する設定を行います。</div>
 </div>
 </div>
 </section>
@@ -550,8 +569,11 @@
 <div class="line">.envのの項目にこれまでの工程で設定した値を設定します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">exastro-docker-compose/ita_ag_oase/.env</span> に下記の内容を入力します。</div>
+<div class="line"><code class="file docutils literal notranslate"><span class="pre">exastro-docker-compose/ita_ag_oase/.env</span></code> に下記の内容を入力します。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_OASEエージェント設定画面.png"><img alt=".env" src="../../_images/OASE_scenario_sorry-switch_OASE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id18">
 <caption><span class="caption-number">表 2.26 </span><span class="caption-text">.envの設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -614,7 +636,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line">状態がHelthyになっていることを確認します。</div>
+<div class="line">状態が`Helthy`になっていることを確認します。</div>
 </div>
 <div class="line-block">
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
@@ -637,15 +659,15 @@
 </div>
 <div class="line-block">
 <div class="line"><span class="menuselection">ルール</span> では、イベントを特定する条件と、その条件に合致したイベントが発生した場合に実行したい作業を紐づけることができます。</div>
-<div class="line">イベントを特定する条件は:menuselection:<cite>フィルター</cite> 、実行したい作業は:menuselection:<cite>アクション</cite> 、でそれぞれ設定します。</div>
-<div class="line"><span class="menuselection">ルール</span> では、<span class="menuselection">フィルター</span> と:menuselection:<cite>アクション</cite> を紐づける形で設定します。</div>
+<div class="line">イベントを特定する条件は <span class="menuselection">フィルター</span> 、実行したい作業は <span class="menuselection">アクション</span> 、でそれぞれ設定します。</div>
+<div class="line"><span class="menuselection">ルール</span> では、<span class="menuselection">フィルター</span> と <span class="menuselection">アクション</span> を紐づける形で設定します。</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <div class="line-block">
 <div class="line"><span class="menuselection">イベントフロー</span> では、OASEエージェントが収集したイベント等、イベントが時系列に表示されます。</div>
 <div class="line">表示されたイベントには、ラベル付与での設定に沿ってラベルが付与されています。</div>
-<div class="line">この画面から:menuselection:<cite>フィルター</cite> 、<span class="menuselection">アクション</span> 、<span class="menuselection">ルール</span> の設定をそれぞれ行うこともできます。</div>
+<div class="line">この画面から <span class="menuselection">フィルター</span> 、<span class="menuselection">アクション</span> 、<span class="menuselection">ルール</span> の設定をそれぞれ行うこともできます。</div>
 </div>
 </div>
 <div class="line-block">
@@ -667,14 +689,18 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[alert]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">reached</kbd></kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">本文</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd> <cite>RequestCount &gt; 150</cite></p></td>
+<td><div class="line-block">
+<div class="line"><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd></div>
+<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">&gt;</kbd> <kbd class="kbd docutils literal notranslate">150</kbd></kbd></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
 <section id="id10">
 <h3><span class="section-number">2.6.1. </span>フィルターの設定<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line"><span class="menuselection">フィルター</span> では、ラベルをもとにイベントを指定するための条件を設定します。</div>
+<div class="line"><span class="menuselection">フィルター</span> では、ラベルをもとにイベントを検知するための条件を設定します。</div>
 <div class="line">イベントの件名と本文からSorry画面への切り替え作業を実施する条件に合うイベントを特定できるように条件を設定してみましょう。</div>
 </div>
 <div class="admonition note">
@@ -687,15 +713,18 @@
 <div class="line"><span class="menuselection">OASE ‣ ルール ‣ フィルター</span> から、<span class="menuselection">フィルター</span> を設定します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のラベル付与の設定を追加していきます。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベル付与の設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_scenario_sorry-switch_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id22">
 <caption><span class="caption-number">表 2.28 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>有効</p></th>
@@ -713,7 +742,7 @@
 </tbody>
 </table>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -727,11 +756,11 @@
 </div>
 <div class="line-block">
 <div class="line">ラベル「requestcount」だけでは超過したイベントなのか回復したイベントなのか判別できないため、ラベル「subject」をフィルター条件に設定し、イベントを一意に特定できるようにします。</div>
-<div class="line">このように、ラベルを特定のイベントごとに付与しなくても、必要に応じてフィルター条件を複数設定することで、イベントを一意に特定することできます。</div>
+<div class="line">このように、イベントごとに特定のラベルを付与しなくても、必要に応じてフィルター条件を複数設定することで、イベントを一意に特定することできます。</div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">フィルターは:menuselection:<cite>OASE --&gt; イベント --&gt; イベントフロー</cite> からも設定することが可能です。</div>
+<div class="line">フィルターは <span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> からも設定することが可能です。</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -743,6 +772,9 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> からは以下のように設定します。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_フィルター設定.gif"><img alt="イベントフロー_フィルター" src="../../_images/OASE_scenario_sorry-switch_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+</figure>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <div class="line-block">
@@ -753,12 +785,15 @@
 <section id="id11">
 <h3><span class="section-number">2.6.2. </span>アクションの設定<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line"><span class="menuselection">アクション</span> では、ITAで作成したConductorを指定できます。</div>
+<div class="line"><span class="menuselection">アクション</span> では、ITAで作成したConductorとオペレーションを指定できます。</div>
 <div class="line">Sorry画面への切り替えを実施するアクションを指定してみましょう。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> から、<span class="menuselection">アクション</span> を設定します。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_アクション設定.gif"><img alt="イベントフロー_アクション2" src="../../_images/OASE_scenario_sorry-switch_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id23">
 <caption><span class="caption-number">表 2.29 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -805,17 +840,20 @@
 <div class="line"><span class="menuselection">OASE ‣ ルール ‣ アクション</span> からは以下のように設定します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のアクションの設定を追加していきます。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のアクションの設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_アクション設定詳細画面.png"><img alt="アクション2" src="../../_images/OASE_scenario_sorry-switch_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 </section>
 <section id="id12">
 <h3><span class="section-number">2.6.3. </span>ルールの設定<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">ルール</span> では、フィルターとアクションを紐づけます。</div>
-<div class="line">フィルターで特定したイベントが発生した場合に実行したいアクションを紐づけましょう。</div>
+<div class="line">そのフィルターでイベントを検知した場合に実行したいアクションを紐づけましょう。</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -826,19 +864,22 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> から、<span class="menuselection">ルール</span> を設定します。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_ルール設定.gif"><img alt="イベントフロー_ルール2" src="../../_images/OASE_scenario_sorry-switch_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id24">
 <caption><span class="caption-number">表 2.30 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
-<col style="width: 10.0%" />
+<col style="width: 7.7%" />
+<col style="width: 11.5%" />
+<col style="width: 11.5%" />
+<col style="width: 7.7%" />
+<col style="width: 11.5%" />
+<col style="width: 7.7%" />
+<col style="width: 15.4%" />
+<col style="width: 7.7%" />
+<col style="width: 11.5%" />
+<col style="width: 7.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>有効</p></th>
@@ -855,9 +896,9 @@
 <tr class="row-even"><th class="head"></th>
 <th class="head"></th>
 <th class="head"></th>
+<th class="head"></th>
 <th class="head"><p>フィルターA</p></th>
 <th class="head"><p>アクションID</p></th>
-<th class="head"></th>
 <th class="head"><p>元イベントのラベル継承</p></th>
 <th class="head"></th>
 <th class="head"><p>結論ラベル設定</p></th>
@@ -908,17 +949,20 @@
 <p class="admonition-title">警告</p>
 <div class="line-block">
 <div class="line">発生したイベントに適用したい場合、そのイベントのTTL内に設定する必要があります。</div>
-<div class="line">TTL内に設定が難しいようであれば、事前に:menuselection:<cite>OASE --&gt; ルール --&gt; ルール</cite> から設定しておきましょう。</div>
+<div class="line">TTL内に設定が難しいようであれば、事前に <span class="menuselection">OASE ‣ ルール ‣ ルール</span> から設定しておきましょう。</div>
 </div>
 </div>
 <div class="line-block">
 <div class="line"><span class="menuselection">OASE ‣ ルール ‣ ルール</span> からは以下のように設定します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
+<div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_ルール設定詳細画面.png"><img alt="ルール2" src="../../_images/OASE_scenario_sorry-switch_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+</figure>
 <div class="line-block">
-<div class="line">入力が終わったら、<span class="menuselection">編集確認</span> ボタンを押して登録します。</div>
+<div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 </section>
 <section id="id13">
@@ -929,7 +973,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
-<div class="line">ルールの設定の間に発生させたイベントのTTLが切れてしまったら、改めて同じイベントを発生させてください。</div>
+<div class="line">ルールの設定の間に、発生させたイベントのTTLが切れてしまったら、改めて同じイベントを発生させてください。</div>
 </div>
 </div>
 <table class="docutils align-default" id="id25">
@@ -948,14 +992,21 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[alert]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">reached</kbd></kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">本文</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd> <cite>RequestCount &gt; 150</cite></p></td>
+<td><div class="line-block">
+<div class="line"><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd></div>
+<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">&gt;</kbd> <kbd class="kbd docutils literal notranslate">150</kbd></kbd></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子が確認できます。</div>
+<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子を確認できます。</div>
 <div class="line">アクションが実行されたことを示す結論イベントには、スケールアウトの時とは違う、<span class="menuselection">ルール</span> で設定したラベルが付与されていることも確認しましょう。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_scenario_sorry-switch_結果確認.gif"><img alt="イベントフロー_結論イベント2" src="../../_images/OASE_scenario_sorry-switch_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" /></a>
+</figure>
 </section>
 </section>
 </section>

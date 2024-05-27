@@ -193,7 +193,7 @@
 <li><p>リクエスト数が閾値内に回復したら、切り戻しを行う。</p></li>
 </ol>
 <div class="line-block">
-<div class="line">今回はリクエスト数に関するメール通知をイベントとして、イベント発生に合わせて4.と5.、6.の保守作業を行うよう、OASEの設定を行います。</div>
+<div class="line">リクエスト数に関するメール通知をイベントとして、イベント発生に合わせて4.と5.、6.の保守作業を行うよう、OASEの設定を行います。</div>
 </div>
 <div class="line-block">
 <div class="line">またOASEでは、以下のような流れで自動化を実現します。</div>
@@ -225,8 +225,16 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[info]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">recovery</kbd></kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">本文</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd> <cite>RequestCount &gt; 150</cite></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値内に回復しました。</kbd> <cite>RequestCount &lt; 150</cite></p></td>
+<td><div class="line-block">
+<div class="line"><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd></div>
+<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">&gt;</kbd> <kbd class="kbd docutils literal notranslate">150</kbd></kbd></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値内に回復しました。</kbd></div>
+<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">&lt;</kbd> <kbd class="kbd docutils literal notranslate">150</kbd></kbd></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">備考</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">値は、50，100，150のどれか</kbd></p></td>
@@ -277,26 +285,40 @@
 <div class="line-block">
 <div class="line">今回のシナリオでは、以下の保守作業を自動的に実行します。</div>
 </div>
-<ol class="upperalpha simple">
-<li><p>インスタンスをスケールアウトする作業</p></li>
-<li><p>Sorry画面へ切り替える作業</p></li>
-<li><p>インスタンスをスケールインする作業</p></li>
-<li><p>Sorry画面から切り戻す作業</p></li>
-</ol>
+<ul class="simple">
+<li><p>作業A インスタンスをスケールアウトする作業</p></li>
+<li><p>作業B Sorry画面へ切り替える作業</p></li>
+<li><p>作業C インスタンスをスケールインする作業</p></li>
+<li><p>作業D Sorry画面から切り戻す作業</p></li>
+</ul>
 </section>
 <section id="id3">
 <h2>シナリオの流れ<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">OASEの設定は、以下の流れになります。</div>
 </div>
-<p>1. イベント収集設定
-- どの外部サービスからイベントを収集するかを設定
-2. ラベルの設定
-- 収集したイベントを特定するために付与するラベルに関する設定
-3. OASEエージェントの設定
-- 外部サービスからイベントを収集するOASEエージェントの設定
-4. ルールの設定
-- 収集されたイベントをもとに保守作業を実行するための設定</p>
+<ol class="arabic">
+<li><p>イベント収集設定</p>
+<div class="line-block">
+<div class="line">- どの外部サービスからイベントを収集するかを設定</div>
+</div>
+</li>
+<li><p>ラベルの設定</p>
+<div class="line-block">
+<div class="line">- 収集したイベントを特定するために付与するラベルに関する設定</div>
+</div>
+</li>
+<li><p>OASEエージェントの設定</p>
+<div class="line-block">
+<div class="line">- 外部サービスからイベントを収集するOASEエージェントの設定</div>
+</div>
+</li>
+<li><p>ルールの設定</p>
+<div class="line-block">
+<div class="line">- 収集されたイベントをもとに保守作業を実行するための設定</div>
+</div>
+</li>
+</ol>
 <div class="line-block">
 <div class="line">それでは、各作業について、具体的にOASEの設定を行っていきましょう。</div>
 </div>
