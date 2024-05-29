@@ -150,7 +150,7 @@ IT Automationログ
    * - | [%(levelname)s]
      - | ログレベル
      - | [INFO]
-     - | DEBUG, INFO, WARNING, ERROR のいずれかが出力されます。
+     - | DEBUG, INFO, ERROR のいずれかが出力されます。
    * - | %(message)s
      - | メッセージ
      - | AppLog instance(stdAppLogger) is created
