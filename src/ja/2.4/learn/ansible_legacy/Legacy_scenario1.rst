@@ -110,9 +110,9 @@
      - 設定値
    * - 項番
      - (自動入力)
-   * - メニュー名
+   * - パラメータシート名
      - :kbd:`サーバー基本情報`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`server_information`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -218,7 +218,7 @@ Ansible Playbook 登録
    :caption: hostname.yml
 
    - hostname:
-     name: "{{ hostname }}"
+       name: "{{ hostname }}"
 
 | :menuselection:`Ansible-Legacy --> Playbook素材集` から、上記のPlaybookを登録します。
 
