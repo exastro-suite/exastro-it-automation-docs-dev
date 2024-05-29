@@ -132,11 +132,11 @@
 <li class="toctree-l4"><a class="reference internal" href="practice1.html">4. ユーザー管理 (演習問題)</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">5. ユーザー管理 (解答)</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id2">5.1. 問題 (再掲)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id3">5.2. 作業概要の作成</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id5">5.3. パラメータ設計</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id10">5.4. 作業対象の登録</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id12">5.5. 作業手順の登録</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id18">5.6. ユーザー追加作業の実施</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">5.2. パラメータ設計</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id8">5.3. 作業手順の登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id14">5.4. 作業対象の登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id16">5.5. ユーザー追加作業の実施</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id17">5.6. 作業概要の作成</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id21">5.7. (参考) 既存のジョブフローへの追加</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id24">5.8. まとめ</a></li>
 </ul>
@@ -168,30 +168,28 @@
   <ul>
 <li><a class="reference internal" href="#">5. ユーザー管理 (解答)</a><ul>
 <li><a class="reference internal" href="#id2">5.1. 問題 (再掲)</a></li>
-<li><a class="reference internal" href="#id3">5.2. 作業概要の作成</a><ul>
-<li><a class="reference internal" href="#id4">5.2.1. 作業概要登録</a></li>
+<li><a class="reference internal" href="#id3">5.2. パラメータ設計</a><ul>
+<li><a class="reference internal" href="#groups-parameter-sheet">5.2.1. グループのパラメータシート作成</a></li>
+<li><a class="reference internal" href="#id6">5.2.2. ユーザーのパラメータシート作成</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5">5.3. パラメータ設計</a><ul>
-<li><a class="reference internal" href="#groups-parameter-sheet">5.3.1. グループのパラメータシート作成</a></li>
-<li><a class="reference internal" href="#id8">5.3.2. ユーザーのパラメータシート作成</a></li>
+<li><a class="reference internal" href="#id8">5.3. 作業手順の登録</a><ul>
+<li><a class="reference internal" href="#movement">5.3.1. Movement 登録</a></li>
+<li><a class="reference internal" href="#ansible-role">5.3.2. Ansible Role 登録</a></li>
+<li><a class="reference internal" href="#movement-ansible-role">5.3.3. Movement と Ansible Role の紐付け</a></li>
+<li><a class="reference internal" href="#id12">5.3.4. 変数ネスト管理</a></li>
+<li><a class="reference internal" href="#id13">5.3.5. 代入値自動登録設定</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">5.4. 作業対象の登録</a><ul>
-<li><a class="reference internal" href="#id11">5.4.1. 機器登録</a></li>
+<li><a class="reference internal" href="#id14">5.4. 作業対象の登録</a><ul>
+<li><a class="reference internal" href="#id15">5.4.1. 機器登録</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id12">5.5. 作業手順の登録</a><ul>
-<li><a class="reference internal" href="#movement">5.5.1. Movement 登録</a></li>
-<li><a class="reference internal" href="#ansible-role">5.5.2. Ansible Role 登録</a></li>
-<li><a class="reference internal" href="#movement-ansible-role">5.5.3. Movement と Ansible Role の紐付け</a></li>
-<li><a class="reference internal" href="#id16">5.5.4. 変数ネスト管理</a></li>
-<li><a class="reference internal" href="#id17">5.5.5. 代入値自動登録設定</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id18">5.6. ユーザー追加作業の実施</a><ul>
-<li><a class="reference internal" href="#id19">5.6.1. パラメータ設定</a></li>
-<li><a class="reference internal" href="#id20">5.6.2. 作業実行</a></li>
+<li><a class="reference internal" href="#id16">5.5. ユーザー追加作業の実施</a></li>
+<li><a class="reference internal" href="#id17">5.6. 作業概要の作成</a><ul>
+<li><a class="reference internal" href="#id18">5.6.1. 作業概要登録</a></li>
+<li><a class="reference internal" href="#id19">5.6.2. パラメータ設定</a></li>
+<li><a class="reference internal" href="#id20">5.6.3. 作業実行</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id21">5.7. (参考) 既存のジョブフローへの追加</a><ul>
@@ -272,69 +270,19 @@
 </table>
 </section>
 <section id="id3">
-<h2><span class="section-number">5.2. </span>作業概要の作成<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
-<div class="line-block">
-<div class="line">まずは作業計画を立てましょう。</div>
-</div>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 5.2 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
-<colgroup>
-<col style="width: 60.0%" />
-<col style="width: 40.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>作業実施日時</p></td>
-<td><p>2023/04/04 12:00:00</p></td>
-</tr>
-<tr class="row-even"><td><p>作業対象</p></td>
-<td><p>web01(RHEL8)</p></td>
-</tr>
-<tr class="row-odd"><td><p>作業内容</p></td>
-<td><p>Webサーバーへユーザー追加作業</p></td>
-</tr>
-</tbody>
-</table>
-<section id="id4">
-<h3><span class="section-number">5.2.1. </span>作業概要登録<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
-<div class="line-block">
-<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業概要登録.png"><img alt="Conductor作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E6%A6%82%E8%A6%81%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
-</figure>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 5.3 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
-<colgroup>
-<col style="width: 60.0%" />
-<col style="width: 40.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>オペレーション名</p></th>
-<th class="head"><p>実施予定日時</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Webサーバーへユーザー追加作業</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/04</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></kbd></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="id5">
-<h2><span class="section-number">5.3. </span>パラメータ設計<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.2. </span>パラメータ設計<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。</div>
 <div class="line">まずは、ユーザーをパラメータシート上で管理できるようにしておきます。</div>
 </div>
 <section id="groups-parameter-sheet">
-<span id="id6"></span><h3><span class="section-number">5.3.1. </span>グループのパラメータシート作成<a class="headerlink" href="#groups-parameter-sheet" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">5.2.1. </span>グループのパラメータシート作成<a class="headerlink" href="#groups-parameter-sheet" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">グループ用のパラメータシートを作成します。</div>
 <div class="line">利用する Ansible Role パッケージは <a class="reference external" href="https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build">グループ設定</a> なので、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-number">表 5.4 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-number">表 5.2 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -382,8 +330,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/グループパラメータシート作成.gif"><img alt="グループのパラメータシート作成" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="filter-table docutils align-default" id="id29">
-<caption><span class="caption-number">表 5.5 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="filter-table docutils align-default" id="id27">
+<caption><span class="caption-number">表 5.3 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -470,8 +418,8 @@
 </tr>
 </tbody>
 </table>
-<table class="filter-table docutils align-default" id="id30">
-<caption><span class="caption-number">表 5.6 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="filter-table docutils align-default" id="id28">
+<caption><span class="caption-number">表 5.4 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -509,14 +457,14 @@
 </tbody>
 </table>
 </section>
-<section id="id8">
-<h3><span class="section-number">5.3.2. </span>ユーザーのパラメータシート作成<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="id6">
+<h3><span class="section-number">5.2.2. </span>ユーザーのパラメータシート作成<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">ユーザー用のパラメータシートを作成します。</div>
 <div class="line">利用する Ansible Role パッケージは <a class="reference external" href="https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build">ユーザー設定</a> なので、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-number">表 5.7 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-number">表 5.5 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -587,8 +535,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_1.gif"><img alt="ユーザーのパラメータシートの作成1" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_1.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="filter-table docutils align-default" id="id32">
-<caption><span class="caption-number">表 5.8 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="filter-table docutils align-default" id="id30">
+<caption><span class="caption-number">表 5.6 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 16.7%" />
@@ -710,8 +658,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_2.gif"><img alt="ユーザーのパラメータシート作成_2" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_2.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="filter-table docutils align-default" id="id33">
-<caption><span class="caption-number">表 5.9 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="filter-table docutils align-default" id="id31">
+<caption><span class="caption-number">表 5.7 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -814,8 +762,8 @@
 </tr>
 </tbody>
 </table>
-<table class="filter-table docutils align-default" id="id34">
-<caption><span class="caption-number">表 5.10 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="filter-table docutils align-default" id="id32">
+<caption><span class="caption-number">表 5.8 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -854,20 +802,8 @@
 </table>
 </section>
 </section>
-<section id="id10">
-<h2><span class="section-number">5.4. </span>作業対象の登録<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h2>
-<div class="line-block">
-<div class="line">作業実施を行う対象機器の登録を行います。</div>
-</div>
-<section id="id11">
-<h3><span class="section-number">5.4.1. </span>機器登録<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
-<div class="line-block">
-<div class="line">作業対象となるサーバーは <a class="reference internal" href="scenario1.html"><span class="doc">前のシナリオ</span></a> で登録した web01 を利用するため、作業は不要です。</div>
-</div>
-</section>
-</section>
-<section id="id12">
-<h2><span class="section-number">5.5. </span>作業手順の登録<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id8">
+<h2><span class="section-number">5.3. </span>作業手順の登録<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">グループを作成・削除してから、ユーザーを作成・削除する順番で Ansible Role が実行されるように Movement を設定します。</div>
 <div class="line">これまでのシナリオでは、1つの Movement ごとに1つの Ansible Role を紐付けていましたが、今回は 1つの Movement に対して、グループ管理とユーザー管理が行えるように設定します。</div>
@@ -879,15 +815,15 @@
 </div>
 </div>
 <section id="movement">
-<h3><span class="section-number">5.5.1. </span>Movement 登録<a class="headerlink" href="#movement" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.1. </span>Movement 登録<a class="headerlink" href="#movement" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-LegacyRole ‣ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/Movement登録.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-number">表 5.11 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-number">表 5.9 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -908,13 +844,13 @@
 </table>
 </section>
 <section id="ansible-role">
-<h3><span class="section-number">5.5.2. </span>Ansible Role 登録<a class="headerlink" href="#ansible-role" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.2. </span>Ansible Role 登録<a class="headerlink" href="#ansible-role" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">利用するロールパッケージは <a class="reference internal" href="scenario1.html"><span class="doc">前のシナリオ</span></a> で登録した <a class="reference external" href="https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md">Exastro Playbook Collection</a> を利用するため、作業は不要です。</div>
 </div>
 </section>
 <section id="movement-ansible-role">
-<h3><span class="section-number">5.5.3. </span>Movement と Ansible Role の紐付け<a class="headerlink" href="#movement-ansible-role" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.3. </span>Movement と Ansible Role の紐付け<a class="headerlink" href="#movement-ansible-role" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-LegacyRole ‣ Movement-ロール紐付</span> から、Movement と Ansible Role パッケージの紐付けを行います。</div>
 <div class="line">本シナリオでは、 <a class="reference external" href="https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build">グループ管理用の Ansible Role パッケージ</a> および <a class="reference external" href="https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build">ユーザー管理用の Ansible Role パッケージ</a> を利用します。</div>
@@ -923,8 +859,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/MovementとAnsibleRoleの紐づけ.png"><img alt="MovementとAnsibleRoleの紐づけ" src="../../_images/Movement%E3%81%A8AnsibleRole%E3%81%AE%E7%B4%90%E3%81%A5%E3%81%91.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-number">表 5.12 </span><span class="caption-text">Movement-ロール紐付け情報の登録</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-number">表 5.10 </span><span class="caption-text">Movement-ロール紐付け情報の登録</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 60.0%" />
@@ -948,16 +884,16 @@
 </tbody>
 </table>
 </section>
-<section id="id16">
-<h3><span class="section-number">5.5.4. </span>変数ネスト管理<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="id12">
+<h3><span class="section-number">5.3.4. </span>変数ネスト管理<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-LegacyRole ‣ 変数ネスト管理</span> から、管理するグループ、ユーザー数の上限値の設定を行います。</div>
 </div>
 <div class="line-block">
 <div class="line">グループおよびユーザーの変数は下記の通り多段変数です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 5.1 </span><span class="caption-text">VAR_RH_group の変数構造(=多段変数)</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-number">リスト 5.1 </span><span class="caption-text">VAR_RH_group の変数構造(=多段変数)</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># VAR_RH_group に対して、変数のセットが繰り返し、かつ、セット数が不定</span>
 <span class="nt">VAR_RH_group</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
@@ -972,8 +908,8 @@
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 5.2 </span><span class="caption-text">VAR_RH_user の変数構造(=多段変数)</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id36">
+<div class="code-block-caption"><span class="caption-number">リスト 5.2 </span><span class="caption-text">VAR_RH_user の変数構造(=多段変数)</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># VAR_RH_user に対して、変数のセットが繰り返し、かつ、セット数が不定</span>
 <span class="nt">VAR_RH_user</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
@@ -1005,8 +941,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/変数ネスト管理.gif"><img alt="変数ネスト管理" src="../../_images/%E5%A4%89%E6%95%B0%E3%83%8D%E3%82%B9%E3%83%88%E7%AE%A1%E7%90%86.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-number">表 5.13 </span><span class="caption-text">変数ネスト情報の登録</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-number">表 5.11 </span><span class="caption-text">変数ネスト情報の登録</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -1034,8 +970,8 @@
 </tbody>
 </table>
 </section>
-<section id="id17">
-<h3><span class="section-number">5.5.5. </span>代入値自動登録設定<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="id13">
+<h3><span class="section-number">5.3.5. </span>代入値自動登録設定<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-LegacyRole ‣ 代入値自動登録設定</span> から、パラメータシートの項目と Ansible Role パッケージの変数の紐付けを行います。</div>
 <div class="line">大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。</div>
@@ -1043,8 +979,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/グループの代入値自動登録設定.gif"><img alt="グループの代入値自動登録設定" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-number">表 5.14 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-number">表 5.12 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 30.8%" />
 <col style="width: 7.7%" />
@@ -1145,8 +1081,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定.gif"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-number">表 5.15 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-number">表 5.13 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 30.8%" />
 <col style="width: 7.7%" />
@@ -1498,13 +1434,75 @@
 </table>
 </section>
 </section>
-<section id="id18">
-<h2><span class="section-number">5.6. </span>ユーザー追加作業の実施<a class="headerlink" href="#id18" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id14">
+<h2><span class="section-number">5.4. </span>作業対象の登録<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">作業実施を行う対象機器の登録を行います。</div>
+</div>
+<section id="id15">
+<h3><span class="section-number">5.4.1. </span>機器登録<a class="headerlink" href="#id15" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">作業対象となるサーバーは <a class="reference internal" href="scenario1.html"><span class="doc">前のシナリオ</span></a> で登録した web01 を利用するため、作業は不要です。</div>
+</div>
+</section>
+</section>
+<section id="id16">
+<h2><span class="section-number">5.5. </span>ユーザー追加作業の実施<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">Movement を実行してユーザーとグループを追加します。</div>
 </div>
+</section>
+<section id="id17">
+<h2><span class="section-number">5.6. </span>作業概要の作成<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">まずは作業計画を立てましょう。</div>
+</div>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-number">表 5.14 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>作業実施日時</p></td>
+<td><p>2023/04/04 12:00:00</p></td>
+</tr>
+<tr class="row-even"><td><p>作業対象</p></td>
+<td><p>web01(RHEL8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>作業内容</p></td>
+<td><p>Webサーバーへユーザー追加作業</p></td>
+</tr>
+</tbody>
+</table>
+<section id="id18">
+<h3><span class="section-number">5.6.1. </span>作業概要登録<a class="headerlink" href="#id18" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/作業概要登録.png"><img alt="Conductor作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E6%A6%82%E8%A6%81%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+</figure>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-number">表 5.15 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>オペレーション名</p></th>
+<th class="head"><p>実施予定日時</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Webサーバーへユーザー追加作業</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/04</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></kbd></p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="id19">
-<h3><span class="section-number">5.6.1. </span>パラメータ設定<a class="headerlink" href="#id19" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.6.2. </span>パラメータ設定<a class="headerlink" href="#id19" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">入力用 ‣ グループ</span> から、グループに対するパラメータを登録します。</div>
 </div>
@@ -1661,7 +1659,7 @@
 </table>
 </section>
 <section id="id20">
-<h3><span class="section-number">5.6.2. </span>作業実行<a class="headerlink" href="#id20" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.6.3. </span>作業実行<a class="headerlink" href="#id20" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">

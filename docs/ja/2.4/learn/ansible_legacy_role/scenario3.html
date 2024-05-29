@@ -129,12 +129,11 @@
 <li class="toctree-l4"><a class="reference internal" href="scenario1.html">1. ホスト名管理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="scenario2.html">2. パッケージ管理</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">3. ジョブフロー</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id2">3.1. 作業概要の作成</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id4">3.2. パラメータ設計</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id2">3.1. パラメータ設計</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">3.2. 作業手順の登録</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id5">3.3. 作業対象の登録</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id7">3.4. 作業手順の登録</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id9">3.5. サーバー再構築作業の実施</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id12">3.6. まとめ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id7">3.4. サーバー再構築作業の実施</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id12">3.5. まとめ</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="practice1.html">4. ユーザー管理 (演習問題)</a></li>
@@ -165,25 +164,23 @@
   <div id="tocButton"></div>
   <ul>
 <li><a class="reference internal" href="#">3. ジョブフロー</a><ul>
-<li><a class="reference internal" href="#id2">3.1. 作業概要の作成</a><ul>
-<li><a class="reference internal" href="#id3">3.1.1. 作業概要登録</a></li>
+<li><a class="reference internal" href="#id2">3.1. パラメータ設計</a></li>
+<li><a class="reference internal" href="#id3">3.2. 作業手順の登録</a><ul>
+<li><a class="reference internal" href="#id4">3.2.1. ジョブフローの作成</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">3.2. パラメータ設計</a></li>
 <li><a class="reference internal" href="#id5">3.3. 作業対象の登録</a><ul>
 <li><a class="reference internal" href="#id6">3.3.1. 機器情報の更新</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7">3.4. 作業手順の登録</a><ul>
-<li><a class="reference internal" href="#id8">3.4.1. ジョブフローの作成</a></li>
+<li><a class="reference internal" href="#id7">3.4. サーバー再構築作業の実施</a><ul>
+<li><a class="reference internal" href="#id8">3.4.1. 作業概要の作成</a></li>
+<li><a class="reference internal" href="#id9">3.4.2. 作業概要登録</a></li>
+<li><a class="reference internal" href="#id10">3.4.3. パラメータ設定</a></li>
+<li><a class="reference internal" href="#id11">3.4.4. 作業実行</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9">3.5. サーバー再構築作業の実施</a><ul>
-<li><a class="reference internal" href="#id10">3.5.1. パラメータ設定</a></li>
-<li><a class="reference internal" href="#id11">3.5.2. 作業実行</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id12">3.6. まとめ</a></li>
+<li><a class="reference internal" href="#id12">3.5. まとめ</a></li>
 </ul>
 </li>
 </ul>
@@ -226,60 +223,67 @@
 <p>本シナリオに入る前に、  <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> を完了させておく必要があります。</p>
 </div>
 <section id="id2">
-<h2><span class="section-number">3.1. </span>作業概要の作成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
-<div class="line-block">
-<div class="line"><a class="reference internal" href="scenario2.html"><span class="doc">前のシナリオ</span></a> と同様に、まずは作業計画を立てましょう。</div>
-</div>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-number">表 3.1 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
-<colgroup>
-<col style="width: 60.0%" />
-<col style="width: 40.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>作業実施日時</p></td>
-<td><p>2023/04/03 12:00:00</p></td>
-</tr>
-<tr class="row-even"><td><p>作業対象</p></td>
-<td><p>db01(RHEL8)</p></td>
-</tr>
-<tr class="row-odd"><td><p>作業内容</p></td>
-<td><p>Webサーバーへの作り直し</p></td>
-</tr>
-</tbody>
-</table>
-<section id="id3">
-<h3><span class="section-number">3.1.1. </span>作業概要登録<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
-<div class="line-block">
-<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/オペレーション登録5.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B25.png" style="width: 1200px;" /></a>
-</figure>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-number">表 3.2 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
-<colgroup>
-<col style="width: 60.0%" />
-<col style="width: 40.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>オペレーション名</p></th>
-<th class="head"><p>実施予定日時</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Webサーバーへの再構築</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></kbd></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="id4">
-<h2><span class="section-number">3.2. </span>パラメータ設計<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.1. </span>パラメータ設計<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本シナリオでは、 <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> で作成したパラメータシート(データシート)を使って、パラメーターの投入を行うため、パラメータシートを新たに作成する必要はありません。</div>
 </div>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>作業手順の登録<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">本シナリオでは、 <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> で作成した下記の Movement を使うため、新たに Movement を作成する必要はありません。</div>
+</div>
+<ul class="simple">
+<li><p>ホスト名設定</p></li>
+<li><p>パッケージ管理</p></li>
+</ul>
+<div class="line-block">
+<div class="line">しかし、これまでは Movement を単体で実行していましたが、これらを逐次実行するにはどうすればよいでしょうか。</div>
+</div>
+<section id="id4">
+<h3><span class="section-number">3.2.1. </span>ジョブフローの作成<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">複数の Movement を一連の作業として実行する方法に、Conductor という仕組みがあります。</div>
+<div class="line">Conductor を利用することで、複数の Movement をまとめて実行できるだけでなく、Movement の実行結果に応じて、後続処理を分岐させたり、ユーザ確認の為に一時停止するといった複雑なロジックを組み込む事が可能です。</div>
+</div>
+<div class="line-block">
+<div class="line"><span class="menuselection">Conductor ‣ Conductor編集/作業実行</span> から、ジョブフローを定義します。</div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/ジョブフローの作成1.gif"><img alt="ジョブフローの作成" src="../../_images/%E3%82%B8%E3%83%A7%E3%83%96%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%901.gif" style="width: 1200px;" /></a>
+</figure>
+<div class="line-block">
+<div class="line">1. 右上のペイン <span class="menuselection">Conductor情報 ‣ 名称</span>  に、 <kbd class="kbd docutils literal notranslate">サーバー構築</kbd> と入力します。</div>
+<div class="line">2. 右下のペインに、 <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> で作成した <kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> と <kbd class="kbd docutils literal notranslate">パッケージ管理</kbd> の2つの Movement があります。これらを画面中央にドラッグアンドドロップします。</div>
+<div class="line">3. 各 Node 間を下記の様に接続します。</div>
+</div>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">Node 間の接続</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OUT</p></th>
+<th class="head"><p>IN</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Start</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パッケージ管理</kbd></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">パッケージ管理</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">End</kbd></p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">4. 画面上部にある、 <span class="guilabel"> 登録</span> を押下します。</div>
+</div>
+</section>
 </section>
 <section id="id5">
 <h2><span class="section-number">3.3. </span>作業対象の登録<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
@@ -298,8 +302,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/機器情報の更新.gif"><img alt="機器情報の更新" src="../../_images/%E6%A9%9F%E5%99%A8%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id15">
-<caption><span class="caption-number">表 3.3 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-number">表 3.2 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 12.5%" />
@@ -344,64 +348,59 @@
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">3.4. </span>作業手順の登録<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
-<div class="line-block">
-<div class="line">本シナリオでは、 <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> で作成した下記の Movement を使うため、新たに Movement を作成する必要はありません。</div>
-</div>
-<ul class="simple">
-<li><p>ホスト名設定</p></li>
-<li><p>パッケージ管理</p></li>
-</ul>
-<div class="line-block">
-<div class="line">しかし、これまでは Movement を単体で実行していましたが、これらを逐次実行するにはどうすればよいでしょうか。</div>
-</div>
+<h2><span class="section-number">3.4. </span>サーバー再構築作業の実施<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
 <section id="id8">
-<h3><span class="section-number">3.4.1. </span>ジョブフローの作成<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>作業概要の作成<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">複数の Movement を一連の作業として実行する方法に、Conductor という仕組みがあります。</div>
-<div class="line">Conductor を利用することで、複数の Movement をまとめて実行できるだけでなく、Movement の実行結果に応じて、後続処理を分岐させたり、ユーザ確認の為に一時停止するといった複雑なロジックを組み込む事が可能です。</div>
+<div class="line"><a class="reference internal" href="scenario2.html"><span class="doc">前のシナリオ</span></a> と同様に、まずは作業計画を立てましょう。</div>
 </div>
-<div class="line-block">
-<div class="line"><span class="menuselection">Conductor ‣ Conductor編集/作業実行</span> から、ジョブフローを定義します。</div>
-</div>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ジョブフローの作成1.gif"><img alt="ジョブフローの作成" src="../../_images/%E3%82%B8%E3%83%A7%E3%83%96%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%901.gif" style="width: 1200px;" /></a>
-</figure>
-<div class="line-block">
-<div class="line">1. 右上のペイン <span class="menuselection">Conductor情報 ‣ 名称</span>  に、 <kbd class="kbd docutils literal notranslate">サーバー構築</kbd> と入力します。</div>
-<div class="line">2. 右下のペインに、 <a class="reference internal" href="scenario1.html"><span class="doc">ホスト名管理</span></a> と <a class="reference internal" href="scenario2.html"><span class="doc">パッケージ管理</span></a> で作成した <kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> と <kbd class="kbd docutils literal notranslate">パッケージ管理</kbd> の2つの Movement があります。これらを画面中央にドラッグアンドドロップします。</div>
-<div class="line">3. 各 Node 間を下記の様に接続します。</div>
-</div>
-<table class="docutils align-default" id="id16">
-<caption><span class="caption-number">表 3.4 </span><span class="caption-text">Node 間の接続</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-number">表 3.3 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>OUT</p></th>
-<th class="head"><p>IN</p></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Start</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+<tr class="row-odd"><td><p>作業実施日時</p></td>
+<td><p>2023/04/03 12:00:00</p></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">パッケージ管理</kbd></p></td>
+<tr class="row-even"><td><p>作業対象</p></td>
+<td><p>db01(RHEL8)</p></td>
 </tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">パッケージ管理</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">End</kbd></p></td>
+<tr class="row-odd"><td><p>作業内容</p></td>
+<td><p>Webサーバーへの作り直し</p></td>
 </tr>
 </tbody>
 </table>
-<div class="line-block">
-<div class="line">4. 画面上部にある、 <span class="guilabel"> 登録</span> を押下します。</div>
-</div>
-</section>
 </section>
 <section id="id9">
-<h2><span class="section-number">3.5. </span>サーバー再構築作業の実施<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h2>
+<h3><span class="section-number">3.4.2. </span>作業概要登録<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
+</div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/オペレーション登録5.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B25.png" style="width: 1200px;" /></a>
+</figure>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-number">表 3.4 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>オペレーション名</p></th>
+<th class="head"><p>実施予定日時</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Webサーバーへの再構築</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></kbd></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3><span class="section-number">3.4.3. </span>パラメータ設定<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">本シナリオでは、db01 というホストに対して、 <kbd class="kbd docutils literal notranslate">httpd</kbd> というパッケージをインストールしますが、前のシナリオで <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd></kbd> というパッケージがインストール済みの状態となっています。</div>
 <div class="line">db01 というホストを web01 という Web サーバーに作り変えるため、ホスト名と導入パッケージを変更する必要があります。</div>
@@ -434,8 +433,6 @@
 </tr>
 </tbody>
 </table>
-<section id="id10">
-<h3><span class="section-number">3.5.1. </span>パラメータ設定<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">入力用 ‣ サーバー基本情報</span> から、ホスト名に関するパラメータを登録します。</div>
 </div>
@@ -512,7 +509,7 @@
 </table>
 </section>
 <section id="id11">
-<h3><span class="section-number">3.5.2. </span>作業実行<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.4. </span>作業実行<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">
@@ -576,8 +573,6 @@ mariadb-server-10.3.35-1.module+el8.6.0+15949+4ba4ec26.x86_64
 <a class="reference internal image-reference" href="../../_images/Conductor作業実行.gif"><img alt="Conductor作業実行" src="../../_images/Conductor%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.gif" style="width: 1200px;" /></a>
 </figure>
 </li>
-</ol>
-<ol class="arabic" start="4">
 <li><p>事後確認</p>
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、Web サーバーに作り直しされていることを確認します。</div>
@@ -631,7 +626,7 @@ is<span class="w"> </span>not<span class="w"> </span>installed
 </section>
 </section>
 <section id="id12">
-<h2><span class="section-number">3.6. </span>まとめ<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.5. </span>まとめ<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">本シナリオでは、DB サーバーを Web サーバーに再構築するシナリオを通して、Exastro IT Automation のジョブフローである Conductor の運用方法について紹介をしました。</div>
 </div>
