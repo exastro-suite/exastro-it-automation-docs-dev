@@ -609,8 +609,8 @@ kubernetesノード（kubectlで接続可能な環境）に入り、以下を実
   platform-auth:
     extraEnv:
       # Please set the URL to access
- -    EXTERNAL_URL: "http:change-this.com"
- -    EXTERNAL_URL_MNG: "http:change-this.com"
+ -    EXTERNAL_URL: ""
+ -    EXTERNAL_URL_MNG: ""
  +    EXTERNAL_URL: "https://exastro.ha-conf.epoch-labo.local"
  +    EXTERNAL_URL_MNG: "https://exastro-admin.ha-conf.epoch-labo.local"
 
