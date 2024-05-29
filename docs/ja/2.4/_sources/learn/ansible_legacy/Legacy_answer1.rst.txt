@@ -208,9 +208,9 @@
      - 設定値
    * - 項番
      - (自動入力)
-   * - メニュー名
+   * - パラメータシート名
      - :kbd:`グループ`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`groups`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -512,9 +512,9 @@
      - 設定値
    * - 項番
      - (自動入力)
-   * - メニュー名
+   * - パラメータシート名
      - :kbd:`ユーザー`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`users`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -1238,7 +1238,7 @@ Movement と Ansible Playbook の紐付け
       :caption: コマンド
 
       # グループ一覧の取得
-      cat /etc/groups|grep -E "www|app"
+      cat /etc/group|grep -E "www|app"
 
    .. code-block:: bash
       :caption: 実行結果
