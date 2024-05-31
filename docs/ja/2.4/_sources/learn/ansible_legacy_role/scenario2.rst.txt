@@ -600,7 +600,7 @@ Movement と Ansible Role の紐付け
    :header-rows: 0
 
    * - 作業実施日時
-     - 2023/05/02 12:00:00
+     - 2024/05/02 12:00:00
    * - 作業対象
      - db01(RHEL8)
    * - 作業内容
@@ -622,7 +622,7 @@ Movement と Ansible Role の紐付け
    * - オペレーション名
      - 実施予定日時
    * - :kbd:`RHEL8をDBパッケージへ変更`
-     - :kbd:`2023/05/02 12:00:00`
+     - :kbd:`2024/05/02 12:00:00`
 
 
 パラメータ設定
@@ -633,7 +633,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`入力用 --> 導入パッケージ` から、新たなパラメータを登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/パラメータ設定2.png
+.. figure:: ../../../../images/learn/quickstart/scenario2/更新用パラメータ設定.png
    :width: 1200px
    :alt: パラメータ設定2
 
@@ -652,12 +652,12 @@ Movement と Ansible Role の紐付け
     - パッケージ名
     - 状態
   * - db01
-    - :kbd:`2023/04/02 12:00:00_RHEL8のパッケージ管理`
+    - :kbd:`2024/05/02 12:00:00_RHEL8をDBパッケージへ変更`
     - :kbd:`1`
     - :kbd:`postgresql-server`
     - :kbd:`absent`
   * - db01
-    - :kbd:`2023/04/02 12:00:00_RHEL8のパッケージ管理`
+    - :kbd:`2024/05/02 12:00:00_RHEL8をDBパッケージへ変更`
     - :kbd:`2`
     - :kbd:`mariadb-server`
     - :kbd:`present`
@@ -694,7 +694,7 @@ Movement と Ansible Role の紐付け
 2. 作業実行
 
    | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`パッケージ管理` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のパッケージ管理` を選択し、:guilabel:`作業実行` を押下します。
+   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8をDBパッケージへ変更` を選択し、:guilabel:`作業実行` を押下します。
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
