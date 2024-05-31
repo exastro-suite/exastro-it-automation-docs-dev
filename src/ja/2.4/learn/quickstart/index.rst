@@ -421,7 +421,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/パラメータ設定.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/更新用パラメータ設定.png
    :width: 1200px
    :alt: パラメータ設定
 
@@ -487,12 +487,12 @@ Movement と Ansible Playbook の紐付け
 1. 作業実行
 
    | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名変更作業` を選択し :guilabel:`選択決定` を押下します。
+   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名更新作業` を選択し :guilabel:`選択決定` を押下します。
    | 最後に、実行内容を確認し、:guilabel:`作業実行` を押下します。
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/作業実行.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/更新作業実行.png
    :width: 1200px
    :alt: 作業実行
 
