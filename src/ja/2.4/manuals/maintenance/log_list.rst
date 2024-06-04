@@ -11,7 +11,7 @@
 | 各サービスのログのフォーマットの詳細はログフォーマット名をもとに次項を参照してください。
 
 .. list-table:: 
-   :widths: 20 20 30
+   :widths: 20 25 20
    :header-rows: 1
    :align: left
 
@@ -19,94 +19,103 @@
      - | ログフォーマット
      - | 備考
    * - | ita-ag-oase
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-api-admin
-     - | IT Automationログ
+     - | IT Automation APIログフォーマット
      - | 
    * - | ita-api-oase-receiver
-     - | IT Automationログ
+     - | IT Automation APIログフォーマット
      - | 
    * - | ita-api-organization
-     - | IT Automationログ
+     - | IT Automation APIログフォーマット
      - | 
    * - | ita-by-ansible-agent
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-ansible-execute
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-ansible-legacy-role-vars-listup
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-ansible-legacy-vars-listup
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-pioneer-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-towermaster-sync
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-cicd-for-iac
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-collector
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-conductor-regularly
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-conductor-synchronize
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-excel-export-import
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-execinstance-dataautoclean
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-file-autoclean
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-hostgroup-split
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-menu-create
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-menu-export-import
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-oase-conclusion
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-terraform-cli-execute
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-terraform-cli-vars-listup
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-terraform-cloud-ep-execute
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-by-terraform-cloud-ep-vars-listup
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-migration 
-     - | IT Automationログ
+     - | IT Automation標準ログフォーマット
      - | 
    * - | ita-web-server
-     - | WebServiceログ
+     - | Web標準ログフォーマット
      - | 
    * - | platform-api
-     - | Platformログ
+     - | Platform APIログフォーマット
      - | 
    * - | platform-auth
-     - | PlatformAuthログ
+     - | Platform Authログフォーマット
      - | 
    * - | platform-job
-     - | PlatformJobログ
+     - | Platform Jobログフォーマット
      - | 
    * - | platform-migration
-     - | Platformログ
+     - | Platform標準ログフォーマット
      - | 
    * - | platform-web
-     - | WebServiceログ
+     - | Web標準ログフォーマット
      - | 
    * - | keycloak
-     - | keycloakログ
+     - | keycloakログフォーマット
      - | 
    * - | mariadb
      - | https://mariadb.com/kb/en/error-log/
@@ -121,8 +130,8 @@
 ログフォーマット
 ================
 
-IT Automationログ
-^^^^^^^^^^^^^^^^^
+IT Automation標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block::
    :caption: 形式
@@ -156,8 +165,8 @@ IT Automationログ
      - | AppLog instance(stdAppLogger) is created
      - | 
 
-Platformログ
-^^^^^^^^^^^^
+Platform標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: 
    :caption: 形式
@@ -204,8 +213,8 @@ Platformログ
      -  platform initialize setting start
      -  
 
-WebServiceログ
-^^^^^^^^^^^^^^
+Web標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^
 
 | デフォルトのApacheログ形式になっています。
 | 設定内容は以下の通りです。
@@ -227,9 +236,9 @@ WebServiceログ
 .. code-block::
    :caption: 例
 
-   192.168.128.2 - - [12/Jan/2023:15:38:10 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817
+   XXX.XXX.XXX.X - - [12/Jan/2023:15:38:10 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817
    "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-   (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+   (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
 
 
 .. list-table:: commonでログ保存を指定した場合
@@ -287,7 +296,7 @@ WebServiceログ
      - | リファラーとは参照元ページのことです。
    * - | \%{User-Agent}i\
      - | User Agent
-     - | "Mozilla/5.0 \(Windows NT 10.0; Win64; x64\) AppleWebKit/537.36 \(KHTML, like Gecko\) Chrome/108.0.0.0 Safari/537.36"
+     - | "Mozilla/5.0 \(Windows NT 10.0; Win64; x64\) AppleWebKit/537.36 \(KHTML, like Gecko\) Chrome/XXX.XXX.XXX.X Safari/537.36"
      - | User Agent とは使用しているOS・ブラウザなどの情報のことです。
 
 | combinedioフォーマットは、combinedフォーマットに以下の項目が追加されています。
@@ -310,18 +319,38 @@ WebServiceログ
      - | - 
      - |
 
-PlatformAuthログ
-^^^^^^^^^^^^^^^^
+IT Automation APIログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| PlatformAuthログは、上述のWebServiceログのApacheログとPlatformログのフォーマットが混合されたものが出力されますが、WebServiceログとほとんど同じです。
+| IT Automation APIログフォーマットは、上述のWeb標準ログフォーマットのApacheログとIT Automation標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
 
 .. code-block::
    :caption: 例
 
-   [-] - 192.168.128.2 - - [08/Feb/2023:10:22:20 +0900] "GET /auth/resources/b3h1e/common/keycloak/node_modules/patternfly/dist/fonts/OpenSans-Light-webfont.woff2 HTTP/1.1" 200 63180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+   [2023-01-05 18:05:22,875][INFO] - XXX.XXX.XXX.X - - [05/Jan/2023:18:05:22 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817 "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
 
-PlatformJobログ
-^^^^^^^^^^^^^^^
+Platform APIログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Platform APIログフォーマットは、上述のWeb標準ログフォーマットのApacheログとPlatform標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
+
+.. code-block::
+   :caption: 例
+
+   2023/01/11 11:27:05.976995 INFO (None) /app/platform_init.py(88) XXX.XXX.XXX.X - - [11/Jan/2023:11:27:05 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817 "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
+
+Platform Authログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Platform Authログフォーマットは、上述のWeb標準ログフォーマットのApacheログとPlatform標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
+
+.. code-block::
+   :caption: 例
+
+   [-] - XXX.XXX.XXX.X - - [08/Feb/2023:10:22:20 +0900] "GET /auth/resources/b3h1e/common/keycloak/node_modules/patternfly/dist/fonts/OpenSans-Light-webfont.woff2 HTTP/1.1" 200 63180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
+
+Platform Jobログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: 
   :caption: 形式
@@ -359,8 +388,8 @@ PlatformJobログ
      - | Get keycloak service account token. realm_name=master
      - |
 
-Keycloakログ
-^^^^^^^^^^^^
+Keycloakログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: 
    :caption: 形式
@@ -371,7 +400,7 @@ Keycloakログ
 .. code-block:: 
    :caption: 例
 
-   2023-01-12 09:21:49,040 INFO  [org.keycloak.events] (default task-13) type=INTROSPECT_TOKEN, realmId=org3, clientId=system-org3-auth, userId=null, ipAddress=172.18.0.14, client_auth_method=client-secret
+   2023-01-12 09:21:49,040 INFO  [org.keycloak.events] (default task-13) type=INTROSPECT_TOKEN, realmId=org3, clientId=system-org3-auth, userId=null, ipAddress=XXX.XXX.XXX.X, client_auth_method=client-secret
 
 
 .. list-table:: 
@@ -414,4 +443,3 @@ Keycloakログ
 
 | Keycloakのログの詳細は下記URLをご参照ください。
 | https://www.keycloak.org/server/logging
-
