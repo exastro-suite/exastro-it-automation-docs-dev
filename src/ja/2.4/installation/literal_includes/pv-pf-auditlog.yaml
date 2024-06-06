@@ -1,4 +1,4 @@
-# pv-database.yaml
+# pv-pf-auditlog.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
