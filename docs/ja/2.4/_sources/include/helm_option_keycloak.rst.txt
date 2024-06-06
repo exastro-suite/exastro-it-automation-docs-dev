@@ -28,6 +28,11 @@
      - | :program:`IfNotPresent` (デフォルト): コンテナイメージが存在しない場合のみプル
        | :program:`Always`: 毎回必ずプル
        | :program:`None`: プルしない
+   * - | exastro-platform.keycloak.extraEnv.KC_DB_URL_PROPERTIES
+     - | 拡張環境変数
+       | Azure MySQLを利用する場合は、"?useSSL=false" を追加することで利用可能となります 
+     - | 可
+     - | なし
    * - exastro-platform.keycloak.resources.requests.memory
      - メモリ要求
      - 可

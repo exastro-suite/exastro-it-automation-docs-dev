@@ -330,12 +330,12 @@ Helm リポジトリの登録
 
           | データベースコンテナが起動しないように設定します。
 
-         .. include:: ../../../include/helm_option_databaseDefinition.rst
+          .. include:: ../../../include/helm_option_databaseDefinition.rst
 
-         .. literalinclude:: ../../literal_includes/exastro_database_disabled.yaml
-            :diff: ../../literal_includes/exastro.yaml
-            :caption: exastro.yaml
-            :language: yaml
+          .. literalinclude:: ../../literal_includes/exastro_database_disabled.yaml
+             :diff: ../../literal_includes/exastro.yaml
+             :caption: exastro.yaml
+             :language: yaml
 
       5.  MongoDBコンテナの無効化
 
@@ -526,6 +526,15 @@ GitLab 連携設定
    :caption: exastro.yaml
    :language: yaml
 
+.. _installation_kubernetes_proxy_settings:
+
+Proxy設定
+---------
+
+| Proxy環境下で、Exastroシステムを利用する際の情報を設定します。
+
+.. include:: ../../../include/helm_option_proxyDefinition.rst
+
 .. _create_system_manager:
 .. _install_helm:
 
@@ -673,7 +682,7 @@ GitLab 連携設定
                  storageClass: "-" # e.g.) azurefile or - (None)
 
         .. literalinclude:: ../../literal_includes/pv-pf-auditlog.yaml
-           :caption: pv-pf-auditlog (監査ログファイル用ボリューム)
+           :caption: pv-pf-auditlog.yaml (監査ログファイル用ボリューム)
            :linenos:
 
 .. _インストール-1:
