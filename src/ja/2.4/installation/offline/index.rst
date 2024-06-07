@@ -2,6 +2,8 @@
 オフライン
 ==========
 
+Comming soon ...
+
 .. raw:: html
 
    </div>
@@ -10,8 +12,8 @@
 .. toctree::
    :maxdepth: 2
 
-   exastro/index
-   oase_agent/index
+   .. exastro/index
+   .. oase_agent/index
    
 .. raw:: html
 
