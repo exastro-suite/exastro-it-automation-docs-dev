@@ -42,9 +42,7 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="インストール" href="../../installation/index.html" />
-    <link rel="prev" title="ベストプラクティス" href="index.html" /> 
+    <link rel="search" title="検索" href="../../search.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -104,8 +102,6 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="index.html" title="前のトピックへ">ベストプラクティス</a></li>
-        <li class="next"><a href="../../installation/index.html" title="次のトピックへ">インストール</a></li>
       </ul>
     </div>
   </div>
@@ -116,37 +112,8 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">構成・構築ガイド</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../logging/index.html">ログ</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">ベストプラクティス</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 高可用性 (HA)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">1.1. 目的</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">1.2. 構成図</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">1.3. 対象</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#exastro">1.4. Exastroアプリケーション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">1.5. ロードバランサー・リバースプロキシ</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id5">1.5.1. 前提条件</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#hosts">1.5.2. hostsの定義</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id6">1.5.3. シェル変数設定</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#haproxy">1.5.4. haproxyの導入・設定</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#keepalived">1.5.5. keepalived の導入</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#keepalived-haproxy">1.5.6. アクセス確認(keepalived+haproxy)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#haproxy-ssl">1.5.7. haproxy SSL化</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#haproxy-exastro">1.5.8. haproxy（exastro接続）</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#exastro-external-url">1.5.9. exastro EXTERNAL_URL設定変更</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">1.6. ストレージ</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
@@ -197,8 +164,6 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">構成・構築ガイド</a></li>
-    <li><a href="index.html">ベストプラクティス</a></li>
     
     <li><span class="section-number">1. </span>高可用性 (HA)</li>
   </ul>
@@ -251,7 +216,7 @@
 <div class="line">以下の例はRHEL8で実施する場合の手順です。</div>
 </div>
 <table class="docutils align-left" id="id8">
-<caption><span class="caption-number">表 1.11 </span><span class="caption-text">ホスト一覧</span><a class="headerlink" href="#id8" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">ホスト一覧</span><a class="headerlink" href="#id8" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -289,7 +254,7 @@
 <div class="line">以下の内容を <strong>ha-conf-haproxy-01</strong> および <strong>ha-conf-haproxy-02</strong> のhostsに追記します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-number">リスト 1.1 </span><span class="caption-text">conf:/etc/hosts</span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">conf:/etc/hosts</span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">192</span>.168.0.2<span class="w">  </span>ha-conf-haproxy-01
 <span class="m">192</span>.168.0.3<span class="w">  </span>ha-conf-haproxy-02
 <span class="m">192</span>.168.0.1<span class="w">  </span>ha-conf-haproxy-vip
@@ -358,7 +323,7 @@ make<span class="w"> </span>install
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-number">リスト 1.2 </span><span class="caption-text">結果</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/local/haproxy/sbin/haproxy
 </pre></div>
 </div>
@@ -480,7 +445,7 @@ systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> 
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-number">リスト 1.3 </span><span class="caption-text">結果</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root<span class="w">       </span><span class="m">43658</span><span class="w">       </span><span class="m">1</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">15</span>:00<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/usr/local/haproxy/sbin/haproxy<span class="w"> </span>-Ws<span class="w"> </span>-f<span class="w"> </span>/etc/haproxy/haproxy.cfg<span class="w"> </span>-p<span class="w"> </span>/var/run/haproxy.pid
 haproxy<span class="w">    </span><span class="m">43660</span><span class="w">   </span><span class="m">43658</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">15</span>:00<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/usr/local/haproxy/sbin/haproxy<span class="w"> </span>-Ws<span class="w"> </span>-f<span class="w"> </span>/etc/haproxy/haproxy.cfg<span class="w"> </span>-p<span class="w"> </span>/var/run/haproxy.pid
 </pre></div>
@@ -522,7 +487,7 @@ curl<span class="w"> </span><span class="si">${</span><span class="nv">VM_SELF_I
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">リスト 1.4 </span><span class="caption-text">結果</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Destination<span class="w">     </span>Gateway<span class="w">         </span>Genmask<span class="w">         </span>Flags<span class="w"> </span>Metric<span class="w"> </span>Ref<span class="w">    </span>Use<span class="w"> </span>Iface
 default<span class="w">         </span>_gateway<span class="w">        </span><span class="m">0</span>.0.0.0<span class="w">         </span>UG<span class="w">    </span><span class="m">100</span><span class="w">    </span><span class="m">0</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>eth0
 </pre></div>
@@ -623,7 +588,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>keepalived
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-number">リスト 1.5 </span><span class="caption-text">結果</span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>root<span class="w">       </span><span class="m">45997</span><span class="w">       </span><span class="m">1</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">10</span>:10<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/usr/sbin/keepalived<span class="w"> </span>-D
 <span class="w"> </span>root<span class="w">       </span><span class="m">45998</span><span class="w">   </span><span class="m">45997</span><span class="w">  </span><span class="m">0</span><span class="w"> </span><span class="m">10</span>:10<span class="w"> </span>?<span class="w">        </span><span class="m">00</span>:00:00<span class="w"> </span>/usr/sbin/keepalived<span class="w"> </span>-D
 </pre></div>
@@ -636,7 +601,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>keepalived
 <div class="line">※1号機にVIPが付与されていること</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-number">リスト 1.6 </span><span class="caption-text">結果</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2</span>:<span class="w"> </span>eth0:<span class="w"> </span>&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>fq_codel<span class="w"> </span>state<span class="w"> </span>UP<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
 <span class="w">    </span>inet<span class="w"> </span><span class="m">192</span>.168.0.2/24<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>dynamic<span class="w"> </span>noprefixroute<span class="w"> </span>eth0
 <span class="w">    </span>inet<span class="w"> </span><span class="m">192</span>.168.0.1/24<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>secondary<span class="w"> </span>eth0
@@ -644,7 +609,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>keepalived
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-number">リスト 1.7 </span><span class="caption-text">結果</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">結果</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2</span>:<span class="w"> </span>eth0:<span class="w"> </span>&lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt;<span class="w"> </span>mtu<span class="w"> </span><span class="m">1500</span><span class="w"> </span>qdisc<span class="w"> </span>fq_codel<span class="w"> </span>state<span class="w"> </span>UP<span class="w"> </span>group<span class="w"> </span>default<span class="w"> </span>qlen<span class="w"> </span><span class="m">1000</span>
 <span class="w">      </span>inet<span class="w"> </span><span class="m">192</span>.168.0.3/24<span class="w"> </span>scope<span class="w"> </span>global<span class="w"> </span>dynamic<span class="w"> </span>noprefixroute<span class="w"> </span>eth0
 </pre></div>
@@ -734,7 +699,7 @@ haproxy.cfgを以下の内容で修正します</p>
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-number">リスト 1.8 </span><span class="caption-text">/etc/haproxy/haproxy.cfg（変更前）</span><a class="headerlink" href="#id16" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">/etc/haproxy/haproxy.cfg（変更前）</span><a class="headerlink" href="#id16" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frontend<span class="w"> </span>main
 <span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:5000
 <span class="w">    </span>default_backend<span class="w"> </span>back
@@ -742,7 +707,7 @@ haproxy.cfgを以下の内容で修正します</p>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-number">リスト 1.9 </span><span class="caption-text">/etc/haproxy/haproxy.cfg（変更後）</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">/etc/haproxy/haproxy.cfg（変更後）</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frontend<span class="w"> </span>main
 <span class="w">    </span><span class="nb">bind</span><span class="w">    </span>*:443<span class="w"> </span>ssl<span class="w"> </span>crt<span class="w"> </span>/etc/pki/tls/certs/ha-conf-haproxy-server.pem
 <span class="w">    </span>mode<span class="w">    </span>http
@@ -849,7 +814,7 @@ sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s
 </div>
 <p>以下に変更</p>
 <div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-number">リスト 1.10 </span><span class="caption-text">exastro.yaml</span><a class="headerlink" href="#id18" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">exastro.yaml</span><a class="headerlink" href="#id18" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="linenos">353</span><span class="w"> </span>platform-auth:
 <span class="linenos">354</span><span class="w"> </span>  extraEnv:
 <span class="linenos">355</span><span class="w"> </span>    # Please set the URL to access
@@ -878,8 +843,6 @@ sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>ベストプラクティス</a></li>
-    <li class="next"><a href="../../installation/index.html" title="次のトピックへ"><span>次のトピックへ</span>インストール</a></li>
   </ul>
 </div>
 
