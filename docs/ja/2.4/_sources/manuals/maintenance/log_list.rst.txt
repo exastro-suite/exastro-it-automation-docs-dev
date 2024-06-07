@@ -2,22 +2,146 @@
 ログ一覧
 ========
 
-|　本書では Exastro IT Automation の各コンテナのログの例とフォーマットの意味を以下に記載します。
+| 本書では Exastro IT Automation の各サービスのログのフォーマットと出力例を以下に記載します。
 
-一般的なログ
-============
+ログ一覧
+========
 
-| 一般的なログは以下の形式となっています。
+| 以下の一覧の「ログフォーマット」列には使用するログフォーマット名が記載されています。
+| 各サービスのログのフォーマットの詳細はログフォーマット名をもとに次項を参照してください。
+
+.. list-table:: 
+   :widths: 20 25 20
+   :header-rows: 1
+   :align: left
+
+   * - | サービス
+     - | ログフォーマット
+     - | 備考
+   * - | ita-ag-oase
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-api-admin
+     - | IT Automation APIログフォーマット
+     - | 
+   * - | ita-api-oase-receiver
+     - | IT Automation APIログフォーマット
+     - | 
+   * - | ita-api-organization
+     - | IT Automation APIログフォーマット
+     - | 
+   * - | ita-by-ansible-agent
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-execute
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-legacy-role-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-legacy-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-pioneer-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-ansible-towermaster-sync
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-cicd-for-iac
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-collector
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-conductor-regularly
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-conductor-synchronize
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-excel-export-import
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-execinstance-dataautoclean
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-file-autoclean
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-hostgroup-split
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-menu-create
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-menu-export-import
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-oase-conclusion
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-terraform-cli-execute
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-terraform-cli-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-terraform-cloud-ep-execute
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-by-terraform-cloud-ep-vars-listup
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-migration 
+     - | IT Automation標準ログフォーマット
+     - | 
+   * - | ita-web-server
+     - | Web標準ログフォーマット
+     - | 
+   * - | platform-api
+     - | Platform APIログフォーマット
+     - | 
+   * - | platform-auth
+     - | Platform Authログフォーマット
+     - | 
+   * - | platform-job
+     - | Platform Jobログフォーマット
+     - | 
+   * - | platform-migration
+     - | Platform標準ログフォーマット
+     - | 
+   * - | platform-web
+     - | Web標準ログフォーマット
+     - | 
+   * - | keycloak
+     - | keycloakログフォーマット
+     - | 
+   * - | mariadb
+     - | https://mariadb.com/kb/en/error-log/
+     - | ログの詳細は左記URLをご参照ください。
+   * - | mongodb
+     - | https://www.mongodb.com/docs/manual/reference/log-messages/
+     - | ログの詳細は左記URLをご参照ください。
+   * - | gitlab
+     - | https://docs.gitlab.com/ee/administration/logs/
+     - | ログの詳細は左記URLをご参照ください。
+
+ログフォーマット
+================
+
+IT Automation標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block::
    :caption: 形式
 
-   [%(asctime)s] [%(levelname)s] [%(userid)s] <フリーログ>
+   [%(asctime)s][%(levelname)s] %(message)s
 
 .. code-block::
    :caption: 例
 
-    [2023-02-06 14:18:05,212][INFO] [USER_ID:20401] AppLog instance(stdAppLogger) is created
+   [2023-02-06 14:18:05,212][INFO] AppLog instance(stdAppLogger) is created
 
 .. list-table:: 
    :widths: 15 15 20 20
@@ -29,24 +153,20 @@
      - | ログの例
      - | 備考
    * - | [%(asctime)s]
-     - | 日付
-     - | [2023-01-05 18:05:22,875]
+     - | 日時
+     - | [2023-02-06 14:18:05,212]
      - |
    * - | [%(levelname)s]
      - | ログレベル
      - | [INFO]
-     - | 
-   * - | [%(userid)s]
-     - | ユーザーID
-     - | [USER_ID:efb59f05-6f31-47d6-b28e-0f9ee236534e]
-     - |
-   * - | <フリーログ>
-     - | 決まったフォーマットはなし
+     - | DEBUG, INFO, ERROR のいずれかが出力されます。
+   * - | %(message)s
+     - | メッセージ
      - | AppLog instance(stdAppLogger) is created
-     - | ログによってフォーマットが異なります。
+     - | 
 
-platform-migration・platform-api
-================================
+Platform標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: 
    :caption: 形式
@@ -75,7 +195,7 @@ platform-migration・platform-api
    * -  %\(levelname\)s
      -  ログレベル
      -  INFO
-     -  DEBUG, INFO, WARNING, ERROR, CRITICAL のいずれかが出力される。
+     -  DEBUG, INFO, WARNING, ERROR のいずれかが出力されます。
    * -  \(%\(userid\)s\)
      -  アクセスユーザー（Noneは指定なし）
      -  （None）
@@ -93,8 +213,8 @@ platform-migration・platform-api
      -  platform initialize setting start
      -  
 
-platform-web・ita-web-server
-============================
+Web標準ログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^
 
 | デフォルトのApacheログ形式になっています。
 | 設定内容は以下の通りです。
@@ -116,9 +236,9 @@ platform-web・ita-web-server
 .. code-block::
    :caption: 例
 
-   192.168.128.2 - - [12/Jan/2023:15:38:10 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817
+   XXX.XXX.XXX.X - - [12/Jan/2023:15:38:10 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817
    "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
-   (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+   (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
 
 
 .. list-table:: commonでログ保存を指定した場合
@@ -176,7 +296,7 @@ platform-web・ita-web-server
      - | リファラーとは参照元ページのことです。
    * - | \%{User-Agent}i\
      - | User Agent
-     - | "Mozilla/5.0 \(Windows NT 10.0; Win64; x64\) AppleWebKit/537.36 \(KHTML, like Gecko\) Chrome/108.0.0.0 Safari/537.36"
+     - | "Mozilla/5.0 \(Windows NT 10.0; Win64; x64\) AppleWebKit/537.36 \(KHTML, like Gecko\) Chrome/XXX.XXX.XXX.X Safari/537.36"
      - | User Agent とは使用しているOS・ブラウザなどの情報のことです。
 
 | combinedioフォーマットは、combinedフォーマットに以下の項目が追加されています。
@@ -199,18 +319,77 @@ platform-web・ita-web-server
      - | - 
      - |
 
-platform-auth
-=============
+IT Automation APIログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| platform-authログは、上述のplatform-web・ita-web-serverなどのApacheログとplatform-apiログのフォーマットが混合されたものが出力されますが、platform-webログとほとんど同じです。
+| IT Automation APIログフォーマットは、上述のWeb標準ログフォーマットのApacheログとIT Automation標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
 
 .. code-block::
    :caption: 例
 
-   [-] - 192.168.128.2 - - [08/Feb/2023:10:22:20 +0900] "GET /auth/resources/b3h1e/common/keycloak/node_modules/patternfly/dist/fonts/OpenSans-Light-webfont.woff2 HTTP/1.1" 200 63180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+   [2023-01-05 18:05:22,875][INFO] - XXX.XXX.XXX.X - - [05/Jan/2023:18:05:22 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817 "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
 
-Keycloak
-========
+Platform APIログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Platform APIログフォーマットは、上述のWeb標準ログフォーマットのApacheログとPlatform標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
+
+.. code-block::
+   :caption: 例
+
+   2023/01/11 11:27:05.976995 INFO (None) /app/platform_init.py(88) XXX.XXX.XXX.X - - [11/Jan/2023:11:27:05 +0900] "GET /favicon.ico/platform/ HTTP/1.1" 200 9817 "http://localhost:8000/org3/platform/roles" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
+
+Platform Authログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Platform Authログフォーマットは、上述のWeb標準ログフォーマットのApacheログとPlatform標準ログフォーマットが混合されたものが出力されますが、Web標準ログフォーマットとほとんど同じです。
+
+.. code-block::
+   :caption: 例
+
+   [-] - XXX.XXX.XXX.X - - [08/Feb/2023:10:22:20 +0900] "GET /auth/resources/b3h1e/common/keycloak/node_modules/patternfly/dist/fonts/OpenSans-Light-webfont.woff2 HTTP/1.1" 200 63180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/XXX.XXX.XXX.X Safari/537.36"
+
+Platform Jobログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: 
+  :caption: 形式
+
+  [%(asctime)s] [%(process)06d:%(threadName)s] [%(levelname)-5s] %(message)s
+
+.. code-block:: 
+  :caption: 例
+  
+  [2023-01-05 18:05:22,875] [000000:MainThread] [INFO] Get keycloak service account token. realm_name=master
+
+.. list-table:: 
+   :widths: 15 15 20 20
+   :header-rows: 1
+   :align: left
+
+   * - | フォーマット文字列
+     - | フォーマットの意味
+     - | ログの例
+     - | 備考
+   * - | [%(asctime)s]
+     - | 日付
+     - | [2023-01-05 18:05:22,875]
+     - |
+   * - | [%(process)06d:%(threadName)s]
+     - | プロセスID:スレッド名
+     - | [000000:MainThread]
+     - | 
+   * - | [%(levelname)s]
+     - | ログレベル
+     - | [INFO]
+     - | DEBUG, INFO, WARNING, ERROR のいずれかが出力されます。
+   * - | %\(message\)s
+     - | メッセージ
+     - | Get keycloak service account token. realm_name=master
+     - |
+
+Keycloakログフォーマット
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: 
    :caption: 形式
@@ -221,7 +400,7 @@ Keycloak
 .. code-block:: 
    :caption: 例
 
-   2023-01-12 09:21:49,040 INFO  [org.keycloak.events] (default task-13) type=INTROSPECT_TOKEN, realmId=org3, clientId=system-org3-auth, userId=null, ipAddress=172.18.0.14, client_auth_method=client-secret
+   2023-01-12 09:21:49,040 INFO  [org.keycloak.events] (default task-13) type=INTROSPECT_TOKEN, realmId=org3, clientId=system-org3-auth, userId=null, ipAddress=XXX.XXX.XXX.X, client_auth_method=client-secret
 
 
 .. list-table:: 
@@ -240,7 +419,7 @@ Keycloak
    * - | %-5p
      - | ログレベル
      - | INFO
-     - | DEBUG, INFO, WARN, ERROR のいずれかが出力される。
+     - | DEBUG, INFO, WARN, ERROR, FATAL のいずれかが出力されます。
    * - | \[%c\]
      - | ログ　カテゴリ名
      - | \[org.keycloak.events\]
@@ -264,85 +443,3 @@ Keycloak
 
 | Keycloakのログの詳細は下記URLをご参照ください。
 | https://www.keycloak.org/server/logging
-
-platform-db
-===========
-
-| DBについては使用するデータベースのログフォーマットとなります。
-| 設定もDBによりますが、デフォルトでmariadbを立ち上げた際はエラーログが出力されます。
-| 詳細は下記URLをご参照ください。
-| https://mariadb.com/kb/en/error-log/
-
-ita-api-organization
-====================
-
-.. code-block:: 
-  :caption: 形式 
-   
-   [%(asctime)s] [%(levelname)s]  <フリーログ>
-
-.. code-block::
-  :caption: 例   
-   
-   [2023-01-19 12:18:25,940][INFO] AppLog instance(stdAppLogger) is created
-
-.. list-table:: 
-   :widths: 15 15 20 20
-   :header-rows: 1
-   :align: left
-
-   * - | フォーマット文字列
-     - | フォーマットの意味
-     - | ログの例
-     - | 備考
-   * - | %(asctime)s
-     - | 日付
-     - | [2023-01-19 12:18:25,940]
-     - |
-   * - | %(levelname)s
-     - | ログレベル
-     - | INFO
-     - | ERROR, INFO, DEBUG のいずれかが出力される。
-   * - | <フリーログ>
-     - | 決まったフォーマットはなし
-     - | AppLog instance(stdAppLogger) is created
-     - | ログによって形式が異なります。
-
-ita-api-admin
-=============
-
-.. code-block:: 
-  :caption: 形式
-
-  [%(asctime)s] [%(levelname)s] [%(userid)s] <フリーログ>
-
-.. code-block:: 
-  :caption: 例
-  
-  [2023-01-05 18:05:22,875][INFO] [USER_ID:efb59f05-6f31-47d6-b28e-0f9ee236534e] [ts=2023-01-05T09:05:22.756Z][api-start]url: POST:http://ita-api-admin:8070/api/organizations/org1/ita/
-
-.. list-table:: 
-   :widths: 15 15 20 20
-   :header-rows: 1
-   :align: left
-
-   * - | フォーマット文字列
-     - | フォーマットの意味
-     - | ログの例
-     - | 備考
-   * - | [%(asctime)s]
-     - | 日付
-     - | [2023-01-05 18:05:22,875]
-     - |
-   * - | [%(levelname)s]
-     - | ログレベル
-     - | [INFO]
-     - | 
-   * - | [%(userid)s]
-     - | ユーザーID
-     - | [USER_ID:efb59f05-6f31-47d6-b28e-0f9ee236534e]
-     - |
-   * - | <フリーログ>
-     - | 決まったフォーマットはなし
-     - | [ts=2023-01-05T09:05:22.756Z][api-start]url: POST:http://ita-api-admin:8070/api/organizations/org1/ita/
-     - | ログによって形式が異なります。

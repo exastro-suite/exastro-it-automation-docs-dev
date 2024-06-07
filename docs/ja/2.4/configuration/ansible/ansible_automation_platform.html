@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -239,7 +248,7 @@
 <div class="line">Ansible Core による構成を行う場合は、<a class="reference internal" href="ansible_core.html"><span class="doc">Ansible Core</span></a> を参照してください。</div>
 <div class="line"><br /></div>
 <div class="line">ITA Ansible driver を利用するにあたっては、Exastro IT Automation がインストール済みであることが前提です。</div>
-<div class="line">Exastro IT Automation のインストール方法に関しては、 <a class="reference internal" href="../../installation/helm_on_kubernetes.html"><span class="doc">Helm chart (Kubernetes)</span></a> を参照してください。</div>
+<div class="line">Exastro IT Automation のインストール方法に関しては、 <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Exastro on Kubernetes - Online</span></a> を参照してください。</div>
 </div>
 </section>
 <section id="id2">
@@ -485,7 +494,7 @@
 <section id="id4">
 <h2><span class="section-number">2.3. </span>システム要件<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
-<div class="line">Ansible driver はITAシステムのシステム要件に準拠するため、 <a class="reference internal" href="../../installation/helm_on_kubernetes.html"><span class="doc">Helm chart (Kubernetes)</span></a> を参照してください。</div>
+<div class="line">Ansible driver はITAシステムのシステム要件に準拠するため、 <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Exastro on Kubernetes - Online</span></a> を参照してください。</div>
 <div class="line">ここでは Ansible Automation Platform の要件を記載します。</div>
 </div>
 <table class="docutils align-center" id="id24">
@@ -656,7 +665,7 @@
 <div class="line">連携先の Git リポジトリは、Ansible driverのバックヤード機能がインストールされているホストに作成されます。</div>
 <div class="line">Ansible Automation Platformから、この Git リポジトリにssh鍵認証で接続する Linux ユーザーを準備してください。</div>
 <div class="line"><br /></div>
-<div class="line">ユーザーを作成操作可能なアクセストークンが必要となります。設定方法は <a class="reference internal" href="../../installation/helm_on_kubernetes.html#installation-kubernetes-gitlablinkage"><span class="std std-ref">GitLab 連携設定</span></a> を参照してください。</div>
+<div class="line">ユーザーを作成操作可能なアクセストークンが必要となります。設定方法は <a class="reference internal" href="../../installation/online/exastro/kubernetes.html#installation-kubernetes-gitlablinkage"><span class="std std-ref">GitLab 連携設定</span></a> を参照してください。</div>
 </div>
 <table class="docutils align-left" id="id28">
 <caption><span class="caption-number">表 2.7 </span><span class="caption-text">ITA インストール時に生成される SSH 鍵認証用 Linux ユーザー情報</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>

@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -189,22 +198,40 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>exastro-platform.keycloak.resources.requests.memory</p></td>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">exastro-platform.keycloak.extraEnv.KC_DB_URL_PROPERTIES</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">拡張環境変数</div>
+<div class="line">Azure MySQLを利用する場合は、&quot;?useSSL=false&quot; を追加することで利用可能となります</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">可</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">なし</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>exastro-platform.keycloak.resources.requests.memory</p></td>
 <td><p>メモリ要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;256Mi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.keycloak.resources.requests.cpu</p></td>
+<tr class="row-even"><td><p>exastro-platform.keycloak.resources.requests.cpu</p></td>
 <td><p>CPU要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;1m&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>exastro-platform.keycloak.resources.limits.memory</p></td>
+<tr class="row-odd"><td><p>exastro-platform.keycloak.resources.limits.memory</p></td>
 <td><p>メモリ上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;2Gi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.keycloak.resources.limits.cpu</p></td>
+<tr class="row-even"><td><p>exastro-platform.keycloak.resources.limits.cpu</p></td>
 <td><p>CPU上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;4&quot;</p></td>

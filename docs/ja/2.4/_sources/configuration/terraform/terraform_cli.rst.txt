@@ -9,7 +9,7 @@ Terraform CLI
 | Exastro IT Automation（以下、ITAとも記載する）で Terraform CLI 連携機能 (以下、Terraform CLI driver) として運用する為のシステム構成と環境構築について説明します。
 |
 | Terraform CLI driver を利用するにあたっては、Exastro IT Automation がインストール済みであることが前提です。
-| Exastro IT Automation のインストール方法に関しては、:doc:`../../installation/helm_on_kubernetes` を参照してください。
+| Exastro IT Automation のインストール方法に関しては、:doc:`../../installation/online/exastro/kubernetes` を参照してください。
 
 
 システム構成
@@ -59,4 +59,4 @@ Terraform CLI
 システム要件
 ============
 
-| Terraform CLI driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`../../installation/helm_on_kubernetes` を参照してください。
+| Terraform CLI driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`../../installation/online/exastro/kubernetes` を参照してください。

@@ -7,4 +7,5 @@ Kubernetes
    :numbered: 3
 
    overview
+   kubernetes
    aks
