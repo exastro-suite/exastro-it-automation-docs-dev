@@ -32,7 +32,7 @@
 - ita-web-server
 
 .. warning::
-  | ProbeはKubernetesの機能であるため、:doc:`Kubernetesを用いたインストール<../../installation/helm_on_kubernetes>` をした場合のみ利用可能です。
+  | ProbeはKubernetesの機能であるため、:doc:`Kubernetesを用いたインストール<../../installation/online/exastro/kubernetes>` をした場合のみ利用可能です。
 
 | ProbeはStartup Probe, Liveness Probe, Readiness Probeの3種類があります。
 | 各コンテナは自身のヘルスチェック用のエンドポイントにHTTP GETリクエストを10秒毎に行います。

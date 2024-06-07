@@ -11,7 +11,7 @@ Ansible Automation Platform
 | Ansible Core による構成を行う場合は、:doc:`./ansible_core` を参照してください。
 | 
 | ITA Ansible driver を利用するにあたっては、Exastro IT Automation がインストール済みであることが前提です。
-| Exastro IT Automation のインストール方法に関しては、 :doc:`../../installation/helm_on_kubernetes` を参照してください。
+| Exastro IT Automation のインストール方法に関しては、 :doc:`../../installation/online/exastro/kubernetes` を参照してください。
 
 
 
@@ -177,7 +177,7 @@ Ansible Automation Platform
 システム要件
 ============
 
-| Ansible driver はITAシステムのシステム要件に準拠するため、 :doc:`../../installation/helm_on_kubernetes` を参照してください。
+| Ansible driver はITAシステムのシステム要件に準拠するため、 :doc:`../../installation/online/exastro/kubernetes` を参照してください。
 | ここでは Ansible Automation Platform の要件を記載します。
 
 ..  include:: ../../include/aap_versions.rst

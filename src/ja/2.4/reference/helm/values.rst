@@ -34,6 +34,11 @@ Exastro Platform
 
 .. include:: ../../include/helm_option_databaseDefinition.rst
 
+共通設定 (Proxy設定)
+--------------------
+
+.. include:: ../../include/helm_option_proxyDefinition.rst
+
 Exastro Platform API 機能
 -------------------------
 

@@ -16,7 +16,7 @@ Exastro IT Automation Documentation 2.4
    manuals/index
    templates/index
    reference/index
-   contribute/index   
+   contribute/index
 
 .. raw:: html
 

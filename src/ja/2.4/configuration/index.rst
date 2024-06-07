@@ -14,6 +14,7 @@
    ansible/index
    terraform/index
    logging/index
+   .. best_practices/index
 
 .. raw:: html
 
