@@ -86,35 +86,8 @@
 事前準備
 --------
 
-| GitHub リポジトリから取得した資材の中にある、シェルスクリプトを実行しオーガナイゼーションを作成します。
-| confファイルは、各種設定・取得シェルで使用します。
-
-#. | オーガナイゼーション作成用シェルスクリプトを、リポジトリから :kbd:`git clone` により取得します。
-
-   .. code-block:: bash
-
-      # Exastro Platform の資材を入手
-      git clone https://github.com/exastro-suite/exastro-platform.git
-
-
-#. | 取得した資材のtoolsフォルダに移動し、オーガナイゼーション作成用シェルスクリプト内のAPI実行先URLを、システム管理者用サイトアドレスに変更します。
-
-   .. code-block:: bash
-
-      vi api-auth.conf
-
-   | 変更箇所
-
-   - | api-auth.conf
-
-     .. code-block:: bash
-        
-        CONF_BASE_URL={システム管理者用サイトアドレス}
-        CURL_OPT=-svk
-
-     .. tip::
-         | 自己証明書を利用している場合、証明書エラーが発生します。
-         | 設定ファイル内の :kbd:`CURL_OPT=-sv` を :kbd:`CURL_OPT=-svk` に変更することで証明書エラーを回避できますが、認証機関から発行された正しい証明書をインストールすることを推奨します。
+| オーガナイゼーションの作成を行います。
+| オーガナイゼーションの詳細については、 :doc:`../../../manuals/platform_management/organization` を参照してください。
 
 .. note::
 
