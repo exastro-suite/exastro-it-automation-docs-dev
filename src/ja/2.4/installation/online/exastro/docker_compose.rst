@@ -360,37 +360,8 @@ Exastro on Docker Compose - Online
 | 再起動後に再度ログインをしたら、オーガナイゼーションの作成を行います。
 | オーガナイゼーションの詳細については、 :doc:`../../../manuals/platform_management/organization` を参照してください。
 
-.. code-block:: shell
-   :caption: Organization の作成
-
-   bash /home/test_user/exastro-docker-compose/create-organization.sh 
-
-| 対話型スクリプトが実行されるので、必要な情報を登録してください。
-
-.. code-block:: shell
-   :caption: Organization の作成結果
-
-   {
-     "data": null,
-     "message": "SUCCESS",
-     "result": "000-00000",
-     "ts": "2023-09-07T14:37:17.832Z"
-   }
-
-   Organization page:
-     URL:                http://ita.example.com:30080/your-org/platform/
-     User:               admin
-     Password:           *********
-
-| :command:`SUCCESS` と表示されたら成功ですが、失敗した場合は :command:`--retry` オプションを追加し、5分程度時間を空けてから再登録してください。
-
 .. tip:: 
-   | GitLab 連携時に、GitLab が完全に立ち上がっていない状態では、オーガナイゼーションの作成はできません。
-
-.. code-block:: shell
-   :caption: Organization の再作成
-
-   bash /home/test_user/exastro-docker-compose/create-organization.sh --retry
+   | GitLab が完全に立ち上がっていない状態では、オーガナイゼーションの作成はできません。
 
 ワークスペースの作成
 ====================
