@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>11. OASEを設定する際の事前設計について &#8212; Documentation  ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/jquery-3.6.3.min.js"></script>
+    <script src="../../_static/exastro_documents.js"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" /> 
+  </head>
+<body id="page" class="ja">
+
+
+<div id="container">
+
+<div id="header">
+  <header class="divInner">
+    <!-- Exastro logo -->
+    <div id="logo"><a href="https://ita.exastro.org/"><img src="../../_static/img/exastro.svg" alt="Exastro"></a></div>
+    <!-- Project name -->
+    <div id="projectName"><a href="../../index.html">Documentation</a></div>
+    <!-- Heaedr navigation -->
+    <div id="headerSearch">
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" aria-labelledby="searchlabel">
+        <button type="submit" value="検索"><img src="../../_static/img/search.png" alt="検索"></button>
+      </form>
+    </div>
+  </header>
+</div><!-- End #header -->
+
+
+<div id="toolbar">
+  <div class="divInner">
+    
+    <div id="documentVersion">
+      <dl>
+        <dt>Document version</dt>
+        <dd>
+          <div>
+            <select name="version" onchange="location.href=value;">
+              <option value="../../../../ja/2.4/learn/oase/OASE_master_design.html" selected>current</option>
+              <option value="../../../../ja/2.4/learn/oase/OASE_master_design.html" selected>2.4(current)</option>
+              <option value="../../../../ja/2.3/learn/oase/OASE_master_design.html">2.3</option>
+              <option value="../../../../ja/2.2/learn/oase/OASE_master_design.html">2.2</option>
+              <option value="../../../../ja/2.1/learn/oase/OASE_master_design.html">2.1</option>
+              <option value="../../../../ja/2.0/learn/oase/OASE_master_design.html">2.0</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="documentLanguage">
+      <dl>
+        <dt>Language</dt>
+        <dd>
+          <div>
+            <select name="lang" onchange="location.href=value;">
+              <option value="../../../../ja/2.4/learn/oase/OASE_master_design.html" selected>日本語</option>
+              <option value="../../../../en/2.4/learn/oase/OASE_master_design.html">English</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div id="toolbarNavigation">
+      <ul>
+      </ul>
+    </div>
+  </div>
+</div><!-- End #toolbar -->
+
+<div id="sideMenu">
+
+  <div id="menuButton"></div>
+  
+  <aside class="divInner">
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+</ul>
+
+    <!-- <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">索引</a></li>
+    </ul> -->
+    
+  </aside>
+</div><!-- End #sideMenu -->
+
+
+<div id="tableOfContents">
+  <div id="tocButton"></div>
+  <ul>
+<li><a class="reference internal" href="#">11. OASEを設定する際の事前設計について</a><ul>
+<li><a class="reference internal" href="#id1">11.1. アクション実行の条件の整理</a></li>
+<li><a class="reference internal" href="#id2">11.2. 条件の実現方法と注意点</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+<div id="contents">
+<main class="divInner">
+
+ <div id="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">HOME</a></li>
+    
+    <li><span class="section-number">11. </span>OASEを設定する際の事前設計について</li>
+  </ul>
+</div>
+
+<div id="article">
+<article class="divInner">
+<div class="body" role="main">
+
+  <section id="oase">
+<h1><span class="section-number">11. </span>OASEを設定する際の事前設計について<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">11.1. </span>アクション実行の条件の整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">では具体的な設定について考えてみましょう。</div>
+</div>
+<div class="line-block">
+<div class="line">アクションが実行される状況を見ると、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">インスタンスが何台稼働している状況で、どのような通知が来たか</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">という形で条件づけられているのがわかります。</div>
+</div>
+<div class="line-block">
+<div class="line">つまり、ルールを設定する際の条件となるフィルターは、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">インスタンスが何台稼働しているか</div>
+<div class="line">どのような通知が来たか</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">というものがあればよいことになります。</div>
+</div>
+<div class="line-block">
+<div class="line">ただ、通知が来た時に2つ以上のアクションを行う必要があるパターンもあるので、注意が必要です。</div>
+</div>
+<div class="line-block">
+<div class="line">例えば、インスタンスが1台稼働している状況で、閾値100リクエスト/minを超過したというリクエスト数超過通知が来たら、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">インスタンス1台稼働 + 閾値100リクエスト/min超過  ⇒  インスタンス2台にスケールアウト</div>
+<div class="line">インスタンス2台稼働 + 閾値100リクエスト/min超過  ⇒  インスタンス3台にスケールアウト</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">というスケールアウトをするというアクションが2回実行される必要があります。</div>
+</div>
+<div class="line-block">
+<div class="line">つまり、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">通知が来たことにより実行されるスケールアウト</div>
+<div class="line">スケールアウトしたあとの状況でもリクエスト数がいまだ閾値を超えている場合のスケールアウト</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">というアクションが行われるようにルールを設定してあげればよいことになります。</div>
+</div>
+<div class="line-block">
+<div class="line">以上のように、それぞれのアクションが実行される条件は、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">①  通知内容  +  通知が来る前の状況</div>
+<div class="line">②  通知内容  +  ①のアクションが実行された後の状況</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">で決まることになります。</div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">11.2. </span>条件の実現方法と注意点<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">各状況の把握は、インスタンスが何台稼働しているか、というフィルターで把握可能です。</div>
+<div class="line">通知内容の把握は、どのような通知が来たか、というフィルターで把握可能です。</div>
+</div>
+<div class="line-block">
+<div class="line">ただ、①のルールで通知メールのイベントがフィルタリングされると、②で改めて同じイベントをフィルタリングすることはできません。</div>
+<div class="line">そのため、②で通知内容を参照するには、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で用いた「元イベントのラベル継承」の設定を行う必要があります。</div>
+<div class="line">この設定により、①の結論イベントに元となった通知メールのイベントからラベルを継承することができ、通知内容を②でも把握可能となります。</div>
+</div>
+<div class="line-block">
+<div class="line">ここで注意すべきは、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で見たように「元イベントのラベル継承」の設定をすることでループする場合があるという点です。</div>
+<div class="line">今回の6パターンの設定においては、ループを発生させる必要はなく、ループが発生しないように設定する必要があります。</div>
+</div>
+<div class="line-block">
+<div class="line">今回の6パターンの中では、</div>
+</div>
+<ul class="simple">
+<li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
+</ul>
+<div class="line-block">
+<div class="line">のルールで「元イベントのラベル継承」の設定をするとループが発生してしまいます。</div>
+</div>
+<div class="line-block">
+<div class="line">このパターンでは、アクションの実行結果によって、これまでの状況を示すラベルを更新せず、新しい「Sorry画面への切り替え」を示すラベルが追加されるからです。</div>
+</div>
+<div class="line-block">
+<div class="line">そのため、このルールの条件となっているフィルターに再度フィルタリングされてしまうという意図しないループが無限に発生してしまいます。</div>
+</div>
+<div class="line-block">
+<div class="line">それ以外のパターンのときは、アクション実行後稼働しているインスタンス数が変化するため、そのルールの条件としているインスタンス数とは異なる形になりループはしません。</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line">具体的な設定内容については、<a class="reference internal" href="OASE_master_setting.html"><span class="doc">リクエスト数超過に関するルール設定について</span></a> で確認してみましょう。</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">そのため、</div>
+</div>
+<ul class="simple">
+<li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
+</ul>
+<div class="line-block">
+<div class="line">のルールでは、「元イベントのラベル継承」の設定は行わず、Sorry画面への切り替えを示す結論イベントのラベルを付与する形にしましょう。</div>
+</div>
+<div class="line-block">
+<div class="line">またこの設定に合わせて、</div>
+</div>
+<ul class="simple">
+<li><p>パターン4 インスタンス3台のとき、リクエスト数回復通知:50/100/150</p></li>
+</ul>
+<div class="line-block">
+<div class="line">の通知が来る前の状況把握は、「インスタンス3台のとき」ではなく、「Sorry画面への切り替えが行われているとき」を条件とするように設定しましょう。</div>
+</div>
+<div class="line-block">
+<div class="line">ここまで整理できたら、具体的なOASEの設定を <a class="reference internal" href="OASE_master_setting.html"><span class="doc">リクエスト数超過に関するルール設定について</span></a> でみていきましょう。</div>
+</div>
+</section>
+</section>
+
+
+</div>
+
+
+<div id="articleNavigation">
+  <ul>
+  </ul>
+</div>
+
+
+<div id="pageTopLink">
+  <a href="#container"><i>↑</i> Page Top</a>
+</div>
+
+</article>
+</div>
+</main>
+</div><!-- End #contents -->
+<div id="footer">
+  <footer class="divInner">
+    <small>Copyright © 2019-2023 NEC Corporation</small>
+    <small><a href="/terms/ja.html">サイト規約</a></small>
+  </footer>
+</div><!-- End #footer -->
+
+<div id="overlay"></div>
+<div id="grayBack"></div>
+
+</div><!-- End #container -->
+  </body>
+</html>

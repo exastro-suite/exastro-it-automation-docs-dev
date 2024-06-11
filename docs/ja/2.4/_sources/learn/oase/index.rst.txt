@@ -124,6 +124,9 @@
    OASE_advanced_sorry-switch-back
    OASE_advanced2_sorry-switch-back
    OASE_advanced3_sorry-switch-back.rst
+   OASE_master_index.rst
+   OASE_master_design.rst
+   OASE_master_setting.rst
 
 .. .. raw:: html
 
