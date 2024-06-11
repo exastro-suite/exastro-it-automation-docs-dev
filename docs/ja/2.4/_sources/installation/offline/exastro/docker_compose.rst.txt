@@ -118,9 +118,9 @@ Exastro on Docker Compose - Offline
    * - 種別
      - バージョン
    * - Red Hat Enterprise Linux
-     - バージョン	8
+     - バージョン	9.4
    * - AlmaLinux
-     - バージョン	8
+     - バージョン	8.9
    * - Ubuntu
      - バージョン	22.04
 
@@ -209,7 +209,7 @@ Exastro on Docker Compose - Offline
 ==========
 | オンライン環境での作業完了後に、オフライン環境にてインストールを実施します。
 											
-.. figure:: /images/ja/installation/docker_compose/flow_images.png
+.. figure:: /images/ja/installation/docker_compose/flow_image.png
    :width: 800px
    :alt: フローイメージ
 													
@@ -241,6 +241,9 @@ Exastro on Docker Compose - Offline
 シェルスクリプトを作成する		
 --------------------------
 | コンテナイメージをダウンロードするシェルスクリプトを作成します。
+| save.shの「["Exastro IT Automation App Version"]="Exastro Platform App Version"」は必要に応じて書き換えてください。
+| また、ITAのバージョンとPFのバージョンの互換は下記を参照してください。
+| https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version
 
 .. code-block:: shell
    :caption: コマンド
@@ -307,9 +310,6 @@ Exastro on Docker Compose - Offline
      ["2.2.1"]="1.6.0"
      ["2.3.0"]="1.7.0"
      ["2.4.0"]="1.8.0"
-     ["alpha.2499a9.20240328-232349"]="alpha.d718ac.20240325-152726"
-     ["alpha.545f6a.20240403-232818"]="alpha.d718ac.20240325-152726"
-     ["alpha.03f9ca.20240406-214252"]="alpha.d718ac.20240325-152726"
    )
    if [ ! -d $1 ]; then
      mkdir $ITA_VERSION
@@ -333,7 +333,7 @@ Exastro on Docker Compose - Offline
 シェルスクリプトを実行する	
 --------------------------
 
-|	シェルスクリプトを実行しコンテナイメージをダウンロードします。	
+|	シェルスクリプトを実行しコンテナイメージをダウンロードします。	引数にはITAのバージョンを指定します。	
 
 .. code-block:: shell
    :caption: コマンド
@@ -358,6 +358,9 @@ RPMパッケージをダウンロードする
       .. code-block:: shell
          :caption: コマンド
 
+         #現在のOSのバージョンを確認します
+         cat /etc/os-release
+         #--releasever=x.xは上記で得られたバージョンを指定します
          sudo dnf install -y --downloadonly --downloaddir=/tmp/docker-repo --installroot=/tmp/docker-installroot --releasever=8.9 git			
            
       .. note::
@@ -407,6 +410,9 @@ RPMパッケージをダウンロードする
       .. code-block:: shell
          :caption: コマンド
 	
+         #現在のOSのバージョンを確認します
+         cat /etc/os-release
+         #--releasever=x.xは上記で得られたバージョンを指定します
          sudo dnf install -y --downloadonly --downloaddir=/tmp/podman-repo --installroot=/tmp/podman-installroot --releasever=9.4 git
          sudo dnf install -y --downloadonly --downloaddir=/tmp/podman-repo --installroot=/tmp/podman-installroot --releasever=9.4 podman
          sudo dnf install -y --downloadonly --downloaddir=/tmp/podman-repo --installroot=/tmp/podman-installroot --releasever=9.4 podman-docker
@@ -456,7 +462,7 @@ Exastroリソースのダウンロード
 Exastroリソースをダウンロードする
 ---------------------------------
 
-|	docker-compose版Exastroのリソースをダウンロードします。	
+|	docker-compose版Exastroのリソースをダウンロードします。	x.x.xにはsave.sh実行時に指定した引数を指定します。
 
 .. tabs::
 
@@ -467,8 +473,7 @@ Exastroリソースをダウンロードする
          :caption: コマンド
 
          cd /tmp														
-         curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip	
-         unzip main.zip && mv exastro-docker-compose-main exastro-docker-compose	
+         curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/refs/tags/x.x.x.tar.gz
  
 
    .. group-tab:: podman
@@ -478,14 +483,14 @@ Exastroリソースをダウンロードする
          :caption: コマンド
 
          cd /tmp														
-         curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip	
-         unzip main.zip && mv exastro-docker-compose-main exastro-docker-compose	
+         curl -OL https://github.com/exastro-suite/exastro-docker-compose/archive/refs/tags/x.x.x.tar.gz
                     
 
 資材の転送	
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-| オンライン環境で収集した資材をFTP、SCP、SFTP等でオフライン環境に転送します。
+| オンライン環境で収集した資材をFTP、SCP、SFTP、記憶媒体等でオフライン環境に転送します。
 | 資材は下記のディレクトリに配置します。
+| /usr/local/bin/docker-composeはディレクトリを作成し、実行権限を付与する必要があります。
 
 - コンテナイメージ:任意のディレクトリ
 - RPMパッケージ:オンライン環境でのダウンロード時に指定したディレクトリ
@@ -624,6 +629,9 @@ RPMパッケージをインストールする
 --------------------------
 
 | コンテナイメージをアップロードするシェルスクリプトを作成します。
+| ["Exastro IT Automation App Version"]="Exastro Platform App Version"は必要に応じて書き換えてください。
+| また、ITAのバージョンとPFのバージョンの互換は下記を参照してください。
+| https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version
 
 .. code-block:: shell
    :linenos:
@@ -640,8 +648,6 @@ RPMパッケージをインストールする
      ["2.2.1"]="1.6.0"
      ["2.3.0"]="1.7.0"
      ["2.4.0"]="1.8.0"
-     ["alpha.2499a9.20240328-232349"]="alpha.d718ac.20240325-152726"
-     ["alpha.03f9ca.20240406-214252"]="alpha.d718ac.20240325-152726"
    )
     
    readarray -t image_list < "./image.list"
@@ -662,7 +668,7 @@ RPMパッケージをインストールする
 シェルスクリプトを実行する						
 --------------------------
 
-|	コンテナイメージを実行します。			
+|	コンテナイメージを実行します。	引数はsave.sh実行時に指定したITAのバージョンを指定します。		
 
 .. code-block:: shell
    :caption: コマンド		
@@ -676,7 +682,7 @@ Exastroリソースのインストール
 Exastroリソースを取得する		
 -------------------------
 
-| docker-compose版Exastroのリソースを、一般ユーザーのホームディレクトリ直下に格納します。				
+| docker-compose版Exastroのリソースを一般ユーザーのホームディレクトリ直下に格納し、ディレクトリ名をexastro-docker-composeに変更します。				
 | エラーが起きた際の対応については後述します。	
 
 .. tabs::
