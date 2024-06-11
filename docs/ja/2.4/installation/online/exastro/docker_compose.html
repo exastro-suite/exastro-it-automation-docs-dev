@@ -712,44 +712,10 @@ Reboot<span class="w"> </span>now?<span class="w"> </span><span class="o">(</spa
 <div class="line">再起動後に再度ログインをしたら、オーガナイゼーションの作成を行います。</div>
 <div class="line">オーガナイゼーションの詳細については、 <a class="reference internal" href="../../../manuals/platform_management/organization.html"><span class="doc">Organization (オーガナイゼーション)</span></a> を参照してください。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-number">リスト 116 </span><span class="caption-text">Organization の作成</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>/home/test_user/exastro-docker-compose/create-organization.sh
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">対話型スクリプトが実行されるので、必要な情報を登録してください。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 117 </span><span class="caption-text">Organization の作成結果</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span>null,
-<span class="w">  </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;result&quot;</span>:<span class="w"> </span><span class="s2">&quot;000-00000&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;ts&quot;</span>:<span class="w"> </span><span class="s2">&quot;2023-09-07T14:37:17.832Z&quot;</span>
-<span class="o">}</span>
-
-Organization<span class="w"> </span>page:
-<span class="w">  </span>URL:<span class="w">                </span>http://ita.example.com:30080/your-org/platform/
-<span class="w">  </span>User:<span class="w">               </span>admin
-<span class="w">  </span>Password:<span class="w">           </span>*********
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line"><strong class="command">SUCCESS</strong> と表示されたら成功ですが、失敗した場合は <strong class="command">--retry</strong> オプションを追加し、5分程度時間を空けてから再登録してください。</div>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
-<div class="line">GitLab 連携時に、GitLab が完全に立ち上がっていない状態では、オーガナイゼーションの作成はできません。</div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 118 </span><span class="caption-text">Organization の再作成</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>/home/test_user/exastro-docker-compose/create-organization.sh<span class="w"> </span>--retry
-</pre></div>
+<div class="line">GitLab が完全に立ち上がっていない状態では、オーガナイゼーションの作成はできません。</div>
 </div>
 </div>
 </section>
@@ -786,8 +752,8 @@ Organization<span class="w"> </span>page:
 <div class="line-block">
 <div class="line">exastro-docker-composeリポジトリを更新します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 119 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id41">
+<div class="code-block-caption"><span class="caption-number">リスト 116 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># exastro-docker-composeリポジトリの確認</span>
 <span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 <span class="linenos">3</span>git<span class="w"> </span>pull
@@ -801,8 +767,8 @@ Organization<span class="w"> </span>page:
 <div class="line">デフォルト値の更新を確認します。</div>
 <div class="line">インストール時に作成した設定ファイル <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> とアップグレード後の設定ファイルを比較します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 120 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id42">
+<div class="code-block-caption"><span class="caption-number">リスト 117 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 <span class="c1"># OSがAlmaLinuxまたはUbuntuの場合</span>
@@ -828,8 +794,8 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line-block">
 <div class="line">アップグレードを実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 121 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id43">
+<div class="code-block-caption"><span class="caption-number">リスト 118 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>install
 </pre></div>
 </div>
@@ -859,8 +825,8 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line-block">
 <div class="line">コンテナイメージも削除されます。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 122 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id44">
+<div class="code-block-caption"><span class="caption-number">リスト 119 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>remove<span class="w"> </span>-c
 </pre></div>
 </div>
@@ -870,8 +836,8 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <span id="id19"></span><h4>コンテナイメージを残す場合<a class="headerlink" href="#docker-compose-uninstall-container" title="この見出しへのパーマリンク">¶</a></h4>
 <section id="id20">
 <h5>コンテナ削除<a class="headerlink" href="#id20" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 123 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-number">リスト 120 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>remove
 </pre></div>
 </div>
@@ -879,8 +845,8 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 </section>
 <section id="volume">
 <h5>volumeを削除<a class="headerlink" href="#volume" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 124 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-number">リスト 121 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span>-qf<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="k">)</span>
 
 <span class="c1"># volumeが消えていることを確認</span>
@@ -891,8 +857,8 @@ docker<span class="w"> </span>volume<span class="w"> </span>ls
 </section>
 <section id="volumes">
 <h5>.volumesを削除<a class="headerlink" href="#volumes" title="この見出しへのパーマリンク">¶</a></h5>
-<div class="literal-block-wrapper docutils container" id="id50">
-<div class="code-block-caption"><span class="caption-number">リスト 125 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-number">リスト 122 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>.volumes
@@ -908,8 +874,8 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 <div class="line">再インストールする場合は下記を実施してください。</div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id51">
-<div class="code-block-caption"><span class="caption-number">リスト 126 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id51" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id48">
+<div class="code-block-caption"><span class="caption-number">リスト 123 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 git<span class="w"> </span>checkout<span class="w"> </span>.volumes
