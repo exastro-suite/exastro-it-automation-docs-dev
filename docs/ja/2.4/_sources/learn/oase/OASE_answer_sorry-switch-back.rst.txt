@@ -260,6 +260,7 @@ OASEエージェントの設定
 
 .. tip::
    | `*` の部分は、各自の情報を入力してください。
+   | 「EXASTRO_USERNAME」と「EXASTRO_PASSWORD」は、ワークスペースのものになります。
    | 各項目の詳細は、下記のページを参照ください。
    | https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow
 
@@ -268,12 +269,15 @@ OASEエージェントの設定
 
 | 次のコマンドを使い、コンテナを起動してみましょう。
 
+.. Warning::
+  | UIDが1000以外のユーザで実行する場合は、「chown -R 1000:1000 保存先のボリュームのパス」を実行してください。
+
 .. code-block:: shell
    :caption: docker コマンドを利用する場合(Docker環境)
 
    docker compose up -d  --wait  
 
-| 状態が`Helthy`になっていることを確認します。
+| 状態が `Helthy` になっていることを確認します。
 
 | 正常に接続できているか、以下のコマンドでLogの確認をします。
 
@@ -468,7 +472,7 @@ OASEエージェントの設定
    :alt: イベントフロー_ルール2
 
 .. list-table:: ルールの設定値
-   :widths: 10 20 20 10 15 20 15 25 20 10 20 5
+   :widths: 7 20 20 10 15 20 20 20 25 10 20 5
    :header-rows: 3
 
    * - 有効

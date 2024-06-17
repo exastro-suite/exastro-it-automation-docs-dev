@@ -569,6 +569,7 @@
 <p class="admonition-title">Tip</p>
 <div class="line-block">
 <div class="line"><cite>*</cite> の部分は、各自の情報を入力してください。</div>
+<div class="line">「EXASTRO_USERNAME」と「EXASTRO_PASSWORD」は、ワークスペースのものになります。</div>
 <div class="line">各項目の詳細は、下記のページを参照ください。</div>
 <div class="line"><a class="reference external" href="https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow">https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow</a></div>
 </div>
@@ -579,6 +580,12 @@
 <div class="line-block">
 <div class="line">次のコマンドを使い、コンテナを起動してみましょう。</div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">UIDが1000以外のユーザで実行する場合は、「chown -R 1000:1000 保存先のボリュームのパス」を実行してください。</div>
+</div>
+</div>
 <div class="literal-block-wrapper docutils container" id="id20">
 <div class="code-block-caption"><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
@@ -586,7 +593,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line">状態が`Helthy`になっていることを確認します。</div>
+<div class="line">状態が <cite>Helthy</cite> になっていることを確認します。</div>
 </div>
 <div class="line-block">
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
@@ -874,17 +881,17 @@
 <table class="docutils align-default" id="id26">
 <caption><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 5.3%" />
-<col style="width: 10.5%" />
-<col style="width: 10.5%" />
-<col style="width: 5.3%" />
-<col style="width: 7.9%" />
-<col style="width: 10.5%" />
-<col style="width: 7.9%" />
-<col style="width: 13.2%" />
-<col style="width: 10.5%" />
-<col style="width: 5.3%" />
-<col style="width: 10.5%" />
+<col style="width: 3.6%" />
+<col style="width: 10.4%" />
+<col style="width: 10.4%" />
+<col style="width: 5.2%" />
+<col style="width: 7.8%" />
+<col style="width: 10.4%" />
+<col style="width: 10.4%" />
+<col style="width: 10.4%" />
+<col style="width: 13.0%" />
+<col style="width: 5.2%" />
+<col style="width: 10.4%" />
 <col style="width: 2.6%" />
 </colgroup>
 <thead>

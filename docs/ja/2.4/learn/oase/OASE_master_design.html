@@ -235,15 +235,15 @@
 <div class="line">通知内容の把握は、どのような通知が来たか、というフィルターで把握可能です。</div>
 </div>
 <div class="line-block">
-<div class="line">ただ、①のルールで通知メールのイベントがフィルタリングされると、②で改めて同じイベントをフィルタリングすることはできません。</div>
+<div class="line">これらのフィルターを条件としたルールを作成しますが、①のルールで通知メールのイベントがフィルタリングされると、</div>
+<div class="line">②で改めて同じイベントをフィルタリングすることはできません。</div>
+</div>
+<div class="line-block">
 <div class="line">そのため、②で通知内容を参照するには、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で用いた「元イベントのラベル継承」の設定を行う必要があります。</div>
 <div class="line">この設定により、①の結論イベントに元となった通知メールのイベントからラベルを継承することができ、通知内容を②でも把握可能となります。</div>
 </div>
 <div class="line-block">
 <div class="line">ここで注意すべきは、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で見たように「元イベントのラベル継承」の設定をすることでループする場合があるという点です。</div>
-<div class="line">今回の6パターンの設定においては、ループを発生させる必要はなく、ループが発生しないように設定する必要があります。</div>
-</div>
-<div class="line-block">
 <div class="line">今回の6パターンの中では、</div>
 </div>
 <ul class="simple">
@@ -253,10 +253,34 @@
 <div class="line">のルールで「元イベントのラベル継承」の設定をするとループが発生してしまいます。</div>
 </div>
 <div class="line-block">
-<div class="line">このパターンでは、アクションの実行結果によって、これまでの状況を示すラベルを更新せず、新しい「Sorry画面への切り替え」を示すラベルが追加されるからです。</div>
+<div class="line">このパターンでは、アクションの実行結果によってこれまでの稼働しているインスタンス数を示すラベルを更新せず、</div>
+<div class="line">新しい「Sorry画面への切り替え」を示すラベルが追加されるからです。</div>
 </div>
 <div class="line-block">
-<div class="line">そのため、このルールの条件となっているフィルターに再度フィルタリングされてしまうという意図しないループが無限に発生してしまいます。</div>
+<div class="line">そのため、結論イベントに付与されるラベルは、元イベントに付与されていた、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">稼働しているインスタンス数が3台であることを示すラベル</div>
+<div class="line">リクエスト数超過通知:150という通知内容を示すラベル</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">と、新たに追加される</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">「Sorry画面への切り替え」を示すラベル</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">となり、元イベントから継承されたラベルをもとに、</div>
+</div>
+<div class="line-block">
+<div class="line">このルールの条件となっているフィルターに再度フィルタリングされてしまう</div>
+</div>
+<div class="line-block">
+<div class="line">という意図しないループが無限に発生してしまいます。</div>
 </div>
 <div class="line-block">
 <div class="line">それ以外のパターンのときは、アクション実行後稼働しているインスタンス数が変化するため、そのルールの条件としているインスタンス数とは異なる形になりループはしません。</div>
@@ -264,7 +288,7 @@
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <div class="line-block">
-<div class="line">具体的な設定内容については、<a class="reference internal" href="OASE_master_setting.html"><span class="doc">リクエスト数超過に関するルール設定について</span></a> で確認してみましょう。</div>
+<div class="line">具体的な設定内容については、<a class="reference internal" href="OASE_master_setting.html"><span class="doc">ルール設定について</span></a> で確認してみましょう。</div>
 </div>
 </div>
 <div class="line-block">
@@ -274,7 +298,7 @@
 <li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
 </ul>
 <div class="line-block">
-<div class="line">のルールでは、「元イベントのラベル継承」の設定は行わず、Sorry画面への切り替えを示す結論イベントのラベルを付与する形にしましょう。</div>
+<div class="line">のルールでは、「元イベントのラベル継承」の設定は行わず、Sorry画面への切り替えを示す結論イベントのラベルを付与する形にします。</div>
 </div>
 <div class="line-block">
 <div class="line">またこの設定に合わせて、</div>
@@ -286,7 +310,7 @@
 <div class="line">の通知が来る前の状況把握は、「インスタンス3台のとき」ではなく、「Sorry画面への切り替えが行われているとき」を条件とするように設定しましょう。</div>
 </div>
 <div class="line-block">
-<div class="line">ここまで整理できたら、具体的なOASEの設定を <a class="reference internal" href="OASE_master_setting.html"><span class="doc">リクエスト数超過に関するルール設定について</span></a> でみていきましょう。</div>
+<div class="line">ここまで整理できたら、具体的なOASEの設定を <a class="reference internal" href="OASE_master_setting.html"><span class="doc">ルール設定について</span></a> でみていきましょう。</div>
 </div>
 </section>
 </section>

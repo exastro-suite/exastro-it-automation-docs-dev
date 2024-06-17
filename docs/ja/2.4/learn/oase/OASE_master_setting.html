@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>12. リクエスト数超過に関するルール設定について &#8212; Documentation  ドキュメント</title>
+    <title>12. ルール設定について &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">12. リクエスト数超過に関するルール設定について</a><ul>
+<li><a class="reference internal" href="#">12. ルール設定について</a><ul>
 <li><a class="reference internal" href="#id2">12.1. イベント収集設定</a><ul>
 <li><a class="reference internal" href="#id3">12.1.1. イベント収集設定</a></li>
 </ul>
@@ -153,7 +153,7 @@
 <li><a class="reference internal" href="#id10">12.4.2. フィルターの設定ポイント</a></li>
 <li><a class="reference internal" href="#id11">12.4.3. アクションの設定</a></li>
 <li><a class="reference internal" href="#id12">12.4.4. ルールの設定</a></li>
-<li><a class="reference internal" href="#id13">12.4.5. フィルターの設定ポイント</a></li>
+<li><a class="reference internal" href="#id13">12.4.5. ルールの設定ポイント</a></li>
 <li><a class="reference internal" href="#id14">12.4.6. 結果の確認</a></li>
 </ul>
 </li>
@@ -171,7 +171,7 @@
   <ul>
     <li><a href="../../index.html">HOME</a></li>
     
-    <li><span class="section-number">12. </span>リクエスト数超過に関するルール設定について</li>
+    <li><span class="section-number">12. </span>ルール設定について</li>
   </ul>
 </div>
 
@@ -180,7 +180,7 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">12. </span>リクエスト数超過に関するルール設定について<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">12. </span>ルール設定について<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
 <div class="line-block">
 <div class="line">では、これまでの検討を踏まえて、具体的に以下の順にOASEの設定を行っていきましょう。</div>
 </div>
@@ -612,32 +612,32 @@
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_通知</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_通知</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数超過&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;_exastro_type&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;≠&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;conclusion&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_閾値50以外</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_閾値50以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;requestcount&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;≠&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;50&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数超過&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_閾値150</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_閾値150</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;requestcount&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;150&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数超過&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_通知</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_通知</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数回復&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;_exastro_type&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;≠&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;conclusion&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_閾値150以外</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_閾値150以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;requestcount&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;≠&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;150&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数回復&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_閾値50</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_閾値50</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;requestcount&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;50&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;subject&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;リクエスト数回復&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
@@ -659,7 +659,7 @@
 <div class="line">それ以外のものは、通知内容を確認するものになります。</div>
 </div>
 </dd>
-<dt>「リクエスト数超過_通知」「リクエスト数回復_通知」について</dt><dd><div class="line-block">
+<dt>「超過_通知」「回復_通知」について</dt><dd><div class="line-block">
 <div class="line">こちらのフィルターは以下のパターンで用います。</div>
 </div>
 <ul class="simple">
@@ -672,7 +672,7 @@
 <div class="line">意図せず、条件にあってしまうことを避けるために設定します。</div>
 </div>
 </dd>
-<dt>「リクエスト数超過_通知」「リクエスト数回復_通知」以外の通知内容を把握するフィルターについて</dt><dd><div class="line-block">
+<dt>「超過_通知」「回復_通知」以外の通知内容を把握するフィルターについて</dt><dd><div class="line-block">
 <div class="line">これらのフィルターでは、</div>
 </div>
 <blockquote>
@@ -721,7 +721,7 @@
 <li><p>パターン6 インスタンス2台のとき、リクエスト数回復通知:50</p></li>
 </ul>
 <div class="line-block">
-<div class="line">の閾値によって条件付けされているパターンに対応するためのものです。</div>
+<div class="line">の閾値によって条件付けされているパターンに対応するためです。</div>
 </div>
 </dd>
 </dl>
@@ -834,18 +834,18 @@
 <table class="docutils align-default" id="id24">
 <caption><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 5.3%" />
-<col style="width: 10.5%" />
-<col style="width: 10.5%" />
-<col style="width: 5.3%" />
-<col style="width: 7.9%" />
-<col style="width: 10.5%" />
-<col style="width: 7.9%" />
-<col style="width: 13.2%" />
-<col style="width: 10.5%" />
-<col style="width: 5.3%" />
-<col style="width: 10.5%" />
-<col style="width: 2.6%" />
+<col style="width: 3.8%" />
+<col style="width: 6.4%" />
+<col style="width: 9.6%" />
+<col style="width: 6.4%" />
+<col style="width: 11.5%" />
+<col style="width: 9.6%" />
+<col style="width: 10.3%" />
+<col style="width: 9.6%" />
+<col style="width: 12.8%" />
+<col style="width: 5.8%" />
+<col style="width: 10.3%" />
+<col style="width: 3.8%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>有効</p></th>
@@ -890,20 +890,12 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数2台へscale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン1</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数2台へscale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">2</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_通知</kbd></p></td>
-<td><dl class="field-list simple">
-<dt class="field-odd">kbd<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</td>
-<td><dl class="field-list simple">
-<dt class="field-odd">kbd<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_通知</kbd></p></td>
+<td></td>
+<td></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -911,10 +903,10 @@
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数3台へscale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン2</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数3台へscale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_閾値50以外</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_閾値50以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">インスタンス数_2台</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
@@ -924,10 +916,10 @@
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">Sorryへ切り替え</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン3</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Sorryへ切り替え</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_閾値150</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">超過_閾値150</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
@@ -937,23 +929,10 @@
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">Sorryへ切り替え</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">Sorryへ切り替え</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数超過_閾値150</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">false</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;sorry&quot;]</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
-</tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">Sorry切り戻し</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン4</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Sorry切り戻し</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_通知</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_通知</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">sorry_switch</kbd>-<kbd class="kbd docutils literal notranslate">back</kbd></kbd></p></td>
@@ -962,11 +941,11 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;normal&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数2台へscale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン5</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数2台へscale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_閾値150以外</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_閾値150以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
@@ -975,11 +954,11 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数1台へscale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">パターン6</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">インスタンス数1台へscale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">リクエスト数回復_閾値50</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">回復_閾値50</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">インスタンス数_2台</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
@@ -995,7 +974,7 @@
 </div>
 </section>
 <section id="id13">
-<h3><span class="section-number">12.4.5. </span>フィルターの設定ポイント<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">12.4.5. </span>ルールの設定ポイント<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
 <dl>
 <dt>ルール名・ルールラベル名について</dt><dd><div class="line-block">
 <div class="line">任意で設定可能です。わかりやすいものを設定しましょう。</div>
@@ -1005,7 +984,7 @@
 <div class="line">パターンの条件に合うフィルターを選択します。</div>
 </div>
 <div class="line-block">
-<div class="line">パターン1では、平常時のインスタンス数1台である状態をOASEのイベントとしては管理していないので、条件は「リクエスト数超過_通知」のみとなります。</div>
+<div class="line">パターン1では、平常時のインスタンス数1台である状態をOASEのイベントとしては管理していないので、条件は「超過_通知」のみとなります。</div>
 <div class="line">リクエスト数超過通知のイベントが発生したときに、前提となる状況を示す結論イベントがなければ、こちらのルールが適用されるように、優先順位を「2」とします。</div>
 </div>
 <div class="line-block">
@@ -1024,21 +1003,24 @@
 <div class="line-block">
 <div class="line">同じキーがフィルターAとフィルターBそれぞれにフィルタリングされるイベントの両方に付与されていた場合、</div>
 <div class="line">フィルターAでフィルタリングされたイベントのラベルの値が継承される仕様のためです。</div>
-<div class="line">通知内容を次のアクションのためにラベルを継承する必要があるので、通知内容を示すイベントのラベルをフィルタリングするフィルターをフィルターAに設定します。</div>
+<div class="line">通知内容を示すラベルが次のアクションのために必要なので、通知内容を示すイベントのラベルをフィルタリングするフィルターをフィルターAに設定します。</div>
 </div>
 </dd>
 <dt>結論ラベルについて</dt><dd><div class="line-block">
 <div class="line">アクションが実行された結果がわかるように、ラベルを付与するよう設定を行います。</div>
 <div class="line">元イベントから継承するラベルの中に結論ラベル設定で設定するキーがある場合は、結論ラベル設定で設定した値が付与される仕様です。</div>
-<div class="line">こちらの仕様を活用して、アクションが実行される前の状況を示すラベルの値を、アクションが実行された後の値に変更するような設定を行います。</div>
+<div class="line">こちらの仕様を活用して、アクションが実行される前の状況を示す値となっているラベルの値を、アクションが実行された後の状況を示す値に更新するように設定を行います。</div>
+<div class="line">これにより、結論イベントがその結論イベントを発生させたルールに再適用されるループの発生を回避することもできます。</div>
 </div>
 </dd>
 <dt>TTLについて</dt><dd><div class="line-block">
 <div class="line">前提となる状況を示す結論イベントが各ルールの条件となるため、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> でも説明したように、</div>
 <div class="line">TTLを通知内容を示すイベントが発生するまで伸ばす必要があります。</div>
-<div class="line">今回は:doc:<cite>OASE_advanced_sorry-switch-back</cite> で提示したTTL切れを防ぐ方法のうち、TTLを長めに設定する方法を採用しました。</div>
+<div class="line">今回は <a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で提示したTTL切れを防ぐ方法のうち、TTLを長めに設定する方法を採用しました。</div>
 <div class="line">もし結論イベントをループさせたい場合は、各ルールで発生する結論イベントにループ用の[&quot;event_status&quot;, &quot;progress&quot;]などを付与し、</div>
 <div class="line">こちらのラベルが付与されたイベントをフィルタリングするフィルターを条件としたルールを追加してください。</div>
+<div class="line">その際に、ループが発生するように「元イベントのラベル継承」をTrueにし、優先順位は「3」としましょう。</div>
+<div class="line">これにより、ほかのルールが適用されなかった場合、このルールが適用されるようになります。</div>
 </div>
 </dd>
 </dl>
