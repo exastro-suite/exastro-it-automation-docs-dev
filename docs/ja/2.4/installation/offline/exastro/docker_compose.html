@@ -366,10 +366,10 @@ $(window).on('load', function () {
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Red Hat Enterprise Linux</p></td>
-<td><p>バージョン    8</p></td>
+<td><p>バージョン    9.4</p></td>
 </tr>
 <tr class="row-odd"><td><p>AlmaLinux</p></td>
-<td><p>バージョン    8</p></td>
+<td><p>バージョン    8.9</p></td>
 </tr>
 <tr class="row-even"><td><p>Ubuntu</p></td>
 <td><p>バージョン    22.04</p></td>
@@ -508,7 +508,7 @@ $(window).on('load', function () {
 <div class="line">オンライン環境での作業完了後に、オフライン環境にてインストールを実施します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/flow_images.png"><img alt="フローイメージ" src="../../../_images/flow_images.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/flow_image.png"><img alt="フローイメージ" src="../../../_images/flow_image.png" style="width: 800px;" /></a>
 </figure>
 <section id="id6">
 <h3>オンライン環境での手順<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
@@ -540,6 +540,9 @@ $(window).on('load', function () {
 <h4>シェルスクリプトを作成する<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
 <div class="line">コンテナイメージをダウンロードするシェルスクリプトを作成します。</div>
+<div class="line">save.shの「[&quot;Exastro IT Automation App Version&quot;]=&quot;Exastro Platform App Version&quot;」は必要に応じて書き換えてください。</div>
+<div class="line">また、ITAのバージョンとPFのバージョンの互換は下記を参照してください。</div>
+<div class="line"><a class="reference external" href="https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version">https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version</a></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id35">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
@@ -607,9 +610,6 @@ docker.io/exastro/exastro-it-automation-by-ansible-agent:#__ITA_VERSION__#
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.2.1&quot;</span><span class="o">]=</span><span class="s2">&quot;1.6.0&quot;</span>
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.3.0&quot;</span><span class="o">]=</span><span class="s2">&quot;1.7.0&quot;</span>
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.4.0&quot;</span><span class="o">]=</span><span class="s2">&quot;1.8.0&quot;</span>
-<span class="w">  </span><span class="o">[</span><span class="s2">&quot;alpha.2499a9.20240328-232349&quot;</span><span class="o">]=</span><span class="s2">&quot;alpha.d718ac.20240325-152726&quot;</span>
-<span class="w">  </span><span class="o">[</span><span class="s2">&quot;alpha.545f6a.20240403-232818&quot;</span><span class="o">]=</span><span class="s2">&quot;alpha.d718ac.20240325-152726&quot;</span>
-<span class="w">  </span><span class="o">[</span><span class="s2">&quot;alpha.03f9ca.20240406-214252&quot;</span><span class="o">]=</span><span class="s2">&quot;alpha.d718ac.20240325-152726&quot;</span>
 <span class="o">)</span>
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">  </span>mkdir<span class="w"> </span><span class="nv">$ITA_VERSION</span>
@@ -635,7 +635,7 @@ readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class
 <section id="id11">
 <h4>シェルスクリプトを実行する<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line">シェルスクリプトを実行しコンテナイメージをダウンロードします。</div>
+<div class="line">シェルスクリプトを実行しコンテナイメージをダウンロードします。 引数にはITAのバージョンを指定します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id39">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク">¶</a></div>
@@ -658,7 +658,10 @@ readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class
 </div>
 <div class="literal-block-wrapper docutils container" id="id40">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/docker-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/docker-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">8</span>.9<span class="w"> </span>git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#現在のOSのバージョンを確認します</span>
+cat<span class="w"> </span>/etc/os-release
+<span class="c1">#--releasever=x.xは上記で得られたバージョンを指定します</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/docker-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/docker-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">8</span>.9<span class="w"> </span>git
 </pre></div>
 </div>
 </div>
@@ -714,7 +717,10 @@ readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/podman-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/podman-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">9</span>.4<span class="w"> </span>git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#現在のOSのバージョンを確認します</span>
+cat<span class="w"> </span>/etc/os-release
+<span class="c1">#--releasever=x.xは上記で得られたバージョンを指定します</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/podman-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/podman-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">9</span>.4<span class="w"> </span>git
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/podman-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/podman-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">9</span>.4<span class="w"> </span>podman
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--downloadonly<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/podman-repo<span class="w"> </span>--installroot<span class="o">=</span>/tmp/podman-installroot<span class="w"> </span>--releasever<span class="o">=</span><span class="m">9</span>.4<span class="w"> </span>podman-docker
 </pre></div>
@@ -775,22 +781,20 @@ sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> <
 <section id="id13">
 <h4>Exastroリソースをダウンロードする<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line">docker-compose版Exastroのリソースをダウンロードします。</div>
+<div class="line">docker-compose版Exastroのリソースをダウンロードします。  x.x.xにはsave.sh実行時に指定した引数を指定します。</div>
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-ZG9ja2Vy" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-ZG9ja2Vy" name="ZG9ja2Vy" role="tab" tabindex="0">docker</button><button aria-controls="panel-1-cG9kbWFu" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-cG9kbWFu" name="cG9kbWFu" role="tab" tabindex="-1">podman</button></div><div aria-labelledby="tab-1-ZG9ja2Vy" class="sphinx-tabs-panel group-tab" id="panel-1-ZG9ja2Vy" name="ZG9ja2Vy" role="tabpanel" tabindex="0"><div class="literal-block-wrapper docutils container" id="id46">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">cd</span><span class="w"> </span>/tmp
-<span class="linenos">2</span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip
-<span class="linenos">3</span>unzip<span class="w"> </span>main.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>exastro-docker-compose-main<span class="w"> </span>exastro-docker-compose
+<span class="linenos">2</span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/exastro-suite/exastro-docker-compose/archive/refs/tags/x.x.x.tar.gz
 </pre></div>
 </div>
 </div>
 </div><div aria-labelledby="tab-1-cG9kbWFu" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-cG9kbWFu" name="cG9kbWFu" role="tabpanel" tabindex="0"><div class="literal-block-wrapper docutils container" id="id47">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">cd</span><span class="w"> </span>/tmp
-<span class="linenos">2</span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/exastro-suite/exastro-docker-compose/archive/main.zip
-<span class="linenos">3</span>unzip<span class="w"> </span>main.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>exastro-docker-compose-main<span class="w"> </span>exastro-docker-compose
+<span class="linenos">2</span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/exastro-suite/exastro-docker-compose/archive/refs/tags/x.x.x.tar.gz
 </pre></div>
 </div>
 </div>
@@ -800,8 +804,9 @@ sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> <
 <section id="id14">
 <h3>資材の転送<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">オンライン環境で収集した資材をFTP、SCP、SFTP等でオフライン環境に転送します。</div>
+<div class="line">オンライン環境で収集した資材をFTP、SCP、SFTP、記憶媒体等でオフライン環境に転送します。</div>
 <div class="line">資材は下記のディレクトリに配置します。</div>
+<div class="line">/usr/local/bin/docker-composeはディレクトリを作成し、実行権限を付与する必要があります。</div>
 </div>
 <ul class="simple">
 <li><p>コンテナイメージ:任意のディレクトリ</p></li>
@@ -947,6 +952,9 @@ Problem:<span class="w"> </span>package<span class="w"> </span>podman-3:4.6.1-8.
 <h4>シェルスクリプトを作成する<a class="headerlink" href="#id19" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
 <div class="line">コンテナイメージをアップロードするシェルスクリプトを作成します。</div>
+<div class="line">[&quot;Exastro IT Automation App Version&quot;]=&quot;Exastro Platform App Version&quot;は必要に応じて書き換えてください。</div>
+<div class="line">また、ITAのバージョンとPFのバージョンの互換は下記を参照してください。</div>
+<div class="line"><a class="reference external" href="https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version">https://github.com/exastro-suite/exastro-helm?tab=readme-ov-file#component-version</a></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id59">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id59" title="このコードへのパーマリンク">¶</a></div>
@@ -962,8 +970,6 @@ Problem:<span class="w"> </span>package<span class="w"> </span>podman-3:4.6.1-8.
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.2.1&quot;</span><span class="o">]=</span><span class="s2">&quot;1.6.0&quot;</span>
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.3.0&quot;</span><span class="o">]=</span><span class="s2">&quot;1.7.0&quot;</span>
 <span class="w">  </span><span class="o">[</span><span class="s2">&quot;2.4.0&quot;</span><span class="o">]=</span><span class="s2">&quot;1.8.0&quot;</span>
-<span class="w">  </span><span class="o">[</span><span class="s2">&quot;alpha.2499a9.20240328-232349&quot;</span><span class="o">]=</span><span class="s2">&quot;alpha.d718ac.20240325-152726&quot;</span>
-<span class="w">  </span><span class="o">[</span><span class="s2">&quot;alpha.03f9ca.20240406-214252&quot;</span><span class="o">]=</span><span class="s2">&quot;alpha.d718ac.20240325-152726&quot;</span>
 <span class="o">)</span>
 
 readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;./image.list&quot;</span>
@@ -986,7 +992,7 @@ readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class
 <section id="id20">
 <h4>シェルスクリプトを実行する<a class="headerlink" href="#id20" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line">コンテナイメージを実行します。</div>
+<div class="line">コンテナイメージを実行します。 引数はsave.sh実行時に指定したITAのバージョンを指定します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id61">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id61" title="このコードへのパーマリンク">¶</a></div>
@@ -1001,7 +1007,7 @@ readarray<span class="w"> </span>-t<span class="w"> </span>image_list<span class
 <section id="id22">
 <h4>Exastroリソースを取得する<a class="headerlink" href="#id22" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line">docker-compose版Exastroのリソースを、一般ユーザーのホームディレクトリ直下に格納します。</div>
+<div class="line">docker-compose版Exastroのリソースを一般ユーザーのホームディレクトリ直下に格納し、ディレクトリ名をexastro-docker-composeに変更します。</div>
 <div class="line">エラーが起きた際の対応については後述します。</div>
 </div>
 <div class="sphinx-tabs docutils container">

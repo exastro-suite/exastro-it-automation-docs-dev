@@ -113,6 +113,7 @@
    * - :kbd:`ホスト名設定`
      - :kbd:`IP`
 
+
 Ansible Playbook 登録
 ---------------------
 
@@ -126,7 +127,8 @@ Ansible Playbook 登録
 .. code-block:: bash
    :caption: hostname.yml
 
-   - hostname:
+   - name: Set a hostname
+     ansible.builtin.hostname:
        name: "{{ hostname }}"
 
 | :menuselection:`Ansible-Legacy --> Playbook素材集` から、上記のPlaybookを登録します。
