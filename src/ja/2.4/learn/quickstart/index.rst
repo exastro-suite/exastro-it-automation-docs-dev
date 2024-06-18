@@ -99,7 +99,6 @@
    * - 最終更新者
      - (自動入力)
 
-
 作業手順の登録
 ==============
 
@@ -146,8 +145,9 @@ Ansible Playbook 登録
 .. code-block:: bash
    :caption: hostname.yml
 
-   - hostname:
-     name: "{{ hostname }}"
+   - name: Set a hostname
+     ansible.builtin.hostname:
+       name: "{{ hostname }}"
 
 | :menuselection:`Ansible-Legacy --> Playbook素材集` から、上記のPlaybookを登録します。
 
