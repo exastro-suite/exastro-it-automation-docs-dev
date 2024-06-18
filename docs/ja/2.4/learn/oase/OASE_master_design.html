@@ -134,8 +134,18 @@
   <div id="tocButton"></div>
   <ul>
 <li><a class="reference internal" href="#">11. OASEを設定する際の事前設計について</a><ul>
-<li><a class="reference internal" href="#id1">11.1. アクション実行の条件の整理</a></li>
-<li><a class="reference internal" href="#id2">11.2. 条件の実現方法と注意点</a></li>
+<li><a class="reference internal" href="#id1">11.1. アクション実行の条件の整理</a><ul>
+<li><a class="reference internal" href="#id2">11.1.1. それぞれのパターンが成立する状況の整理</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">11.2. 条件の実現方法と注意点</a><ul>
+<li><a class="reference internal" href="#id4">11.2.1. 通知内容に関するフィルタリング方法</a></li>
+<li><a class="reference internal" href="#id5">11.2.2. 前パターンのアクションが実行された後の状況をフィルタリングする方法</a></li>
+<li><a class="reference internal" href="#id6">11.2.3. 「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点</a></li>
+<li><a class="reference internal" href="#id7">11.2.4. 「通知内容に関するフィルタリング方法」の注意点</a></li>
+<li><a class="reference internal" href="#id8">11.2.5. まとめ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -179,20 +189,61 @@
 <div class="line-block">
 <div class="line">つまり、ルールを設定する際の条件となるフィルターは、</div>
 </div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">インスタンスが何台稼働しているか</div>
-<div class="line">どのような通知が来たか</div>
-</div>
-</div></blockquote>
+<ul class="simple">
+<li><p>インスタンスが何台稼働しているかをフィルタリングするフィルター</p></li>
+<li><p>どのような通知が来たかをフィルタリングするフィルター</p></li>
+</ul>
 <div class="line-block">
 <div class="line">というものがあればよいことになります。</div>
 </div>
+<section id="id2">
+<h3><span class="section-number">11.1.1. </span>それぞれのパターンが成立する状況の整理<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">ただ、通知が来た時に2つ以上のアクションを行う必要があるパターンもあるので、注意が必要です。</div>
+<div class="line">ただ、各パターンの状況のなかには、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">通知が来た時の状況と、通知内容によって成立する場合</div>
+<div class="line">通知が来たことによりアクションが実行されたことによって成立する場合</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">の二つの状況がまとめられたものがあります。</div>
 </div>
 <div class="line-block">
-<div class="line">例えば、インスタンスが1台稼働している状況で、閾値100リクエスト/minを超過したというリクエスト数超過通知が来たら、</div>
+<div class="line">例えば、</div>
+</div>
+<ul class="simple">
+<li><p>パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150</p></li>
+</ul>
+<div class="line-block">
+<div class="line">の状況が成立する場合を考えてみましょう。</div>
+</div>
+<div class="line-block">
+<div class="line">まず、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">インスタンス2台稼働しているときに、リクエスト数超過通知:100/150が届いた場合</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">があります。</div>
+<div class="line">ただこれだけではなく、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">インスタンス1台稼働しているときにリクエスト数超過通知:100/150が届き、一度スケールアウトのアクションが実行されたあとの場合</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">もあります。</div>
+</div>
+<div class="line-block">
+<div class="line">ちなみに、後者のときは以下のような動きになります。</div>
+</div>
+<div class="line-block">
+<div class="line">インスタンスが1台稼働している状況で、閾値100リクエスト/minを超過したというリクエスト数超過通知が来たら、</div>
 </div>
 <blockquote>
 <div><div class="line-block">
@@ -201,63 +252,154 @@
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">というスケールアウトをするというアクションが2回実行される必要があります。</div>
+<div class="line">のように、</div>
+</div>
+<ul class="simple">
+<li><p>パターン1 インスタンス1台のとき、リクエスト数超過通知:50/100/150</p></li>
+</ul>
+<div class="line-block">
+<div class="line">の状況が成立しアクションが実行されたあとにパターン2の状況が成立する形になり、</div>
+<div class="line">スケールアウトというアクションが2回実行されることになります。</div>
 </div>
 <div class="line-block">
-<div class="line">つまり、</div>
-</div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">通知が来たことにより実行されるスケールアウト</div>
-<div class="line">スケールアウトしたあとの状況でもリクエスト数がいまだ閾値を超えている場合のスケールアウト</div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">というアクションが行われるようにルールを設定してあげればよいことになります。</div>
-</div>
-<div class="line-block">
-<div class="line">以上のように、それぞれのアクションが実行される条件は、</div>
+<div class="line">以上のように、パターンによっては、</div>
 </div>
 <blockquote>
 <div><div class="line-block">
 <div class="line">①  通知内容  +  通知が来る前の状況</div>
-<div class="line">②  通知内容  +  ①のアクションが実行された後の状況</div>
+<div class="line">②  通知内容  +  前パターンのアクションが実行された後の状況</div>
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">で決まることになります。</div>
+<div class="line">の二つの状況をフィルタリングできるように条件を設定する必要があります。</div>
+</div>
+<div class="line-block">
+<div class="line">では実際に上記のような条件付けが必要なパターンはどのパターンでしょうか。</div>
+</div>
+<div class="line-block">
+<div class="line">それは、</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><p>パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150</p></li>
+<li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
+<li><p>パターン5 インスタンス3台のとき、リクエスト数回復通知:50/100</p></li>
+<li><p>パターン6 インスタンス2台のとき、リクエスト数回復通知:50</p></li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line">です。</div>
+</div>
+<div class="line-block">
+<div class="line">それぞれ、前パターンの通知の閾値によって次のパターンでのアクションを必要とするものになります。</div>
 </div>
 </section>
-<section id="id2">
-<h2><span class="section-number">11.2. </span>条件の実現方法と注意点<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">11.2. </span>条件の実現方法と注意点<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
-<div class="line">各状況の把握は、インスタンスが何台稼働しているか、というフィルターで把握可能です。</div>
-<div class="line">通知内容の把握は、どのような通知が来たか、というフィルターで把握可能です。</div>
+<div class="line">①については、 <a class="reference internal" href="OASE_answer_sorry-switch-back.html"><span class="doc">Sorry画面からの切り戻し実施 (解答)</span></a> で設定したように、通知メールのイベントと結論イベントからフィルタリングする形で実現可能です。</div>
 </div>
 <div class="line-block">
-<div class="line">これらのフィルターを条件としたルールを作成しますが、①のルールで通知メールのイベントがフィルタリングされると、</div>
-<div class="line">②で改めて同じイベントをフィルタリングすることはできません。</div>
+<div class="line">では、</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line">②  通知内容  +  前パターンのアクションが実行された後の状況</div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">をどうすればフィルタリングできるか、考えてみましょう。</div>
+</div>
+<section id="id4">
+<h3><span class="section-number">11.2.1. </span>通知内容に関するフィルタリング方法<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">②では、すでに前パターンが成立したときに通知メールのイベントがフィルタリングされてしまっています。</div>
+</div>
+<div class="line-block">
+<div class="line">一度フィルターでフィルタリングされたイベントは、再度、別のルールの条件としてフィルタリングすることはできません。</div>
 </div>
 <div class="line-block">
 <div class="line">そのため、②で通知内容を参照するには、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で用いた「元イベントのラベル継承」の設定を行う必要があります。</div>
-<div class="line">この設定により、①の結論イベントに元となった通知メールのイベントからラベルを継承することができ、通知内容を②でも把握可能となります。</div>
 </div>
 <div class="line-block">
-<div class="line">ここで注意すべきは、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で見たように「元イベントのラベル継承」の設定をすることでループする場合があるという点です。</div>
+<div class="line">この設定により、前パターンの結論イベントに元となった通知メールのイベントからラベルを継承されます。</div>
+</div>
+<div class="line-block">
+<div class="line">その継承された通知内容を示すラベルを②でフィルタリングできるので、前パターンの結論イベントのラベルから条件を成立させることができるようになります。</div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">11.2.2. </span>前パターンのアクションが実行された後の状況をフィルタリングする方法<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">こちらは、インスタンスが何台稼働しているかをフィルタリングするフィルターを用いることになります。</div>
+</div>
+<div class="line-block">
+<div class="line">スケールアウトやスケールインのアクションが実行されれば、インスタンスの稼働台数が変化します。</div>
+</div>
+<div class="line-block">
+<div class="line">そのため①も②も「インスタンスが現在何台稼働しているか」は、ひとつ前の結論イベントからフィルタリングする形になります。</div>
+</div>
+<div class="line-block">
+<div class="line">そこで、スケールアウトやスケールインのアクションのあとの稼働台数が結論ラベルの値に入るように設定することで問題ないかのように見えます。</div>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">11.2.3. </span>「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">ただ、それぞれのパターンにおいて、条件となっているインスタンス数を見てみると、</div>
+</div>
+<ul class="simple">
+<li><p>パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150</p></li>
+<li><p>パターン6 インスタンス2台のとき、リクエスト数回復通知:50</p></li>
+</ul>
+<div class="line-block">
+<div class="line">のように、条件となっているインスタンス数が被っているパターンがあります。</div>
+</div>
+<div class="line-block">
+<div class="line">そのため、「インスタンスが2台稼働している状況をフィルタリングするフィルター」をそれぞれのルールで用いることになります。</div>
+</div>
+<div class="line-block">
+<div class="line">そうなると、 <a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で確認した仕様があるので、どちらのルールが適用されるのか、関連するイベントのTTLが経過するまで判断を待つことになってしまいます。</div>
+</div>
+<div class="line-block">
+<div class="line">今回は、各ルールの条件が成立した時点でルールが適用され、アクションが実行される必要がありますので、条件となるフィルターがほかのルールと被らないように設定する必要があります。</div>
+</div>
+<div class="line-block">
+<div class="line">ひとつ前の結論イベントから状況をフィルタリングする形になるので、ひとつ前の結論イベントがどのパターンから成立したものかを示すラベルを付与し、</div>
+<div class="line">それをフィルタリングするフィルターを設定することで対応しましょう。</div>
+<div class="line">それにより、各パターンの条件は各パターン特有のものとなり、その条件が成立し次第、アクションが実行されることになります。</div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">11.2.4. </span>「通知内容に関するフィルタリング方法」の注意点<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">以上までで、通知内容と状況をフィルタリングする方法が確認できました。</div>
+<div class="line">ここまでの設計をもとに具体的な設定を行って頂いて問題ありません。</div>
+</div>
+<div class="line-block">
+<div class="line">ただ関連して、「元イベントのラベル継承」を設定する際の注意点もこちらで解説しておきます。</div>
+</div>
+<div class="line-block">
+<div class="line">それは、<a class="reference internal" href="OASE_advanced_sorry-switch-back.html"><span class="doc">ルールに複数の条件を設定した場合のイベントのTTL問題について</span></a> で見たように、「元イベントのラベル継承」の設定をすることでループが発生してしまう場合があるということです。</div>
+</div>
+<div class="line-block">
 <div class="line">今回の6パターンの中では、</div>
 </div>
 <ul class="simple">
 <li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
 </ul>
 <div class="line-block">
-<div class="line">のルールで「元イベントのラベル継承」の設定をするとループが発生してしまいます。</div>
+<div class="line">のルールで「元イベントのラベル継承」の設定をするとループが発生してしまう可能性がありました。</div>
 </div>
 <div class="line-block">
-<div class="line">このパターンでは、アクションの実行結果によってこれまでの稼働しているインスタンス数を示すラベルを更新せず、</div>
-<div class="line">新しい「Sorry画面への切り替え」を示すラベルが追加されるからです。</div>
+<div class="line">このパターンでは、スケールアウトやスケールインといったアクションのように、アクションのあとの稼働台数が変わるわけではありません。</div>
 </div>
 <div class="line-block">
-<div class="line">そのため、結論イベントに付与されるラベルは、元イベントに付与されていた、</div>
+<div class="line">そのため、インスタンス数を示すラベルでフィルタリングする場合、その値は更新されず、新しい状況を示す「Sorry画面への切り替え」という結論ラベルが追加される設定になります。</div>
+</div>
+<div class="line-block">
+<div class="line">その結果、結論イベントに付与されるラベルは、元イベントに付与されていた、</div>
 </div>
 <blockquote>
 <div><div class="line-block">
@@ -274,44 +416,42 @@
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">となり、元イベントから継承されたラベルをもとに、</div>
+<div class="line">となります。</div>
 </div>
 <div class="line-block">
-<div class="line">このルールの条件となっているフィルターに再度フィルタリングされてしまう</div>
+<div class="line">これにより、元イベントから継承されたラベルからパターン3の条件である、「インスタンス3台のとき、リクエスト数超過通知:150」が改めてフィルタリングされてしまう、</div>
 </div>
 <div class="line-block">
 <div class="line">という意図しないループが無限に発生してしまいます。</div>
 </div>
 <div class="line-block">
-<div class="line">それ以外のパターンのときは、アクション実行後稼働しているインスタンス数が変化するため、そのルールの条件としているインスタンス数とは異なる形になりループはしません。</div>
+<div class="line">今回はインスタンス数を示すラベルではなく、パターンを示すラベルでフィルタリングするためループは発生しませんが、上記のような可能性があることを念頭に設定を考えていただければと思います。</div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
+</section>
+<section id="id8">
+<h3><span class="section-number">11.2.5. </span>まとめ<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">具体的な設定内容については、<a class="reference internal" href="OASE_master_setting.html"><span class="doc">ルール設定について</span></a> で確認してみましょう。</div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">そのため、</div>
-</div>
-<ul class="simple">
-<li><p>パターン3 インスタンス3台のとき、リクエスト数超過通知:150</p></li>
-</ul>
-<div class="line-block">
-<div class="line">のルールでは、「元イベントのラベル継承」の設定は行わず、Sorry画面への切り替えを示す結論イベントのラベルを付与する形にします。</div>
+<div class="line">以上、今回の事例をもとにOASEの設計について考えてみました。</div>
 </div>
 <div class="line-block">
-<div class="line">またこの設定に合わせて、</div>
+<div class="line">まとめると、OASEの設定を考えるうえで重要なのは、まず、どのような状況がありうるのかを事前に整理することです。</div>
+<div class="line">これによって、アクションを実行する際の条件が見えてきます。</div>
 </div>
-<ul class="simple">
-<li><p>パターン4 インスタンス3台のとき、リクエスト数回復通知:50/100/150</p></li>
-</ul>
 <div class="line-block">
-<div class="line">の通知が来る前の状況把握は、「インスタンス3台のとき」ではなく、「Sorry画面への切り替えが行われているとき」を条件とするように設定しましょう。</div>
+<div class="line">どのような条件が成立したときにアクションが実行されるのかがわかれば、その条件を把握できるようなラベルの設定がわかります。</div>
+</div>
+<div class="line-block">
+<div class="line">また、そのラベルをどうすればフィルタリングできるか、ということを考えれば、ルールでの設定の仕方が明確になります。</div>
+<div class="line">今回は、「元イベントのラベル継承」の設定を行う必要性がありました。</div>
+</div>
+<div class="line-block">
+<div class="line">そうした設定をする際には注意点もありました。</div>
+<div class="line">その注意点を事前に確認し、どうすれば回避できるか、という点も事前に設計する際には重要になってきます。</div>
 </div>
 <div class="line-block">
 <div class="line">ここまで整理できたら、具体的なOASEの設定を <a class="reference internal" href="OASE_master_setting.html"><span class="doc">ルール設定について</span></a> でみていきましょう。</div>
 </div>
+</section>
 </section>
 </section>
 

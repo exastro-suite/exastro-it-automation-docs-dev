@@ -91,6 +91,10 @@
 
 | :guilabel:`登録` ボタンを押し、以下のラベルの設定を追加していきます。
 
+.. figure:: /images/learn/quickstart/oase/OASE_master_setting/OASE_master_setting_ラベル.png
+   :width: 1200px
+   :alt: ラベル作成画面
+
 .. list-table:: ラベル作成の設定値
    :widths: 10 10
    :header-rows: 1
@@ -105,6 +109,8 @@
      - :kbd:`#00FF33`
    * - :kbd:`page`
      - :kbd:`#FF2600`
+   * - :kbd:`pattern`
+     - :kbd:`#A1DEB8`
 
 | 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。
   
@@ -273,6 +279,10 @@ OASEエージェントの設定
 
 | :guilabel:`登録` ボタンを押し、以下のフィルターの設定を追加していきます。
 
+.. figure:: /images/learn/quickstart/oase/OASE_master_setting/OASE_master_setting_フィルター.png
+   :width: 1200px
+   :alt: フィルター
+
 .. list-table:: フィルターの設定値
    :widths: 10 10 20 10
    :header-rows: 1
@@ -282,17 +292,25 @@ OASEエージェントの設定
      - フィルター条件
      - 検索方法
    * - :kbd:`True`
-     - :kbd:`インスタンス数_2台`
-     - :kbd:`[["instance", "==", "2"]]`
+     - :kbd:`状況_パターン1`
+     - :kbd:`[["instance", "==", "2"], ["pattern", "==", "1"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`インスタンス数_3台`
-     - :kbd:`[["instance", "==", "3"]]`
+     - :kbd:`状況_パターン2`
+     - :kbd:`[["instance", "==", "3"], ["pattern", "==", "2"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`sorry_switch`
-     - :kbd:`[["page", "==", "sorry"]]`
-     - :kbd:`ユニーク`  
+     - :kbd:`状況_パターン3`
+     - :kbd:`[["page", "==", "sorry"], ["pattern", "==", "3"]]`
+     - :kbd:`ユニーク`
+   * - :kbd:`True`
+     - :kbd:`状況_パターン4`
+     - :kbd:`[["instance", "==", "3"], ["pattern", "==", "4"]]`
+     - :kbd:`ユニーク`
+   * - :kbd:`True`
+     - :kbd:`状況_パターン5`
+     - :kbd:`[["instance", "==", "2"], ["pattern", "==", "5"]]`
+     - :kbd:`ユニーク`
    * - :kbd:`True`
      - :kbd:`超過_通知`
      - :kbd:`[["subject", "==", "リクエスト数超過"], ["_exastro_type", "≠", "conclusion"]]`
@@ -327,7 +345,7 @@ OASEエージェントの設定
  | 任意で設定可能です。わかりやすいものを設定しましょう。
 
 それぞれのフィルターの性格について
- | 「インスタンス数_2台」「インスタンス数_3台」「sorry_switch」は、それぞれ、状況把握のためのフィルターになります。
+ | 「状況_パターン＊」は、それぞれ、状況把握のためのフィルターになります。
  | それ以外のものは、通知内容を確認するものになります。
 
 「超過_通知」「回復_通知」について
@@ -347,24 +365,7 @@ OASEエージェントの設定
    | 通知内容と状況に基づいてアクションが実行された後の結論イベントから通知内容をフィルタリングする場合
 
  | があるため、["_exastro_type", "≠", "conclusion"]は条件に入っていません。
- | 例えば、
-
- - パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150
-
- | のルールが適用される場面を考えてみましょう。
- | まず、
-
-  | インスタンス2台稼働しているときに、リクエスト数超過通知:100/150が届いたという場面
-
- | があります。
- | ただこれだけではなく、
-
-  | インスタンス1台稼働しているときにリクエスト数超過通知:100/150が届き、一度スケールアウトのアクションが実行されたあとの場面
-
- | もあります。
- | 後者の場合は、一度スケールアウトした結論イベントから、通知内容と稼働しているインスタンス数を再度フィルタリングして、状況を判断することになります。
- | そのため、["_exastro_type", "≠", "conclusion"]はフィルタリング条件から外れます。
-
+ 
  | また、それぞれ閾値の指定があるのは、
 
  - パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150
@@ -446,6 +447,10 @@ OASEエージェントの設定
 
 | :guilabel:`登録` ボタンを押し、以下のルールの設定を追加していきます。
 
+.. figure:: /images/learn/quickstart/oase/OASE_master_setting/OASE_master_setting_ルール.png
+   :width: 1200px
+   :alt: ルール
+
 .. list-table:: ルールの設定値
    :widths: 6 10 15 10 18 15 16 15 20 9 16 6
    :header-rows: 3
@@ -496,7 +501,7 @@ OASEエージェントの設定
      - :kbd:`scale-out`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`["instance", "2"]`
+     - :kbd:`[["instance", "2"], ["pattern", "1"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン2`
@@ -504,11 +509,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`超過_閾値50以外`
      - :kbd:`A and B`
-     - :kbd:`インスタンス数_2台`
+     - :kbd:`状況_パターン1`
      - :kbd:`scale-out`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`["instance", "3"]`
+     - :kbd:`[["instance", "3"], ["pattern", "2"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン3`
@@ -516,11 +521,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`超過_閾値150`
      - :kbd:`A and B`
-     - :kbd:`インスタンス数_3台`
+     - :kbd:`状況_パターン2`
      - :kbd:`sorry_switch`
      - :kbd:`True`
-     - :kbd:`false`
-     - :kbd:`["page", "sorry"]`
+     - :kbd:`True`
+     - :kbd:`[["page", "sorry"], ["pattern", "3"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン4`
@@ -528,11 +533,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_通知`
      - :kbd:`A and B`
-     - :kbd:`sorry_switch`
+     - :kbd:`状況_パターン3`
      - :kbd:`sorry_switch-back`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`[["page", "normal"], ["instance", "3"]]`
+     - :kbd:`[["page", "normal"], ["pattern", "4"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン5`
@@ -540,11 +545,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_閾値150以外`
      - :kbd:`A and B`
-     - :kbd:`インスタンス数_3台`
+     - :kbd:`状況_パターン4`
      - :kbd:`scale-in`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`["instance", "2"]`
+     - :kbd:`[["instance", "2"], ["pattern", "5"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン6`
@@ -552,11 +557,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_閾値50`
      - :kbd:`A and B`
-     - :kbd:`インスタンス数_2台`
+     - :kbd:`状況_パターン5`
      - :kbd:`scale-in`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`["instance", "1"]`
+     - :kbd:`[["instance", "1"], ["pattern", "6"]]`
      - :kbd:`3600`
 
 | 入力が終わったら、:guilabel:`編集確認` ボタンを押して登録します。

@@ -311,6 +311,9 @@
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_master_setting_ラベル.png"><img alt="ラベル作成画面" src="../../_images/OASE_master_setting_%E3%83%A9%E3%83%99%E3%83%AB.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id17">
 <caption><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -334,6 +337,9 @@
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">page</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">#FF2600</kbd></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">pattern</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">#A1DEB8</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -580,6 +586,9 @@
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のフィルターの設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_master_setting_フィルター.png"><img alt="フィルター" src="../../_images/OASE_master_setting_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id22">
 <caption><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -597,18 +606,28 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_2台</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン1</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;1&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン2</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;sorry&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン3</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;sorry&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン4</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;4&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン5</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;==&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;5&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ユニーク</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -655,7 +674,7 @@
 </div>
 </dd>
 <dt>それぞれのフィルターの性格について</dt><dd><div class="line-block">
-<div class="line">「インスタンス数_2台」「インスタンス数_3台」「sorry_switch」は、それぞれ、状況把握のためのフィルターになります。</div>
+<div class="line">「状況_パターン＊」は、それぞれ、状況把握のためのフィルターになります。</div>
 <div class="line">それ以外のものは、通知内容を確認するものになります。</div>
 </div>
 </dd>
@@ -683,33 +702,6 @@
 </div></blockquote>
 <div class="line-block">
 <div class="line">があるため、[&quot;_exastro_type&quot;, &quot;≠&quot;, &quot;conclusion&quot;]は条件に入っていません。</div>
-<div class="line">例えば、</div>
-</div>
-<ul class="simple">
-<li><p>パターン2 インスタンス2台のとき、リクエスト数超過通知:100/150</p></li>
-</ul>
-<div class="line-block">
-<div class="line">のルールが適用される場面を考えてみましょう。</div>
-<div class="line">まず、</div>
-</div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">インスタンス2台稼働しているときに、リクエスト数超過通知:100/150が届いたという場面</div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">があります。</div>
-<div class="line">ただこれだけではなく、</div>
-</div>
-<blockquote>
-<div><div class="line-block">
-<div class="line">インスタンス1台稼働しているときにリクエスト数超過通知:100/150が届き、一度スケールアウトのアクションが実行されたあとの場面</div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">もあります。</div>
-<div class="line">後者の場合は、一度スケールアウトした結論イベントから、通知内容と稼働しているインスタンス数を再度フィルタリングして、状況を判断することになります。</div>
-<div class="line">そのため、[&quot;_exastro_type&quot;, &quot;≠&quot;, &quot;conclusion&quot;]はフィルタリング条件から外れます。</div>
 </div>
 <div class="line-block">
 <div class="line">また、それぞれ閾値の指定があるのは、</div>
@@ -831,6 +823,9 @@
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
 </div>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/OASE_master_setting_ルール.png"><img alt="ルール" src="../../_images/OASE_master_setting_%E3%83%AB%E3%83%BC%E3%83%AB.png" style="width: 1200px;" /></a>
+</figure>
 <table class="docutils align-default" id="id24">
 <caption><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
@@ -899,7 +894,7 @@
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;1&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -908,11 +903,11 @@
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">超過_閾値50以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_2台</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン1</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">out</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -921,11 +916,11 @@
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">超過_閾値150</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン2</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">false</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;sorry&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;sorry&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -934,11 +929,11 @@
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">回復_通知</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">sorry_switch</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン3</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">sorry_switch</kbd>-<kbd class="kbd docutils literal notranslate">back</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;normal&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;3&quot;]]</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;page&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;normal&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;4&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -947,11 +942,11 @@
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">回復_閾値150以外</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_3台</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン4</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;2&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;5&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
@@ -960,11 +955,11 @@
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">回復_閾値50</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">and</kbd> <kbd class="kbd docutils literal notranslate">B</kbd></kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">インスタンス数_2台</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">状況_パターン5</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">scale</kbd>-<kbd class="kbd docutils literal notranslate">in</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">True</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;1&quot;]</kbd></kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">[[&quot;instance&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;1&quot;],</kbd> <kbd class="kbd docutils literal notranslate">[&quot;pattern&quot;,</kbd> <kbd class="kbd docutils literal notranslate">&quot;6&quot;]]</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">3600</kbd></p></td>
 </tr>
 </tbody>
