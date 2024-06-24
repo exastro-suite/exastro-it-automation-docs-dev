@@ -41,6 +41,7 @@
   - Exastro Platform のデータベース
   - Exastro IT Automation のデータベース
   - Exastro IT Automation の共有ファイル
+  - Exastro IT Automation OASE のMongoDB
 
 | これらのデータを :command:`kubectl` コマンドを利用してバックアップ・リストアします。
 
@@ -69,7 +70,7 @@
 
 #. メンテナンス用コンテナの作成
 
-   | バックアップ作業用コンテナの作成をします。
+   | データベース、ファイルのバックアップ作業用コンテナの作成をします。
 
    .. code-block:: bash
       :caption: コマンド
@@ -156,6 +157,68 @@
             runAsGroup: 1000
             runAsNonRoot: true
             runAsUser: 1000
+          volumeMounts:
+          - mountPath: /storage
+            name: volume-ita-backup-storage
+        volumes:
+        - name: volume-ita-backup-storage
+          persistentVolumeClaim:
+            claimName: pvc-ita-global
+        restartPolicy: Always
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+      _EOF_
+
+   | インストール時に設定したMongoDBを利用している場合、MongoDBのバックアップ作業用コンテナの作成をします。
+
+   .. code-block:: bash
+      :caption: コマンド
+      :linenos:
+
+      cat <<_EOF_ | kubectl apply -f - --namespace exastro
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: exastro-oase-maintenance
+        namespace: exastro
+      spec:
+        containers:
+        - command:
+          - sh
+          - -c
+          args:
+          - |
+            #!/bin/bash
+            sleep 3600
+          env:
+          - name: ITA_MONGO_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: MONGO_HOST
+                name: ita-params-mongo
+          - name: ITA_MONGO_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: MONGO_PORT
+                name: ita-params-mongo
+          - name: ITA_MONGO_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                key: MONGO_ADMIN_USER
+                name: ita-secret-mongo
+          - name: ITA_MONGO_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MONGO_ADMIN_PASSWORD
+                name: ita-secret-mongo
+          image: mongo:6.0
+          imagePullPolicy: IfNotPresent
+          name: exastro-oase-maintenance
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
           volumeMounts:
           - mountPath: /storage
             name: volume-ita-backup-storage
@@ -184,9 +247,22 @@
              kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --all-databases --add-drop-table' | gzip > exastro_mysqldump_platform_db_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
           .. code-block:: bash
-             :caption: ユーザ用データベースバックアップコマンド
+             :caption: ユーザ用データベースバックアップコマンド①
 
-             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords mysql' | gzip > exastro_mysqldump_platform_user_`date +"%Y%m%d-%H%M%S"`.sql.gz
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords  mysql --ignore-table=mysql.global_priv' | gzip > exastro_mysqldump_platform_mysql_`date +"%Y%m%d-%H%M%S"`.sql.gz
+
+          .. code-block:: bash
+             :caption: ユーザ用データベースバックアップコマンド②
+
+             # 作業用コンテナに入る
+             kubectl exec -it exastro-maintenance --namespace exastro -- bash
+
+             mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords --no-create-info mysql global_priv --where="user NOT IN ('mariadb.sys', 'root', 'keycloak', 'healthcheck', 'pf-user', 'ITA_USER')" >> /tmp/exastro_mysqldump_platform_mysqlgp.sql
+
+             # 作業用コンテナから抜ける
+             exit
+
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'cat /tmp/exastro_mysqldump_platform_mysqlgp.sql' | gzip > exastro_mysqldump_platform_mysqlgp_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
       .. group-tab:: データベースサーバを分離
 
@@ -196,9 +272,22 @@
              kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --all-databases --add-drop-table' | gzip > exastro_mysqldump_platform_db_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
           .. code-block:: bash
-             :caption: Exastro Platform ユーザ用データベースバックアップコマンド
+             :caption: Exastro Platform ユーザ用データベースバックアップコマンド①
 
-             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords mysql' | gzip > exastro_mysqldump_platform_user_`date +"%Y%m%d-%H%M%S"`.sql.gz
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords  mysql --ignore-table=mysql.global_priv' | gzip > exastro_mysqldump_platform_mysql_`date +"%Y%m%d-%H%M%S"`.sql.gz
+
+          .. code-block:: bash
+             :caption: Exastro Platform ユーザ用データベースバックアップコマンド②
+
+             # 作業用コンテナに入る
+             kubectl exec -it exastro-maintenance --namespace exastro -- bash
+
+             mysqldump -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} --allow-keywords --no-create-info mysql global_priv --where="user NOT IN ('mariadb.sys', 'root', 'keycloak', 'healthcheck', 'pf-user', 'ITA_USER')" >> /tmp/exastro_mysqldump_platform_mysqlgp.sql
+
+             # 作業用コンテナから抜ける
+             exit
+
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'cat /tmp/exastro_mysqldump_platform_mysqlgp.sql' | gzip > exastro_mysqldump_platform_mysqlgp_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
           .. code-block:: bash
              :caption: Exastro IT Automation アプリケーション用データベースバックアップコマンド
@@ -206,9 +295,22 @@
              kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} --all-databases --add-drop-table' | gzip > exastro_mysqldump_ita_db_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
           .. code-block:: bash
-             :caption: Exastro IT Automation ユーザ用データベースバックアップコマンド
+             :caption: Exastro IT Automation ユーザ用データベースバックアップコマンド①
 
-             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} --allow-keywords mysql' | gzip > exastro_mysqldump_ita_user_`date +"%Y%m%d-%H%M%S"`.sql.gz
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'mysqldump -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} --allow-keyword mysql --ignore-table=mysql.global_priv' | gzip > exastro_mysqldump_ita_mysql_`date +"%Y%m%d-%H%M%S"`.sql.gz
+
+          .. code-block:: bash
+             :caption: Exastro IT Automation ユーザ用データベースバックアップコマンド②
+
+             # 作業用コンテナに入る
+             kubectl exec -it exastro-maintenance --namespace exastro -- bash
+
+             mysqldump -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} --allow-keywords --no-create-info mysql global_priv --where="user NOT IN ('mariadb.sys', 'root', 'keycloak', 'healthcheck', 'pf-user', 'ITA_USER')" >> /tmp/exastro_mysqldump_ita_mysqlgp.sql
+
+             # 作業用コンテナから抜ける
+             exit
+
+             kubectl exec -it exastro-maintenance --namespace exastro -- sh -c 'cat /tmp/exastro_mysqldump_ita_mysqlgp.sql' | gzip > exastro_mysqldump_ita_mysqlgp_`date +"%Y%m%d-%H%M%S"`.sql.gz
 
 #. ファイルのバックアップ取得
 
@@ -219,14 +321,28 @@
 
       kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'tar zcvf - ${ITA_STORAGEPATH}' > exastro_storage_backup_ita_`date +"%Y%m%d-%H%M%S"`.tar.gz
 
+#. MongoDBのバックアップ取得
+
+   | OASEでインストール時に設定したMongoDBを利用している場合、MongoDBに対して :command:`mongodump` バックアップを取得します。
+
+   .. code-block:: bash
+      :caption: コマンド
+
+      kubectl exec -it exastro-oase-maintenance --namespace exastro -- sh -c 'mongodump --host=${ITA_MONGO_HOST} --port=${ITA_MONGO_PORT} --username=${ITA_MONGO_ADMIN_USER} --password=${ITA_MONGO_ADMIN_PASSWORD} --out=/storage/exastro_mongodump'
+
+      sudo tar cvfz exastro_mongodump_`date +"%Y%m%d-%H%M%S"`.tar.gz /var/data/exastro_mongodump --remove-files
+
 #. メンテナンス用コンテナの削除
 
-   | バックアップ作業用コンテナの作成をします。
+   | バックアップ作業用コンテナを削除します。
 
    .. code-block:: bash
       :caption: コマンド
 
       kubectl delete pod exastro-maintenance --namespace exastro
+
+      # OASE利用の場合
+      kubectl delete pod exastro-oase-maintenance --namespace exastro
 
 サービス再開
 ------------
@@ -251,7 +367,7 @@
 
 #. メンテナンス用コンテナの作成
 
-   | リストア作業用コンテナの作成をします。
+   | データベース、ファイルのリストア作業用コンテナの作成をします。
 
    .. code-block:: bash
       :caption: コマンド
@@ -351,6 +467,68 @@
         serviceAccountName: default
       _EOF_
 
+   | インストール時に設定したMongoDBを利用している場合、MongoDBのリストア作業用コンテナの作成をします。
+
+   .. code-block:: bash
+      :caption: コマンド
+      :linenos:
+
+      cat <<_EOF_ | kubectl apply -f - --namespace exastro
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: exastro-oase-maintenance
+        namespace: exastro
+      spec:
+        containers:
+        - command:
+          - sh
+          - -c
+          args:
+          - |
+            #!/bin/bash
+            sleep 3600
+          env:
+          - name: ITA_MONGO_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: MONGO_HOST
+                name: ita-params-mongo
+          - name: ITA_MONGO_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: MONGO_PORT
+                name: ita-params-mongo
+          - name: ITA_MONGO_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                key: MONGO_ADMIN_USER
+                name: ita-secret-mongo
+          - name: ITA_MONGO_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: MONGO_ADMIN_PASSWORD
+                name: ita-secret-mongo
+          image: mongo:6.0
+          imagePullPolicy: IfNotPresent
+          name: exastro-oase-maintenance
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+          volumeMounts:
+          - mountPath: /storage
+            name: volume-ita-backup-storage
+        volumes:
+        - name: volume-ita-backup-storage
+          persistentVolumeClaim:
+            claimName: pvc-ita-global
+        restartPolicy: Always
+        securityContext: {}
+        serviceAccount: default
+        serviceAccountName: default
+      _EOF_
+
 #. データベースのリストア実施
 
    | データベースに対して :command:`mysqldump` リストアを実施します。
@@ -363,7 +541,9 @@
           .. code-block:: bash
              :caption: ユーザ用データベースリストアコマンド
 
-             gzip -dc exastro_mysqldump_platform_user_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
+             gzip -dc exastro_mysqldump_platform_mysql_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
+
+             gzip -dc exastro_mysqldump_platform_mysqlgp_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
 
           .. code-block:: bash
              :caption: アプリケーション用データベースリストアコマンド
@@ -375,7 +555,9 @@
           .. code-block:: bash
              :caption: Exastro Platform ユーザ用データベースリストアコマンド
 
-             gzip -dc exastro_mysqldump_platform_user_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
+             gzip -dc exastro_mysqldump_platform_mysql_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
+
+             gzip -dc exastro_mysqldump_platform_mysqlgp_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${PF_DB_HOST} -P ${PF_DB_PORT} -u ${PF_DB_ADMIN_USER} -p${PF_DB_ADMIN_PASSWORD} mysql'
 
           .. code-block:: bash
              :caption: Exastro Platform アプリケーション用データベースリストアコマンド
@@ -385,7 +567,9 @@
           .. code-block:: bash
              :caption: Exastro IT Automation ユーザ用データベースリストアコマンド
 
-             gzip -dc exastro_mysqldump_ita_user_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} mysql'
+             gzip -dc exastro_mysqldump_ita_mysql_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} mysql'
+
+             gzip -dc exastro_mysqldump_ita_mysqlgp_YYYYMMDD-HHmmss.sql.gz | kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD} mysql'
 
           .. code-block:: bash
              :caption: Exastro IT Automation アプリケーション用データベースリストアコマンド
@@ -394,21 +578,37 @@
 
 #. ファイルのリストア実施
 
-   | Exastro IT Automation のファイルのバックアップを取得します。
+   | Exastro IT Automation のファイルのリストアを実施します。
 
    .. code-block:: bash
       :caption: コマンド
 
-      kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'tar zxvf - -C ${ITA_STORAGEPATH}' < exastro_storage_backup_ita_YYYYMMDD-HHmmss.tar.gz
+      kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'tar zxvf - -C /' < exastro_storage_backup_ita_YYYYMMDD-HHmmss.tar.gz
+
+#. MongoDBのリストア実施
+
+   | OASEでインストール時に設定したMongoDBを利用している場合、MongoDBのリストアを実施します。
+
+   .. code-block:: bash
+      :caption: コマンド
+
+      mv exastro_mongodump_YYYYMMDD-HHmmss.tar.gz /var/data/exastro-suite/exastro-it-automation/ita-common/
+
+      tar -zxvf exastro_mongodump_YYYYMMDD-HHmmss.tar.gz
+
+      kubectl exec -it exastro-oase-maintenance --namespace exastro -- sh -c 'mongorestore --host=${ITA_MONGO_HOST} --port=${ITA_MONGO_PORT} --username=${ITA_MONGO_ADMIN_USER} --password=${ITA_MONGO_ADMIN_PASSWORD} /storage/exastro_mongodump'
 
 #. メンテナンス用コンテナの削除
 
-   | バックアップ作業用コンテナの作成をします。
+   | リストア作業用コンテナを削除します。
 
    .. code-block:: bash
       :caption: コマンド
 
       kubectl delete pod exastro-maintenance --namespace exastro
+
+      # OASE利用の場合
+      kubectl delete pod exastro-oase-maintenance --namespace exastro
 
 サービス再開
 ------------
@@ -428,4 +628,33 @@
 
 - 対処
  
-| 全リソースを一度削除した後、再度 :command:`helm install` コマンドによりインストールを実施してください。
+| 下記手順でリソースを一度削除した後、再度 :ref:`インストール<ita_install>` を実施してください。
+
+.. code-block:: bash
+   :caption: Podの削除
+
+   kubectl delete deployment --all -n exastro
+
+   kubectl delete pod --all -n exastro
+
+.. code-block:: bash
+   :caption: コンテナイメージの削除
+
+   docker exec -it kind-control-plane bash
+
+   for image in $(ctr -n k8s.io images ls | grep exastro | awk '{print $1}'); do
+   ctr -n k8s.io images rm $image
+   done
+
+   for image in $(ctr -n k8s.io images ls | grep mariadb | awk '{print $1}'); do
+   ctr -n k8s.io images rm $image
+   done
+
+   for image in $(ctr -n k8s.io images ls | grep mongo | awk '{print $1}'); do
+   ctr -n k8s.io images rm $image
+   done
+
+   for image in $(ctr -n k8s.io images ls | grep gitlab | awk '{print $1}'); do
+   ctr -n k8s.io images rm $image
+   done
+
