@@ -42,7 +42,9 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" /> 
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="5. Sorry画面切り戻し実施 (演習問題)" href="OASE_practice_sorry-switch-back.html" />
+    <link rel="prev" title="3. インスタンスのスケールイン実施 (演習問題)" href="OASE_practice_scale-in.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,6 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="OASE_practice_scale-in.html" title="前のトピックへ"><span class="section-number">3. </span>インスタンスのスケールイン実施 (演習問題)</a></li>
+        <li class="next"><a href="OASE_practice_sorry-switch-back.html" title="次のトピックへ"><span class="section-number">5. </span>Sorry画面切り戻し実施 (演習問題)</a></li>
       </ul>
     </div>
   </div>
@@ -112,10 +116,41 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/index.html">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">イベント連携 - OASE</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#id1">前提</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id2">自動化する作業について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">シナリオの流れ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#id4">シナリオ</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="OASE_scenario_scale-out.html">1. インスタンスのスケールアウト実施</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_scenario_sorry-switch.html">2. Sorry画面への切り替え実施</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_practice_scale-in.html">3. インスタンスのスケールイン実施 (演習問題)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4. インスタンスのスケールイン実施 (解答)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id2">4.1. 問題 (再掲)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">4.2. 自動化する作業の具体的な検討</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id4">4.3. イベント収集設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id6">4.4. ラベルの設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#oase">4.5. OASEエージェントの設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id10">4.6. ルールの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_practice_sorry-switch-back.html">5. Sorry画面切り戻し実施 (演習問題)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_answer_sorry-switch-back.html">6. Sorry画面からの切り戻し実施 (解答)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_advanced_sorry-switch-back.html">7. ルールに複数の条件を設定した場合のイベントのTTL問題について</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_advanced2_sorry-switch-back.html">8. 不要になったイベントについて</a></li>
+<li class="toctree-l4"><a class="reference internal" href="OASE_advanced3_sorry-switch-back.html">9. 不要になったイベントについて2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
@@ -170,6 +205,8 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
+    <li><a href="../index.html">Learn</a></li>
+    <li><a href="index.html">イベント連携 - OASE</a></li>
     
     <li><span class="section-number">4. </span>インスタンスのスケールイン実施 (解答)</li>
   </ul>
@@ -187,7 +224,7 @@
 <div class="line">以下のようなリクエスト数が閾値内に回復したイベントが発生したときに、スケールインのアクションが実行されるようにOASEの設定を行ってください。</div>
 </div>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.2 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 40.0%" />
@@ -278,7 +315,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_エージェント登録詳細画面.png"><img alt="エージェント登録画面" src="../../_images/OASE_answer_scale-in_%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id16">
-<caption><span class="caption-text">イベント収集設定値</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.3 </span><span class="caption-text">イベント収集設定値</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 13.3%" />
@@ -334,7 +371,7 @@
 <div class="line">収集するイベントに付与するラベルの作成と付与する条件を設定します。</div>
 </div>
 <table class="docutils align-default" id="id17">
-<caption><span class="caption-text">ラベル一覧</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.4 </span><span class="caption-text">ラベル一覧</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -384,7 +421,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル作成登録詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.5 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -439,7 +476,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル付与詳細画面.png"><img alt="ラベル付与" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E4%B8%8E%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-text">ラベル付与の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.6 </span><span class="caption-text">ラベル付与の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 11.1%" />
@@ -534,7 +571,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_OASEエージェント設定画面.png"><img alt=".env" src="../../_images/OASE_answer_scale-in_OASE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-text">.envの設定値</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.7 </span><span class="caption-text">.envの設定値</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -596,7 +633,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 4.1 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
 </pre></div>
 </div>
@@ -608,7 +645,7 @@
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 4.2 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
 </pre></div>
 </div>
@@ -637,7 +674,7 @@
 <div class="line">まずは、以下のような、２台稼働時のリクエスト数閾値内回復のイベントを発生させて、設定を進めましょう。</div>
 </div>
 <table class="docutils align-default" id="id23">
-<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.8 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -683,7 +720,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id24">
-<caption><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.9 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -757,7 +794,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定.gif"><img alt="イベントフロー_アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id25">
-<caption><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.10 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -824,7 +861,7 @@
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定.gif"><img alt="イベントフロー_ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.11 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 8.7%" />
 <col style="width: 8.7%" />
@@ -932,7 +969,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.12 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -966,7 +1003,7 @@
 <div class="line">さて次に、2台稼働時のリクエスト数閾値内回復のイベントを発生させてみましょう。</div>
 </div>
 <table class="docutils align-default" id="id28">
-<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 4.13 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1005,6 +1042,8 @@
 
 <div id="articleNavigation">
   <ul>
+    <li class="prev"><a href="OASE_practice_scale-in.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">3. </span>インスタンスのスケールイン実施 (演習問題)</a></li>
+    <li class="next"><a href="OASE_practice_sorry-switch-back.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">5. </span>Sorry画面切り戻し実施 (演習問題)</a></li>
   </ul>
 </div>
 
