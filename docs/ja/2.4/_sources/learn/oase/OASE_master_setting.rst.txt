@@ -292,24 +292,24 @@ OASEエージェントの設定
      - フィルター条件
      - 検索方法
    * - :kbd:`True`
-     - :kbd:`状況_パターン1`
-     - :kbd:`[["instance", "==", "2"], ["pattern", "==", "1"]]`
+     - :kbd:`パターン2`
+     - :kbd:`[["instance", "==", "2"], ["pattern", "≠", "2"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`状況_パターン2`
-     - :kbd:`[["instance", "==", "3"], ["pattern", "==", "2"]]`
+     - :kbd:`パターン3`
+     - :kbd:`[["instance", "==", "3"], ["pattern", "≠", "3"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`状況_パターン3`
-     - :kbd:`[["page", "==", "sorry"], ["pattern", "==", "3"]]`
+     - :kbd:`パターン4`
+     - :kbd:`[["page", "==", "sorry"], ["pattern", "≠", "4"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`状況_パターン4`
-     - :kbd:`[["instance", "==", "3"], ["pattern", "==", "4"]]`
+     - :kbd:`パターン5`
+     - :kbd:`[["instance", "==", "3"], ["pattern", "≠", "5"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
-     - :kbd:`状況_パターン5`
-     - :kbd:`[["instance", "==", "2"], ["pattern", "==", "5"]]`
+     - :kbd:`パターン6`
+     - :kbd:`[["instance", "==", "2"], ["pattern", "≠", "6"]]`
      - :kbd:`ユニーク`
    * - :kbd:`True`
      - :kbd:`超過_通知`
@@ -345,7 +345,7 @@ OASEエージェントの設定
  | 任意で設定可能です。わかりやすいものを設定しましょう。
 
 それぞれのフィルターの性格について
- | 「状況_パターン＊」は、それぞれ、状況把握のためのフィルターになります。
+ | 「パターン＊」は、それぞれ、パターンごとの状況把握のためのフィルターになります。
  | それ以外のものは、通知内容を確認するものになります。
 
 「超過_通知」「回復_通知」について
@@ -509,7 +509,7 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`超過_閾値50以外`
      - :kbd:`A and B`
-     - :kbd:`状況_パターン1`
+     - :kbd:`パターン2`
      - :kbd:`scale-out`
      - :kbd:`True`
      - :kbd:`True`
@@ -521,10 +521,10 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`超過_閾値150`
      - :kbd:`A and B`
-     - :kbd:`状況_パターン2`
+     - :kbd:`パターン3`
      - :kbd:`sorry_switch`
      - :kbd:`True`
-     - :kbd:`True`
+     - :kbd:`false`
      - :kbd:`[["page", "sorry"], ["pattern", "3"]]`
      - :kbd:`3600`
    * - :kbd:`True`
@@ -533,11 +533,11 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_通知`
      - :kbd:`A and B`
-     - :kbd:`状況_パターン3`
+     - :kbd:`パターン4`
      - :kbd:`sorry_switch-back`
      - :kbd:`True`
      - :kbd:`True`
-     - :kbd:`[["page", "normal"], ["pattern", "4"]]`
+     - :kbd:`[["page", "normal"], ["pattern", "4"], ["instance", "3"]]`
      - :kbd:`3600`
    * - :kbd:`True`
      - :kbd:`パターン5`
@@ -545,7 +545,7 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_閾値150以外`
      - :kbd:`A and B`
-     - :kbd:`状況_パターン4`
+     - :kbd:`パターン5`
      - :kbd:`scale-in`
      - :kbd:`True`
      - :kbd:`True`
@@ -557,7 +557,7 @@ OASEエージェントの設定
      - :kbd:`1`
      - :kbd:`回復_閾値50`
      - :kbd:`A and B`
-     - :kbd:`状況_パターン5`
+     - :kbd:`パターン6`
      - :kbd:`scale-in`
      - :kbd:`True`
      - :kbd:`True`
@@ -612,6 +612,10 @@ TTLについて
 
 | :menuselection:`OASE --> イベント --> イベントフロー` の画面に、時系列にイベントが発生しているのが確認できます。
 | 複数のアクションが連続して発生している様子を確認してみましょう。
+
+.. figure:: /images/learn/quickstart/oase/OASE_master_setting/OASE_master_setting_結果確認.gif
+   :width: 1200px
+   :alt: イベントフロー_結論イベント
 
 
 
