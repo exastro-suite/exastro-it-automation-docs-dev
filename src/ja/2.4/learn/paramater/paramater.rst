@@ -189,9 +189,9 @@
      - 設定値
    * - 項番
      - (自動入力)
-   * - メニュー名
+   * - パラメータシート名
      - :kbd:`新規グループ`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`New_groups`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -266,9 +266,9 @@
      - 設定値
    * - 項番
      - (自動入力)
-   * - メニュー名
+   * - パラメータシート名
      - :kbd:`新規ユーザー`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`New_users`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -405,32 +405,32 @@ Movement と Ansible Playbook の紐付け
   * - :kbd:`代入値自動登録用:グループ:グループ名`
     - :kbd:`1`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_Groups`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`1`
   * - :kbd:`代入値自動登録用:グループ:グループ名`
     - :kbd:`2`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_Groups`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`2`
   * - :kbd:`代入値自動登録用:グループ:グループ名`
     - :kbd:`3`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_Groups`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`3`
   * - :kbd:`代入値自動登録用:グループ:グループ名`
     - :kbd:`4`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_Groups`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`4`
   * - :kbd:`代入値自動登録用:グループ:グループ名`
     - :kbd:`5`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_Groups`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`5`
 
 .. figure:: /images/learn/quickstart/paramater/ユーザー代入値自動登録.png
@@ -456,62 +456,62 @@ Movement と Ansible Playbook の紐付け
   * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
     - :kbd:`1`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`1`
   * - :kbd:`代入値自動登録用:ユーザー:グループ`
     - :kbd:`1`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Group_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`1`
   * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
     - :kbd:`2`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`2`
   * - :kbd:`代入値自動登録用:ユーザー:グループ`
     - :kbd:`2`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Group_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`2`
   * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
     - :kbd:`3`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`3`
   * - :kbd:`代入値自動登録用:ユーザー:グループ`
     - :kbd:`3`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Group_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`3`
   * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
     - :kbd:`4`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`4`
   * - :kbd:`代入値自動登録用:ユーザー:グループ`
     - :kbd:`4`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Group_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`4`
   * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
     - :kbd:`5`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`5`
   * - :kbd:`代入値自動登録用:ユーザー:グループ`
     - :kbd:`5`
     - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:ITA_DFLT_User_Group_Names`
+    - :kbd:`新規ユーザー登録`
+    - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`5`
 
 
@@ -953,7 +953,7 @@ Movement と Ansible Playbook の紐付け
      - (自動入力)
    * - パラメータシート名
      - :kbd:`ホスト登録`
-   * - メニュー名(REST)
+   * - パラメータシート名(REST)
      - :kbd:`host_register`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
@@ -1066,4 +1066,3 @@ Movement と Ansible Playbook の紐付け
 
 本シナリオでは、グループとユーザー作成、更新作業を通してパラメータ集の操作方法を学習しました。
 パラメータ集の機能を使えば、オペレーションごとに設定したパラメータを簡単に確認することが出来ます。
-次のシナリオでは、収集・比較機能を使って、設定したパラメータが実際に反映されているかを見てみましょう。
