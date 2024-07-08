@@ -2,6 +2,8 @@
 管理コンソール
 ==============
 
+.. _management_console_introduction:
+
 はじめに
 ========
 

@@ -117,7 +117,7 @@ OASE Agent on Docker Compose - Online
 
 .. code-block:: shell
 
-   cd exastro-docker-compose/ita-ag-oase
+   cd exastro-docker-compose/ita_ag_oase
 
 | 環境変数の設定ファイル（.env）を、サンプルから作成します。 
 
