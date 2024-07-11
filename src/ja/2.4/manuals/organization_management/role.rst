@@ -49,7 +49,7 @@
      - ワークスペースの管理が可能です。
    * - カスタムロール
      - | ユーザーが作成したロールで使用可能なワークスペースを指定および、Exastro IT Automationの使用可能なメニューを指定出来ます。
-       | （Exastro IT Automationの使用可能なメニューの設定はXXXXを参照）
+       | （Exastro IT Automationの使用可能なメニューの設定は :ref:`コチラ<management_console_introduction>` を参照）
 
 
 ロール作成とユーザへの紐づけ
