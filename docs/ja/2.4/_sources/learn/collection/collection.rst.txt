@@ -480,7 +480,7 @@ Movement と Ansible Playbook の紐付け
 パラメータシートの項目と Ansible Playbook の変数の紐付け
 --------------------------------------------------------
 
-| system_collection.ymlでは、:kbd:`VAR_test` にシステム情報を収集してきたいホストを入れる。
+| system_collection.ymlでは、:kbd:`VAR_test` にシステム情報を収集してきたいホストを入れます。
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
 

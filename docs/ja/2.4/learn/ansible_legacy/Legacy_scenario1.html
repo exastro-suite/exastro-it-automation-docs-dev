@@ -351,7 +351,7 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ‣ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement登録設定.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="images/learn/quickstart/Legacy_scenario1/Movement登録設定.png"><img alt="Movement登録" src="images/learn/quickstart/Legacy_scenario1/Movement登録設定.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id23">
 <caption><span class="caption-number">表 55 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -386,7 +386,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 188 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 189 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
 <span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ hostname }}&quot;</span>
@@ -502,7 +502,7 @@
 <div class="line"><span class="menuselection">Ansible共通 ‣ 機器一覧</span> から、作業対象である server01 の接続情報を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/機器一覧登録.png"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="images/learn/quickstart/Legacy_scenario1/機器一覧登録.png"><img alt="機器一覧登録" src="images/learn/quickstart/Legacy_scenario1/機器一覧登録.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id28">
 <caption><span class="caption-number">表 59 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -662,14 +662,14 @@
 <div class="line">サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 189 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 190 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 190 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 191 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -688,7 +688,7 @@ localhost
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行1.png"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="images/learn/quickstart/Legacy_scenario1/作業実行.png"><img alt="作業実行" src="images/learn/quickstart/Legacy_scenario1/作業実行.png" style="width: 1200px;" /></a>
 </figure>
 <ol class="arabic" start="3">
 <li><p>事後確認</p>
@@ -696,14 +696,14 @@ localhost
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 191 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 192 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-number">リスト 192 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 193 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server01
 </pre></div>
 </div>
@@ -828,7 +828,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line"><span class="menuselection">Ansible共通 ‣ 機器一覧</span> から、作業対象である server01 のホスト名を db01 に更新します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/機器一覧ホスト名変更.png"><img alt="パラメータ登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="images/learn/quickstart/Legacy_scenario1/機器一覧ホスト名変更.png"><img alt="パラメータ登録" src="images/learn/quickstart/Legacy_scenario1/機器一覧ホスト名変更.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id39">
 <caption><span class="caption-number">表 66 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -889,7 +889,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/更新作業実行.png"><img alt="作業実行" src="../../_images/%E6%9B%B4%E6%96%B0%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="images/learn/quickstart/Legacy_scenario1/更新作業実行.png"><img alt="作業実行" src="images/learn/quickstart/Legacy_scenario1/更新作業実行.png" style="width: 1200px;" /></a>
 </figure>
 <ol class="arabic" start="2">
 <li><p>事後確認</p>
@@ -897,14 +897,14 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id40">
-<div class="code-block-caption"><span class="caption-number">リスト 193 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 194 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-number">リスト 194 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 195 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db01
 </pre></div>
 </div>

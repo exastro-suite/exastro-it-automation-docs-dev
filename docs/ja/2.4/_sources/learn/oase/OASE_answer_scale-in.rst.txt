@@ -225,7 +225,7 @@ OASEエージェントの設定
 
 .. note::
    | OASEエージェントの詳細は、下記のページにてご確認ください。
-   | https://ita-docs.exastro.org/ja/2.3/installation/oase_agent_docker_compose.html
+   | :doc:`OASE Agent on Docker Compose - Online <../../installation/online/oase_agent/docker_compose>`
 
 .envの設定
 ----------
@@ -266,8 +266,8 @@ OASEエージェントの設定
 .. tip::
    | `*` の部分は、各自の情報を入力してください。
    | 「EXASTRO_USERNAME」と「EXASTRO_PASSWORD」は、ワークスペースのものになります。
-   | 各項目の詳細は、下記のページを参照ください。
-   | https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow
+   | 各項目の詳細は、下記のページ :menuselection:`2.8.1. OASE Agentの処理フローと.envの設定値` を参照ください。
+   | :doc:`OASE 管理 <../../manuals/oase/oase_management>`
 
 エージェントの実行
 -------------------
