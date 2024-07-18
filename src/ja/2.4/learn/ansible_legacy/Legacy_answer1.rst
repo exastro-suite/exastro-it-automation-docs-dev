@@ -1191,7 +1191,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`www`
     - :kbd:`/home/wwwuser01`
     - :kbd:`/bin/bash`
-    - :kbd:`Web server mainterner`
+    - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1203,7 +1203,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`www`
     - :kbd:`/home/wwwuser02`
     - :kbd:`/bin/bash`
-    - :kbd:`Web server mainterner`
+    - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1215,7 +1215,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`app`
     - :kbd:`/home/appuser01`
     - :kbd:`/bin/bash`
-    - :kbd:`Application server mainterner`
+    - :kbd:`Application server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1227,7 +1227,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`app`
     - :kbd:`/home/appuser02`
     - :kbd:`/bin/bash`
-    - :kbd:`Application server mainterner`
+    - :kbd:`Application server maintainer`
     - :kbd:`present`
 
 作業実行
