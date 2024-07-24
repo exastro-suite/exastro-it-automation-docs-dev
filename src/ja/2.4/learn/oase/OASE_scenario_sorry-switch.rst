@@ -290,7 +290,12 @@ OASEエージェントの設定
 .. code-block:: shell
    :caption: docker コマンドを利用する場合(Docker環境)
 
-   docker compose up -d  --wait  
+   docker compose up -d --wait  
+
+.. code-block:: shell
+   :caption: docker-compose コマンドを利用する場合(Podman環境)
+
+   docker-compose up -d --wait  
 
 | 状態が `Helthy` になっていることを確認します。
 
@@ -300,6 +305,11 @@ OASEエージェントの設定
    :caption: docker コマンドを利用する場合(Docker環境)
 
    docker compose logs -f
+
+.. code-block:: shell
+   :caption: docker-compose コマンドを利用する場合(Podman環境)
+
+   docker-compose logs -f
   
 | エラーが出ている場合は、.envファイルの各設定値が正しいか確認してください。
 
