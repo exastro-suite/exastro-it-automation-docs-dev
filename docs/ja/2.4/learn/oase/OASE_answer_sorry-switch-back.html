@@ -625,7 +625,13 @@
 </div>
 <div class="literal-block-wrapper docutils container" id="id20">
 <div class="code-block-caption"><span class="caption-number">リスト 6.1 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-number">リスト 6.2 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
 </div>
@@ -635,9 +641,15 @@
 <div class="line-block">
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 6.2 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-number">リスト 6.3 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-number">リスト 6.4 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>logs<span class="w"> </span>-f
 </pre></div>
 </div>
 </div>
@@ -657,8 +669,8 @@
 <div class="line-block">
 <div class="line">下記のSorry画面に切り替わっているときのリクエスト数回復のイベントを発生させて、設定を進めましょう。</div>
 </div>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-number">表 6.7 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-number">表 6.7 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -692,8 +704,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_sorry-switch-back_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_answer_sorry-switch-back_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-number">表 6.8 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-number">表 6.8 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -773,8 +785,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_sorry-switch-back_フィルター設定詳細画面2.png"><img alt="フィルター" src="../../_images/OASE_answer_sorry-switch-back_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A22.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-number">表 6.9 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-number">表 6.9 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -842,8 +854,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_sorry-switch-back_アクション設定.gif"><img alt="イベントフロー_アクション" src="../../_images/OASE_answer_sorry-switch-back_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-number">表 6.10 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-number">表 6.10 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -915,8 +927,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_sorry-switch-back_ルール詳細画面.gif"><img alt="イベントフロー_ルール2" src="../../_images/OASE_answer_sorry-switch-back_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 6.11 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-number">表 6.11 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 3.6%" />
 <col style="width: 10.4%" />
@@ -1036,8 +1048,8 @@
 <div class="line">ルールの設定の間に発生させたイベントのTTLが切れてしまったら、改めて同じイベントを発生させてください。</div>
 </div>
 </div>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 6.12 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-number">表 6.12 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
