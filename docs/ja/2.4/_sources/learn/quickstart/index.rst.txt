@@ -569,3 +569,4 @@ Movement と Ansible Playbook の紐付け
 | RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法を学習しました。
 | また、Exastro IT Automation により自動化の最大のメリットである、繰り返し作業による作業の効率化について学習しました。
 | :doc:`次のシナリオ <../ansible_legacy/Legacy_scenario2>` では、より実用的なパラメータシートの管理方法について紹介をします。
+
