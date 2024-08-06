@@ -2,7 +2,7 @@
 パラメータ集
 ============
 
-| 本シナリオでは、簡単な例として、ユーザー管理を題材に Exastro IT Automation の基本操作を学習します。
+| 本シナリオでは、ユーザー管理の設定を題材にパラメータ集の機能について学習します。
 
 ユーザー管理
 ============
@@ -12,15 +12,16 @@
 
 | システムの構成情報のフォーマットを設計します。
 
-| システムにある全ての情報をパラメータとして管理する必要はなく、今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
+| システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
 
 .. _quickstart_server_information_parmeter:
 
 データシートの作成
 ------------------
 
-まずは、「あるべきグループ、ユーザーの状態」である present (新規グループ、ユーザーを作成する状態) と absent (新規グループ、ユーザーを削除する状態) の選択肢を作成します。
-具体的には、データシートを作成し、その中に選択肢として表示するパラメータを投入します。
+| まずは、「あるべきグループ、ユーザーの状態」である present (新規グループ、ユーザーを作成する状態) と absent (新規グループ、ユーザーを削除する状態) の選択肢を作成します。
+| 具体的には、データシートを作成し、その中に選択肢として表示するパラメータを投入します。
+| :doc:`Ansible-Legacy <../ansible_legacy/Legacy_scenario2>` と :doc:`Ansible-LegacyRole <../ansible_legacy_role/scenario2>` のシナリオでデータシートを作成している場合、データシートの作成は不要です。
 
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、データシートを登録します。
 
@@ -133,10 +134,13 @@
        - "{{ ITA_DFLT_User_Names }}"
        - "{{ ITA_DFLT_User_Group_Names }}"
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、グループとユーザーを作成するために、「グループ作成情報」と「ユーザー作成情報」というパラメータシートを作成します。
+| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、グループとユーザーを作成するために、「グループ作成情報」と「ユーザー作成情報」を管理するパラメータシートを作成します。
 
 .. tip:: 
    | パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+
+グループのパラメータシート作成
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: /images/learn/quickstart/paramater/新規グループパラメータシート作成.png
    :width: 1200px
@@ -160,7 +164,7 @@
      - :kbd:`プルダウン選択`
    * - 選択項目
      - :kbd:`32`
-     - :kbd:`入力用:状態:present-absent`
+     - :kbd:`入力用:状態:パラメータ/present-absent`
    * - 正規表現
      - 
      - 
@@ -204,6 +208,9 @@
    * - 最終更新者
      - (自動入力)
 
+ユーザーのパラメータシート作成
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. figure:: /images/learn/quickstart/paramater/新規ユーザーパラメータシート作成.png
    :width: 1200px
    :alt: パラメータシート作成
@@ -230,8 +237,8 @@
      - :kbd:`プルダウン選択`
    * - 選択項目
      - :kbd:`32`
-     - :kbd:`入力用:グループ:グループ名`
-     - :kbd:`入力用:状態:present-absent`
+     - :kbd:`入力用:新規グループ:パラメータ/グループ名`
+     - :kbd:`入力用:状態:パラメータ/present-absent`
    * - 正規表現
      - 
      - 
@@ -295,32 +302,43 @@
 作業項目の設定
 --------------
 
-| Exastro IT Automation では、Movement という単位で作業を管理し、作業手順書における作業項目に該当します。
-| Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付けの際に利用します。
+| Exastro IT Automation では、Movement という単位で作業を管理します。Movementは作業手順書における作業項目に該当します。
+| Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付ける際に利用します。
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、ユーザー登録のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/Movement登録.png
+.. figure:: /images/learn/quickstart/paramater/Movement登録設定.png
    :width: 1200px
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 15 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`新規ユーザー登録`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Playbook 登録
 ---------------------
 
 | Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。
 | Ansible-Legacyモードではご自身で作成したPlaybookを利用することを想定しています。
-| Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで自由に手順を作成することが可能です。
+| Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで自由に手順を作成できることが挙げられます。
 | ver2.4.0 からはデフォルトでPlaybookが登録されています、自分の用途に合ったPlaybookを使用してみましょう。
 
 | 本シナリオでは System_group_add.yml と System_user_add.yml を使用します。
@@ -377,8 +395,8 @@ Movement と Ansible Playbook の紐付け
 パラメータシートの項目と Ansible Playbook の変数の紐付け
 --------------------------------------------------------
 
-| System_group_add.ymlでは、:kbd:`ITA_DFLT_Groups` に作成したいグループ名を入れる。
-| System_user_add.yml では、:kbd:`ITA_DFLT_User_Names` に作成したいユーザー名、:kbd:`ITA_DFLT_User_Group_Names` にグループ作成で作成したグループ名を入れる。
+| System_group_add.ymlでは、:kbd:`ITA_DFLT_Groups` に作成したいグループ名を入れます。
+| System_user_add.yml では、:kbd:`ITA_DFLT_User_Names` に作成したいユーザー名、:kbd:`ITA_DFLT_User_Group_Names` にグループ作成で作成したグループ名を入れます。
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
 
@@ -402,31 +420,31 @@ Movement と Ansible Playbook の紐付け
     -
     - Movement名:変数名
     - 代入順序
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`代入値自動登録用:新規グループ:パラメータ/グループ名`
     - :kbd:`1`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`1`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`代入値自動登録用:新規グループ:パラメータ/グループ名`
     - :kbd:`2`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`2`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`代入値自動登録用:新規グループ:パラメータ/グループ名`
     - :kbd:`3`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`3`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`代入値自動登録用:新規グループ:パラメータ/グループ名`
     - :kbd:`4`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`4`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`代入値自動登録用:新規グループ:パラメータ/グループ名`
     - :kbd:`5`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
@@ -453,61 +471,61 @@ Movement と Ansible Playbook の紐付け
     -
     - Movement名:変数名
     - 代入順序
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/ユーザー名`
     - :kbd:`1`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`1`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/グループ`
     - :kbd:`1`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`1`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/ユーザー名`
     - :kbd:`2`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`2`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/グループ`
     - :kbd:`2`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`2`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/ユーザー名`
     - :kbd:`3`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`3`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/グループ`
     - :kbd:`3`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`3`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/ユーザー名`
     - :kbd:`4`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`4`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/グループ`
     - :kbd:`4`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Group_Names`
     - :kbd:`4`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/ユーザー名`
     - :kbd:`5`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
     - :kbd:`新規ユーザー登録:ITA_DFLT_User_Names`
     - :kbd:`5`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+  * - :kbd:`代入値自動登録用:新規ユーザー:パラメータ/グループ`
     - :kbd:`5`
     - :kbd:`Value型`
     - :kbd:`新規ユーザー登録`
@@ -527,25 +545,25 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 の接続情報を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/機器一覧登録.png
+.. figure:: /images/learn/quickstart/paramater/機器一覧登録設定.gif
    :width: 1200px
    :alt: 機器一覧登録
 
 .. list-table:: 機器一覧の設定値
-   :widths: 10 10 20 10 10 20
+   :widths: 10 10 15 10 10 10
    :header-rows: 3
 
    * - HW機器種別
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     - ssh鍵認証情報
      - Ansible利用情報
    * - 
      - 
      - 
      - ユーザ
-     - パスワード
+     - ssh秘密鍵ファイル
      - Legacy/Role利用情報
    * - 
      - 
@@ -555,10 +573,14 @@ Movement と Ansible Playbook の紐付け
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
-     - :kbd:`192.168.0.1` ※適切なIPアドレスを設定
-     - :kbd:`root`
-     - (パスワード)
-     - :kbd:`パスワード認証`
+     - :kbd:`192.168.0.1 ※適切なIPアドレスを設定`
+     - :kbd:`接続ユーザ名`
+     - :kbd:`(秘密鍵ファイル)`
+     - :kbd:`鍵認証(パスフレーズなし)`
+
+.. tip::
+   | 今回のシナリオでは鍵認証で実行しますが、パスワード認証での実行も可能です。
+   | 認証方式は、作業対象サーバーへのログインの方法に応じて適宜変更してください。
 
 
 ユーザー管理作業の実施
@@ -728,7 +750,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/paramater/作業実行.png
+.. figure:: /images/learn/quickstart/paramater/作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
@@ -1056,7 +1078,7 @@ Movement と Ansible Playbook の紐付け
 
 | パラメータ表示を実行すると画像のように、選択したオペレーションごとに設定したパラメータを一覧表示で確認することが出来ます。
 
-.. figure:: /images/learn/quickstart/paramater/パラメータ集表示.png
+.. figure:: /images/learn/quickstart/paramater/パラメータ集表示.gif
    :width: 1200px
    :alt: パラメータ登録
 
