@@ -4,6 +4,10 @@
 # list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+from sphinx.roles import MenuSelection
+
+MenuSelection.BULLET_CHARACTER = '▶'
+
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -13,7 +17,6 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
 
 # -- Project information -----------------------------------------------------
 
