@@ -428,7 +428,7 @@
 <span id="id12"></span><h3><span class="section-number">2.7.2. </span>エージェント<a class="headerlink" href="#agent" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line"><span class="menuselection">OASE管理 ‣ エージェント</span> では、（エージェントに設定する）イベント収集対象の、接続方式・認証方式・TTL等をメンテナンス（閲覧/登録/更新/廃止）できます。</div>
+<div class="line"><span class="menuselection">OASE管理 ▶ エージェント</span> では、（エージェントに設定する）イベント収集対象の、接続方式・認証方式・TTL等をメンテナンス（閲覧/登録/更新/廃止）できます。</div>
 </div>
 </li>
 </ol>
@@ -672,7 +672,7 @@
 <span id="id13"></span><h3><span class="section-number">2.7.3. </span>通知テンプレート（共通）<a class="headerlink" href="#notification-template-common" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line"><span class="menuselection">OASE管理 ‣ 通知テンプレート（共通）</span> では、OASEの通知機能で使用するテンプレートをメンテナンス（閲覧/更新）できます。</div>
+<div class="line"><span class="menuselection">OASE管理 ▶ 通知テンプレート（共通）</span> では、OASEの通知機能で使用するテンプレートをメンテナンス（閲覧/更新）できます。</div>
 </div>
 </li>
 </ol>
@@ -1291,7 +1291,7 @@
 <div class="line-block">
 <div class="line">となり、この結果から、イベントとして識別する値は、<strong class="program">id</strong> の値が適しているため、</div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE管理 ‣ エージェント</span> での設定値は、下記の設定が適切です。</div>
+<div class="line"><span class="menuselection">OASE管理 ▶ エージェント</span> での設定値は、下記の設定が適切です。</div>
 </div>
 </div>
 <table class="docutils align-default">
@@ -1351,23 +1351,23 @@
 <section id="oase-agent-settings">
 <span id="id24"></span><h3><span class="section-number">2.8.5. </span>監視ソフト毎のエージェント設定例<a class="headerlink" href="#oase-agent-settings" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">本項では、代表的な監視ソフト <em class="dfn">Zabbix</em> と <em class="dfn">Grafana</em> をエージェントで利用する場合の、 <span class="menuselection">OASE管理 ‣ エージェント</span> での設定例について説明します。</div>
+<div class="line">本項では、代表的な監視ソフト <em class="dfn">Zabbix</em> と <em class="dfn">Grafana</em> をエージェントで利用する場合の、 <span class="menuselection">OASE管理 ▶ エージェント</span> での設定例について説明します。</div>
 </div>
 <div class="line-block">
 <div class="line">また、本項では、まず、各監視ソフトのアラートを、cURLコマンドで取得する例を示し、</div>
-<div class="line">次に、cURLのパラメータを、 <span class="menuselection">OASE管理 ‣ エージェント</span> に設定する順番で説明します。</div>
+<div class="line">次に、cURLのパラメータを、 <span class="menuselection">OASE管理 ▶ エージェント</span> に設定する順番で説明します。</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <div class="line-block">
 <div class="line">監視ソフトののバージョンによって、HTTP APIの仕様が異なる場合があります。</div>
-<div class="line">利用するバージョンのHTTP APIの仕様を確認し、 <span class="menuselection">OASE管理 ‣ エージェント</span> の設定を行ってください。</div>
+<div class="line">利用するバージョンのHTTP APIの仕様を確認し、 <span class="menuselection">OASE管理 ▶ エージェント</span> の設定を行ってください。</div>
 </div>
 </div>
 <section id="zabbix">
 <h4>Zabbix<a class="headerlink" href="#zabbix" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line"><em class="dfn">Zabbix</em> から、イベントを取得する、 <span class="menuselection">OASE管理 ‣ エージェント</span> での設定例について説明します。</div>
+<div class="line"><em class="dfn">Zabbix</em> から、イベントを取得する、 <span class="menuselection">OASE管理 ▶ エージェント</span> での設定例について説明します。</div>
 </div>
 <div class="line-block">
 <div class="line">以下の説明で使用した、<em class="dfn">Zabbix</em> は、</div>
@@ -1437,7 +1437,7 @@
 </li>
 </ol>
 <div class="line-block">
-<div class="line">上記のcURLコマンドを参考に、同等な取得を行う、 <span class="menuselection">OASE管理 ‣ エージェント</span> の設定値は、下記の様に設定します。</div>
+<div class="line">上記のcURLコマンドを参考に、同等な取得を行う、 <span class="menuselection">OASE管理 ▶ エージェント</span> の設定値は、下記の様に設定します。</div>
 </div>
 <table class="docutils align-left" id="id35">
 <caption><span class="caption-number">表 2.93 </span><span class="caption-text">Zabbixの設定例</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -1570,7 +1570,7 @@
 </pre></div>
 </div>
 <div class="line-block">
-<div class="line">&lt;Zabbix APIトークン&gt;を、  <span class="menuselection">OASE管理 ‣ エージェント</span> の <span class="menuselection">パラメータ</span> の &lt;Zabbix APIトークン&gt; の箇所に貼り付けます。</div>
+<div class="line">&lt;Zabbix APIトークン&gt;を、  <span class="menuselection">OASE管理 ▶ エージェント</span> の <span class="menuselection">パラメータ</span> の &lt;Zabbix APIトークン&gt; の箇所に貼り付けます。</div>
 <div class="line">※ &lt;Zabbix APIトークン&gt;作成は、ブラウザでもを作成できます。</div>
 <div class="line">ブラウザでログイン後、サイドメニュー &gt; ユーザー設定 &gt; APIトークン の <span class="guilabel">APIトークンの作成</span> で作成できます。</div>
 </div>
@@ -1579,7 +1579,7 @@
 <section id="grafan">
 <h4>Grafan<a class="headerlink" href="#grafan" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line"><em class="dfn">Grafan</em> で、イベントを取得するための、 <span class="menuselection">OASE管理 ‣ エージェント</span> での設定例について説明します。</div>
+<div class="line"><em class="dfn">Grafan</em> で、イベントを取得するための、 <span class="menuselection">OASE管理 ▶ エージェント</span> での設定例について説明します。</div>
 </div>
 <div class="line-block">
 <div class="line">以下の説明で使用した、<em class="dfn">Grafan</em> は、</div>
@@ -1641,7 +1641,7 @@
 </li>
 </ol>
 <div class="line-block">
-<div class="line">上記cURLコマンドを参考に、同等な取得を行う、 <span class="menuselection">OASE管理 ‣ エージェント</span> の設定値は、下記の様に設定します。</div>
+<div class="line">上記cURLコマンドを参考に、同等な取得を行う、 <span class="menuselection">OASE管理 ▶ エージェント</span> の設定値は、下記の様に設定します。</div>
 </div>
 <table class="docutils align-left" id="id36">
 <caption><span class="caption-number">表 2.94 </span><span class="caption-text">Grafanaの設定例</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -1736,7 +1736,7 @@
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">クリップボードの認証トークンを、 <span class="menuselection">OASE管理 ‣ エージェント</span> の <span class="menuselection">認証トークン</span> に貼り付けます。</div>
+<div class="line">クリップボードの認証トークンを、 <span class="menuselection">OASE管理 ▶ エージェント</span> の <span class="menuselection">認証トークン</span> に貼り付けます。</div>
 </div>
 </li>
 </ol>

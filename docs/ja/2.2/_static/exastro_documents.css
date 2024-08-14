@@ -1319,9 +1319,10 @@ span.highlighted {
  display: inline-block;
  /* height: 24px; */
  /* margin-right: 18px; */
- padding: 0px 5px;
- color: #fff;
- background: #6aa7cd;}
+ padding: 0px 6px;
+ background: #edf5ff;
+ border-radius: 6px;
+ color: #002B62;}
 
 #article section {
  padding: 16px 0px;
@@ -2585,7 +2586,7 @@ span.highlighted {
   content: 'Table of Contents';
   display: revert;
   position: fixed;
-  font-size: 0.5em;
+  font-size: 0.8rem;
   top: 50%;
   right: -40px;
   width: 100px;
@@ -2599,10 +2600,6 @@ span.highlighted {
   text-align: center;
   vertical-align: middle;
   line-height: normal;
- }
-
- #tocButton::before {
-  /* background: #222; */
  }
 
  #tocButton:hover::before {

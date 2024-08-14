@@ -307,7 +307,7 @@
 <div class="line">APIのエンドポイントで使用するメニュー名の確認方法ついて</div>
 </div>
 <ul class="simple">
-<li><p>「<span class="menuselection">管理コンソール ‣ メニュー管理</span>」から該当するメニューのレコードを確認し、「<span class="menuselection">メニュー名(rest)</span> 」の値を使用してください。</p></li>
+<li><p>「<span class="menuselection">管理コンソール ▶ メニュー管理</span>」から該当するメニューのレコードを確認し、「<span class="menuselection">メニュー名(rest)</span> 」の値を使用してください。</p></li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -571,7 +571,7 @@
 </li>
 </ul>
 <div class="line-block">
-<div class="line">以下のサンプルはBasic認証を使用して、「<span class="menuselection">Ansible共通 ‣ 機器一覧</span>」、「<span class="menuselection">Ansible-Legacy ‣ Playbook素材集</span>」のレコード操作のAPIを呼出しています。</div>
+<div class="line">以下のサンプルはBasic認証を使用して、「<span class="menuselection">Ansible共通 ▶ 機器一覧</span>」、「<span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span>」のレコード操作のAPIを呼出しています。</div>
 </div>
 <ul class="simple">
 <li><p><a class="reference internal" href="#api-execution-example-maintenance-device-list"><span class="std std-ref">Ansible共通 - 機器一覧</span></a></p></li>
@@ -636,7 +636,7 @@
 <div class="line">以下、登録、更新時のパラメータ例について記載します。</div>
 </div>
 <ul class="simple">
-<li><p>「<span class="menuselection">Ansible-Legacy ‣ Playbook素材集</span>」の登録のサンプル</p></li>
+<li><p>「<span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span>」の登録のサンプル</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id25">
 <div class="code-block-caption"><span class="caption-number">リスト 2.61 </span><span class="caption-text">Content-Type: application/jsonの場合の curlの --data-raw のパラメータ</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
@@ -684,7 +684,7 @@
 </div>
 </div>
 <ul class="simple">
-<li><p>「<span class="menuselection">Ansible-Legacy ‣ Playbook素材集</span>」の更新のサンプル</p></li>
+<li><p>「<span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span>」の更新のサンプル</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id27">
 <div class="code-block-caption"><span class="caption-number">リスト 2.63 </span><span class="caption-text">Content-Type: application/jsonの場合の curlの --data-raw のパラメータ</span><a class="headerlink" href="#id27" title="このコードへのパーマリンク">¶</a></div>
@@ -1169,7 +1169,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <span id="id4"></span><h1><span class="section-number">3. </span>パラメータ適用（API）<a class="headerlink" href="#api-apply" title="この見出しへのパーマリンク">¶</a></h1>
 <div class="line-block">
 <div class="line">本APIは、オペレーションの生成からパラメータの適用までを行いConductor作業実行を行うAPIです。</div>
-<div class="line">尚、Conductor作業実行の完了確認は行いません。完了確認は、 <span class="menuselection">Conductor  ‣  Conductor作業一覧</span> より行って下さい。</div>
+<div class="line">尚、Conductor作業実行の完了確認は行いません。完了確認は、 <span class="menuselection">Conductor  ▶  Conductor作業一覧</span> より行って下さい。</div>
 </div>
 <section id="request">
 <span id="api-apply-request-format-description"></span><h2><span class="section-number">3.1. </span>request形式<a class="headerlink" href="#request" title="この見出しへのパーマリンク">¶</a></h2>
@@ -1244,8 +1244,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <td><p>文字列</p></td>
 <td><div class="line-block">
 <div class="line">作業実行を要求するConductor名を指定します。</div>
-<div class="line">Conductor名は、<span class="menuselection">Conductor  ‣  Conductor一覧</span> に登録されている <span class="menuselection">Conductor名称</span> を指定します。</div>
-<div class="line"><span class="menuselection">Conductor  ‣  Conductor一覧</span> に登録されていないConductor名を指定した場合はエラーになります。</div>
+<div class="line">Conductor名は、<span class="menuselection">Conductor  ▶  Conductor一覧</span> に登録されている <span class="menuselection">Conductor名称</span> を指定します。</div>
+<div class="line"><span class="menuselection">Conductor  ▶  Conductor一覧</span> に登録されていないConductor名を指定した場合はエラーになります。</div>
 </div>
 </td>
 </tr>
@@ -1259,18 +1259,18 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <ul>
 <li><div class="line-block">
 <div class="line">既存オペレーション</div>
-<div class="line"><span class="menuselection">基本コンソール  ‣  オペレーション一覧</span> に登録されている <span class="menuselection">オペレーション名</span> を指定します。</div>
+<div class="line"><span class="menuselection">基本コンソール  ▶  オペレーション一覧</span> に登録されている <span class="menuselection">オペレーション名</span> を指定します。</div>
 </div>
 </li>
 <li><div class="line-block">
 <div class="line">新規オペレーション</div>
-<div class="line"><span class="menuselection">基本コンソール  ‣  オペレーション一覧</span> に登録されていない <span class="menuselection">オペレーション名</span> を指定します。</div>
-<div class="line">指定されたoperation_nameが <span class="menuselection">基本コンソール  ‣  オペレーション一覧</span> に登録されます。</div>
+<div class="line"><span class="menuselection">基本コンソール  ▶  オペレーション一覧</span> に登録されていない <span class="menuselection">オペレーション名</span> を指定します。</div>
+<div class="line">指定されたoperation_nameが <span class="menuselection">基本コンソール  ▶  オペレーション一覧</span> に登録されます。</div>
 </div>
 </li>
 <li><div class="line-block">
 <div class="line">オペレーション自動採番</div>
-<div class="line">operation_nameの指定がない場合や省略した場合は、以下の採番ルールで <span class="menuselection">オペレーション名</span> を採番し<span class="menuselection">基本コンソール  ‣  オペレーション一覧</span> に登録されます。</div>
+<div class="line">operation_nameの指定がない場合や省略した場合は、以下の採番ルールで <span class="menuselection">オペレーション名</span> を採番し<span class="menuselection">基本コンソール  ▶  オペレーション一覧</span> に登録されます。</div>
 <div class="line-block">
 <div class="line">　採番ルール：「yyyymmddhhmissffffffN」</div>
 <div class="line">　y:年 m:月 d:日 h:時 mi:分 s:秒 f:マイクロ秒 N:0-9の通番</div>
@@ -1307,7 +1307,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <td></td>
 <td><p>配列</p></td>
 <td><div class="line-block">
-<div class="line"><span class="menuselection">管理コンソール  ‣  メニュー管理</span> の <span class="menuselection">メニュー名(Rest)</span> を指定します。</div>
+<div class="line"><span class="menuselection">管理コンソール  ▶  メニュー管理</span> の <span class="menuselection">メニュー名(Rest)</span> を指定します。</div>
 <div class="line">複数レコードが対象で順序性を考慮する必要がある場合は、配列の順番で調整して下さい。</div>
 </div>
 </td>

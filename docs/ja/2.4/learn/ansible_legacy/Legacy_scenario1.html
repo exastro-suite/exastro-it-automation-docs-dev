@@ -242,7 +242,7 @@
 </dl>
 <div class="line-block">
 <div class="line">ホスト名を管理するためのパラメータシートを作成します。</div>
-<div class="line"><span class="menuselection">パラメータシート作成 ‣ パラメータシート定義・作成</span> から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。</div>
+<div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/パラメータシート作成定義.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90%E5%AE%9A%E7%BE%A9.png" style="width: 1200px;" /></a>
@@ -335,7 +335,7 @@
 <h2>作業手順の登録<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。</div>
-<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="../quickstart/index.html#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシートの作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
+<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="../quickstart/index.html#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシート作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
 </div>
 <dl class="simple glossary">
 <dt id="term-Movement">Movement<a class="headerlink" href="#term-Movement" title="この用語の解説へ">¶</a></dt><dt id="term-Exastro-IT-Automation">Exastro IT Automation における、最小の作業単位のことを指します。<a class="headerlink" href="#term-Exastro-IT-Automation" title="この用語の解説へ">¶</a></dt><dt id="term-1-Movement-1-ansible-playbook">1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。<a class="headerlink" href="#term-1-Movement-1-ansible-playbook" title="この用語の解説へ">¶</a></dt><dd></dd>
@@ -347,7 +347,7 @@
 <div class="line">Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付ける際に利用します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/Movement登録.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
@@ -406,7 +406,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ Playbook素材集</span> から、上記のPlaybookを登録します。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> から、上記のPlaybookを登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/Playbook素材集.png"><img alt="Playbook登録" src="../../_images/Playbook%E7%B4%A0%E6%9D%90%E9%9B%86.png" style="width: 1200px;" /></a>
@@ -432,7 +432,7 @@
 <section id="movement-ansible-playbook">
 <h3>Movement と Ansible Playbook の紐付け<a class="headerlink" href="#movement-ansible-playbook" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ Movement-ロール紐付</span> から、Movement と Ansible Playbook の紐付けを行います。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement-ロール紐付</span> から、Movement と Ansible Playbook の紐付けを行います。</div>
 <div class="line">本シナリオでは、 hostname.ymlを利用します。</div>
 </div>
 <figure class="align-default">
@@ -465,7 +465,7 @@
 <div class="line">hostname.ymlでは、<kbd class="kbd docutils literal notranslate">hostname</kbd> という変数にホスト名を代入することで、対象サーバーのホスト名を設定することができます。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ 代入値自動登録設定</span> から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の <kbd class="kbd docutils literal notranslate">hostname</kbd> に代入する設定を行います。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の <kbd class="kbd docutils literal notranslate">hostname</kbd> に代入する設定を行います。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/代入値自動登録.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
@@ -511,7 +511,7 @@
 <div class="line">作業対象となるサーバを機器一覧に登録します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible共通 ‣ 機器一覧</span> から、作業対象であるサーバーの接続情報を登録します。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象であるサーバーの接続情報を登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/機器一覧登録設定.gif"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
@@ -605,7 +605,7 @@
 <dt id="term-2">オペレーション<a class="headerlink" href="#term-2" title="この用語の解説へ">¶</a></dt><dt id="term-3">実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。<a class="headerlink" href="#term-3" title="この用語の解説へ">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
-<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
+<div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/オペレーション登録1.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
@@ -643,7 +643,7 @@
 <div class="line">本シナリオでは、<kbd class="kbd docutils literal notranslate">server01</kbd> というホスト名を作業対象サーバに設定します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">入力用 ‣ サーバー基本情報</span> から、ホストに対するパラメータを登録します。</div>
+<div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ホストに対するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/パラメータ登録.png"><img alt="パラメータ登録" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
@@ -698,7 +698,7 @@ localhost
 </li>
 <li><p>作業実行</p>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ 作業実行</span> から、<kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> Movement を選択し、<span class="guilabel"> 作業実行</span> を押下します。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ 作業実行</span> から、<kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> Movement を選択し、<span class="guilabel"> 作業実行</span> を押下します。</div>
 <div class="line">次に、<span class="menuselection">作業実行設定</span> で、オペレーションに <kbd class="kbd docutils literal notranslate">RHEL8のホスト名変更作業</kbd> を選択し <span class="guilabel">選択決定</span> を押下します。</div>
 <div class="line">最後に、実行内容を確認し、<span class="guilabel">作業実行</span> を押下します。</div>
 </div>
@@ -769,7 +769,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <dt id="term-4">オペレーション<a class="headerlink" href="#term-4" title="この用語の解説へ">¶</a></dt><dt id="term-5">実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。<a class="headerlink" href="#term-5" title="この用語の解説へ">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
-<div class="line"><span class="menuselection">基本コンソール ‣ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
+<div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/更新用オペレーション登録.png"><img alt="オペレーション登録" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
@@ -809,7 +809,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">Exastro IT Automation では、機器の情報を <a class="reference internal" href="../../manuals/ansible-driver/ansible_common.html#ansible-common-ita-original-variable"><span class="std std-ref">ITA独自変数</span></a> で取得することができ、ログイン先のホスト名は  <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> という変数を使うことで取得できるため、パラメータの一元管理が可能となります。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">入力用 ‣ サーバー基本情報</span> から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。</div>
+<div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/更新用パラメータ設定.png"><img alt="パラメータ設定" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
@@ -845,7 +845,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">作業対象となるサーバーのホスト名を db01 に変更します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible共通 ‣ 機器一覧</span> から、作業対象サーバのホスト名を db01 に更新します。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象サーバのホスト名を db01 に更新します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/機器一覧ホスト名変更.gif"><img alt="パラメータ登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4.gif" style="width: 1200px;" /></a>
@@ -899,7 +899,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <ol class="arabic">
 <li><p>作業実行</p>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ‣ 作業実行</span> から、<kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> Movement を選択し、<span class="guilabel"> 作業実行</span> を押下します。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ 作業実行</span> から、<kbd class="kbd docutils literal notranslate">ホスト名設定</kbd> Movement を選択し、<span class="guilabel"> 作業実行</span> を押下します。</div>
 <div class="line">次に、<span class="menuselection">作業実行設定</span> で、オペレーションに <kbd class="kbd docutils literal notranslate">RHEL8のホスト名更新作業</kbd> を選択し <span class="guilabel">選択決定</span> を押下します。</div>
 <div class="line">最後に、実行内容を確認し、<span class="guilabel">作業実行</span> を押下します。</div>
 </div>
@@ -932,7 +932,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </li>
 </ol>
 <div class="line-block">
-<div class="line">以降は、 <span class="menuselection">Ansible共通 ‣ 機器一覧</span> から、ホスト名を変更し、作業実行をするだけでホスト名の更新を行うことが可能です。</div>
+<div class="line">以降は、 <span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、ホスト名を変更し、作業実行をするだけでホスト名の更新を行うことが可能です。</div>
 </div>
 </section>
 </section>
