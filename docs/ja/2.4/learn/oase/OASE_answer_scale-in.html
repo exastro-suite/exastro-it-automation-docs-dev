@@ -306,7 +306,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE管理 ‣ エージェント</span> から、外部サービスの情報を登録します。</div>
+<div class="line"><span class="menuselection">OASE管理 ▶ エージェント</span> から、外部サービスの情報を登録します。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のエージェントの登録をしていきます。</div>
@@ -411,7 +411,7 @@
 <div class="line"><span class="menuselection">ラベル作成</span> では、イベントを特定する時に利用するキー(ラベル)を作成します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ ラベル ‣ ラベル作成</span> から、ラベルを作成します。</div>
+<div class="line"><span class="menuselection">OASE ▶ ラベル ▶ ラベル作成</span> から、ラベルを作成します。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
@@ -466,7 +466,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ ラベル ‣ ラベル付与</span> から、ラベルを付与するための設定を行います。</div>
+<div class="line"><span class="menuselection">OASE ▶ ラベル ▶ ラベル付与</span> から、ラベルを付与するための設定を行います。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベル付与の設定を追加していきます。</div>
@@ -556,7 +556,7 @@
 <p class="admonition-title">注釈</p>
 <div class="line-block">
 <div class="line">OASEエージェントの詳細は、下記のページにてご確認ください。</div>
-<div class="line"><a class="reference external" href="https://ita-docs.exastro.org/ja/2.3/installation/oase_agent_docker_compose.html">https://ita-docs.exastro.org/ja/2.3/installation/oase_agent_docker_compose.html</a></div>
+<div class="line"><a class="reference internal" href="../../installation/online/oase_agent/docker_compose.html"><span class="doc">OASE Agent on Docker Compose - Online</span></a></div>
 </div>
 </div>
 <section id="env">
@@ -616,8 +616,8 @@
 <div class="line-block">
 <div class="line"><cite>*</cite> の部分は、各自の情報を入力してください。</div>
 <div class="line">「EXASTRO_USERNAME」と「EXASTRO_PASSWORD」は、ワークスペースのものになります。</div>
-<div class="line">各項目の詳細は、下記のページを参照ください。</div>
-<div class="line"><a class="reference external" href="https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow">https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow</a></div>
+<div class="line">各項目の詳細は、下記のページ <span class="menuselection">2.8.1. OASE Agentの処理フローと.envの設定値</span> を参照ください。</div>
+<div class="line"><a class="reference internal" href="../../manuals/oase/oase_management.html"><span class="doc">OASE 管理</span></a></div>
 </div>
 </div>
 </section>
@@ -626,15 +626,15 @@
 <div class="line-block">
 <div class="line">次のコマンドを使い、コンテナを起動してみましょう。</div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">警告</p>
-<div class="line-block">
-<div class="line">UIDが1000以外のユーザで実行する場合は、「chown -R 1000:1000 保存先のボリュームのパス」を実行してください。</div>
-</div>
-</div>
 <div class="literal-block-wrapper docutils container" id="id21">
 <div class="code-block-caption"><span class="caption-number">リスト 4.1 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-number">リスト 4.2 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
 </div>
@@ -644,9 +644,15 @@
 <div class="line-block">
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-number">リスト 4.2 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-number">リスト 4.3 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-number">リスト 4.4 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>logs<span class="w"> </span>-f
 </pre></div>
 </div>
 </div>
@@ -673,8 +679,8 @@
 <div class="line-block">
 <div class="line">まずは、以下のような、２台稼働時のリクエスト数閾値内回復のイベントを発生させて、設定を進めましょう。</div>
 </div>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-number">表 4.8 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-number">表 4.8 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -711,7 +717,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ ルール ‣ フィルター</span> から、<span class="menuselection">フィルター</span> を設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ ルール ▶ フィルター</span> から、<span class="menuselection">フィルター</span> を設定します。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のフィルターの設定を追加していきます。</div>
@@ -719,8 +725,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-number">表 4.9 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-number">表 4.9 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -764,12 +770,12 @@
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <div class="line-block">
-<div class="line">未知のイベントが発生した場合は、<span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> からの設定がおすすめです。</div>
+<div class="line">未知のイベントが発生した場合は、<span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> からの設定がおすすめです。</div>
 <div class="line">イベントを参照しながら直感的に設定できます。</div>
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> からは以下のように設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> からは以下のように設定します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定.gif"><img alt="イベントフロー_フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
@@ -788,13 +794,13 @@
 <div class="line">インスタンスを1台スケールインするアクションを登録してみましょう。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> から、<span class="menuselection">アクション</span> を設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> から、<span class="menuselection">アクション</span> を設定します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定.gif"><img alt="イベントフロー_アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-number">表 4.10 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-number">表 4.10 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -836,7 +842,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ ルール ‣ アクション</span> からは以下のように設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ ルール ▶ アクション</span> からは以下のように設定します。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のアクションの設定を追加していきます。</div>
@@ -855,13 +861,13 @@
 <div class="line">そのフィルターでイベントを検知した場合に実行したいアクションを紐づけましょう。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> から、<span class="menuselection">ルール</span> を設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> から、<span class="menuselection">ルール</span> を設定します。</div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定.gif"><img alt="イベントフロー_ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 4.11 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-number">表 4.11 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 8.7%" />
 <col style="width: 8.7%" />
@@ -945,7 +951,7 @@
 </div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ ルール ‣ ルール</span> からは以下のように設定します。</div>
+<div class="line"><span class="menuselection">OASE ▶ ルール ▶ ルール</span> からは以下のように設定します。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
@@ -968,8 +974,8 @@
 <div class="line">ルールの設定の間に発生させたイベントのTTLが切れてしまったら、改めて同じイベントを発生させてください。</div>
 </div>
 </div>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 4.12 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-number">表 4.12 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -993,7 +999,7 @@
 </tbody>
 </table>
 <div class="line-block">
-<div class="line"><span class="menuselection">OASE ‣ イベント ‣ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子を確認できます。</div>
+<div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> の画面では、時系列に沿ってイベントが発生している様子を確認できます。</div>
 <div class="line">アクションが実行されたことを示す結論イベントに <span class="menuselection">ルール</span> で設定したラベルが付与されていることも確認しましょう。</div>
 </div>
 <figure class="align-default">
@@ -1002,8 +1008,8 @@
 <div class="line-block">
 <div class="line">さて次に、2台稼働時のリクエスト数閾値内回復のイベントを発生させてみましょう。</div>
 </div>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-number">表 4.13 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-number">表 4.13 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />

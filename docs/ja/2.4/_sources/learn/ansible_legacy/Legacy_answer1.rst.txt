@@ -1191,7 +1191,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`www`
     - :kbd:`/home/wwwuser01`
     - :kbd:`/bin/bash`
-    - :kbd:`Web server mainterner`
+    - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1203,7 +1203,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`www`
     - :kbd:`/home/wwwuser02`
     - :kbd:`/bin/bash`
-    - :kbd:`Web server mainterner`
+    - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1215,7 +1215,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`app`
     - :kbd:`/home/appuser01`
     - :kbd:`/bin/bash`
-    - :kbd:`Application server mainterner`
+    - :kbd:`Application server maintainer`
     - :kbd:`present`
   * - web01
     - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
@@ -1227,7 +1227,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`app`
     - :kbd:`/home/appuser02`
     - :kbd:`/bin/bash`
-    - :kbd:`Application server mainterner`
+    - :kbd:`Application server maintainer`
     - :kbd:`present`
 
 作業実行
@@ -1313,7 +1313,7 @@ Movement と Ansible Playbook の紐付け
 =================================
 
 | 本演習では、ジョブフローを利用せずに Movement から直接ユーザー設定作業を実施しましたが、当然ジョブフローの利用も可能です。
-| シナリオ3までに行ったサーバー構築の一連の作業の中に本演習で作成した Movement を組み込むことで、ホスト名登録、パッケージ導入、ユーザー登録といった一連の作業フローを組み立てることができます。
+| ジョブフローシナリオまでに行ったサーバー構築の一連の作業の中に本演習で作成した Movement を組み込むことで、ホスト名登録、パッケージ導入、ユーザー登録といった一連の作業フローを組み立てることができます。
 | この場合の作業の流れは、
 
 1. ジョブフローの作成
@@ -1327,7 +1327,7 @@ Movement と Ansible Playbook の紐付け
 | となります。
 | しかし、Exastro IT Automation では、オペレーションと機器の組み合わせごとにパラメータを登録する必要があるため、今回のように、グループとユーザーのみの設定にも関わらず、それ以外のホスト名やパッケージといったパラメータを設定をしなげればなりません。
 
-| このようなパラメータの設定個別オペレーションを使うことで、Movement ごとにオペレーションを設定することができます。
+| このような場合に個別オペレーションを使うことで、Movement ごとにオペレーションを設定することができます。
 | ただし、個別オペレーションを使った場合、実行時のオペレーションとは異なるオペレーションによりパラメータが管理されるため、運用上パラメータの見通しが悪くなることもあります。
 
 ジョブフローの編集と実行 (失敗例)
