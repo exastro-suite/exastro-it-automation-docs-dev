@@ -225,7 +225,7 @@ OASEエージェントの設定
 
 .. note::
    | OASEエージェントの詳細は、下記のページにてご確認ください。
-   | https://ita-docs.exastro.org/ja/2.3/installation/oase_agent_docker_compose.html
+   | :doc:`OASE Agent on Docker Compose - Online <../../installation/online/oase_agent/docker_compose>`
 
 .envの設定
 ----------
@@ -266,21 +266,23 @@ OASEエージェントの設定
 .. tip::
    | `*` の部分は、各自の情報を入力してください。
    | 「EXASTRO_USERNAME」と「EXASTRO_PASSWORD」は、ワークスペースのものになります。
-   | 各項目の詳細は、下記のページを参照ください。
-   | https://ita-docs.exastro.org/ja/2.3/manuals/oase/oase_management.html#oase-agent-flow
+   | 各項目の詳細は、下記のページ :menuselection:`2.8.1. OASE Agentの処理フローと.envの設定値` を参照ください。
+   | :doc:`OASE 管理 <../../manuals/oase/oase_management>`
 
 エージェントの実行
 -------------------
 
 | 次のコマンドを使い、コンテナを起動してみましょう。
 
-.. Warning::
-  | UIDが1000以外のユーザで実行する場合は、「chown -R 1000:1000 保存先のボリュームのパス」を実行してください。
-
 .. code-block:: shell
    :caption: docker コマンドを利用する場合(Docker環境)
 
-   docker compose up -d  --wait  
+   docker compose up -d --wait  
+
+.. code-block:: shell
+   :caption: docker-compose コマンドを利用する場合(Podman環境)
+
+   docker-compose up -d --wait  
 
 | 状態が `Helthy` になっていることを確認します。
 
@@ -290,6 +292,11 @@ OASEエージェントの設定
    :caption: docker コマンドを利用する場合(Docker環境)
 
    docker compose logs -f
+
+.. code-block:: shell
+   :caption: docker-compose コマンドを利用する場合(Podman環境)
+
+   docker-compose logs -f
   
 | エラーが出ている場合は、.envファイルの各設定値が正しいか確認してください。
 

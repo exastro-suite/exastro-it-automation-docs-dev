@@ -10,7 +10,7 @@
 
 | システムの構成情報のフォーマットを設計します。
 
-| システムにある全ての情報をパラメータとして管理する必要はなく、今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
+| システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
 
 .. _quickstart_server_information_parmeter:
 
@@ -79,7 +79,6 @@
    * - 最終更新者
      - (自動入力)
 
-
 作業手順の登録
 ==============
 
@@ -93,33 +92,43 @@
 作業項目の設定
 --------------
 
-| Exastro IT Automation では、Movement という単位で作業を管理し、作業手順書における作業項目に該当します。
-| Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付けの際に利用します。
+| Exastro IT Automation では、Movement という単位で作業を管理します。Movementは作業手順書における作業項目に該当します。
+| Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付ける際に利用します。
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/Movement登録設定.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/Movement登録.png
    :width: 1200px
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`ホスト名設定`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
 
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Playbook 登録
 ---------------------
 
 | Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。
 | Ansible-Legacyモードではご自身で作成したPlaybookを利用することを想定しています。
-| Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで自由に手順を作成することが可能です。
+| Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで、自由に手順を作成できることが挙げられます。
 | ですが、Ansible-Legacyモードを利用するにはご自身でPlaybookを作成していただく必要があるため、Playbook作成の知識が必要となります。
 
 | 本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。
@@ -138,7 +147,7 @@ Ansible Playbook 登録
    :alt: Playbook登録
 
 .. list-table:: Ansible Playbook 情報の登録
-  :widths: 10 20
+  :widths: 10 10
   :header-rows: 1
 
   * - Playbook素材名
@@ -195,7 +204,6 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`ホスト名設定`
     - :kbd:`ホスト名設定:hostname`
 
-
 作業対象の登録
 ==============
 
@@ -204,29 +212,29 @@ Movement と Ansible Playbook の紐付け
 機器登録
 --------
 
-| 作業対象となるサーバー server01 を機器一覧に登録します。
+| 作業対象となるサーバを機器一覧に登録します。
 
-| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 の接続情報を登録します。
+| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象であるサーバーの接続情報を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧登録.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧登録設定.gif
    :width: 1200px
    :alt: 機器一覧登録
 
 .. list-table:: 機器一覧の設定値
-   :widths: 10 10 20 10 10 20
+   :widths: 10 10 15 10 10 10
    :header-rows: 3
 
    * - HW機器種別
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     - ssh鍵認証情報
      - Ansible利用情報
    * - 
      - 
      - 
      - ユーザ
-     - パスワード
+     - ssh秘密鍵ファイル
      - Legacy/Role利用情報
    * - 
      - 
@@ -236,30 +244,32 @@ Movement と Ansible Playbook の紐付け
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
-     - :kbd:`192.168.0.1` ※適切なIPアドレスを設定
-     - :kbd:`root`
-     - (パスワード)
-     - :kbd:`パスワード認証`
+     - :kbd:`192.168.0.1 ※適切なIPアドレスを設定`
+     - :kbd:`接続ユーザ名`
+     - :kbd:`(秘密鍵ファイル)`
+     - :kbd:`鍵認証(パスフレーズなし)`
 
+.. tip::
+   | 今回のシナリオでは鍵認証で実行しますが、パスワード認証での実行も可能です。
+   | 認証方式は、作業対象サーバーへのログインの方法に応じて適宜変更してください。
 
 ホスト名変更作業実施(1回目)
 ===========================
 
-
 作業概要の作成
-==============
+--------------
 
 | 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
 
 .. list-table:: 作業の方針
-   :widths: 15 10
+   :widths: 10 10
    :header-rows: 0
 
    * - 作業実施日時
      - 2024/04/01 12:00:00
    * - 作業対象
-     - server01(RHEL8)
+     - 作業対象サーバー(RHEL8)
    * - 作業内容
      - ホスト名の変更
 
@@ -291,11 +301,12 @@ Movement と Ansible Playbook の紐付け
    | 作業実施日時は、本シナリオでは適当な日時で問題ありませんが、作業日が定まっている場合は、正確な作業実施の予定日時を設定することを推奨します。
    | 定期作業などの繰り返し行われる作業のように、作業日が定まっていない場合は現在の日時を登録しても問題ありません。
 
-| パラメータシートには、設定したい値を機器ごとにパラメータを登録します。
-| 本シナリオでは、:kbd:`server01` というホスト名、RHEL8 サーバに設定します。
-
 パラメータ設定
 --------------
+
+| パラメータシートには、設定したいパラメータを機器ごとに登録します。
+| オペレーションには、作業概要登録で作成した :kbd:`RHEL8のホスト名変更作業` を選択します。オペレーションを選択することでオペレーションに対して、作業対象サーバとパラメータが紐付けされます。
+| 本シナリオでは、:kbd:`server01` というホスト名を作業対象サーバに設定します。
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ホストに対するパラメータを登録します。
 
@@ -313,7 +324,7 @@ Movement と Ansible Playbook の紐付け
   * - 
     - オペレーション名
     - ホスト名
-  * - server01
+  * - :kbd:`server01`
     - :kbd:`2024/04/01 12:00:00_RHEL8のホスト名変更作業`
     - :kbd:`server01`
 
@@ -323,7 +334,7 @@ Movement と Ansible Playbook の紐付け
 1. 事前確認
 
    | まずは、現在のサーバーの状態を確認しましょう。
-   | サーバに SSH ログインし、現在のホスト名を確認します。
+   | 作業対象サーバに SSH ログインし、現在のホスト名を確認します。
 
    .. code-block:: bash
       :caption: コマンド
@@ -345,13 +356,13 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/作業実行.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
 3. 事後確認
 
-   | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
+   | 再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。
 
    .. code-block:: bash
       :caption: コマンド
@@ -375,13 +386,13 @@ Movement と Ansible Playbook の紐付け
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
 
 .. list-table:: 作業の方針
-   :widths: 15 10
+   :widths: 10 10
    :header-rows: 0
 
    * - 作業実施日時
      - 2024/05/01 12:00:00
    * - 作業対象
-     - server01(RHEL8)
+     - 作業対象サーバー(RHEL8)
    * - 作業内容
      - ホスト名の更新
 
@@ -420,7 +431,7 @@ Movement と Ansible Playbook の紐付け
 | 本シナリオでは、:kbd:`server01` というホスト名をパラメータ値として設定しました。
 | しかし、:menuselection:`機器一覧` でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。
 
-| Exastro IT Automation では、機器の情報を :ref:`ansible_common_ita_original_variable` で取得することができ、ログイン先のホスト名は  :kbd:`__inventory_hostname__` という、変数を使うことで取得できるため、パラメータの一元管理が可能となります。
+| Exastro IT Automation では、機器の情報を :ref:`ansible_common_ita_original_variable` で取得することができ、ログイン先のホスト名は  :kbd:`__inventory_hostname__` という変数を使うことで取得できるため、パラメータの一元管理が可能となります。
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。
 
@@ -439,36 +450,36 @@ Movement と Ansible Playbook の紐付け
     - オペレーション名
     - ホスト名
   * - :kbd:`server01`
-    - :kbd:`2024/04/01 12:00:00_RHEL8のホスト名更新作業`
+    - :kbd:`2024/05/01 12:00:00_RHEL8のホスト名更新作業`
     - :kbd:`"{{ __inventory_hostname__ }}"`
 
 
 機器情報の更新
 --------------
 
-| 作業対象となるサーバー server01 のホスト名を db01 に変更します。
+| 作業対象となるサーバーのホスト名を db01 に変更します。
 
-| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 のホスト名を db01 に更新します。
+| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象サーバのホスト名を db01 に更新します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧ホスト名変更.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧ホスト名変更.gif
    :width: 1200px
    :alt: パラメータ登録
 
 .. list-table:: 機器一覧の設定値
-   :widths: 10 10 20 10 10 20
+   :widths: 10 10 15 10 10 10
    :header-rows: 3
 
    * - HW機器種別
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     - ssh鍵認証情報
      - Ansible利用情報
    * - 
      - 
      - 
      - ユーザ
-     - パスワード
+     - ssh秘密鍵ファイル
      - Legacy/Role利用情報
    * - 
      - 
@@ -478,10 +489,10 @@ Movement と Ansible Playbook の紐付け
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`db01`
-     - :kbd:`192.168.0.1` ※適切なIPアドレスを設定
-     - :kbd:`root`
-     - (パスワード)
-     - :kbd:`パスワード認証`
+     - :kbd:`192.168.0.1 ※適切なIPアドレスを設定`
+     - :kbd:`接続ユーザ名`
+     - :kbd:`(秘密鍵ファイル)`
+     - :kbd:`鍵認証(パスフレーズなし)`
 
 
 作業実行
@@ -495,7 +506,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/更新作業実行.png
+.. figure:: /images/learn/quickstart/Legacy_scenario1/更新作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
@@ -520,5 +531,6 @@ Movement と Ansible Playbook の紐付け
 まとめ
 ======
 
-| 本シナリオでは、RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法やコンセプトについて紹介をしました。
-| :doc:`次のシナリオ <Legacy_scenario2>` では、より実用的なパラメータシートの管理方法について紹介をします。
+| RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法を学習しました。
+| また、Exastro IT Automation により自動化の最大のメリットである、繰り返し作業による作業の効率化について学習しました。
+| :doc:`次のシナリオ <../ansible_legacy/Legacy_scenario2>` では、より実用的なパラメータシートの管理方法について紹介をします。
