@@ -299,31 +299,31 @@
 <div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象である db01 のホスト名を web01 に更新します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/機器情報の更新.gif"><img alt="機器情報の更新" src="../../_images/%E6%A9%9F%E5%99%A8%E6%83%85%E5%A0%B1%E3%81%AE%E6%9B%B4%E6%96%B0.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/機器情報更新.gif"><img alt="機器情報の更新" src="../../_images/%E6%A9%9F%E5%99%A8%E6%83%85%E5%A0%B1%E6%9B%B4%E6%96%B0.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id14">
 <caption><span class="caption-number">表 3.2 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 25.0%" />
-<col style="width: 12.5%" />
-<col style="width: 12.5%" />
-<col style="width: 25.0%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 23.1%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>HW機器種別</p></th>
 <th class="head"><p>ホスト名</p></th>
 <th class="head"><p>IPアドレス</p></th>
 <th class="head"><p>ログインパスワード</p></th>
-<th class="head"></th>
+<th class="head"><p>ssh鍵認証情報</p></th>
 <th class="head"><p>Ansible利用情報</p></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"></th>
 <th class="head"></th>
 <th class="head"><p>ユーザ</p></th>
-<th class="head"><p>パスワード</p></th>
+<th class="head"><p>ssh秘密鍵ファイル</p></th>
 <th class="head"><p>Legacy/Role利用情報</p></th>
 </tr>
 <tr class="row-odd"><th class="head"></th>
@@ -337,10 +337,10 @@
 <tbody>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">SV</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">web01</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.0.1</kbd> ※適切なIPアドレスを設定</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">root</kbd></p></td>
-<td><p>(パスワード)</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">パスワード認証</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">192.168.0.1</kbd> <kbd class="kbd docutils literal notranslate">※適切なIPアドレスを設定</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">接続ユーザ名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">(秘密鍵ファイル)</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">鍵認証(パスフレーズなし)</kbd></p></td>
 </tr>
 </tbody>
 </table>

@@ -524,28 +524,41 @@
 <div class="line"><span class="menuselection">Ansible-LegacyRole ▶ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement登録3.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement一覧登録1.png"><img alt="Movement登録" src="../../_images/Movement%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id28">
 <caption><span class="caption-number">表 2.14 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Movement名</p></th>
 <th class="head"><p>Ansible利用情報</p></th>
+<th class="head"></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>ホスト指定形式</p></th>
+<th class="head"><p>ヘッダーセクション</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">パッケージ管理</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">IP</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">※ヘッダーセクションを参照</kbd></p></td>
 </tr>
 </tbody>
 </table>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-number">リスト 2.28 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
+<span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
+<span class="w">  </span>gather_facts:<span class="w"> </span>no
+<span class="w">  </span>become:<span class="w"> </span>yes
+</pre></div>
+</div>
+</div>
 </section>
 <section id="ansible-role">
 <h3><span class="section-number">2.2.2. </span>Ansible Role 登録<a class="headerlink" href="#ansible-role" title="この見出しへのパーマリンク">¶</a></h3>
@@ -562,8 +575,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/MovementとRole紐づけ.png"><img alt="MovementとRole紐づけ" src="../../_images/Movement%E3%81%A8Role%E7%B4%90%E3%81%A5%E3%81%91.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-number">表 2.15 </span><span class="caption-text">Movement-ロール紐付け情報の登録</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-number">表 2.15 </span><span class="caption-text">Movement-ロール紐付け情報の登録</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 60.0%" />
@@ -588,8 +601,8 @@
 <div class="line-block">
 <div class="line">ホスト名の場合、1台のサーバーに1つホスト名の設定をすることしかないため、 VAR_RH_hostname は単純な変数として扱うように定義されています。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 2.28 </span><span class="caption-text">VAR_RH_hostname の変数構造</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id31">
+<div class="code-block-caption"><span class="caption-number">リスト 2.29 </span><span class="caption-text">VAR_RH_hostname の変数構造</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># VAR_RH_hostname に対する、値は1つのみ</span>
 <span class="nt">VAR_RH_hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myhostname</span>
 </pre></div>
@@ -598,8 +611,8 @@
 <div class="line-block">
 <div class="line">一方で、パッケージの場合は、1台のサーバー上に複数のパッケージを管理することは一般的なため、VAR_RH_rpm は複数の変数のセットを配列で管理する多段変数として扱うように定義されています。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 2.29 </span><span class="caption-text">VAR_RH_rpm の変数構造(=多段変数)</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-number">リスト 2.30 </span><span class="caption-text">VAR_RH_rpm の変数構造(=多段変数)</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># VAR_RH_rpm に対して、変数のセット(action と pkg_name)が繰り返し、かつ、セット数が不定</span>
 <span class="nt">VAR_RH_rpm</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">absent</span>
@@ -620,8 +633,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/変数ネスト管理1.gif"><img alt="変数ネスト管理" src="../../_images/%E5%A4%89%E6%95%B0%E3%83%8D%E3%82%B9%E3%83%88%E7%AE%A1%E7%90%861.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-number">表 2.16 </span><span class="caption-text">変数ネスト情報の登録</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-number">表 2.16 </span><span class="caption-text">変数ネスト情報の登録</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -655,8 +668,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/代入値自動登録設定1.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A1.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-number">表 2.17 </span><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-number">表 2.17 </span><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 30.8%" />
 <col style="width: 7.7%" />
@@ -853,8 +866,8 @@
 <div class="line-block">
 <div class="line"><a class="reference internal" href="scenario1.html"><span class="doc">前のシナリオ</span></a> と同様に、まずは作業計画を立てましょう。</div>
 </div>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-number">表 2.18 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-number">表 2.18 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -880,8 +893,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/オペレーション登録4.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B24.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-number">表 2.19 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-number">表 2.19 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -910,8 +923,8 @@
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/パラメータ設定.gif"><img alt="パラメータ設定" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-number">表 2.20 </span><span class="caption-text">導入パッケージパラメータの設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-number">表 2.20 </span><span class="caption-text">導入パッケージパラメータの設定値</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 44.4%" />
@@ -951,14 +964,14 @@
 <div class="line">まずは、現在のサーバーの状態を確認しましょう。</div>
 <div class="line">サーバに SSH ログインし、 postgresql-server のインストール状況を確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 2.30 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id38">
+<div class="code-block-caption"><span class="caption-number">リスト 2.31 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 2.31 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id39">
+<div class="code-block-caption"><span class="caption-number">リスト 2.32 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>postgresql-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
@@ -980,14 +993,14 @@
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、postgresql-server のインストール状況を確認し postgresql-server がインストールされていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id39">
-<div class="code-block-caption"><span class="caption-number">リスト 2.32 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id40">
+<div class="code-block-caption"><span class="caption-number">リスト 2.33 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id40">
-<div class="code-block-caption"><span class="caption-number">リスト 2.33 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id41">
+<div class="code-block-caption"><span class="caption-number">リスト 2.34 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 環境ごとにバージョンは異なります</span>
 postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 </pre></div>
@@ -1004,8 +1017,8 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <div class="line-block">
 <div class="line"><a class="reference internal" href="scenario1.html"><span class="doc">前のシナリオ</span></a> と同様に、まずは作業計画を立てましょう。</div>
 </div>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-number">表 2.21 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-number">表 2.21 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id42" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -1031,8 +1044,8 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/変更用オペレーション登録1.png"><img alt="オペレーション登録" src="../../_images/%E5%A4%89%E6%9B%B4%E7%94%A8%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-number">表 2.22 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id42" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-number">表 2.22 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id43" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -1061,8 +1074,8 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/更新用パラメータ設定3.png"><img alt="パラメータ設定2" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A3.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-number">表 2.23 </span><span class="caption-text">導入パッケージパラメータの設定値</span><a class="headerlink" href="#id43" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-number">表 2.23 </span><span class="caption-text">導入パッケージパラメータの設定値</span><a class="headerlink" href="#id44" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 44.4%" />
@@ -1108,27 +1121,27 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <div class="line">現在のサーバーの状態を確認しましょう。</div>
 <div class="line">サーバに SSH ログインし、パッケージのインストール状態を確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 2.34 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-number">リスト 2.35 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 2.35 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-number">リスト 2.36 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 環境ごとにバージョンは異なります</span>
 postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 2.36 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-number">リスト 2.37 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>mariadb-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 2.37 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id48">
+<div class="code-block-caption"><span class="caption-number">リスト 2.38 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>mariadb-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
@@ -1150,26 +1163,26 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、postgresql-server がアンインストールされ、mariadb-server がインストールされていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 2.38 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id49">
+<div class="code-block-caption"><span class="caption-number">リスト 2.39 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 2.39 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id50">
+<div class="code-block-caption"><span class="caption-number">リスト 2.40 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>postgresql-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id50">
-<div class="code-block-caption"><span class="caption-number">リスト 2.40 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id51">
+<div class="code-block-caption"><span class="caption-number">リスト 2.41 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id51" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>mariadb-server
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id51">
-<div class="code-block-caption"><span class="caption-number">リスト 2.41 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id51" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id52">
+<div class="code-block-caption"><span class="caption-number">リスト 2.42 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id52" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mariadb-server-10.3.35-1.module+el8.6.0+15949+4ba4ec26.x86_64
 </pre></div>
 </div>
