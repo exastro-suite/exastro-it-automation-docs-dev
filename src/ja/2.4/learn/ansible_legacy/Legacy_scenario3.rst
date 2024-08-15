@@ -75,25 +75,25 @@
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である db01 のホスト名を web01 に更新します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario3/機器情報の更新.png
+.. figure:: /images/learn/quickstart/Legacy_scenario3/機器情報の更新.gif
    :width: 1200px
    :alt: 機器情報の更新
 
 .. list-table:: 機器一覧の設定値
-   :widths: 10 10 20 10 10 20
+   :widths: 10 10 15 10 10 10
    :header-rows: 3
 
    * - HW機器種別
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     - ssh鍵認証情報
      - Ansible利用情報
    * - 
      - 
      - 
      - ユーザ
-     - パスワード
+     - ssh秘密鍵ファイル
      - Legacy/Role利用情報
    * - 
      - 
@@ -103,10 +103,10 @@
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`web01`
-     - :kbd:`192.168.0.1` ※適切なIPアドレスを設定
-     - :kbd:`root`
-     - (パスワード)
-     - :kbd:`パスワード認証`
+     - :kbd:`192.168.0.1 ※適切なIPアドレスを設定`
+     - :kbd:`接続ユーザ名`
+     - :kbd:`(秘密鍵ファイル)`
+     - :kbd:`鍵認証(パスフレーズなし)`
 
 
 サーバー再構築作業の実施

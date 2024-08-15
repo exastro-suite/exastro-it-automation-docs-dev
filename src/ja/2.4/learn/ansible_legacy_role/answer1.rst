@@ -442,20 +442,31 @@ Movement 登録
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/answer1/Movement登録.png
+.. figure:: ../../../../images/learn/quickstart/answer1/ユーザーMovement登録設定.png
    :width: 1200px
    :alt: Movement登録
    
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`ユーザー管理`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Role 登録
 -----------------
@@ -563,6 +574,7 @@ Movement と Ansible Role の紐付け
 
 | :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Role パッケージの変数の紐付けを行います。
 | 大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
+| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。
 
 .. figure:: ../../../../images/learn/quickstart/answer1/グループの代入値自動登録設定.gif
    :width: 1200px
