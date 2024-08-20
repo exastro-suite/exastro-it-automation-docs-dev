@@ -103,15 +103,26 @@
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`ホスト名設定`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Role 登録
 -----------------

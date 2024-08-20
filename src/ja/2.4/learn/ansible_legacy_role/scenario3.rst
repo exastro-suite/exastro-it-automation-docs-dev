@@ -171,7 +171,7 @@
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ホスト名に関するパラメータを登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario3/サーバ基本情報登録.png
+.. figure:: ../../../../images/learn/quickstart/scenario3/サーバ基本情報登録設定.png
    :width: 1200px
    :alt: サーバ基本情報登録
 

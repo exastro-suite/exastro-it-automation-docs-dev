@@ -41,6 +41,8 @@
 | 本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。
 | まずは、ユーザーをパラメータシート上で管理できるようにしておきます。
 
+.. _groups_legacy_parameter_sheet:
+
 グループのパラメータシート作成
 ------------------------------
 
@@ -281,7 +283,7 @@
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
 
 .. tip:: 
-   | :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`groups_parameter_sheet` で登録したデータシートを参照できるようになります。
+   | :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`groups_legacy_parameter_sheet` で登録したデータシートを参照できるようになります。
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーパラメータシート作成_1.png
    :width: 1200px
