@@ -167,7 +167,7 @@
 <li><a class="reference internal" href="#">ユーザー管理 (解答)</a><ul>
 <li><a class="reference internal" href="#id2">問題 (再掲)</a></li>
 <li><a class="reference internal" href="#id3">パラメータ設計</a><ul>
-<li><a class="reference internal" href="#id4">グループのパラメータシート作成</a></li>
+<li><a class="reference internal" href="#groups-legacy-parameter-sheet">グループのパラメータシート作成</a></li>
 <li><a class="reference internal" href="#id5">ユーザーのパラメータシート作成</a></li>
 </ul>
 </li>
@@ -229,7 +229,7 @@
 <div class="line">また、その際に、ユーザー管理だけではなく、ホスト名設定、パッケージ管理も併せて実施できる必要があります。</div>
 </div>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-number">表 89 </span><span class="caption-text">ユーザー情報</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 90 </span><span class="caption-text">ユーザー情報</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -273,8 +273,8 @@
 <div class="line">本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。</div>
 <div class="line">まずは、ユーザーをパラメータシート上で管理できるようにしておきます。</div>
 </div>
-<section id="id4">
-<h3>グループのパラメータシート作成<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="groups-legacy-parameter-sheet">
+<span id="id4"></span><h3>グループのパラメータシート作成<a class="headerlink" href="#groups-legacy-parameter-sheet" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">グループ用のパラメータシートを作成します。</div>
 <div class="line">利用する Ansible Playbook は下記のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
@@ -305,7 +305,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id22">
-<caption><span class="caption-number">表 90 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 91 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -351,7 +351,7 @@
 <a class="reference internal image-reference" href="../../_images/グループパラメータシート作成.png"><img alt="グループのパラメータシート" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90.png" style="width: 1200px;" /></a>
 </figure>
 <table class="filter-table docutils align-default" id="id23">
-<caption><span class="caption-number">表 91 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 92 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -439,7 +439,7 @@
 </tbody>
 </table>
 <table class="filter-table docutils align-default" id="id24">
-<caption><span class="caption-number">表 92 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 93 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -539,7 +539,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 93 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 94 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -595,14 +595,14 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
-<div class="line"><span class="menuselection">入力方式</span> を <kbd class="kbd docutils literal notranslate">プルダウン選択</kbd> に設定することで、<a class="reference internal" href="../ansible_legacy_role/answer1.html#groups-parameter-sheet"><span class="std std-ref">グループのパラメータシート作成</span></a> で登録したデータシートを参照できるようになります。</div>
+<div class="line"><span class="menuselection">入力方式</span> を <kbd class="kbd docutils literal notranslate">プルダウン選択</kbd> に設定することで、<a class="reference internal" href="#groups-legacy-parameter-sheet"><span class="std std-ref">グループのパラメータシート作成</span></a> で登録したデータシートを参照できるようになります。</div>
 </div>
 </div>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_1.png"><img alt="ユーザーのパラメータシートの作成1" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_1.png" style="width: 1200px;" /></a>
 </figure>
 <table class="filter-table docutils align-default" id="id27">
-<caption><span class="caption-number">表 94 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 95 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 16.7%" />
@@ -725,7 +725,7 @@
 <a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_2.png"><img alt="ユーザーのパラメータシート作成_2" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="filter-table docutils align-default" id="id28">
-<caption><span class="caption-number">表 95 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 96 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -829,7 +829,7 @@
 </tbody>
 </table>
 <table class="filter-table docutils align-default" id="id29">
-<caption><span class="caption-number">表 96 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 97 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -901,7 +901,7 @@
 <a class="reference internal image-reference" href="../../_images/ユーザーMovement登録設定.png"><img alt="Movement登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCMovement%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id30">
-<caption><span class="caption-number">表 97 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 98 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1026,7 +1026,7 @@
 <a class="reference internal image-reference" href="../../_images/Ansible-Playbook登録.png"><img alt="Ansible-Playbook登録" src="../../_images/Ansible-Playbook%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id34">
-<caption><span class="caption-number">表 98 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 99 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1057,7 +1057,7 @@
 <a class="reference internal image-reference" href="../../_images/MovementとPlaybook紐付け.png"><img alt="MovementとAnsible Playbook の紐づけ" src="../../_images/Movement%E3%81%A8Playbook%E7%B4%90%E4%BB%98%E3%81%91.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id35">
-<caption><span class="caption-number">表 99 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 100 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1092,7 +1092,7 @@
 <a class="reference internal image-reference" href="../../_images/グループの代入値自動登録設定_一括登録.png"><img alt="グループの代入値自動登録設定" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-number">表 100 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 101 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -1206,7 +1206,7 @@
 <a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録5.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B25.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id37">
-<caption><span class="caption-number">表 101 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 102 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -1575,7 +1575,7 @@
 <div class="line">まずは作業計画を立てましょう。</div>
 </div>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-number">表 102 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 103 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1602,7 +1602,7 @@
 <a class="reference internal image-reference" href="../../_images/オペレーション登録.png"><img alt="Conductor作業実行" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id39">
-<caption><span class="caption-number">表 103 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 104 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -1628,7 +1628,7 @@
 <a class="reference internal image-reference" href="../../_images/グループのパラメータ登録.png"><img alt="グループのパラメータ登録" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id40">
-<caption><span class="caption-number">表 104 </span><span class="caption-text">グループパラメータの設定値</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 105 </span><span class="caption-text">グループパラメータの設定値</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 44.4%" />
@@ -1680,7 +1680,7 @@
 <a class="reference internal image-reference" href="../../_images/ユーザーのパラメータ登録_2.png"><img alt="ユーザのパラメータ登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2_2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id41">
-<caption><span class="caption-number">表 105 </span><span class="caption-text">ユーザーパラメータの設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 106 </span><span class="caption-text">ユーザーパラメータの設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 5.9%" />
 <col style="width: 23.5%" />
@@ -1912,7 +1912,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">3. 各 Mode 間を下記の様に再接続します。</div>
 </div>
 <table class="docutils align-default" id="id50">
-<caption><span class="caption-number">表 106 </span><span class="caption-text">オブジェクト間の接続</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 107 </span><span class="caption-text">オブジェクト間の接続</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1962,7 +1962,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">3. 各 Mode に対して下記の様に個別オペレーションを設定します。</div>
 </div>
 <table class="docutils align-default" id="id51">
-<caption><span class="caption-number">表 107 </span><span class="caption-text">個別オペレーション設定</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 108 </span><span class="caption-text">個別オペレーション設定</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
