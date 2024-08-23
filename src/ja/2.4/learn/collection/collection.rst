@@ -26,7 +26,7 @@
 
    - name: set variable
      set_fact:
-       test: "{{ VAR_test }}"
+       test: "{{ VAR_hostname }}"
 
    - name: make yaml file
      blockinfile:
@@ -254,7 +254,7 @@
    :alt: パラメータシート作成
 
 .. list-table:: パラメータシート作成の項目の設定値3
-   :widths: 10 10 10 10 10 10 12
+   :widths: 10 10 10 10 10 10
    :header-rows: 1
 
    * - 設定項目
@@ -263,9 +263,7 @@
      - 項目15設定値
      - 項目16設定値
      - 項目17設定値
-     - 項目18設定値
    * - グループ
-     - 
      - 
      - 
      - 
@@ -277,30 +275,25 @@
      - :kbd:`ansible_os_family`
      - :kbd:`ansible_pkg_mgr`
      - :kbd:`ansible_processor_cores`
-     - :kbd:`ホスト`
    * - 項目の名前(Rest API用) 
      - :kbd:`ansible_memtotal_mb`
      - :kbd:`ansible_nodename`
      - :kbd:`ansible_os_family`
      - :kbd:`ansible_pkg_mgr`
      - :kbd:`ansible_processor_cores`
-     - :kbd:`host`
    * - 入力方式
      - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
-     - :kbd:`プルダウン選択`
    * - 選択項目
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
-     - :kbd:`Ansible共通:機器一覧:ホスト名`
    * - 正規表現
-     - 
      - 
      - 
      - 
@@ -312,9 +305,7 @@
      - 
      - 
      - 
-     - 
    * - 必須
-     - 
      - 
      - 
      - 
@@ -326,9 +317,7 @@
      - 
      - 
      - 
-     - 
    * - 説明
-     - 
      - 
      - 
      - 
@@ -340,8 +329,6 @@
      - 
      - 
      - 
-     - 
-
 
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
@@ -367,13 +354,69 @@
    * - 最終更新者
      - (自動入力)
 
+| 次に、:menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、この後作成するオペレーションと作業対象ホストを紐付けるのに必要な、「ホスト名紐付け用」というパラメータシートを作成します。
+
+.. figure:: /images/learn/quickstart/collection/パラメータシート作成.png
+   :width: 1200px
+   :alt: パラメータシート作成
+
+.. list-table:: パラメータシート作成(ホスト名紐付け用)の項目の設定値
+   :widths: 10 10
+   :header-rows: 1
+
+   * - 設定項目
+     - 項目1設定値
+   * - 項目の名前
+     - :kbd:`hostname`
+   * - 項目の名前(Rest API用) 
+     - :kbd:`hostname`
+   * - 入力方式
+     - :kbd:`プルダウン選択`
+   * - 選択項目
+     - :kbd:`Ansible項目:機器一覧:ホスト名`
+   * - 参照項目
+     - 
+   * - 初期値
+     - 
+   * - 必須
+     - 
+   * - 一意制約
+     - 
+   * - 説明
+     - 
+   * - 備考
+     - 
+
+.. list-table:: パラメータシート作成(ホスト名紐付け用)のパラメータシート作成情報の設定値
+   :widths: 5 10
+   :header-rows: 1
+
+   * - 設定項目
+     - 設定値
+   * - 項番
+     - (自動入力)
+   * - パラメータシート名
+     - :kbd:`ホスト名紐付け用`
+   * - パラメータシート名(REST)
+     - :kbd:`host_association`
+   * - 作成対象
+     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
+   * - 表示順序
+     - :kbd:`2`
+   * - バンドル利用
+     - 「利用する」にチェックを入れない(無効)
+   * - 最終更新日時
+     - (自動入力)
+   * - 最終更新者
+     - (自動入力)
+
 作業手順の登録
 --------------
 
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
 | 定義した Movement に対して、Ansible Playbook の紐付けを行います。
 
-| :menuselection:`Ansible-LegacyRole --> Movement一覧` から、システム情報収集のための Movement を登録します。
+| :menuselection:`Ansible-Legacy --> Movement一覧` から、システム情報収集のための Movement を登録します。
 
 .. glossary:: Movement
    Exastro IT Automation における、最小の作業単位のことを指します。
@@ -402,21 +445,21 @@
 
    - hosts: all
      remote_user: "{{ __loginuser__ }}"
-     gather_facts: no
+     gather_facts: yes
      become: yes
 
 Ansible Playbook 登録
 ---------------------
 
 | Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。
-| 本シナリオでは System_collection.yml を使用します。
+| 本シナリオでは system_collection.yml を使用します。
 
 .. code-block:: bash
    :caption: system_collection.yml
 
    - name: set variable
      set_fact:
-       test: "{{ VAR_test }}"
+       test: "{{ VAR_hostname }}"
 
    - name: make yaml file
      blockinfile:
@@ -469,7 +512,7 @@ Movement と Ansible Playbook の紐付け
 -------------------------------------
 
 | :menuselection:`Ansible-Legacy --> Movement-ロール紐付` から、Movement と Ansible Playbook の紐付けを行います。
-| 本シナリオでは、 System_collection.yml を利用します。
+| 本シナリオでは、 system_collection.yml を利用します。
 
 .. figure:: /images/learn/quickstart/collection/Movement-Playbook紐付.png
    :width: 1200px
@@ -489,11 +532,11 @@ Movement と Ansible Playbook の紐付け
 パラメータシートの項目と Ansible Playbook の変数の紐付け
 --------------------------------------------------------
 
-| system_collection.ymlでは、:kbd:`VAR_test` にシステム情報を収集してきたいホストを入れます。
+| system_collection.ymlでは、:kbd:`VAR_hostname` にシステム情報を収集したい作業対象ホストを入れます。
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
 
-.. figure:: /images/learn/quickstart/collection/代入値自動登録.png
+.. figure:: /images/learn/quickstart/collection/代入値自動登録設定.png
    :width: 1200px
    :alt: 代入値自動登録設定
 
@@ -513,11 +556,11 @@ Movement と Ansible Playbook の紐付け
     -
     - Movement名:変数名
     - 代入順序
-  * - :kbd:`代入値自動登録用:システム情報:ホスト`
+  * - :kbd:`代入値自動登録用:ホスト紐付け用:パラメータ/hostname`
     - :kbd:`入力無し`
     - :kbd:`Value型`
     - :kbd:`システム情報収集`
-    - :kbd:`システム情報収集:VAR_test`
+    - :kbd:`システム情報収集:VAR_hostname`
     - :kbd:`入力無し`
 
 収集項目値管理
@@ -711,38 +754,27 @@ Movement と Ansible Playbook の紐付け
 パラメータ設定
 --------------
 
-| パラメータシートの項目を最低1つ入力しないと、オペレーションと作業対象ホストの紐付けが出来ません。最低1つ入力しましょう。
+| 作成したパラメータシートに作業対象ホストとオペレーションを登録します。
 
-| :menuselection:`入力用 --> システム情報` から、システム情報に対する対象ホストのパラメータを登録します。
+| :menuselection:`入力用 --> ホスト名紐付け用` から、作業対象ホストとオペレーションとパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/collection/作業前パラメータ入力.gif
+.. figure:: /images/learn/quickstart/collection/作業前パラメータ入力.png
    :width: 1200px
-   :alt: グループのパラメータ登録
+   :alt: 作業前のパラメータ登録
 
 .. list-table:: 作業前システム情報の設定値
-  :widths: 5 15 5 5 5 5
+  :widths: 5 15 5
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
-    - 代入順序
     - パラメータ
-    -
-    -
   * - 
     - オペレーション名
-    - 
-    - ...
-    - ...
-    - ホスト
+    - hostname
   * - :kbd:`server01`
     - :kbd:`2024/04/01 12:00:00_作業前データ収集`
-    -  
-    - ...
-    - ...
     - :kbd:`server01`
-
-| ホスト以外のパラメータは入力する必要ありません。収集作業実施後にこちらに自動でパラメータが入力されます。
 
 作業実行
 --------
@@ -797,38 +829,25 @@ Movement と Ansible Playbook の紐付け
 パラメータ設定
 --------------
 
-| パラメータシートの項目を最低1つ入力しないと、オペレーションと作業対象ホストの紐付けが出来ませんので、最低1つ入力しましょう。
+| :menuselection:`入力用 --> ホスト名紐付け用` から、作業対象ホストとオペレーションとパラメータを登録します。
 
-| :menuselection:`入力用 --> システム情報` から、システム情報に対する対象ホストのパラメータを登録します。
-
-.. figure:: /images/learn/quickstart/collection/作業後パラメータ入力設定.gif
+.. figure:: /images/learn/quickstart/collection/作業後パラメータ入力.png
    :width: 1200px
-   :alt: 作業後パラメータ登録
+   :alt: 作業後のパラメータ登録
 
-.. list-table:: 作業前システム情報の設定値
-  :widths: 5 15 5 5 5 5
+.. list-table:: 作業後システム情報の設定値
+  :widths: 5 15 5
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
-    - 代入順序
     - パラメータ
-    -
-    -
   * - 
     - オペレーション名
-    - 
-    - ...
-    - ...
-    - ホスト
+    - hostname
   * - :kbd:`admin_user`
     - :kbd:`2024/05/01 12:00:00_作業後データ収集`
-    - 
-    - ...
-    - ...
     - :kbd:`admin_user`
-
-| ホスト以外のパラメータは入力する必要ありません。収集作業実施後にこちらに自動でパラメータが入力されます。
 
 作業実行
 --------
@@ -895,6 +914,30 @@ Movement と Ansible Playbook の紐付け
    | 最後に、:menuselection:`比較実行` を押下します。
 
    | そうすると画面右側に比較結果が表示されますので、そちらから先ほど変更したホスト名(ansible_nodename)の欄を確認してみましょう。すると、変更前に収集したパラメータと変更後に収集したパラメータの差異が出ているのが確認できると思います。
+
+.. figure:: /images/learn/quickstart/collection/比較実行.png
+   :width: 1200px
+   :alt: 比較設定1
+
+.. figure:: /images/learn/quickstart/collection/比較実行2.png
+   :width: 1200px
+   :alt: 比較設定2
+
+.. list-table:: 比較実行
+  :widths: 10 10 10 10
+  :header-rows: 1
+
+  * - 比較設定選択
+    - ホスト選択
+    - 基準日時1
+    - 基準日時2
+  * - :kbd:`システム情報の差異`
+    - :kbd:`admin_user`
+    - :kbd:`※例→2024/08/23 15:24:09`
+    - :kbd:`※例→2024/08/23 15:31:39`
+
+.. tip::
+   | 基準日時は実際の最終更新日時を入力してください。
 
 まとめ
 ======

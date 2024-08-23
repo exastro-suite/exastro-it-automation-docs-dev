@@ -225,7 +225,7 @@
      - 項目3設定値
    * - 項目の名前
      - :kbd:`ユーザー名`
-     - :kbd:`グループ名`
+     - :kbd:`グループ`
      - :kbd:`状態`
    * - 項目の名前(Rest API用) 
      - :kbd:`ITA_DFLT_User_Names`
