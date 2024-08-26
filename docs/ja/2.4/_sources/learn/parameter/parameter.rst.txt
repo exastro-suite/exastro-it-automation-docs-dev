@@ -25,7 +25,7 @@
 
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、データシートを登録します。
 
-.. figure:: /images/learn/quickstart/paramater/データシート作成.png
+.. figure:: /images/learn/quickstart/parameter/データシート作成.png
    :width: 1200px
    :alt: データシートの作成
 
@@ -83,7 +83,7 @@
 | パラメータリスト内に表示するパラメータを設定します。
 | :menuselection:`入力用 --> 状態` から、パッケージのあるべきインストール状態を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/データシート入力.png
+.. figure:: /images/learn/quickstart/parameter/データシート入力.png
    :width: 1200px
    :alt: 選択肢を登録
 
@@ -142,7 +142,7 @@
 グループのパラメータシート作成
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: /images/learn/quickstart/paramater/新規グループパラメータシート作成.png
+.. figure:: /images/learn/quickstart/parameter/新規グループパラメータシート作成.png
    :width: 1200px
    :alt: パラメータシート作成
 
@@ -187,7 +187,6 @@
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
    :header-rows: 1
-   :class: filter-table
 
    * - 項目名
      - 設定値
@@ -211,7 +210,7 @@
 ユーザーのパラメータシート作成
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: /images/learn/quickstart/paramater/新規ユーザーパラメータシート作成.png
+.. figure:: /images/learn/quickstart/parameter/新規ユーザーパラメータシート作成.png
    :width: 1200px
    :alt: パラメータシート作成
 
@@ -307,7 +306,7 @@
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、ユーザー登録のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/Movement登録設定.png
+.. figure:: /images/learn/quickstart/parameter/Movement登録設定.png
    :width: 1200px
    :alt: Movement登録
 
@@ -373,7 +372,7 @@ Movement と Ansible Playbook の紐付け
 | :menuselection:`Ansible-Legacy --> Movement-ロール紐付` から、Movement と Ansible Playbook の紐付けを行います。
 | 本シナリオでは、 System_group_add.yml と System_user_add.yml を利用します。
 
-.. figure:: /images/learn/quickstart/paramater/Movement-Playbook紐付.png
+.. figure:: /images/learn/quickstart/parameter/Movement-Playbook紐付.png
    :width: 1200px
    :alt: Movement-Playbook紐付け
 
@@ -400,7 +399,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
 
-.. figure:: /images/learn/quickstart/paramater/グループ代入値自動登録.png
+.. figure:: /images/learn/quickstart/parameter/グループ代入値自動登録.png
    :width: 1200px
    :alt: グループの代入値自動登録設定
 
@@ -451,7 +450,7 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`新規ユーザー登録:ITA_DFLT_Groups`
     - :kbd:`5`
 
-.. figure:: /images/learn/quickstart/paramater/ユーザー代入値自動登録.png
+.. figure:: /images/learn/quickstart/parameter/ユーザー代入値自動登録.png
    :width: 1200px
    :alt: ユーザーの代入値自動登録設定
 
@@ -545,7 +544,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 の接続情報を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/機器一覧登録設定.gif
+.. figure:: /images/learn/quickstart/parameter/機器一覧登録設定.gif
    :width: 1200px
    :alt: 機器一覧登録
 
@@ -611,7 +610,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/オペレーション登録.png
+.. figure:: /images/learn/quickstart/parameter/オペレーション登録.png
    :width: 1200px
    :alt: オペレーション登録
 
@@ -634,7 +633,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> 新規グループ` から、グループに対するパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/paramater/グループパラメータ入力.png
+.. figure:: /images/learn/quickstart/parameter/グループパラメータ入力.png
    :width: 1200px
    :alt: グループのパラメータ登録
 
@@ -665,7 +664,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> 新規ユーザー` から、ユーザーに対するパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/paramater/ユーザーパラメータ入力.png
+.. figure:: /images/learn/quickstart/parameter/ユーザーパラメータ入力.png
    :width: 1200px
    :alt: ユーザのパラメータ登録
 
@@ -750,7 +749,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/paramater/作業実行.gif
+.. figure:: /images/learn/quickstart/parameter/作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
@@ -819,7 +818,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
-.. figure:: /images/learn/quickstart/paramater/更新用オペレーション登録.png
+.. figure:: /images/learn/quickstart/parameter/更新用オペレーション登録.png
    :width: 1200px
    :alt: オペレーション登録
 
@@ -845,7 +844,7 @@ Movement と Ansible Playbook の紐付け
 | まずは新しいグループを作成してみましょう。
 | :menuselection:`入力用 --> 新規グループ` から、グループに対するパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/paramater/更新用グループパラメータ入力.png
+.. figure:: /images/learn/quickstart/parameter/更新用グループパラメータ入力.png
    :width: 1200px
    :alt: グループのパラメータ登録
 
@@ -877,7 +876,7 @@ Movement と Ansible Playbook の紐付け
 | 次にユーザーの所属グループを変更・更新しましょう。
 | :menuselection:`入力用 --> 新規ユーザー` から、ユーザーに対するパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/paramater/更新用ユーザーパラメータ入力.png
+.. figure:: /images/learn/quickstart/parameter/更新用ユーザーパラメータ入力.png
    :width: 1200px
    :alt: ユーザのパラメータ更新
 
@@ -934,7 +933,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、ホストを登録するために、「ホスト登録」というパラメータシートを作成します。
 
-.. figure:: /images/learn/quickstart/paramater/ホストパラメータシート作成.png
+.. figure:: /images/learn/quickstart/parameter/ホストパラメータシート作成.png
    :width: 1200px
    :alt: パラメータシート作成
 
@@ -990,7 +989,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> ホスト登録` から対象のホストを登録していきます。
 
-.. figure:: /images/learn/quickstart/paramater/ホストパラメータ入力.png
+.. figure:: /images/learn/quickstart/parameter/ホストパラメータ入力.png
    :width: 1200px
    :alt: パラメータ登録
 
@@ -1078,7 +1077,7 @@ Movement と Ansible Playbook の紐付け
 
 | パラメータ表示を実行すると画像のように、選択したオペレーションごとに設定したパラメータを一覧表示で確認することが出来ます。
 
-.. figure:: /images/learn/quickstart/paramater/パラメータ集表示.gif
+.. figure:: /images/learn/quickstart/parameter/パラメータ集表示.gif
    :width: 1200px
    :alt: パラメータ登録
 

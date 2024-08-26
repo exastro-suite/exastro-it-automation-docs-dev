@@ -42,7 +42,9 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" /> 
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="パラメータ集" href="../parameter/index.html" />
+    <link rel="prev" title="収集・比較機能" href="index.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,6 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="index.html" title="前のトピックへ">収集・比較機能</a></li>
+        <li class="next"><a href="../parameter/index.html" title="次のトピックへ">パラメータ集</a></li>
       </ul>
     </div>
   </div>
@@ -112,10 +116,33 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/index.html">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oase/index.html">イベント連携 - OASE</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">収集・比較機能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#id2">前提</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">シナリオの流れ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#id4">シナリオ</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">収集・比較機能</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id2">作業前システム情報の収集</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id13">ホスト名変更</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id14">作業後システム情報の収集</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id18">システム情報の比較</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id21">まとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../parameter/index.html">パラメータ集</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
@@ -175,6 +202,8 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
+    <li><a href="../index.html">Learn</a></li>
+    <li><a href="index.html">収集・比較機能</a></li>
     
     <li>収集・比較機能</li>
   </ul>
@@ -207,7 +236,7 @@
 <div class="line">今回利用する Ansible Playbookは以下のPlaybookになります。下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-text">system_collection.yml</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 306 </span><span class="caption-text">system_collection.yml</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span><span class="nb">set</span><span class="w"> </span>variable
 <span class="w">  </span>set_fact:
 <span class="w">    </span>test:<span class="w"> </span><span class="s2">&quot;{{ VAR_hostname }}&quot;</span>
@@ -253,7 +282,7 @@
 <a class="reference internal image-reference" href="../../_images/パラメータシート作成1.gif"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%901.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id23">
-<caption><span class="caption-text">パラメータシート作成の項目の設定値1</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 119 </span><span class="caption-text">パラメータシート作成の項目の設定値1</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 14.3%" />
@@ -368,7 +397,7 @@
 <a class="reference internal image-reference" href="../../_images/パラメータシート作成2.gif"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%902.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id24">
-<caption><span class="caption-text">パラメータシート作成の項目の設定値2</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 120 </span><span class="caption-text">パラメータシート作成の項目の設定値2</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 14.3%" />
@@ -483,7 +512,7 @@
 <a class="reference internal image-reference" href="../../_images/パラメータシート作成3.gif"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%903.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id25">
-<caption><span class="caption-text">パラメータシート作成の項目の設定値3</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 121 </span><span class="caption-text">パラメータシート作成の項目の設定値3</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 16.7%" />
@@ -581,8 +610,8 @@
 </tr>
 </tbody>
 </table>
-<table class="filter-table docutils align-default" id="id26">
-<caption><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-number">表 122 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -626,7 +655,7 @@
 <a class="reference internal image-reference" href="../../_images/パラメータシート作成1.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%901.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-text">パラメータシート作成(ホスト名紐付け用)の項目の設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 123 </span><span class="caption-text">パラメータシート作成(ホスト名紐付け用)の項目の設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -670,7 +699,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id28">
-<caption><span class="caption-text">パラメータシート作成(ホスト名紐付け用)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 124 </span><span class="caption-text">パラメータシート作成(ホスト名紐付け用)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -724,7 +753,7 @@
 <a class="reference internal image-reference" href="../../_images/Movement登録2.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id29">
-<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 125 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -748,7 +777,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 307 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>yes
@@ -764,7 +793,7 @@
 <div class="line">本シナリオでは system_collection.yml を使用します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-text">system_collection.yml</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 308 </span><span class="caption-text">system_collection.yml</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span><span class="nb">set</span><span class="w"> </span>variable
 <span class="w">  </span>set_fact:
 <span class="w">    </span>test:<span class="w"> </span><span class="s2">&quot;{{ VAR_hostname }}&quot;</span>
@@ -810,7 +839,7 @@
 <a class="reference internal image-reference" href="../../_images/Playbook素材集1.png"><img alt="Playbook登録" src="../../_images/Playbook%E7%B4%A0%E6%9D%90%E9%9B%861.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id32">
-<caption><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 126 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -837,7 +866,7 @@
 <a class="reference internal image-reference" href="../../_images/Movement-Playbook紐付1.png"><img alt="Movement-Playbook紐付け" src="../../_images/Movement-Playbook%E7%B4%90%E4%BB%981.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id33">
-<caption><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 127 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -869,7 +898,7 @@
 <a class="reference internal image-reference" href="../../_images/代入値自動登録設定2.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id34">
-<caption><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 128 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -917,7 +946,7 @@
 <a class="reference internal image-reference" href="../../_images/収集項目値管理.gif"><img alt="収集項目値管理" src="../../_images/%E5%8F%8E%E9%9B%86%E9%A0%85%E7%9B%AE%E5%80%A4%E7%AE%A1%E7%90%86.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id35">
-<caption><span class="caption-text">収集項目値管理の設定値</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 129 </span><span class="caption-text">収集項目値管理の設定値</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -1046,7 +1075,7 @@
 <a class="reference internal image-reference" href="../../_images/機器一覧登録設定2.gif"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A2.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 130 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 15.4%" />
 <col style="width: 15.4%" />
@@ -1102,7 +1131,7 @@
 <div class="line">まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。</div>
 </div>
 <table class="docutils align-default" id="id37">
-<caption><span class="caption-text">作業の方針</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 131 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1136,7 +1165,7 @@
 <a class="reference internal image-reference" href="../../_images/作業前オペレーション登録.png"><img alt="オペレーション登録" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%89%8D%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 132 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1172,7 +1201,7 @@
 <a class="reference internal image-reference" href="../../_images/作業前パラメータ入力.png"><img alt="作業前のパラメータ登録" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%89%8D%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id39">
-<caption><span class="caption-text">作業前システム情報の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 133 </span><span class="caption-text">作業前システム情報の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 60.0%" />
@@ -1245,7 +1274,7 @@
 <a class="reference internal image-reference" href="../../_images/作業後オペレーション登録.png"><img alt="オペレーション登録" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%BE%8C%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id40">
-<caption><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 134 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -1271,7 +1300,7 @@
 <a class="reference internal image-reference" href="../../_images/作業後パラメータ入力.png"><img alt="作業後のパラメータ登録" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%BE%8C%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id41">
-<caption><span class="caption-text">作業後システム情報の設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 135 </span><span class="caption-text">作業後システム情報の設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 60.0%" />
@@ -1338,7 +1367,7 @@
 <a class="reference internal image-reference" href="../../_images/比較設定.png"><img alt="比較設定" src="../../_images/%E6%AF%94%E8%BC%83%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id42">
-<caption><span class="caption-text">比較設定</span><a class="headerlink" href="#id42" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 136 </span><span class="caption-text">比較設定</span><a class="headerlink" href="#id42" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 28.6%" />
@@ -1391,7 +1420,7 @@
 <a class="reference internal image-reference" href="../../_images/比較実行2.png"><img alt="比較設定2" src="../../_images/%E6%AF%94%E8%BC%83%E5%AE%9F%E8%A1%8C2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id43">
-<caption><span class="caption-text">比較実行</span><a class="headerlink" href="#id43" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 137 </span><span class="caption-text">比較実行</span><a class="headerlink" href="#id43" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -1438,6 +1467,8 @@
 
 <div id="articleNavigation">
   <ul>
+    <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>収集・比較機能</a></li>
+    <li class="next"><a href="../parameter/index.html" title="次のトピックへ"><span>次のトピックへ</span>パラメータ集</a></li>
   </ul>
 </div>
 
