@@ -215,14 +215,14 @@ Exastro on Docker Compose - Offline
 | ①コンテナイメージのダウンロード		
 | ②RPMパッケージのダウンロード
 | ③Exastroリソースのダウンロード
-| ④docker-compose-linux-x86_64のダウンロード
+| ④docker-composeリソースのダウンロード
 
 
 オフライン環境での手順
 ^^^^^^^^^^^^^^^^^^^^^^
 | ⑤RPMパッケージのインストール
 | ⑥コンテナイメージのアップロード
-| ⑦docker-compose-linux-x86_64を準備
+| ⑦docker-composeリソースのインストール
 | ⑧Exastroリソースのインストール
 | ⑨Exastro ITA起動
 
