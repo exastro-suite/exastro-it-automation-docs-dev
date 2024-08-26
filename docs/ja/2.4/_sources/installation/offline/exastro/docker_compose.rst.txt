@@ -214,8 +214,8 @@ Exastro on Docker Compose - Offline
 													
 | ①コンテナイメージのダウンロード		
 | ②RPMパッケージのダウンロード
-| ③Exastroリソースのダウンロード
-| ④docker-composeリソースのダウンロード
+| ③docker-composeリソースのダウンロード
+| ④Exastroリソースのダウンロード
 
 
 オフライン環境での手順
@@ -439,8 +439,8 @@ Exastro on Docker Compose - Offline
          sudo createrepo /tmp/podman-repo														
 
 
-③docker-compose-linux-x86_64のダウンロード
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+③docker-composeリソースのダウンロード
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 | `docker-compose-linux-x86_64 <https://github.com/docker/compose/releases>`_ をダウンロードします。
 | バージョンはリンク先を参照し、必要に応じて書き換えます。
 | 以下はバージョンを2.28.0とした例です。
@@ -704,8 +704,8 @@ Exastro on Docker Compose - Offline
          sh ./load.sh x.x.x					
 
 
-⑦docker-compose-linux-x86_64の準備
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+⑦docker-composeリソースのインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |	 /usr/local/binに配置したdocker-compose-linux-x86_64に、必要なパーミッションを付与します。
 
