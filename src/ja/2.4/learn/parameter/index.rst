@@ -53,7 +53,7 @@
 .. toctree::
    :maxdepth: 2
 
-   paramater
+   parameter
 
 .. .. raw:: html
 

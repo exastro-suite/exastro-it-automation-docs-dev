@@ -333,7 +333,6 @@
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
    :header-rows: 1
-   :class: filter-table
 
    * - 項目名
      - 設定値
