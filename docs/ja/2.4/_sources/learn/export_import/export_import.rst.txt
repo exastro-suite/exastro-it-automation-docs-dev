@@ -25,9 +25,9 @@
 | まずは work01 ワークスペースでの作業になります。
 
 | データをエクスポートするためにパラメータシートを作成していきましょう。
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、ディレクトリ設定というパラメータシートを作成します。
+| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、「ディレクトリ設定」というパラメータシートを作成します。
 
-.. figure:: /images/learn/quickstart/export_import/パラメータシート作成定義.gif
+.. figure:: /images/learn/quickstart/export_import/パラメータシート作成定義.png
    :width: 1200px
    :alt: パラメータシート作成
 
@@ -336,13 +336,13 @@ kymファイルのダウンロード
 
 | 次にエクスポート元のデータをパラメータを更新します。
 | :menuselection:`入力用 --> ディレクトリ設定 --> フィルタ` から、更新したいパラメータを選択し、編集を押下します。
-| 今回は時刻指定モードでエクスポートを行うため、OP1のパラメータ更新後、2~3分程度時間を空けてからOP2の更新を行ってください。（2~3分程度）パラメータの更新後、:menuselection:`入力用 --> ディレクトリ設定 --> フィルタ` OP2の最終更新日時を確認しておきましょう。
+| 今回は時刻指定モードでエクスポートを行うため、OP1のパラメータ更新後、2~3分程度時間を空けてからOP2の更新を行ってください。パラメータの更新後、:menuselection:`入力用 --> ディレクトリ設定 --> フィルタ` からOP2の最終更新日時を確認しておきましょう。
 
-.. figure:: /images/learn/quickstart/export_import/パラメータ入力2.gif
+.. figure:: /images/learn/quickstart/export_import/パラメータ更新2.gif
    :width: 1200px
    :alt: ディレクトリ設定のパラメータ更新
 
-.. figure:: /images/learn/quickstart/export_import/パラメータ入力3.gif
+.. figure:: /images/learn/quickstart/export_import/パラメータ更新3.gif
    :width: 1200px
    :alt: ディレクトリ設定のパラメータ更新
 
@@ -381,7 +381,7 @@ kymファイルのダウンロード
 | 次に新しくパラメータを登録します。
 | :menuselection:`入力用 --> ディレクトリ設定` から、ディレクトリ設定のパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/export_import/パラメータ入力4.png
+.. figure:: /images/learn/quickstart/export_import/パラメータ登録4.png
    :width: 1200px
    :alt: ディレクトリ設定のパラメータ登録
 
@@ -414,7 +414,7 @@ kymファイルのダウンロード
 | それでは更新したメニューをエクスポートします。
 | :menuselection:`エクスポート/インポート --> メニューエクスポート` からメニューのエクスポートをします。
 
-.. figure:: /images/learn/quickstart/export_import/時刻指定メニューエクスポート.gif
+.. figure:: /images/learn/quickstart/export_import/時刻指定メニューエクスポート1.gif
    :width: 1200px
    :alt: 時刻指定メニューエクスポート
 
@@ -432,8 +432,7 @@ kymファイルのダウンロード
     - :kbd:`全てのメニュー`
 
 .. tip::
-   | OP1のデータ更新日時以降ですが、例として今回はOP1のデータ更新日時が 2024/08/20 09:51:40 だったため、時刻指定の際は 2024/08/20 09:55 と指定しています。OP2のデータ更新日時が 2024/08/20 09:56:49 であるため、今回の例だと 2024/08/20 09:52 から 2024/08/20 09:56 の間で指定すれば問題なく実行できます。
-   | 
+   | 時刻指定の際は、OP2のデータ更新日時を指定しましょう。時刻指定で指定した時刻以降のデータがエクスポートされます。
 
 kymファイルのダウンロード
 -------------------------
@@ -441,7 +440,7 @@ kymファイルのダウンロード
 | 実行したエクスポートのデータをダウンロードしましょう。
 | :menuselection:`エクスポート/インポート --> メニューエクスポート・インポート管理 --> フィルタ --> ファイル名` からkymファイルをダウンロードします。
 
-.. figure:: /images/learn/quickstart/export_import/時刻指定ファイルダウンロード.gif
+.. figure:: /images/learn/quickstart/export_import/時刻指定ファイルダウンロード1.gif
    :width: 1200px
    :alt: 時刻指定kymファイルダウンロード
 
@@ -453,7 +452,7 @@ kymファイルのダウンロード
 | ダウンロードしたkymファイルをインポートします。
 | :menuselection:`エクスポート/インポート --> メニューインポート --> ファイル選択` からエクスポートしたkymファイルをアップロードします。インポートメニュー選択は、全てのメニューを選択します。
 
-.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート.gif
+.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート1.gif
    :width: 1200px
    :alt: 時刻指定メニューインポート
 
@@ -463,18 +462,18 @@ kymファイルのダウンロード
 | メニューインポートの実行が完了したら、実行したメニューインポートの情報を確認します。
 | :menuselection:`エクスポート/インポート --> メニューエクスポート・インポート管理 --> フィルタ` から実行したインポートのステータスが「完了」となっていることを確認しましょう。
 
-.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート確認.png
+.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート確認1.png
    :width: 1200px
    :alt: 時刻指定メニューインポート確認
 
 | 次に移行されたメニューを確認します。
 | :menuselection:`入力用 --> ディレクトリ設定 --> フィルタ` から、時刻指定以降のパラメータが登録、更新されていることを確認しましょう。OP1のデータが更新されておらず、OP2のデータが更新、OP3のデータが登録されていれば大丈夫です。
 
-.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート確認2.gif
+.. figure:: /images/learn/quickstart/export_import/時刻指定メニューインポート確認1.gif
    :width: 1200px
    :alt: 時刻指定メニューインポート確認
 
-.. list-table:: ディレクトリ設定の設定値2
+.. list-table:: 時刻指定メニューインポート確認
   :widths: 5 10 5 5 5 5 10
   :header-rows: 2
 
@@ -528,7 +527,7 @@ Excel一括エクスポートの実行
 | それではメニューをエクスポートします。
 | :menuselection:`エクスポート/インポート --> Excel一括エクスポート` からメニューのエクスポートをします。
 
-.. figure:: /images/learn/quickstart/export_import/Excel一括メニューエクスポート.gif
+.. figure:: /images/learn/quickstart/export_import/Excel一括メニューエクスポート1.gif
    :width: 1200px
    :alt: Excel一括メニューエクスポート
 
@@ -547,7 +546,7 @@ zipファイルのダウンロード
 | 実行したエクスポートのデータをダウンロードしましょう。
 | :menuselection:`エクスポート/インポート --> Excel一括エクスポート・インポート管理 --> フィルタ --> ファイル名` からzipファイルをダウンロードします。
 
-.. figure:: /images/learn/quickstart/export_import/Excel一括zipファイルダウンロード.gif
+.. figure:: /images/learn/quickstart/export_import/Excel一括zipファイルダウンロード1.gif
    :width: 1200px
    :alt: Excel一括zipファイルダウンロード
 
@@ -592,7 +591,7 @@ Excel一括インポートの実行
 | 圧縮したzipファイルをインポートします。
 | :menuselection:`エクスポート/インポート --> Excel一括インポート --> ファイル選択` からエクスポートしたzipファイルをアップロードします。インポートメニュー選択は、全てのメニューを選択します。
 
-.. figure:: /images/learn/quickstart/export_import/Excel一括インポート.gif
+.. figure:: /images/learn/quickstart/export_import/Excel一括インポート1.gif
    :width: 1200px
    :alt: Excel一括インポート
 
@@ -603,7 +602,7 @@ Excel一括インポートの確認
 | :menuselection:`エクスポート/インポート --> Excel一括エクスポート・インポート管理 --> フィルタ` から実行したインポートのステータスが「完了」となっていることを確認しましょう。
 | そして、:menuselection:`エクスポート/インポート --> Excel一括エクスポート・インポート管理 --> フィルタ --> 結果` から結果logファイルをダウンロードします。ダウンロードしたlogファイルを開き、登録件数を確認しましょう。
 
-.. figure:: /images/learn/quickstart/export_import/Excel一括インポート確認.gif
+.. figure:: /images/learn/quickstart/export_import/Excel一括インポート確認1.gif
    :width: 1200px
    :alt: Excel一括インポート確認
 
@@ -614,11 +613,11 @@ Excel一括インポートの確認
 | 次に、ファイルを編集して登録した内容を確認します。
 | :menuselection:`基本コンソール --> オペレーション一覧 --> フィルタ` から登録したオペレーションが追加されていることを確認しましょう。
 
-.. figure:: /images/learn/quickstart/export_import/Excel一括インポート確認3.gif
+.. figure:: /images/learn/quickstart/export_import/Excel一括インポート確認2.gif
    :width: 1200px
    :alt: Excel一括インポート確認
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Excel一括インポート確認
    :widths: 5 5 10
    :header-rows: 1
 
