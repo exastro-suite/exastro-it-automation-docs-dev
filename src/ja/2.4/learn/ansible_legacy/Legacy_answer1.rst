@@ -41,6 +41,8 @@
 | 本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。
 | まずは、ユーザーをパラメータシート上で管理できるようにしておきます。
 
+.. _groups_legacy_parameter_sheet:
+
 グループのパラメータシート作成
 ------------------------------
 
@@ -281,7 +283,7 @@
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
 
 .. tip:: 
-   | :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`groups_parameter_sheet` で登録したデータシートを参照できるようになります。
+   | :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`groups_legacy_parameter_sheet` で登録したデータシートを参照できるようになります。
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーパラメータシート作成_1.png
    :width: 1200px
@@ -518,20 +520,31 @@ Movement 登録
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、ユーザー管理のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーMovement登録.png
+.. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーMovement登録設定.png
    :width: 1200px
    :alt: Movement登録
    
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`ユーザー管理`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Playbook 登録
 ---------------------
@@ -664,6 +677,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
 | 大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
+| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/グループの代入値自動登録設定_一括登録.png
    :width: 1200px
