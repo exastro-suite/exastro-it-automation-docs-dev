@@ -98,26 +98,37 @@
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario1/Movement登録.png
+.. figure:: ../../../../images/learn/quickstart/scenario1/Movement登録設定.png
    :width: 1200px
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`ホスト名設定`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Role 登録
 -----------------
 
 | Ansible Role の登録を行います。Ansible Role は運用手順書内に記載されたコマンドに該当します。
-| 手作業で Ansible Role を作成することも可能ですが、Ansible Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
+| 手作業で Ansible Role を作成することも可能ですが、Ansible-Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
 | 本シナリオでは、 `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用します。
 
 | `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ 

@@ -31,7 +31,7 @@
 .. glossary:: データシート
    Exastro IT Automation が使用する固定値のパラメータを管理するデータ構造のことです。
 
-.. _quickstart_create_datasheet:
+.. _quickstart_legacy_create_datasheet:
 
 データシートの作成
 ^^^^^^^^^^^^^^^^^^
@@ -125,7 +125,13 @@
 | そこで、本シナリオではバンドルというパラメータシートを使い、複数のパラメータを管理する方法を紹介します。
 
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
-| 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_create_datasheet` で登録したデータシートを参照できるようになります。
+| 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_legacy_create_datasheet` で登録したデータシートを参照できるようになります。
+
+| パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+
+.. figure:: /images/learn/quickstart/Legacy_scenario2/パラメータシート項目設定.png
+   :width: 1200px
+   :alt: パラメータシート作成情報設定
 
 .. list-table:: パラメータ項目設定
    :widths: 10 10 10
@@ -173,11 +179,6 @@
      - 
      - 
 
-| パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
-
-.. figure:: /images/learn/quickstart/Legacy_scenario2/パラメータシート項目設定.png
-   :width: 1200px
-   :alt: パラメータシート作成情報設定
 
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
@@ -215,20 +216,31 @@ Movement 登録
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、パッケージ管理のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario2/Movement一覧登録.png
+.. figure:: /images/learn/quickstart/Legacy_scenario2/Movement登録.png
    :width: 1200px
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`パッケージ管理`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Playbook 登録
 ---------------------
@@ -262,6 +274,15 @@ Ansible Playbook 登録
 .. figure:: /images/learn/quickstart/Legacy_scenario2/Ansible-Playbook登録.png
    :width: 1200px
    :alt: ansible-playbook登録
+
+.. list-table:: Ansible Playbook 情報の登録
+  :widths: 10 10
+  :header-rows: 1
+
+  * - Playbook素材名
+    - Playbook素材
+  * - :kbd:`package`
+    - :file:`package.yml`
 
 Movement と Ansible Playbook の紐付け
 -------------------------------------

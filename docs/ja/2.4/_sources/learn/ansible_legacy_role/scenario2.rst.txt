@@ -219,20 +219,31 @@ Movement 登録
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: ../../../../images/learn/quickstart/scenario2/Movement登録.png
+.. figure:: ../../../../images/learn/quickstart/scenario2/Movement一覧登録1.png
    :width: 1200px
    :alt: Movement登録
 
 .. list-table:: Movement 情報の設定値
-   :widths: 10 10
+   :widths: 10 10 10
    :header-rows: 2
 
    * - Movement名
      - Ansible利用情報
+     - 
    * - 
      - ホスト指定形式
+     - ヘッダーセクション
    * - :kbd:`パッケージ管理`
      - :kbd:`IP`
+     - :kbd:`※ヘッダーセクションを参照`
+
+.. code-block:: bash
+   :caption: ヘッダーセクション
+
+   - hosts: all
+     remote_user: "{{ __loginuser__ }}"
+     gather_facts: no
+     become: yes
 
 Ansible Role 登録
 -----------------
@@ -263,7 +274,7 @@ Movement と Ansible Role の紐付け
 変数ネスト管理
 --------------
 
-| ホスト名の場合、1台のサーバーに1つホスト名の設定をすることしかないため、 VAR_RH_hostname は単純な変数として扱うように定義されています。
+| ホスト名の場合、1台のサーバーに命名できるホスト名は1つだけなので、 VAR_RH_hostname は単純な変数として扱うように定義されています。
 
 .. code-block:: yaml
    :caption: VAR_RH_hostname の変数構造
