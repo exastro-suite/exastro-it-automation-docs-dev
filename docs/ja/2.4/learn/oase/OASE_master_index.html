@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>OASEを設定する際の事前設計の必要性について &#8212; Documentation  ドキュメント</title>
+    <title>2.1. OASEを設定する際の事前設計の必要性について &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -42,7 +42,9 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" /> 
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="2.2. OASEを設定する際の事前設計について" href="OASE_master_design.html" />
+    <link rel="prev" title="2. シナリオ 2" href="OASE_scenario2_index.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,6 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="OASE_scenario2_index.html" title="前のトピックへ"><span class="section-number">2. </span>シナリオ 2</a></li>
+        <li class="next"><a href="OASE_master_design.html" title="次のトピックへ"><span class="section-number">2.2. </span>OASEを設定する際の事前設計について</a></li>
       </ul>
     </div>
   </div>
@@ -112,10 +116,34 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/index.html">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">イベント連携 - OASE</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#id1">前提</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id2">自動化する作業について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">シナリオの流れ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#id4">シナリオ</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="OASE_scenario1_index.html">1. シナリオ 1</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="OASE_scenario2_index.html">2. シナリオ 2</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">2.1. OASEを設定する際の事前設計の必要性について</a></li>
+<li class="toctree-l5"><a class="reference internal" href="OASE_master_design.html">2.2. OASEを設定する際の事前設計について</a></li>
+<li class="toctree-l5"><a class="reference internal" href="OASE_master_setting.html">2.3. ルール設定について</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collection/index.html">収集・比較機能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameter/index.html">パラメータ集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_import/index.html">エクスポート/インポート</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
@@ -137,8 +165,11 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
+    <li><a href="../index.html">Learn</a></li>
+    <li><a href="index.html">イベント連携 - OASE</a></li>
+    <li><a href="OASE_scenario2_index.html"><span class="section-number">2. </span>シナリオ 2</a></li>
     
-    <li>OASEを設定する際の事前設計の必要性について</li>
+    <li><span class="section-number">2.1. </span>OASEを設定する際の事前設計の必要性について</li>
   </ul>
 </div>
 
@@ -147,9 +178,9 @@
 <div class="body" role="main">
 
   <section id="oase">
-<h1>OASEを設定する際の事前設計の必要性について<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2.1. </span>OASEを設定する際の事前設計の必要性について<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>現状整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1.1. </span>現状整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">さて、これまでの作業を通して、OASEでの基本的な設定方法について一通り紹介しました。</div>
 <div class="line">ここでは、OASEを設定するにあたり、事前に設計する必要性について考えてみましょう。</div>
@@ -172,7 +203,7 @@
 <div class="line">リクエスト数を通知するメールの内容は以下のものを想定していました。</div>
 </div>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id3" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.24 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id3" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 40.0%" />
@@ -216,7 +247,7 @@
 <div class="line">通知が生じる状況と、それに合わせて実行すべきアクションををまとめると以下の通りです。</div>
 </div>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text">通知メール発生とそれに伴い実行されるアクション一覧</span><a class="headerlink" href="#id4" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.25 </span><span class="caption-text">通知メール発生とそれに伴い実行されるアクション一覧</span><a class="headerlink" href="#id4" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -340,7 +371,7 @@
 </div>
 </section>
 <section id="id2">
-<h2>アクションをベースにした状況の整理<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1.2. </span>アクションをベースにした状況の整理<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">ただ状況ごとに行われるアクションは以下の4つです。</div>
 </div>

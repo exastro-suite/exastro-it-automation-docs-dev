@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>OASEを設定する際の事前設計について &#8212; Documentation  ドキュメント</title>
+    <title>2.2. OASEを設定する際の事前設計について &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -42,7 +42,9 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" /> 
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="2.3. ルール設定について" href="OASE_master_setting.html" />
+    <link rel="prev" title="2.1. OASEを設定する際の事前設計の必要性について" href="OASE_master_index.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,6 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="OASE_master_index.html" title="前のトピックへ"><span class="section-number">2.1. </span>OASEを設定する際の事前設計の必要性について</a></li>
+        <li class="next"><a href="OASE_master_setting.html" title="次のトピックへ"><span class="section-number">2.3. </span>ルール設定について</a></li>
       </ul>
     </div>
   </div>
@@ -112,10 +116,34 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/index.html">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">イベント連携 - OASE</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#id1">前提</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id2">自動化する作業について</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">シナリオの流れ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#id4">シナリオ</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="OASE_scenario1_index.html">1. シナリオ 1</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="OASE_scenario2_index.html">2. シナリオ 2</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="OASE_master_index.html">2.1. OASEを設定する際の事前設計の必要性について</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">2.2. OASEを設定する際の事前設計について</a></li>
+<li class="toctree-l5"><a class="reference internal" href="OASE_master_setting.html">2.3. ルール設定について</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collection/index.html">収集・比較機能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameter/index.html">パラメータ集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_import/index.html">エクスポート/インポート</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
@@ -133,17 +161,17 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">OASEを設定する際の事前設計について</a><ul>
-<li><a class="reference internal" href="#id1">アクション実行の条件の整理</a><ul>
-<li><a class="reference internal" href="#id2">それぞれのパターンが成立する状況の整理</a></li>
+<li><a class="reference internal" href="#">2.2. OASEを設定する際の事前設計について</a><ul>
+<li><a class="reference internal" href="#id1">2.2.1. アクション実行の条件の整理</a><ul>
+<li><a class="reference internal" href="#id2">2.2.1.1. それぞれのパターンが成立する状況の整理</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id3">条件の実現方法と注意点</a><ul>
-<li><a class="reference internal" href="#id4">通知内容に関するフィルタリング方法</a></li>
-<li><a class="reference internal" href="#id5">前パターンのアクションが実行された後の状況をフィルタリングする方法</a></li>
-<li><a class="reference internal" href="#id6">「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点</a></li>
-<li><a class="reference internal" href="#id7">「通知内容に関するフィルタリング方法」の注意点</a></li>
-<li><a class="reference internal" href="#id8">まとめ</a></li>
+<li><a class="reference internal" href="#id3">2.2.2. 条件の実現方法と注意点</a><ul>
+<li><a class="reference internal" href="#id4">2.2.2.1. 通知内容に関するフィルタリング方法</a></li>
+<li><a class="reference internal" href="#id5">2.2.2.2. 前パターンのアクションが実行された後の状況をフィルタリングする方法</a></li>
+<li><a class="reference internal" href="#id6">2.2.2.3. 「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点</a></li>
+<li><a class="reference internal" href="#id7">2.2.2.4. 「通知内容に関するフィルタリング方法」の注意点</a></li>
+<li><a class="reference internal" href="#id8">2.2.2.5. まとめ</a></li>
 </ul>
 </li>
 </ul>
@@ -159,8 +187,11 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
+    <li><a href="../index.html">Learn</a></li>
+    <li><a href="index.html">イベント連携 - OASE</a></li>
+    <li><a href="OASE_scenario2_index.html"><span class="section-number">2. </span>シナリオ 2</a></li>
     
-    <li>OASEを設定する際の事前設計について</li>
+    <li><span class="section-number">2.2. </span>OASEを設定する際の事前設計について</li>
   </ul>
 </div>
 
@@ -169,9 +200,9 @@
 <div class="body" role="main">
 
   <section id="oase">
-<h1>OASEを設定する際の事前設計について<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2.2. </span>OASEを設定する際の事前設計について<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id1">
-<h2>アクション実行の条件の整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2.1. </span>アクション実行の条件の整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">では具体的な設定について考えてみましょう。</div>
 </div>
@@ -197,7 +228,7 @@
 <div class="line">というものがあればよいことになります。</div>
 </div>
 <section id="id2">
-<h3>それぞれのパターンが成立する状況の整理<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.1.1. </span>それぞれのパターンが成立する状況の整理<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">ただ、各パターンの状況のなかには、</div>
 </div>
@@ -296,7 +327,7 @@
 </section>
 </section>
 <section id="id3">
-<h2>条件の実現方法と注意点<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2.2. </span>条件の実現方法と注意点<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">①については、 <a class="reference internal" href="OASE_answer_sorry-switch-back.html"><span class="doc">Sorry画面からの切り戻し実施 (解答)</span></a> で設定したように、通知メールのイベントと結論イベントからフィルタリングする形で実現可能です。</div>
 </div>
@@ -312,7 +343,7 @@
 <div class="line">をどうすればフィルタリングできるか、考えてみましょう。</div>
 </div>
 <section id="id4">
-<h3>通知内容に関するフィルタリング方法<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.2.1. </span>通知内容に関するフィルタリング方法<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">②では、すでに前パターンが成立したときに通知メールのイベントがフィルタリングされてしまっています。</div>
 </div>
@@ -330,7 +361,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>前パターンのアクションが実行された後の状況をフィルタリングする方法<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.2.2. </span>前パターンのアクションが実行された後の状況をフィルタリングする方法<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">こちらは、インスタンスが何台稼働しているかをフィルタリングするフィルターを用いることになります。</div>
 </div>
@@ -345,7 +376,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.2.3. </span>「前パターンのアクションが実行された後の状況をフィルタリングする方法」の注意点<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">ただ、それぞれのパターンにおいて、条件となっているインスタンス数を見てみると、</div>
 </div>
@@ -436,7 +467,7 @@
 </div>
 </section>
 <section id="id7">
-<h3>「通知内容に関するフィルタリング方法」の注意点<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.2.4. </span>「通知内容に関するフィルタリング方法」の注意点<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">以上までで、通知内容と状況をフィルタリングする方法が確認できました。</div>
 <div class="line">ここまでの設計をもとに具体的な設定を行って頂いて問題ありません。</div>
@@ -493,7 +524,7 @@
 </div>
 </section>
 <section id="id8">
-<h3>まとめ<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.2.5. </span>まとめ<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">以上、今回の事例をもとにOASEの設計について考えてみました。</div>
 </div>
@@ -525,6 +556,8 @@
 
 <div id="articleNavigation">
   <ul>
+    <li class="prev"><a href="OASE_master_index.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">2.1. </span>OASEを設定する際の事前設計の必要性について</a></li>
+    <li class="next"><a href="OASE_master_setting.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">2.3. </span>ルール設定について</a></li>
   </ul>
 </div>
 

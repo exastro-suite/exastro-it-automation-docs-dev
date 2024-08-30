@@ -108,7 +108,7 @@
 | それでは、各作業について、具体的にOASEの設定を行っていきましょう。
 
 シナリオ
-========
+==========
 
 .. .. raw:: html
 
@@ -116,22 +116,11 @@
 ..    <div id="multiColumnIndex">
 
 .. toctree::
-   :maxdepth: 2
-   :numbered: 3
+   :maxdepth: 3
+   :numbered: 4
 
-   OASE_scenario_scale-out
-   OASE_scenario_sorry-switch
-   OASE_practice_scale-in
-   OASE_answer_scale-in
-   OASE_practice_sorry-switch-back
-   OASE_answer_sorry-switch-back
-   OASE_advanced_sorry-switch-back
-   OASE_advanced2_sorry-switch-back
-   OASE_advanced3_sorry-switch-back.rst
-..
-   OASE_master_index.rst
-   OASE_master_design.rst
-   OASE_master_setting.rst
+   OASE_scenario1_index
+   OASE_scenario2_index
 
 .. .. raw:: html
 
