@@ -577,6 +577,11 @@ Excelファイルの編集
     - :kbd:`OP6`
     - :kbd:`2024/04/06 12:00:00`
 
+.. _export_import_create_zipfile:
+
+エクスポートファイルの圧縮
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 | その後、エクスポートした全てのファイルを選択し、zipファイルに圧縮します。zipファイル名は任意のファイル名で大丈夫です。
 
 .. figure:: /images/learn/quickstart/export_import/Excelファイルzip.gif
@@ -589,7 +594,7 @@ Excel一括インポートの実行
 | ここからは work02 ワークスペースでの作業になります。
 
 | 圧縮したzipファイルをインポートします。
-| :menuselection:`エクスポート/インポート --> Excel一括インポート --> ファイル選択` からエクスポートしたzipファイルをアップロードします。インポートメニュー選択は、全てのメニューを選択します。
+| :menuselection:`エクスポート/インポート --> Excel一括インポート --> ファイル選択` から、:ref:`export_import_create_zipfile` で作成したzipファイルをアップロードします。インポートメニュー選択は、全てのメニューを選択します。
 
 .. figure:: /images/learn/quickstart/export_import/Excel一括インポート1.gif
    :width: 1200px
