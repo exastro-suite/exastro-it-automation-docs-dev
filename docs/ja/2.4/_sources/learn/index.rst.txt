@@ -13,4 +13,5 @@ Learn
    collection/index
    parameter/index
    export_import/index
+..   hostgroup/index
 ..   terraform/index
