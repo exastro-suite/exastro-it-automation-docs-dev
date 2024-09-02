@@ -18,4 +18,4 @@
 Exastro on Kubernetes - Offline
 ===============================
 
-Comming Soon...
+執筆中
