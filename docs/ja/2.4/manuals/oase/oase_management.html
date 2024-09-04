@@ -225,7 +225,7 @@
 </li>
 <li><a class="reference internal" href="#oase-agent-settings">2.8.5. 監視ソフト毎のエージェント設定例</a><ul>
 <li><a class="reference internal" href="#zabbix">Zabbix</a></li>
-<li><a class="reference internal" href="#grafan">Grafan</a></li>
+<li><a class="reference internal" href="#grafana">Grafana</a></li>
 </ul>
 </li>
 </ul>
@@ -549,6 +549,12 @@
 <td><p>JSON形式で入力します。</p>
 <p>・リクエストメソッドがGETの場合、クエリパラメータ(接続先に追加される、&quot;?&quot;以降の値）として使用されます。</p>
 <p>・リクエストメソッドがPOSTの場、リクエストのペイロードとして使用されます。</p>
+<p>・2.4.2以降のバージョンでは、下記の予約変数をイベントの前回取得日(時)として設定することができます。</p>
+<ul class="simple">
+<li><p>EXASTRO_LAST_FETCHED_YY_MM_DD (例)2024/01/10 01:23:45</p></li>
+<li><p>EXASTRO_LAST_FETCHED_DD_MM_YY (例)10/01/24 01:23:45</p></li>
+<li><p>EXASTRO_LAST_FETCHED_TIMESTAMP (例)1704817434</p></li>
+</ul>
 </td>
 <td><p>ー</p></td>
 <td><p>手動入力</p></td>
@@ -899,9 +905,9 @@
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">/tmp内の設定ファイル「event_collection_settings.json」を削除します。</div>
+<div class="line">設定ファイル「event_collection_settings.json」を削除します。</div>
 </div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>/tmp/event_collection_settings.json
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>/tmp/&lt;EXASTRO_ORGANIZATION_ID&gt;/&lt;EXASTRO_WORKSPACE_ID&gt;/&lt;AGENT_NAME&gt;/event_collection_settings.json
 </pre></div>
 </div>
 </li>
@@ -1477,7 +1483,7 @@
 <span class="w">  </span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;problem.get&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:{},</span>
+<span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:{</span><span class="nt">&quot;time_from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXASTRO_LAST_FETCHED_TIMESTAMP&quot;</span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;auth&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;Zabbix APIトークン&gt;&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -1554,7 +1560,7 @@
 <div class="line">　・パスワード : 上記の操作で作成したユーザーの &lt;パスワード&gt;</div>
 </div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
---url<span class="w"> </span>ttp://&lt;ZabbixのIP<span class="w"> </span>Address<span class="w"> </span>か<span class="w"> </span>Domain&gt;/zabbix/api_jsonrpc.php<span class="w"> </span><span class="se">\</span>
+--url<span class="w"> </span>http://&lt;ZabbixのIP<span class="w"> </span>Address<span class="w"> </span>か<span class="w"> </span>Domain&gt;/zabbix/api_jsonrpc.php<span class="w"> </span><span class="se">\</span>
 --header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json-rpc&quot;</span><span class="w"> </span><span class="se">\</span>
 --data<span class="w"> </span><span class="s2">&quot;{\&quot;auth\&quot;:null,\&quot;method\&quot;:\&quot;user.login\&quot;,\&quot;id\&quot;:1,\&quot;params\&quot;:{\&quot;user\&quot;:\&quot;&lt;ユーザー名&gt;\&quot;,\&quot;password\&quot;:\&quot;&lt;パスワード&gt;\&quot;},\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
 </pre></div>
@@ -1576,24 +1582,24 @@
 </div>
 </div>
 </section>
-<section id="grafan">
-<h4>Grafan<a class="headerlink" href="#grafan" title="この見出しへのパーマリンク">¶</a></h4>
+<section id="grafana">
+<h4>Grafana<a class="headerlink" href="#grafana" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
-<div class="line"><em class="dfn">Grafan</em> で、イベントを取得するための、 <span class="menuselection">OASE管理 ▶ エージェント</span> での設定例について説明します。</div>
+<div class="line"><em class="dfn">Grafana</em> で、イベントを取得するための、 <span class="menuselection">OASE管理 ▶ エージェント</span> での設定例について説明します。</div>
 </div>
 <div class="line-block">
-<div class="line">以下の説明で使用した、<em class="dfn">Grafan</em> は、</div>
+<div class="line">以下の説明で使用した、<em class="dfn">Grafana</em> は、</div>
 <div class="line">・Grafan 10.3</div>
 <div class="line">・データソースに、Prometheus 2.49 を使用</div>
 </div>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">cURLコマンドで、 <em class="dfn">Grafan</em> から、イベント取得</div>
+<div class="line">cURLコマンドで、 <em class="dfn">Grafana</em> から、イベント取得</div>
 </div>
 </li>
 </ol>
 <div class="line-block">
-<div class="line">下記は、<em class="dfn">Grafan</em> から、アラート（alerts）を取得するcURLコマンドの例です。</div>
+<div class="line">下記は、<em class="dfn">Grafana</em> から、アラート（alerts）を取得するcURLコマンドの例です。</div>
 </div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>--request<span class="w"> </span>GET<span class="w"> </span><span class="se">\</span>
 --url<span class="w"> </span><span class="s1">&#39;http://&lt;GrafanaのIP addres か Domain&gt;:3000/api/prometheus/grafana/api/v1/alerts&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -1698,7 +1704,7 @@
 </div>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">ブラウザで、<em class="dfn">Grafan</em> にサインインします。</div>
+<div class="line">ブラウザで、<em class="dfn">Grafana</em> にサインインします。</div>
 <div class="line">　初期設定では、</div>
 <div class="line">　・username: admin</div>
 <div class="line">　・Password: admin （但し、既にログインした場合、変更されている可能性があります）</div>

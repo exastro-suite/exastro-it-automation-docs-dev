@@ -212,6 +212,14 @@ OASE管理
       |                                    |                                                        |              |              |                 |
       |                                    | ・リクエストメソッドがPOSTの場、\                      |              |              |                 |
       |                                    | リクエストのペイロードとして使用されます。             |              |              |                 |
+      |                                    |                                                        |              |              |                 |
+      |                                    |                                                        |              |              |                 |
+      |                                    | ・2.4.2以降のバージョンでは、下記の予約変数を\         |              |              |                 |
+      |                                    | イベントの前回取得日(時)として設定することができます。 |              |              |                 |
+      |                                    |                                                        |              |              |                 |
+      |                                    | - EXASTRO_LAST_FETCHED_YY_MM_DD (例)2024/01/10 01:23:45|              |              |                 |
+      |                                    | - EXASTRO_LAST_FETCHED_DD_MM_YY (例)10/01/24 01:23:45  |              |              |                 |
+      |                                    | - EXASTRO_LAST_FETCHED_TIMESTAMP (例)1704817434        |              |              |                 |
       +------------------------------------+--------------------------------------------------------+--------------+--------------+-----------------+
       | レスポンスキー                     | レスポンスのペイロードから、OASEのイベントとして\      | ー           | 手動入力     | 最大長255バイト |
       |                                    | 受け取るプロパティの、親となるキーを指定します。       |              |              | ※3              |
@@ -483,11 +491,11 @@ OASE Agentの処理フローと.envの設定値
    
       docker exec -it <OASE Agentのコンテナ名> bash
 
-2. | /tmp内の設定ファイル「event_collection_settings.json」を削除します。
+2. | 設定ファイル「event_collection_settings.json」を削除します。
 
    .. code-block:: shell
    
-      rm /tmp/event_collection_settings.json
+      rm /tmp/<EXASTRO_ORGANIZATION_ID>/<EXASTRO_WORKSPACE_ID>/<AGENT_NAME>/event_collection_settings.json
 
 .. tip::
    | OASE Agentでは、設定ファイル「event_collection_settings.json」が存在しない場合、ITAからイベント収集設定を取得し、設定ファイルを作成します。
@@ -936,7 +944,7 @@ Zabbix
            "jsonrpc":"2.0",
            "method":"problem.get",
            "id":1,
-           "params":{},
+           "params":{"time_from": "EXASTRO_LAST_FETCHED_TIMESTAMP"},
            "auth":"<Zabbix APIトークン>"
          }
 
@@ -978,7 +986,7 @@ Zabbix
   .. code-block:: shell
       
      curl --request POST \
-     --url ttp://<ZabbixのIP Address か Domain>/zabbix/api_jsonrpc.php \
+     --url http://<ZabbixのIP Address か Domain>/zabbix/api_jsonrpc.php \
      --header "Content-Type: application/json-rpc" \
      --data "{\"auth\":null,\"method\":\"user.login\",\"id\":1,\"params\":{\"user\":\"<ユーザー名>\",\"password\":\"<パスワード>\"},\"jsonrpc\":\"2.0\"}" \
   
@@ -998,17 +1006,17 @@ Zabbix
   | ※ <Zabbix APIトークン>作成は、ブラウザでもを作成できます。
   | ブラウザでログイン後、サイドメニュー > ユーザー設定 > APIトークン の :guilabel:`APIトークンの作成` で作成できます。
 
-Grafan
-^^^^^^
-| :dfn:`Grafan` で、イベントを取得するための、 :menuselection:`OASE管理 --> エージェント` での設定例について説明します。
+Grafana
+^^^^^^^
+| :dfn:`Grafana` で、イベントを取得するための、 :menuselection:`OASE管理 --> エージェント` での設定例について説明します。
 
-| 以下の説明で使用した、:dfn:`Grafan` は、
+| 以下の説明で使用した、:dfn:`Grafana` は、
 | ・Grafan 10.3
 | ・データソースに、Prometheus 2.49 を使用
 
-1. | cURLコマンドで、 :dfn:`Grafan` から、イベント取得
+1. | cURLコマンドで、 :dfn:`Grafana` から、イベント取得
 
-| 下記は、:dfn:`Grafan` から、アラート（alerts）を取得するcURLコマンドの例です。
+| 下記は、:dfn:`Grafana` から、アラート（alerts）を取得するcURLコマンドの例です。
 
 .. code-block:: shell
    
@@ -1083,7 +1091,7 @@ Grafan
   | <認証トークン>は、Grafanaの認証情報です。
   | 下記の手順で取得できます。
 
-  1. | ブラウザで、:dfn:`Grafan` にサインインします。
+  1. | ブラウザで、:dfn:`Grafana` にサインインします。
      | 　初期設定では、
      | 　・username: admin
      | 　・Password: admin （但し、既にログインした場合、変更されている可能性があります）
