@@ -11,7 +11,7 @@
 パラメータ設計
 ===============
 
-| 本シナリオで扱うパラメータシートの設定項目は、「タイムゾーンの設定」と「hostsの更新」、「ホスト名の設定」の3つです。
+| 本シナリオで扱うパラメータシートの設定項目は、「タイムゾーンの設定」と「サーバ用パラメータ」、「ホスト名の設定」の3つです。
 | ここで検討すべきポイントは、
 
 - タイムゾーンの設定で作成したタイムゾーン名に対応する「UTC」と「JST」の設定方法です。
@@ -145,67 +145,54 @@
 | サーバのOS設定をする際に、1つの作業を複数のホストへ実行したい場合があると思います。
 | 今回はホストグループという機能を使い、複数のホストへ一度に作業を実行する方法を紹介します。
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、「hostsの更新」と「ホスト名変更用」というパラメータシートを登録します。
-| まずは「hostsの更新」というパラメータシートを作成します。項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`hostgroup_create_datasheet` で登録したデータシートを参照できるようになります。
+| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、「サーバ用パラメータ」と「ホスト名変更用」というパラメータシートを登録します。
+| まずは「サーバ用パラメータ」というパラメータシートを作成します。項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`hostgroup_create_datasheet` で登録したデータシートを参照できるようになります。
 
-.. figure:: /images/learn/quickstart/hostgroup/hostsの更新パラメータシート項目設定.png
+.. figure:: /images/learn/quickstart/hostgroup/サーバ用パラメータパラメータシート項目設定.png
    :width: 1200px
-   :alt: hostsの更新パラメータシート作成情報設定
+   :alt: サーバ用パラメータパラメータシート作成情報設定
 
 .. list-table:: パラメータ項目設定
-   :widths: 5 10 5 5
+   :widths: 5 10 5
    :header-rows: 1
 
    * - 設定項目
      - 項目1設定値
      - 項目2設定値
-     - 項目3設定値
    * - 項目の名前
      - :kbd:`タイムゾーン`
-     - :kbd:`hostsIP`
-     - :kbd:`hosts名`
+     - :kbd:`Nameserver_ip`
    * - 項目の名前(Rest API用) 
      - :kbd:`Timezone`
-     - :kbd:`VAR_hosts_ip`
-     - :kbd:`VAR_hosts_name`
+     - :kbd:`VAR_nameserver_ip`
    * - 入力方式
      - :kbd:`プルダウン選択`
-     - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - (項目なし)
      - :kbd:`64`
-     - :kbd:`64`
    * - 正規表現
      - (項目なし)
-     - 
      - 
    * - 選択項目
      - :kbd:`入力用:タイムゾーン一覧:パラメータ/タイムゾーン`
      - (項目なし)
-     - (項目なし)
    * - 参照項目
      - :kbd:`UTC、JST`
      - (項目なし)
-     - (項目なし)
    * - 初期値
-     - 
      - 
      - 
    * - 必須
      - 
      - 
-     - 
    * - 一意制約
-     - 
      - 
      - 
    * - 説明
      - 
      - 
-     - 
    * - 備考
-     - 
      - 
      - 
 
@@ -219,9 +206,9 @@
    * - 項番
      - (自動入力)
    * - パラメータシート名
-     - :kbd:`hostsの更新`
+     - :kbd:`サーバ用パラメータ`
    * - パラメータシート名(REST)
-     - :kbd:`hosts_update`
+     - :kbd:`server_parameter`
    * - 作成対象
      - :kbd:`パラメータシート（ホスト/オペレーションあり）`
    * - 表示順序
@@ -300,7 +287,7 @@ Movement 登録
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、基本設定のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/hostgroup/Movement登録.png
+.. figure:: /images/learn/quickstart/hostgroup/Movement登録設定.png
    :width: 1200px
    :alt: Movement登録
 
@@ -317,7 +304,7 @@ Movement 登録
    * - :kbd:`set_timezone`
      - :kbd:`IP`
      - :kbd:`※ヘッダーセクションを参照`
-   * - :kbd:`set_hosts`
+   * - :kbd:`add_nameserver`
      - :kbd:`IP`
      - :kbd:`※ヘッダーセクションを参照`
    * - :kbd:`set_hostname`
@@ -335,7 +322,7 @@ Movement 登録
 Ansible Playbook 登録
 ---------------------
 
-| 本シナリオでは、 「set_timezone.yml」と「set_hosts.yml」、「set_hostname.yml」の3つのPlaybookを利用します。
+| 本シナリオでは、 「set_timezone.yml」と「add_nameserver.yml」、「set_hostname.yml」の3つのPlaybookを利用します。
 | 以下をコピーして、それぞれのPlaybookをyml形式で作成してください。
 
 .. code-block:: bash
@@ -346,23 +333,23 @@ Ansible Playbook 登録
       name: "{{ VAR_locale_timezone }}"
 
 .. code-block:: bash
-  :caption: set_hosts.yml
+  :caption: add_nameserver.yml
 
-  - name: Add Hosts
+  - name: Add Nameserver
     lineinfile:
-      dest: /etc/hosts
-      line: '{{ VAR_hosts_ip }} {{ VAR_hosts_name }}'
+      dest: /etc/resolv.conf
+      line: nameserver {{ VAR_nameserver_ip }}
 
 .. code-block:: bash
   :caption: set_hostname.yml
 
-  - name: Set Hostname
-    hostname:
+  - name: Set a hostname
+    ansible.builtin.hostname:
       name: "{{ VAR_hostname }}"
 
 | :menuselection:`Ansible-Legacy --> Playbook素材集` から、から、上記のPlaybookを登録します。
 
-.. figure:: /images/learn/quickstart/hostgroup/Ansible-Playbook登録.png
+.. figure:: /images/learn/quickstart/hostgroup/Ansible-Playbook登録設定.png
    :width: 1200px
    :alt: ansible-playbook登録
 
@@ -374,8 +361,8 @@ Ansible Playbook 登録
     - Playbook素材
   * - :kbd:`set_timezone`
     - :file:`set_timezone.yml`
-  * - :kbd:`set_hosts`
-    - :file:`set_hosts.yml`
+  * - :kbd:`add_nameserver`
+    - :file:`add_nameserver.yml`
   * - :kbd:`set_hostname`
     - :file:`set_hostname.yml`
 
@@ -384,7 +371,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible-Legacy --> Movement-Playbook紐付` から、Movement と Ansible Playbook の紐付けを行います。
 
-.. figure:: /images/learn/quickstart/hostgroup/MovementとPlaybook紐付け.png
+.. figure:: /images/learn/quickstart/hostgroup/MovementとPlaybook紐付け設定.png
    :width: 1200px
    :alt: MovementとPlaybook紐付け
 
@@ -398,8 +385,8 @@ Movement と Ansible Playbook の紐付け
   * - :kbd:`set_timezone`
     - :kbd:`set_timezone`
     - :kbd:`1`
-  * - :kbd:`set_hosts`
-    - :kbd:`set_hosts`
+  * - :kbd:`add_nameserver`
+    - :kbd:`add_nameserver`
     - :kbd:`1`
   * - :kbd:`set_hostname`
     - :kbd:`set_hostname`
@@ -410,7 +397,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、作成したパラメータシートと Ansible Playbook 内の変数の紐付けを行います。
 
-.. figure:: /images/learn/quickstart/hostgroup/代入値自動登録設定.png
+.. figure:: /images/learn/quickstart/hostgroup/代入値自動登録.png
   :width: 1200px
   :alt: 代入値自動登録設定
 
@@ -430,23 +417,17 @@ Movement と Ansible Playbook の紐付け
     -
     - Movement名:変数名
     - 代入順序
-  * - :kbd:`代入値自動登録用:hostsの更新:パラメータ/タイムゾーン`
+  * - :kbd:`代入値自動登録用:サーバ用パラメータ:パラメータ/タイムゾーン`
     - 
     - :kbd:`Value型`
     - :kbd:`set_timezone`
     - :kbd:`set_timezone:VAR_locale_timezone`
     - 
-  * - :kbd:`代入値自動登録用:hostsの更新:パラメータ/hostsIP`
+  * - :kbd:`代入値自動登録用:サーバ用パラメータ:パラメータ/Nameserver_ip`
     - 
     - :kbd:`Value型`
-    - :kbd:`set_hosts`
-    - :kbd:`set_hosts:VAR_hosts_ip`
-    - 
-  * - :kbd:`代入値自動登録用:hostsの更新:パラメータ/hosts名`
-    - 
-    - :kbd:`Value型`
-    - :kbd:`set_hosts`
-    - :kbd:`set_hosts:VAR_hosts_name`
+    - :kbd:`add_nameserver`
+    - :kbd:`add_nameserver:VAR_nameserver_ip`
     - 
   * - :kbd:`代入値自動登録用:ホスト名変更用:パラメータ/ホスト名`
     - 
@@ -462,12 +443,12 @@ Movement と Ansible Playbook の紐付け
 | Conductor を利用することで、複数の Movement をまとめて実行できるだけでなく、Movement の実行結果に応じて、後続処理を分岐させたり、ユーザ確認の為に一時停止するといった複雑なロジックを組み込む事が可能です。
 | :menuselection:`Conductor --> Conductor編集/作業実行` から「サーバ基本設定」というジョブフローを定義します。
 
-.. figure:: /images/learn/quickstart/hostgroup/ジョブフローの作成.gif
+.. figure:: /images/learn/quickstart/hostgroup/ジョブフローの作成登録.gif
    :width: 1200px
    :alt: ジョブフローの作成
 
 | 1. 右上のペイン :menuselection:`Conductor情報 --> 名称`  に、 :kbd:`サーバ基本設定` と入力します。
-| 2. 右下のペインに、作成した :kbd:`set_timezone` と :kbd:`set_hosts`  、 :kbd:`set_hostname` の3つの Movement があります。これらを画面中央にドラッグアンドドロップします。
+| 2. 右下のペインに、作成した :kbd:`set_timezone` と :kbd:`add_nameserver`  、 :kbd:`set_hostname` の3つの Movement があります。これらを画面中央にドラッグアンドドロップします。
 | 3. 各 Node 間を下記の様に接続します。
 
 .. list-table:: Node 間の接続
@@ -479,8 +460,8 @@ Movement と Ansible Playbook の紐付け
    * - :kbd:`Start`
      - :kbd:`set_timezone`
    * - :kbd:`set_timezone`
-     - :kbd:`set_hosts`
-   * - :kbd:`set_hosts`
+     - :kbd:`add_nameserver`
+   * - :kbd:`add_nameserver`
      - :kbd:`set_hostname`
    * - :kbd:`set_hostname`
      - :kbd:`End`
@@ -687,41 +668,36 @@ Movement と Ansible Playbook の紐付け
 ---------------
 
 | 作業を実行するために作成したパラメータシートにパラメータを登録していきます。
-| :menuselection:`入力用 --> hostsの更新` からパラメータを登録します。
+| :menuselection:`入力用 --> サーバ用パラメータ` からパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/hostgroup/hostsの更新パラメータ入力.png
+.. figure:: /images/learn/quickstart/hostgroup/サーバ用パラメータパラメータ入力.png
    :width: 1200px
-   :alt: hostsの更新パラメータ入力
+   :alt: サーバ用パラメータパラメータ入力
 
-.. list-table:: hostsの更新パラメータの設定値
-  :widths: 5 15 10 10 10
+.. list-table:: サーバ用パラメータパラメータの設定値
+  :widths: 5 15 10 10
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
     - 
-    - 
   * - 
     - オペレーション名
-    - Timezone
-    - hostsIP
-    - hosts名
+    - タイムゾーン
+    - Nameserver_ip
   * - :kbd:`[HG]All_SV`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`192.168.1.1`
-    - :kbd:`db_user`
+    - :kbd:`10.15.1.30`
   * - :kbd:`[HG]db_SV`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`192.168.1.1`
-    - :kbd:`db_user`
+    - :kbd:`10.15.1.30`
   * - :kbd:`[HG]web_SV`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`192.168.1.10`
-    - :kbd:`web_user`
+    - :kbd:`10.15.1.62`
 
 | 次に、:menuselection:`入力用 --> ホスト名変更用` からパラメータを登録します。
 
@@ -754,48 +730,43 @@ Movement と Ansible Playbook の紐付け
 
 1. 代入値自動登録用確認
 
-   | :menuselection:`代入値自動登録用 --> hostsの更新` から登録した値が「ホストグループ分解機能」によって正しい値が指定されていることを確認します。
+   | :menuselection:`代入値自動登録用 --> サーバ用パラメータ` から登録した値が「ホストグループ分解機能」によって正しい値が指定されていることを確認します。
 
-.. figure:: /images/learn/quickstart/hostgroup/作業実行1回目事前確認_hostsの更新.gif
+.. figure:: /images/learn/quickstart/hostgroup/作業実行1回目事前確認_サーバ用パラメータ.gif
    :width: 1200px
    :alt: 作業実行1回目事前確認
 
-.. list-table:: hostsの更新の代入値自動登録用確認
-  :widths: 5 15 10 10 10 10
+.. list-table:: サーバ用パラメータの代入値自動登録用確認
+  :widths: 5 15 10 10 10
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
     - 
-    - 
     - 最終更新者
   * - 
     - オペレーション名
     - タイムゾーン
-    - hostsIP
-    - hosts名
+    - Nameserver_ip
     - 
   * - :kbd:`dbA`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`db_user`
-    - :kbd:`192.168.1.1`
+    - :kbd:`10.15.1.30`
     - :kbd:`ホストグループ分解機能`
   * - :kbd:`dbB`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`db_user`
-    - :kbd:`192.168.1.1`
+    - :kbd:`10.15.1.30`
     - :kbd:`ホストグループ分解機能`
   * - :kbd:`webA`
     - :kbd:`2024/04/01 12:00:00_基本設定_全台用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`web_user`
-    - :kbd:`192.168.1.10`
+    - :kbd:`10.15.1.62`
     - :kbd:`ホストグループ分解機能`
 
-2. 事前確認
+1. 事前確認
 
    | 現在の各サーバーの状態を確認しましょう。
    | 作業対象サーバに SSH ログインし、現在のホスト名を確認します。
@@ -812,20 +783,20 @@ Movement と Ansible Playbook の紐付け
       # 結果は環境ごとに異なります
       localhost
 
-   | 次にhostsファイルを確認します。
+   | resolv.confファイルを確認します。
 
    .. code-block:: bash
       :caption: コマンド
 
-      # hostsファイルの確認
-      cat /etc/hosts
+      # resolv.confファイルの確認
+      cat /etc/resolv.conf
 
    .. code-block:: bash
       :caption: 実行結果
 
       # 登録する情報が無いことを確認
 
-3. 作業実行
+2. 作業実行
 
    | :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
    | :kbd:`サーバ基本設定` Conductor を選択し、:guilabel:`選択決定` を押下します。
@@ -833,7 +804,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`Conductor作業確認` 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/hostgroup/作業実行1回目.gif
+.. figure:: /images/learn/quickstart/hostgroup/作業実行1回目操作.gif
   :width: 1200px
   :alt: Conductor作業実行1回目
 
@@ -857,21 +828,21 @@ Movement と Ansible Playbook の紐付け
       dbB
       webA
 
-   | hostsファイルを確認します。パラメータで入力したデータが登録されていることを確認します。
+   | resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。
 
    .. code-block:: bash
       :caption: コマンド
 
-      # hostsファイルの確認
-      cat /etc/hosts
+      # resolv.confファイルの確認
+      cat /etc/resolv.conf
 
    .. code-block:: bash
       :caption: 実行結果
 
       # 作業対象サーバによって異なります。
-      192.168.1.1 db_user
-      192.168.1.1 db_user
-      192.168.1.10 web_user
+      nameserver 10.15.1.30
+      nameserver 10.15.1.30
+      nameserver 10.15.1.62
 
 追加オペレーション登録
 =======================
@@ -963,31 +934,28 @@ Movement と Ansible Playbook の紐付け
 ---------------
 
 | 追加したホストに作業を実行するために、作成したパラメータシートにパラメータを登録していきます。
-| :menuselection:`入力用 --> hostsの更新` からパラメータを登録します。
+| :menuselection:`入力用 --> サーバ用パラメータ` からパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/hostgroup/追加用hostsの更新パラメータ入力.png
+.. figure:: /images/learn/quickstart/hostgroup/追加用サーバ用パラメータパラメータ入力.png
    :width: 1200px
-   :alt: 追加用hostsの更新パラメータ入力
+   :alt: 追加用サーバ用パラメータパラメータ入力
 
-.. list-table:: 追加用hostsの登更新パラメータの設定値
-  :widths: 5 15 10 10 10
+.. list-table:: 追加用サーバ用パラメータパラメータの設定値
+  :widths: 5 15 10 10
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
     - 
-    - 
   * - 
     - オペレーション名
     - Timezone
-    - hostsIP
-    - hosts名
+    - Nameserver_ip
   * - :kbd:`[HG]web_SV`
     - :kbd:`2024/04/02 12:00:00_基本設定_追加用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`192.168.1.10`
-    - :kbd:`web_user`
+    - :kbd:`10.15.1.62`
 
 | 次に :menuselection:`入力用 --> ホスト名変更用` からパラメータを登録します。
 
@@ -1016,34 +984,31 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`代入値自動登録用 --> 作成したパラメータシート` から追加登録した値が「ホストグループ分解機能」によって正しい値が指定されていることを確認します。
 
-.. figure:: /images/learn/quickstart/hostgroup/作業実行2回目事前確認_hostsの更新.gif
+.. figure:: /images/learn/quickstart/hostgroup/作業実行2回目事前確認_サーバ用パラメータ.gif
    :width: 1200px
    :alt: 作業実行2回目事前確認
 
-.. list-table:: 追加用hostsの更新の代入値自動登録用確認
-  :widths: 5 20 10 10 10 10
+.. list-table:: 追加用サーバ用パラメータの代入値自動登録用確認
+  :widths: 5 20 10 10 10
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
     - 
-    - 
     - 最終更新者
   * - 
     - オペレーション名
     - タイムゾーン
-    - hostsIP
-    - hosts名
+    - Nameserver_ip
     - 
   * - :kbd:`webB`
     - :kbd:`2024/04/02 12:00:00_基本設定_追加用`
     - :kbd:`Asia/Tokyo`
-    - :kbd:`192.168.1.10`
-    - :kbd:`web_user`
+    - :kbd:`10.15.1.62`
     - :kbd:`ホストグループ分解機能`
 
-2. 事前確認
+1. 事前確認
 
    | 現在の各サーバーの状態を確認しましょう。
    | 作業対象サーバに SSH ログインし、現在のホスト名を確認します。
@@ -1060,20 +1025,20 @@ Movement と Ansible Playbook の紐付け
       # 結果は環境ごとに異なります
       localhost
 
-   | 次にhostsファイルを確認します。
+   | resolv.confファイルを確認します。
 
    .. code-block:: bash
       :caption: コマンド
 
-      # hostsファイルの確認
-      cat /etc/hosts
+      # resolv.confファイルの確認
+      cat /etc/resolv.conf
 
    .. code-block:: bash
       :caption: 実行結果
 
       # 登録する情報が無いことを確認
 
-3. 作業実行
+2. 作業実行
 
    | :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
    | :kbd:`サーバ基本設定` Conductor を選択し、:guilabel:`選択決定` を押下します。
@@ -1081,11 +1046,11 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`Conductor作業確認` 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。
 
-   .. figure:: /images/learn/quickstart/hostgroup/作業実行2回目.gif
+   .. figure:: /images/learn/quickstart/hostgroup/作業実行2回目操作.gif
       :width: 1200px
       :alt: Conductor作業実行2回目
 
-4. 事後確認
+3. 事後確認
 
    | 再度サーバに SSH ログインし、下記を確認します。
 
@@ -1103,19 +1068,19 @@ Movement と Ansible Playbook の紐付け
       # 作業対象サーバによって異なります。
       webB
 
-   | hostsファイルを確認します。パラメータで入力したデータが登録されていることを確認します。
+   | resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。
 
    .. code-block:: bash
       :caption: コマンド
 
-      # hostsファイルの確認
-      cat /etc/hosts
+      # resolv.confファイルの確認
+      cat /etc/resolv.conf
 
    .. code-block:: bash
       :caption: 実行結果
 
       # データが登録されていることを確認します。
-      192.168.1.10 web_user
+      nameserver 10.15.1.62
 
 まとめ
 ======
