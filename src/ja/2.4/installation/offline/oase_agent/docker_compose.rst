@@ -18,4 +18,4 @@
 OASE Agent on Docker Compose - Offline
 ======================================
 
-Comming Soon...
+執筆中
