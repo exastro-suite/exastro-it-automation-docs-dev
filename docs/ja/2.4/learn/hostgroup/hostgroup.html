@@ -42,7 +42,9 @@
     <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="検索" href="../../search.html" /> 
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="マニュアル" href="../../manuals/index.html" />
+    <link rel="prev" title="ホストグループ" href="index.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,6 +104,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
+        <li class="prev"><a href="index.html" title="前のトピックへ">ホストグループ</a></li>
+        <li class="next"><a href="../../manuals/index.html" title="次のトピックへ">マニュアル</a></li>
       </ul>
     </div>
   </div>
@@ -112,10 +116,41 @@
   <div id="menuButton"></div>
   
   <aside class="divInner">
-    <ul>
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">構成・構築ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Learn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/index.html">クイックスタート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oase/index.html">イベント連携 - OASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collection/index.html">収集・比較機能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parameter/index.html">パラメータ集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_import/index.html">エクスポート/インポート</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ホストグループ</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#id2">前提</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id3">シナリオの流れ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#id4">シナリオ</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ホストグループ</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id2">パラメータ設計</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id6">作業手順の登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id8">ジョブフローの作成</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hostgroup-create-equipment-list">作業対象の登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id11">オペレーション登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hostgroup-create-hostgroup">ホストグループ設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id18">作業実行1回目</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id21">追加オペレーション登録</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id24">追加ホストグループ設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id28">作業実行2回目</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id31">まとめ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
@@ -198,6 +233,8 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
+    <li><a href="../index.html">Learn</a></li>
+    <li><a href="index.html">ホストグループ</a></li>
     
     <li>ホストグループ</li>
   </ul>
@@ -219,7 +256,7 @@
 <section id="id2">
 <h2>パラメータ設計<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
-<div class="line">本シナリオで扱うパラメータシートの設定項目は、「タイムゾーンの設定」と「hostsの更新」、「ホスト名の設定」の3つです。</div>
+<div class="line">本シナリオで扱うパラメータシートの設定項目は、「タイムゾーンの設定」と「サーバ用パラメータ」、「ホスト名の設定」の3つです。</div>
 <div class="line">ここで検討すべきポイントは、</div>
 </div>
 <ul class="simple">
@@ -248,7 +285,7 @@
 <a class="reference internal image-reference" href="../../_images/データシート作成1.png"><img alt="データシートの作成" src="../../_images/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%901.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id32">
-<caption><span class="caption-text">データシートの項目の設定値</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 179 </span><span class="caption-text">データシートの項目の設定値</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -316,7 +353,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id33">
-<caption><span class="caption-text">データシート作成情報の設定値</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 180 </span><span class="caption-text">データシート作成情報の設定値</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -361,7 +398,7 @@
 <a class="reference internal image-reference" href="../../_images/データシート入力.png"><img alt="データシートの設定値入力" src="../../_images/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id34">
-<caption><span class="caption-text">状態の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 181 </span><span class="caption-text">状態の設定値</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 20.0%" />
@@ -401,92 +438,78 @@
 <div class="line">今回はホストグループという機能を使い、複数のホストへ一度に作業を実行する方法を紹介します。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、「hostsの更新」と「ホスト名変更用」というパラメータシートを登録します。</div>
-<div class="line">まずは「hostsの更新」というパラメータシートを作成します。項目1の <span class="menuselection">入力方式</span> を <kbd class="kbd docutils literal notranslate">プルダウン選択</kbd> に設定することで、<a class="reference internal" href="#hostgroup-create-datasheet"><span class="std std-ref">データシートの作成</span></a> で登録したデータシートを参照できるようになります。</div>
+<div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、「サーバ用パラメータ」と「ホスト名変更用」というパラメータシートを登録します。</div>
+<div class="line">まずは「サーバ用パラメータ」というパラメータシートを作成します。項目1の <span class="menuselection">入力方式</span> を <kbd class="kbd docutils literal notranslate">プルダウン選択</kbd> に設定することで、<a class="reference internal" href="#hostgroup-create-datasheet"><span class="std std-ref">データシートの作成</span></a> で登録したデータシートを参照できるようになります。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/hostsの更新パラメータシート項目設定.png"><img alt="hostsの更新パラメータシート作成情報設定" src="../../_images/hosts%E3%81%AE%E6%9B%B4%E6%96%B0%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E9%A0%85%E7%9B%AE%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/サーバ用パラメータパラメータシート項目設定.png"><img alt="サーバ用パラメータパラメータシート作成情報設定" src="../../_images/%E3%82%B5%E3%83%BC%E3%83%90%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E9%A0%85%E7%9B%AE%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id35">
-<caption><span class="caption-text">パラメータ項目設定</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 182 </span><span class="caption-text">パラメータ項目設定</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 40.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>設定項目</p></th>
 <th class="head"><p>項目1設定値</p></th>
 <th class="head"><p>項目2設定値</p></th>
-<th class="head"><p>項目3設定値</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>項目の名前</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">タイムゾーン</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hostsIP</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hosts名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Nameserver_ip</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>項目の名前(Rest API用)</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Timezone</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">VAR_hosts_ip</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">VAR_hosts_name</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">VAR_nameserver_ip</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>入力方式</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">プルダウン選択</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>最大バイト数</p></td>
 <td><p>(項目なし)</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>正規表現</p></td>
 <td><p>(項目なし)</p></td>
-<td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>選択項目</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">入力用:タイムゾーン一覧:パラメータ/タイムゾーン</kbd></p></td>
 <td><p>(項目なし)</p></td>
-<td><p>(項目なし)</p></td>
 </tr>
 <tr class="row-even"><td><p>参照項目</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">UTC、JST</kbd></p></td>
 <td><p>(項目なし)</p></td>
-<td><p>(項目なし)</p></td>
 </tr>
 <tr class="row-odd"><td><p>初期値</p></td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>必須</p></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="row-odd"><td><p>一意制約</p></td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>説明</p></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr class="row-odd"><td><p>備考</p></td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 183 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -501,10 +524,10 @@
 <td><p>(自動入力)</p></td>
 </tr>
 <tr class="row-odd"><td><p>パラメータシート名</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hostsの更新</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">サーバ用パラメータ</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>パラメータシート名(REST)</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hosts_update</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">server_parameter</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>作成対象</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">パラメータシート（ホスト/オペレーションあり）</kbd></p></td>
@@ -530,7 +553,7 @@
 <a class="reference internal image-reference" href="../../_images/ホスト名変更用パラメータシート項目設定.png"><img alt="ホスト名変更用パラメータシート作成情報設定" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E9%A0%85%E7%9B%AE%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id37">
-<caption><span class="caption-text">パラメータ項目設定</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 184 </span><span class="caption-text">パラメータ項目設定</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -574,7 +597,7 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 185 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -625,10 +648,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement一覧</span> から、基本設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement登録3.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement登録設定1.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A1.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 186 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -649,7 +672,7 @@
 <td><p><kbd class="kbd docutils literal notranslate">IP</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">※ヘッダーセクションを参照</kbd></p></td>
 </tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">IP</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">※ヘッダーセクションを参照</kbd></p></td>
 </tr>
@@ -660,7 +683,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id40">
-<div class="code-block-caption"><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 322 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -672,11 +695,11 @@
 <section id="ansible-playbook">
 <h3>Ansible Playbook 登録<a class="headerlink" href="#ansible-playbook" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">本シナリオでは、 「set_timezone.yml」と「set_hosts.yml」、「set_hostname.yml」の3つのPlaybookを利用します。</div>
+<div class="line">本シナリオでは、 「set_timezone.yml」と「add_nameserver.yml」、「set_hostname.yml」の3つのPlaybookを利用します。</div>
 <div class="line">以下をコピーして、それぞれのPlaybookをyml形式で作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-text">set_timezone.yml</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 323 </span><span class="caption-text">set_timezone.yml</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>Timezone
 <span class="w">  </span>timezone:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ VAR_locale_timezone }}&quot;</span>
@@ -684,18 +707,18 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-text">set_hosts.yml</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>Hosts
+<div class="code-block-caption"><span class="caption-number">リスト 324 </span><span class="caption-text">add_nameserver.yml</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>Nameserver
 <span class="w">  </span>lineinfile:
-<span class="w">    </span>dest:<span class="w"> </span>/etc/hosts
-<span class="w">    </span>line:<span class="w"> </span><span class="s1">&#39;{{ VAR_hosts_ip }} {{ VAR_hosts_name }}&#39;</span>
+<span class="w">    </span>dest:<span class="w"> </span>/etc/resolv.conf
+<span class="w">    </span>line:<span class="w"> </span>nameserver<span class="w"> </span><span class="o">{{</span><span class="w"> </span>VAR_nameserver_ip<span class="w"> </span><span class="o">}}</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-text">set_hostname.yml</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>Hostname
-<span class="w">  </span>hostname:
+<div class="code-block-caption"><span class="caption-number">リスト 325 </span><span class="caption-text">set_hostname.yml</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
+<span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ VAR_hostname }}&quot;</span>
 </pre></div>
 </div>
@@ -704,10 +727,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> から、から、上記のPlaybookを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Ansible-Playbook登録2.png"><img alt="ansible-playbook登録" src="../../_images/Ansible-Playbook%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Ansible-Playbook登録設定.png"><img alt="ansible-playbook登録" src="../../_images/Ansible-Playbook%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id44">
-<caption><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id44" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 187 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id44" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -721,8 +744,8 @@
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">set_timezone</kbd></p></td>
 <td><p><code class="file docutils literal notranslate"><span class="pre">set_timezone.yml</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
-<td><p><code class="file docutils literal notranslate"><span class="pre">set_hosts.yml</span></code></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
+<td><p><code class="file docutils literal notranslate"><span class="pre">add_nameserver.yml</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">set_hostname</kbd></p></td>
 <td><p><code class="file docutils literal notranslate"><span class="pre">set_hostname.yml</span></code></p></td>
@@ -736,10 +759,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement-Playbook紐付</span> から、Movement と Ansible Playbook の紐付けを行います。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/MovementとPlaybook紐付け2.png"><img alt="MovementとPlaybook紐付け" src="../../_images/Movement%E3%81%A8Playbook%E7%B4%90%E4%BB%98%E3%81%912.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/MovementとPlaybook紐付け設定.png"><img alt="MovementとPlaybook紐付け" src="../../_images/Movement%E3%81%A8Playbook%E7%B4%90%E4%BB%98%E3%81%91%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id45">
-<caption><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id45" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 188 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id45" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -756,8 +779,8 @@
 <td><p><kbd class="kbd docutils literal notranslate">set_timezone</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">set_hostname</kbd></p></td>
@@ -773,10 +796,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> から、作成したパラメータシートと Ansible Playbook 内の変数の紐付けを行います。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/代入値自動登録設定3.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A3.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/代入値自動登録1.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id46">
-<caption><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id46" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 189 </span><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id46" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -802,28 +825,21 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:hostsの更新:パラメータ/タイムゾーン</kbd></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバ用パラメータ:パラメータ/タイムゾーン</kbd></p></td>
 <td></td>
 <td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">set_timezone</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">set_timezone:VAR_locale_timezone</kbd></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:hostsの更新:パラメータ/hostsIP</kbd></p></td>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバ用パラメータ:パラメータ/Nameserver_ip</kbd></p></td>
 <td></td>
 <td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts:VAR_hosts_ip</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">add_nameserver:VAR_nameserver_ip</kbd></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:hostsの更新:パラメータ/hosts名</kbd></p></td>
-<td></td>
-<td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts:VAR_hosts_name</kbd></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:ホスト名変更用:パラメータ/ホスト名</kbd></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:ホスト名変更用:パラメータ/ホスト名</kbd></p></td>
 <td></td>
 <td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">set_hostname</kbd></p></td>
@@ -842,15 +858,15 @@
 <div class="line"><span class="menuselection">Conductor ▶ Conductor編集/作業実行</span> から「サーバ基本設定」というジョブフローを定義します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ジョブフローの作成2.gif"><img alt="ジョブフローの作成" src="../../_images/%E3%82%B8%E3%83%A7%E3%83%96%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%902.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ジョブフローの作成登録.gif"><img alt="ジョブフローの作成" src="../../_images/%E3%82%B8%E3%83%A7%E3%83%96%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90%E7%99%BB%E9%8C%B2.gif" style="width: 1200px;" /></a>
 </figure>
 <div class="line-block">
 <div class="line">1. 右上のペイン <span class="menuselection">Conductor情報 ▶ 名称</span>  に、 <kbd class="kbd docutils literal notranslate">サーバ基本設定</kbd> と入力します。</div>
-<div class="line">2. 右下のペインに、作成した <kbd class="kbd docutils literal notranslate">set_timezone</kbd> と <kbd class="kbd docutils literal notranslate">set_hosts</kbd>  、 <kbd class="kbd docutils literal notranslate">set_hostname</kbd> の3つの Movement があります。これらを画面中央にドラッグアンドドロップします。</div>
+<div class="line">2. 右下のペインに、作成した <kbd class="kbd docutils literal notranslate">set_timezone</kbd> と <kbd class="kbd docutils literal notranslate">add_nameserver</kbd>  、 <kbd class="kbd docutils literal notranslate">set_hostname</kbd> の3つの Movement があります。これらを画面中央にドラッグアンドドロップします。</div>
 <div class="line">3. 各 Node 間を下記の様に接続します。</div>
 </div>
 <table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Node 間の接続</span><a class="headerlink" href="#id47" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 190 </span><span class="caption-text">Node 間の接続</span><a class="headerlink" href="#id47" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -865,9 +881,9 @@
 <td><p><kbd class="kbd docutils literal notranslate">set_timezone</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">set_timezone</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
 </tr>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">set_hosts</kbd></p></td>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">add_nameserver</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">set_hostname</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">set_hostname</kbd></p></td>
@@ -896,7 +912,7 @@
 <a class="reference internal image-reference" href="../../_images/機器一覧登録設定4.gif"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A4.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id48">
-<caption><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id48" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 191 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id48" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 15.4%" />
 <col style="width: 15.4%" />
@@ -977,7 +993,7 @@
 <div class="line">まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。</div>
 </div>
 <table class="docutils align-default" id="id49">
-<caption><span class="caption-text">作業の方針</span><a class="headerlink" href="#id49" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 192 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id49" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1011,7 +1027,7 @@
 <a class="reference internal image-reference" href="../../_images/オペレーション登録7.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B27.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id50">
-<caption><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 193 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1048,7 +1064,7 @@
 <a class="reference internal image-reference" href="../../_images/ホストグループ登録.png"><img alt="ホストグループ登録" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id51">
-<caption><span class="caption-text">ホストグループ登録内容</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 194 </span><span class="caption-text">ホストグループ登録内容</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1081,7 +1097,7 @@
 <a class="reference internal image-reference" href="../../_images/ホストグループ親子関係.png"><img alt="ホストグループ親子関係" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%A6%AA%E5%AD%90%E9%96%A2%E4%BF%82.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id52">
-<caption><span class="caption-text">ホストグループ親子関係紐付け</span><a class="headerlink" href="#id52" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 195 </span><span class="caption-text">ホストグループ親子関係紐付け</span><a class="headerlink" href="#id52" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1111,7 +1127,7 @@
 <a class="reference internal image-reference" href="../../_images/ホストグループ作業対象ホスト登録.png"><img alt="作業対象ホスト登録" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%88%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id53">
-<caption><span class="caption-text">作業対象ホスト登録</span><a class="headerlink" href="#id53" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 196 </span><span class="caption-text">作業対象ホスト登録</span><a class="headerlink" href="#id53" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1146,52 +1162,46 @@
 <h3>パラメータ設定<a class="headerlink" href="#id19" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">作業を実行するために作成したパラメータシートにパラメータを登録していきます。</div>
-<div class="line"><span class="menuselection">入力用 ▶ hostsの更新</span> からパラメータを登録します。</div>
+<div class="line"><span class="menuselection">入力用 ▶ サーバ用パラメータ</span> からパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/hostsの更新パラメータ入力.png"><img alt="hostsの更新パラメータ入力" src="../../_images/hosts%E3%81%AE%E6%9B%B4%E6%96%B0%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/サーバ用パラメータパラメータ入力.png"><img alt="サーバ用パラメータパラメータ入力" src="../../_images/%E3%82%B5%E3%83%BC%E3%83%90%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id54">
-<caption><span class="caption-text">hostsの更新パラメータの設定値</span><a class="headerlink" href="#id54" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 197 </span><span class="caption-text">サーバ用パラメータパラメータの設定値</span><a class="headerlink" href="#id54" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 10.0%" />
-<col style="width: 30.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
+<col style="width: 12.5%" />
+<col style="width: 37.5%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
 <th class="head"></th>
-<th class="head"></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
-<th class="head"><p>Timezone</p></th>
-<th class="head"><p>hostsIP</p></th>
-<th class="head"><p>hosts名</p></th>
+<th class="head"><p>タイムゾーン</p></th>
+<th class="head"><p>Nameserver_ip</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">[HG]All_SV</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">db_user</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.30</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">[HG]db_SV</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.1</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">db_user</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.30</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">[HG]web_SV</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.10</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">web_user</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.62</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -1202,7 +1212,7 @@
 <a class="reference internal image-reference" href="../../_images/ホスト名変更用パラメータ入力.png"><img alt="ホスト名変更用パラメータ入力" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id55">
-<caption><span class="caption-text">ホスト名変更用パラメータの設定値</span><a class="headerlink" href="#id55" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 198 </span><span class="caption-text">ホスト名変更用パラメータの設定値</span><a class="headerlink" href="#id55" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 57.1%" />
@@ -1239,36 +1249,33 @@
 <ol class="arabic">
 <li><p>代入値自動登録用確認</p>
 <div class="line-block">
-<div class="line"><span class="menuselection">代入値自動登録用 ▶ hostsの更新</span> から登録した値が「ホストグループ分解機能」によって正しい値が指定されていることを確認します。</div>
+<div class="line"><span class="menuselection">代入値自動登録用 ▶ サーバ用パラメータ</span> から登録した値が「ホストグループ分解機能」によって正しい値が指定されていることを確認します。</div>
 </div>
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行1回目事前確認_hostsの更新.gif"><img alt="作業実行1回目事前確認" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1%E5%9B%9E%E7%9B%AE%E4%BA%8B%E5%89%8D%E7%A2%BA%E8%AA%8D_hosts%E3%81%AE%E6%9B%B4%E6%96%B0.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行1回目事前確認_サーバ用パラメータ.gif"><img alt="作業実行1回目事前確認" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1%E5%9B%9E%E7%9B%AE%E4%BA%8B%E5%89%8D%E7%A2%BA%E8%AA%8D_%E3%82%B5%E3%83%BC%E3%83%90%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id56">
-<caption><span class="caption-text">hostsの更新の代入値自動登録用確認</span><a class="headerlink" href="#id56" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 199 </span><span class="caption-text">サーバ用パラメータの代入値自動登録用確認</span><a class="headerlink" href="#id56" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 8.3%" />
-<col style="width: 25.0%" />
-<col style="width: 16.7%" />
-<col style="width: 16.7%" />
-<col style="width: 16.7%" />
-<col style="width: 16.7%" />
+<col style="width: 10.0%" />
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
 <th class="head"></th>
-<th class="head"></th>
 <th class="head"><p>最終更新者</p></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
 <th class="head"><p>タイムゾーン</p></th>
-<th class="head"><p>hostsIP</p></th>
-<th class="head"><p>hosts名</p></th>
+<th class="head"><p>Nameserver_ip</p></th>
 <th class="head"></th>
 </tr>
 </thead>
@@ -1276,58 +1283,55 @@
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">dbA</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">db_user</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.1</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.30</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ホストグループ分解機能</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">dbB</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">db_user</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.1</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.30</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ホストグループ分解機能</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">webA</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_全台用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">web_user</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.10</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.62</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ホストグループ分解機能</kbd></p></td>
 </tr>
 </tbody>
 </table>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">
 <div class="line">現在の各サーバーの状態を確認しましょう。</div>
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id57">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 326 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id58">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 327 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">次にhostsファイルを確認します。</div>
+<div class="line">resolv.confファイルを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id59">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id59" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># hostsファイルの確認</span>
-cat<span class="w"> </span>/etc/hosts
+<div class="code-block-caption"><span class="caption-number">リスト 328 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id59" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
+cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id60">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id60" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 329 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id60" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 登録する情報が無いことを確認</span>
 </pre></div>
 </div>
@@ -1345,7 +1349,7 @@ cat<span class="w"> </span>/etc/hosts
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行1回目.gif"><img alt="Conductor作業実行1回目" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1%E5%9B%9E%E7%9B%AE.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行1回目操作.gif"><img alt="Conductor作業実行1回目" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1%E5%9B%9E%E7%9B%AE%E6%93%8D%E4%BD%9C.gif" style="width: 1200px;" /></a>
 </figure>
 <ol class="arabic" start="4">
 <li><p>事後確認</p>
@@ -1356,14 +1360,14 @@ cat<span class="w"> </span>/etc/hosts
 <div class="line">ホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id61">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id61" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 330 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id61" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id62">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id62" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 331 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id62" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
 dbA
 dbB
@@ -1372,21 +1376,21 @@ webA
 </div>
 </div>
 <div class="line-block">
-<div class="line">hostsファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
+<div class="line">resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id63">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id63" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># hostsファイルの確認</span>
-cat<span class="w"> </span>/etc/hosts
+<div class="code-block-caption"><span class="caption-number">リスト 332 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id63" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
+cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id64">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id64" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 333 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id64" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
-<span class="m">192</span>.168.1.1<span class="w"> </span>db_user
-<span class="m">192</span>.168.1.1<span class="w"> </span>db_user
-<span class="m">192</span>.168.1.10<span class="w"> </span>web_user
+nameserver<span class="w"> </span><span class="m">10</span>.15.1.30
+nameserver<span class="w"> </span><span class="m">10</span>.15.1.30
+nameserver<span class="w"> </span><span class="m">10</span>.15.1.62
 </pre></div>
 </div>
 </div>
@@ -1403,7 +1407,7 @@ cat<span class="w"> </span>/etc/hosts
 <div class="line">まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。</div>
 </div>
 <table class="docutils align-default" id="id65">
-<caption><span class="caption-text">作業の方針</span><a class="headerlink" href="#id65" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 200 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id65" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1437,7 +1441,7 @@ cat<span class="w"> </span>/etc/hosts
 <a class="reference internal image-reference" href="../../_images/追加オペレーション登録.png"><img alt="追加オペレーション登録" src="../../_images/%E8%BF%BD%E5%8A%A0%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id66">
-<caption><span class="caption-text">追加オペレーション登録内容</span><a class="headerlink" href="#id66" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 201 </span><span class="caption-text">追加オペレーション登録内容</span><a class="headerlink" href="#id66" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1487,7 +1491,7 @@ cat<span class="w"> </span>/etc/hosts
 <a class="reference internal image-reference" href="../../_images/ホストグループ作業対象ホスト追加登録.png"><img alt="作業対象ホスト追加登録" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%88%E8%BF%BD%E5%8A%A0%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id67">
-<caption><span class="caption-text">作業対象ホスト追加登録</span><a class="headerlink" href="#id67" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 202 </span><span class="caption-text">作業対象ホスト追加登録</span><a class="headerlink" href="#id67" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1514,40 +1518,36 @@ cat<span class="w"> </span>/etc/hosts
 <h3>パラメータ設定<a class="headerlink" href="#id29" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">追加したホストに作業を実行するために、作成したパラメータシートにパラメータを登録していきます。</div>
-<div class="line"><span class="menuselection">入力用 ▶ hostsの更新</span> からパラメータを登録します。</div>
+<div class="line"><span class="menuselection">入力用 ▶ サーバ用パラメータ</span> からパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/追加用hostsの更新パラメータ入力.png"><img alt="追加用hostsの更新パラメータ入力" src="../../_images/%E8%BF%BD%E5%8A%A0%E7%94%A8hosts%E3%81%AE%E6%9B%B4%E6%96%B0%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/追加用サーバ用パラメータパラメータ入力.png"><img alt="追加用サーバ用パラメータパラメータ入力" src="../../_images/%E8%BF%BD%E5%8A%A0%E7%94%A8%E3%82%B5%E3%83%BC%E3%83%90%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id68">
-<caption><span class="caption-text">追加用hostsの登更新パラメータの設定値</span><a class="headerlink" href="#id68" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 203 </span><span class="caption-text">追加用サーバ用パラメータパラメータの設定値</span><a class="headerlink" href="#id68" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 10.0%" />
-<col style="width: 30.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
-<col style="width: 20.0%" />
+<col style="width: 12.5%" />
+<col style="width: 37.5%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
 <th class="head"></th>
-<th class="head"></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
 <th class="head"><p>Timezone</p></th>
-<th class="head"><p>hostsIP</p></th>
-<th class="head"><p>hosts名</p></th>
+<th class="head"><p>Nameserver_ip</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">[HG]web_SV</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/02</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_追加用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.10</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">web_user</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.62</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -1558,7 +1558,7 @@ cat<span class="w"> </span>/etc/hosts
 <a class="reference internal image-reference" href="../../_images/追加用ホスト名変更用パラメータ入力.png"><img alt="ホスト名変更用パラメータ入力" src="../../_images/%E8%BF%BD%E5%8A%A0%E7%94%A8%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id69">
-<caption><span class="caption-text">ホスト名変更用パラメータの設定値</span><a class="headerlink" href="#id69" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 204 </span><span class="caption-text">ホスト名変更用パラメータの設定値</span><a class="headerlink" href="#id69" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 57.1%" />
@@ -1592,31 +1592,28 @@ cat<span class="w"> </span>/etc/hosts
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行2回目事前確認_hostsの更新.gif"><img alt="作業実行2回目事前確認" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2%E5%9B%9E%E7%9B%AE%E4%BA%8B%E5%89%8D%E7%A2%BA%E8%AA%8D_hosts%E3%81%AE%E6%9B%B4%E6%96%B0.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行2回目事前確認_サーバ用パラメータ.gif"><img alt="作業実行2回目事前確認" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2%E5%9B%9E%E7%9B%AE%E4%BA%8B%E5%89%8D%E7%A2%BA%E8%AA%8D_%E3%82%B5%E3%83%BC%E3%83%90%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id70">
-<caption><span class="caption-text">追加用hostsの更新の代入値自動登録用確認</span><a class="headerlink" href="#id70" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 205 </span><span class="caption-text">追加用サーバ用パラメータの代入値自動登録用確認</span><a class="headerlink" href="#id70" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 7.7%" />
-<col style="width: 30.8%" />
-<col style="width: 15.4%" />
-<col style="width: 15.4%" />
-<col style="width: 15.4%" />
-<col style="width: 15.4%" />
+<col style="width: 9.1%" />
+<col style="width: 36.4%" />
+<col style="width: 18.2%" />
+<col style="width: 18.2%" />
+<col style="width: 18.2%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
 <th class="head"></th>
-<th class="head"></th>
 <th class="head"><p>最終更新者</p></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
 <th class="head"><p>タイムゾーン</p></th>
-<th class="head"><p>hostsIP</p></th>
-<th class="head"><p>hosts名</p></th>
+<th class="head"><p>Nameserver_ip</p></th>
 <th class="head"></th>
 </tr>
 </thead>
@@ -1624,44 +1621,43 @@ cat<span class="w"> </span>/etc/hosts
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">webB</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/02</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_基本設定_追加用</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Asia/Tokyo</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">192.168.1.10</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">web_user</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">10.15.1.62</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ホストグループ分解機能</kbd></p></td>
 </tr>
 </tbody>
 </table>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">
 <div class="line">現在の各サーバーの状態を確認しましょう。</div>
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id71">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id71" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 334 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id71" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id72">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id72" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 335 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id72" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">次にhostsファイルを確認します。</div>
+<div class="line">resolv.confファイルを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id73">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id73" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># hostsファイルの確認</span>
-cat<span class="w"> </span>/etc/hosts
+<div class="code-block-caption"><span class="caption-number">リスト 336 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id73" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
+cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id74">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id74" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 337 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id74" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 登録する情報が無いことを確認</span>
 </pre></div>
 </div>
@@ -1677,7 +1673,7 @@ cat<span class="w"> </span>/etc/hosts
 <div class="line"><span class="menuselection">Conductor作業確認</span> 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行2回目.gif"><img alt="Conductor作業実行2回目" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2%E5%9B%9E%E7%9B%AE.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行2回目操作.gif"><img alt="Conductor作業実行2回目" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2%E5%9B%9E%E7%9B%AE%E6%93%8D%E4%BD%9C.gif" style="width: 1200px;" /></a>
 </figure>
 </li>
 <li><p>事後確認</p>
@@ -1688,33 +1684,33 @@ cat<span class="w"> </span>/etc/hosts
 <div class="line">ホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id75">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id75" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 338 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id75" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id76">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id76" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 339 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id76" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
 webB
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">hostsファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
+<div class="line">resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id77">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id77" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># hostsファイルの確認</span>
-cat<span class="w"> </span>/etc/hosts
+<div class="code-block-caption"><span class="caption-number">リスト 340 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id77" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
+cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id78">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id78" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 341 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id78" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># データが登録されていることを確認します。</span>
-<span class="m">192</span>.168.1.10<span class="w"> </span>web_user
+nameserver<span class="w"> </span><span class="m">10</span>.15.1.62
 </pre></div>
 </div>
 </div>
@@ -1739,6 +1735,8 @@ cat<span class="w"> </span>/etc/hosts
 
 <div id="articleNavigation">
   <ul>
+    <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>ホストグループ</a></li>
+    <li class="next"><a href="../../manuals/index.html" title="次のトピックへ"><span>次のトピックへ</span>マニュアル</a></li>
   </ul>
 </div>
 
