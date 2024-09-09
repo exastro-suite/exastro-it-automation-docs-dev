@@ -115,8 +115,9 @@ html_context = {
         'en': 'English'
     },
     'versions': {
-        'current': '2.4',
-        '2.4(current)': '2.4',
+        'current': '2.5',
+        '2.5(current)': '2.5',
+        '2.4': '2.4',
         '2.3': '2.3',
         '2.2': '2.2',
         '2.1': '2.1',
