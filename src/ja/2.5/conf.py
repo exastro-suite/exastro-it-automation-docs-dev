@@ -108,7 +108,7 @@ googleanalytics_id = 'UA-144561796-1'
 
 copybutton_prompt_text = "Copied it!"
 
-version = '2.4'
+version = '2.5'
 # locale_dirs = ['../locale/' + version ]
 
 html_context = {
@@ -117,8 +117,9 @@ html_context = {
         'en': 'English'
     },
     'versions': {
-        'current': '2.4',
-        '2.4(current)': '2.4',
+        'current': '2.5',
+        '2.5(current)': '2.5',
+        '2.4': '2.4',
         '2.3': '2.3',
         '2.2': '2.2',
         '2.1': '2.1',
