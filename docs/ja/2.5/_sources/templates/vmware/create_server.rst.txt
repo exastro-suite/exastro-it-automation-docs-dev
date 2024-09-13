@@ -384,9 +384,9 @@ VM作成作業フロー
       | 詳細は「 :ref:`conductor_editandexcute_list` 」を参照してください。
 
    #. | **サーバー作成の実行状況を確認**
-      | :menuselection:`Condutor --> Condutor作業一覧` から、サーバー作成の作業状態を確認できます。
+      | :menuselection:`Condutor --> Conductor作業履歴` から、サーバー作成の作業状態を確認できます。
       | 詳細は「 :ref:`conductor_conductor_job_list` 」を参照してください。
 
 .. warning:: 
-  | Conductor作業一覧で「想定外エラー」や「異常終了」になっている場合は :menuselection:`VM作成` の各メニューや :menuselection:`Ansible共通 --> グローバル変数管理` に入力した情報に誤りが無いか確認してみてください。
+  | Conductor作業履歴で「想定外エラー」や「異常終了」になっている場合は :menuselection:`VM作成` の各メニューや :menuselection:`Ansible共通 --> グローバル変数管理` に入力した情報に誤りが無いか確認してみてください。
 

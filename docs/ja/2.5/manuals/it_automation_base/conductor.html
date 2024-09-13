@@ -147,7 +147,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#conductor-notice">7.5.2. Conductor通知先定義</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-list">7.5.3. Conductor一覧</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-editandexcute">7.5.4. Conductor編集/作業実行</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor作業一覧</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor作業履歴</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-check-conductor-job">7.5.6. Conductor作業確認</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id18">7.5.7. Conductor定期作業実行</a></li>
 </ul>
@@ -213,7 +213,7 @@
 <li><a class="reference internal" href="#id15">7.5.4.4. Conductor作業実行について</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor作業一覧</a></li>
+<li><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor作業履歴</a></li>
 <li><a class="reference internal" href="#conductor-check-conductor-job">7.5.6. Conductor作業確認</a></li>
 <li><a class="reference internal" href="#id18">7.5.7. Conductor定期作業実行</a></li>
 </ul>
@@ -310,7 +310,7 @@
 <td><p>Conductorを編集/作業実行出来ます。</p></td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
-<td><p>Conductor作業一覧</p></td>
+<td><p>Conductor作業履歴</p></td>
 <td><p>Conductor一覧(実行履歴)を閲覧出来ます。</p>
 <p><span class="guilabel">詳細</span> をクリックするとConductor作業確認に遷移します。</p>
 </td>
@@ -322,7 +322,7 @@
 <tr class="row-even"><td><p>7</p></td>
 <td><p>Conductor定期作業実行</p></td>
 <td><p>スケジュールに従って定期的に実行するConductor作業をメンテナンス(閲覧/登録/更新)出来ます。</p>
-<p><span class="guilabel">作業一覧確認</span> をクリックするとConductor作業一覧に遷移します。</p>
+<p><span class="guilabel">作業履歴</span> をクリックするとConductor作業履歴に遷移します。</p>
 </td>
 </tr>
 </tbody>
@@ -1825,7 +1825,7 @@ callの実行結果による条件分岐を設定します。</p>
 </li>
 <li><p>オペレーションを選択し <span class="guilabel">実行</span> をクリックすると <span class="menuselection">「Conductor作業確認」メニュー</span> に遷移し、作業のトレースが始まります。</p></li>
 <li><div class="line-block">
-<div class="line">「スケジュール」にて予約日時を入力して <span class="guilabel">実行</span> をクリックすると、作業予約が作られます。登録情報は「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業一覧</span></a> 」で確認出来ます。</div>
+<div class="line">「スケジュール」にて予約日時を入力して <span class="guilabel">実行</span> をクリックすると、作業予約が作られます。登録情報は「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業履歴</span></a> 」で確認出来ます。</div>
 <div class="line">※現在時刻より過去の日時は入力できません</div>
 </div>
 </li>
@@ -1910,11 +1910,11 @@ callの実行結果による条件分岐を設定します。</p>
 </section>
 </section>
 <section id="conductor-conductor-job-list">
-<span id="id16"></span><h3><span class="section-number">7.5.5. </span>Conductor作業一覧<a class="headerlink" href="#conductor-conductor-job-list" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id16"></span><h3><span class="section-number">7.5.5. </span>Conductor作業履歴<a class="headerlink" href="#conductor-conductor-job-list" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">[Conductor作業一覧]画面では、実行済みのConductorの作業を管理します。</div>
-<div class="line">条件を指定し <span class="guilabel">フィルタ</span> ボタンをクリックすると、作業一覧テーブルを表示します。</div>
+<div class="line">[Conductor作業履歴]画面では、実行済みのConductorの作業を管理します。</div>
+<div class="line">条件を指定し <span class="guilabel">フィルタ</span> ボタンをクリックすると、作業履歴テーブルを表示します。</div>
 <div class="line">作業表示欄の <span class="guilabel">詳細</span> ボタンをクリックすると、 <a class="reference internal" href="#conductor-check-conductor-job"><span class="std std-ref">Conductor作業確認</span></a> 画面へ遷移します。</div>
 <div class="line"><span class="guilabel">投入データ一式(zip)</span> をクリックすると、実行された全てのConductor配下のMovement(*)の実行ファイルなどをまとめてダウンロードすることが出来ます。</div>
 <div class="line"><span class="guilabel">結果データ一式(zip)</span> をクリックすると、実行された全てのConductor配下のMovement(*)の実行ログ、エラーログなどをまとめてダウンロードすることが出来ます。</div>
@@ -1936,7 +1936,7 @@ callの実行結果による条件分岐を設定します。</p>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業一覧</span></a> 」の <span class="guilabel">詳細</span> をクリックすると、選択したConductor作業の処理状況をモニター表示します。状況に応じて「予約取消」、「停止解除」や「緊急停止」の投入が可能です。</div>
+<div class="line">「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業履歴</span></a> 」の <span class="guilabel">詳細</span> をクリックすると、選択したConductor作業の処理状況をモニター表示します。状況に応じて「予約取消」、「停止解除」や「緊急停止」の投入が可能です。</div>
 <div class="line">※「Movement」、「Conductor Call」のNodeについては、Node選択後に、画面右側に表示される <span class="guilabel">作業情報確認</span> からも「作業状態確認」メニューに遷移出来ます。</div>
 </div>
 </li>
@@ -1960,7 +1960,7 @@ callの実行結果による条件分岐を設定します。</p>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line"><span class="guilabel">予約取消</span> をクリックすると、「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業一覧</span></a> 」で確認できるステータスが「予約取消」となり、実行されなくなります。</div>
+<div class="line"><span class="guilabel">予約取消</span> をクリックすると、「 <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業履歴</span></a> 」で確認できるステータスが「予約取消」となり、実行されなくなります。</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -2147,8 +2147,8 @@ callの実行結果による条件分岐を設定します。</p>
 <ol class="arabic">
 <li><p><span class="menuselection">「Conductor定期作業実行」メニュー</span> では、スケジュールに従って定期的に実行するConductor作業を管理します。</p></li>
 <li><div class="line-block">
-<div class="line"><span class="menuselection">「Conductor定期作業実行」メニュー▶「一覧」サブメニュー</span> の <span class="guilabel">作業一覧確認</span> ボタンをクリックすると、その定期作業で実行した対象をフィルタした状態で</div>
-<div class="line"><a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業一覧</span></a> 画面へ遷移できます。</div>
+<div class="line"><span class="menuselection">「Conductor定期作業実行」メニュー▶「一覧」サブメニュー</span> の <span class="guilabel">作業履歴</span> ボタンをクリックすると、その定期作業で実行した対象をフィルタした状態で</div>
+<div class="line"><a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor作業履歴</span></a> 画面へ遷移できます。</div>
 </div>
 </li>
 <li><p><span class="guilabel">登録</span> ボタンより、定期作業実行の登録を行います。</p></li>

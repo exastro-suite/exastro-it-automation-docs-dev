@@ -749,7 +749,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
 =============================
 
 | 本APIは、オペレーションの生成からパラメータの適用までを行いConductor作業実行を行うAPIです。
-| 尚、Conductor作業実行の完了確認は行いません。完了確認は、 :menuselection:`Conductor  -->  Conductor作業一覧` より行って下さい。
+| 尚、Conductor作業実行の完了確認は行いません。完了確認は、 :menuselection:`Conductor  -->  Conductor作業履歴` より行って下さい。
 
 .. _api_apply_request_format_description:
 
