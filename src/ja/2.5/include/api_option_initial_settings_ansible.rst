@@ -20,7 +20,8 @@
      - | :menuselection:`Ansible共通 --> インターフェース情報 --> 実行エンジン` の選択肢に入れる項目を指定。
      - | :kbd:`Ansible-Core`: コミュニティ版Ansible
        | :kbd:`Ansible Automation Controller`: Red Hat Ansible Automation Controller
-       | 上記のいずれか、または、その両方を指定。
+       | :kbd:`Ansible Execution Agent`: Ansible実行エージェント
+       | 上記のいずれか、または、全てを指定。
    * - initial_data.ansible_automation_controller_host_list[*].file.ssh_private_key_file
      - Ansible Automation Controller に接続するために登録する秘密鍵ファイルを Base64 エンコードした値。
      - 秘密鍵ファイルのBase64 エンコード文字列
@@ -33,7 +34,6 @@
      - | :kbd:`パスワード認証` : ログインパスワードの管理で●の選択と、ログインパスワードの入力が必須です。
        | :kbd:`鍵認証(パスフレーズなし)` : SSH 秘密鍵ファイル(id_ras)のアップロードが必須です。
        | :kbd:`鍵認証(パスフレーズあり)` : SSH 秘密鍵ファイル(id_ras)のアップロードと、パスフレーズの入力が必須です。
-       | :kbd:`鍵認証(鍵交換済み)` : SSH 秘密鍵ファイル(id_ras)のアップロードは必要ありません。
    * - initial_data.ansible_automation_controller_host_list[*].parameter.user
      - | Ansible Automation Controller に SSH 接続する場合のユーザ名を指定。
        | プロジェクトパス(/var/lib/awx/projects)への書き込み制限が必要
@@ -64,6 +64,7 @@
      - | 実行エンジンの指定
      - | :kbd:`Ansible-Core`: コミュニティ版Ansible
        | :kbd:`Ansible Automation Controller`: Red Hat Ansible Automation Controller
+       | :kbd:`Ansible Execution Agent`: Ansible実行エージェント
        | 上記のいずれかを指定。
    * - initial_data.parameter.representative_server
      - | 代表ホスト
