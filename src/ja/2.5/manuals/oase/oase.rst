@@ -926,9 +926,9 @@ OASE メニュー
    * - アクション名
      - [元データ]アクション
    * - ConductorインスタンスID
-     - [元データ]Conductor作業一覧
+     - [元データ]Conductor作業履歴
    * - Conductor名称
-     - [元データ]Conductor作業一覧
+     - [元データ]Conductor作業履歴
    * - オペレーションID
      - [元データ]オペレーション一覧
    * - オペレーション名
