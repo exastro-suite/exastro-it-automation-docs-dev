@@ -319,10 +319,10 @@ OASE管理
      - 制約事項 
    * - テンプレート
      - | 通知で使用するテンプレートを編集できます。下記4種類が存在します。
-       | ・新規.j2
-       | ・既知（判定済み）.j2
-       | ・既知（時間切れ）.j2
-       | ・未知.j2
+       | ・New.j2
+       | ・Known(evaluated).j2
+       | ・Known(timeout).j2
+       | ・Undetected.j2
      - 〇
      - 手動入力
      - 最大サイズ2MB
@@ -335,105 +335,107 @@ OASE管理
 | テンプレートの初期設定値は下記のとおりです。
 
 .. code-block:: none
-   :name: 新規.j2
-   :caption: 新規.j2
+   :name: New.j2
+   :caption: New.j2
    :lineno-start: 1
 
     [TITLE]
-    新規イベントが発生しました。
+    A new event has occured.
 
     [BODY]
-    詳細
-    　イベントID　　　：{{ _id }}
-    　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-    　イベント取得日時：{{ labels._exastro_fetched_time }}
-    　イベント有効日時：{{ labels._exastro_end_time }}
-    　イベント種別　　：{{ labels._exastro_type }}
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-    　再評価
-    　　評価ルール名　　：{{ labels._exastro_rule_name }}
-    　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-    　ラベル：
+    　Label:
     　  {% for key, value in labels.items() %}
-    　　・{{ key }}：{{ value }}
+    　　・{{ key }}: {{ value }}
     　　{% endfor %}
 
 
 .. code-block:: none
-   :name: 既知（判定済）.j2
-   :caption: 既知（判定済）.j2
+   :name: Known(evaluated).j2
+   :caption: Known(evaluated).j2
    :lineno-start: 1
 
-   [TITLE]
-   既知（判定済）イベントが発生しました。
+    [TITLE]
+    A known(evaluated) event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: 既知（時間切れ）.j2
-   :caption: 既知（時間切れ）.j2
+   :name: Known(timeout).j2
+   :caption: Known(timeout).j2
    :lineno-start: 1
 
-   [TITLE]
-   既知（時間切れ）イベントが発生しました。
+    [TITLE]
+    A known(timeout) event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: 未知.j2
-   :caption: 未知.j2
+   :name: Undetected.j2
+   :caption: Undetected.j2
    :lineno-start: 1
 
-   [TITLE]
-   未知イベントが発生しました。
+    [TITLE]
+    An unknown event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
 
 
 付録
@@ -1115,4 +1117,3 @@ Grafana
      | 認証トークンがクリップボードに貼り付けられます。
 
   9. | クリップボードの認証トークンを、 :menuselection:`OASE管理 --> エージェント` の :menuselection:`認証トークン` に貼り付けます。
-
