@@ -619,7 +619,7 @@
 <tr class="row-odd"><td><p>評価ルール名</p></td>
 <td><div class="line-block">
 <div class="line">[元データ]</div>
-<div class="line">ルール→ルールラベル名</div>
+<div class="line">OASE/ルール/ルールラベル名</div>
 </div>
 </td>
 </tr>
@@ -1227,13 +1227,21 @@
 <td><p>最大長255バイト</p></td>
 </tr>
 <tr class="row-odd"><td><p>Conductor名称</p></td>
-<td><p>[元データ]Conductor一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">Conductor/Conductor一覧/Conductor名称</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>オペレーション名</p></td>
-<td><p>[元データ]オペレーション一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">基本コンソール/オペレーション一覧/オペレーション名</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
@@ -1247,7 +1255,8 @@
 <tr class="row-even"><td><p>指定（ホスト）</p></td>
 <td><div class="line-block">
 <div class="line">アクションの対象ホストを選択します。</div>
-<div class="line">[元データ]機器一覧</div>
+<div class="line">[元データ]</div>
+<div class="line">Ansible共通/機器一覧/ホスト名</div>
 </div>
 </td>
 <td><p>ー</p></td>
@@ -1257,7 +1266,8 @@
 <tr class="row-odd"><td><p>利用パラメータシート</p></td>
 <td><div class="line-block">
 <div class="line">アクションで利用するパラメータシートを選択します。</div>
-<div class="line">[元データ]メニュー管理</div>
+<div class="line">[元データ]</div>
+<div class="line">パラメータシート(入力用)/パラメータシート名(ja)</div>
 </div>
 </td>
 <td><p>ー</p></td>
@@ -1358,7 +1368,11 @@
 <td><p>最大長255バイト</p></td>
 </tr>
 <tr class="row-even"><td><p>フィルターA</p></td>
-<td><p>[元データ]フィルター</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/ルール/フィルター/フィルターID</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
@@ -1376,7 +1390,11 @@
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>フィルターB</p></td>
-<td><p>[元データ]フィルター</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/ルール/フィルター/フィルターID</div>
+</div>
+</td>
 <td><p>ー</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
@@ -1403,8 +1421,12 @@
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td><p>アクションID</p></td>
-<td><p>[元データ]アクション</p></td>
+<tr class="row-even"><td><p>アクション名</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/アクション/アクション名</div>
+</div>
+</td>
 <td><p>ー</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
@@ -1566,10 +1588,18 @@
 <td><p>ラベルキーを半角英数字と利用可能な記号(_-)で入力できます。</p></td>
 </tr>
 <tr class="row-odd"><td><p>ルールID</p></td>
-<td><p>[元データ]ルール</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/ルール/ルールID</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>ルール名</p></td>
-<td><p>[元データ]ルール</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/ルール/ルール名</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>ステータス</p></td>
 <td><div class="line-block">
@@ -1588,37 +1618,77 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>アクションID</p></td>
-<td><p>[元データ]アクション</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/アクション/アクションID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>アクション名</p></td>
-<td><p>[元データ]アクション</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">OASE/アクション/アクション名</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>ConductorインスタンスID</p></td>
-<td><p>[元データ]Conductor作業履歴</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">Conductor/Conductor作業履歴/ConductorインスタンスID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Conductor名称</p></td>
-<td><p>[元データ]Conductor作業履歴</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">Conductor/Conductor作業履歴/Conductor名称</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>オペレーションID</p></td>
-<td><p>[元データ]オペレーション一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">基本コンソール/オペレーション一覧/オペレーションID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>オペレーション名</p></td>
-<td><p>[元データ]オペレーション一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">基本コンソール/オペレーション一覧/オペレーション名</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>イベント連携</p></td>
 <td><p>[元データ]ルール</p></td>
 </tr>
 <tr class="row-odd"><td><p>指定ホストID</p></td>
-<td><p>[元データ]機器一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">Ansible共通/機器一覧/管理システム項番</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>指定ホスト名</p></td>
-<td><p>[元データ]機器一覧</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">Ansible共通/機器一覧/ホスト名</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>利用パラメータシート名</p></td>
-<td><p>[元データ]メニュー管理</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">パラメータシート定義一覧/パラメータシート名(ja)</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>利用パラメータシート（rest）</p></td>
-<td><p>[元データ]メニュー管理</p></td>
+<td><div class="line-block">
+<div class="line">[元データ]</div>
+<div class="line">パラメータシート定義一覧/パラメータシート名(rest)</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>利用イベントID</p></td>
 <td><p>アクションを実行するに至ったイベントのID一覧。</p></td>
