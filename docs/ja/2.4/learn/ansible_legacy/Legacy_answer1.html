@@ -285,7 +285,7 @@
 <div class="line">利用する Ansible Playbook は下記のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 293 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 292 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create/update<span class="w"> </span>group
 <span class="w">  </span>group:
@@ -489,7 +489,7 @@
 <div class="line">利用する Ansible Playbook は下記のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 294 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 293 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create<span class="w"> </span>user
 <span class="w">  </span>user:
@@ -930,7 +930,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 295 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 294 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -945,7 +945,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でgroup.ymlとuser.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 296 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 295 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create/update<span class="w"> </span>group
 <span class="w">  </span>group:
@@ -970,7 +970,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 297 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 296 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create<span class="w"> </span>user
 <span class="w">  </span>user:
@@ -1795,14 +1795,14 @@
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 298 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 297 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;www|app&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 299 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 298 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1811,14 +1811,14 @@ cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 300 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 299 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;www|app&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 301 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 300 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1846,14 +1846,14 @@ cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 302 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 301 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;app|www&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 303 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 302 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>www:x:10001:
 app:x:10002:
 </pre></div>
@@ -1863,14 +1863,14 @@ app:x:10002:
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 304 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 303 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;app|www&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 305 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 304 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wwwuser01:x:10001:10001:Web<span class="w"> </span>server<span class="w"> </span>mainterner:/home/wwwuser01:/bin/bash
 wwwuser02:x:10002:10001:Web<span class="w"> </span>server<span class="w"> </span>mainterner:/home/wwwuser02:/bin/bash
 appuser01:x:20001:10002:Application<span class="w"> </span>server<span class="w"> </span>mainterner:/home/appuser01:/bin/bash

@@ -340,7 +340,7 @@
 <h2>作業手順の登録<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。</div>
-<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="../quickstart/index.html#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシート作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
+<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="../quickstart/index.html#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシートの作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
 </div>
 <dl class="simple glossary">
 <dt id="term-Movement">Movement<a class="headerlink" href="#term-Movement" title="この用語の解説へ">¶</a></dt><dt id="term-Exastro-IT-Automation">Exastro IT Automation における、最小の作業単位のことを指します。<a class="headerlink" href="#term-Exastro-IT-Automation" title="この用語の解説へ">¶</a></dt><dt id="term-1-Movement-1-ansible-playbook">1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。<a class="headerlink" href="#term-1-Movement-1-ansible-playbook" title="この用語の解説へ">¶</a></dt><dd></dd>
@@ -382,7 +382,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 257 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -403,7 +403,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 258 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 257 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
 <span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ hostname }}&quot;</span>
@@ -687,14 +687,14 @@
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 259 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 258 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 260 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 259 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id34" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -721,14 +721,14 @@ localhost
 <div class="line">再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-number">リスト 261 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 260 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id35" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id36">
-<div class="code-block-caption"><span class="caption-number">リスト 262 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 261 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server01
 </pre></div>
 </div>
@@ -922,14 +922,14 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-number">リスト 263 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 262 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id41" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 264 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 263 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db01
 </pre></div>
 </div>

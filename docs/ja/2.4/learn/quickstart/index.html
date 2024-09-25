@@ -124,7 +124,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">クイックスタート</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">前提</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#quickstart-prepared">事前準備</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-server-information-parmeter">パラメータシート作成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-server-information-parmeter">パラメータシートの作成</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quickstart-create-movement">作業項目の設定</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ansible-playbook">Ansible Playbook 登録</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#movement-ansible-playbook">Movement と Ansible Playbook の紐付け</a></li>
@@ -141,10 +141,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#quickstart-2nd">繰り返し作業(2回目)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-operation">作業概要登録</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-parameter">パラメータ設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">機器情報の更新</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-run">作業実行</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id16">まとめ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">まとめ</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
@@ -194,7 +195,7 @@
 <div class="line">また、本シナリオを通して、Exastro IT Automation により自動化の最大のメリットを理解することを目的としています。</div>
 </div>
 <div class="line-block">
-<div class="line">今回の題材では、作業を実行するために以下の事前準備を行います。</div>
+<div class="line">今回の題材では、作業を実行するために以下の準備が必要となります。</div>
 </div>
 <ul class="simple">
 <li><p><a class="reference internal" href="#quickstart-prepared"><span class="std std-ref">事前準備</span></a></p>
@@ -233,7 +234,7 @@
 <section id="id2">
 <h2>前提<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
-<div class="line">本シナリオを実行するために必要となる条件は、下記の通りです。</div>
+<div class="line">本シナリオを操作するに必要となる条件は、下記の通りです。</div>
 </div>
 <ol class="arabic simple">
 <li><p>作業可能なサーバ(RHEL8)がある。</p></li>
@@ -256,7 +257,7 @@
 <div class="line">システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。</div>
 </div>
 <section id="quickstart-server-information-parmeter">
-<span id="id4"></span><h3>パラメータシート作成<a class="headerlink" href="#quickstart-server-information-parmeter" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3>パラメータシートの作成<a class="headerlink" href="#quickstart-server-information-parmeter" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">パラメータシート作成</span> では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。</div>
 </div>
@@ -268,54 +269,90 @@
 <div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/パラメータシート作成定義.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90%E5%AE%9A%E7%BE%A9.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/パラメータシート作成定義2.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90%E5%AE%9A%E7%BE%A92.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id17">
-<caption><span class="caption-number">表 47 </span><span class="caption-text">パラメータシート作成(サーバー基本情報)の項目の設定値</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-number">表 47 </span><span class="caption-text">パラメータシート作成(サーバー基本情報)の項目の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>設定項目</p></th>
 <th class="head"><p>項目1設定値</p></th>
+<th class="head"><p>項目2設定値</p></th>
+<th class="head"><p>項目3設定値</p></th>
+<th class="head"><p>項目4設定値</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>項目の名前</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">ホスト名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ファイル名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">旧ホスト名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">新ホスト名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ステータス</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>項目の名前(Rest API用)</p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hostname</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ITA_DFLT_file_path</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ITA_DFLT_regexp</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ITA_DFLT_line_string</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ITA_DFLT_line_state</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>入力方式</p></td>
+<td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">文字列(単一行)</kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>最大バイト数</p></td>
 <td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">64</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>正規表現</p></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>初期値</p></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>必須</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
+<td><p>✓</p></td>
 <td><p>✓</p></td>
 </tr>
 <tr class="row-odd"><td><p>一意制約</p></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>説明</p></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>備考</p></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-number">表 48 </span><span class="caption-text">パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-number">表 48 </span><span class="caption-text">パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -357,6 +394,7 @@
 <span id="id5"></span><h3>作業項目の設定<a class="headerlink" href="#quickstart-create-movement" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line">作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。</div>
+<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシートの作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
 </div>
 <dl class="simple glossary">
 <dt id="term-Movement">Movement<a class="headerlink" href="#term-Movement" title="この用語の解説へ">¶</a></dt><dt id="term-Exastro-IT-Automation">Exastro IT Automation における、最小の作業単位のことを指します。<a class="headerlink" href="#term-Exastro-IT-Automation" title="この用語の解説へ">¶</a></dt><dt id="term-1-Movement-1-ansible-playbook">1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。<a class="headerlink" href="#term-1-Movement-1-ansible-playbook" title="この用語の解説へ">¶</a></dt><dd></dd>
@@ -369,10 +407,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement一覧</span> から、ホスト名設定のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement登録.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement登録3.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
 </figure>
-<table class="docutils align-default" id="id19">
-<caption><span class="caption-number">表 49 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-number">表 49 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -395,8 +433,8 @@
 </tr>
 </tbody>
 </table>
-<div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 249 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-number">リスト 249 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -411,61 +449,51 @@
 <div class="line">Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。</div>
 <div class="line">Ansible-Legacyモードではご自身で作成したPlaybookを利用することを想定しています。</div>
 <div class="line">Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで、自由に手順を作成できることが挙げられます。</div>
-<div class="line">ですが、Ansible-Legacyモードを利用するにはご自身でPlaybookを作成していただく必要があるため、Playbook作成の知識が必要となります。</div>
-</div>
-<div class="line-block">
-<div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 250 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
-<span class="w">  </span>ansible.builtin.hostname:
-<span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ hostname }}&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> から、上記のPlaybookを登録します。</div>
+<div class="line">Exastro IT Automation Version 2.4 から <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> に様々なansible-playbookが登録されています。</div>
+<div class="line">本シナリオでは、デフォルトで登録されているPlaybookを使用して作業を実行していきます。Playbookは以下のものを使用します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Playbook素材集.png"><img alt="Playbook登録" src="../../_images/Playbook%E7%B4%A0%E6%9D%90%E9%9B%86.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Playbook素材集2.png"><img alt="Playbook登録" src="../../_images/Playbook%E7%B4%A0%E6%9D%90%E9%9B%862.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id22">
-<caption><span class="caption-number">表 50 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 50 </span><span class="caption-text">Ansible Playbook 情報</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
+<col style="width: 25.0%" />
 <col style="width: 50.0%" />
-<col style="width: 50.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Playbook素材名</p></th>
+<tr class="row-odd"><th class="head"><p>項番</p></th>
+<th class="head"><p>Playbook素材名</p></th>
 <th class="head"><p>Playbook素材</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">hostname</kbd></p></td>
-<td><p><code class="file docutils literal notranslate"><span class="pre">hostname.yml</span></code></p></td>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">660</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">~[Exastro</kbd> <kbd class="kbd docutils literal notranslate">standard]</kbd> <kbd class="kbd docutils literal notranslate">Text</kbd> <kbd class="kbd docutils literal notranslate">line</kbd> <kbd class="kbd docutils literal notranslate">operation</kbd></kbd></p></td>
+<td><p><code class="file docutils literal notranslate"><span class="pre">Files_lineinfile.yml</span></code></p></td>
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">他にも様々なPlaybookが登録されていますので、必要に応じて使うPlaybookを変更してみてください。</div>
+</div>
 </section>
 <section id="movement-ansible-playbook">
 <span id="quickstart-asign-playbook-with-movement"></span><h3>Movement と Ansible Playbook の紐付け<a class="headerlink" href="#movement-ansible-playbook" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と <a class="reference internal" href="#quickstart-server-information-parmeter"><span class="std std-ref">パラメータシート作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
-</div>
-<div class="line-block">
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement-ロール紐付</span> から、Movement と Ansible Playbook の紐付けを行います。</div>
-<div class="line">本シナリオでは、 hostname.ymlを利用します。</div>
+<div class="line">本シナリオでは、 ~[Exastro standard] Text line operation を利用します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement-Playbook紐付.png"><img alt="Movement-Playbook紐付け" src="../../_images/Movement-Playbook%E7%B4%90%E4%BB%98.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement-Playbook紐付3.png"><img alt="Movement-Playbook紐付け" src="../../_images/Movement-Playbook%E7%B4%90%E4%BB%983.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id23">
 <caption><span class="caption-number">表 51 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 33.3%" />
-<col style="width: 33.3%" />
-<col style="width: 33.3%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Movement名</p></th>
@@ -475,7 +503,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">hostname.yml</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">~[Exastro</kbd> <kbd class="kbd docutils literal notranslate">standard]</kbd> <kbd class="kbd docutils literal notranslate">Text</kbd> <kbd class="kbd docutils literal notranslate">line</kbd> <kbd class="kbd docutils literal notranslate">operation</kbd></kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
 </tr>
 </tbody>
@@ -484,13 +512,13 @@
 <section id="quickstart-asign-playbook-variable-with-parameters">
 <span id="id6"></span><h3>パラメータシートの項目と Ansible Playbook の変数の紐付け<a class="headerlink" href="#quickstart-asign-playbook-variable-with-parameters" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
-<div class="line">hostname.ymlでは、<kbd class="kbd docutils literal notranslate">hostname</kbd> という変数にホスト名を代入することで、対象サーバーのホスト名を設定することができます。</div>
+<div class="line">Files_lineinfile.ymlでは、<kbd class="kbd docutils literal notranslate">ITA_DFLT_file_path</kbd> という変数にホスト名のファイル名、<kbd class="kbd docutils literal notranslate">ITA_DFLT_regexp</kbd> という変数に旧ホスト名、<kbd class="kbd docutils literal notranslate">ITA_DFLT_line_string</kbd> という変数に新ホスト名、<kbd class="kbd docutils literal notranslate">ITA_DFLT_line_state</kbd> という変数にstateのオプションをそれぞれ代入することで、対象サーバーのホスト名を設定することができます。</div>
 </div>
 <div class="line-block">
-<div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の <kbd class="kbd docutils literal notranslate">hostname</kbd> に代入する設定を行います。</div>
+<div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の <kbd class="kbd docutils literal notranslate">ITA_DFLT_file_path</kbd> 、 <kbd class="kbd docutils literal notranslate">ITA_DFLT_regexp</kbd> 、 <kbd class="kbd docutils literal notranslate">ITA_DFLT_line_string</kbd> 、 <kbd class="kbd docutils literal notranslate">ITA_DFLT_line_state</kbd> に代入する設定を行います。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/代入値自動登録.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/代入値自動登録2.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id24">
 <caption><span class="caption-number">表 52 </span><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -513,10 +541,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバー基本情報:ホスト名</kbd></p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバー基本情報:ファイル名</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
-<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定:hostname</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定:ITA_DFLT_file_path</kbd></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバー基本情報:旧ホスト名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定:ITA_DFLT_regexp</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバー基本情報:新ホスト名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定:ITA_DFLT_line_string</kbd></p></td>
+</tr>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">代入値自動登録用:サーバー基本情報:ステータス</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">Value型</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">ホスト名設定:ITA_DFLT_line_state</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -530,7 +573,7 @@
 <div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象であるサーバーの接続情報を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/機器一覧登録設定.gif"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/機器一覧登録設定6.gif"><img alt="機器一覧登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A6.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id25">
 <caption><span class="caption-number">表 53 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -621,7 +664,7 @@
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/オペレーション登録1.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/オペレーション登録9.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B29.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id27">
 <caption><span class="caption-number">表 55 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -659,29 +702,41 @@
 <div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ホストに対するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/パラメータ登録.png"><img alt="パラメータ登録" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/パラメータ登録1.png"><img alt="パラメータ登録" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id28">
 <caption><span class="caption-number">表 56 </span><span class="caption-text">サーバー基本情報パラメータの設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 16.7%" />
-<col style="width: 66.7%" />
-<col style="width: 16.7%" />
+<col style="width: 11.1%" />
+<col style="width: 44.4%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
+<col style="width: 11.1%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
-<th class="head"><p>ホスト名</p></th>
+<th class="head"><p>ファイル名</p></th>
+<th class="head"><p>旧ホスト名</p></th>
+<th class="head"><p>新ホスト名</p></th>
+<th class="head"><p>ステータス</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">server01</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/04/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_RHEL8のホスト名変更作業</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">/etc/hostname</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">'.*'</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">server01</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">present</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -695,14 +750,14 @@
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 251 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 250 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 252 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 251 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -721,7 +776,7 @@ localhost
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行.gif"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行5.gif"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C5.gif" style="width: 1200px;" /></a>
 </figure>
 <ol class="arabic" start="3">
 <li><p>事後確認</p>
@@ -729,14 +784,14 @@ localhost
 <div class="line">再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 253 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 252 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 254 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 253 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server01
 </pre></div>
 </div>
@@ -782,7 +837,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/更新用オペレーション登録.png"><img alt="オペレーション登録" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/更新用オペレーション登録3.png"><img alt="オペレーション登録" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id34">
 <caption><span class="caption-number">表 58 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -822,32 +877,47 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/更新用パラメータ設定.png"><img alt="パラメータ設定" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/更新用パラメータ設定.gif"><img alt="パラメータ設定" src="../../_images/%E6%9B%B4%E6%96%B0%E7%94%A8%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id35">
 <caption><span class="caption-number">表 59 </span><span class="caption-text">サーバー基本情報パラメータの設定値</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 25.0%" />
-<col style="width: 50.0%" />
-<col style="width: 25.0%" />
+<col style="width: 13.2%" />
+<col style="width: 26.3%" />
+<col style="width: 13.2%" />
+<col style="width: 13.2%" />
+<col style="width: 21.1%" />
+<col style="width: 13.2%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ホスト名</p></th>
 <th class="head"><p>オペレーション</p></th>
 <th class="head"><p>パラメータ</p></th>
+<th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
 </tr>
 <tr class="row-even"><th class="head"></th>
 <th class="head"><p>オペレーション名</p></th>
-<th class="head"><p>ホスト名</p></th>
+<th class="head"><p>ファイル名</p></th>
+<th class="head"><p>旧ホスト名</p></th>
+<th class="head"><p>新ホスト名</p></th>
+<th class="head"><p>ステータス</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">server01</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2024/05/01</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_RHEL8のホスト名更新作業</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">/etc/hostname</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">'.*'</kbd></p></td>
 <td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">&quot;{{</kbd> <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> <kbd class="kbd docutils literal notranslate">}}&quot;</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">present</kbd></p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="id15">
+<h3>機器情報の更新<a class="headerlink" href="#id15" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="line-block">
 <div class="line"><cite>__inventory_hostname__</cite> 変数を使うことで、機器一覧に登録したホスト情報を参照できるようになりました。</div>
 <div class="line">次に、作業対象となるサーバーのホスト名を db01 に変更します。</div>
@@ -856,7 +926,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象サーバのホスト名を db01 に更新します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/機器一覧ホスト名変更.gif"><img alt="パラメータ登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B4.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/機器一覧ホスト名変更1.gif"><img alt="パラメータ登録" src="../../_images/%E6%A9%9F%E5%99%A8%E4%B8%80%E8%A6%A7%E3%83%9B%E3%82%B9%E3%83%88%E5%90%8D%E5%A4%89%E6%9B%B41.gif" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-default" id="id36">
 <caption><span class="caption-number">表 60 </span><span class="caption-text">機器一覧の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -903,7 +973,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </table>
 </section>
 <section id="quickstart-2nd-run">
-<span id="id15"></span><h3>作業実行<a class="headerlink" href="#quickstart-2nd-run" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id16"></span><h3>作業実行<a class="headerlink" href="#quickstart-2nd-run" title="この見出しへのパーマリンク">¶</a></h3>
 <ol class="arabic">
 <li><p>作業実行</p>
 <div class="line-block">
@@ -917,7 +987,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/更新作業実行.gif"><img alt="作業実行" src="../../_images/%E6%9B%B4%E6%96%B0%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/更新作業実行1.gif"><img alt="作業実行" src="../../_images/%E6%9B%B4%E6%96%B0%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C1.gif" style="width: 1200px;" /></a>
 </figure>
 <ol class="arabic" start="2">
 <li><p>事後確認</p>
@@ -925,14 +995,14 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 255 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 254 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 255 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db01
 </pre></div>
 </div>
@@ -944,8 +1014,8 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </div>
 </section>
 </section>
-<section id="id16">
-<h2>まとめ<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id17">
+<h2>まとめ<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
 <div class="line">RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法を学習しました。</div>
 <div class="line">また、Exastro IT Automation により自動化の最大のメリットである、繰り返し作業による作業の効率化について学習しました。</div>
