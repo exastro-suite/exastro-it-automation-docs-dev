@@ -6,7 +6,7 @@
 | 本シナリオでは、簡単な例として、ホスト名の変更を題材に Exastro IT Automation の基本操作を学習します。
 | また、本シナリオを通して、Exastro IT Automation により自動化の最大のメリットを理解することを目的としています。
 
-| 今回の題材では、作業を実行するために以下の事前準備を行います。
+| 今回の題材では、作業を実行するために以下の準備が必要となります。
 
 - :ref:`事前準備 <quickstart_prepared>`
 
@@ -36,7 +36,7 @@
 前提
 ====
 
-| 本シナリオを実行するために必要となる条件は、下記の通りです。
+| 本シナリオを操作するに必要となる条件は、下記の通りです。
 
 1. 作業可能なサーバ(RHEL8)がある。
 2. 利用するユーザはsshでログイン可能で、sudoer で全操作権限を持っている必要があります。
@@ -59,8 +59,8 @@
 
 .. _quickstart_server_information_parmeter:
 
-パラメータシート作成
---------------------
+パラメータシートの作成
+----------------------
 
 | :menuselection:`パラメータシート作成` では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。
 
@@ -70,35 +70,68 @@
 | ホスト名を管理するためのパラメータシートを作成します。
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/パラメータシート作成定義.png
+.. figure:: /images/learn/quickstart/quickstart/パラメータシート作成定義.png
    :width: 1200px
    :alt: パラメータシート作成
 
 .. list-table:: パラメータシート作成(サーバー基本情報)の項目の設定値
-   :widths: 10 10
+   :widths: 10 10 10 10 10
    :header-rows: 1
 
    * - 設定項目
      - 項目1設定値
+     - 項目2設定値
+     - 項目3設定値
+     - 項目4設定値
    * - 項目の名前
-     - :kbd:`ホスト名`
+     - :kbd:`ファイル名`
+     - :kbd:`旧ホスト名`
+     - :kbd:`新ホスト名`
+     - :kbd:`ステータス`
    * - 項目の名前(Rest API用) 
-     - :kbd:`hostname`
+     - :kbd:`ITA_DFLT_file_path`
+     - :kbd:`ITA_DFLT_regexp`
+     - :kbd:`ITA_DFLT_line_string`
+     - :kbd:`ITA_DFLT_line_state`
    * - 入力方式
+     - :kbd:`文字列(単一行)`
+     - :kbd:`文字列(単一行)`
+     - :kbd:`文字列(単一行)`
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - :kbd:`64`
+     - :kbd:`64`
+     - :kbd:`64`
+     - :kbd:`64`
    * - 正規表現
+     - 
+     - 
+     - 
      - 
    * - 初期値
      - 
+     - 
+     - 
+     - 
    * - 必須
+     - ✓
+     - ✓
+     - ✓
      - ✓
    * - 一意制約
      - 
+     - 
+     - 
+     - 
    * - 説明
      - 
+     - 
+     - 
+     - 
    * - 備考
+     - 
+     - 
+     - 
      - 
 
 .. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
@@ -130,6 +163,7 @@
 --------------
 
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
+| 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と :ref:`quickstart_server_information_parmeter` で登録したパラメータシートの項目の紐付けを行います。
 
 .. glossary:: Movement
    Exastro IT Automation における、最小の作業単位のことを指します。
@@ -140,7 +174,7 @@
 
 | :menuselection:`Ansible-Legacy --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/Movement登録.png
+.. figure:: /images/learn/quickstart/quickstart/Movement登録.png
    :width: 1200px
    :alt: Movement登録
 
@@ -174,55 +208,47 @@ Ansible Playbook 登録
 | Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。
 | Ansible-Legacyモードではご自身で作成したPlaybookを利用することを想定しています。
 | Ansible-Legacyモードを使用することのメリットとして、自身の用途に合ったPlaybookを作成することで、自由に手順を作成できることが挙げられます。
-| ですが、Ansible-Legacyモードを利用するにはご自身でPlaybookを作成していただく必要があるため、Playbook作成の知識が必要となります。
+| Exastro IT Automation Version 2.4 から :menuselection:`Ansible-Legacy --> Playbook素材集` に様々なansible-playbookが登録されています。
+| 本シナリオでは、デフォルトで登録されているPlaybookを使用して作業を実行していきます。Playbookは以下のものを使用します。
 
-| 本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。
-
-.. code-block:: bash
-   :caption: hostname.yml
-
-   - name: Set a hostname
-     ansible.builtin.hostname:
-       name: "{{ hostname }}"
-
-| :menuselection:`Ansible-Legacy --> Playbook素材集` から、上記のPlaybookを登録します。
-
-.. figure:: /images/learn/quickstart/Legacy_scenario1/Playbook素材集.png
+.. figure:: /images/learn/quickstart/quickstart/Playbook素材集.png
    :width: 1200px
    :alt: Playbook登録
 
-.. list-table:: Ansible Playbook 情報の登録
-  :widths: 10 10
+.. list-table:: Ansible Playbook 情報
+  :widths: 5 10 5
   :header-rows: 1
 
-  * - Playbook素材名
+  * - 項番
+    - Playbook素材名
     - Playbook素材
-  * - :kbd:`hostname`
-    - :file:`hostname.yml`
+  * - :kbd:`660`
+    - :kbd:`~[Exastro standard] Text line operation`
+    - :file:`Files_lineinfile.yml`
+
+| 他にも様々なPlaybookが登録されていますので、必要に応じて使うPlaybookを変更してみてください。
 
 .. _quickstart_asign_playbook_with_movement:
 
 Movement と Ansible Playbook の紐付け
 -------------------------------------
 
-| 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と :ref:`quickstart_server_information_parmeter` で登録したパラメータシートの項目の紐付けを行います。
-
 | :menuselection:`Ansible-Legacy --> Movement-ロール紐付` から、Movement と Ansible Playbook の紐付けを行います。
-| 本シナリオでは、 hostname.ymlを利用します。
+| 本シナリオでは、 ~[Exastro standard] Text line operation を利用します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/Movement-Playbook紐付.png
+.. figure:: /images/learn/quickstart/quickstart/Movement-Playbook紐付.png
    :width: 1200px
    :alt: Movement-Playbook紐付け
 
 .. list-table:: Movement-Playbook紐付け情報の登録
-  :widths: 10 10 10
+  :widths: 5 10 5
   :header-rows: 1
 
   * - Movement名
     - Playbook素材
     - インクルード順序
   * - :kbd:`ホスト名設定`
-    - :kbd:`hostname.yml`
+    - :kbd:`~[Exastro standard] Text line operation`
     - :kbd:`1`
 
 .. _quickstart_asign_playbook_variable_with_parameters:
@@ -230,11 +256,11 @@ Movement と Ansible Playbook の紐付け
 パラメータシートの項目と Ansible Playbook の変数の紐付け
 --------------------------------------------------------
 
-| hostname.ymlでは、:kbd:`hostname` という変数にホスト名を代入することで、対象サーバーのホスト名を設定することができます。
+| Files_lineinfile.ymlでは、:kbd:`ITA_DFLT_file_path` という変数にホスト名のファイル名、:kbd:`ITA_DFLT_regexp` という変数に旧ホスト名、:kbd:`ITA_DFLT_line_string` という変数に新ホスト名、:kbd:`ITA_DFLT_line_state` という変数にstateのオプションをそれぞれ代入することで、対象サーバーのホスト名を設定することができます。
 
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の :kbd:`hostname` に代入する設定を行います。
+| :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Playbook の :kbd:`ITA_DFLT_file_path` 、 :kbd:`ITA_DFLT_regexp` 、 :kbd:`ITA_DFLT_line_string` 、 :kbd:`ITA_DFLT_line_state` に代入する設定を行います。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/代入値自動登録.png
+.. figure:: /images/learn/quickstart/quickstart/代入値自動登録.png
    :width: 1200px
    :alt: 代入値自動登録設定
 
@@ -250,10 +276,22 @@ Movement と Ansible Playbook の紐付け
     -
     -
     - Movement名:変数名
-  * - :kbd:`代入値自動登録用:サーバー基本情報:ホスト名`
+  * - :kbd:`代入値自動登録用:サーバー基本情報:ファイル名`
     - :kbd:`Value型`
     - :kbd:`ホスト名設定`
-    - :kbd:`ホスト名設定:hostname`
+    - :kbd:`ホスト名設定:ITA_DFLT_file_path`
+  * - :kbd:`代入値自動登録用:サーバー基本情報:旧ホスト名`
+    - :kbd:`Value型`
+    - :kbd:`ホスト名設定`
+    - :kbd:`ホスト名設定:ITA_DFLT_regexp`
+  * - :kbd:`代入値自動登録用:サーバー基本情報:新ホスト名`
+    - :kbd:`Value型`
+    - :kbd:`ホスト名設定`
+    - :kbd:`ホスト名設定:ITA_DFLT_line_string`
+  * - :kbd:`代入値自動登録用:サーバー基本情報:ステータス`
+    - :kbd:`Value型`
+    - :kbd:`ホスト名設定`
+    - :kbd:`ホスト名設定:ITA_DFLT_line_state`
 
 .. _quickstart_regist_host:
 
@@ -264,7 +302,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象であるサーバーの接続情報を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧登録設定.gif
+.. figure:: /images/learn/quickstart/quickstart/機器一覧登録設定.gif
    :width: 1200px
    :alt: 機器一覧登録
 
@@ -333,7 +371,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/オペレーション登録.png
+.. figure:: /images/learn/quickstart/quickstart/オペレーション登録.png
    :width: 1200px
    :alt: オペレーション登録
 
@@ -361,23 +399,32 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ホストに対するパラメータを登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/パラメータ登録.png
+.. figure:: /images/learn/quickstart/quickstart/パラメータ登録.png
    :width: 1200px
    :alt: パラメータ登録
 
 .. list-table:: サーバー基本情報パラメータの設定値
-  :widths: 5 20 5
+  :widths: 5 20 5 5 5 5
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
+    - 
+    - 
+    - 
   * - 
     - オペレーション名
-    - ホスト名
+    - ファイル名
+    - 旧ホスト名
+    - 新ホスト名
+    - ステータス
   * - :kbd:`server01`
     - :kbd:`2024/04/01 12:00:00_RHEL8のホスト名変更作業`
+    - :kbd:`/etc/hostname`
+    - :kbd:`'.*'`
     - :kbd:`server01`
+    - :kbd:`present`
 
 .. _quickstart_1st_run:
 
@@ -409,7 +456,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/作業実行.gif
+.. figure:: /images/learn/quickstart/quickstart/作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
@@ -460,7 +507,7 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/更新用オペレーション登録.png
+.. figure:: /images/learn/quickstart/quickstart/更新用オペレーション登録.png
    :width: 1200px
    :alt: オペレーション登録
 
@@ -489,30 +536,42 @@ Movement と Ansible Playbook の紐付け
 
 | :menuselection:`入力用 --> サーバー基本情報` から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/更新用パラメータ設定.png
+.. figure:: /images/learn/quickstart/quickstart/更新用パラメータ設定.gif
    :width: 1200px
    :alt: パラメータ設定
 
 .. list-table:: サーバー基本情報パラメータの設定値
-  :widths: 5 10 5
+  :widths: 5 10 5 5 8 5
   :header-rows: 2
 
   * - ホスト名
     - オペレーション
     - パラメータ
+    - 
+    - 
+    - 
   * - 
     - オペレーション名
-    - ホスト名
+    - ファイル名
+    - 旧ホスト名
+    - 新ホスト名
+    - ステータス
   * - :kbd:`server01`
     - :kbd:`2024/05/01 12:00:00_RHEL8のホスト名更新作業`
+    - :kbd:`/etc/hostname`
+    - :kbd:`'.*'`
     - :kbd:`"{{ __inventory_hostname__ }}"`
+    - :kbd:`present`
+
+機器情報の更新
+--------------
 
 | `__inventory_hostname__` 変数を使うことで、機器一覧に登録したホスト情報を参照できるようになりました。
 | 次に、作業対象となるサーバーのホスト名を db01 に変更します。
 
 | :menuselection:`Ansible共通 --> 機器一覧` から、作業対象サーバのホスト名を db01 に更新します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/機器一覧ホスト名変更.gif
+.. figure:: /images/learn/quickstart/quickstart/機器一覧ホスト名変更.gif
    :width: 1200px
    :alt: パラメータ登録
 
@@ -558,7 +617,7 @@ Movement と Ansible Playbook の紐付け
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
 
-.. figure:: /images/learn/quickstart/Legacy_scenario1/更新作業実行.gif
+.. figure:: /images/learn/quickstart/quickstart/更新作業実行.gif
    :width: 1200px
    :alt: 作業実行
 
@@ -579,11 +638,9 @@ Movement と Ansible Playbook の紐付け
 
 | 以降は、 :menuselection:`Ansible共通 --> 機器一覧` から、ホスト名を変更し、作業実行をするだけでホスト名の更新を行うことが可能です。
 
-
 まとめ
 ======
 
 | RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法を学習しました。
 | また、Exastro IT Automation により自動化の最大のメリットである、繰り返し作業による作業の効率化について学習しました。
 | :doc:`次のシナリオ <../ansible_legacy/Legacy_scenario2>` では、より実用的なパラメータシートの管理方法について紹介をします。
-
