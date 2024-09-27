@@ -34,7 +34,7 @@ Exastro on Kubernetes - Offline
 前提条件
 ========
 
-| 資材を収集する環境とインストールする環境では、構築状態(OSのバージョン及びインストール済のパッケージ)を一致させる必要があります。
+| 資材を収集する環境とインストールする環境では、OSを一致させる必要があります。
 | 資材を収集するサーバは :command:`curl` コマンドが実行できる必要があります。
 | オフライン環境として使用するサーバはFirewalldがインストールされている必要があります。
 
@@ -149,7 +149,7 @@ Exastro on Kubernetes - Offline
 ^^^^^^^^^^^^^^^^^^^^^^
 
 | ⑦資材受け取り
-| ⑧Ansible実行環境での準備
+| ⑧Ansible実行サーバでの準備
 | ⑨Exastroインストールサーバでの準備
 | ⑩kubernetesのコンテナイメージの設定
 | ⑪自己署名証明書及びNginxの設定
@@ -657,8 +657,8 @@ GitLab 連携設定
 
 ④パッケージファイルの取得
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-| Ansible実行環境にインストールするパッケージファイルをダウンロードします。
-| --releasever=x.xは事前に確認したOSのバージョンを指定します。
+| Ansible実行サーバにインストールするパッケージファイルをダウンロードします。
+| --releasever=x.xはAnsibleを実行するサーバのOSのバージョンを指定します。
 | インストール先のディレクトリは/tmp/pkg-repo 、/tmp/pip_whl とします。
 
 .. code-block:: shell
@@ -675,7 +675,7 @@ GitLab 連携設定
    pip3.9 download -d /tmp/pip_whl -r requirements.txt
 
 | kubernetes内でインストールするパッケージファイルをダウンロードします。
-| --releasever=x.xは事前に確認したOSのバージョンを指定します。
+| --releasever=x.xはExastroをインストールするサーバのOSのバージョンを指定します。
 | インストール先のディレクトリは /tmp/k8s-repoとします。
 
 .. code-block:: shell
@@ -862,7 +862,7 @@ GitLab 連携設定
      /usr/local/bin/nerdctl load -i ${file}
    done
 
-| IPaddressはAnsible実行環境として使用するサーバのIPアドレスを指定します。
+| IPaddressはAnsible実行サーバとして使用するサーバのIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -886,7 +886,7 @@ GitLab 連携設定
      docker push "${new_image}"
    done
 
-| IPaddressはAnsible実行環境として使用するサーバのIPアドレスを指定します。
+| IPaddressはAnsible実行サーバとして使用するサーバのIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -926,7 +926,7 @@ GitLab 連携設定
    :caption: 下記のコードをコピー＆ペーストし、ホスト名を書き換えます
 
    [ControlMachine]
-   Ansible実行環境のホスト名
+   Ansible実行サーバのホスト名
 
    [k8s-node1] 
    Exastroインストールサーバのホスト名
@@ -1072,7 +1072,7 @@ GitLab 連携設定
 資材の転送	
 ^^^^^^^^^^
 | 取得した資材を圧縮します。
-| exastroのコンテナイメージはITA_VERSIONで指定したバージョンがディレクトリ名になっているため、x.x.xはバージョンを指定します。
+| ExastroのコンテナイメージはITA_VERSIONで指定したバージョンがディレクトリ名になっているため、x.x.xはバージョンを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1130,7 +1130,7 @@ GitLab 連携設定
 ========================================================
 
 | オンライン環境での作業完了後、オフライン環境にて下記の手順を実施します。
-| 以下は、Ansible実行環境のサーバ1台、Exastroインストールサーバ1台で構成した例です。
+| 以下は、Ansible実行サーバ1台、Exastroインストールサーバ1台で構成した例です。
 
 
 ⑦資材受け取り	
@@ -1158,7 +1158,7 @@ GitLab 連携設定
 
  
 
-⑧Ansible実行環境での準備
+⑧Ansible実行サーバでの準備
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
@@ -1305,7 +1305,7 @@ GitLab 連携設定
 ⑨Exastroインストールサーバでの準備	
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| Exastroをインストールするサーバ(Kubernetesクラスター環境)すべてで以下の手順を実施します。
+| Exastroをインストールするサーバすべてで以下の手順を実施します。
 
 
 .. code-block:: shell
@@ -1392,7 +1392,7 @@ GitLab 連携設定
 
 ⑩kubernetesのコンテナイメージの設定	
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-| Ansible実行環境として使用するサーバでdockerの例外レジストリを定義します。
+| Ansible実行サーバとして使用するサーバでdockerの例外レジストリを定義します。
 | /etc/dockerディレクトリにdaemon.jsonが存在しない場合は新しく作成します。
 
 .. code-block:: shell
@@ -1401,7 +1401,7 @@ GitLab 連携設定
    vi  /etc/docker/daemon.json
 
 
-| 以下の1行を追記します。xx.xx.xx.xxには現在作業しているサーバ(Ansible実行環境)のIPアドレスを指定します。
+| 以下の1行を追記します。xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: daemon.json
@@ -1433,7 +1433,7 @@ GitLab 連携設定
    ./k8s-image-load.sh
 
 | docker registryを起動します。
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行環境)のIPアドレスを指定します。
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1445,7 +1445,9 @@ GitLab 連携設定
 
    #以下は記載例です
    docker run -d -p 6000:5000 --restart=always --name registry xx.xx.xx.xx:6000/docker.io/library/registry:2.8.1
-
+   
+   #docker registryが起動していることを確認します
+   docker ps
 
 | docker registryにkubernetesのイメージをpushします。
 
@@ -1466,6 +1468,7 @@ GitLab 連携設定
 ⑪自己署名証明書及びNginxの設定		
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 | 自己署名証明書用のディレクトリを作成します。
+| 以下の手順をAnsible実行サーバで実施します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1515,7 +1518,7 @@ GitLab 連携設定
    vi /etc/nginx/nginx.conf 
 
 | バックアップを取得した後、nginx.confに以下のブロックを追記します。
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行環境)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
 
 .. code-block:: shell
    :caption: nginx.conf 
@@ -1544,7 +1547,7 @@ GitLab 連携設定
 
 
 | ブラウザでコンテナイメージが表示されることを確認します(イメージ名にはIPアドレスやタグは表示されません)。
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行環境)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
 | 接続がプライベートではありませんと表示されるため、詳細設定をクリックして先に進みます。
 
 .. code-block:: shell
@@ -1555,8 +1558,8 @@ GitLab 連携設定
 .. note::
     | レジストリコンテナに登録したイメージを確認するには、ファイアウォールを無効にし、Nginxサービスを起動する必要あります。
 
-| Exastroをインストールするサーバ(Kubernetesクラスター環境)に対して自己署名証明書を送信します。
-| xx.xx.xx.xxにはExastroをインストールするサーバ(Kubernetesクラスター環境)のIPアドレスを指定します。
+| Exastroをインストールするサーバに対して自己署名証明書を送信します。
+| xx.xx.xx.xxにはExastroをインストールするサーバのIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1567,6 +1570,7 @@ GitLab 連携設定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
  
 | Ansibleを実行してパッケージファイルをインストールするため、hosts.ymlを以下の手順で作成します。
+| 以下の手順をAnsible実行サーバで実施します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1583,7 +1587,7 @@ GitLab 連携設定
 
 
 | Kubernetesクラスター環境のIPの変数を設定します。
-| xx.xx.xx.xxにはExastroをインストールするサーバ(Kubernetesクラスター環境)のIPアドレスを指定します。
+| xx.xx.xx.xxにはExastroをインストールするサーバのIPアドレスを指定します。
 
 
 .. code-block:: shell
@@ -1635,7 +1639,7 @@ GitLab 連携設定
        calico_rr:
          hosts: {}
 
-| Kubernetesクラスター環境にパッケージファイルをインストールします。 
+| Exastroをインストールするサーバにパッケージファイルをインストールします。 
 
 .. code-block:: shell
    :caption: コマンド
@@ -1651,7 +1655,8 @@ GitLab 連携設定
 ⑬kubesprayのインストール	
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 | kubenetesクラスタの構築で使用するファイルはNginxコンテナを介して提供します。
-| 以下の手順で/tmp/workに展開するoffline-filesとnginxコンテナの/usr/share/nginx/html/downloadをマウントします。
+| /tmp/workに展開するoffline-filesとnginxコンテナの/usr/share/nginx/html/downloadをマウントします。
+| 以下の手順をAnsible実行サーバで実施します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1661,12 +1666,15 @@ GitLab 連携設定
    docker images | grep docker.io/library/nginx
 
    #上記で得られたREPOSITORYとTAGを指定します
-   docker run --name test -d -p 8080:80 -v /tmp/work/offline-files:/usr/share/nginx/html/download REPOSITORY:TAG
+   docker run --name exastro-nginx -d -p 8080:80 -v /tmp/work/offline-files:/usr/share/nginx/html/download REPOSITORY:TAG
 
    #以下は記載例です
-   docker run --name test -d -p 8080:80 -v /tmp/work/offline-files:/usr/share/nginx/html/download xx.xx.xx.xx:6000/docker.io/library/nginx:1.25.2-alpine
+   docker run --name exastro-nginx -d -p 8080:80 -v /tmp/work/offline-files:/usr/share/nginx/html/download xx.xx.xx.xx:6000/docker.io/library/nginx:1.25.2-alpine
 
-| Kubernetesクラスター環境へKubernetesをインストールするための設定ファイルを編集します。
+   #Nginxコンテナが起動していることを確認します
+   docker ps
+
+| ExastroをインストールするサーバにKubernetesをインストールするための設定ファイルを編集します。
 | all.ymlとoffline.ymlを以下のように書き換えます。
 
 .. code-block:: shell
@@ -1688,7 +1696,7 @@ GitLab 連携設定
    - # https_proxy_cert_file: ""
    + https_proxy_cert_file: "/usr/share/pki/ca-trust-source/anchors/server.crt"
 
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行環境)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
 
 .. code-block:: shell
    :caption: コマンド
@@ -1723,7 +1731,8 @@ GitLab 連携設定
    </details>
 
 
-| Kubesparayを実行して、Kubernetesクラスター環境へKubernetesをインストールします。
+| Kubesparayを実行して、ExastroをインストールするサーバへKubernetesをインストールします。
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
 
 .. code-block:: shell
    :caption: コマンド
@@ -1733,7 +1742,7 @@ GitLab 連携設定
    ansible-playbook -i inventory/k8s_cluster/hosts.yml --become --become-user=root cluster.yml --private-key=~/.ssh/id_rsa -e "download_retries=10" | tee ~/kubespray_$(date +%Y%m%d%H%M).log
 
 
-| Kubernetesクラスター環境に接続し、nodeが作成されていることを確認します。
+| Exastroをインストールするサーバに接続し、nodeが作成されていることを確認します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1744,16 +1753,17 @@ GitLab 連携設定
 .. code-block:: shell
    :caption: 結果サンプル
 
-   NAME             STATUS   ROLES           AGE     VERSION
-   指定したNode名   Ready    control-plane   5m10s   v1.27.10
+   NAME                                    STATUS   ROLES           AGE     VERSION
+   ITAをインストールするサーバのホスト名   Ready    control-plane   5m10s   v1.27.10
 
 
 
 ⑭Exastroのインストール	
 ^^^^^^^^^^^^^^^^^^^^^^^
-| Kubernetesクラスター環境にExastroのコンテナイメージを転送します。 
+| ExastroをインストールするサーバにExastroのコンテナイメージを転送します。 
 | xx.xx.xx.xxにはExastroをインストールするサーバ(Kubernetesクラスター環境)のIPアドレスを指定します。
-| 以下の手順をAnsible実行環境で実行します。
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
+| 以下の手順をAnsible実行サーバで実行します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1777,7 +1787,7 @@ GitLab 連携設定
    ansible-playbook -i inventory.yaml install-exastro.yaml -become --become-user=root  --private-key=~/.ssh/id_rsa
 
 
-| Kubernetesクラスター環境に接続し、永続ボリュームとpodが作成されていることを確認します。
+| Exastroをインストールするサーバに接続し、永続ボリュームとpodが作成されていることを確認します。
 
 .. code-block:: shell
    :caption: コマンド
