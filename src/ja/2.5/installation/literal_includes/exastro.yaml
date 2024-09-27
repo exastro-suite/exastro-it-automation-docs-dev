@@ -127,17 +127,6 @@ exastro-it-automation:
       PLATFORM_API_HOST: "platform-api"
       PLATFORM_API_PORT: "8000"
 
-  ita-api-ansible-execution-receiver:
-    replicaCount: 1
-    image:
-      repository: "docker.io/exastro/exastro-it-automation-api-ansible-execution-receiver"
-      tag: ""
-      pullPolicy: IfNotPresent
-    extraEnv:
-      LISTEN_PORT: "8000"
-      PLATFORM_API_HOST: "platform-api"
-      PLATFORM_API_PORT: "8000"
-
   ita-by-ansible-execute:
     replicaCount: 1
     image:
