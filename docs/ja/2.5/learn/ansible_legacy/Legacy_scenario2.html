@@ -552,7 +552,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id28">
-<div class="code-block-caption"><span class="caption-number">リスト 265 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id28" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 272 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id28" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -567,7 +567,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でpackage.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 266 </span><span class="caption-text">package.yml</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 273 </span><span class="caption-text">package.yml</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>install<span class="w"> </span>package
 <span class="w">  </span>yum:
@@ -951,13 +951,13 @@
 <div class="line">サーバに SSH ログインし、 postgresql-server のインストール状況を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id36">
-<div class="code-block-caption"><span class="caption-number">リスト 267 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 274 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id36" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 268 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 275 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>postgresql-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
@@ -980,13 +980,13 @@
 <div class="line">再度サーバに SSH ログインし、postgresql-server のインストール状況を確認し postgresql-server がインストールされていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 269 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 276 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id39">
-<div class="code-block-caption"><span class="caption-number">リスト 270 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 277 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id39" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 環境ごとにバージョンは異なります</span>
 postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 </pre></div>
@@ -1108,26 +1108,26 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <div class="line">サーバに SSH ログインし、パッケージのインストール状態を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 271 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 278 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 272 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 279 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 環境ごとにバージョンは異なります</span>
 postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 273 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 280 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>mariadb-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 274 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 281 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>mariadb-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
@@ -1150,25 +1150,25 @@ postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 <div class="line">再度サーバに SSH ログインし、postgresql-server がアンインストールされ、mariadb-server がインストールされていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 275 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 282 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>postgresql-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 276 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 283 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package<span class="w"> </span>postgresql-server<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>installed
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 277 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 284 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm<span class="w"> </span>-q<span class="w"> </span>mariadb-server
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id50">
-<div class="code-block-caption"><span class="caption-number">リスト 278 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 285 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id50" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mariadb-server-10.3.35-1.module+el8.6.0+15949+4ba4ec26.x86_64
 </pre></div>
 </div>

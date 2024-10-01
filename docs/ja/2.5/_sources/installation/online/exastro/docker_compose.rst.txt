@@ -279,6 +279,22 @@ Exastro on Docker Compose - Online
    | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30081、それ以外は81を指定してください。
 
 .. code-block:: shell
+   :caption:  自己署名のSSL/TLS証明書生成の有無 (上記の「Exastro サービスのURL/Exastro 管理用サービスのURL」がhttpsの場合)
+
+   Generate self-signed SSL certificate? (y/n) [default: y]:
+
+.. code-block:: shell
+   :caption:  サーバ証明書/秘密鍵ファイルパス (上記の「自己署名のSSL/TLS証明書生成の有無」でnの場合)
+
+   Input path to your SSL certificate file.
+   certificate file path:
+   private-key file path:
+
+.. tip::
+   | certificate file pathは、サーバー証明書のファイルパスを指定してください。
+   | private-key file pathは、秘密鍵ファイルのファイルパスを指定してください。
+
+.. code-block:: shell
    :caption:  GitLabのURL (上記の「GitLab コンテナデプロイ要否の確認」でyの場合)
 
    Input the external URL of GitLab container [default: (nothing)]:

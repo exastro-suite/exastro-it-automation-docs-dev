@@ -1085,7 +1085,44 @@
 <td><p>不可</p></td>
 <td><p>&quot;httpMng&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.platform-auth.service.type</p></td>
+<tr class="row-odd"><td><p>exastro-platform.platform-auth.ingress.tls[0].secretName</p></td>
+<td><p>Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管している Kubernetes シークレット名</p></td>
+<td><p>可 (Ingress利用時)</p></td>
+<td><p>任意の文字列</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-platform.platform-auth.ingress.tls[0].hosts</p></td>
+<td><p>Exastro Platform 公開用エンドポイントのSSL/TLSを使用するホスト名、もしくは、FQDN</p></td>
+<td><p>可 (Ingress利用時)</p></td>
+<td><p>任意の文字列</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-platform.platform-auth.ingress.secrets[0].name</p></td>
+<td><p>Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管する Kubernetes シークレット名</p></td>
+<td><p>可 (Ingress利用時)</p></td>
+<td><p>任意の文字列</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-platform.platform-auth.ingress.secrets[0].certificate</p></td>
+<td><p>Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する証明書ファイルの値</p></td>
+<td><p>可 (Ingress利用時)</p></td>
+<td><div class="line-block">
+<div class="line">証明書ファイルの値の例</div>
+<div class="line">-----BEGIN CERTIFICATE-----</div>
+<div class="line">...</div>
+<div class="line">-----END CERTIFICATE-----</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>exastro-platform.platform-auth.ingress.secrets[0].key</p></td>
+<td><p>Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する鍵ファイルの値</p></td>
+<td><p>可 (Ingress利用時)</p></td>
+<td><div class="line-block">
+<div class="line">鍵ファイルの値の例</div>
+<div class="line">-----BEGIN PRIVATE KEY-----</div>
+<div class="line">...</div>
+<div class="line">-----END PRIVATE KEY-----</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>exastro-platform.platform-auth.service.type</p></td>
 <td><p>Exastro Platform のサービスタイプ</p></td>
 <td><p>可</p></td>
 <td><div class="line-block">
@@ -1095,7 +1132,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>exastro-platform.platform-auth.service.http.nodePort</p></td>
+<tr class="row-odd"><td><p>exastro-platform.platform-auth.service.http.nodePort</p></td>
 <td><div class="line-block">
 <div class="line">Exastro Platform のサービス用公開ポート番号</div>
 </div>
@@ -1103,7 +1140,7 @@
 <td><p>可 (NodePort利用時)</p></td>
 <td><p>&quot;30080&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.platform-auth.service.httpMng.nodePort</p></td>
+<tr class="row-even"><td><p>exastro-platform.platform-auth.service.httpMng.nodePort</p></td>
 <td><div class="line-block">
 <div class="line">Exastro Platform のシステム管理用公開ポート番号</div>
 </div>
@@ -1111,12 +1148,12 @@
 <td><p>可 (NodePort利用時)</p></td>
 <td><p>&quot;30081&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>exastro-platform.platform-auth.image.repository</p></td>
+<tr class="row-odd"><td><p>exastro-platform.platform-auth.image.repository</p></td>
 <td><p>コンテナイメージのリポジトリ名</p></td>
 <td><p>不可</p></td>
 <td><p>&quot;docker.io/exastro/exastro-platform-auth&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.platform-auth.image.tag</p></td>
+<tr class="row-even"><td><p>exastro-platform.platform-auth.image.tag</p></td>
 <td><p>コンテナイメージのタグ</p></td>
 <td><p>不可</p></td>
 <td><p>&quot;&quot;</p></td>

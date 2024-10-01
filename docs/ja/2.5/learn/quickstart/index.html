@@ -396,7 +396,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 249 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id20" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -417,7 +417,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 250 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 257 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
 <span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ hostname }}&quot;</span>
@@ -695,14 +695,14 @@
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 251 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 258 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 252 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 259 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -729,14 +729,14 @@ localhost
 <div class="line">再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 253 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 260 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 254 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 261 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server01
 </pre></div>
 </div>
@@ -925,14 +925,14 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 255 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 262 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 263 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="このコードへのパーマリンク">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db01
 </pre></div>
 </div>
