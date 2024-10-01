@@ -833,6 +833,19 @@ Exastro on Docker Compose - Offline
          Input the Exastro management URL?	 [default: http://127.0.0.1:30081]: http://ita.example.com:30081									
 
       .. code-block:: shell
+         :caption:  自己署名のSSL/TLS証明書生成の有無 (上記の「Exastro サービスのURL/Exastro 管理用サービスのURL」がhttpsの場合)
+
+         Generate self-signed SSL certificate? (y/n) [default: y]:
+
+      .. code-block:: shell
+         :caption:  サーバ証明書/秘密鍵ファイルパス (上記の「自己署名のSSL/TLS証明書生成の有無」でnの場合)
+
+         #certificate file pathは サーバー証明書のファイルパスを、private-key file pathは 秘密鍵ファイルのファイルパスを指定してください。
+         Input path to your SSL certificate file.
+         certificate file path:
+         private-key file path:
+
+      .. code-block:: shell
          :caption: Gitlab コンテナのURL(Gitlab コンテナをデプロイする場合は入力が必要です。) 
 
          #ポート番号は40080を指定してください。
@@ -982,6 +995,19 @@ Exastro on Docker Compose - Offline
 
          #ポート番号は、OSがRed Hat Enterprise Linuxの場合は30081、それ以外は81を指定してください。
          Input the Exastro management URL?	 [default: http://127.0.0.1:30081]: http://ita.example.com:30081									
+
+      .. code-block:: shell
+         :caption:  自己署名のSSL/TLS証明書生成の有無 (上記の「Exastro サービスのURL/Exastro 管理用サービスのURL」がhttpsの場合)
+
+         Generate self-signed SSL certificate? (y/n) [default: y]:
+
+      .. code-block:: shell
+         :caption:  サーバ証明書/秘密鍵ファイルパス (上記の「自己署名のSSL/TLS証明書生成の有無」でnの場合)
+
+         #certificate file pathは サーバー証明書のファイルパスを、private-key file pathは 秘密鍵ファイルのファイルパスを指定してください。
+         Input path to your SSL certificate file.
+         certificate file path:
+         private-key file path:
 
       .. code-block:: shell
          :caption: GitLab コンテナデプロイ要否の確認(Gitlab コンテナをデプロイする場合は入力が必要です。) 
