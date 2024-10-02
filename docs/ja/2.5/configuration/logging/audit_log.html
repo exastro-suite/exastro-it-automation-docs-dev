@@ -594,21 +594,29 @@
 <div class="line">監査ログはオーガナイゼーション管理の画面からダウンロードが可能です。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/audit_log_top.png"><img alt="監査ログトップ" src="../../_images/audit_log_top.png" style="width: 900px;" /></a>
+<a class="reference internal image-reference" href="../../_images/audit_log_top.png"><img alt="監査ログトップ" src="../../_images/audit_log_top.png" style="width: 1200px;" /></a>
 </figure>
 <div class="line-block">
 <div class="line"><span class="menuselection">ダウンロード</span> タブでは、指定した範囲内の監査ログをダウンロードできます。</div>
-<div class="line">対象期間の設定値を <span class="guilabel">カレンダーボタン</span> から指定し、画面下の <span class="guilabel">ダウンロード</span> を押下することで監査ログのダウンロードが開始されます。</div>
+<div class="line">対象期間の設定値を <span class="guilabel"></span> から指定し <span class="guilabel">適用</span> で反映させます。</div>
+<div class="line">画面下の <span class="guilabel">ダウンロード</span> を押下することで監査ログのアーカイブ作成が開始され、作成完了後にダウンロードが行われます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/audit_log_target_period.png"><img alt="監査ログ対象期間" src="../../_images/audit_log_target_period.png" style="width: 900px;" /></a>
+<a class="reference internal image-reference" href="../../_images/audit_log_target_period.png"><img alt="監査ログ対象期間" src="../../_images/audit_log_target_period.png" style="width: 1200px;" /></a>
 </figure>
 <div class="line-block">
-<div class="line"><span class="menuselection">履歴</span> タブでは、ダウンロードした監査ログの履歴が表示され、再度ダウンロードすることができます。</div>
-<div class="line">また、監査ログのダウンロード履歴は7日後に削除され、ダウンロード最大件数は100件までとなります。</div>
+<div class="line"><span class="menuselection">履歴</span> タブでは、作成された監査ログのアーカイブ一覧が表示され、ステータスの確認や再度ダウンロードをすることができます。</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">監査ログは生成されてからデフォルトで365日間保存されます。</div>
+<div class="line">監査ログのアーカイブ作成されてからデフォルトで7日後に削除されます。</div>
+<div class="line">監査ログのアーカイブはデフォルトで100件まで作成可能です。</div>
+</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/audit_log_history.png"><img alt="監査ログ履歴" src="../../_images/audit_log_history.png" style="width: 900px;" /></a>
+<a class="reference internal image-reference" href="../../_images/audit_log_history.png"><img alt="監査ログ履歴" src="../../_images/audit_log_history.png" style="width: 1200px;" /></a>
 </figure>
 <table class="docutils align-left" id="id9">
 <caption><span class="caption-number">表 1.11 </span><span class="caption-text">監査ログ履歴項目一覧</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -630,7 +638,7 @@
 </tr>
 <tr class="row-even"><td><p>ステータス</p></td>
 <td><div class="line-block">
-<div class="line">監査ログをダウンロードするための処理のステータスが表示されます。ステータスは以下の種類があります。</div>
+<div class="line">監査ログのアーカイブを作成するための処理のステータスが表示されます。ステータスは以下の種類があります。</div>
 <div class="line">NotExecuted (未実行)</div>
 <div class="line">Executing (実行中)</div>
 <div class="line">Completion (完了)</div>
@@ -646,7 +654,7 @@
 <td><p>指定した対象期間範囲内での監査ログの件数が表示されます。</p></td>
 </tr>
 <tr class="row-odd"><td><p>処理結果メッセージ</p></td>
-<td><p>ダウンロードに失敗した際のメッセージが表示されます。</p></td>
+<td><p>アーカイブ作成に失敗した際のメッセージが表示されます。</p></td>
 </tr>
 <tr class="row-even"><td><p>ユーザー</p></td>
 <td><p>監査ログダウンロードを実行したユーザーが表示されます。</p></td>
