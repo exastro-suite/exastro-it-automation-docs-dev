@@ -260,39 +260,64 @@ Exastro on Docker Compose - Online
    # Exastro システムが利用する MariaDB のパスワードや、システム管理者のパスワード自動生成するか？
    Generate all password and token automatically? (y/n) [default: y]: 
 
-.. code-block:: shell
-   :caption: Exastro サービスのURL
+.. tabs::
 
-   Input the Exastro service URL:
+   .. group-tab:: https暗号化通信
 
-.. tip::
-   | URLはポート番号まで指定してください。
-   | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30080、それ以外は80を指定してください。
+      .. code-block:: shell
+         :caption: Exastro サービスのURL
 
-.. code-block:: shell
-   :caption:  Exastro 管理用サービスのURL
+         Input the Exastro service URL:
 
-   Input the Exastro management URL:
+      .. tip::
+         | URLは https://～:ポート番号 まで指定してください。
+         | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30080、それ以外は80を指定してください。
 
-.. tip::
-   | URLはポート番号まで指定してください。
-   | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30081、それ以外は81を指定してください。
+      .. code-block:: shell
+         :caption:  Exastro 管理用サービスのURL
 
-.. code-block:: shell
-   :caption:  自己署名のSSL/TLS証明書生成の有無 (上記の「Exastro サービスのURL/Exastro 管理用サービスのURL」がhttpsの場合)
+         Input the Exastro management URL:
 
-   Generate self-signed SSL certificate? (y/n) [default: y]:
+      .. tip::
+         | URLは https://～:ポート番号 まで指定してください。
+         | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30081、それ以外は81を指定してください。
 
-.. code-block:: shell
-   :caption:  サーバ証明書/秘密鍵ファイルパス (上記の「自己署名のSSL/TLS証明書生成の有無」でnの場合)
+      .. code-block:: shell
+         :caption:  自己署名のSSL/TLS証明書生成の有無
 
-   Input path to your SSL certificate file.
-   certificate file path:
-   private-key file path:
+         Generate self-signed SSL certificate? (y/n) [default: y]:
 
-.. tip::
-   | certificate file pathは、サーバー証明書のファイルパスを指定してください。
-   | private-key file pathは、秘密鍵ファイルのファイルパスを指定してください。
+      .. code-block:: shell
+         :caption:  サーバ証明書/秘密鍵ファイルパス (上記の「自己署名のSSL/TLS証明書生成の有無」でnの場合)
+
+         Input path to your SSL certificate file.
+         certificate file path:
+         private-key file path:
+
+      .. tip::
+         | certificate file pathは、サーバー証明書のファイルパスを指定してください。
+         | private-key file pathは、秘密鍵ファイルのファイルパスを指定してください。
+
+   .. group-tab:: http通信
+
+      .. code-block:: shell
+         :caption: Exastro サービスのURL
+
+         Input the Exastro service URL:
+
+      .. tip::
+         | URLは http://～:ポート番号 まで指定してください。
+         | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30080、それ以外は80を指定してください。
+
+      .. code-block:: shell
+         :caption:  Exastro 管理用サービスのURL
+
+         Input the Exastro management URL:
+
+      .. tip::
+         | URLは http://～:ポート番号 まで指定してください。
+         | ポート番号は、OSがRed Hat Enterprise Linuxの場合は30081、それ以外は81を指定してください。
+
 
 .. code-block:: shell
    :caption:  GitLabのURL (上記の「GitLab コンテナデプロイ要否の確認」でyの場合)
