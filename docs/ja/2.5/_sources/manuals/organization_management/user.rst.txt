@@ -189,7 +189,7 @@
       :width: 600px
       :align: left
 
-#. | :guilabel:`一括処理結果` 画面が表示されるので、一括登録・削除処理の結果を閲覧することができます。
+#. | :menuselection:`一括処理結果` 画面が表示されるので、一括登録・削除処理の結果を閲覧することができます。
    - | :guilabel:`更新` ボタンで表示を更新することができ、:guilabel:`ダウンロード` ボタンで一括登録・削除がエラーとなったときの情報を確認することができます。
 
    .. figure:: /images/ja/manuals/platform/user/ユーザー一括登録・削除画面_results.png
