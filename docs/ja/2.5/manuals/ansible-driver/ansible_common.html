@@ -2352,6 +2352,18 @@
 </li>
 </ul>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line"><strong>大容量ファイルのファイル登録</strong></div>
+<div class="line">大容量のファイルを送信する際に、「認証に失敗しました。」というエラーメッセージが表示されることがあります。</div>
+<div class="line">この事象は、以下のような複数の要因によって、ファイル登録の認証プロセスに遅延が発生し、アクセストークンの有効期限が切れたために発生します。</div>
+<div class="line">　・ネットワーク回線の状態</div>
+<div class="line">　・通信経路の途中にあるネットワーク機器による、セキュリティチェックやフィルタリング</div>
+<div class="line"><br /></div>
+<div class="line">このような場合には、<a class="reference internal" href="../platform_management/keycloak_console.html#access-token-lifespan-change"><span class="std std-ref">アクセストークン生存期間の変更</span></a> を確認し、必要に応じて生存期間の変更を実施してください。</div>
+</div>
+</div>
 </section>
 <section id="ansible-common-template-list">
 <span id="id27"></span><h3><span class="section-number">1.5.6. </span>テンプレート管理<a class="headerlink" href="#ansible-common-template-list" title="この見出しへのパーマリンク">¶</a></h3>

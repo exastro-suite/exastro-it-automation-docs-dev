@@ -132,6 +132,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#id1">6.1. はじめに</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">6.2. KeyCloakコンソール</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id4">6.2.1. システム管理者の追加</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#access-token-lifespan-change">6.2.2. アクセストークン生存期間の変更</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#sso-sso">6.2.3. SSOセッション・アイドル/SSOセッション最大の変更</a></li>
 </ul>
 </li>
 </ul>
@@ -171,6 +173,8 @@
 <li><a class="reference internal" href="#id1">6.1. はじめに</a></li>
 <li><a class="reference internal" href="#id2">6.2. KeyCloakコンソール</a><ul>
 <li><a class="reference internal" href="#id4">6.2.1. システム管理者の追加</a></li>
+<li><a class="reference internal" href="#access-token-lifespan-change">6.2.2. アクセストークン生存期間の変更</a></li>
+<li><a class="reference internal" href="#sso-sso">6.2.3. SSOセッション・アイドル/SSOセッション最大の変更</a></li>
 </ul>
 </li>
 </ul>
@@ -268,8 +272,8 @@
 <figure class="align-left">
 <a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_user_add_v2-4.png"><img alt="../../_images/keycloak_console_user_add_v2-4.png" class="with-border-thin" src="../../_images/keycloak_console_user_add_v2-4.png" style="width: 600px;" /></a>
 </figure>
-<table class="docutils align-left" id="id6">
-<caption><span class="caption-number">表 6.1 </span><span class="caption-text">項目説明</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id7">
+<caption><span class="caption-number">表 6.1 </span><span class="caption-text">項目説明</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 83.3%" />
@@ -381,8 +385,8 @@
 <figure class="align-left">
 <a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_user_add_password_set.png"><img alt="../../_images/keycloak_console_user_add_password_set.png" class="with-border-thin" src="../../_images/keycloak_console_user_add_password_set.png" style="width: 400px;" /></a>
 </figure>
-<table class="docutils align-left" id="id7">
-<caption><span class="caption-number">表 6.2 </span><span class="caption-text">項目説明</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id8">
+<caption><span class="caption-number">表 6.2 </span><span class="caption-text">項目説明</span><a class="headerlink" href="#id8" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 83.3%" />
@@ -441,6 +445,89 @@
 <div class="line-block">
 <div class="line">これで、追加したユーザーがシステム管理者として、作業できるようになりました。</div>
 </div>
+</li>
+</ol>
+</section>
+<section id="access-token-lifespan-change">
+<span id="id6"></span><h3><span class="section-number">6.2.2. </span>アクセストークン生存期間の変更<a class="headerlink" href="#access-token-lifespan-change" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">大容量ファイルのアップロード・ダウンロードなど完了に時間が掛かる処理を行った際に、「認証に失敗しました。」とメッセージが表示されてしまう事象が多発する場合、</div>
+<div class="line">アクセストークン生存期間の変更を行うと事象を解消できることがあります。</div>
+</div>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">クライアント（オーガナイゼーションIDと同じ値）選択</div>
+</div>
+<div class="line-block">
+<div class="line">上述の <cite>レルム（オーガナイゼーション）選択</cite> で目的のレルムを選択し、メニューから <span class="menuselection">クライアント</span> を選択します。</div>
+<div class="line"><span class="menuselection">クライアント一覧</span> 画面が表示されるので、 クライアントID列から <span class="guilabel">オーガナイゼーションIDと同じ値のクライアント</span> を選択します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client.png"><img alt="../../_images/keycloak_console_client.png" class="with-border-thin" src="../../_images/keycloak_console_client.png" style="width: 600px;" /></a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">Advanced settings（クライアント）の表示</div>
+</div>
+<div class="line-block">
+<div class="line"><span class="menuselection">クライアント詳細</span> 画面が表示されるので、 <span class="menuselection">Advanced</span> を選択し、</div>
+<div class="line">Advanced画面の右側 Jump to section から、Advanced settings を選択します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced.png"><img alt="../../_images/keycloak_console_client_advanced.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced.png" style="width: 600px;" /></a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">アクセストークン生存期間の変更</div>
+</div>
+<div class="line-block">
+<div class="line">アクセストークン生存期間項目の、「inherits from realm settings」を「有効期限」に変更、変更したい時間を入力します。</div>
+<div class="line">画面を下にスクロールし、<span class="guilabel">保存</span> ボタンを押下してトークン生存期間の変更を保存します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced_access_token_lifespan.png"><img alt="../../_images/keycloak_console_client_advanced_access_token_lifespan.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced_access_token_lifespan.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png"><img alt="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png" style="width: 600px;" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line">アクセストークンは、SSOセッション・アイドル/SSOセッション最大に指定した時間を過ぎると、生存期間内であってもトークンが無効化されます。</div>
+<div class="line">SSOセッションのデフォルト設定、SSOセッション・アイドル(30分)/SSOセッション最大(10時間) を超える時間が、アクセストークン生存期間に必要な場合は、</div>
+<div class="line">あわせて SSOセッション・アイドル/SSOセッション最大 の時間も変更を行ってください。</div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="sso-sso">
+<h3><span class="section-number">6.2.3. </span>SSOセッション・アイドル/SSOセッション最大の変更<a class="headerlink" href="#sso-sso" title="この見出しへのパーマリンク">¶</a></h3>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">Session Settings画面の表示</div>
+</div>
+<div class="line-block">
+<div class="line">上述の <cite>レルム（オーガナイゼーション）選択</cite> で目的のレルムを選択し、メニューから <span class="menuselection">レルムの設定</span> を選択します。</div>
+<div class="line"><span class="menuselection">レルム設定</span> 画面が表示されるので、 <span class="menuselection">セッション</span> を選択し、<span class="menuselection">Session Settings</span> 画面を表示します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions.png"><img alt="../../_images/keycloak_console_realm_sessions.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions.png" style="width: 600px;" /></a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">アクセストークン生存期間の変更</div>
+</div>
+<div class="line-block">
+<div class="line">SSOセッション・アイドル/SSOセッション最大 項目に変更したい時間を入力します。</div>
+<div class="line">画面を下にスクロールし、<span class="guilabel">保存</span> ボタンを押下してSSOセッションの変更を保存します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions_edit.png"><img alt="../../_images/keycloak_console_realm_sessions_edit.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions_edit.png" style="width: 600px;" /></a>
+</figure>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions_save.png"><img alt="../../_images/keycloak_console_realm_sessions_save.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions_save.png" style="width: 600px;" /></a>
+</figure>
 </li>
 </ol>
 </section>
