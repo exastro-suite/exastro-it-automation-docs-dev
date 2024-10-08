@@ -206,6 +206,57 @@ Helm リポジトリの登録
            :caption: exastro.yaml
            :language: yaml
 
+        | ※ Ingress を使用して HTTPS 接続を有効にする際は、以下の設定が必要となります。
+
+        .. code-block:: diff
+           :caption: exastro.yaml
+
+              platform-auth:
+                extraEnv:
+                  # Please set the URL to access
+           -      EXTERNAL_URL: "http://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           -      EXTERNAL_URL_MNG: "http://exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           +      EXTERNAL_URL: "https://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           +      EXTERNAL_URL_MNG: "https://exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+                ingress:
+                  enabled: true
+                  annotations:
+                    kubernetes.io/ingress.class: addon-http-application-routing
+                    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+                    nginx.ingress.kubernetes.io/proxy-buffer-size: 256k
+                    nginx.ingress.kubernetes.io/server-snippet: |
+                      client_header_buffer_size 100k;
+                      large_client_header_buffers 4 100k;
+                  hosts:
+                    - host: exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+                      paths:
+                        - path: /
+                          pathType: Prefix
+                          backend: "http"
+                    - host: exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+                      paths:
+                        - path: /
+                          pathType: Prefix
+                          backend: "httpMng"
+           -      tls: []
+           +      tls:
+           +        - secretName: exastro-suite-tls
+           +          hosts:
+           +            - exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+           +            - exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+           -      secrets: []
+           +      secrets:
+           +        - name: exastro-suite-tls
+           +          certificate: |-
+           +            -----BEGIN CERTIFICATE-----
+           +            ...
+           +            -----END CERTIFICATE-----
+           +          key: |-
+           +            -----BEGIN PRIVATE KEY-----
+           +            ...
+           +            -----END PRIVATE KEY-----
+
+
    .. group-tab:: LoadBalancer
 
       |
