@@ -147,3 +147,81 @@ KeyCloakコンソール
 
 
    | これで、追加したユーザーがシステム管理者として、作業できるようになりました。
+
+.. _access_token_lifespan_change:
+
+アクセストークン生存期間の変更
+------------------------------
+
+| 大容量ファイルのアップロード・ダウンロードなど完了に時間が掛かる処理を行った際に、「認証に失敗しました。」とメッセージが表示されてしまう事象が多発する場合、
+| アクセストークン生存期間の変更を行うと事象を解消できることがあります。
+
+#. | クライアント（オーガナイゼーションIDと同じ値）選択
+
+   | 上述の `レルム（オーガナイゼーション）選択` で目的のレルムを選択し、メニューから :menuselection:`クライアント` を選択します。
+   | :menuselection:`クライアント一覧` 画面が表示されるので、 クライアントID列から :guilabel:`オーガナイゼーションIDと同じ値のクライアント` を選択します。
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | Advanced settings（クライアント）の表示
+
+   | :menuselection:`クライアント詳細` 画面が表示されるので、 :menuselection:`Advanced` を選択し、
+   | Advanced画面の右側 Jump to section から、Advanced settings を選択します。
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | アクセストークン生存期間の変更
+
+   | アクセストークン生存期間項目の、「inherits from realm settings」を「有効期限」に変更、変更したい時間を入力します。
+   | 画面を下にスクロールし、:guilabel:`保存` ボタンを押下してトークン生存期間の変更を保存します。
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced_access_token_lifespan.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced_access_token_lifespan_save.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. note::
+      | アクセストークンは、SSOセッション・アイドル/SSOセッション最大に指定した時間を過ぎると、生存期間内であってもトークンが無効化されます。
+      | SSOセッションのデフォルト設定、SSOセッション・アイドル(30分)/SSOセッション最大(10時間) を超える時間が、アクセストークン生存期間に必要な場合は、
+      | あわせて SSOセッション・アイドル/SSOセッション最大 の時間も変更を行ってください。
+
+
+SSOセッション・アイドル/SSOセッション最大の変更
+---------------------------------------------
+
+#. | Session Settings画面の表示
+
+   | 上述の `レルム（オーガナイゼーション）選択` で目的のレルムを選択し、メニューから :menuselection:`レルムの設定` を選択します。
+   | :menuselection:`レルム設定` 画面が表示されるので、 :menuselection:`セッション` を選択し、:menuselection:`Session Settings` 画面を表示します。
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | アクセストークン生存期間の変更
+
+   | SSOセッション・アイドル/SSOセッション最大 項目に変更したい時間を入力します。
+   | 画面を下にスクロールし、:guilabel:`保存` ボタンを押下してSSOセッションの変更を保存します。
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions_edit.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions_save.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+ 
