@@ -232,7 +232,7 @@ OASE Agent on Docker Compose - Online
    - 可
    - Ch@ngeMe
  * - EVENT_COLLECTION_SETTINGS_NAMES
-   - Exastro IT Automation のOASE管理 エージェント で作成した イベント収集設定名
+   - Exastro IT Automation のOASE管理 イベント収集 で作成した イベント収集設定名
    - 必須
    - 無し※カンマ区切りで複数指定可能
  * - ITERATION

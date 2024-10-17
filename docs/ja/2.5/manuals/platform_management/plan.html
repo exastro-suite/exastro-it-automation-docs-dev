@@ -35,8 +35,8 @@
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
     <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script src="../../_static/jquery-3.6.3.min.js"></script>
     <script src="../../_static/exastro_documents.js"></script>
     <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
@@ -220,8 +220,8 @@
 <article class="divInner">
 <div class="body" role="main">
 
-  <section id="id1">
-<h1><span class="section-number">3. </span>リソースプラン<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+  <section id="plan">
+<span id="id1"></span><h1><span class="section-number">3. </span>リソースプラン<a class="headerlink" href="#plan" title="この見出しへのパーマリンク">¶</a></h1>
 <section id="id2">
 <h2><span class="section-number">3.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
@@ -426,6 +426,14 @@ your<span class="w"> </span>password<span class="w"> </span>:<span class="w"> </
 <span class="w">      </span><span class="o">}</span>
 <span class="w">    </span><span class="o">}</span>,
 <span class="w">    </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;id&quot;</span>:<span class="w"> </span><span class="s2">&quot;ita.organization.common.upload_file_size_limit&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;informations&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;default&quot;</span>:<span class="w"> </span><span class="m">104857600</span>,
+<span class="w">        </span><span class="s2">&quot;description&quot;</span>:<span class="w"> </span><span class="s2">&quot;Maximum byte size of upload file for organization default&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;max&quot;</span>:<span class="w"> </span><span class="m">107374182400</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="o">{</span>
 <span class="w">      </span><span class="s2">&quot;id&quot;</span>:<span class="w"> </span><span class="s2">&quot;platform.roles&quot;</span>,
 <span class="w">      </span><span class="s2">&quot;informations&quot;</span>:<span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="s2">&quot;default&quot;</span>:<span class="w"> </span><span class="m">1000</span>,
@@ -495,7 +503,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">リソースプラン一覧が表示されますので、<span class="guilabel">作成</span> ボタンを押下して、新しいリソースプランを登録することができます。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/plan_list_0.png"><img alt="../../_images/plan_list_0.png" class="with-border-thin" src="../../_images/plan_list_0.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/plan_list_0_v1_9.png"><img alt="../../_images/plan_list_0_v1_9.png" class="with-border-thin" src="../../_images/plan_list_0_v1_9.png" style="width: 600px;" /></a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -511,7 +519,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </li>
 </ul>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/plan_create.png"><img alt="../../_images/plan_create.png" class="with-border-thin" src="../../_images/plan_create.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/plan_create_v1_9.png"><img alt="../../_images/plan_create_v1_9.png" class="with-border-thin" src="../../_images/plan_create_v1_9.png" style="width: 600px;" /></a>
 </figure>
 <table class="docutils align-left" id="id15">
 <caption><span class="caption-number">表 3.9 </span><span class="caption-text">項目説明</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
@@ -549,6 +557,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">オーガナイゼーションにおける、リソースの制限を指定します。</div>
 <div class="line">各項目の最大値、既定値は以下の通り</div>
 <div class="line">ita.organization.ansible.execution_limit:【最大:1000】【既定:25】</div>
+<div class="line">ita.organization.common.upload_file_size_limit:【最大:107374182400】【既定:104857600】</div>
 <div class="line">platform.roles:【最大:1000】【既定:1000】</div>
 <div class="line">platform.users:【最大:10000】【既定:10000】</div>
 <div class="line">platform.workspaces:【最大:1000】【既定:100】</div>
@@ -591,6 +600,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <span class="w">    </span><span class="o">}</span>,
 <span class="w">    </span><span class="s2">&quot;limits&quot;</span>:<span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="s2">&quot;ita.organization.ansible.execution_limit&quot;</span>:<span class="w"> </span><span class="m">25</span>,
+<span class="w">        </span><span class="s2">&quot;ita.organization.common.upload_file_size_limit&quot;</span>:<span class="w"> </span><span class="m">104857600</span>,
 <span class="w">        </span><span class="s2">&quot;platform.workspaces&quot;</span>:<span class="w"> </span><span class="m">500</span>,
 <span class="w">        </span><span class="s2">&quot;platform.users&quot;</span>:<span class="w"> </span><span class="m">1000</span>,
 <span class="w">        </span><span class="s2">&quot;platform.roles&quot;</span>:<span class="w"> </span><span class="m">500</span>
@@ -746,6 +756,13 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">ita.organization.ansible.execution_limitは、IT AutomationのAnsibleドライバのMovement同時実行数（オーガナイゼーション毎）の上限となります。</div>
 <div class="line">オーガナイゼーションごとの同時実行数上限は、設定した内容となりますが、Exastro システム全体での最大同時実行数があるため、システム設定値で設定されている値が同時実行数上限となります。</div>
 <div class="line">よって、システム全体の最大同時実行数を超えるMovement同時実行は、実行されず、実行待ちとなります。</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>ita.organization.common.upload_file_size_limitについて</p>
+<div class="line-block">
+<div class="line">ita.organization.common.upload_file_size_limitは、IT Automationにアップロード可能なファイルサイズの上限（byte）となります。</div>
 </div>
 </div>
 </section>

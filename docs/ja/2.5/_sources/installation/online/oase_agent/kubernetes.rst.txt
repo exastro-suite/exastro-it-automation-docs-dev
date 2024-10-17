@@ -319,7 +319,7 @@ OASE Agentのパラメータ設定例
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 エージェント で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_USERNAME: "admin"          
            -       EXASTRO_PASSWORD: "sample-password"
@@ -369,7 +369,7 @@ OASE Agentのパラメータ設定例
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 エージェント で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_USERNAME: "admin"          
            -       EXASTRO_PASSWORD: "sample-password"
@@ -392,7 +392,7 @@ OASE Agentのパラメータ設定例
            +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
            +       # ROLES: "_ws_admin"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 エージェント で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
            +     secret:
            +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
@@ -443,7 +443,7 @@ OASE Agentのパラメータ設定例
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 エージェント で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_USERNAME: "admin"          
            -       EXASTRO_PASSWORD: "sample-password"
@@ -511,7 +511,7 @@ OASE Agentのパラメータ設定例
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 エージェント で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_USERNAME: "admin"          
            -       EXASTRO_PASSWORD: "sample-password"
