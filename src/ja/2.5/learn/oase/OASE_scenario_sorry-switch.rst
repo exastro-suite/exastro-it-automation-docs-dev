@@ -61,13 +61,13 @@ Sorry画面への切り替え実施
 | イベント収集設定では、エージェントがどの外部サービスからイベントを収集するかを設定します。
 | 事前に用意したメールサーバの情報をもとに設定をしましょう。
 
-| :menuselection:`OASE管理 --> エージェント` から、外部サービスの情報を登録します。
+| :menuselection:`OASE管理 --> イベント収集` から、外部サービスの情報を登録します。
 
 | :guilabel:`登録` ボタンを押し、以下のエージェントの登録をしていきます。
 
 .. figure:: /images/learn/quickstart/oase/OASE_scenario_sorry-switch/OASE_scenario_sorry-switch_エージェント登録詳細画面.png
    :width: 1200px
-   :alt: エージェント登録画面
+   :alt: イベント収集登録画面
 
 .. list-table:: イベント収集設定値
    :widths: 15 10 10 10 10 10 10

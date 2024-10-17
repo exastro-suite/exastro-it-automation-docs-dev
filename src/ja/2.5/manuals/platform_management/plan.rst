@@ -1,3 +1,6 @@
+
+.. _plan:
+
 ==============
 リソースプラン
 ==============
@@ -167,6 +170,14 @@
                   }
                 },
                 {
+                  "id": "ita.organization.common.upload_file_size_limit",
+                  "informations": {
+                    "default": 104857600,
+                    "description": "Maximum byte size of upload file for organization default",
+                    "max": 107374182400
+                  }
+                },
+                {
                   "id": "platform.roles",
                   "informations": {
                     "default": 1000,
@@ -233,7 +244,7 @@
 
       | リソースプラン一覧が表示されますので、:guilabel:`作成` ボタンを押下して、新しいリソースプランを登録することができます。
 
-      .. figure:: /images/ja/manuals/platform/plan/plan_list_0.png
+      .. figure:: /images/ja/manuals/platform/plan/plan_list_0_v1_9.png
          :width: 600px
          :align: left
          :class: with-border-thin
@@ -244,7 +255,7 @@
               
           | 取得した toolsフォルダ配下にある、 `add-plan.sample.json` を コピーして使用してください。
 
-        .. figure:: /images/ja/manuals/platform/plan/plan_create.png
+        .. figure:: /images/ja/manuals/platform/plan/plan_create_v1_9.png
            :width: 600px
            :align: left
            :class: with-border-thin
@@ -267,6 +278,7 @@
              - | オーガナイゼーションにおける、リソースの制限を指定します。
                | 各項目の最大値、既定値は以下の通り
                | ita.organization.ansible.execution_limit:【最大:1000】【既定:25】 
+               | ita.organization.common.upload_file_size_limit:【最大:107374182400】【既定:104857600】 
                | platform.roles:【最大:1000】【既定:1000】 
                | platform.users:【最大:10000】【既定:10000】 
                | platform.workspaces:【最大:1000】【既定:100】 
@@ -301,6 +313,7 @@
                 },
                 "limits": {
                     "ita.organization.ansible.execution_limit": 25,
+                    "ita.organization.common.upload_file_size_limit": 104857600,
                     "platform.workspaces": 500,
                     "platform.users": 1000,
                     "platform.roles": 500
@@ -428,6 +441,10 @@
    | ita.organization.ansible.execution_limitは、IT AutomationのAnsibleドライバのMovement同時実行数（オーガナイゼーション毎）の上限となります。
    | オーガナイゼーションごとの同時実行数上限は、設定した内容となりますが、Exastro システム全体での最大同時実行数があるため、システム設定値で設定されている値が同時実行数上限となります。
    | よって、システム全体の最大同時実行数を超えるMovement同時実行は、実行されず、実行待ちとなります。
+
+.. note:: ita.organization.common.upload_file_size_limitについて
+ 
+   | ita.organization.common.upload_file_size_limitは、IT Automationにアップロード可能なファイルサイズの上限（byte）となります。
 
 .. .. todo:: システムの上限値の説明は、別途記載
 

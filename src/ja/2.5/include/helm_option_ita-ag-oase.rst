@@ -64,7 +64,7 @@
      - 必須
      - ws01
    * - ita-ag-oase.agents.extraEnv.EVENT_COLLECTION_SETTINGS_NAMES
-     - | Exastro IT Automation のOASE管理 エージェント で作成した イベント収集設定名
+     - | Exastro IT Automation のOASE管理 イベント収集 で作成した イベント収集設定名
        | カンマ区切りで複数指定可能
      - 必須
      - id0001
