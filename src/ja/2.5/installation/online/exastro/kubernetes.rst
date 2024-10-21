@@ -197,7 +197,7 @@ Helm リポジトリの登録
       - 設定例
 
         | サービス公開用のドメイン情報を Ingress に登録することでDNSを使ったサービス公開を行います。
-        | Azure におけるドメイン名の確認方法については :doc:`../../configuration/kubernetes/aks` を確認してください。
+        | Azure におけるドメイン名の確認方法については :doc:`../../../configuration/kubernetes/aks` を確認してください。
         | クラウドプロバイダ毎に必要な :kbd:`annotations` を指定してください。
         | 下記は、AKS の Ingress Controller を使用する際の例を記載しています。
 
