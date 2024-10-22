@@ -47,7 +47,7 @@
       
 #. | :menuselection:`新規通知先設定` 画面が表示されるので、通知先の情報を入力し、 :guilabel:`登録` をクリックします。
 
-   .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面.png
+   .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_v2-5.png
       :width: 600px
       :align: left
 
@@ -101,7 +101,7 @@
 #. | :menuselection:`通知先設定詳細` 画面が表示されます。
    | 詳細確認の他、編集、削除、通知テストが実施できます。
 
-   .. image:: /images/ja/manuals/platform/notification/通知先設定詳細画面.png
+   .. image:: /images/ja/manuals/platform/notification/通知先設定編集画面_v2-5.png
       :width: 600px
       :align: left
 

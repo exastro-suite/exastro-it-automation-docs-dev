@@ -372,9 +372,7 @@
 </tr>
 <tr class="row-odd"><td rowspan="5"><p>Exastro IT Automationオプション設定</p></td>
 <td colspan="2"><p>インストールドライバ</p></td>
-<td><p>インストールするドライバを指定します</p>
-<p>一度インストールしたドライバを削除することは不可能です。</p>
-</td>
+<td><p>インストールするドライバを指定します</p></td>
 </tr>
 <tr class="row-even"><td rowspan="4"></td>
 <td><p>CI/CD for IaC</p></td>
@@ -497,7 +495,6 @@
 <tr class="row-even"><td><p>optionsIta.drivers</p></td>
 <td><div class="line-block">
 <div class="line">対象のドライバについて、インストールする場合はtrue、インストールしない場合はfalseを指定。</div>
-<div class="line">ドライバのkeyを記載しない場合はデフォルトでtrueが設定されます。</div>
 <div class="line">Exastro OASEをインストールするためにはMongoDBが必要です。MongoDBがない（環境変数「MONGO_HOST」の記載が空である）場合は有効にできません。</div>
 </div>
 </td>
@@ -790,7 +787,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">オーガナイゼーション名を変更することができます。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/orgname_edit_v2-4.png"><img alt="../../_images/orgname_edit_v2-4.png" class="with-border-thin" src="../../_images/orgname_edit_v2-4.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/orgname_edit_v2-5.png"><img alt="../../_images/orgname_edit_v2-5.png" class="with-border-thin" src="../../_images/orgname_edit_v2-5.png" style="width: 600px;" /></a>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -800,12 +797,26 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">追加したいドライバにチェックを入れることで、インストールするドライバを追加することができます。</div>
-<div class="line">インストール済みのドライバを削除することはできません。</div>
+<div class="line">追加したいドライバをONにすることで、インストールするドライバを追加することができます。</div>
+<div class="line">削除したいドライバをOFFにすることで、アンインストールするドライバを追加することができます。</div>
+<div class="line">内容に間違いがなければ、 <span class="guilabel">登録</span> ボタンを押下します。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/org_edit_driver_v2-4.png"><img alt="../../_images/org_edit_driver_v2-4.png" class="with-border-thin" src="../../_images/org_edit_driver_v2-4.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/org_edit_driver_v2-5.png"><img alt="../../_images/org_edit_driver_v2-5.png" class="with-border-thin" src="../../_images/org_edit_driver_v2-5.png" style="width: 600px;" /></a>
 </figure>
+</li>
+<li><div class="line-block">
+<div class="line">ドライバをアンインストールする場合は、削除確認画面で <kbd class="kbd docutils literal notranslate">delete</kbd> を入力して、 <span class="guilabel">はい、削除します</span> ボタンを押下します。</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_ドライバ削除.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E5%89%8A%E9%99%A4.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E5%89%8A%E9%99%A4.png" style="width: 600px;" /></a>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">アンインストールするドライバに関連するデータはすべて削除されます。復活することはできませんので、削除する際は十分にお気を付けください。</div>
+</div>
+</div>
 </li>
 <li><div class="line-block">
 <div class="line"><span class="guilabel">リソースプラン設定</span> ボタンを押下して、オーガナイゼーションにリソースプランを紐づけることができます。</div>
@@ -820,14 +831,14 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">内容に間違いがなければ、 <span class="guilabel">登録</span> ボタンを押下します。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_登録_v2-4.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E7%99%BB%E9%8C%B2_v2-4.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E7%99%BB%E9%8C%B2_v2-4.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_登録_v2-5.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E7%99%BB%E9%8C%B2_v2-5.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E7%99%BB%E9%8C%B2_v2-5.png" style="width: 600px;" /></a>
 </figure>
 </li>
 <li><div class="line-block">
 <div class="line">紐づいているリソースプランが不要になった場合は、 <span class="guilabel">解除</span> ボタンを押下して、オーガナイゼーションとリソースプランの紐づけを解除することができます。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_リソースプラン解除_v2-4.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4_v2-4.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4_v2-4.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_リソースプラン解除_v2-5.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4_v2-5.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4_v2-5.png" style="width: 600px;" /></a>
 </figure>
 </li>
 <li><div class="line-block">
@@ -842,7 +853,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">内容に間違いがなければ、 <span class="guilabel">登録</span> ボタンを押下します。</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4%E7%99%BB%E9%8C%B2_v2-4.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4%E7%99%BB%E9%8C%B2_v2-4.png" style="width: 600px;" /></a>
+<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4%E7%99%BB%E9%8C%B2_v2-5.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%97%E3%83%A9%E3%83%B3%E8%A7%A3%E9%99%A4%E7%99%BB%E9%8C%B2_v2-5.png" style="width: 600px;" /></a>
 </figure>
 </li>
 </ol>
@@ -901,15 +912,14 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </tr>
 <tr class="row-even"><td><p>optionsIta.driver</p></td>
 <td><div class="line-block">
-<div class="line">インストールドライバを指定します。</div>
-<div class="line">ただし、削除は不可能になります。</div>
+<div class="line">インストール・アンインストールするドライバを指定します。※</div>
 </div>
 </td>
 <td><div class="line-block">
-<div class="line">falseからtureの変更可能になります。</div>
+<div class="line">可</div>
 </div>
 </td>
-<td><p><kbd class="kbd docutils literal notranslate">true</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">true</kbd> <kbd class="kbd docutils literal notranslate">or</kbd> <kbd class="kbd docutils literal notranslate">false</kbd></kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>optionsIta.services.document_store.name</p></td>
 <td><div class="line-block">
@@ -943,6 +953,12 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">アンインストールするドライバに関連するデータはすべて削除されます。復活することはできませんので、削除する際は十分にお気を付けください。</div>
+</div>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">BASE64_BASIC</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;システム管理者のユーザー名を設定してください:システム管理者のパスワードを設定してください&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
 <span class="nv">BASE_URL</span><span class="o">=</span>システム管理者用サイトアドレスを設定してください
 <span class="nv">ORG_ID</span><span class="o">=</span>取得するorganization<span class="w"> </span>idを設定してください
