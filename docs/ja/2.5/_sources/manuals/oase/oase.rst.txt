@@ -786,7 +786,7 @@ OASE メニュー
      - ー
      - リスト選択
      - ー
-   * - 作業前通知
+   * - 事前通知
      - 
      - ー
      - ファイル選択
@@ -797,7 +797,7 @@ OASE メニュー
      - ー
      - ー
      - ー
-   * - 作業前通知先
+   * - 事前通知先
      - 通知先を選択します。
      - ー
      - リスト選択
@@ -808,7 +808,7 @@ OASE メニュー
      - ー
      - リスト選択
      - ー
-   * - 作業後通知
+   * - 事後通知
      - 
      - ー
      - ファイル選択
@@ -819,7 +819,7 @@ OASE メニュー
      - ー
      - ー
      - ー
-   * - 作業後通知先
+   * - 事後通知先
      - 通知先を選択します。
      - ー
      - リスト選択
@@ -852,11 +852,7 @@ OASE メニュー
      - 手動入力
      - 最大長4000バイト
 
-.. note::
- | ※1 テンプレートに変数を使用することはできません。
- |     今後機能追加予定です。
- | 例：{{ labels._exastro_fetched_time }}  など
-
+| ※1 事前・事後通知に使用できるテンプレートに関しては、 :ref:`variables_available_templates` を参照してください。
 
 結論ラベルについては :guilabel:`結論ラベル設定` 欄をクリックすることで表示されるウインドウから設定できます。
 
@@ -1163,3 +1159,189 @@ OASE メニュー
   | xxxxxxxxxxxxxxxxxxxxxxxx,... yyyyyyyyyyyyyyyyyyyyyyyy
   | 1個
   | xxxxxxxxxxxxxxxxxxxxxxxx'
+
+
+
+.. _variables_available_templates:
+
+事前・事後通知のテンプレート
+---------------------------------
+
+| 事前・事後通知のテンプレートは下記の通りです。
+
+.. code-block:: none
+   :name: 事前通知のテンプレート
+   :caption: 事前通知のテンプレート
+   :lineno-start: 1
+
+   [TITLE]
+   事前通知
+
+   [BODY]
+   イベント
+   {%- for event in events -%}
+   {%- set i = loop.index %}
+       イベントの元データ #{{ i }}
+   {%- for  key, value in event._exastro_events.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor -%}
+   {%- endfor %}
+       結論イベントのラベル     ： {{ action_log.conclusion_event_labels }}
+       
+   ルール情報
+       マッチしたルールのID     ： {{ rule.rule_id }}
+       マッチしたルール名       ： {{ rule.rule_name }}
+       条件
+         フィルターA
+           フィルターID         ： {{ rule.filter_a }}
+           フィルター名         ： {{ rule.filter_a_name }}
+           フィルター条件       ： {{ rule.filter_a_condition_json }}
+         フィルター演算子        : {{ rule.filter_operator }}
+         フィルターB
+           フィルターID         ： {{ rule.filter_b }}
+           フィルター名         ： {{ rule.filter_b_name }}
+           フィルター条件       ： {{ rule.filter_b_condition_json }}
+       結論イベント
+         元イベントのラベル継承
+           アクション           ： {{ rule.action_label_inheritance_flag }}
+           イベント             ： {{ rule.event_label_inheritance_flag }}
+         結論ラベル設定         ： {{ rule.conclusion_label_settings }}
+       TTL                      ： {{ rule.ttl }}
+       備考                     ： {{ rule.note }}
+
+   アクション情報
+       アクションのID           ： {{ action.action_id }}
+       アクション名             ： {{ action.action_name }}
+       オペレーションのID       ： {{ action.operation_id }}
+       オペレーション名         ： {{ action.operation_name }}
+       実行するConductorのID    ： {{ action.conductor_class_id }}
+       実行するConductor名      ： {{ action.conductor_name }}
+       ホスト
+         イベント連携           ： {{ action.event_collaboration }}
+         指定                   ： {{ action.host_id }}
+       利用パラメーターシート   ： {{ action.parameter_sheet_id }}
+       備考                     ： {{ action.note }}
+
+
+.. code-block:: none
+   :name: 事後通知のテンプレート
+   :caption: 事後通知のテンプレート
+   :lineno-start: 1
+
+   [TITLE]
+   事後通知
+
+   [BODY]
+   イベント
+   {%- for event in events -%}
+   {%- set i = loop.index %}
+     イベント #{{ i }}
+       イベントのID           ： {{ event.labels._id }}
+       イベント収集設定ID     ： {{ event.labels._exastro_event_collection_settings_id }}
+       イベント収集設定名     ： {{ event.labels._exastro_event_collection_settings_name }}
+       イベント取得時間       ： {{ event.labels._exastro_fetched_time }}
+       イベントのラベル
+   {%- for key, value in event.labels.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor %}
+       イベントの元データ
+   {%- for  key, value in event._exastro_events.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor -%}
+   {%- endfor %}
+
+   マッチした結果
+     ステータス               ： {{ action_log.status }}
+     登録日時                 ： {{ action_log.time_register }}
+     実行したConductorのID    ： {{ action_log.conductor_instance_id }}
+     実行したConductor名      ： {{ action_log.conductor_instance_name }}
+     結論イベントのラベル     ： {{ action_log.conclusion_event_labels }}
+
+   ルール情報
+     マッチしたルールのID     ： {{ rule.rule_id }}
+     マッチしたルール名       ： {{ rule.rule_name }}
+     条件
+       フィルターA
+         フィルターID         ： {{ rule.filter_a }}
+         フィルター名         ： {{ rule.filter_a_name }}
+         フィルター条件       ： {{ rule.filter_a_condition_json }}
+       フィルター演算子        : {{ rule.filter_operator }}
+       フィルターB
+         フィルターID         ： {{ rule.filter_b }}
+         フィルター名         ： {{ rule.filter_b_name }}
+         フィルター条件       ： {{ rule.filter_b_condition_json }}    
+     結論イベント
+       元イベントのラベル継承
+         アクション           ： {{ rule.action_label_inheritance_flag }}
+         イベント             ： {{ rule.event_label_inheritance_flag }}
+       結論ラベル設定         ： {{ rule.conclusion_label_settings }}
+     TTL                      ： {{ rule.ttl }}
+     備考                     ： {{ rule.note }}
+
+   アクション情報
+     アクションのID           ： {{ action.action_id }}
+     アクション名             ： {{ action.action_name }}
+     オペレーションのID       ： {{ action.operation_id }}
+     オペレーション名         ： {{ action.operation_name }}
+     実行するConductorのID    ： {{ action.conductor_class_id }}
+     実行するConductor名      ： {{ action.conductor_name }}
+     ホスト
+       イベント連携           ： {{ action.event_collaboration }}
+       指定                   ： {{ action.host_id }}
+     利用パラメーターシート   ： {{ action.parameter_sheet_id }}
+     備考                     ： {{ action.note }}
+
+   Conductor情報
+     ステータス               ： {{ conductor.status }}
+     オペレーションID         ： {{ conductor.operation_id }}
+     オペレーション名         ： {{ conductor.operation_name }}
+     登録日時                 ： {{ conductor.time_register }}
+     予約日時                 ： {{ conductor.time_book }}
+     開始日時                 ： {{ conductor.time_start }}
+     終了日時                 ： {{ conductor.time_end }}
+     緊急停止フラグ           ： {{ conductor.abort_execute_flag }}
+     備考                     ： {{ conductor.note }}
+
+
+変数を使用した際の結果パターン
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| 結果にパターンのある変数に関しては以下の通りです。
+
+- | action_log.status
+  | 判定済み         → Rule matched
+  | 実行中           → Executing
+  | 完了             → Completed
+  | 完了（異常）     → Completed (abnormal)
+  | 完了確認待ち     → Waiting for completion confirmation
+  | 完了確認済み     → Completion confirmed
+  | 完了確認却下済み → Completion confirmation rejected
+  | 
+
+- | rule.action_label_inheritance_flag
+  | パラメータとして利用する   → Used as a parameter
+  | パラメータとして利用しない → Not use as a parameter
+  | 
+
+- | rule.event_label_inheritance_flag
+  | 結論イベントに継承する   → Inheriting Conclusion Events
+  | 結論イベントに継承しない → Not Inheriting Conclusion Events
+  | 
+
+- | conductor.status
+  | 未実行       → Unexecuted
+  | 未実行(予約) → Unexecuted (scheduled)
+  | 実行中       → Executing
+  | 実行中(遅延) → Executing (delayed)
+  | 一時停止     → Paused
+  | 正常終了     → Completed
+  | 異常終了     → Abend
+  | 警告終了     → Ended with warning
+  | 緊急停止     → Emergency stop
+  | 予約取消     → Cancelled reservation
+  | 想定外エラー → Unexpected error
+  | 
+
+- | conductor.note
+  | 発令済み → Issued
+  | 未発令   → not issued
