@@ -462,7 +462,7 @@
 </tr>
 <tr class="row-even"><td><p>未知イベント</p></td>
 <td><div class="line-block">
-<div class="line">フィルターに抽出されなかった（評価機能に検知されなかった）状態もしくは対象のことです。</div>
+<div class="line">フィルターに抽出されなかった（評価機能に検知されなかった）状態もしくは対象のことです。※</div>
 <div class="line">未知の事象であることから、今後の評価対象として検討する必要が考えられます。</div>
 </div>
 </td>
@@ -486,26 +486,68 @@
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">※  <span class="menuselection">OASE管理 ▶ イベント収集</span> での下記設定が間違っている場合は、未知イベントとして取り込まれます。</div>
+<div class="line">（&quot;_exastro_not_available&quot; をキーとしたラベルが付与されます。）</div>
+<div class="line">イベントRAWデータと見比べて型を確認し、 <span class="menuselection">OASE管理 ▶ イベント収集</span> での設定を見直してください。</div>
+<div class="line">下記設定に関しては、 <a class="reference internal" href="oase_management.html#oase-agent-respons-key-enevnt-id-key"><span class="std std-ref">レスポンスキーとイベントIDキー</span></a> を参照してください。</div>
+</div>
+<table class="docutils align-left" id="id39">
+<caption><span class="caption-number">表 3.77 </span><span class="caption-text">設定間違いに関して</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>設定箇所</p></th>
+<th class="head"><p>付与されるラベルの値</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>レスポンスキー</p></td>
+<td><p>RESPONSE_KEY not found</p></td>
+<td><p>イベントに存在しないキーを指定した場合にラベルが付与されます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>レスポンスリストフラグ</p></td>
+<td><div class="line-block">
+<div class="line">RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)</div>
+<div class="line">RESPONSE_LIST_FLAG is incorrect.(Not List Type)</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">実際の値がリストであるのに対して設定でFalseを選択した場合にラベルが付与されます。</div>
+<div class="line">実際の値がリストではないのに対して設定でTrueを選択した場合にラベルが付与されます。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>イベントIDキー</p></td>
+<td><p>EVENT_ID_KEY not found</p></td>
+<td><p>イベントの「レスポンスキー」に該当するデータに、存在しないキーを指定した場合にラベルが付与されます。</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id10">
 <h4>日時・範囲指定について<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h4>
 <div class="line-block">
 <div class="line"><span class="guilabel">範囲指定</span> を押下することで、表示する日時の範囲を指定することができます。</div>
 </div>
-<figure class="align-default" id="id39">
+<figure class="align-default" id="id40">
 <a class="reference internal image-reference" href="../../_images/event_flow_time.png"><img alt="範囲指定（イベントフロー）" src="../../_images/event_flow_time.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.77 </span><span class="caption-text">範囲指定（イベントフロー）</span><a class="headerlink" href="#id39" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.77 </span><span class="caption-text">範囲指定（イベントフロー）</span><a class="headerlink" href="#id40" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
 <div class="line"><span class="guilabel">〇時間</span> を押すことで、表示する時間を指定することができます。</div>
 <div class="line">デフォルトは1時間、指定できる範囲は最小5分間、最大5年間です。</div>
 </div>
-<figure class="align-default" id="id40">
+<figure class="align-default" id="id41">
 <a class="reference internal image-reference" href="../../_images/event_flow_time_select.png"><img alt="時間指定（イベントフロー）" src="../../_images/event_flow_time_select.png" style="width: 100px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.78 </span><span class="caption-text">時間指定（イベントフロー）</span><a class="headerlink" href="#id40" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.78 </span><span class="caption-text">時間指定（イベントフロー）</span><a class="headerlink" href="#id41" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -514,18 +556,18 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">フィルター</span>・<span class="menuselection">アクション</span>・<span class="menuselection">ルール</span> について、各メニューでも、イベントフロー内でもメンテナンス（閲覧/登録/更新/廃止）できます。ドラッグ&amp;ドロップも使用できます。</div>
 </div>
-<figure class="align-default" id="id41">
+<figure class="align-default" id="id42">
 <a class="reference internal image-reference" href="../../_images/event_flow_drag_drop_v2-4.gif"><img alt="ドラッグ&amp;ドロップで入力（イベントフロー）" src="../../_images/event_flow_drag_drop_v2-4.gif" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.79 </span><span class="caption-text">ドラッグ&amp;ドロップで入力（イベントフロー）</span><a class="headerlink" href="#id41" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.79 </span><span class="caption-text">ドラッグ&amp;ドロップで入力（イベントフロー）</span><a class="headerlink" href="#id42" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <section id="id12">
 <h5>フィルター<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h5>
-<figure class="align-default" id="id42">
+<figure class="align-default" id="id43">
 <a class="reference internal image-reference" href="../../_images/event_flow_filter_v2-4.png"><img alt="フィルター入力画面（イベントフロー）" src="../../_images/event_flow_filter_v2-4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.80 </span><span class="caption-text">フィルター入力画面（イベントフロー）</span><a class="headerlink" href="#id42" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.80 </span><span class="caption-text">フィルター入力画面（イベントフロー）</span><a class="headerlink" href="#id43" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -534,10 +576,10 @@
 </section>
 <section id="id13">
 <h5>アクション<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h5>
-<figure class="align-default" id="id43">
+<figure class="align-default" id="id44">
 <a class="reference internal image-reference" href="../../_images/event_flow_action_v2-4.png"><img alt="アクション入力画面（イベントフロー）" src="../../_images/event_flow_action_v2-4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.81 </span><span class="caption-text">アクション入力画面（イベントフロー）</span><a class="headerlink" href="#id43" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.81 </span><span class="caption-text">アクション入力画面（イベントフロー）</span><a class="headerlink" href="#id44" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -546,10 +588,10 @@
 </section>
 <section id="id14">
 <h5>ルール<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h5>
-<figure class="align-default" id="id44">
+<figure class="align-default" id="id45">
 <a class="reference internal image-reference" href="../../_images/event_flow_rule_v2-4.png"><img alt="ルール入力画面（イベントフロー）" src="../../_images/event_flow_rule_v2-4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.82 </span><span class="caption-text">ルール入力画面（イベントフロー）</span><a class="headerlink" href="#id44" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.82 </span><span class="caption-text">ルール入力画面（イベントフロー）</span><a class="headerlink" href="#id45" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -566,10 +608,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id45">
+<figure class="align-default" id="id46">
 <a class="reference internal image-reference" href="../../_images/event_history_menu.png"><img alt="サブメニュー画面（イベント履歴）" src="../../_images/event_history_menu.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.83 </span><span class="caption-text">サブメニュー画面（イベント履歴）</span><a class="headerlink" href="#id45" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.83 </span><span class="caption-text">サブメニュー画面（イベント履歴）</span><a class="headerlink" href="#id46" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -578,8 +620,8 @@
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id46">
-<caption><span class="caption-number">表 3.77 </span><span class="caption-text">イベント履歴画面 項目一覧</span><a class="headerlink" href="#id46" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id47">
+<caption><span class="caption-number">表 3.78 </span><span class="caption-text">イベント履歴画面 項目一覧</span><a class="headerlink" href="#id47" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -647,10 +689,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id47">
+<figure class="align-default" id="id48">
 <a class="reference internal image-reference" href="../../_images/label_creation_menu.png"><img alt="サブメニュー画面（ラベル作成）" src="../../_images/label_creation_menu.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.84 </span><span class="caption-text">サブメニュー画面（ラベル作成）</span><a class="headerlink" href="#id47" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.84 </span><span class="caption-text">サブメニュー画面（ラベル作成）</span><a class="headerlink" href="#id48" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -659,8 +701,8 @@
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id48">
-<caption><span class="caption-number">表 3.78 </span><span class="caption-text">ラベル作成画面 入力項目一覧</span><a class="headerlink" href="#id48" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id49">
+<caption><span class="caption-number">表 3.79 </span><span class="caption-text">ラベル作成画面 入力項目一覧</span><a class="headerlink" href="#id49" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 20.8%" />
 <col style="width: 41.7%" />
@@ -714,18 +756,18 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id49">
+<figure class="align-default" id="id50">
 <a class="reference internal image-reference" href="../../_images/labeling_menu.png"><img alt="サブメニュー画面（ラベル付与）" src="../../_images/labeling_menu.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.85 </span><span class="caption-text">サブメニュー画面（ラベル付与）</span><a class="headerlink" href="#id49" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.85 </span><span class="caption-text">サブメニュー画面（ラベル付与）</span><a class="headerlink" href="#id50" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
 <li><div class="line-block">
 <div class="line">ラベル付与画面の入力項目は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id50">
-<caption><span class="caption-number">表 3.79 </span><span class="caption-text">ラベル付与画面 入力項目一覧</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id51">
+<caption><span class="caption-number">表 3.80 </span><span class="caption-text">ラベル付与画面 入力項目一覧</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 7.7%" />
 <col style="width: 7.7%" />
@@ -847,8 +889,8 @@
 <div class="line-block">
 <div class="line">※1 ラベル付与における各ユースケースについて、必須項目は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id51">
-<caption><span class="caption-number">表 3.80 </span><span class="caption-text">ラベル付与におけるユースケースについて</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id52">
+<caption><span class="caption-number">表 3.81 </span><span class="caption-text">ラベル付与におけるユースケースについて</span><a class="headerlink" href="#id52" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 47.4%" />
 <col style="width: 5.3%" />
@@ -935,8 +977,8 @@
 <div class="line-block">
 <div class="line">※2 値の各データ型の説明は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id52">
-<caption><span class="caption-number">表 3.81 </span><span class="caption-text">ラベル付与における値のデータ型について</span><a class="headerlink" href="#id52" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id53">
+<caption><span class="caption-number">表 3.82 </span><span class="caption-text">ラベル付与における値のデータ型について</span><a class="headerlink" href="#id53" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 33.3%" />
@@ -1026,8 +1068,8 @@
 <div class="line-block">
 <div class="line">※3 ラベル付与における正規表現に関しては、以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id53">
-<caption><span class="caption-number">表 3.82 </span><span class="caption-text">ラベル付与における正規表現の種類について</span><a class="headerlink" href="#id53" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id54">
+<caption><span class="caption-number">表 3.83 </span><span class="caption-text">ラベル付与における正規表現の種類について</span><a class="headerlink" href="#id54" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 75.0%" />
@@ -1063,10 +1105,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id54">
+<figure class="align-default" id="id55">
 <a class="reference internal image-reference" href="../../_images/filter_create_menu_v2-4.png"><img alt="サブメニュー画面（フィルター）" src="../../_images/filter_create_menu_v2-4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.86 </span><span class="caption-text">サブメニュー画面（フィルター）</span><a class="headerlink" href="#id54" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.86 </span><span class="caption-text">サブメニュー画面（フィルター）</span><a class="headerlink" href="#id55" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1135,10 +1177,10 @@
 </tbody>
 </table>
 <p>フィルターの条件については <span class="guilabel">フィルター条件</span> 欄をクリックすることで表示されるウインドウから設定できます。</p>
-<figure class="align-default" id="id55">
+<figure class="align-default" id="id56">
 <a class="reference internal image-reference" href="../../_images/filter_condition_v2-4.png"><img alt="フィルター条件設定" src="../../_images/filter_condition_v2-4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.87 </span><span class="caption-text">フィルター条件設定</span><a class="headerlink" href="#id55" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.87 </span><span class="caption-text">フィルター条件設定</span><a class="headerlink" href="#id56" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="3">
@@ -1201,10 +1243,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id56">
+<figure class="align-default" id="id57">
 <a class="reference internal image-reference" href="../../_images/action_create_menu_v2-4.png"><img alt="サブメニュー画面（アクション）" src="../../_images/action_create_menu_v2-4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.88 </span><span class="caption-text">サブメニュー画面（アクション）</span><a class="headerlink" href="#id56" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.88 </span><span class="caption-text">サブメニュー画面（アクション）</span><a class="headerlink" href="#id57" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1307,10 +1349,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id57">
+<figure class="align-default" id="id58">
 <a class="reference internal image-reference" href="../../_images/rule_create_menu.png"><img alt="サブメニュー画面（ルール）" src="../../_images/rule_create_menu.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.89 </span><span class="caption-text">サブメニュー画面（ルール）</span><a class="headerlink" href="#id57" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.89 </span><span class="caption-text">サブメニュー画面（ルール）</span><a class="headerlink" href="#id58" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1507,10 +1549,10 @@
 <div class="line">※1 事前・事後通知に使用できるテンプレートに関しては、 <a class="reference internal" href="#variables-available-templates"><span class="std std-ref">事前・事後通知のテンプレート</span></a> を参照してください。</div>
 </div>
 <p>結論ラベルについては <span class="guilabel">結論ラベル設定</span> 欄をクリックすることで表示されるウインドウから設定できます。</p>
-<figure class="align-default" id="id58">
+<figure class="align-default" id="id59">
 <a class="reference internal image-reference" href="../../_images/conclusion_label_settings_v2-4.png"><img alt="結論ラベル設定" src="../../_images/conclusion_label_settings_v2-4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.90 </span><span class="caption-text">結論ラベル設定</span><a class="headerlink" href="#id58" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.90 </span><span class="caption-text">結論ラベル設定</span><a class="headerlink" href="#id59" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="3">
@@ -1563,10 +1605,10 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id59">
+<figure class="align-default" id="id60">
 <a class="reference internal image-reference" href="../../_images/evaluation_results_menu.png"><img alt="サブメニュー画面（評価結果）" src="../../_images/evaluation_results_menu.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.91 </span><span class="caption-text">サブメニュー画面（評価結果）</span><a class="headerlink" href="#id59" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.91 </span><span class="caption-text">サブメニュー画面（評価結果）</span><a class="headerlink" href="#id60" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1725,10 +1767,10 @@
 <div class="line-block">
 <div class="line">ラベル付与での設定例は以下の通りです。</div>
 </div>
-<figure class="align-default" id="id60">
+<figure class="align-default" id="id61">
 <a class="reference internal image-reference" href="../../_images/labeling_sample.png"><img alt="ラベル付与での記入例（ラベル付与）" src="../../_images/labeling_sample.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.92 </span><span class="caption-text">ラベル付与での記入例（ラベル付与）</span><a class="headerlink" href="#id60" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.92 </span><span class="caption-text">ラベル付与での記入例（ラベル付与）</span><a class="headerlink" href="#id61" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1737,8 +1779,8 @@
 <div class="line-block">
 <div class="line">正規表現を使用したラベル付与での使用例は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id61">
-<caption><span class="caption-number">表 3.83 </span><span class="caption-text">正規表現のオプションの有無の例</span><a class="headerlink" href="#id61" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id62">
+<caption><span class="caption-number">表 3.84 </span><span class="caption-text">正規表現のオプションの有無の例</span><a class="headerlink" href="#id62" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 18.2%" />
@@ -1793,10 +1835,10 @@
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id62">
+<figure class="align-default" id="id63">
 <a class="reference internal image-reference" href="../../_images/labeling_regexp.png"><img alt="正規表現を使用する場合の設定" src="../../_images/labeling_regexp.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3.93 </span><span class="caption-text">正規表現を使用する場合の設定</span><a class="headerlink" href="#id62" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.93 </span><span class="caption-text">正規表現を使用する場合の設定</span><a class="headerlink" href="#id63" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1845,8 +1887,8 @@
 <div class="line-block">
 <div class="line">検索方法に関しては以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id63">
-<caption><span class="caption-number">表 3.84 </span><span class="caption-text">イベント履歴画面 検索方法一覧</span><a class="headerlink" href="#id63" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-left" id="id64">
+<caption><span class="caption-number">表 3.85 </span><span class="caption-text">イベント履歴画面 検索方法一覧</span><a class="headerlink" href="#id64" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 22.2%" />
