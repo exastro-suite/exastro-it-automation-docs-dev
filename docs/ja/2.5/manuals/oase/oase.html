@@ -490,40 +490,40 @@
 <div class="line">※  <span class="menuselection">OASE管理 ▶ イベント収集</span> での下記設定が間違っている場合は、未知イベントとして取り込まれます。</div>
 <div class="line">（&quot;_exastro_not_available&quot; をキーとしたラベルが付与されます。）</div>
 <div class="line">イベントRAWデータと見比べて型を確認し、 <span class="menuselection">OASE管理 ▶ イベント収集</span> での設定を見直してください。</div>
-<div class="line">下記設定に関しては、 <a class="reference internal" href="oase_management.html#oase-agent-respons-key-enevnt-id-key"><span class="std std-ref">レスポンスキーとイベントIDキー</span></a> を参照してください。</div>
+<div class="line">レスポンスキーとイベントIDキー に関しては、 <a class="reference internal" href="oase_management.html#oase-agent-respons-key-enevnt-id-key"><span class="std std-ref">こちら</span></a> を参照してください。</div>
 </div>
 <table class="docutils align-left" id="id39">
-<caption><span class="caption-number">表 3.77 </span><span class="caption-text">設定間違いに関して</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 3.77 </span><span class="caption-text">設定間違い（_exastro_not_available）の見方</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 20.0%" />
 <col style="width: 30.0%" />
+<col style="width: 20.0%" />
 <col style="width: 50.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>設定箇所</p></th>
-<th class="head"><p>付与されるラベルの値</p></th>
+<tr class="row-odd"><th class="head"><p>付与されるラベルの値</p></th>
+<th class="head"><p>修正する設定箇所</p></th>
 <th class="head"><p>説明</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>レスポンスキー</p></td>
-<td><p>RESPONSE_KEY not found</p></td>
+<tr class="row-even"><td><p>RESPONSE_KEY not found</p></td>
+<td><p>レスポンスキー</p></td>
 <td><p>イベントに存在しないキーを指定した場合にラベルが付与されます。</p></td>
 </tr>
-<tr class="row-odd"><td><p>レスポンスリストフラグ</p></td>
-<td><div class="line-block">
+<tr class="row-odd"><td><div class="line-block">
 <div class="line">RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)</div>
 <div class="line">RESPONSE_LIST_FLAG is incorrect.(Not List Type)</div>
 </div>
 </td>
+<td><p>レスポンスリストフラグ</p></td>
 <td><div class="line-block">
 <div class="line">実際の値がリストであるのに対して設定でFalseを選択した場合にラベルが付与されます。</div>
 <div class="line">実際の値がリストではないのに対して設定でTrueを選択した場合にラベルが付与されます。</div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>イベントIDキー</p></td>
-<td><p>EVENT_ID_KEY not found</p></td>
+<tr class="row-even"><td><p>EVENT_ID_KEY not found</p></td>
+<td><p>イベントIDキー</p></td>
 <td><p>イベントの「レスポンスキー」に該当するデータに、存在しないキーを指定した場合にラベルが付与されます。</p></td>
 </tr>
 </tbody>

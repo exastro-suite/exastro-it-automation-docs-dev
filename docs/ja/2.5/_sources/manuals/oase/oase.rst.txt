@@ -172,26 +172,26 @@ OASE メニュー
 | ※  :menuselection:`OASE管理 --> イベント収集` での下記設定が間違っている場合は、未知イベントとして取り込まれます。
 | （"_exastro_not_available" をキーとしたラベルが付与されます。）
 | イベントRAWデータと見比べて型を確認し、 :menuselection:`OASE管理 --> イベント収集` での設定を見直してください。
-| 下記設定に関しては、 :ref:`oase_agent_respons_key_enevnt_id_key` を参照してください。
+| レスポンスキーとイベントIDキー に関しては、 :ref:`こちら<oase_agent_respons_key_enevnt_id_key>` を参照してください。
 
-.. list-table:: 設定間違いに関して
- :widths: 2 3 5
+.. list-table:: 設定間違い（_exastro_not_available）の見方
+ :widths: 3 2 5
  :header-rows: 1
  :align: left
 
- * - 設定箇所
-   - 付与されるラベルの値
+ * - 付与されるラベルの値
+   - 修正する設定箇所
    - 説明
- * - レスポンスキー
-   - RESPONSE_KEY not found
+ * - RESPONSE_KEY not found
+   - レスポンスキー
    - イベントに存在しないキーを指定した場合にラベルが付与されます。
- * - レスポンスリストフラグ
-   - | RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)
+ * - | RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)
      | RESPONSE_LIST_FLAG is incorrect.(Not List Type)
+   - レスポンスリストフラグ
    - | 実際の値がリストであるのに対して設定でFalseを選択した場合にラベルが付与されます。
      | 実際の値がリストではないのに対して設定でTrueを選択した場合にラベルが付与されます。
- * - イベントIDキー
-   - EVENT_ID_KEY not found
+ * - EVENT_ID_KEY not found
+   - イベントIDキー
    - イベントの「レスポンスキー」に該当するデータに、存在しないキーを指定した場合にラベルが付与されます。
 
 
