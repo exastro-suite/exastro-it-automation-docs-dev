@@ -159,9 +159,9 @@ Helm リポジトリの登録
            # ROLES: "_ws_admin"
            EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
          secret:
-           EXASTRO_USERNAME: "admin"
-           EXASTRO_PASSWORD: "sample-password"
-           # USER_ID: "user01"
+           EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           # EXASTRO_USERNAME: "admin"
+           # EXASTRO_PASSWORD: "sample-password"
          resources: {}
            # requests:
            #   memory: "64Mi"
@@ -271,6 +271,8 @@ OASE Agentの設定
 
 .. include:: ../../../include/helm_option_ita-ag-oase.rst
 
+| ※リフレッシュトークンの取得に関しては :ref:`exastro_refresh_token` を参照してください。
+
 OASE Agentのパラメータ設定例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -321,8 +323,10 @@ OASE Agentのパラメータ設定例
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
-           -       EXASTRO_USERNAME: "admin"          
-           -       EXASTRO_PASSWORD: "sample-password"
+           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           +       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"                           # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_USERNAME: "admin"          
+           +       EXASTRO_PASSWORD: "sample-password"
            +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
 
@@ -371,8 +375,10 @@ OASE Agentのパラメータ設定例
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
-           -       EXASTRO_USERNAME: "admin"          
-           -       EXASTRO_PASSWORD: "sample-password"
+           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           +       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"                           # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_USERNAME: "admin"          
+           +       EXASTRO_PASSWORD: "sample-password"
            +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
            +   - image:
@@ -394,6 +400,7 @@ OASE Agentのパラメータ設定例
            +       # ROLES: "_ws_admin"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
            +     secret:
+           +       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"                           # Exastro システム管理画面から取得したリフレッシュトークン
            +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
 
@@ -445,8 +452,10 @@ OASE Agentのパラメータ設定例
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
-           -       EXASTRO_USERNAME: "admin"          
-           -       EXASTRO_PASSWORD: "sample-password"
+           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           +       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"                           # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_USERNAME: "admin"          
+           +       EXASTRO_PASSWORD: "sample-password"
            +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
 
@@ -513,8 +522,10 @@ OASE Agentのパラメータ設定例
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
-           -       EXASTRO_USERNAME: "admin"          
-           -       EXASTRO_PASSWORD: "sample-password"
+           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           +       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"                           # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_USERNAME: "admin"          
+           +       EXASTRO_PASSWORD: "sample-password"
            +       EXASTRO_USERNAME: "your-ita-user-name"                                     # Exastro IT Automation で作成した ユーザー名
            +       EXASTRO_PASSWORD: "your-ita-user-password"                                 # Exastro IT Automation で作成した パスワード
 
