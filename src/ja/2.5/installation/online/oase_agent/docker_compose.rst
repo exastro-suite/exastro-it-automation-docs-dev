@@ -221,14 +221,21 @@ OASE Agent on Docker Compose - Online
    - Exastro IT Automation で作成した WorkspaceID
    - 必須
    - 無し
+ * - EXASTRO_REFRESH_TOKEN
+   - | Exastro システム管理画面から取得したリフレッシュトークン※
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+   - 可
+   - 無し
  * - EXASTRO_USERNAME
-   - Exastro IT Automation で作成した ユーザー名
-
-     ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+   - | Exastro IT Automation で作成した ユーザー名
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
    - 可
    - admin
  * - EXASTRO_PASSWORD
-   - Exastro IT Automation で作成した パスワード
+   - | Exastro IT Automation で作成した パスワード
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
    - 可
    - Ch@ngeMe
  * - EVENT_COLLECTION_SETTINGS_NAMES
@@ -238,7 +245,7 @@ OASE Agent on Docker Compose - Online
  * - ITERATION
    - OASE エージェント が設定を初期化するまでの、処理の繰り返し数
    - 可
-   - 10（下限値: 10）
+   - 10（上限値: 120、下限値: 10）
  * - EXECUTE_INTERVAL
    - OASE エージェント のデータ収集処理の実行間隔
    - 可
@@ -248,6 +255,7 @@ OASE Agent on Docker Compose - Online
    - 可
    - INFO
 
+| ※リフレッシュトークンの取得に関しては :ref:`exastro_refresh_token` を参照してください。
 
 アップグレード
 ==============

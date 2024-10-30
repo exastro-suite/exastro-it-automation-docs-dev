@@ -36,7 +36,7 @@
      - 可
      - en
    * - ita-ag-oase.agents.extraEnv.ITERATION
-     - OASE エージェント が設定を初期化するまでの、処理の繰り返し数（下限値: 10）
+     - OASE エージェント が設定を初期化するまでの、処理の繰り返し数（上限値: 120、下限値: 10）
      - 可
      - 500
    * - ita-ag-oase.agents.extraEnv.EXECUTE_INTERVAL
@@ -68,12 +68,21 @@
        | カンマ区切りで複数指定可能
      - 必須
      - id0001
+   * - ita-ag-oase.agents.secret.EXASTRO_REFRESH_TOKEN
+     - | Exastro システム管理画面から取得したリフレッシュトークン※
+       | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     - 可
+     - 無し
    * - ita-ag-oase.agents.secret.EXASTRO_USERNAME
-     - Exastro IT Automation で作成した ユーザー名
+     - | Exastro IT Automation で作成した ユーザー名
+       | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+       | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
      - 可
      - admin
    * - ita-ag-oase.agents.secret.EXASTRO_PASSWORD
-     - Exastro IT Automation で作成した パスワード
+     - | Exastro IT Automation で作成した パスワード
+       | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+       | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
      - 可
      - sample-password
    * - ita-ag-oase.agents.resources.requests.memory

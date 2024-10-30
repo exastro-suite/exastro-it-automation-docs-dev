@@ -469,13 +469,19 @@ OASE Agentの処理フローと.envの設定値
  * - EXASTRO_ORGANIZATION_ID
    - ITAに対してAPIリクエストをする際に、Organizationを識別するために使用されます。
  * - EXASTRO_WORKSPACE_ID
-   - ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。
-
-     EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。
+   - | ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。
+     | EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。
+ * - EXASTRO_REFRESH_TOKEN
+   - | ITAに対してAPIリクエストをする際に、Bearer認証の認証トークンとして使用されます。
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
  * - EXASTRO_USERNAME
-   - ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。
+   - | ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
  * - EXASTRO_PASSWORD
-   - ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。
+   - | ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
  * - EVENT_COLLECTION_SETTINGS_NAMES
    - このパラメータで設定されている値から、イベント収集設定をITAから取得し、設定ファイルを生成します。
  * - ITERATION
