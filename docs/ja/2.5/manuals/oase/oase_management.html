@@ -870,23 +870,42 @@
 <td><p>ITAに対してAPIリクエストをする際に、Organizationを識別するために使用されます。</p></td>
 </tr>
 <tr class="row-odd"><td><p>EXASTRO_WORKSPACE_ID</p></td>
-<td><p>ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。</p>
-<p>EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。</p>
+<td><div class="line-block">
+<div class="line">ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。</div>
+<div class="line">EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。</div>
+</div>
 </td>
 </tr>
-<tr class="row-even"><td><p>EXASTRO_USERNAME</p></td>
-<td><p>ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。</p></td>
+<tr class="row-even"><td><p>EXASTRO_REFRESH_TOKEN</p></td>
+<td><div class="line-block">
+<div class="line">ITAに対してAPIリクエストをする際に、Bearer認証の認証トークンとして使用されます。</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td><p>EXASTRO_PASSWORD</p></td>
-<td><p>ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。</p></td>
+<tr class="row-odd"><td><p>EXASTRO_USERNAME</p></td>
+<td><div class="line-block">
+<div class="line">ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 </tr>
-<tr class="row-even"><td><p>EVENT_COLLECTION_SETTINGS_NAMES</p></td>
+<tr class="row-even"><td><p>EXASTRO_PASSWORD</p></td>
+<td><div class="line-block">
+<div class="line">ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EVENT_COLLECTION_SETTINGS_NAMES</p></td>
 <td><p>このパラメータで設定されている値から、イベント収集設定をITAから取得し、設定ファイルを生成します。</p></td>
 </tr>
-<tr class="row-odd"><td><p>ITERATION</p></td>
+<tr class="row-even"><td><p>ITERATION</p></td>
 <td><p>上記フロー図にて緑色の矢印で示されているループ処理を、このパラメータで設定している数だけ行います。</p></td>
 </tr>
-<tr class="row-even"><td><p>EXECUTE_INTERVAL</p></td>
+<tr class="row-odd"><td><p>EXECUTE_INTERVAL</p></td>
 <td><p>上記フロー図にて緑色の矢印で示されているループ処理の実行間隔です。</p></td>
 </tr>
 </tbody>

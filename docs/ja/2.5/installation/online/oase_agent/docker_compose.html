@@ -492,40 +492,60 @@ $(window).on('load', function () {
 <td><p>必須</p></td>
 <td><p>無し</p></td>
 </tr>
-<tr class="row-odd"><td><p>EXASTRO_USERNAME</p></td>
-<td><p>Exastro IT Automation で作成した ユーザー名</p>
-<p>※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</p>
+<tr class="row-odd"><td><p>EXASTRO_REFRESH_TOKEN</p></td>
+<td><div class="line-block">
+<div class="line">Exastro システム管理画面から取得したリフレッシュトークン※</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+</div>
+</td>
+<td><p>可</p></td>
+<td><p>無し</p></td>
+</tr>
+<tr class="row-even"><td><p>EXASTRO_USERNAME</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した ユーザー名</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
 </td>
 <td><p>可</p></td>
 <td><p>admin</p></td>
 </tr>
-<tr class="row-even"><td><p>EXASTRO_PASSWORD</p></td>
-<td><p>Exastro IT Automation で作成した パスワード</p></td>
+<tr class="row-odd"><td><p>EXASTRO_PASSWORD</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した パスワード</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 <td><p>可</p></td>
 <td><p><a class="reference external" href="mailto:Ch&#37;&#52;&#48;ngeMe">Ch<span>&#64;</span>ngeMe</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>EVENT_COLLECTION_SETTINGS_NAMES</p></td>
+<tr class="row-even"><td><p>EVENT_COLLECTION_SETTINGS_NAMES</p></td>
 <td><p>Exastro IT Automation のOASE管理 イベント収集 で作成した イベント収集設定名</p></td>
 <td><p>必須</p></td>
 <td><p>無し※カンマ区切りで複数指定可能</p></td>
 </tr>
-<tr class="row-even"><td><p>ITERATION</p></td>
+<tr class="row-odd"><td><p>ITERATION</p></td>
 <td><p>OASE エージェント が設定を初期化するまでの、処理の繰り返し数</p></td>
 <td><p>可</p></td>
-<td><p>10（下限値: 10）</p></td>
+<td><p>10（上限値: 120、下限値: 10）</p></td>
 </tr>
-<tr class="row-odd"><td><p>EXECUTE_INTERVAL</p></td>
+<tr class="row-even"><td><p>EXECUTE_INTERVAL</p></td>
 <td><p>OASE エージェント のデータ収集処理の実行間隔</p></td>
 <td><p>可</p></td>
 <td><p>5（下限値: 3）</p></td>
 </tr>
-<tr class="row-even"><td><p>LOG_LEVEL</p></td>
+<tr class="row-odd"><td><p>LOG_LEVEL</p></td>
 <td><p>OASE エージェント のログレベル</p></td>
 <td><p>可</p></td>
 <td><p>INFO</p></td>
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">※リフレッシュトークンの取得に関しては <a class="reference internal" href="../../../manuals/platform_management/general.html#exastro-refresh-token"><span class="std std-ref">トークン発行</span></a> を参照してください。</div>
+</div>
 </section>
 <section id="id8">
 <h2>アップグレード<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>

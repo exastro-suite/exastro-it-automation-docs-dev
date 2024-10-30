@@ -417,9 +417,9 @@ $(window).on('load', function () {
 <span class="linenos"> 31</span><span class="w">        </span><span class="c1"># ROLES: &quot;_ws_admin&quot;</span>
 <span class="linenos"> 32</span><span class="w">        </span><span class="nt">EVENT_COLLECTION_SETTINGS_NAMES</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;id0001&quot;</span>
 <span class="linenos"> 33</span><span class="w">      </span><span class="nt">secret</span><span class="p">:</span>
-<span class="linenos"> 34</span><span class="w">        </span><span class="nt">EXASTRO_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin&quot;</span>
-<span class="linenos"> 35</span><span class="w">        </span><span class="nt">EXASTRO_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample-password&quot;</span>
-<span class="linenos"> 36</span><span class="w">        </span><span class="c1"># USER_ID: &quot;user01&quot;</span>
+<span class="linenos"> 34</span><span class="w">        </span><span class="nt">EXASTRO_REFRESH_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;exastro_refresh_token&quot;</span>
+<span class="linenos"> 35</span><span class="w">        </span><span class="c1"># EXASTRO_USERNAME: &quot;admin&quot;</span>
+<span class="linenos"> 36</span><span class="w">        </span><span class="c1"># EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
 <span class="linenos"> 37</span><span class="w">      </span><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 <span class="linenos"> 38</span><span class="w">        </span><span class="c1"># requests:</span>
 <span class="linenos"> 39</span><span class="w">        </span><span class="c1">#   memory: &quot;64Mi&quot;</span>
@@ -578,7 +578,7 @@ $(window).on('load', function () {
 <td><p>en</p></td>
 </tr>
 <tr class="row-even"><td><p>ita-ag-oase.agents.extraEnv.ITERATION</p></td>
-<td><p>OASE エージェント が設定を初期化するまでの、処理の繰り返し数（下限値: 10）</p></td>
+<td><p>OASE エージェント が設定を初期化するまでの、処理の繰り返し数（上限値: 120、下限値: 10）</p></td>
 <td><p>可</p></td>
 <td><p>500</p></td>
 </tr>
@@ -621,37 +621,56 @@ $(window).on('load', function () {
 <td><p>必須</p></td>
 <td><p>id0001</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_USERNAME</p></td>
-<td><p>Exastro IT Automation で作成した ユーザー名</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_REFRESH_TOKEN</p></td>
+<td><div class="line-block">
+<div class="line">Exastro システム管理画面から取得したリフレッシュトークン※</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+</div>
+</td>
+<td><p>可</p></td>
+<td><p>無し</p></td>
+</tr>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.secret.EXASTRO_USERNAME</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した ユーザー名</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 <td><p>可</p></td>
 <td><p>admin</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.secret.EXASTRO_PASSWORD</p></td>
-<td><p>Exastro IT Automation で作成した パスワード</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_PASSWORD</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した パスワード</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 <td><p>可</p></td>
 <td><p>sample-password</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.resources.requests.memory</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.requests.memory</p></td>
 <td><p>メモリ要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;64Mi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.requests.cpu</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.resources.requests.cpu</p></td>
 <td><p>CPU要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;250m&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.resources.limits.memory</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.limits.memory</p></td>
 <td><p>メモリ上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;64Mi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.limits.cpu</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.resources.limits.cpu</p></td>
 <td><p>CPU上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;250m&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.nameOverride</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.nameOverride</p></td>
 <td><div class="line-block">
 <div class="line">Exastro OASE Agent の定義名</div>
 <div class="line">※同一クラスタ内に複数エージェントを構築する際は必須</div>
@@ -660,7 +679,7 @@ $(window).on('load', function () {
 <td><p>可</p></td>
 <td><p>&quot;&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.enabled</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.enabled</p></td>
 <td><p>OASE エージェントコンテナのデプロイの有無</p></td>
 <td><p>可</p></td>
 <td><div class="line-block">
@@ -669,7 +688,7 @@ $(window).on('load', function () {
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.reinstall</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.reinstall</p></td>
 <td><p>再インストール時にデータ領域の初期化の要否</p></td>
 <td><p>不可</p></td>
 <td><div class="line-block">
@@ -678,17 +697,17 @@ $(window).on('load', function () {
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.accessMode</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.accessMode</p></td>
 <td><p>永続ボリュームのアクセスモードの指定。</p></td>
 <td><p>不可</p></td>
 <td><p>&quot;ReadWriteMany&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.size</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.size</p></td>
 <td><p>永続ボリュームのディスク容量</p></td>
 <td><p>可 (データ永続化時)</p></td>
 <td><p>&quot;10Gi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.volumeType</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.volumeType</p></td>
 <td><p>永続ボリュームのボリュームタイプ</p></td>
 <td><p>可 (現在無効)</p></td>
 <td><div class="line-block">
@@ -697,7 +716,7 @@ $(window).on('load', function () {
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.storageClass</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.storageClass</p></td>
 <td><p>永続ボリュームにストレージクラスを利用する場合のクラスを指定</p></td>
 <td><p>可 (データ永続化時)</p></td>
 <td><div class="line-block">
@@ -706,13 +725,16 @@ $(window).on('load', function () {
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.mariadb.persistence.matchLabels.name</p></td>
+<tr class="row-even"><td><p>exastro-platform.mariadb.persistence.matchLabels.name</p></td>
 <td><p>利用する永続ボリューム名を指定</p></td>
 <td><p>可(データ永続化時)</p></td>
 <td><p>&quot;&quot;</p></td>
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">※リフレッシュトークンの取得に関しては <a class="reference internal" href="../../../manuals/platform_management/general.html#exastro-refresh-token"><span class="std std-ref">トークン発行</span></a> を参照してください。</div>
+</div>
 </section>
 <section id="id7">
 <h4>OASE Agentのパラメータ設定例<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h4>
@@ -761,10 +783,12 @@ $(window).on('load', function () {
 <span class="linenos">35</span><span class="gd">-       EVENT_COLLECTION_SETTINGS_NAMES: &quot;id0001&quot;</span>
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
-<span class="linenos">38</span><span class="gd">-       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">39</span><span class="gd">-       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
+<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
+<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
+<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
 </pre></div>
 </div>
 </div>
@@ -813,31 +837,34 @@ $(window).on('load', function () {
 <span class="linenos">36</span><span class="gd">-       EVENT_COLLECTION_SETTINGS_NAMES: &quot;id0001&quot;</span>
 <span class="linenos">37</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-1&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">38</span><span class="w"> </span>     secret:
-<span class="linenos">39</span><span class="gd">-       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">40</span><span class="gd">-       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">42</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
-<span class="linenos">43</span><span class="gi">+   - image:</span>
-<span class="linenos">44</span><span class="gi">+       repository: &quot;&quot;</span>
-<span class="linenos">45</span><span class="gi">+       # Overrides the image tag whose default is the chart appVersion.</span>
-<span class="linenos">46</span><span class="gi">+       tag: &quot;alpha.4ccca4.20240124-110529&quot;</span>
-<span class="linenos">47</span><span class="gi">+       pullPolicy: IfNotPresent</span>
-<span class="linenos">48</span><span class="gi">+     extraEnv:</span>
-<span class="linenos">49</span><span class="gi">+       TZ: Asia/Tokyo</span>
-<span class="linenos">50</span><span class="gi">+       DEFAULT_LANGUAGE: ja</span>
-<span class="linenos">51</span><span class="gi">+       LANGUAGE: &quot;en&quot;</span>
-<span class="linenos">52</span><span class="gi">+       ITERATION: &quot;500&quot;</span>
-<span class="linenos">53</span><span class="gi">+       EXECUTE_INTERVAL: &quot;10&quot;</span>
-<span class="linenos">54</span><span class="gi">+       LOG_LEVEL: INFO</span>
-<span class="linenos">55</span><span class="gi">+       AGENT_NAME: &quot;oase-agent-2&quot;                                               # 起動する OASEエージェントの名前</span>
-<span class="linenos">56</span><span class="gi">+       EXASTRO_URL: &quot;http://your-exastro-url&quot;                                   # Exastro IT Automation の Service URL</span>
-<span class="linenos">57</span><span class="gi">+       EXASTRO_ORGANIZATION_ID: &quot;your-organization-id&quot;                          # Exastro IT Automation で作成した OrganizationID</span>
-<span class="linenos">58</span><span class="gi">+       EXASTRO_WORKSPACE_ID: &quot;your-workspace-id-2&quot;                                # Exastro IT Automation で作成した WorkspaceID</span>
-<span class="linenos">59</span><span class="gi">+       # ROLES: &quot;_ws_admin&quot;</span>
-<span class="linenos">60</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-2&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
-<span class="linenos">61</span><span class="gi">+     secret:</span>
-<span class="linenos">62</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">63</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">39</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
+<span class="linenos">40</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">41</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
+<span class="linenos">42</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
+<span class="linenos">43</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
+<span class="linenos">44</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">45</span><span class="gi">+   - image:</span>
+<span class="linenos">46</span><span class="gi">+       repository: &quot;&quot;</span>
+<span class="linenos">47</span><span class="gi">+       # Overrides the image tag whose default is the chart appVersion.</span>
+<span class="linenos">48</span><span class="gi">+       tag: &quot;alpha.4ccca4.20240124-110529&quot;</span>
+<span class="linenos">49</span><span class="gi">+       pullPolicy: IfNotPresent</span>
+<span class="linenos">50</span><span class="gi">+     extraEnv:</span>
+<span class="linenos">51</span><span class="gi">+       TZ: Asia/Tokyo</span>
+<span class="linenos">52</span><span class="gi">+       DEFAULT_LANGUAGE: ja</span>
+<span class="linenos">53</span><span class="gi">+       LANGUAGE: &quot;en&quot;</span>
+<span class="linenos">54</span><span class="gi">+       ITERATION: &quot;500&quot;</span>
+<span class="linenos">55</span><span class="gi">+       EXECUTE_INTERVAL: &quot;10&quot;</span>
+<span class="linenos">56</span><span class="gi">+       LOG_LEVEL: INFO</span>
+<span class="linenos">57</span><span class="gi">+       AGENT_NAME: &quot;oase-agent-2&quot;                                               # 起動する OASEエージェントの名前</span>
+<span class="linenos">58</span><span class="gi">+       EXASTRO_URL: &quot;http://your-exastro-url&quot;                                   # Exastro IT Automation の Service URL</span>
+<span class="linenos">59</span><span class="gi">+       EXASTRO_ORGANIZATION_ID: &quot;your-organization-id&quot;                          # Exastro IT Automation で作成した OrganizationID</span>
+<span class="linenos">60</span><span class="gi">+       EXASTRO_WORKSPACE_ID: &quot;your-workspace-id-2&quot;                                # Exastro IT Automation で作成した WorkspaceID</span>
+<span class="linenos">61</span><span class="gi">+       # ROLES: &quot;_ws_admin&quot;</span>
+<span class="linenos">62</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-2&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
+<span class="linenos">63</span><span class="gi">+     secret:</span>
+<span class="linenos">64</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">65</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
+<span class="linenos">66</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
 </pre></div>
 </div>
 </div>
@@ -889,10 +916,12 @@ $(window).on('load', function () {
 <span class="linenos">35</span><span class="gd">-       EVENT_COLLECTION_SETTINGS_NAMES: &quot;id0001&quot;</span>
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-1&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
-<span class="linenos">38</span><span class="gd">-       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">39</span><span class="gd">-       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
+<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
+<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
+<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
 </pre></div>
 </div>
 </div>
@@ -956,10 +985,12 @@ $(window).on('load', function () {
 <span class="linenos">35</span><span class="gd">-       EVENT_COLLECTION_SETTINGS_NAMES: &quot;id0001&quot;</span>
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-2&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
-<span class="linenos">38</span><span class="gd">-       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">39</span><span class="gd">-       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                     # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                                 # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
+<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
+<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                     # Exastro IT Automation で作成した ユーザー名</span>
+<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                                 # Exastro IT Automation で作成した パスワード</span>
 </pre></div>
 </div>
 </div>

@@ -3946,7 +3946,7 @@
 <td><p>en</p></td>
 </tr>
 <tr class="row-even"><td><p>ita-ag-oase.agents.extraEnv.ITERATION</p></td>
-<td><p>OASE エージェント が設定を初期化するまでの、処理の繰り返し数（下限値: 10）</p></td>
+<td><p>OASE エージェント が設定を初期化するまでの、処理の繰り返し数（上限値: 120、下限値: 10）</p></td>
 <td><p>可</p></td>
 <td><p>500</p></td>
 </tr>
@@ -3989,37 +3989,56 @@
 <td><p>必須</p></td>
 <td><p>id0001</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_USERNAME</p></td>
-<td><p>Exastro IT Automation で作成した ユーザー名</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_REFRESH_TOKEN</p></td>
+<td><div class="line-block">
+<div class="line">Exastro システム管理画面から取得したリフレッシュトークン※</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+</div>
+</td>
+<td><p>可</p></td>
+<td><p>無し</p></td>
+</tr>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.secret.EXASTRO_USERNAME</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した ユーザー名</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 <td><p>可</p></td>
 <td><p>admin</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.secret.EXASTRO_PASSWORD</p></td>
-<td><p>Exastro IT Automation で作成した パスワード</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_PASSWORD</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation で作成した パスワード</div>
+<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
+</div>
+</td>
 <td><p>可</p></td>
 <td><p>sample-password</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.resources.requests.memory</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.requests.memory</p></td>
 <td><p>メモリ要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;64Mi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.requests.cpu</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.resources.requests.cpu</p></td>
 <td><p>CPU要求</p></td>
 <td><p>可</p></td>
 <td><p>&quot;250m&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.agents.resources.limits.memory</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.limits.memory</p></td>
 <td><p>メモリ上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;64Mi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.agents.resources.limits.cpu</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.agents.resources.limits.cpu</p></td>
 <td><p>CPU上限</p></td>
 <td><p>可</p></td>
 <td><p>&quot;250m&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.nameOverride</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.nameOverride</p></td>
 <td><div class="line-block">
 <div class="line">Exastro OASE Agent の定義名</div>
 <div class="line">※同一クラスタ内に複数エージェントを構築する際は必須</div>
@@ -4028,7 +4047,7 @@
 <td><p>可</p></td>
 <td><p>&quot;&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.enabled</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.enabled</p></td>
 <td><p>OASE エージェントコンテナのデプロイの有無</p></td>
 <td><p>可</p></td>
 <td><div class="line-block">
@@ -4037,7 +4056,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.reinstall</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.reinstall</p></td>
 <td><p>再インストール時にデータ領域の初期化の要否</p></td>
 <td><p>不可</p></td>
 <td><div class="line-block">
@@ -4046,17 +4065,17 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.accessMode</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.accessMode</p></td>
 <td><p>永続ボリュームのアクセスモードの指定。</p></td>
 <td><p>不可</p></td>
 <td><p>&quot;ReadWriteMany&quot;</p></td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.size</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.size</p></td>
 <td><p>永続ボリュームのディスク容量</p></td>
 <td><p>可 (データ永続化時)</p></td>
 <td><p>&quot;10Gi&quot;</p></td>
 </tr>
-<tr class="row-odd"><td><p>ita-ag-oase.persistence.volumeType</p></td>
+<tr class="row-even"><td><p>ita-ag-oase.persistence.volumeType</p></td>
 <td><p>永続ボリュームのボリュームタイプ</p></td>
 <td><p>可 (現在無効)</p></td>
 <td><div class="line-block">
@@ -4065,7 +4084,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ita-ag-oase.persistence.storageClass</p></td>
+<tr class="row-odd"><td><p>ita-ag-oase.persistence.storageClass</p></td>
 <td><p>永続ボリュームにストレージクラスを利用する場合のクラスを指定</p></td>
 <td><p>可 (データ永続化時)</p></td>
 <td><div class="line-block">
@@ -4074,7 +4093,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>exastro-platform.mariadb.persistence.matchLabels.name</p></td>
+<tr class="row-even"><td><p>exastro-platform.mariadb.persistence.matchLabels.name</p></td>
 <td><p>利用する永続ボリューム名を指定</p></td>
 <td><p>可(データ永続化時)</p></td>
 <td><p>&quot;&quot;</p></td>

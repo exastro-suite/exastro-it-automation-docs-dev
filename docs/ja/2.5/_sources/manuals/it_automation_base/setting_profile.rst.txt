@@ -74,6 +74,9 @@
       :align: left
       :class: with-border-thin
 
+
+.. _exastro_refresh_token:
+
 トークン発行
 ------------
 
