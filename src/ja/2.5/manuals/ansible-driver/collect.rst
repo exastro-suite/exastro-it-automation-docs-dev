@@ -948,6 +948,7 @@ BackYardコンテンツ
    VAR_NON:
    VAR_Quotation: ''
    VAR_WQuotation: ""
+   VAR_INT: 100
 
 
 | ■ 収集対象YAML(sample.yml)のキーと値
@@ -1032,7 +1033,12 @@ BackYardコンテンツ
    * - 18
      - VAR_WQuotation
      - ""
+     - 
+   * - 19
+     - VAR_INT
+     - 100
      -
+
 
 | ■ 収集対象YAML(sample.yml)の収集
 
@@ -1094,14 +1100,14 @@ BackYardコンテンツ
    * - 8
      - VAR_true: true
      - パラメータ/VAR_true
-     - true
-     - boolean
+     - "true"
+     - string
      - true
    * - 9
      - VAR_false: false
      - パラメータ/VAR_false
-     - false
-     - boolean
+     - "false"
+     - string
      - false
    * - 10
      - VAR_STR_true: "true"
@@ -1118,14 +1124,14 @@ BackYardコンテンツ
    * - 12
      - VAR_YES: YES
      - パラメータ/VAR_YES
-     - true
-     - boolean
+     - "true"
+     - string
      - true
    * - 13
      - VAR_NO: NO
      - パラメータ/VAR_NO
-     - false
-     - boolean
+     - "false"
+     - string
      - false
    * - 14
      - VAR_STR_YES: "YES"
@@ -1157,6 +1163,12 @@ BackYardコンテンツ
      - ""
      - string
      -
+   * - 19
+     - VAR_INT: 100
+     - パラメータ/VAR_INT
+     - "100"
+     - string
+     - 100
 
 
 | ※RESTAPIレスポンスの値、データ型、WEB画面上の表示について記載しています。
@@ -1171,7 +1183,7 @@ BackYardコンテンツ
 
    対象パラメータシートの画面上の表示結果1
 
-.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item10_18.png
+.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item10_19.png
    :alt: 対象パラメータシートの画面上の表示結果2
    :width: 6.96252in
    :height: 1.98221in
@@ -1194,21 +1206,22 @@ BackYardコンテンツ
                    "item_1": "TEST",
                    "item_10": "true",
                    "item_11": "false",
-                   "item_12": true,
-                   "item_13": false,
+                   "item_12": "true",
+                   "item_13": "false",
                    "item_14": "YES",
                    "item_15": "NO",
                    "item_16": null,
                    "item_17": "",
                    "item_18": "",
+                   "item_19": "100",
                    "item_2": "TEST1",
                    "item_3": "TEST2",
                    "item_4": null,
                    "item_5": null,
                    "item_6": "null",
                    "item_7": "NULL",
-                   "item_8": true,
-                   "item_9": false,
+                   "item_8": "true",
+                   "item_9": "false",
                    "last_execute_timestamp": "2023/05/17 13:58:47",
                    "last_update_date_time": "2023/05/17 14:00:07.944031",
                    "last_updated_user": "収集作業機能",
