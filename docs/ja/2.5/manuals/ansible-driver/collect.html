@@ -1418,6 +1418,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <span class="nt">VAR_NON</span><span class="p">:</span>
 <span class="nt">VAR_Quotation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
 <span class="nt">VAR_WQuotation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="nt">VAR_INT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
 </pre></div>
 </div>
 </div>
@@ -1530,6 +1531,11 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <td><p>&quot;&quot;</p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>VAR_INT</p></td>
+<td><p>100</p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <div class="line-block">
@@ -1611,15 +1617,15 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <tr class="row-odd"><td><p>8</p></td>
 <td><p>VAR_true: true</p></td>
 <td><p>パラメータ/VAR_true</p></td>
-<td><p>true</p></td>
-<td><p>boolean</p></td>
+<td><p>&quot;true&quot;</p></td>
+<td><p>string</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-even"><td><p>9</p></td>
 <td><p>VAR_false: false</p></td>
 <td><p>パラメータ/VAR_false</p></td>
-<td><p>false</p></td>
-<td><p>boolean</p></td>
+<td><p>&quot;false&quot;</p></td>
+<td><p>string</p></td>
 <td><p>false</p></td>
 </tr>
 <tr class="row-odd"><td><p>10</p></td>
@@ -1639,15 +1645,15 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <tr class="row-odd"><td><p>12</p></td>
 <td><p>VAR_YES: YES</p></td>
 <td><p>パラメータ/VAR_YES</p></td>
-<td><p>true</p></td>
-<td><p>boolean</p></td>
+<td><p>&quot;true&quot;</p></td>
+<td><p>string</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-even"><td><p>13</p></td>
 <td><p>VAR_NO: NO</p></td>
 <td><p>パラメータ/VAR_NO</p></td>
-<td><p>false</p></td>
-<td><p>boolean</p></td>
+<td><p>&quot;false&quot;</p></td>
+<td><p>string</p></td>
 <td><p>false</p></td>
 </tr>
 <tr class="row-odd"><td><p>14</p></td>
@@ -1685,6 +1691,13 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <td><p>string</p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>VAR_INT: 100</p></td>
+<td><p>パラメータ/VAR_INT</p></td>
+<td><p>&quot;100&quot;</p></td>
+<td><p>string</p></td>
+<td><p>100</p></td>
+</tr>
 </tbody>
 </table>
 <div class="line-block">
@@ -1701,7 +1714,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </figcaption>
 </figure>
 <figure class="align-default" id="id67">
-<a class="reference internal image-reference" href="../../_images/val_test_filter_item10_18.png"><img alt="対象パラメータシートの画面上の表示結果2" src="../../_images/val_test_filter_item10_18.png" style="width: 6.96252in; height: 1.98221in;" /></a>
+<a class="reference internal image-reference" href="../../_images/val_test_filter_item10_19.png"><img alt="対象パラメータシートの画面上の表示結果2" src="../../_images/val_test_filter_item10_19.png" style="width: 6.96252in; height: 1.98221in;" /></a>
 <figcaption>
 <p><span class="caption-number">図 5.16 </span><span class="caption-text">対象パラメータシートの画面上の表示結果2</span><a class="headerlink" href="#id67" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -1722,21 +1735,22 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <span class="w">                </span><span class="nt">&quot;item_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_11&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_12&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_13&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_12&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_13&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_14&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_15&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_16&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_17&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_18&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_19&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST1&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST2&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_4&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_5&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_6&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_7&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NULL&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_8&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_9&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_8&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_9&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_execute_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023/05/17 13:58:47&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_update_date_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023/05/17 14:00:07.944031&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_updated_user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;収集作業機能&quot;</span><span class="p">,</span>
