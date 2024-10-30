@@ -643,7 +643,6 @@ $(window).on('load', function () {
 <tr class="row-even"><td><p>ita-ag-oase.agents.secret.EXASTRO_PASSWORD</p></td>
 <td><div class="line-block">
 <div class="line">Exastro IT Automation で作成した パスワード</div>
-<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
 <div class="line">※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）</div>
 </div>
 </td>
@@ -784,11 +783,11 @@ $(window).on('load', function () {
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
 <span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
-<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;your_exastro_refresh_token&quot;                      # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="w"> </span>       # EXASTRO_USERNAME: &quot;admin&quot;
+<span class="linenos">41</span><span class="w"> </span>       # EXASTRO_PASSWORD: &quot;sample-password&quot;
+<span class="linenos">42</span><span class="gi">+       # EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）</span>
+<span class="linenos">43</span><span class="gi">+       # EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）</span>
 </pre></div>
 </div>
 </div>
@@ -838,11 +837,11 @@ $(window).on('load', function () {
 <span class="linenos">37</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-1&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">38</span><span class="w"> </span>     secret:
 <span class="linenos">39</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">42</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">43</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">44</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">40</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;your_exastro_refresh_token&quot;                      # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">41</span><span class="w"> </span>       # EXASTRO_USERNAME: &quot;admin&quot;
+<span class="linenos">42</span><span class="w"> </span>       # EXASTRO_PASSWORD: &quot;sample-password&quot;
+<span class="linenos">43</span><span class="gi">+       # EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）</span>
+<span class="linenos">44</span><span class="gi">+       # EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）</span>
 <span class="linenos">45</span><span class="gi">+   - image:</span>
 <span class="linenos">46</span><span class="gi">+       repository: &quot;&quot;</span>
 <span class="linenos">47</span><span class="gi">+       # Overrides the image tag whose default is the chart appVersion.</span>
@@ -862,7 +861,7 @@ $(window).on('load', function () {
 <span class="linenos">61</span><span class="gi">+       # ROLES: &quot;_ws_admin&quot;</span>
 <span class="linenos">62</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-2&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">63</span><span class="gi">+     secret:</span>
-<span class="linenos">64</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">64</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;your_exastro_refresh_token&quot;                      # Exastro システム管理画面から取得したリフレッシュトークン</span>
 <span class="linenos">65</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
 <span class="linenos">66</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
 </pre></div>
@@ -917,11 +916,11 @@ $(window).on('load', function () {
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-1&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
 <span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
-<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                   # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                               # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;your_exastro_refresh_token&quot;                      # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="w"> </span>       # EXASTRO_USERNAME: &quot;admin&quot;
+<span class="linenos">41</span><span class="w"> </span>       # EXASTRO_PASSWORD: &quot;sample-password&quot;
+<span class="linenos">42</span><span class="gi">+       # EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）</span>
+<span class="linenos">43</span><span class="gi">+       # EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）</span>
 </pre></div>
 </div>
 </div>
@@ -937,8 +936,6 @@ $(window).on('load', function () {
 </div>
 </div>
 </li>
-</ol>
-<ol class="arabic" start="5">
 <li><p>一つ目のOASE AgentのmatchLabelsを設定</p>
 <div class="literal-block-wrapper docutils container" id="id37">
 <div class="code-block-caption"><span class="caption-number">リスト 136 </span><span class="caption-text">exastro-agent-1.yaml</span><a class="headerlink" href="#id37" title="このコードへのパーマリンク">¶</a></div>
@@ -986,11 +983,11 @@ $(window).on('load', function () {
 <span class="linenos">36</span><span class="gi">+       EVENT_COLLECTION_SETTINGS_NAMES: &quot;your-event-collection-settigs-names-2&quot;   # OASE管理 イベント収集 で作成した イベント収集設定名</span>
 <span class="linenos">37</span><span class="w"> </span>     secret:
 <span class="linenos">38</span><span class="gd">-       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;</span>
-<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;exastro_refresh_token&quot;                           # Exastro システム管理画面から取得したリフレッシュトークン</span>
-<span class="linenos">40</span><span class="gi">+       EXASTRO_USERNAME: &quot;admin&quot;</span>
-<span class="linenos">41</span><span class="gi">+       EXASTRO_PASSWORD: &quot;sample-password&quot;</span>
-<span class="linenos">42</span><span class="gi">+       EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                                     # Exastro IT Automation で作成した ユーザー名</span>
-<span class="linenos">43</span><span class="gi">+       EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;                                 # Exastro IT Automation で作成した パスワード</span>
+<span class="linenos">39</span><span class="gi">+       EXASTRO_REFRESH_TOKEN: &quot;your_exastro_refresh_token&quot;                      # Exastro システム管理画面から取得したリフレッシュトークン</span>
+<span class="linenos">40</span><span class="w"> </span>       # EXASTRO_USERNAME: &quot;admin&quot;
+<span class="linenos">41</span><span class="w"> </span>       # EXASTRO_PASSWORD: &quot;sample-password&quot;
+<span class="linenos">42</span><span class="gi">+       # EXASTRO_USERNAME: &quot;your-ita-user-name&quot;                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）</span>
+<span class="linenos">43</span><span class="gi">+       # EXASTRO_PASSWORD: &quot;your-ita-user-password&quot;            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）</span>
 </pre></div>
 </div>
 </div>

@@ -234,7 +234,6 @@ OASE Agent on Docker Compose - Online
    - admin
  * - EXASTRO_PASSWORD
    - | Exastro IT Automation で作成した パスワード
-     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
      | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
    - 可
    - Ch@ngeMe
