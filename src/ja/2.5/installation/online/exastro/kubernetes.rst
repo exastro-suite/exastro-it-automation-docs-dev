@@ -206,6 +206,13 @@ Helm リポジトリの登録
            :caption: exastro.yaml
            :language: yaml
 
+        | ※ 大容量ファイルのアップロードなどで処理に時間が掛かる場合は、想定する最大時間(秒数)の設定が必要となります。  
+
+        .. code-block:: shell
+           :caption: ingress - annotations
+
+           nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+
         | ※ Ingress を使用して HTTPS 接続を有効にする際は、以下の設定が必要となります。
 
         .. code-block:: diff
@@ -223,6 +230,7 @@ Helm リポジトリの登録
                   annotations:
                     kubernetes.io/ingress.class: addon-http-application-routing
                     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+                    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
                     nginx.ingress.kubernetes.io/proxy-buffer-size: 256k
                     nginx.ingress.kubernetes.io/server-snippet: |
                       client_header_buffer_size 100k;
