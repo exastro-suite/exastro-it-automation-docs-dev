@@ -5,7 +5,7 @@
 | Exastro IT Automationでは、Microsoft EdgeとGoogle Chrome最新版にて動作確認をしています。
 
 
-.. list-table:: 動作確認済みの、各ブラウザのバージョン
+.. list-table:: 動作確認済みの、各ブラウザのバージョ
    :widths: 20 20 25
    :header-rows: 1
    :align: left
