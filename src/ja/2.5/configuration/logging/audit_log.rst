@@ -14,14 +14,14 @@
 ----------------
 
 | 監査ログは、platform-auth コンテナ内の"/var/log/exastro"ディレクトリに、ファイル名"exastro-audio.log"(デフォルト)で出力されます。
-| 
+|
 | Kubernetes環境においては、永続ボリュームを指定することにより、永続ボリューム側のディレクトリに出力されます。
 | ※永続ボリュームについては、インストール編 :doc:`../../installation/online/exastro/kubernetes` を参照してください。
 
 監査ログの設定項目
 ------------------
 
-| 設定可能項目は、Exastro Platform 認証機能のオプションパラメータの :kbd:`AUDIT_LOG` 項目となります。 
+| 設定可能項目は、Exastro Platform 認証機能のオプションパラメータの :kbd:`AUDIT_LOG` 項目となります。
 
 .. include:: ../../include/helm_option_platform-auth.rst
 
@@ -43,7 +43,7 @@
    * - ts
      - イベント呼び出し日時
      - "2024-03-11T01:15:58.147Z"
-     - 
+     -
    * - user_id
      - ユーザーID
      - "155427e2-c154-49d8-a2b7-9496bb0e6b25"
@@ -67,7 +67,7 @@
    * - full_path
      - 呼び出されたエンドポイントとパラメータ
      - "/api/org1/platform/workspaces?"
-     - 
+     -
    * - access_route
      - アクセスルートのIPアドレス
      - ["0.0.0.0"]
@@ -75,14 +75,14 @@
    * - remote_addr
      - リモートアクセスのIPアドレス
      - "0.0.0.0"
-     - 
+     -
    * - request_headers
      - APIが呼び出された際のリクエストヘッダー
-     - 
-     - 
+     -
+     -
    * - request_user_headers
      - APIを呼び出す際のリクエストヘッダー
-     - 
+     -
         | {
         |   "User-Id": "4c5c8c11-d7fa-4963-9dc5-5a7c3d923ad6",
         |   "Roles": "",
@@ -105,15 +105,15 @@
    * - status_code
      - API呼び出し時のステータスコード
      - 200
-     - 
+     -
    * - name
      - "audit"固定
      - "audit"
-     - 
+     -
    * - message
      - 応答メッセージ
      - "audit: response. 200"
-     - 
+     -
    * - message_id
      - APIの応答メッセージID
      - "-"
@@ -133,11 +133,11 @@
    * - log_ts
      - ログの出力日時
      - "2024-03-12T01:29:36.357Z"
-     - 
+     -
    * - userid
      - プロセス処理ユーザーID
      - "76541d8f-6de4-4b49-8fe6-58640c15a965"
-     - 
+     -
    * - method
      - API呼び出し時のmethod
      - "GET"
@@ -145,7 +145,9 @@
    * - content_type
      - API呼び出し時のメディアタイプ
      - "application/json"
-     - 
+     -
+
+.. _security_audit_log_get:
 
 監査ログの取得
 --------------
