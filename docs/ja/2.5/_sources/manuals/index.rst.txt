@@ -20,6 +20,7 @@
 .. toctree::
    :maxdepth: 2
 
+   client_requirements/index
    platform_management/index
    organization_management/index
    it_automation_base/index
