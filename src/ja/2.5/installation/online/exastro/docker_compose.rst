@@ -39,7 +39,7 @@ Exastro on Docker Compose - Online
   .. list-table:: ハードウェア要件(最小構成)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - リソース種別
      - 要求リソース
    * - CPU
@@ -52,7 +52,7 @@ Exastro on Docker Compose - Online
   .. list-table:: ハードウェア要件(推奨構成)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - リソース種別
      - 要求リソース
    * - CPU
@@ -68,26 +68,26 @@ Exastro on Docker Compose - Online
 | /home/ユーザ名/.local  25GB
 | ・Exastroのデータ
 | /home/ユーザ名/exastro-docker-compose 10GB(目安です。使い方によって大きく異なります。)
-|  
+|
 | ▼RHEL 以外
 | ・コンテナイメージ
 | /var/lib/ 25GB
 | ・Exastroのデータ
 | /home/ユーザ名/exastro-docker-compose 10GB(目安です。使い方によって大きく異なります。)
-| 
+|
 
 .. warning::
   | 最小構成における要求リソースはGitLabコンテナとOASEコンテナのデプロイでnを選択した場合の値です。GitLabコンテナとOASEコンテナのデプロイをする場合は、その分のリソースが別途必要となります。
   | データベースおよびファイルの永続化のために、別途ストレージ領域を用意する必要があります。
   | Storage サイズは、ユーザーの利用状況によるためあくまで目安となります。必要に応じて容量を確保してください。
 
-    
+
 - 通信要件
 
   .. list-table:: 通信要件
    :widths: 15, 20, 10, 10, 5
    :header-rows: 1
-  
+
    * - 用途
      - 説明
      - 通信元
@@ -119,47 +119,36 @@ Exastro on Docker Compose - Online
      - インターネット
      - 443/tcp
 
-- 動作確認済みオペレーティングシステム
+- 動作確認済みの、オペレーティングシステムとコンテナプラットフォーム
 
   以下は、動作確認済のバージョンとなります。
 
-  .. list-table:: オペレーティングシステム
-   :widths: 20, 20
+  .. list-table:: 動作確認実績
+   :widths: 25, 20, 20, 20
    :header-rows: 1
 
-   * - 種別
-     - バージョン
-   * - Red Hat Enterprise Linux (RHEL)
-     - バージョン	8.7, 9.2
-   * - AlmaLinux
-     - バージョン	8.6, 8.7
-   * - Ubuntu
-     - バージョン	22.04
+   * - OSバージョン
+     - podmanバージョン
+     - Docker Composeバージョン
+     - Dockerバージョン
+   * - Red Hat Enterprise Linux release 9.4 (Plow)
+     - podman version 4.9.4-rhel
+     - Docker Compose version v2.20.3
+     - ー
+   * - Red Hat Enterprise Linux release 8.9 (Ootpa)
+     - podman version 4.9.4-rhel
+     - Docker Compose version v2.20.3
+     - ー
+   * - AlmaLinux release 8.9 (Midnight Oncilla)
+     - ー
+     - ー
+     - Docker version 26.1.3, build b72abbb
 
 .. tip::
    | RHEL 8.2 もしくは podman 4.x の初期バージョンでは、ルートレスモードで正常に名前解決ができない事象が報告されています。RHEL 8.3 以降のバージョンをご使用ください。
-   | 
+   |
    | https://github.com/containers/podman/issues/10672
    | https://github.com/containers/podman/issues/12565
-
-- 動作確認済みコンテナプラットフォーム
-
-  手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
-  以下は、動作確認済のバージョンとなります。
-
-  .. list-table:: コンテナプラットフォーム
-   :widths: 20, 10
-   :header-rows: 1
-
-   * - ソフトウェア
-     - バージョン
-   * - Podman Engine ※Podman 利用時
-     - バージョン	4.4
-   * - Docker Compose ※Podman 利用時
-     - バージョン	2.20
-   * - Docker Engine ※Docker 利用時
-     - バージョン	24
-
 
 - アプリケーション
 
@@ -252,13 +241,13 @@ Exastro on Docker Compose - Online
 .. code-block:: shell
    :caption: GitLab コンテナデプロイ要否の確認
 
-   Deploy GitLab container? (y/n) [default: n]: 
+   Deploy GitLab container? (y/n) [default: n]:
 
 .. code-block:: shell
    :caption: パスワード自動生成の確認
 
    # Exastro システムが利用する MariaDB のパスワードや、システム管理者のパスワード自動生成するか？
-   Generate all password and token automatically? (y/n) [default: y]: 
+   Generate all password and token automatically? (y/n) [default: y]:
 
 .. tabs::
 
@@ -378,7 +367,7 @@ Exastro on Docker Compose - Online
    GitLab service is has completely started!
 
    Run creation organization command:
-      bash /home/test_user/exastro-docker-compose/create-organization.sh 
+      bash /home/test_user/exastro-docker-compose/create-organization.sh
 
 
    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
@@ -401,7 +390,7 @@ Exastro on Docker Compose - Online
 | 再起動後に再度ログインをしたら、オーガナイゼーションの作成を行います。
 | オーガナイゼーションの詳細については、 :doc:`../../../manuals/platform_management/organization` を参照してください。
 
-.. tip:: 
+.. tip::
    | GitLab が完全に立ち上がっていない状態では、オーガナイゼーションの作成はできません。
 
 ワークスペースの作成
@@ -425,7 +414,7 @@ Let's Try!!
 アップグレードの準備
 --------------------
 
-.. warning:: 
+.. warning::
   | アップグレード実施前に、バックアップを取得しておくことを推奨します。
   | バックアップ対象は :file:`~/exastro-docker-compose/.volumes` です。
 
@@ -489,7 +478,7 @@ Let's Try!!
 アンインストールの準備
 ----------------------
 
-.. warning:: 
+.. warning::
   | アンインストール実施前に、バックアップを取得しておくことを推奨します。
   | バックアップ対象は :file:`~/exastro-docker-compose/.volumes` です。
 
@@ -554,5 +543,5 @@ volumeを削除
    :caption: コマンド
 
    cd ~/exastro-docker-compose
-   
+
    git checkout .volumes
