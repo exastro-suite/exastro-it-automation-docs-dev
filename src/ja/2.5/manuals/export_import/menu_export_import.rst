@@ -49,6 +49,24 @@
   :width: 720px
   :align: center
 
+3. 履歴
+
+| エクスポート対象データの履歴データについて「履歴あり/履歴なし」を選択してエクスポートします。インポート先のデータと一意項目（ID、No等）が重複した場合はエクスポートしたデータが優先してインポートされます。
+
+.. tabs::
+
+   .. tab:: 履歴ありを指定した場合
+
+     .. figure:: /images/ja/export_import/overview/jnl_1_diagram.drawio.png
+       :width: 720px
+       :align: center
+
+   .. tab:: 履歴なしを指定した場合
+
+     .. figure:: /images/ja/export_import/overview/jnl_2_diagram.drawio.png
+       :width: 720px
+       :align: center
+ 
 使用例
 ^^^^^^
 
@@ -87,6 +105,206 @@
 .. figure:: /images/ja/export_import/overview/separate_servers.png
   :width: 1000px
   :align: center
+
+
+エクスポート・インポートの環境による利用可否について
+====================================================
+
+環境差分（ITAのバージョン・インストールされているドライバ）について
+-------------------------------------------------------------------
+
+| エクスポートする環境と、インポートする環境で、環境差分（ITAのバージョン・インストールされているドライバ）がある場合の実行パターン、
+| および、エクスポートしたKYMファイルの適用可能なITAの環境についてです。
+
+.. warning::
+   | KYMファイルについて、以下の条件を満たした場合、後方互換性があります。
+   | ・2.5.0以降のバージョンのITAで、エクスポートしたKYMファイルであること
+   | ・エクスポートしたITAのバージョンより、インポートするITAのバージョンが新しいこと
+   | ・エクスポートしたITAにインストールされているドライバが、インポートするITAのドライバにインストールされていること
+
+
+| 以下、環境Aでエクスポートを実施し、環境Bへインポートする場合を例に記載します。
+
+.. _export_import_environment_and_drivers:
+
+.. list-table:: エクスポート・インポートの環境による利用可否
+   :header-rows: 1
+   :align: left
+
+   * - ケース
+     - 環境Aのバージョン
+     - 環境Aのドライバ
+     - 環境Bのバージョン
+     - 環境Bのドライバ
+     - | 環境差分
+       | (バージョン・ドライバ)
+     - | 環境A→環境Bへ
+       | インポート可否
+     - 備考
+   * - A
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 環境差分なし
+     - 〇
+     - 
+   * - B
+     - 2.5.X
+     - | CI/CD for IaC 
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - ドライバ差分あり
+     - 〇
+     - 
+   * - C
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - バージョン差分あり
+     - 〇
+     - 
+   * - D
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - | バージョン差分あり(A:2.5.X < B:2.5.Y)
+       | ドライバ差分あり
+     - 〇
+     - 
+   * - E
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - ドライバ差分あり
+     - △※
+     - 
+   * - F
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | 
+     - | バージョン差分あり(A:2.5.X < B:2.5.Y)
+       | ドライバ差分あり
+     - △※
+     - 
+   * - G
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - | バージョン差分あり(A:2.5.Y > B:2.5.X)
+     - ×
+     - 
+   * - H
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | 
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - | バージョン差分あり(A:2.5.Y > B:2.5.X)
+       | ドライバ差分あり
+     - ×
+     - 
+   * - I
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - | バージョン差分あり(A:2.5.Y > B:2.5.X)
+       | ドライバ差分あり
+     - ×
+     - 
+
+.. tabs::
+
+   .. tab:: ケースA（インポート可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_A.drawio.png
+         :alt: エクスポート・インポート(ケースA)
+         :align: center
+         :width: 800px
+
+   .. tab:: ケースB（インポート可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_B.drawio.png
+         :alt: エクスポート・インポート(ケースB)
+         :align: center
+         :width: 800px
+
+   .. tab:: ケースC（インポート可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_C.drawio.png
+         :alt: エクスポート・インポート(ケースC)
+         :align: center
+         :width: 800px
+      
+   .. tab:: ケースD（インポート可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_D.drawio.png
+         :alt: エクスポート・インポート(ケースD)
+         :align: center
+         :width: 800px
+   .. tab:: ケースE（インポート可※）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_E.drawio.png
+         :alt: エクスポート・インポート(ケースE)
+         :align: center
+         :width: 800px
+
+      .. warning:: | ドライバのインストール・アンインストール機能（ :ref:`organization_edit` ）を使用して、
+         | ドライバのインストール状態を揃え、「ケースA」や「ケースB」の状態にすることで、インポートの実施が可能です。
+
+   .. tab:: ケースF（インポート可※）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_F.drawio.png
+         :alt: エクスポート・インポート(ケースF)
+         :align: center
+         :width: 800px    
+
+      .. warning:: | ドライバのインストール・アンインストール機能（ :ref:`organization_edit` ）を使用して、
+         | ドライバのインストール状態を揃え、「ケースC」や「ケースD」の状態にすることで、インポートの実施が可能です。      
+         
+
+   .. tab:: ケースG（インポート不可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_G.drawio.png
+         :alt: エクスポート・インポート(ケースG)
+         :align: center
+         :width: 800px    
+
+   .. tab:: ケースH（インポート不可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_H.drawio.png
+         :alt: エクスポート・インポート(ケースH)
+         :align: center
+         :width: 800px    
+         
+   .. tab:: ケースI（インポート不可）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_I.drawio.png
+         :alt: エクスポート・インポート(ケースI)
+         :align: center
+         :width: 800px    
 
 
 メニューエクスポート・インポートのメニュー、画面構成
@@ -254,9 +472,25 @@
    | 廃止を除く | 廃止状態のデータを除いたデータをエクスポートします。       |
    +------------+------------------------------------------------------------+
 
+
+.. list-table:: 履歴
+   :header-rows: 1
+   :align: left
+
+   * - No
+     - メニュー・画面
+     - 説明
+   * - 1
+     - 履歴あり
+     - 履歴のレコードを含めてエクスポートします。
+   * - 2
+     - 履歴なし
+     - 履歴のレコードを含めずにエクスポートします。
+
+
 | (2) エクスポートするメニューを選択して《エクスポート》ボタンを押下します。
 
-.. figure:: /images/ja/export_import/overview/menu_export_1.png
+.. figure:: /images/ja/export_import/overview/menu_export_1_v2-5.drawio.png
    :width: 1000px
    :alt: メニューエクスポート画面(1)
    :align: center
@@ -273,7 +507,7 @@
 
 | (3) エクスポート確認のポップアップ画面が表示されますので、内容を確認して《エクスポート開始》ボタンを押下します。
 
-.. figure:: /images/ja/export_import/overview/menu_export_2.png
+.. figure:: /images/ja/export_import/overview/menu_export_2_v2-5.drawio.png
    :width: 1000px
    :alt: メニューエクスポート画面(2)
    :align: center
@@ -318,7 +552,7 @@
 | チェックボックスがチェックされているメニューがインポート対象となります。
 | インポートする必要がないメニューは、チェックは外してください。
 
-.. figure:: /images/ja/export_import/overview/menu_import_3.png
+.. figure:: /images/ja/export_import/overview/menu_import_3_v2-5.drawio.png
    :width: 1000px
    :alt: メニューインポート画面(3)
    :align: center
@@ -327,7 +561,7 @@
 
 | (3) インポート確認のポップアップ画面が表示されますので、内容を確認して《インポート開始》ボタンを押下します。
 
-.. figure:: /images/ja/export_import/overview/menu_import_4.png
+.. figure:: /images/ja/export_import/overview/menu_import_4_v2-5.drawio.png
    :width: 1000px
    :alt: メニューインポート画面(4)
    :align: center
@@ -352,7 +586,7 @@
 
 | [メニューエクスポート]メニューで実行したエクスポートと、[メニューインポート]メニューで実行したインポートの状況を管理します。
 
-.. figure:: /images/ja/export_import/overview/menu_export_import_1.png
+.. figure:: /images/ja/export_import/overview/menu_export_import_1_v2-5.drawio.png
    :width: 1000px
    :alt: メニューエクスポート・インポート管理画面
    :align: center
@@ -379,6 +613,8 @@
    | モード     | 〔環境移行〕または〔時刻指定〕が表示されます。                                                               |
    +------------+--------------------------------------------------------------------------------------------------------------+
    | 廃止情報   | 〔廃止を含む〕または〔廃止を除く〕が表示されます。                                                           |
+   +------------+--------------------------------------------------------------------------------------------------------------+
+   | 履歴情報   | 〔履歴あり〕または〔履歴なし〕が表示されます。                                                               |
    +------------+--------------------------------------------------------------------------------------------------------------+
    | 指定時刻   | モードが〔時刻指定〕の場合にのみ表示されます。                                                               |
    +------------+--------------------------------------------------------------------------------------------------------------+
