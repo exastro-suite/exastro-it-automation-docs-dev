@@ -381,8 +381,7 @@
 <tr class="row-odd"><td><p>2</p></td>
 <td><p>インターフェース情報</p></td>
 <td><div class="line-block">
-<div class="line">Ansible Core、Ansible Automation Controllerサーバのどちらを実行エンジンとし構築作業をするか選択をします。</div>
-<div class="line">実行エンジンのサーバへの接続インターフェース情報を管理します。</div>
+<div class="line">Ansible Core、Ansible Automation Controller、Ansible Execution Agentのいずれの実行エンジンを使用するかを選択し、実行エンジンのサーバへの接続インターフェース情報を管理します。</div>
 </div>
 </td>
 </tr>
@@ -403,10 +402,22 @@
 <td><p>各モードのPlaybookや対話ファイルで共通利用するテンプレートファイルと埋込変数を管理します。</p></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
-<td><p>管理対象外変数リスト</p></td>
-<td><p>「 <a class="reference internal" href="ansible_common.html#ansible-common-var-listup"><span class="std std-ref">変数抜出対象資材</span></a> 」で抜出した変数で、<span class="menuselection">各モード ▶ 代入値自動登録設定</span> の <span class="menuselection">Movement名:変数名</span> に表示したくない変数を管理します。</p></td>
+<td><p>実行環境定義テンプレート管理</p></td>
+<td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルを管理します。</p></td>
 </tr>
 <tr class="row-odd"><td><p>8</p></td>
+<td><p>実行環境管理</p></td>
+<td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルと、テンプレートに埋め込むパラメータが定義されているパラメータシートの紐付を管理します。</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>エージェント管理</p></td>
+<td><p>ITAと接続したAnsible Execution Agentのエージェント名とバージョン情報を閲覧できます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>管理対象外変数リスト</p></td>
+<td><p>「 変数抜出対象資材 」で抜出した変数で、 <span class="menuselection">各モード ▶ 代入値自動登録設定</span> の  <span class="menuselection">:menuselection:`Movement名:変数名</span> に表示したくない変数を管理します。</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
 <td><p>共通変数利用リスト (※1)</p></td>
 <td><p><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> ・ <span class="menuselection">Ansible共通 ▶ ファイル管理</span> ・ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> に登録されている変数が、どの素材( <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> ・ <span class="menuselection">Ansible-Pioneer ▶ 対話ファイル素材集</span> ・ <span class="menuselection">Ansible-LegacyRole ▶ ロールパッケージ管理</span> )で使用しているかを閲覧できます。</p></td>
 </tr>
@@ -547,8 +558,29 @@
 </li>
 <li><div class="line-block">
 <div class="line"><strong>インターフェース情報の登録</strong></div>
-<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> から、Ansible Core、Ansible Automation Controllerのどちらを実行エンジンにするかを選択し、実行エンジンのサーバへの接続情報を登録します。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> から、Ansible Core、Ansible Automation Controller、Ansible Execution Agentのいずれの実行エンジンを使用するかを選択し、実行エンジンのサーバへの接続情報を登録します。</div>
 <div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-common-interface-information"><span class="std std-ref">インターフェース情報</span></a> 」を参照してください。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>実行環境定義テンプレート管理の登録（必要に応じて実施）</strong></div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> から、Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルを登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-execution-environment-definition-template-list"><span class="std std-ref">実行環境定義テンプレート管理</span></a> 」や「 <a class="reference internal" href="ansible_common.html#ansible-common-environment-definition-make"><span class="std std-ref">Ansible共通 ▶ 実行環境定義テンプレート管理 に登録するテンプレートファイルと パラメータシート「実行環境パラメータ定義」 の使用方法</span></a> 」を参照してください。</div>
+<div class="line">尚、ITAをインストールすると、pythonモジュールやansible galaxyコレクションが追加できるテンプレートファイルが登録されます。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>パラメータシート「実行環境パラメータ定義」の登録（必要に応じて実施）</strong></div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> より登録した実行環境定義ファイル(execution-environment.yml)のテンプレートファイルに埋め込むパラメータを登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-common-environment-definition-make"><span class="std std-ref">Ansible共通 ▶ 実行環境定義テンプレート管理 に登録するテンプレートファイルと パラメータシート「実行環境パラメータ定義」 の使用方法</span></a> 」を参照してください。</div>
+<div class="line">尚、ITAをインストールすると、実行環境定義テンプレートファイル(execution-environment.yml)に埋め込むパラメータが登録された <span class="menuselection">パラメータシート「実行環境パラメータ定義」</span> が登録されます。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>実行環境管理の登録（必要に応じて実施）</strong></div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> で登録した実行環境定義ファイル(execution-environment.yml)のテンプレートファイルと <span class="menuselection">パラメータシート「実行環境パラメータ定義」</span> の紐付を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-execution-environment-list"><span class="std std-ref">実行環境管理</span></a> 」を参照してください。</div>
+<div class="line">尚。ITAをインストールすると、 <span class="menuselection">パラメータシート「実行環境パラメータ定義」</span> と <span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> の紐付が登録されます。</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -748,7 +780,7 @@
 <div class="line">Movement情報のメンテナンス（閲覧/登録/更新/廃止）を行います。</div>
 </div>
 <figure class="align-default" id="id49">
-<a class="reference internal image-reference" href="../../_images/movement_list2.png"><img alt="サブメニュー画面（Movement一覧）" src="../../_images/movement_list2.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/movement_list_v2_52.png"><img alt="サブメニュー画面（Movement一覧）" src="../../_images/movement_list_v2_52.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">図 3.34 </span><span class="caption-text">サブメニュー画面（Movement一覧）</span><a class="headerlink" href="#id49" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -758,7 +790,7 @@
 <div class="line"><span class="guilabel">登録</span> ボタンより、Movement情報の登録を行います。</div>
 </div>
 <figure class="align-default" id="id50">
-<a class="reference internal image-reference" href="../../_images/registration_movement_list2.gif"><img alt="登録画面（Movement一覧）" src="../../_images/registration_movement_list2.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/registration_movement_list_v2_52.gif"><img alt="登録画面（Movement一覧）" src="../../_images/registration_movement_list_v2_52.gif" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">図 3.35 </span><span class="caption-text">登録画面（Movement一覧）</span><a class="headerlink" href="#id50" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -767,8 +799,10 @@
 <li><div class="line-block">
 <div class="line">登録画面の項目一覧は以下のとおりです。</div>
 </div>
-<table class="docutils align-left" id="id51">
-<caption><span class="caption-number">表 3.37 </span><span class="caption-text">登録画面項目一覧（Movement一覧）</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-number">表 3.37 </span><span class="caption-text">登録画面項目一覧（Movement一覧）
+ :widths: 10 15 15 60 10 10 20
+ :align: left</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="3"><p>項目</p></th>
 <th class="head"><p>説明</p></th>
@@ -798,20 +832,14 @@
 <td><p>手動入力</p></td>
 <td><p>0～2,147,483,647</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="4"><p>Ansible利用情報</p></td>
+<tr class="row-odd"><td rowspan="6"><p>Ansible利用情報</p></td>
 <td colspan="2"><p>ホスト指定形式</p></td>
 <td><p>IPアドレスで表現しないホストを指定したい場合に「ホスト名」を選択します。</p></td>
 <td><p>○</p></td>
 <td><p>リスト選択</p></td>
 <td><p>説明欄記載のとおり。</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>並列実行数</p></td>
-<td><p>ansible-playbookコマンドのオプションパラメータ「--forks」を指定したい場合に値を入力します。</p></td>
-<td><p>ー</p></td>
-<td><p>手動入力</p></td>
-<td><p>1～4,294,967,296</p></td>
-</tr>
-<tr class="row-odd"><td colspan="2"><p>ansible.cfg</p></td>
+<tr class="row-even"><td colspan="2"><p>ansible.cfg</p></td>
 <td><p>作業実行時に使用するansible.cfgをアップロードします。</p>
 <p>未アップロードの場合は、デフォルトが使用されます。</p>
 </td>
@@ -819,13 +847,33 @@
 <td><p>ファイル選択</p></td>
 <td><p>最大サイズ100Mバイト</p></td>
 </tr>
-<tr class="row-even"><td><p>Ansible Automation Controller利用情報</p></td>
-<td><p>実行環境
-※1</p></td>
-<td><p>Ansible Automation Controllerに構築されている実行環境が表示されます。</p>
-<p>使用する実行環境を選択します。</p>
-<p>未選択の場合は、Ansible Automation Controllerに設定されているデフォルトの実行環境が使用されます。</p>
-</td>
+<tr class="row-odd"><td colspan="2"><p>並列実行数</p></td>
+<td><p>ansible-playbookコマンドのオプションパラメータ「--forks」を指定したい場合に値を入力します。</p></td>
+<td><p>ー</p></td>
+<td><p>手動入力</p></td>
+<td><p>1～4,294,967,296</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>Ansible Execution Agent 利用情報</p></td>
+<td><p>実行環境</p></td>
+<td><p><span class="menuselection">Ansible共通 ▶ 実行環境定義</span> に登録されている <span class="menuselection">実行環境名</span> が表示されます。Ansible Execution Agent内にansibe-builderで実行環境
+（コンテナ）をbuildする際に使用するテンプレートファイルとパラメータシート「実行環境パラメータ定義」が紐付いている実行環境名を選択します。
+<span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> で「Ansible Execution Agent」を選択した場合、必須入力。</p></td>
+<td><p>ー</p></td>
+<td><p>リスト選択</p></td>
+<td><p>説明欄記載のとおり。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ansible-builderパラメータ</p></td>
+<td><p>Ansible Execution Agent内にansibe-builderで実行環境をbuildする際のansibe-builderのパラメータを入力します。
+詳細については、 ansibe-builderのマニュアルを参照ください。</p></td>
+<td><p>ー</p></td>
+<td><p>手動入力</p></td>
+<td><p>最大長4000バイト</p></td>
+</tr>
+<tr class="row-even"><td><p>Ansible Automatio Controller利用情報</p></td>
+<td><p>実行環境※2</p></td>
+<td><p>Ansible Automation Controllerに構築されている実行環境が表示されます。
+使用する実行環境を選択します。
+未選択の場合は、Ansible Automation Controllerに設定されているデフォルトの実行環境が使用されます。</p></td>
 <td><p>ー</p></td>
 <td><p>リスト選択</p></td>
 <td><p>説明欄記載のとおり。</p></td>
@@ -1530,7 +1578,7 @@
 <div class="line">作業実行には、3種類の実行種別があります。実行種別に応じたボタンをクリックすることで <span class="menuselection">Ansible-Pioneer ▶ 作業状態確認</span> に遷移し、実行されます。</div>
 </div>
 <figure class="align-default" id="id72">
-<a class="reference internal image-reference" href="../../_images/execution_screen2.gif"><img alt="作業実行画面" src="../../_images/execution_screen2.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/execution_screen_v2_52.gif"><img alt="作業実行画面" src="../../_images/execution_screen_v2_52.gif" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">図 3.46 </span><span class="caption-text">作業実行画面</span><a class="headerlink" href="#id72" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -1573,7 +1621,7 @@
 <div class="line">作業の実行状態を監視します。</div>
 </div>
 <figure class="align-default" id="id73">
-<a class="reference internal image-reference" href="../../_images/check_operation_status2.png"><img alt="サブメニュー画面（作業状態確認）" src="../../_images/check_operation_status2.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/check_operation_status_v2_52.png"><img alt="サブメニュー画面（作業状態確認）" src="../../_images/check_operation_status_v2_52.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">図 3.47 </span><span class="caption-text">サブメニュー画面（作業状態確認）</span><a class="headerlink" href="#id73" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -1670,7 +1718,7 @@
 <div class="line"><span class="guilabel">詳細</span> ボタンで <span class="menuselection">Ansible-Pioneer ▶ 作業状態確認</span> に遷移し、実行状態の詳細を閲覧することができます。</div>
 </div>
 <figure class="align-default" id="id75">
-<a class="reference internal image-reference" href="../../_images/execution_list2.png"><img alt="サブメニュー画面（作業管理）" src="../../_images/execution_list2.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/execution_list_v2_52.png"><img alt="サブメニュー画面（作業管理）" src="../../_images/execution_list_v2_52.png" style="width: 800px;" /></a>
 <figcaption>
 <p><span class="caption-number">図 3.48 </span><span class="caption-text">サブメニュー画面（作業管理）</span><a class="headerlink" href="#id75" title="この画像へのパーマリンク">¶</a></p>
 </figcaption>
@@ -1702,76 +1750,86 @@
 <tr class="row-even"><td colspan="3"><p>ステータス</p></td>
 <td><p>作業実行のステータスを表示します。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>実行エンジン</p></td>
+<tr class="row-odd"><td colspan="3"><p>緊急停止フラグ</p></td>
+<td><p><span class="menuselection">Ansible-Pioneer ▶ 作業状態確認</span> より <span class="guilabel">緊急停止</span> ボタンで緊急停止をしているかを表示します。</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>実行エンジン</p></td>
 <td><p>作業実行した実行エンジンを表示します。</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>呼出元Conductor</p></td>
+<tr class="row-odd"><td colspan="3"><p>呼出元Conductor</p></td>
 <td><p>Conductorから実行した場合にConductor名が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>実行ユーザ</p></td>
+<tr class="row-even"><td colspan="3"><p>実行ユーザ</p></td>
 <td><p>作業実行したユーザ名が表示されます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>登録日時</p></td>
+<tr class="row-odd"><td colspan="3"><p>登録日時</p></td>
 <td><p>作業実行でボタンをクリックした日時が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="8"><p>Movement</p></td>
+<tr class="row-even"><td rowspan="10"><p>Movement</p></td>
 <td colspan="2"><p>ID</p></td>
 <td><p>作業実行で選択したMovementのIDが表示されます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>名称</p></td>
+<tr class="row-odd"><td colspan="2"><p>名称</p></td>
 <td><p>作業実行で選択したMovementの名称が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>遅延タイマー</p></td>
+<tr class="row-even"><td colspan="2"><p>遅延タイマー</p></td>
 <td><p>作業実行で選択したMovementの遅延タイマーが表示されます。</p></td>
 </tr>
-<tr class="row-even"><td rowspan="4"><p>Ansible利用情報</p></td>
+<tr class="row-odd"><td rowspan="4"><p>Ansible利用情報</p></td>
 <td><p>ホスト指定形式</p></td>
 <td><p>作業実行で選択したMovementのホスト指定形式が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td><p>WinRM接続</p></td>
+<tr class="row-even"><td><p>WinRM接続</p></td>
 <td><p>作業実行で選択したMovementのWinRM接続が表示されます。</p></td>
 </tr>
-<tr class="row-even"><td><p>ヘッダーセクション</p></td>
+<tr class="row-odd"><td><p>ヘッダーセクション</p></td>
 <td><p>作業実行で選択したMovementのヘッダーセクションが表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td><p>ansible.cfg</p></td>
+<tr class="row-even"><td><p>ansible.cfg</p></td>
 <td><p>作業実行で選択したMovementのansible.cfgがアップロード出来ます。</p></td>
 </tr>
-<tr class="row-even"><td><p>Ansible Automation Controller 利用情報</p></td>
+<tr class="row-odd"><td rowspan="2"><p>Ansible Execution Agent 利用情報</p></td>
+<td><p>実行環境</p></td>
+<td><p>作業実行で選択したMovementのAnsible Execution Agentの実行環境が表示されます。</p></td>
+</tr>
+<tr class="row-even"><td><p>ansible-builderパラメータ</p></td>
+<td><p>作業実行で選択したMovementのansible-builderパラメータが表示されます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ansible Automation Controller 利用情報</p></td>
 <td><p>実行環境</p></td>
 <td><p>作業実行で選択したMovementの実行環境が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><p>オペレーション</p></td>
+<tr class="row-even"><td rowspan="2"><p>オペレーション</p></td>
 <td colspan="2"><p>No.</p></td>
 <td><p>作業実行で選択したオペレーションのIDが表示されます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>名称</p></td>
+<tr class="row-odd"><td colspan="2"><p>名称</p></td>
 <td><p>作業実行で選択したオペレーションの名称が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>投入データ</p></td>
+<tr class="row-even"><td colspan="3"><p>投入データ</p></td>
 <td><p>投入データ一式をzip形式でアップロード出来ます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>結果データ</p></td>
+<tr class="row-odd"><td colspan="3"><p>結果データ</p></td>
 <td><p>結果データ一式をzip形式でアップロード出来ます。</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="3"><p>作業状況</p></td>
+<tr class="row-even"><td rowspan="3"><p>作業状況</p></td>
 <td colspan="2"><p>予約日時</p></td>
 <td><p>作業実行で予約日時を設定した場合に予約日時が表示されます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>開始日時</p></td>
+<tr class="row-odd"><td colspan="2"><p>開始日時</p></td>
 <td><p>作業実行を開始した日時が表示されます。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>終了日時</p></td>
+<tr class="row-even"><td colspan="2"><p>終了日時</p></td>
 <td><p>作業実行が終了した日時が表示されます。</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>収集状況</p></td>
+<tr class="row-odd"><td rowspan="2"><p>収集状況</p></td>
 <td colspan="2"><p>ステータス</p></td>
 <td><p>収集機能のステータスを表示します。</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>収集ログ</p></td>
+<tr class="row-even"><td colspan="2"><p>収集ログ</p></td>
 <td><p>収集機能のログがダウンロード出来ます。</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Conductorインスタンス番号</p></td>
+<tr class="row-odd"><td colspan="3"><p>Conductorインスタンス番号</p></td>
 <td><p>Conductorから実行された場合にConductorインスタンス番号を表示します。</p></td>
 </tr>
 </tbody>
@@ -2026,7 +2084,7 @@
 <td><p>作業対象ホストにコマンドを連続投入が可能で、投入前後に条件分岐を行うことができます。</p></td>
 </tr>
 <tr class="row-odd"><td><p>localaction</p></td>
-<td><p>Ansible Core/Ansible Automation Controllerが実行される環境でコマンドを投入します。</p></td>
+<td><p>Ansible Core/Ansible Automation Controller/Ansible Execution Agentが実行される環境でコマンドを投入します。</p></td>
 </tr>
 </tbody>
 </table>
@@ -2853,7 +2911,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <section id="id31">
 <h5>概要<a class="headerlink" href="#id31" title="この見出しへのパーマリンク">¶</a></h5>
 <div class="line-block">
-<div class="line">Ansible Core/Ansible AutomationControllerが実行される環境でコマンドを投入します。</div>
+<div class="line">Ansible Core/Ansible AutomationController/Ansible Execution Agentが実行される環境でコマンドを投入します。</div>
 </div>
 </section>
 <section id="id32">
@@ -3203,16 +3261,18 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <table class="docutils align-left" id="id91">
 <caption><span class="caption-number">表 3.60 </span><span class="caption-text">Ansible-Pioneer投入データ</span><a class="headerlink" href="#id91" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 22.2%" />
-<col style="width: 22.2%" />
-<col style="width: 33.3%" />
-<col style="width: 22.2%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 23.1%" />
+<col style="width: 30.8%" />
+<col style="width: 15.4%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>メニューグループ</p></th>
 <th class="head"><p>メニュー</p></th>
 <th class="head"><p>項目</p></th>
 <th class="head"><p>ディレクトリ解凍時のパス</p></th>
+<th class="head"><p>備考</p></th>
 </tr>
 </thead>
 <tbody>
@@ -3220,41 +3280,49 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <td><p>対話ファイル素材集</p></td>
 <td><p>対話ファイル</p></td>
 <td><p>/child_playbooks</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible 共通</p></td>
 <td><p>テンプレート管理</p></td>
 <td><p>テンプレート素材</p></td>
 <td><p>/template_files</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible 共通</p></td>
 <td><p>ファイル管理</p></td>
 <td><p>ファイル素材</p></td>
 <td><p>/copy_files</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible-Pioneer</p></td>
 <td><p>代入値管理</p></td>
 <td><p>具体値（ファイル）</p></td>
 <td><p>/upload_files</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible 共通</p></td>
 <td><p>グローバル変数管理</p></td>
 <td><p>変数名/具体値</p></td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible-Pioneer</p></td>
 <td><p>代入値管理</p></td>
 <td><p>変数名/具体値</p></td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible-Pioneer</p></td>
 <td><p>template 管理</p></td>
 <td><p>テンプレート埋込変数</p></td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible-Pioneer</p></td>
 <td><p>ファイル管理</p></td>
 <td><p>ファイル埋込変数</p></td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
@@ -3268,21 +3336,37 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </div>
 </td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><p>ssh 認証鍵ファイル</p></td>
 <td><p>/ssh_key_files</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>インターフェース情報</p></td>
 <td><p>オプションパラメータ</p></td>
-<td><p>/AnsibleExecOption.txt</p></td>
+<td><div class="line-block">
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Core」「Ansible Automation Controller」の場合</div>
+<div class="line">/AnsibleExecOption.txt</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合</div>
+<div class="line">/env/cmdline</div>
+</div>
+</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible-Pioneer</p></td>
 <td><p>Movement一覧</p></td>
 <td><p>並列実行数</p></td>
-<td><p>/AnsibleExecOption.txt</p></td>
+<td><div class="line-block">
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Core」「Ansible Automation Controller」の場合</div>
+<div class="line">/AnsibleExecOption.txt</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合</div>
+<div class="line">/env/cmdline</div>
+</div>
+</td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
@@ -3292,12 +3376,20 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <div class="line">IP アドレス</div>
 </div>
 </td>
-<td><p>/hosts</p></td>
+<td><div class="line-block">
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Core」「Ansible Automation Controller」の場合</div>
+<div class="line">/hosts</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合</div>
+<div class="line">/inventory/hosts</div>
+</div>
+</td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><p>接続オプション</p></td>
 <td><p>/host_vars</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Ansible-Pioneer</p></td>
 <td><p>Movement-対話種別紐付</p></td>
@@ -3307,6 +3399,29 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </div>
 </td>
 <td><p>/playbook.yml</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
+<td><p>実行環境定義テンプレート管理</p></td>
+<td><p>テンプレートファイル</p></td>
+<td><p>builder_executable_files/execution-environment.yml</p></td>
+<td><p><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合のみ</p></td>
+</tr>
+<tr class="row-even"><td><p>Ansible共通</p></td>
+<td><p>パラメータシート「実行環境パラメータ定義」</p></td>
+<td><p>各種アップロードファイル</p></td>
+<td><p>builder_executable_files/{{Rest API用項目名}}_アップロードファイル名</p></td>
+<td><p><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合のみ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
+<td><p>実行環境管理</p></td>
+<td><p>タグ名</p></td>
+<td><div class="line-block">
+<div class="line">builder_executable_files/builder.sh</div>
+<div class="line">runner_executable_files/start.sh</div>
+</div>
+</td>
+<td><p><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合のみ</p></td>
 </tr>
 </tbody>
 </table>
@@ -3323,22 +3438,25 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <table class="docutils align-left" id="id92">
 <caption><span class="caption-number">表 3.61 </span><span class="caption-text">Ansible-Pioneer結果データに保存されるファイル一覧</span><a class="headerlink" href="#id92" title="このテーブルへのパーマリンク">¶</a></caption>
 <colgroup>
-<col style="width: 18.2%" />
-<col style="width: 45.5%" />
-<col style="width: 18.2%" />
-<col style="width: 18.2%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>ファイル名</p></th>
 <th class="head"><p>記録内容</p></th>
 <th class="head"><p>Ansible Coreの場合</p></th>
 <th class="head"><p>Ansible Automation Controllerの場合</p></th>
+<th class="head"><p>AAnsible Execution Agentの場合</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>result.txt</p></td>
 <td><p>Ansibleの実行結果を記録</p></td>
 <td><p>〇</p></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>xxx.pid</p></td>
@@ -3349,6 +3467,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </td>
 <td><p>〇</p></td>
 <td></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-even"><td><p>pioneer.xxx</p></td>
 <td><div class="line-block">
@@ -3358,6 +3477,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-odd"><td><p>xxx_private.log</p></td>
 <td><div class="line-block">
@@ -3365,6 +3485,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <div class="line">xxx: 作業対象ホスト</div>
 </div>
 </td>
+<td><p>〇</p></td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
 </tr>
@@ -3377,9 +3498,11 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-odd"><td><p>exec.log.org</p></td>
 <td><p>Ansible-playbbokコマンドの標準出力の出力先ファイル</p></td>
+<td><p>〇</p></td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
 </tr>
@@ -3391,6 +3514,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-odd"><td><p>exec_&lt;作業番号&gt;_&lt;グループ番号&gt;</p></td>
 <td><div class="line-block">
@@ -3400,15 +3524,28 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </td>
 <td></td>
 <td><p>〇</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>forced.txt</p></td>
 <td><p>緊急停止をした場合の記録ファイル</p></td>
 <td><p>〇</p></td>
 <td></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-odd"><td><p>user_files</p></td>
 <td><p>実行したplaybookでITA独自変数「__workflowdir__」にファイル出力をした場合の出力先ディレクトリ。</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">child_exec.log</div>
+<div class="line">child_error.log</div>
+</div>
+</td>
+<td><p>ansible-builderの実行ログ</p></td>
+<td></td>
+<td></td>
 <td><p>〇</p></td>
 </tr>
 </tbody>
