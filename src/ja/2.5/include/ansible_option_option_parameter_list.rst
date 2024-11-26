@@ -5,7 +5,7 @@
 #. | :menuselection:`各モード --> Movement一覧` の :menuselection:`オプションパラメータ`
 #. | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`オプションパラメータ`
 
-| ▼ :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」の場合
+| ▼ :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」と「Ansible Execution Agent」の場合
 | 　　ansible-playbookコマンドのオプションパラメータを入力します。
 | 　　ansible-playbookコマンドのオプションパラメータの仕様については、以下のコマンドを実行して表示されたヘルプを参照してください。
 
