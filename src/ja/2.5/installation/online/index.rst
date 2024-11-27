@@ -12,6 +12,7 @@
 
    exastro/index
    oase_agent/index
+   ansible_execution_agent/index
    
 .. raw:: html
 
