@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144561796-1');
+    </script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Ansible Execution Agent - Online &#8212; Documentation  ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/option.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/jquery-3.6.3.min.js"></script>
+    <script src="../../../_static/exastro_documents.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-bundle.js"></script>
+    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="オフライン" href="../../offline/index.html" />
+    <link rel="prev" title="Ansible Execution Agent" href="index.html" /> 
+  </head>
+<body id="page" class="ja">
+
+
+<div id="container">
+
+<div id="header">
+  <header class="divInner">
+    <!-- Exastro logo -->
+    <div id="logo"><a href="https://ita.exastro.org/"><img src="../../../_static/img/exastro.svg" alt="Exastro"></a></div>
+    <!-- Project name -->
+    <div id="projectName"><a href="../../../index.html">Documentation</a></div>
+    <!-- Heaedr navigation -->
+    <div id="headerSearch">
+      <form class="search" action="../../../search.html" method="get">
+        <input type="text" name="q" aria-labelledby="searchlabel">
+        <button type="submit" value="検索"><img src="../../../_static/img/search.png" alt="検索"></button>
+      </form>
+    </div>
+  </header>
+</div><!-- End #header -->
+
+
+<div id="toolbar">
+  <div class="divInner">
+    
+    <div id="documentVersion">
+      <dl>
+        <dt>Document version</dt>
+        <dd>
+          <div>
+            <select name="version" onchange="location.href=value;">
+              <option value="../../../../../ja/2.5/installation/online/ansible_execution_agent/setup.html" selected>current</option>
+              <option value="../../../../../ja/2.5/installation/online/ansible_execution_agent/setup.html" selected>2.5(current)</option>
+              <option value="../../../../../ja/2.4/installation/online/ansible_execution_agent/setup.html">2.4</option>
+              <option value="../../../../../ja/2.3/installation/online/ansible_execution_agent/setup.html">2.3</option>
+              <option value="../../../../../ja/2.2/installation/online/ansible_execution_agent/setup.html">2.2</option>
+              <option value="../../../../../ja/2.1/installation/online/ansible_execution_agent/setup.html">2.1</option>
+              <option value="../../../../../ja/2.0/installation/online/ansible_execution_agent/setup.html">2.0</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="documentLanguage">
+      <dl>
+        <dt>Language</dt>
+        <dd>
+          <div>
+            <select name="lang" onchange="location.href=value;">
+              <option value="../../../../../ja/2.5/installation/online/ansible_execution_agent/setup.html" selected>日本語</option>
+              <option value="../../../../../en/2.5/installation/online/ansible_execution_agent/setup.html">English</option>
+            </select>
+          </div>
+        </dd>
+      </dl>
+    </div>
+    <div id="toolbarNavigation">
+      <ul>
+        <li class="prev"><a href="index.html" title="前のトピックへ">Ansible Execution Agent</a></li>
+        <li class="next"><a href="../../offline/index.html" title="次のトピックへ">オフライン</a></li>
+      </ul>
+    </div>
+  </div>
+</div><!-- End #toolbar -->
+
+<div id="sideMenu">
+
+  <div id="menuButton"></div>
+  
+  <aside class="divInner">
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/index.html">構成・構築ガイド</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">インストール</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">オンライン</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../exastro/index.html">Exastro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../oase_agent/index.html">OASE Agent</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Ansible Execution Agent</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ansible Execution Agent - Online</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-purpose">目的</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-feature">特徴</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-precondition">前提条件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-parameter-list">パラメータ一覧</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-install">インストール</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-uninstall">アンインストール</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-service-cmd">サービスの手動での操作、確認方法</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ansible-execution-agent-service-log">サービスのログ確認方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../offline/index.html">オフライン</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learn/index.html">Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">マニュアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../templates/index.html">テンプレート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/index.html">リファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">貢献</a></li>
+</ul>
+
+    <!-- <ul>
+      <li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">索引</a></li>
+    </ul> -->
+    
+  </aside>
+</div><!-- End #sideMenu -->
+
+
+<div id="tableOfContents">
+  <div id="tocButton"></div>
+  <ul>
+<li><a class="reference internal" href="#">Ansible Execution Agent - Online</a><ul>
+<li><a class="reference internal" href="#ansible-execution-agent-purpose">目的</a></li>
+<li><a class="reference internal" href="#ansible-execution-agent-feature">特徴</a></li>
+<li><a class="reference internal" href="#ansible-execution-agent-precondition">前提条件</a><ul>
+<li><a class="reference internal" href="#ansible-exrcution-agent-hardware-requirements">ハードウェア要件</a></li>
+<li><a class="reference internal" href="#ansible-exrcution-agent-communication-requirements">通信要件</a></li>
+<li><a class="reference internal" href="#os">OS要件</a></li>
+<li><a class="reference internal" href="#ansible-exrcution-agent-oftware-requirements">ソフトウェア要件</a></li>
+<li><a class="reference internal" href="#ansible-exrcution-agent-other-requirements">その他の要件</a><ul>
+<li><a class="reference internal" href="#rhel">RHEL(サポート付きライセンス利用の場合)</a></li>
+<li><a class="reference internal" href="#ansible-builder">Ansible builderで使用する動作確認済みのベースイメージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ansible-execution-agent-parameter-list">パラメータ一覧</a></li>
+<li><a class="reference internal" href="#ansible-execution-agent-install">インストール</a><ul>
+<li><a class="reference internal" href="#id10">準備</a></li>
+<li><a class="reference internal" href="#id11">対話での問い合わせ事項</a></li>
+<li><a class="reference internal" href="#id12">Ansible Execution Agentのインストール</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ansible-execution-agent-uninstall">アンインストール</a></li>
+<li><a class="reference internal" href="#ansible-execution-agent-service-cmd">サービスの手動での操作、確認方法</a></li>
+<li><a class="reference internal" href="#ansible-execution-agent-service-log">サービスのログ確認方法</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+<div id="contents">
+<main class="divInner">
+
+ <div id="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">HOME</a></li>
+    <li><a href="../../index.html">インストール</a></li>
+    <li><a href="../index.html">オンライン</a></li>
+    <li><a href="index.html">Ansible Execution Agent</a></li>
+    
+    <li>Ansible Execution Agent - Online</li>
+  </ul>
+</div>
+
+<div id="article">
+<article class="divInner">
+<div class="body" role="main">
+
+  <section id="ansible-execution-agent-online">
+<span id="ansible-execution-agent"></span><h1>Ansible Execution Agent - Online<a class="headerlink" href="#ansible-execution-agent-online" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="ansible-execution-agent-purpose">
+<span id="id1"></span><h2>目的<a class="headerlink" href="#ansible-execution-agent-purpose" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">本書では、Exastro IT Automation （以下、ITAとも記載する）においてAnsibleをPULL型で実行する際に必要となる、</div>
+<div class="line">Ansible Execution Agentを導入する手順について説明します。</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">Ansible Execution Agentを使用した作業実行、及び設定方法については、マニュアルの以下を参照してください。</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../manuals/ansible-driver/ansible_common.html#ansible-execution-environment-definition-template-list"><span class="std std-ref">実行環境定義テンプレート管理</span></a></p></li>
+<li><p><a class="reference internal" href="../../../manuals/ansible-driver/ansible_common.html#ansible-execution-environment-list"><span class="std std-ref">実行環境管理</span></a></p></li>
+<li><p><a class="reference internal" href="../../../manuals/ansible-driver/ansible_common.html#ansible-agent-list"><span class="std std-ref">エージェント管理</span></a></p></li>
+<li><p><a class="reference internal" href="../../../manuals/ansible-driver/ansible_common.html#ansible-common-environment-definition-make"><span class="std std-ref">Ansible共通 ▶ 実行環境定義テンプレート管理 に登録するテンプレートファイルと パラメータシート「実行環境パラメータ定義」 の使用方法</span></a></p></li>
+</ul>
+</div>
+</section>
+<section id="ansible-execution-agent-feature">
+<span id="id2"></span><h2>特徴<a class="headerlink" href="#ansible-execution-agent-feature" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">Ansible Execution Agentとは、ITAで実行する、「Ansible-Legacy」、「Ansible-Pioneer」、「Ansible-LegacyRole」の作業実行を、</div>
+<div class="line">PULL型で行うためのエージェント機能を提供します。</div>
+</div>
+<ul class="simple">
+<li><p>ITA本体との通信は、http/httpsの、クローズド環境からアウトバウンドのみ（PULL型）</p></li>
+<li><p>Ansible BuilderとAnsible Runnerを使った動的なAnsible作業実行環境の生成 ​（任意の環境・モジュールを利用可能）</p></li>
+<li><p>冗長可能な仕組み（排他制御）</p></li>
+<li><p>エージェントのバージョン確認</p></li>
+</ul>
+</section>
+<section id="ansible-execution-agent-precondition">
+<span id="id3"></span><h2>前提条件<a class="headerlink" href="#ansible-execution-agent-precondition" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">後述する以下の各種要件を満たしていること</div>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ansible-exrcution-agent-hardware-requirements"><span class="std std-ref">ハードウェア要件</span></a></p></li>
+<li><p><a class="reference internal" href="#ansible-exrcution-agent-os-requirements"><span class="std std-ref">OS要件</span></a></p></li>
+<li><p><a class="reference internal" href="#ansible-exrcution-agent-oftware-requirements"><span class="std std-ref">ソフトウェア要件</span></a></p></li>
+<li><p><a class="reference internal" href="#ansible-exrcution-agent-communication-requirements"><span class="std std-ref">通信要件</span></a></p></li>
+<li><p><a class="reference internal" href="#ansible-exrcution-agent-other-requirements"><span class="std std-ref">その他の要件</span></a></p></li>
+</ul>
+<section id="ansible-exrcution-agent-hardware-requirements">
+<span id="id4"></span><h3>ハードウェア要件<a class="headerlink" href="#ansible-exrcution-agent-hardware-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>動作確認済み構成</p></li>
+</ul>
+<table class="docutils align-left" id="id16">
+<caption><span class="caption-number">表 40 </span><span class="caption-text">動作確認済み最小構成</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>リソース種別</p></th>
+<th class="head"><p>要求リソース</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>2 Cores (3.0 GHz, x86_64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>6GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage</p></td>
+<td><p>40GB</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-left" id="id17">
+<caption><span class="caption-number">表 41 </span><span class="caption-text">動作確認済み推奨構成</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>リソース種別</p></th>
+<th class="head"><p>要求リソース</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>4 Cores (3.0 GHz, x86_64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>8GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Storage</p></td>
+<td><p>80GB</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">※ディスク容量は、エージェントサービスの件数や、作業実行結果の削除設定、ビルドするimageサイズに依存するため、</div>
+<div class="line">必要に応じて、サイジング、及びメンテナンス（Docker Image や Build Cache等について）を実行してください。</div>
+</div>
+</div>
+</section>
+<section id="ansible-exrcution-agent-communication-requirements">
+<span id="id5"></span><h3>通信要件<a class="headerlink" href="#ansible-exrcution-agent-communication-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">エージェントサーバから、外部NWへの通信が可能である必要があります。</div>
+</div>
+<ul class="simple">
+<li><p>接続先のITA</p></li>
+<li><p>各種インストール、及びモジュール、BaseImage取得先等（インターネットへの接続を含む）</p></li>
+<li><p>作業対象サーバ</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../../_images/ae_agent_nw.drawio.png"><img alt="エージェントサーバの通信要件" src="../../../_images/ae_agent_nw.drawio.png" style="width: 600px;" /></a>
+</figure>
+</section>
+<section id="os">
+<span id="ansible-exrcution-agent-os-requirements"></span><h3>OS要件<a class="headerlink" href="#os" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">動作確認済みのOSは以下です。</div>
+</div>
+<table class="docutils align-left" id="id18">
+<caption><span class="caption-number">表 42 </span><span class="caption-text">動作確認済みOS</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>OS種別</p></th>
+<th class="head"><p>バージョン</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RHEL9</p></td>
+<td><p>Red Hat Enterprise Linux release 9.4 (Plow)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Almalinux8</p></td>
+<td><p>AlmaLinux release 8.9 (Midnight Oncilla)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">SELinuxがPermissiveに変更されていること。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/selinux/config
+<span class="nv">SELINUX</span><span class="o">=</span>Permissive
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>getenforce
+Permissive
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ansible-exrcution-agent-oftware-requirements">
+<span id="id6"></span><h3>ソフトウェア要件<a class="headerlink" href="#ansible-exrcution-agent-oftware-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>Python3.9以上がインストールされており、python3コマンドとpip3コマンドにエイリアスが紐づいていること</p></li>
+<li><p>インストールを実行するユーザで、以下のコマンドが実行できること</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>-V
+Python<span class="w"> </span><span class="m">3</span>.9.18
+
+$<span class="w"> </span>pip3<span class="w"> </span>-V
+pip<span class="w"> </span><span class="m">21</span>.2.3<span class="w"> </span>from<span class="w"> </span>/usr/lib/python3.9/site-packages/pip<span class="w"> </span><span class="o">(</span>python<span class="w"> </span><span class="m">3</span>.9<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ansible-exrcution-agent-other-requirements">
+<span id="id7"></span><h3>その他の要件<a class="headerlink" href="#ansible-exrcution-agent-other-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<section id="rhel">
+<span id="ansible-exrcution-agent-rhel-support-requirements"></span><h4>RHEL(サポート付きライセンス利用の場合)<a class="headerlink" href="#rhel" title="この見出しへのパーマリンク">¶</a></h4>
+<p>有償版のAnsible-builder、Ansible-runnerを利用する場合、サブスクリプションの登録、リポジトリ有効化は、インストーラ実行前に実施しておいてください。</p>
+<ul>
+<li><p>Red Hat コンテナーレジストリーの認証</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>podman<span class="w"> </span>login<span class="w"> </span>registry.redhat.io
+</pre></div>
+</div>
+</li>
+<li><p>利用するリポジトリ</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rhel-9-for-x86_64-baseos-rpms
+rhel-9-for-x86_64-appstream-rpms
+ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
+</pre></div>
+</div>
+</li>
+<li><p>有効化されているリポジトリの確認、リポジトリの有効化</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--list-enabled
+sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>rhel-9-for-x86_64-baseos-rpms
+sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>rhel-9-for-x86_64-appstream-rpms
+sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--enable<span class="o">=</span>ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="ansible-builder">
+<span id="ansible-exrcution-agent-base-images"></span><h4>Ansible builderで使用する動作確認済みのベースイメージ<a class="headerlink" href="#ansible-builder" title="この見出しへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li><p>動作確認済みビルドのベースイメージ</p></li>
+</ul>
+<table class="docutils align-left" id="id19">
+<caption><span class="caption-number">表 43 </span><span class="caption-text">動作確認済みビルドのベースイメージ</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>ベースイメージ種別</p></th>
+<th class="head"><p>イメージ取得先</p></th>
+<th class="head"><p>備考</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ubi9</p></td>
+<td><p>registry.access.redhat.com/ubi9/ubi-init:latest</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rhel9</p></td>
+<td><p>registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9:latest</p></td>
+<td><p>サポート付きライセンス利用の場合</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="ansible-execution-agent-parameter-list">
+<span id="id8"></span><h2>パラメータ一覧<a class="headerlink" href="#ansible-execution-agent-parameter-list" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">インストーラで生成される、env内のパラメータについて</div>
+</div>
+<table class="docutils align-left" id="id20">
+<caption><span class="caption-number">表 44 </span><span class="caption-text">env内のパラメータ</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>パラメータ名</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>デフォルト値</p></th>
+<th class="head"><p>変更可否</p></th>
+<th class="head"><p>追加されたバージョン</p></th>
+<th class="head"><p>備考</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IS_NON_CONTAINER_LOG</p></td>
+<td><p>ログをファイル出力する設定項目</p></td>
+<td><p>1</p></td>
+<td><p>不可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LOG_LEVEL</p></td>
+<td><p>ログを出力レベルの設定値[INFO/DEBUG]</p></td>
+<td><p>INFO</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LOGGING_MAX_SIZE</p></td>
+<td><p>ログローテーションのファイルサイズ</p></td>
+<td><p>10485760</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td><p>初期状態は、コメントアウト</p></td>
+</tr>
+<tr class="row-odd"><td><p>LOGGING_MAX_FILE</p></td>
+<td><p>ログローテーションのバックアップ数</p></td>
+<td><p>30</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td><p>初期状態は、コメントアウト</p></td>
+</tr>
+<tr class="row-even"><td><p>LANGUAGE</p></td>
+<td><p>言語設定</p></td>
+<td><p>en</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>TZ</p></td>
+<td><p>タイムゾーン</p></td>
+<td><p>Asia/Tokyo</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>PYTHON_CMD</p></td>
+<td><p>実行する仮想環境のpythonの実行コマンド</p></td>
+<td><p>&lt;インストールした環境のPATH&gt;/poetry run python3</p></td>
+<td><p>不可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>PYTHONPATH</p></td>
+<td><p>実行する仮想環境のpythonの実行コマンド</p></td>
+<td><p>&lt;対話事項で入力したインストール先&gt;/ita_ag_ansible_execution/</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>APP_PATH</p></td>
+<td><p>インストール先のPATH</p></td>
+<td><p>&lt;対話事項で入力したインストール先&gt;</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>STORAGEPATH</p></td>
+<td><p>データの保存先のPATH</p></td>
+<td><p>&lt;対話事項で入力した保存先&gt;/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;/storage</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>LOGPATH</p></td>
+<td><p>ログの保存先のPATH</p></td>
+<td><p>&lt;対話事項で入力した保存先&gt;/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;/log</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EXASTRO_ORGANIZATION_ID</p></td>
+<td><p>接続先のORGANIZATION_ID</p></td>
+<td><p>&lt;対話事項で入力したORGANIZATION_ID&gt;</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EXASTRO_WORKSPACE_ID</p></td>
+<td><p>接続先のWORKSPACE_ID</p></td>
+<td><p>&lt;対話事項で入力したWORKSPACE_ID&gt;</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EXASTRO_URL</p></td>
+<td><p>接続先のITAのURL</p></td>
+<td><p>&lt;対話事項で入力したURL&gt;</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>EXASTRO_REFRESH_TOKEN</p></td>
+<td><p>接続先のITAのEXASTRO_REFRESH_TOKEN</p></td>
+<td><p>&lt;対話事項で入力したEXASTRO_REFRESH_TOKEN&gt;</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EXECUTION_ENVIRONMENT_NAMES</p></td>
+<td><div class="line-block">
+<div class="line">実行する環実行環境指定できます。</div>
+<div class="line">空の場合、全実行環境を作業対象とします。</div>
+<div class="line">複数指定する場合は、「,」区切りで指定してください。</div>
+</div>
+</td>
+<td><p>空</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>AGENT_NAME</p></td>
+<td><p>サービスに登録する、エージェントの識別子です。</p></td>
+<td><p>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;</p></td>
+<td><p>不可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>USER_ID</p></td>
+<td><p>エージェントの識別子です。</p></td>
+<td><p>&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;</p></td>
+<td><p>不可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ITERATION</p></td>
+<td><p>設定を初期化するまでの、処理の繰り返し数</p></td>
+<td><p>10</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>EXECUTE_INTERVAL</p></td>
+<td><p>メインプロセス終了後のインターバル</p></td>
+<td><p>5</p></td>
+<td><p>可</p></td>
+<td><p>2.5.1</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">EXECUTION_ENVIRONMENT_NAMES: エージェントで作業対象とする実行環境を分けたい場合等に指定してください。</div>
+<div class="line">複数指定する際には、「,」区切りで指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">EXECUTION_ENVIRONMENT_NAMES</span><span class="o">=</span>&lt;実行環境名1&gt;,&lt;実行環境名2&gt;
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">実行環境名については、 <a class="reference internal" href="../../../manuals/ansible-driver/ansible_common.html#ansible-execution-environment-list"><span class="std std-ref">実行環境管理</span></a> を参照してください。</div>
+</div>
+</div>
+</section>
+<section id="ansible-execution-agent-install">
+<span id="id9"></span><h2>インストール<a class="headerlink" href="#ansible-execution-agent-install" title="この見出しへのパーマリンク">¶</a></h2>
+<section id="id10">
+<h3>準備<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">以下より、最新のsetup.shを取得し、実行権限を付与してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/refs/heads/main/ita_root/ita_ag_ansible_execution/setup.sh
+
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>./setup.sh
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3>対話での問い合わせ事項<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>エージェントのバージョン情報</p></li>
+<li><p>サービス名</p></li>
+<li><p>ソースコードのインストール先</p></li>
+<li><p>データの保存先</p></li>
+<li><p>使用するAnsible-builder、Ansible-runnerについて</p></li>
+<li><p>接続先のITAの接続情報（URL、ORGANIZATION_ID、WORKSPACE_ID、REFRESH_TOKEN）</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Ansible Execution Agentのインストール<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
+<div class="line-block">
+<div class="line">setup.shを実行し、後述する対話事項に沿って進めてください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./setup.sh<span class="w"> </span>install
+</pre></div>
+</div>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">エージェントのインストールモードを聞かれるので、指定してください。</div>
+<div class="line">1: 必要なモジュールのインストール、サービスのソースコードのインストール、サービスの登録・起動を行います。</div>
+<div class="line">2: 追加でサービスの登録・起動を行います。</div>
+<div class="line">3: envファイルを指定して、サービスの登録・起動を行います。</div>
+<div class="line">※ 2.3については、1が実行されている前提になります。</div>
+</div>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Please<span class="w"> </span><span class="k">select</span><span class="w"> </span>which<span class="w"> </span>process<span class="w"> </span>to<span class="w"> </span>execute.
+<span class="w">    </span><span class="m">1</span>:<span class="w"> </span>Create<span class="w"> </span>ENV,<span class="w"> </span>Install,<span class="w"> </span>Register<span class="w"> </span>service
+<span class="w">    </span><span class="m">2</span>:<span class="w"> </span>Create<span class="w"> </span>ENV,<span class="w"> </span>Register<span class="w"> </span>service
+<span class="w">    </span><span class="m">3</span>:<span class="w"> </span>Register<span class="w"> </span>service
+<span class="w">    </span>q:<span class="w"> </span>Quit<span class="w"> </span>installer
+<span class="k">select</span><span class="w"> </span>value:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>q<span class="o">)</span><span class="w">  </span>:
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">以下、「default: xxxxxx」がある項目については、Enterを押下すると、defaultの値が適用されます。</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>以下、Enterを押下すると、必要な設定値を対話形式で、入力が開始されます。</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">1.インストールから、エージェントサービス起動</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">2.エージェントサービスの追加、起動</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">3.サービス起動</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;No value + Enter&#39;</span><span class="w"> </span>is<span class="w"> </span>input<span class="w"> </span><span class="k">while</span><span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>exists,<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used.
+-&gt;<span class="w">  </span>Enter
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">② インストールするエージェントのバージョンを指定できます。デフォルトでは、最新のソースコードが使用されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>Agent.<span class="w"> </span>Tag<span class="w"> </span>specification:<span class="w"> </span>X.Y.Z,<span class="w"> </span>Branch<span class="w"> </span>specification:<span class="w"> </span>X.Y<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>No<span class="w"> </span>Input+Enter<span class="o">(</span>Latest<span class="w"> </span>release<span class="w"> </span>version<span class="o">)]</span>:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>main<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">③ インストールするエージェントサービスの名称を設定する場合は、nを押して以降の対話で、指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>Agent<span class="w"> </span>service<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>format:<span class="w"> </span>ita-ag-ansible-execution-20241112115209622.<span class="w"> </span>Select<span class="w"> </span>n<span class="w"> </span>to<span class="w"> </span>specify<span class="w"> </span>individual<span class="w"> </span>names.<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span>:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>y<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">④ ③で「n」を入力した場合のみこちら表示されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>Agent<span class="w"> </span>service<span class="w"> </span>name<span class="w"> </span>.<span class="w"> </span>The<span class="w"> </span>string<span class="w"> </span>ita-ag-ansible-execution-<span class="w"> </span>is<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>start<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>name.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑤ ソースコードのインストール先を指定する場合は入力してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Specify<span class="w"> </span>full<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>install<span class="w"> </span>location.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>/home/&lt;ログインユーザー&gt;/exastro<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑥ データの保存先を指定する場合は入力してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Specify<span class="w"> </span>full<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>data<span class="w"> </span>storage<span class="w"> </span>location.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>/home/&lt;ログインユーザー&gt;/exastro<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑦ 使用するAnsible-builder、Ansible-runnerを指定してください。</div>
+<div class="line-block">
+<div class="line">償版を利用する場合は、リポジトリ有効化したうえで、2を指定してください。</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Select<span class="w"> </span>which<span class="w"> </span>Ansible-builder<span class="w"> </span>and/or<span class="w"> </span>Ansible-runner<span class="w"> </span>to<span class="w"> </span>use<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">1</span><span class="o">=</span>Ansible<span class="w"> </span><span class="nv">2</span><span class="o">=</span>Red<span class="w"> </span>Hat<span class="w"> </span>Ansible<span class="w"> </span>Automation<span class="w"> </span>Platform<span class="o">]</span><span class="w"> </span>:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑧ 接続先のITAのURLを指定してください。　e.g. <a class="reference external" href="http://exastro.example.com:30080">http://exastro.example.com:30080</a></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>ITA<span class="w"> </span>connection<span class="w"> </span>URL.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑨ 接続先のITAのORGANIZATIONを指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>ORGANIZATION_ID.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑩ 接続先のITAのWORKSPACEを指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>WORKSPACE_ID.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑪ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 <a class="reference internal" href="../../../manuals/platform_management/general.html#exastro-refresh-token"><span class="std std-ref">トークン発行</span></a>  を参照。）</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">後で設定する場合は、Enter押して次に進んでください。</div>
+<div class="line">.envのEXASTRO_REFRESH_TOKENを書き換えてください。</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>REFRESH_TOKEN<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>that<span class="w"> </span>can<span class="w"> </span>log<span class="w"> </span><span class="k">in</span><span class="w"> </span>to<span class="w"> </span>ITA.<span class="w"> </span>If<span class="w"> </span>the<span class="w"> </span>token<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>input<span class="w"> </span>here,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>EXASTRO_REFRESH_TOKEN<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>.env<span class="w"> </span>file.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w">  </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑫ サービスの起動を行う場合は、を選択してください。起動しない場合は、後ほど手動で起動してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>the<span class="w"> </span>Agent<span class="w"> </span>service?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span>y
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑬ インストールしたサービスの情報が表示されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>Ansible<span class="w"> </span>Execution<span class="w"> </span>Agent<span class="w"> </span>Infomation:
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>id:<span class="w">   </span>&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>Name:<span class="w"> </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Storage<span class="w"> </span>Path:<span class="w">       </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/storage
+<span class="w">    </span>Env<span class="w"> </span>Path:<span class="w">           </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/.env
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;No value + Enter&#39;</span><span class="w"> </span>is<span class="w"> </span>input<span class="w"> </span><span class="k">while</span><span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>exists,<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used.
+-&gt;<span class="w">  </span>Enter
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">② インストールするエージェントサービスの名称を設定する場合は、nを押して以降の対話で、指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>Agent<span class="w"> </span>service<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>format:<span class="w"> </span>ita-ag-ansible-execution-20241112115209622.<span class="w"> </span>Select<span class="w"> </span>n<span class="w"> </span>to<span class="w"> </span>specify<span class="w"> </span>individual<span class="w"> </span>names.<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span>:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>y<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">③ ②で「n」を入力した場合のみこちら表示されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>Agent<span class="w"> </span>service<span class="w"> </span>name<span class="w"> </span>.<span class="w"> </span>The<span class="w"> </span>string<span class="w"> </span>ita-ag-ansible-execution-<span class="w"> </span>is<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>start<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>name.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">④ ソースコードのインストール先を指定する場合は入力してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Specify<span class="w"> </span>full<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>install<span class="w"> </span>location.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>/home/&lt;ログインユーザー&gt;/exastro<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑤ データの保存先を指定する場合は入力してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Specify<span class="w"> </span>full<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>data<span class="w"> </span>storage<span class="w"> </span>location.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>/home/&lt;ログインユーザー&gt;/exastro<span class="w"> </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑥ 接続先のITAのURLを指定してください。　e.g. <a class="reference external" href="http://exastro.example.com:30080">http://exastro.example.com:30080</a></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>ITA<span class="w"> </span>connection<span class="w"> </span>URL.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑦ 接続先のITAのORGANIZATIONを指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>ORGANIZATION_ID.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑧ 接続先のITAのWORKSPACEを指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>WORKSPACE_ID.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑨ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 <a class="reference internal" href="../../../manuals/platform_management/general.html#exastro-refresh-token"><span class="std std-ref">トークン発行</span></a>  を参照。）</div>
+<div class="line"><br /></div>
+<div class="line-block">
+<div class="line">後で設定する場合は、Enter押して次に進んでください。</div>
+<div class="line">.envのEXASTRO_REFRESH_TOKENを書き換えてください。</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>REFRESH_TOKEN<span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>that<span class="w"> </span>can<span class="w"> </span>log<span class="w"> </span><span class="k">in</span><span class="w"> </span>to<span class="w"> </span>ITA.<span class="w"> </span>If<span class="w"> </span>the<span class="w"> </span>token<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>input<span class="w"> </span>here,<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>EXASTRO_REFRESH_TOKEN<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>.env<span class="w"> </span>file.:
+Input<span class="w"> </span>Value<span class="w"> </span><span class="o">[</span>default:<span class="w">  </span><span class="o">]</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑩ サービスの起動を行う場合は、を選択してください。起動しない場合は、後ほど手動で起動してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>the<span class="w"> </span>Agent<span class="w"> </span>service?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span>y
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">⑪ インストールしたサービスの情報が表示されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>Ansible<span class="w"> </span>Execution<span class="w"> </span>Agent<span class="w"> </span>Infomation:
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>id:<span class="w">   </span>&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>Name:<span class="w"> </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Storage<span class="w"> </span>Path:<span class="w">       </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/storage
+<span class="w">    </span>Env<span class="w"> </span>Path:<span class="w">           </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/.env
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;No value + Enter&#39;</span><span class="w"> </span>is<span class="w"> </span>input<span class="w"> </span><span class="k">while</span><span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>exists,<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>value<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used.
+-&gt;<span class="w">  </span>Enter
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">② 使用する.envのパスを指定してください。envの情報をもとに、サービスの登録・起動を行います。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>full<span class="w"> </span>path<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>.env<span class="w"> </span>file.:
+Input<span class="w"> </span>Value<span class="w"> </span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">③ サービスの起動を行う場合は、を選択してください。起動しない場合は、後ほど手動で起動してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>the<span class="w"> </span>Agent<span class="w"> </span>service?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span>y
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">④ インストールしたサービスの情報が表示されます。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Install<span class="w"> </span>Ansible<span class="w"> </span>Execution<span class="w"> </span>Agent<span class="w"> </span>Infomation:
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>id:<span class="w">   </span>&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Agent<span class="w"> </span>Service<span class="w"> </span>Name:<span class="w"> </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="w">    </span>Storage<span class="w"> </span>Path:<span class="w">       </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/storage
+<span class="w">    </span>Env<span class="w"> </span>Path:<span class="w">           </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/.env
+</pre></div>
+</div>
+</div></div>
+</section>
+</section>
+<section id="ansible-execution-agent-uninstall">
+<span id="id13"></span><h2>アンインストール<a class="headerlink" href="#ansible-execution-agent-uninstall" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">setup.shを実行し、後述する対話事項に沿って進めてください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./setup.sh<span class="w"> </span>uninstall
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">以下、アンインストールでは、サービスの削除、データの削除は実施可能ですが、アプリケーションのソースコードは、削除されません。</div>
+<div class="line">削除する場合は、手動での対応が必要となります。</div>
+</div>
+</div>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">エージェントのアンインストールモードを聞かれるので、指定してください。</div>
+<div class="line">1: サービスの削除、データの削除を行います。</div>
+<div class="line">2: サービスの削除、を行います。データは削除されません。</div>
+<div class="line">3: データの削除</div>
+<div class="line">※ 3については、2が実行されている前提になります。</div>
+</div>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Please<span class="w"> </span><span class="k">select</span><span class="w"> </span>which<span class="w"> </span>process<span class="w"> </span>to<span class="w"> </span>execute.
+<span class="w">    </span><span class="m">1</span>:<span class="w"> </span>Delete<span class="w"> </span>service,<span class="w"> </span>Delete<span class="w"> </span>Data
+<span class="w">    </span><span class="m">2</span>:<span class="w"> </span>Delete<span class="w"> </span>service
+<span class="w">    </span><span class="m">3</span>:<span class="w"> </span>Delete<span class="w"> </span>Data
+<span class="w">    </span>q:<span class="w"> </span>Quit<span class="w"> </span>uninstaller
+<span class="k">select</span><span class="w"> </span>value:<span class="w"> </span><span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>q<span class="o">)</span><span class="w">  </span>:
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>以下、Enterを押下すると、必要な設定値を対話形式で、入力が開始されます。</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">1.エージェントサービス削除、データ削除</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">2.エージェントサービス削除</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">3.データ削除</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">①アンインストールするエージェントのサービス名（ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;）を指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>SERVICE_NAME.<span class="o">(</span>e.g.<span class="w"> </span>ita-ag-ansible-execution-xxxxxxxxxxxxx<span class="o">)</span>:
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">②①で指定した、サービス名のデータの保存先を指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>STORAGE_PATH.<span class="o">(</span>e.g.<span class="w"> </span>/home/cloud-user/exastro/&lt;SERVICE_ID&gt;<span class="o">)</span>:
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">①アンインストールするエージェントのサービス名（ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列&gt;）を指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>SERVICE_NAME.<span class="o">(</span>e.g.<span class="w"> </span>ita-ag-ansible-execution-xxxxxxxxxxxxx<span class="o">)</span>:
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">① サービスのデータの保存先を指定してください。</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>a<span class="w"> </span>STORAGE_PATH.<span class="o">(</span>e.g.<span class="w"> </span>/home/cloud-user/exastro/&lt;SERVICE_ID&gt;<span class="o">)</span>:
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="ansible-execution-agent-service-cmd">
+<span id="id14"></span><h2>サービスの手動での操作、確認方法<a class="headerlink" href="#ansible-execution-agent-service-cmd" title="この見出しへのパーマリンク">¶</a></h2>
+<div class="line-block">
+<div class="line">以下のコマンドにて、サービスの状態を確認できます。</div>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">AlmaLinux8</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">RHEL9</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 設定ファイルの変更を反映</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<span class="c1"># サービスの状況確認</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの開始</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの停止</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの再起動</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 設定ファイルの変更を反映</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+<span class="c1"># サービスの状況確認</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>status<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの開始</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの停止</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>stop<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+<span class="c1"># サービスの再起動</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>restart<span class="w">  </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="ansible-execution-agent-service-log">
+<span id="id15"></span><h2>サービスのログ確認方法<a class="headerlink" href="#ansible-execution-agent-service-log" title="この見出しへのパーマリンク">¶</a></h2>
+<ul>
+<li><div class="line-block">
+<div class="line">アプリケーションログ</div>
+</div>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>/home/&lt;ログインユーザー&gt;/exastro/&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;/log/
+<span class="w">      </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;.log
+<span class="w">      </span>ita-ag-ansible-execution-&lt;サービスの一意な識別子:yyyyMMddHHmmssfff<span class="w"> </span>or<span class="w"> </span>対話で指定した文字列&gt;.log.xx
+
+※ログローテーションされたファイルは、末尾に数値が付与されます。ログのローテートのサイズ、保存期間は、を参照してください。
+</pre></div>
+</div>
+<ul>
+<li><div class="line-block">
+<div class="line">システムログ、各コンポーネントのログ</div>
+</div>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>/var/log/message
+
+※podman、Ansible-builder、Ansible-runner他の関連コンポーネントについては、各コンポーネントのログ出力先について参照してください。
+</pre></div>
+</div>
+</section>
+</section>
+
+
+</div>
+
+
+<div id="articleNavigation">
+  <ul>
+    <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>Ansible Execution Agent</a></li>
+    <li class="next"><a href="../../offline/index.html" title="次のトピックへ"><span>次のトピックへ</span>オフライン</a></li>
+  </ul>
+</div>
+
+
+<div id="pageTopLink">
+  <a href="#container"><i>↑</i> Page Top</a>
+</div>
+
+</article>
+</div>
+</main>
+</div><!-- End #contents -->
+<div id="footer">
+  <footer class="divInner">
+    <small>Copyright © 2019-2023 NEC Corporation</small>
+    <small><a href="/terms/ja.html">サイト規約</a></small>
+  </footer>
+</div><!-- End #footer -->
+
+<div id="overlay"></div>
+<div id="grayBack"></div>
+
+</div><!-- End #container -->
+  </body>
+</html>
