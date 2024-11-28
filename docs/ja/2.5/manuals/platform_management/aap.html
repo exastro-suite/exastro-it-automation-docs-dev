@@ -213,7 +213,7 @@
 <section id="id1">
 <h2><span class="section-number">5.1. </span>目的<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="line-block">
-<div class="line">本書では、システム管理者がオーガナイゼーションに所属するユーザーに対して、Ansible Core もしくは Ansible Automation Controller の利用を制御するための方法について紹介します。</div>
+<div class="line">本書では、システム管理者がオーガナイゼーションに所属するユーザーに対して、Ansible Core、Ansible Automation Controller、Ansible Execution Agentの利用を制御するための方法について紹介します。</div>
 </div>
 </section>
 <section id="ansible-automation-controller">
@@ -308,7 +308,7 @@ vi<span class="w"> </span>./exastro-platform/tools/initial-settings-ansible.json
   <summary>initial-settings-ansible.sample.json</summary><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;input_limit_setting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;execution_engine_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;Ansible Automation Controller&quot;</span>
+<span class="w">    </span><span class="s2">&quot;Ansible Automation Controller&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Ansible Execution Agent&quot;</span>
 <span class="w">  </span><span class="p">],</span>
 <span class="w">  </span><span class="nt">&quot;initial_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;ansible_automation_controller_host_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -345,6 +345,18 @@ vi<span class="w"> </span>./exastro-platform/tools/initial-settings-ansible.json
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">execution_engine_listについての補足</div>
+<div class="line">execution_engine_listには、以下の3個の実行エンジンが記載出来きます。</div>
+<div class="line">・Ansible Core</div>
+<div class="line">・Ansible Automation Controller</div>
+<div class="line">・Ansible Execution Agent</div>
+<div class="line">記載した実行エンジンが利用可能となりのす。</div>
+<div class="line">上記JSONの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。</div>
+</div>
 </div>
 </details><div class="line-block">
 <div class="line">各パラメータについては下記を参照してください。</div>
@@ -877,7 +889,7 @@ curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST
 <span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
 <span class="s1">        &quot;input_limit_setting&quot;: true,</span>
 <span class="s1">        &quot;execution_engine_list&quot;: [</span>
-<span class="s1">          &quot;Ansible Automation Controller&quot;</span>
+<span class="s1">          &quot;Ansible Automation Controller&quot;, &quot;Ansible Execution Agent&quot;</span>
 <span class="s1">        ],</span>
 <span class="s1">        &quot;initial_data&quot;: {</span>
 <span class="s1">          &quot;ansible_automation_controller_host_list&quot;: [</span>
@@ -914,6 +926,18 @@ curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST
 <span class="s1">        }</span>
 <span class="s1">      }&#39;</span>
 </pre></div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="line-block">
+<div class="line">execution_engine_listについての補足</div>
+<div class="line">execution_engine_listには、以下の3個の実行エンジンが記載出来きます。</div>
+<div class="line">・Ansible Core</div>
+<div class="line">・Ansible Automation Controller</div>
+<div class="line">・Ansible Execution Agent</div>
+<div class="line">記載した実行エンジンが利用可能となりのす。</div>
+<div class="line">上記コマンドの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。</div>
 </div>
 </div>
 </li>
