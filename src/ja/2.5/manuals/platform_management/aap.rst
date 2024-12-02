@@ -131,11 +131,11 @@ Ansible Automation Controller の登録
             }
 
          .. tip:: | execution_engine_listについての補足
-                  | execution_engine_listには、以下の3個の実行エンジンが記載出来きます。
+                  | execution_engine_listには、以下の3個の実行エンジンが記載できます。
                   | ・Ansible Core
                   | ・Ansible Automation Controller
                   | ・Ansible Execution Agent
-                  | 記載した実行エンジンが利用可能となりのす。
+                  | 記載した実行エンジンが利用可能となります。
                   | 上記JSONの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。
 
          .. raw:: html
@@ -317,11 +317,11 @@ Ansible Automation Controller の登録
                   }'
 
          .. tip:: | execution_engine_listについての補足
-                  | execution_engine_listには、以下の3個の実行エンジンが記載出来きます。
+                  | execution_engine_listには、以下の3個の実行エンジンが記載できます。
                   | ・Ansible Core
                   | ・Ansible Automation Controller
                   | ・Ansible Execution Agent
-                  | 記載した実行エンジンが利用可能となりのす。
+                  | 記載した実行エンジンが利用可能となります。
                   | 上記コマンドの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。
                   
 
