@@ -5,7 +5,7 @@ Ansible Automation Platform 連携
 目的
 ====
 
-| 本書では、システム管理者がオーガナイゼーションに所属するユーザーに対して、Ansible Core もしくは Ansible Automation Controller の利用を制御するための方法について紹介します。
+| 本書では、システム管理者がオーガナイゼーションに所属するユーザーに対して、Ansible Core、Ansible Automation Controller、Ansible Execution Agentの利用を制御するための方法について紹介します。
 
 
 Ansible Automation Controller の登録
@@ -92,8 +92,8 @@ Ansible Automation Controller の登録
 
             {
               "input_limit_setting": true,
-              "execution_engine_list": [
-                "Ansible Automation Controller"
+              "execution_engine_list": [  
+                "Ansible Automation Controller", "Ansible Execution Agent"
               ],
               "initial_data": {
                 "ansible_automation_controller_host_list": [
@@ -129,6 +129,14 @@ Ansible Automation Controller の登録
                 }
               }
             }
+
+         .. tip:: | execution_engine_listについての補足
+                  | execution_engine_listには、以下の3個の実行エンジンが記載できます。
+                  | ・Ansible Core
+                  | ・Ansible Automation Controller
+                  | ・Ansible Execution Agent
+                  | 記載した実行エンジンが利用可能となります。
+                  | 上記JSONの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。
 
          .. raw:: html
 
@@ -271,7 +279,7 @@ Ansible Automation Controller の登録
               -d '{
                     "input_limit_setting": true,
                     "execution_engine_list": [
-                      "Ansible Automation Controller"
+                      "Ansible Automation Controller", "Ansible Execution Agent"
                     ],
                     "initial_data": {
                       "ansible_automation_controller_host_list": [
@@ -307,6 +315,15 @@ Ansible Automation Controller の登録
                       }
                     }
                   }'
+
+         .. tip:: | execution_engine_listについての補足
+                  | execution_engine_listには、以下の3個の実行エンジンが記載できます。
+                  | ・Ansible Core
+                  | ・Ansible Automation Controller
+                  | ・Ansible Execution Agent
+                  | 記載した実行エンジンが利用可能となります。
+                  | 上記コマンドの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。
+                  
 
 Ansible Automation Contoller 連携の確認
 ---------------------------------------
