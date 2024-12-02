@@ -78,6 +78,32 @@
      - Exastro Platform エンドポイントのエンドポイントのサービス名
      - 不可
      - "httpMng"
+   * - exastro-platform.platform-auth.ingress.tls[0].secretName
+     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管している Kubernetes シークレット名
+     - 可 (Ingress利用時)
+     - 任意の文字列
+   * - exastro-platform.platform-auth.ingress.tls[0].hosts
+     - Exastro Platform 公開用エンドポイントのSSL/TLSを使用するホスト名、もしくは、FQDN
+     - 可 (Ingress利用時)
+     - 任意の文字列
+   * - exastro-platform.platform-auth.ingress.secrets[0].name
+     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管する Kubernetes シークレット名
+     - 可 (Ingress利用時)
+     - 任意の文字列
+   * - exastro-platform.platform-auth.ingress.secrets[0].certificate
+     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する証明書ファイルの値
+     - 可 (Ingress利用時)
+     - | 証明書ファイルの値の例
+       | -----BEGIN CERTIFICATE-----
+       | ...
+       | -----END CERTIFICATE-----
+   * - exastro-platform.platform-auth.ingress.secrets[0].key
+     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する鍵ファイルの値
+     - 可 (Ingress利用時)
+     - | 鍵ファイルの値の例
+       | -----BEGIN PRIVATE KEY-----
+       | ...
+       | -----END PRIVATE KEY-----
    * - exastro-platform.platform-auth.service.type
      - Exastro Platform のサービスタイプ
      - 可

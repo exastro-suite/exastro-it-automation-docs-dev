@@ -23,7 +23,7 @@ OASE管理
    +--------+----------------------+--------------------------+----------------------------------------+
    | **No** | **メニューグループ** |    **メニュー・画面**    |                **説明**                |
    +========+======================+==========================+========================================+
-   | 1      | OASE管理             | エージェント             | イベント収集対象の情報を管理します。   |
+   | 1      | OASE管理             | イベント収集             | イベント収集対象の情報を管理します。   |
    +--------+                      +--------------------------+----------------------------------------+
    | 2      |                      | 通知テンプレート（共通） | OASEの通知で使用する情報を管理します。 |
    +--------+----------------------+--------------------------+----------------------------------------+
@@ -65,7 +65,7 @@ OASE管理
 -  **作業フロー詳細と参照先**
 
    #. | **イベント収集設定**
-      | OASE管理のエージェントメニュー画面から、イベント収集対象サービスに関する設定を登録します。
+      | OASE管理のイベント収集メニュー画面から、イベント収集対象サービスに関する設定を登録します。
       | 詳細は :ref:`agent` を参照してください。
 
    #. | **ラベル設定**
@@ -131,20 +131,20 @@ OASE管理
 
 .. _agent:
 
-エージェント
+イベント収集
 -------------
 
-1. | :menuselection:`OASE管理 --> エージェント` では、（エージェントに設定する）イベント収集対象の、接続方式・認証方式・TTL等をメンテナンス（閲覧/登録/更新/廃止）できます。
+1. | :menuselection:`OASE管理 --> イベント収集` では、（エージェントに設定する）イベント収集対象の、接続方式・認証方式・TTL等をメンテナンス（閲覧/登録/更新/廃止）できます。
 
 .. figure:: /images/ja/oase/oase_management/agent_menu.png
    :width: 800px
-   :alt: サブメニュー画面（エージェント）
+   :alt: サブメニュー画面（イベント収集）
 
-   サブメニュー画面（エージェント）
+   サブメニュー画面（イベント収集）
 
-1. | エージェント※1 画面の入力項目は以下のとおりです。
+1. | イベント収集※1 画面の入力項目は以下のとおりです。
 
-   .. table:: エージェント画面 入力項目一覧
+   .. table:: イベント収集画面 入力項目一覧
       :widths: 10 15 60 10 10 20
       :align: left
 
@@ -197,7 +197,8 @@ OASE管理
       |                 +------------------+--------------------------------------------------------+--------------+--------------+-----------------+
       |                 | ユーザー名       | イベント収集対象へログインするユーザー名を入力します。 | ー           | 手動入力     | 最大長255バイト |
       |                 +------------------+--------------------------------------------------------+--------------+--------------+-----------------+
-      |                 | パスワード       | イベント収集対象へログインするパスワードを入力します。 | ー           | 手動入力     | 最大長4000バイト|
+      |                 | パスワード       | イベント収集対象へログインする\                        | ー           | 手動入力     | 最大長4000バイト|
+      |                 |                  | ユーザーのパスワードを入力します。                     |              |              |                 |
       |                 +------------------+--------------------------------------------------------+--------------+--------------+-----------------+
       |                 | メールボックス名 | イベント収集対象のメールボックス名を入力します。       | ー           | 手動入力     | 最大長255バイト |
       |                 |                  |                                                        |              |              |                 |
@@ -318,10 +319,10 @@ OASE管理
      - 制約事項 
    * - テンプレート
      - | 通知で使用するテンプレートを編集できます。下記4種類が存在します。
-       | ・新規.j2
-       | ・既知（判定済み）.j2
-       | ・既知（時間切れ）.j2
-       | ・未知.j2
+       | ・New.j2
+       | ・Known(evaluated).j2
+       | ・Known(timeout).j2
+       | ・Undetected.j2
      - 〇
      - 手動入力
      - 最大サイズ2MB
@@ -334,105 +335,107 @@ OASE管理
 | テンプレートの初期設定値は下記のとおりです。
 
 .. code-block:: none
-   :name: 新規.j2
-   :caption: 新規.j2
+   :name: New.j2
+   :caption: New.j2
    :lineno-start: 1
 
     [TITLE]
-    新規イベントが発生しました。
+    A new event has occured.
 
     [BODY]
-    詳細
-    　イベントID　　　：{{ _id }}
-    　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-    　イベント取得日時：{{ labels._exastro_fetched_time }}
-    　イベント有効日時：{{ labels._exastro_end_time }}
-    　イベント種別　　：{{ labels._exastro_type }}
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-    　再評価
-    　　評価ルール名　　：{{ labels._exastro_rule_name }}
-    　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-    　ラベル：
+    　Label:
     　  {% for key, value in labels.items() %}
-    　　・{{ key }}：{{ value }}
+    　　・{{ key }}: {{ value }}
     　　{% endfor %}
 
 
 .. code-block:: none
-   :name: 既知（判定済）.j2
-   :caption: 既知（判定済）.j2
+   :name: Known(evaluated).j2
+   :caption: Known(evaluated).j2
    :lineno-start: 1
 
-   [TITLE]
-   既知（判定済）イベントが発生しました。
+    [TITLE]
+    A known(evaluated) event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: 既知（時間切れ）.j2
-   :caption: 既知（時間切れ）.j2
+   :name: Known(timeout).j2
+   :caption: Known(timeout).j2
    :lineno-start: 1
 
-   [TITLE]
-   既知（時間切れ）イベントが発生しました。
+    [TITLE]
+    A known(timeout) event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: 未知.j2
-   :caption: 未知.j2
+   :name: Undetected.j2
+   :caption: Undetected.j2
    :lineno-start: 1
 
-   [TITLE]
-   未知イベントが発生しました。
+    [TITLE]
+    An unknown event has occured.
 
-   [BODY]
-   詳細
-   　イベントID　　　：{{ _id }}
-   　イベント収集設定：{{ labels._exastro_event_collection_settings_id }}
-   　イベント取得日時：{{ labels._exastro_fetched_time }}
-   　イベント有効日時：{{ labels._exastro_end_time }}
-   　イベント種別　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　再評価
-   　　評価ルール名　　：{{ labels._exastro_rule_name }}
-   　　利用イベント　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　ラベル：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
 
 
 付録
@@ -466,13 +469,18 @@ OASE Agentの処理フローと.envの設定値
  * - EXASTRO_ORGANIZATION_ID
    - ITAに対してAPIリクエストをする際に、Organizationを識別するために使用されます。
  * - EXASTRO_WORKSPACE_ID
-   - ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。
-
-     EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。
+   - | ITAに対してAPIリクエストをする際に、ワークスペースを識別するために使用されます。
+     | EXASTRO_ORGANIZATION_IDで設定したオーガナイゼーションと紐づいたワークスペースである必要があります。
+ * - EXASTRO_REFRESH_TOKEN
+   - | ITAに対してAPIリクエストをする際に、Bearer認証の認証トークンとして使用されます。
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
  * - EXASTRO_USERNAME
-   - ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。
+   - | ITAに対してAPIリクエストをする際に、Basic認証のユーザー名として使用されます。
+     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
  * - EXASTRO_PASSWORD
-   - ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。
+   - | ITAに対してAPIリクエストをする際に、Basic認証のパスワードとして使用されます。
+     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
  * - EVENT_COLLECTION_SETTINGS_NAMES
    - このパラメータで設定されている値から、イベント収集設定をITAから取得し、設定ファイルを生成します。
  * - ITERATION
@@ -809,7 +817,7 @@ JMESPath
    ]
 
 | となり、この結果から、イベントとして識別する値は、:program:`id` の値が適しているため、
-|  :menuselection:`OASE管理 --> エージェント` での設定値は、下記の設定が適切です。
+|  :menuselection:`OASE管理 --> イベント収集` での設定値は、下記の設定が適切です。
 
 .. list-table:: 
  :widths: 10, 20
@@ -843,21 +851,21 @@ JMESPath
 
 .. _oase_agent_settings:
 
-監視ソフト毎のエージェント設定例
+監視ソフト毎のイベント収集設定例
 --------------------------------
-| 本項では、代表的な監視ソフト :dfn:`Zabbix` と :dfn:`Grafana` をエージェントで利用する場合の、 :menuselection:`OASE管理 --> エージェント` での設定例について説明します。
+| 本項では、代表的な監視ソフト :dfn:`Zabbix` と :dfn:`Grafana` をイベント収集で利用する場合の、 :menuselection:`OASE管理 --> イベント収集` での設定例について説明します。
 
 | また、本項では、まず、各監視ソフトのアラートを、cURLコマンドで取得する例を示し、
-| 次に、cURLのパラメータを、 :menuselection:`OASE管理 --> エージェント` に設定する順番で説明します。
+| 次に、cURLのパラメータを、 :menuselection:`OASE管理 --> イベント収集` に設定する順番で説明します。
  
 .. warning::
    | 監視ソフトののバージョンによって、HTTP APIの仕様が異なる場合があります。
-   | 利用するバージョンのHTTP APIの仕様を確認し、 :menuselection:`OASE管理 --> エージェント` の設定を行ってください。
+   | 利用するバージョンのHTTP APIの仕様を確認し、 :menuselection:`OASE管理 --> イベント収集` の設定を行ってください。
 
 
 Zabbix
 ^^^^^^
-| :dfn:`Zabbix` から、イベントを取得する、 :menuselection:`OASE管理 --> エージェント` での設定例について説明します。
+| :dfn:`Zabbix` から、イベントを取得する、 :menuselection:`OASE管理 --> イベント収集` での設定例について説明します。
 
 | 以下の説明で使用した、:dfn:`Zabbix` は、
 | ・zabbix 6.4.12 
@@ -913,9 +921,9 @@ Zabbix
   | :dfn:`Zabbix` の、障害（problem）に関する詳細は下記URLをご参照ください。
   |  https://www.zabbix.com/documentation/current/jp/manual/api/reference/problem/get
 
-2. | :dfn:`Zabbix` からイベントを取得する、エージェントの設定例
+2. | :dfn:`Zabbix` からイベントを取得する、イベント収集の設定例
   
-| 上記のcURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> エージェント` の設定値は、下記の様に設定します。
+| 上記のcURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> イベント収集` の設定値は、下記の様に設定します。
 
 .. list-table:: Zabbixの設定例
    :widths: 5 15
@@ -1002,13 +1010,13 @@ Zabbix
           "id": 1
      }
   
-  | <Zabbix APIトークン>を、  :menuselection:`OASE管理 --> エージェント` の :menuselection:`パラメータ` の <Zabbix APIトークン> の箇所に貼り付けます。
+  | <Zabbix APIトークン>を、  :menuselection:`OASE管理 --> イベント収集` の :menuselection:`パラメータ` の <Zabbix APIトークン> の箇所に貼り付けます。
   | ※ <Zabbix APIトークン>作成は、ブラウザでもを作成できます。
   | ブラウザでログイン後、サイドメニュー > ユーザー設定 > APIトークン の :guilabel:`APIトークンの作成` で作成できます。
 
 Grafana
 ^^^^^^^
-| :dfn:`Grafana` で、イベントを取得するための、 :menuselection:`OASE管理 --> エージェント` での設定例について説明します。
+| :dfn:`Grafana` で、イベントを取得するための、 :menuselection:`OASE管理 --> イベント収集` での設定例について説明します。
 
 | 以下の説明で使用した、:dfn:`Grafana` は、
 | ・Grafan 10.3
@@ -1054,9 +1062,9 @@ Grafana
   | Grafanaの、アラート（Alert）に関する詳細は下記URLをご参照ください。
   |  https://prometheus.io/docs/prometheus/latest/querying/api/#alerts
 
-2. | :dfn:`Grafana` からイベントを取得する、エージェントの設定例
+2. | :dfn:`Grafana` からイベントを取得する、イベント収集の設定例
 
-| 上記cURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> エージェント` の設定値は、下記の様に設定します。
+| 上記cURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> イベント収集` の設定値は、下記の様に設定します。
 
 .. list-table:: Grafanaの設定例
    :widths: 5 15
@@ -1113,5 +1121,4 @@ Grafana
   8. | :guilabel:`Copy to clipboard and close` をクリックし,
      | 認証トークンがクリップボードに貼り付けられます。
 
-  9. | クリップボードの認証トークンを、 :menuselection:`OASE管理 --> エージェント` の :menuselection:`認証トークン` に貼り付けます。
-
+  9. | クリップボードの認証トークンを、 :menuselection:`OASE管理 --> イベント収集` の :menuselection:`認証トークン` に貼り付けます。

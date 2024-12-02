@@ -35,7 +35,7 @@ Exastro on Kubernetes - Online
 - クライアント要件
 
   | 動作確認が取れているクライアントアプリケーションのバージョンは下記のとおりです。
-  
+
   .. list-table:: クライアント要件
    :widths: 20, 20
    :header-rows: 1
@@ -166,14 +166,14 @@ Helm リポジトリの登録
 - LoadBalancer
 - NodePort
 
-.. note:: 
+.. note::
   | ここで紹介する方法以外にもサービス公開方法はあります。ユーザーの環境ごとに適切な構成・設定を選択してください。
 
 パラメータ
 ^^^^^^^^^^
 
 | 利用可能なパラメータについては下記を参照してください。
-       
+
 .. include:: ../../../include/helm_option_platform-auth.rst
 
 設定例
@@ -187,7 +187,7 @@ Helm リポジトリの登録
 
       .. _ingress_setting:
 
-      | 
+      |
 
       - 特徴
 
@@ -197,7 +197,7 @@ Helm リポジトリの登録
       - 設定例
 
         | サービス公開用のドメイン情報を Ingress に登録することでDNSを使ったサービス公開を行います。
-        | Azure におけるドメイン名の確認方法については :doc:`../../configuration/kubernetes/aks` を確認してください。
+        | Azure におけるドメイン名の確認方法については :doc:`../../../configuration/kubernetes/aks` を確認してください。
         | クラウドプロバイダ毎に必要な :kbd:`annotations` を指定してください。
         | 下記は、AKS の Ingress Controller を使用する際の例を記載しています。
 
@@ -206,9 +206,68 @@ Helm リポジトリの登録
            :caption: exastro.yaml
            :language: yaml
 
+        | ※ 大容量ファイルのアップロードなどで処理に時間が掛かる場合は、想定する最大時間(秒数)の設定が必要となります。  
+
+        .. code-block:: shell
+           :caption: ingress - annotations
+
+           nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+
+        | ※ Ingress を使用して HTTPS 接続を有効にする際は、以下の設定が必要となります。
+
+        .. code-block:: diff
+           :caption: exastro.yaml
+
+              platform-auth:
+                extraEnv:
+                  # Please set the URL to access
+           -      EXTERNAL_URL: "http://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           -      EXTERNAL_URL_MNG: "http://exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           +      EXTERNAL_URL: "https://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+           +      EXTERNAL_URL_MNG: "https://exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
+                ingress:
+                  enabled: true
+                  annotations:
+                    kubernetes.io/ingress.class: addon-http-application-routing
+                    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+                    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+                    nginx.ingress.kubernetes.io/proxy-buffer-size: 256k
+                    nginx.ingress.kubernetes.io/server-snippet: |
+                      client_header_buffer_size 100k;
+                      large_client_header_buffers 4 100k;
+                  hosts:
+                    - host: exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+                      paths:
+                        - path: /
+                          pathType: Prefix
+                          backend: "http"
+                    - host: exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+                      paths:
+                        - path: /
+                          pathType: Prefix
+                          backend: "httpMng"
+           -      tls: []
+           +      tls:
+           +        - secretName: exastro-suite-tls
+           +          hosts:
+           +            - exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+           +            - exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io
+           -      secrets: []
+           +      secrets:
+           +        - name: exastro-suite-tls
+           +          certificate: |-
+           +            -----BEGIN CERTIFICATE-----
+           +            ...
+           +            -----END CERTIFICATE-----
+           +          key: |-
+           +            -----BEGIN PRIVATE KEY-----
+           +            ...
+           +            -----END PRIVATE KEY-----
+
+
    .. group-tab:: LoadBalancer
 
-      | 
+      |
 
       - 特徴
 
@@ -219,7 +278,7 @@ Helm リポジトリの登録
 
         | :kbd:`service.type` に :kbd:`LoadBalancer` を設定することで、LoadBalancer を使ったサービス公開ができます。
         | 下記は、LoadBalancer を使用する際の例を記載しています。
-        
+
         .. literalinclude:: ../../literal_includes/exastro_loadbalancer_setting.yaml
            :diff: ../../literal_includes/exastro.yaml
            :caption: exastro.yaml
@@ -227,7 +286,7 @@ Helm リポジトリの登録
 
    .. group-tab:: NodePort
 
-      | 
+      |
 
       - 特徴
 
@@ -283,10 +342,10 @@ Helm リポジトリの登録
 
       .. warning::
          | :command:`DB_ADMIN_USER` で指定するDBの管理ユーザーには、データベースとユーザーを作成する権限が必要です。
-      
+
       .. warning::
          | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
-      
+
       1. | Exastro IT Automation 用データベースの設定
 
          | データベースの接続情報を設定します。
@@ -429,7 +488,7 @@ Helm リポジトリの登録
              :diff: ../../literal_includes/exastro.yaml
              :caption: exastro.yaml
              :language: yaml
-             
+
       5.  MongoDBコンテナの設定
 
           | データベースのデータを永続化するために利用するストレージを指定します
@@ -447,6 +506,40 @@ Helm リポジトリの登録
                   :diff: ../../literal_includes/exastro.yaml
                   :caption: exastro.yaml
                   :language: yaml
+
+      6.  データベースコンテナのProbe設定
+
+          | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeはデフォルトで以下の設定値が適用されています。
+
+          .. include:: ../../../include/helm_option_database_probe.rst
+
+          .. tabs::
+
+          .. include:: ../../../include/helm_option_mongodb_probe.rst
+
+          .. tabs::
+
+          | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeの設定値を変更したい場合は、以下のようにパラメータを追記します。
+          .. literalinclude:: ../../literal_includes/exastro_database_probe_setting.yaml
+             :diff: ../../literal_includes/exastro.yaml
+             :caption: exastro.yaml
+             :language: yaml
+
+          .. | データベースコンテナおよびMongoDBコンテナのProbeを無効にしたい場合は、以下のようにパラメータを追記します。
+
+          .. .. literalinclude:: ../../literal_includes/exastro_database_probe_invalid_setting.yaml
+          ..    :diff: ../../literal_includes/exastro.yaml
+          ..    :caption: exastro.yaml
+          ..    :language: yaml
+
+          .. .. tip::
+          ..    | Probe設定を無効にしてインストールすると、インストール中に以下のようなwarningメッセージが表示されますが、無視して問題ありません。
+
+          ..    .. code-block:: shell
+          ..       :caption: メッセージ
+
+          ..       warning: cannot overwrite table with non table for exastro.exastro-platform.mariadb.livenessProbe
+          ..       warning: cannot overwrite table with non table for exastro.exastro-platform.mariadb.readinessProbe
 
 .. _installation_kubernetes_Keycloak 設定:
 
@@ -570,10 +663,10 @@ Proxy設定
 
    .. tab:: マネージドディスク
 
-      | 
+      |
 
       - 特徴
-       
+
         | パブリッククラウドで提供されるストレージサービスを利用することでストレージの構築や維持管理が不要となります。
 
       - 設定例
@@ -631,7 +724,7 @@ Proxy設定
 
    .. tab:: Kubernetes ノードのディレクトリ
 
-      | 
+      |
 
       - 特徴
 
@@ -748,7 +841,7 @@ Proxy設定
       | 以下の手順でインストールを行います。
 
       1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
-      
+
          .. code-block:: bash
             :caption: コマンド
 
@@ -758,7 +851,7 @@ Proxy設定
 
          .. code-block:: bash
             :caption: 出力結果
-      
+
             NAME: exastro
             LAST DEPLOYED: Sat Jan 28 15:00:02 2023
             NAMESPACE: exastro
@@ -801,9 +894,9 @@ Proxy設定
          | 以下、上記の出力結果に従って操作をします。
 
       2. | インストール状況確認
-   
+
          .. include:: ../../../include/check_installation_status.rst
-     
+
       3. 暗号化キーのバックアップ
 
          .. include:: ../../../include/backup_encrypt_key_k8s.rst
@@ -820,7 +913,7 @@ Proxy設定
             * Service Console       *
             *************************
             http://exastro-suite.example.local/
-            
+
             *************************
             * Administrator Console *
             *************************
@@ -839,17 +932,17 @@ Proxy設定
       | 以下の手順でインストールを行います。
 
       1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
-      
+
          .. code-block:: bash
             :caption: コマンド
-        
+
             helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
 
          .. code-block:: bash
             :caption: 出力結果(例)
-      
+
             NAME: exastro
             LAST DEPLOYED: Sat Jan 28 15:00:02 2023
             NAMESPACE: exastro
@@ -897,7 +990,7 @@ Proxy設定
          | 以下、上記の出力結果に従って操作をします。
 
       2. | インストール状況確認
-   
+
          .. include:: ../../../include/check_installation_status.rst
 
       3. 暗号化キーのバックアップ
@@ -954,17 +1047,17 @@ Proxy設定
       | 以下の手順でインストールを行います。
 
       1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
-      
+
          .. code-block:: bash
             :caption: コマンド
-        
+
             helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
 
          .. code-block:: bash
             :caption: 出力結果
-      
+
             NAME: exastro
             LAST DEPLOYED: Sun Jan 29 12:18:02 2023
             NAMESPACE: exastro
@@ -1011,7 +1104,7 @@ Proxy設定
          | 以下、上記の出力結果に従って操作をします。
 
       2. | インストール状況確認
-   
+
          .. include:: ../../../include/check_installation_status.rst
 
       3. 暗号化キーのバックアップ
@@ -1098,7 +1191,7 @@ Proxy設定
 アップグレードの準備
 --------------------
 
-.. warning:: 
+.. warning::
   | アップグレード実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
 
 Helm リポジトリの更新
@@ -1121,7 +1214,7 @@ Helm リポジトリの更新
    :emphasize-lines: 3
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                 1.0.0           2.0.3           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-it-automation   1.2.0           2.0.3           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-platform        1.5.0           1.4.0           A Helm chart for Exastro Platform. Exastro Plat...
@@ -1150,7 +1243,7 @@ Helm リポジトリの更新
    :emphasize-lines: 3
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                 1.0.1           2.1.0           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-it-automation   1.2.0           2.0.3           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-platform        1.5.0           1.4.0           A Helm chart for Exastro Platform. Exastro Plat...
@@ -1169,13 +1262,13 @@ Helm リポジトリの更新
 
 .. code-block:: diff
    :caption: 実行結果
-    
+
    exastro-platform:
      platform-api:
        image:
          repository: "exastro/exastro-platform-api"
           tag: ""
-    
+
      platform-auth:
    +    extraEnv:
    +      # Please set the URL to access
@@ -1190,7 +1283,7 @@ Helm リポジトリの更新
 設定値の更新
 ^^^^^^^^^^^^
 
-.. warning:: 
+.. warning::
   | ユーザ名やパスワードはバージョンアップ前のものと合わせる必要があります。
 
 | デフォルト設定値の比較結果から、項目の追加などにより設定値の追加が必要な場合は更新をしてください。
@@ -1200,13 +1293,13 @@ Helm リポジトリの更新
 
 .. code-block:: diff
    :caption: 実行結果
-    
+
    exastro-platform:
      platform-api:
        image:
          repository: "exastro/exastro-platform-api"
           tag: ""
-    
+
      platform-auth:
    +    extraEnv:
    +      # Please set the URL to access
@@ -1235,7 +1328,7 @@ Helm リポジトリの更新
 アップグレード
 --------------
 
-.. warning:: 
+.. warning::
   | バージョン2.2.1以前から2.3.0以降へのアップグレードを行う場合は一度 :ref:`ita_uninstall` の :ref:`delete_pv` まで行い、再度 :ref:`ita_install` してください。
 
 .. danger::
@@ -1330,7 +1423,7 @@ Helm リポジトリの更新
 アンインストールの準備
 ----------------------
 
-.. warning:: 
+.. warning::
   | アンインストール実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
 
 アンインストール
@@ -1398,7 +1491,7 @@ OASE用
   :caption: 実行結果
 
   persistentvolume "pv-mongo" deleted
-  
+
 .. code-block:: bash
   :caption: コマンド
 

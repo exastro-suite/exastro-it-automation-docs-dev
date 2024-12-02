@@ -46,7 +46,7 @@ global:
       size: 10Gi
       volumeType: hostPath # e.g.) hostPath or AKS
       storageClass: "-" # e.g.) azurefile or - (None)
-      # matchLabels: 
+      # matchLabels:
       #   release: "stable"
       # matchExpressions:
       #   - {key: environment, operator: In, values: [dev]}
@@ -109,6 +109,17 @@ exastro-it-automation:
     replicaCount: 1
     image:
       repository: "docker.io/exastro/exastro-it-automation-api-oase-receiver"
+      tag: ""
+      pullPolicy: IfNotPresent
+    extraEnv:
+      LISTEN_PORT: "8000"
+      PLATFORM_API_HOST: "platform-api"
+      PLATFORM_API_PORT: "8000"
+
+  ita-api-ansible-execution-receiver:
+    replicaCount: 1
+    image:
+      repository: "docker.io/exastro/exastro-it-automation-api-ansible-execution-receiver"
       tag: ""
       pullPolicy: IfNotPresent
     extraEnv:
@@ -372,7 +383,8 @@ exastro-platform:
       enabled: true
       annotations:
         kubernetes.io/ingress.class: addon-http-application-routing
-        nginx.ingress.kubernetes.io/proxy-body-size: 100m
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
         nginx.ingress.kubernetes.io/proxy-buffer-size: 256k
         nginx.ingress.kubernetes.io/server-snippet: |
           client_header_buffer_size 100k;
@@ -389,6 +401,20 @@ exastro-platform:
             - path: /
               pathType: Prefix
               backend: "httpMng"
+      tls: []
+        # - secretName: chart-example-tls
+        #   hosts:
+        #     - chart-example.local
+      secrets: []
+        # - name: chart-example-tls
+        #   certificate: |-
+        #     -----BEGIN CERTIFICATE-----
+        #     ...
+        #     -----END CERTIFICATE-----
+        #   key: |-
+        #     -----BEGIN PRIVATE KEY-----
+        #     ...
+        #     -----END PRIVATE KEY-----
     service:
       type: ClusterIP
       # http:
@@ -474,6 +500,9 @@ exastro-platform:
       repository: "docker.io/exastro/keycloak"
       tag: ""
       pullPolicy: IfNotPresent
+    extraEnv:
+      # If you use Azure MySQL, add options like below
+      # KC_DB_URL_PROPERTIES: "?useSSL=false"
     resources: {}
       # requests:
       #   memory: "256Mi"

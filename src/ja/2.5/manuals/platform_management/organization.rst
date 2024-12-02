@@ -135,7 +135,7 @@ Organization (オーガナイゼーション)
             +----------------------------------+------------------------+------------------------+-------------------------------------------------------------------------------------------------+
             | Exastro IT Automation\           | インストールドライバ                            | インストールするドライバを指定します                                                            |
             | オプション設定                   |                                                 |                                                                                                 |
-            |                                  |                                                 | 一度インストールしたドライバを削除することは不可能です。                                        |
+            |                                  |                                                 |                                                                                                 |
             +                                  +------------------------+------------------------+-------------------------------------------------------------------------------------------------+
             |                                  |                        | CI/CD for IaC          | ドライバの詳細については、各ドキュメントを参照してください。                                    |
             |                                  |                        |                        |                                                                                                 |
@@ -231,7 +231,6 @@ Organization (オーガナイゼーション)
                 | :program:`all`: すべての IP アドレスに対し、SSL を要求。(内部の API が HTTP アクセスのため選択不可)
             * - optionsIta.drivers
               - | 対象のドライバについて、インストールする場合はtrue、インストールしない場合はfalseを指定。
-                | ドライバのkeyを記載しない場合はデフォルトでtrueが設定されます。
                 | Exastro OASEをインストールするためにはMongoDBが必要です。MongoDBがない（環境変数「MONGO_HOST」の記載が空である）場合は有効にできません。
               - 可
               - | 各ドライバに対応した以下のkeyに対してtrue/falseを指定し、ワークスペース作成時にインストールされるかどうかを設定。省略可。
@@ -431,6 +430,8 @@ Organization (オーガナイゼーション)
           - 正常にオーガナイゼーション作成完了
 
 
+.. _organization_edit:
+
 オーガナイゼーション編集
 ------------------------
 
@@ -458,7 +459,7 @@ Organization (オーガナイゼーション)
 
       #. | オーガナイゼーション名を変更することができます。
 
-         .. figure:: /images/ja/manuals/platform/organization/orgname_edit_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/orgname_edit_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -466,13 +467,25 @@ Organization (オーガナイゼーション)
          .. tip::
             | オーガナイゼーションIDを変更することは出来ません。
 
-      #. | 追加したいドライバにチェックを入れることで、インストールするドライバを追加することができます。
-         | インストール済みのドライバを削除することはできません。
+      #. | 追加したいドライバをONにすることで、インストールするドライバを追加することができます。
+         | 削除したいドライバをOFFにすることで、アンインストールするドライバを追加することができます。
+         | 内容に間違いがなければ、 :guilabel:`登録` ボタンを押下します。
 
-         .. figure:: /images/ja/manuals/platform/organization/org_edit_driver_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/org_edit_driver_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
+
+      #. | ドライバをアンインストールする場合は、削除確認画面で :kbd:`delete` を入力して、 :guilabel:`はい、削除します` ボタンを押下します。
+
+         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_ドライバ削除.png
+            :width: 600px
+            :align: left
+            :class: with-border-thin
+
+         .. warning::
+            | アンインストールするドライバに関連するデータはすべて削除されます。復活することはできませんので、削除する際は十分にお気を付けください。
+
 
       #. | :guilabel:`リソースプラン設定` ボタンを押下して、オーガナイゼーションにリソースプランを紐づけることができます。
          | 紐づけるリソースプランIDをプルダウンで選択し、開始日時を指定して、 :guilabel:`適用` ボタンを押下します。
@@ -485,14 +498,14 @@ Organization (オーガナイゼーション)
       #. | オーガナイゼーションに紐づけるリソースプランが行に追加されます。
          | 内容に間違いがなければ、 :guilabel:`登録` ボタンを押下します。
 
-         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_登録_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_登録_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
 
       #. | 紐づいているリソースプランが不要になった場合は、 :guilabel:`解除` ボタンを押下して、オーガナイゼーションとリソースプランの紐づけを解除することができます。
 
-         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_リソースプラン解除_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_リソースプラン解除_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -507,7 +520,7 @@ Organization (オーガナイゼーション)
       #. | 紐づけが解除されるリソースプランの行がグレーアウトされます。
          | 内容に間違いがなければ、 :guilabel:`登録` ボタンを押下します。
 
-         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -544,10 +557,9 @@ Organization (オーガナイゼーション)
           - 不可
           - :kbd:`true`
         * - optionsIta.driver
-          - | インストールドライバを指定します。
-            | ただし、削除は不可能になります。
-          - | falseからtureの変更可能になります。
-          - :kbd:`true`
+          - | インストール・アンインストールするドライバを指定します。※
+          - | 可
+          - :kbd:`true or false`
         * - optionsIta.services.document_store.name
           - | optionsIta.driversのExastro OASEを有効にした際に必要なパラメータです。既にExastro OASEが有効の場合は不要な項目です。
             | 値は"mongodb"固定です。
@@ -564,6 +576,8 @@ Organization (オーガナイゼーション)
           - 可
           - | 例: mongodb://username:password@hostname:27017/
 
+     .. warning::
+        | アンインストールするドライバに関連するデータはすべて削除されます。復活することはできませんので、削除する際は十分にお気を付けください。
 
      .. code-block:: bash
 
