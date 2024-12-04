@@ -860,7 +860,7 @@ span.highlighted {
  top: 98px;
  z-index: 1010;
  width: 320px;
- height: 100%;
+ height: calc( 100% - 98px );
  padding: 0px 0 24px;
 }
 
