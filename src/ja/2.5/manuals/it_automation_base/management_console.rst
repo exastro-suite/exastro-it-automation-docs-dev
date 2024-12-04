@@ -260,8 +260,8 @@
 
 詳細については、メンテナンスの「:doc:`../maintenance/file_autoclean`」を参照してください。
 
-付録
-====
+独自メニュー
+============
 
 .. _custom_menu_sample:
 
@@ -328,3 +328,416 @@
    :align: center
    
    サンプル③
+
+JavaScriptライブラリ情報
+-------------------------
+
+ITAで使用しているJavaScriptライブラリなどは以下の通りです。
+
+jQuery
+^^^^^^
+JavaScriptコードをより容易に記述できるようにしたライブラリ。
+
++---------------+-----------------------------------+
+| URL           | https://jquery.com/               | 
++---------------+-----------------------------------+
+| GitHub        | https://github.com/jquery/jquery  | 
++---------------+-----------------------------------+
+| ライセンス    | MIT license                       | 
++---------------+-----------------------------------+
+| 使用バージョン| 3.5.1                             | 
++---------------+-----------------------------------+
+
+.. code-block::
+
+ <script src="/_/ita/lib/jquery/jquery.js"></script>
+
+select2
+^^^^^^^
+選択ボックスを便利にするjQueryライブラリ。別途jQueryの読み込みが必要です。
+
++---------------+-----------------------------------+
+| URL           | https://select2.org/              | 
++---------------+-----------------------------------+
+| GitHub        | https://github.com/jquery/jquery  | 
++---------------+-----------------------------------+
+| ライセンス    | MIT license                       | 
++---------------+-----------------------------------+
+| 使用バージョン| 4.0.13                            | 
++---------------+-----------------------------------+
+
+.. code-block::
+
+ <script defer src="/_/ita/lib/select2/select2.min.js"></script>
+ <link rel="stylesheet" href="/_/ita/lib/select2/select2.min.css">
+
+Ace
+^^^
+Web用の高機能テキストエディタ―。
+
++---------------+----------------------------------------+
+| URL           | https://ace.c9.io/                     | 
++---------------+----------------------------------------+
+| GitHub        | https://github.com/ajaxorg/ace-builds/ | 
++---------------+----------------------------------------+
+| ライセンス    | BSD license                            | 
++---------------+----------------------------------------+
+| 使用バージョン| v1.5.0                                 | 
++---------------+----------------------------------------+
+| モード        | json,python,terraform,text,yaml        | 
++---------------+----------------------------------------+
+| テーマ        | chrome,monokai                         | 
++---------------+----------------------------------------+
+
+.. code-block::
+
+ <script defer src="/_/ita/lib/ace/ace.js"></script>
+
+ExcelJS
+^^^^^^^
+スプレッドシートのデータとスタイルを読み取り・操作、XLSXおよびJSONへの書き出し。
+
++---------------+----------------------------------------+
+| GitHub        | https://github.com/exceljs/exceljs     | 
++---------------+----------------------------------------+
+| ライセンス    | MIT license                            | 
++---------------+----------------------------------------+
+| 使用バージョン| 4.3.0                                  | 
++---------------+----------------------------------------+
+
+.. code-block:: 
+
+ <script src="/_/ita/lib/exceljs/exceljs.js"></script>
+
+diff2html
+^^^^^^^^^
+git diffまたはunified diffからHTML差分を生成。
+
++---------------+----------------------------------------+
+| URL           | https://diff2html.xyz/                 | 
++---------------+----------------------------------------+
+| GitHub        | https://github.com/rtfpessoa/diff2html | 
++---------------+----------------------------------------+
+| ライセンス    | MIT license                            | 
++---------------+----------------------------------------+
+| 使用バージョン| v2.11.3                                | 
++---------------+----------------------------------------+
+.. code-block::
+
+ <script src="/_/ita/lib/diff2html/diff2html.min.js"></script>
+ <link rel="stylesheet" href="/_/ita/lib/diff2html/diff2html.css">
+
+IT Automation JavaScript/CSS情報
+---------------------------------
+ITAで使用しているJavaScript/CSSの説明です。独自メニュー作成時にITAと同様の画面を表示したい場合に使用できます。
+
+使用の際は別途jQueryと言語ファイルの読み込みが必要になります。
+
+.. code-block::
+
+ <script src="/_/ita/lib/jquery/jquery.js"></script>
+ <script>let getMessage;</script>
+ <script type="module">
+     import {messageid_ja} from '/_/ita/js/messageid_ja.js';
+     getMessage = messageid_ja();
+ </script>
+
+common.js
+^^^^^^^^^
+変数fnに基本的な各種関数をまとめたものです。他のITA JavaScriptを使用する際に必須になります。
+
+.. code-block::
+ 
+ <script src="/_/ita/js/common.js"></script>
+ 
+主な関数は下記の通りです。
+
+fn.fetch
+""""""""
+
+ITA APIにリクエストを送信します。
+
+.. code-block:: javascript
+
+ const result = await fn.fetch( URL, TOKEN, METHOD, BODY );
+
++--------+-------------------------------------------------------------------------------------------------------+
+| URL    | APIエンドポイント。「/api/{organization_id}/workspaces/{workspace_id}/ita」は省略してください。       | 
++--------+-------------------------------------------------------------------------------------------------------+
+| TOKEN  | 基本的にnullを指定。Worker内などで使用する場合はTokenを別途取得して渡してください。                   | 
++--------+-------------------------------------------------------------------------------------------------------+
+| METHOD | POST,GETなどメソッド。省略した場合はGETになります。                                                   | 
++--------+-------------------------------------------------------------------------------------------------------+
+| BODY   | POSTの場合のbodyデータ。省略可。                                                                      | 
++--------+-------------------------------------------------------------------------------------------------------+
+
+**使用例**
+
+オペレーション一覧を取得します。
+
+.. code-block:: javascript
+
+ async function operationList(){
+     const result = await fn.fetch('/menu/operation_list/filter/', null, 'POST', {"discard": {"NORMAL": "0"}});
+     console.log( result );
+ }
+
+fn.xhr
+""""""
+
+データの登録を行います。
+
+※fn.fetchでもデータの登録は可能ですが、こちらはデータ登録に機能を絞り登録時の進捗が表示されます。
+
+.. code-block:: javascript
+
+ const result = await fn.xhr( URL, FORMDATA );
+
++----------+----------------------------------------------------------------------+
+| URL      | APIエンドポイント。「/menu/{menu_name_rest}/maintenance/all/」       | 
++----------+----------------------------------------------------------------------+
+| FORMDATA | 登録用データをフォームデータに変換して渡してください。               | 
++----------+----------------------------------------------------------------------+
+
+**使用例**
+
+オペレーションを1件登録します。
+
+.. code-block:: javascript
+
+ window.addEventListener('DOMContentLoaded', () => {
+     registerOperation();
+ });
+
+ async function registerOperation(){
+     // フォームデータ
+     const formData = new FormData();
+
+     // 登録データ
+     const regsterData = [
+         {
+             parameter: {
+                 discard: '0',
+                 operation_name: 'オペレーション名',
+                 scheduled_date_for_execution: '2024/12/31 00:00:00'
+             },
+             file: {},
+             type: 'Register'
+         }
+     ];
+
+     // パラメータをフォームデータに追加（regsterDataを文字列に変換する）
+     formData.append('json_parameters', JSON.stringify( regsterData ) );
+
+     // 登録
+     const result = await fn.xhr('/menu/operation_list/maintenance/all/', formData );
+
+     console.log( result );
+ }
+
+common.css
+^^^^^^^^^^
+ITAの基本的な画面のスタイルです。ITA JavaScriptを使用する場合は読み込み必須です。
+
+.. code-block::
+ 
+ <link rel="stylesheet" href="/_/ita/css/common.css">
+
+ui.js
+^^^^^
+ITAの基本的な画面を生成します。
+
+.. code-block::
+ 
+ <script defer src="/_/ita/js/ui.js"></script>
+
+**使用例**
+
+タブが３つある画面を作成します。
+
+.. code-block:: html
+ 
+ <div id="content"></div>
+
+.. code-block:: javascript
+
+ window.addEventListener('DOMContentLoaded', () => {
+     // 対象
+     const $content = $('#content');
+     
+     // ui.js
+     const ui = new CommonUi();
+
+     // メニュー情報
+     ui.info = {
+         menu_info: {
+             menu_name: 'タブメニューサンプル',
+             menu_info: 'タブメニューサンプルです。'
+         }
+     };
+
+     // タブ内部のHTML
+     ui.tab1 = function(){ return 'Tab1 Contents'};
+     ui.tab2 = function(){ return 'Tab2 Contents'};
+     
+     // タブ定義
+     // nameで上記で設定した関数が呼ばれます。タブのIDにもなります。
+     // titleがタブに表示されます。
+     // type: 'blank'を指定すると空のタブが作成されます。
+     const tabs = [
+       { name: 'tab1', title: 'タブ１'},
+       { name: 'tab2', title: 'タブ２'},
+       { name: 'tab3', title: 'タブ３', type: 'blank'}
+     ];
+
+     // タブHTML作成
+     const tabHtml = ui.contentTab( tabs );
+
+     // メニュータイトル・説明欄
+     const menuHtml = ui.commonContainer( ui.info.menu_info.menu_name, ui.info.menu_info.menu_info, tabHtml );
+     
+     // 対象にtabContentクラスをセットしHTMLをセット
+     $content.addClass('tabContent').html( menuHtml );
+
+     // タブ３はblankで作成したため、別途HTMLをセットする
+     $('#tab3').find('.sectionBody').html('Tab3 Contents');
+
+     // タブイベントをセット。引数に最初に開いてあるタブのnameを指定。
+     ui.contentTabEvent('#tab1');
+
+     // メニュー詳細ボタンイベントをセット
+     ui.setCommonEvents();
+ });
+
+table.js
+^^^^^^^^
+指定したパラメータシートのTable表示・編集ができます。
+
+.. code-block::
+ 
+ <script defer src="/_/ita/js/table.js"></script>
+
+.. code-block:: javascript
+ 
+ const table = new DataTable( ID, MODE, INFO, PARAMS );
+ const $table = table.setup();
+
++--------+-------------------------------------------------------------------------------+
+| ID     | ユニークなIDを指定。                                                          |
++--------+-------------------------------------------------------------------------------+
+| MODE   | view（基本） or history（履歴表示）。                                         |
++--------+-------------------------------------------------------------------------------+
+| INFO   | メニュー情報。「/menu/{menuNanmeRest}/info/」で取得した情報を渡してください。 |
++--------+-------------------------------------------------------------------------------+
+| PARAMS | 必須パラメータ指定。詳細は下記使用例を参照してください。                      |
++--------+-------------------------------------------------------------------------------+
+
+**使用例**
+
+オペレーション一覧を表示します。
+
+.. code-block:: html
+ 
+ <div id="content"></div>
+
+.. code-block:: javascript
+
+ window.addEventListener('DOMContentLoaded', async () => {
+     // 対象
+     const $content = $('#content');
+
+     // オペレーション一覧メニュー名（REST）
+     const menuNanmeRest = 'operation_list';
+
+     // メニュー情報を取得
+     const info = await fn.fetch(`/menu/${menuNanmeRest}/info/`);
+
+     // 必須パラメータ取得
+     const params = fn.getCommonParams();
+     params.menuNameRest = menuNanmeRest;
+
+     // テーブル作成
+     // table.setup()でTableのjQueryオブジェが返ってきます。
+     const table = new DataTable('operationList', 'view', info, params );
+     $content.html( table.setup() );
+ });
+
+dialog.js
+^^^^^^^^^
+ダイアログを表示します。
+
+.. code-block::
+ 
+ <script defer src="/_/ita/js/dialog.js"></script>
+ <link rel="stylesheet" href="/_/ita/css/dialog.css">
+
+.. code-block:: javascript
+ 
+ const dialog = new Dialog( CONFIG, FUNCTIONS );
+ dialog.open( CONTENTS );
+
++-----------+-------------------------------------------------------------------------------+
+| CONFIG    | ダイアログ構成情報。                                                          |
++-----------+-------------------------------------------------------------------------------+
+| FUNCTIONS | ダイアログのボタンを押したときの関数。                                        |
++-----------+-------------------------------------------------------------------------------+
+| CONTENTS  | ダイアログボディHTML                                                          |
++-----------+-------------------------------------------------------------------------------+
+
+**使用例**
+
+Hello worldとダイアログで表示し、OKと閉じるで処理を分ける。
+
+.. code-block:: javascript
+
+ window.addEventListener('DOMContentLoaded', async () => {
+     const flag = await helloWorld();
+     if ( flag ) {
+         console.log('OK!');
+     } else {
+         console.log('CLOSE!!')
+     }
+ });
+
+ function helloWorld(){
+     return new Promise(function( resolve ){
+         // ボタンを押したときの動作
+         const functions = {
+             // OKを押した場合の関数
+             ok: function(){
+                 this.close();
+                 resolve( true );
+             },
+             // 閉じるを押した場合の関数
+             close: function(){
+                 this.close();
+                 resolve( false );
+             }
+         };
+         // ダイアログ表示定義
+         const config = {
+             // モーダルの位置 top or center
+             position: 'center',
+             // ヘッダー情報
+             header: {
+                 title: 'ダイアログテスト'
+             },
+             // 幅
+             width: '640px',
+             // フッター情報
+             footer: {
+                 // ボタン情報
+                 button: {
+                     // functionsと同じキー名で紐づけ。
+                     // text: 表示テキスト。
+                     // action: ボタンの役割（positive,restore,duplicat,warning,danger,history,normal,negative）※色が変わるだけです。
+                     // style: スタイルを指定。
+                     ok: { text: 'OK', action: 'default', style: 'width:160px;'},
+                     close: { text: '閉じる', action: 'normal'}
+                 }
+             }
+         };
+         const dialog = new Dialog( config, functions );
+         dialog.open('<div style="padding:24px;text-align:center;font-size:24px;">Hello World</div>');
+     });
+ }
