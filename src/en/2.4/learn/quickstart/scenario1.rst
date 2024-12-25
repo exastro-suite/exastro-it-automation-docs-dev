@@ -25,7 +25,7 @@ Create Execution overview
 Register execution overview
 ------------
 
-| Registering Operations defined the actions that will be executed..
+| Registering Operations defined the actions that will be executed.
 | Use the previous Execution plan to input information for the Operation.
 
 .. glossary:: Operation
@@ -280,7 +280,7 @@ Link Ansible Role variables and Parameter sheet items
     - 
 
 
-Change Host name(2st execution)
+Change Host name (1st execution)
 ===========================
 
 | Parameter sheets registers parameters for each device they want to configure values to.
@@ -458,7 +458,7 @@ Execution
 
       db01
 
-| By doing this, users canchange host names from the  :menuselection:`Ansible common --> Device list` and update the host name just be executing a Ansible through ITA.
+| By doing this, users can change host names from the  :menuselection:`Ansible common --> Device list` and update the host name just be executing a Ansible through ITA.
 
 
 Summary
