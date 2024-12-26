@@ -20,7 +20,7 @@ if [ "$sp_en_port" -ne 0 ]; then
 fi
 
 # version=`git branch --contains | cut -d " " -f 2`
-version=2.4
+version=2.5
 sed "s/#__version__#/$version/" template.code-workspace > /workspace/exastro-it-automation-docs.code-workspace
 
 # make html-all
