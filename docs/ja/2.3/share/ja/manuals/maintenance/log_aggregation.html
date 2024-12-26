@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>ログの集約 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/clipboard.min.js"></script>
-    <script src="../../../../_static/copybutton.js"></script>
-    <script src="../../../../_static/translations.js"></script>
-    <script src="../../../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../../../_static/exastro_documents.js"></script>
-    <script src="../../../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+    <script src="../../../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../../../genindex.html" />
     <link rel="search" title="検索" href="../../../../search.html" /> 
   </head>
@@ -75,8 +71,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../../../ja/2.4/share/ja/manuals/maintenance/log_aggregation.html">current</option>
-              <option value="../../../../../../ja/2.4/share/ja/manuals/maintenance/log_aggregation.html">2.4(current)</option>
+              <option value="../../../../../../ja/2.5/share/ja/manuals/maintenance/log_aggregation.html">current</option>
+              <option value="../../../../../../ja/2.5/share/ja/manuals/maintenance/log_aggregation.html">2.5(current)</option>
+              <option value="../../../../../../ja/2.4/share/ja/manuals/maintenance/log_aggregation.html">2.4</option>
               <option value="../../../../../../ja/2.3/share/ja/manuals/maintenance/log_aggregation.html" selected>2.3</option>
               <option value="../../../../../../ja/2.2/share/ja/manuals/maintenance/log_aggregation.html">2.2</option>
               <option value="../../../../../../ja/2.1/share/ja/manuals/maintenance/log_aggregation.html">2.1</option>
@@ -169,12 +166,12 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1>ログの集約<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>ログの集約<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <div class="line-block">
 <div class="line">本説明では Exastro IT Automation の各コンテナのログを集約する(Kubernetes環境における)手段の例を以下に記載します。</div>
 </div>
 <section id="id2">
-<h2>コンテナログについて<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>コンテナログについて<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Exastroシステムでは、各コンテナのログ出力を標準出力で行っております。（<a class="reference external" href="https://12factor.net/ja/logs">The Twelve-Factor App</a> の思想に基づく)</div>
 <div class="line">標準出力されたログは、Kubernetes環境の場合、コンテナがリスタートされたりすると標準出力されたログは削除されてしまいます、そのため、出力されたログを保存するには、その内容を別途保存する必要があります。</div>
@@ -192,19 +189,19 @@
 </div>
 </section>
 <section id="id3">
-<h2>ログの集約方法<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>ログの集約方法<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本説明において、ログの集約方法に <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd></kbd> を使用して、ログの集約を実施する例を説明します。</div>
 </div>
 <section id="fluent-bit">
-<h3>Fluent Bitインストール<a class="headerlink" href="#fluent-bit" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Fluent Bitインストール<a class="headerlink" href="#fluent-bit" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Fluent Bitのインストールは、公式サイトに基づき、Helm charts を利用してインストールします。</div>
 <div class="line">公式サイト: <a class="reference external" href="https://docs.fluentbit.io/manual/installation/kubernetes">Fluent Bit: Offcial Manual</a></div>
 </div>
 </section>
 <section id="id4">
-<h3>前提条件<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>前提条件<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本説明で使用する環境の前提条件は以下の通りとなります。</div>
 </div>
@@ -224,17 +221,17 @@
 </ul>
 </section>
 <section id="id5">
-<h3>事前準備<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>事前準備<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ログを集約するために、今回はNFSを用いた方法とし、出力先にKubernetesの永続ボリューム(PersistentVolume)を利用します。</div>
 </div>
 <section id="persistentvolume">
-<h4>永続ボリューム(PersistentVolume)の準備<a class="headerlink" href="#persistentvolume" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>永続ボリューム(PersistentVolume)の準備<a class="headerlink" href="#persistentvolume" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">事前準備として、出力先の永続ボリューム(PV)とリソースの要求(PVC)のmanifestを作成します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">fluentbit-pv.yaml</span><a class="headerlink" href="#id8" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">fluentbit-pv.yaml</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="linenos"> 2</span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
 <span class="linenos"> 3</span><span class="nt">metadata</span><span class="p">:</span>
@@ -270,12 +267,12 @@
 </div>
 </section>
 <section id="fluent-bit-helm-chart-values-yaml">
-<h4>Fluent Bit: helm chart values.yamlの準備<a class="headerlink" href="#fluent-bit-helm-chart-values-yaml" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>Fluent Bit: helm chart values.yamlの準備<a class="headerlink" href="#fluent-bit-helm-chart-values-yaml" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">helm chartsでインストールする際に使用する <kbd class="kbd docutils literal notranslate">values.yaml</kbd> は、以下のコマンドで抽出して、編集する</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id9" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>show<span class="w"> </span>values<span class="w"> </span>fluent/fluent-bit<span class="w"> </span>&gt;<span class="w"> </span>fluentbit-values.yaml
 </pre></div>
 </div>
@@ -286,7 +283,7 @@
 <div class="line">Fluent Bitのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> を実行する前に１度だけ必要となります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exastro システムの Helm リポジトリを登録</span>
 helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>fluent<span class="w"> </span>https://fluent.github.io/helm-charts
 <span class="c1"># リポジトリ情報の更新</span>
@@ -299,7 +296,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">出力された <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">fluentbit</kbd>-<kbd class="kbd docutils literal notranslate">values.yaml</kbd></kbd> を以下のように修正します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">fluentbit-values.yaml</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">fluentbit-values.yaml</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="gd">--- /home/runner/work/exastro-it-automation-docs/exastro-it-automation-docs/workspace/src/ja/2.3/share/ja/manuals/maintenance/literal_includes/fluentbit-values-org.yaml</span>
 <span class="linenos">  2</span><span class="gi">+++ /home/runner/work/exastro-it-automation-docs/exastro-it-automation-docs/workspace/src/ja/2.3/share/ja/manuals/maintenance/literal_includes/fluentbit-values.yaml</span>
 <span class="linenos">  3</span><span class="gu">@@ -298,9 +298,12 @@</span>
@@ -473,7 +470,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 </section>
 </section>
 <section id="id6">
-<h3>インストール<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>インストール<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">helmによるインストール手順は公式の手順に従ってインストールします。</div>
 </div>
@@ -488,7 +485,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">PV, PVCのapply</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>fluentbit-pv.yaml
 </pre></div>
 </div>
@@ -498,7 +495,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">Fluent Bit: インストール</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>fluent-bit<span class="w"> </span>fluent/fluent-bit<span class="w"> </span>-f<span class="w"> </span>fluentbit-values.yaml
 </pre></div>
 </div>
@@ -508,13 +505,13 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="line">インストールされた <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd></kbd> の確認</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>po
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">               </span>READY<span class="w">   </span>STATUS<span class="w">              </span>RESTARTS<span class="w">   </span>AGE
 fluent-bit-gx2c5<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">             </span><span class="m">0</span><span class="w">          </span>22s
 fluent-bit-tgbls<span class="w">   </span><span class="m">0</span>/1<span class="w">     </span>ContainerCreating<span class="w">   </span><span class="m">0</span><span class="w">          </span>22s
@@ -523,13 +520,13 @@ fluent-bit-xhm6w<span class="w">   </span><span class="m">0</span>/1<span class=
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id16" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>daemonset
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id17" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">         </span>DESIRED<span class="w">   </span>CURRENT<span class="w">   </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>NODE<span class="w"> </span>SELECTOR<span class="w">   </span>AGE
 fluent-bit<span class="w">   </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">         </span><span class="m">3</span><span class="w">       </span><span class="m">3</span><span class="w">            </span><span class="m">3</span><span class="w">           </span>&lt;none&gt;<span class="w">          </span>88m
 </pre></div>
@@ -539,7 +536,7 @@ fluent-bit<span class="w">   </span><span class="m">3</span><span class="w">    
 </ul>
 </section>
 <section id="id7">
-<h3>出力された内容を確認<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>出力された内容を確認<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">インストール完了後、すぐに設定された内容で、NFSサーバーにログファイルが集約されます。</div>
 </div>
@@ -548,7 +545,7 @@ fluent-bit<span class="w">   </span><span class="m">3</span><span class="w">    
 <div class="line">集約したログファイル一覧(例)</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id18" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">156434</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">14</span>:53<span class="w"> </span>exastro-suite.exastro.mongo.20240305.log
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">514599</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">14</span>:53<span class="w"> </span>exastro-suite.exastro.platform-api.20240305.log
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">     </span><span class="m">6931</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">5</span><span class="w"> </span><span class="m">14</span>:51<span class="w"> </span>exastro-suite.exastro.platform-job.20240305.log
@@ -560,7 +557,7 @@ fluent-bit<span class="w">   </span><span class="m">3</span><span class="w">    
 <div class="line">集約したログファイルの内容(例)</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-text">集約したログファイルの内容</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">集約したログファイルの内容</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;stream&quot;</span><span class="p">:</span><span class="s2">&quot;stdout&quot;</span><span class="p">,</span><span class="nt">&quot;logtag&quot;</span><span class="p">:</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="nt">&quot;record_date&quot;</span><span class="p">:</span><span class="s2">&quot;20240301&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;2024/03/01 16:40:09.098836 INFO (dumm) /app/controllers/internal_maintenance_mode_setting_controller.py(37) ### func:internal_get_maintenance_mode_setting&quot;</span><span class="p">}</span>
 <span class="p">{</span><span class="nt">&quot;stream&quot;</span><span class="p">:</span><span class="s2">&quot;stdout&quot;</span><span class="p">,</span><span class="nt">&quot;logtag&quot;</span><span class="p">:</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="nt">&quot;record_date&quot;</span><span class="p">:</span><span class="s2">&quot;20240301&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;192.168.172.2 - - [01/Mar/2024:16:40:09 +0900] \&quot;GET /internal-api/platform/maintenance-mode-setting HTTP/1.1\&quot; 200 135 \&quot;-\&quot; \&quot;python-requests/2.31.0\&quot;&quot;</span><span class="p">}</span>
 <span class="p">{</span><span class="nt">&quot;stream&quot;</span><span class="p">:</span><span class="s2">&quot;stdout&quot;</span><span class="p">,</span><span class="nt">&quot;logtag&quot;</span><span class="p">:</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="nt">&quot;record_date&quot;</span><span class="p">:</span><span class="s2">&quot;20240301&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;192.168.172.2 - - [01/Mar/2024:16:40:09 +0900] \&quot;GET /internal-api/platform/maintenance-mode-setting HTTP/1.1\&quot; 200 135&quot;</span><span class="p">}</span>

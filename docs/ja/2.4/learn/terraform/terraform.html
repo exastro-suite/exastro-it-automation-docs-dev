@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>IaaSの払い出し &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" /> 
   </head>
@@ -75,8 +71,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.4/learn/terraform/terraform.html" selected>current</option>
-              <option value="../../../../ja/2.4/learn/terraform/terraform.html" selected>2.4(current)</option>
+              <option value="../../../../ja/2.5/learn/terraform/terraform.html">current</option>
+              <option value="../../../../ja/2.5/learn/terraform/terraform.html">2.5(current)</option>
+              <option value="../../../../ja/2.4/learn/terraform/terraform.html" selected>2.4</option>
               <option value="../../../../ja/2.3/learn/terraform/terraform.html">2.3</option>
               <option value="../../../../ja/2.2/learn/terraform/terraform.html">2.2</option>
               <option value="../../../../ja/2.1/learn/terraform/terraform.html">2.1</option>
@@ -175,18 +172,18 @@
 <div class="body" role="main">
 
   <section id="iaas">
-<h1>IaaSの払い出し<a class="headerlink" href="#iaas" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>IaaSの払い出し<a class="headerlink" href="#iaas" title="Link to this heading">¶</a></h1>
 <div class="line-block">
 <div class="line">本シナリオでは、簡単な例として、IaaSの払い出しを題材に Exastro IT Automation の基本操作を学習します。</div>
 </div>
 <section id="id1">
-<h2>作業概要の作成<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>作業概要の作成<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。</div>
 <div class="line">まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。</div>
 </div>
 <table class="docutils align-default" id="id10">
-<caption><span class="caption-text">作業の方針</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">作業の方針</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -204,22 +201,23 @@
 </tbody>
 </table>
 <section id="id2">
-<h3>作業概要登録<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業概要登録<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">オペレーション登録では、作業を実施する際の作業概要を定義します。</div>
 <div class="line">先に決めた作業の方針を元にオペレーション情報を記入しましょう。</div>
 </div>
 <dl class="simple glossary">
-<dt id="term-0">オペレーション<a class="headerlink" href="#term-0" title="この用語の解説へ">¶</a></dt><dt id="term-1">実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。<a class="headerlink" href="#term-1" title="この用語の解説へ">¶</a></dt><dd></dd>
+<dt id="term-0">オペレーション<a class="headerlink" href="#term-0" title="Link to this term">¶</a></dt><dt id="term-1">実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。<a class="headerlink" href="#term-1" title="Link to this term">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/オペレーション登録9.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B29.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/オペレーション登録9.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B29.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id11">
-<caption><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -245,22 +243,23 @@
 </section>
 </section>
 <section id="workspace">
-<h2>Workspace管理<a class="headerlink" href="#workspace" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Workspace管理<a class="headerlink" href="#workspace" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Workspace管理では、Terraformで利用するWorkspaceについてのメンテナンス（閲覧/登録/更新／/廃止リソース削除）を行います。</div>
 </div>
 <dl class="simple glossary">
-<dt id="term-Workspace">Workspace<a class="headerlink" href="#term-Workspace" title="この用語の解説へ">¶</a></dt><dt id="term-WorkspaceTerraform">WorkspaceはTerraformコマンドを実行するためのディレクトリとして利用します。<a class="headerlink" href="#term-WorkspaceTerraform" title="この用語の解説へ">¶</a></dt><dd></dd>
+<dt id="term-Workspace">Workspace<a class="headerlink" href="#term-Workspace" title="Link to this term">¶</a></dt><dt id="term-WorkspaceTerraform">WorkspaceはTerraformコマンドを実行するためのディレクトリとして利用します。<a class="headerlink" href="#term-WorkspaceTerraform" title="Link to this term">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
 <div class="line">Terraformコマンドを実行するためにWorkspaceを作成します。</div>
 <div class="line"><span class="menuselection">Terraform CLI ▶ Workspace管理</span> から、Terraformコマンドを実行するために、「tfe_ws001」というWorkspaceを作成します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Workspace作成.png"><img alt="Workspace作成" src="../../_images/Workspace%E4%BD%9C%E6%88%90.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Workspace作成.png"><img alt="Workspace作成" src="../../_images/Workspace%E4%BD%9C%E6%88%90.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id12">
-<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 66.7%" />
 <col style="width: 33.3%" />
@@ -277,7 +276,7 @@
 </tbody>
 </table>
 <section id="id3">
-<h3>作業項目の設定<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業項目の設定<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Exastro IT Automation では、Movement という単位で作業を管理し、作業手順書における作業項目に該当します。</div>
 <div class="line">MovementはTerraform利用情報としてWorkspaceと紐付ける必要があるため、先に「Workspaces管理」にて対象を登録しておく必要があります。</div>
@@ -286,10 +285,11 @@
 <div class="line"><span class="menuselection">Terraform CLI ▶ Movement一覧</span> から、IaaSの払い出しのための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement登録3.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement登録3.png"><img alt="Movement登録" src="../../_images/Movement%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id13">
-<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -310,12 +310,12 @@
 </table>
 </section>
 <section id="module">
-<h3>Module素材集<a class="headerlink" href="#module" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Module素材集<a class="headerlink" href="#module" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Module素材集では、ユーザーが作成したModuleのメンテナンス（閲覧/登録/更新/廃止）を行います。</div>
 </div>
 <dl class="simple glossary">
-<dt id="term-Module">Moduleの記述<a class="headerlink" href="#term-Module" title="この用語の解説へ">¶</a></dt><dt id="term-ModuleHCL-HashiCorp-ConfigurationLanguage-HashiCorp">Moduleファイルは、HCL（HashiCorp ConfigurationLanguage）というHashiCorp社独自の言語により記述します。<a class="headerlink" href="#term-ModuleHCL-HashiCorp-ConfigurationLanguage-HashiCorp" title="この用語の解説へ">¶</a></dt><dd></dd>
+<dt id="term-Module">Moduleの記述<a class="headerlink" href="#term-Module" title="Link to this term">¶</a></dt><dt id="term-ModuleHCL-HashiCorp-ConfigurationLanguage-HashiCorp">Moduleファイルは、HCL（HashiCorp ConfigurationLanguage）というHashiCorp社独自の言語により記述します。<a class="headerlink" href="#term-ModuleHCL-HashiCorp-ConfigurationLanguage-HashiCorp" title="Link to this term">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
 <div class="line">使用するModuleファイルをModule素材集から登録します。</div>
@@ -323,7 +323,7 @@
 <div class="line">本シナリオでは、main.tf と variables.tf を使用します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-text">main.tf</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">main.tf</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>provider<span class="w"> </span><span class="s2">&quot;azurerm&quot;</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span>features<span class="w"> </span><span class="o">{}</span>
 <span class="w">  </span><span class="nv">subscription_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>var.subscription_id
@@ -447,7 +447,7 @@ resource<span class="w"> </span><span class="s2">&quot;azurerm_linux_virtual_mac
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-text">variables.tf</span><a class="headerlink" href="#id15" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">variables.tf</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>variable<span class="w"> </span><span class="s2">&quot;subscription_id&quot;</span><span class="w"> </span><span class="o">{}</span>
 variable<span class="w"> </span><span class="s2">&quot;tenant_id&quot;</span><span class="w"> </span><span class="o">{}</span>
 variable<span class="w"> </span><span class="s2">&quot;client_id&quot;</span><span class="w"> </span><span class="o">{}</span>
@@ -485,10 +485,11 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 <div class="line"><span class="menuselection">Terraform CLI ▶ Module素材集</span> から、IaaSの払い出しのための Module素材集 を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Module素材集.png"><img alt="Module素材集" src="../../_images/Module%E7%B4%A0%E6%9D%90%E9%9B%86.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Module素材集.png"><img alt="Module素材集" src="../../_images/Module%E7%B4%A0%E6%9D%90%E9%9B%86.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id16">
-<caption><span class="caption-text">Module素材集 情報の設定値</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">Module素材集 情報の設定値</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -509,15 +510,16 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </table>
 </section>
 <section id="movement-module">
-<h3>Movement-Module紐付<a class="headerlink" href="#movement-module" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Movement-Module紐付<a class="headerlink" href="#movement-module" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Terraform CLI ▶ Movement-Module紐付</span> から、Movement と Module素材集 の紐付けを行います。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Movement-Module紐付.png"><img alt="Movement-Module紐付" src="../../_images/Movement-Module%E7%B4%90%E4%BB%98.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Movement-Module紐付.png"><img alt="Movement-Module紐付" src="../../_images/Movement-Module%E7%B4%90%E4%BB%98.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id17">
-<caption><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -538,22 +540,23 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </table>
 </section>
 <section id="id4">
-<h3>パラメータシートの作成<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>パラメータシートの作成<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">パラメータシート作成</span> では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。</div>
 </div>
 <dl class="simple glossary">
-<dt id="term-2">パラメータシート<a class="headerlink" href="#term-2" title="この用語の解説へ">¶</a></dt><dt id="term-3">システムのパラメータ情報を管理するデータ構造のことです。<a class="headerlink" href="#term-3" title="この用語の解説へ">¶</a></dt><dd></dd>
+<dt id="term-2">パラメータシート<a class="headerlink" href="#term-2" title="Link to this term">¶</a></dt><dt id="term-3">システムのパラメータ情報を管理するデータ構造のことです。<a class="headerlink" href="#term-3" title="Link to this term">¶</a></dt><dd></dd>
 </dl>
 <div class="line-block">
 <div class="line">Azure認証情報として、パラメータシートを作成します。</div>
 <div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、Azure認証情報を管理するために、「Azureパラメータ」というパラメータシートを作成します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/パラメータシート作成①.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90%E2%91%A0.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/パラメータシート作成①.png"><img alt="パラメータシート作成" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90%E2%91%A0.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-text">パラメータシート作成(Azureパラメータ)の項目の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">パラメータシート作成(Azureパラメータ)の項目の設定値</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14.3%" />
 <col style="width: 14.3%" />
@@ -665,7 +668,7 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </tbody>
 </table>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-text">パラメータシート作成(Azureパラメータ)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">パラメータシート作成(Azureパラメータ)のパラメータシート作成情報の設定値</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -704,15 +707,16 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </table>
 </section>
 <section id="id5">
-<h3>パラメータシートの項目と Moduleファイル の変数の紐付け<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>パラメータシートの項目と Moduleファイル の変数の紐付け<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Terraform CLI ▶ 代入値自動登録設定</span> から、Azureパラメータの項目に入るパラメータに代入する設定を行います。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/代入値自動登録2.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/代入値自動登録2.png"><img alt="代入値自動登録設定" src="../../_images/%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">代入値自動登録設定の設定値</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 47.4%" />
 <col style="width: 10.5%" />
@@ -776,21 +780,22 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </section>
 </section>
 <section id="id6">
-<h2>作業実施<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>作業実施<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">パラメータシートには、設定したい値を機器ごとにパラメータを登録します。</div>
 <div class="line">本シナリオでは、Azure認証情報として「サブスクリプションID」「テナントID」「クライアントID」「クライアントシークレット」、ターゲットとして「リソースグループ名」「ロケーション」の値を登録​します。</div>
 </div>
 <section id="id7">
-<h3>パラメータ設定<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>パラメータ設定<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">入力用 ▶ Azureパラメータ</span> から、ホストに対するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/パラメータ登録①.png"><img alt="パラメータ登録" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2%E2%91%A0.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/パラメータ登録①.png"><img alt="パラメータ登録" src="../../_images/%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2%E2%91%A0.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id21">
-<caption><span class="caption-text">サーバー基本情報パラメータの設定値</span><a class="headerlink" href="#id21" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-text">サーバー基本情報パラメータの設定値</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.8%" />
 <col style="width: 17.6%" />
@@ -839,7 +844,7 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </table>
 </section>
 <section id="id8">
-<h3>作業実行<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業実行<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>作業実行</p>
 <div class="line-block">
@@ -852,7 +857,8 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行3.png"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C3.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行3.png"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C3.png" style="width: 1200px;" />
+</a>
 </figure>
 <ol class="arabic" start="2">
 <li><p>実行後作業</p>
@@ -864,7 +870,7 @@ variable<span class="w"> </span><span class="s2">&quot;VM_count&quot;</span><spa
 </section>
 </section>
 <section id="id9">
-<h2>まとめ<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>まとめ<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本シナリオでは、IaaSの払い出しのシナリオを通して、Exastro IT Automation の基本的な操作方法やコンセプトについて紹介をしました。</div>
 <div class="line">より詳細な情報を知りたい場合は、<a class="reference internal" href="../../manuals/index.html"><span class="doc">マニュアル</span></a> を参照してください。</div>

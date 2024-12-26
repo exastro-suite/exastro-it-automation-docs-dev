@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>3. OASE Agent (Docker Compose) &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/jquery-3.6.3.min.js"></script>
-    <script src="../_static/exastro_documents.js"></script>
-    <script src="../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script src="../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="4. OASE Agent (Kubernetes)" href="oase_agent_kubernetes.html" />
@@ -77,8 +73,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../ja/2.4/installation/oase_agent_docker_compose.html">current</option>
-              <option value="../../../ja/2.4/installation/oase_agent_docker_compose.html">2.4(current)</option>
+              <option value="../../../ja/2.5/installation/oase_agent_docker_compose.html">current</option>
+              <option value="../../../ja/2.5/installation/oase_agent_docker_compose.html">2.5(current)</option>
+              <option value="../../../ja/2.4/installation/oase_agent_docker_compose.html">2.4</option>
               <option value="../../../ja/2.3/installation/oase_agent_docker_compose.html" selected>2.3</option>
               <option value="../../../ja/2.2/installation/oase_agent_docker_compose.html">2.2</option>
               <option value="../../../ja/2.1/installation/oase_agent_docker_compose.html">2.1</option>
@@ -199,15 +196,15 @@ $(window).on('load', function () {
    },200);
 });
 </script><section id="oase-agent-docker-compose">
-<span id="oase-agent-docker-compose-install"></span><h1><span class="section-number">3. </span>OASE Agent (Docker Compose)<a class="headerlink" href="#oase-agent-docker-compose" title="この見出しへのパーマリンク">¶</a></h1>
+<span id="oase-agent-docker-compose-install"></span><h1><span class="section-number">3. </span>OASE Agent (Docker Compose)<a class="headerlink" href="#oase-agent-docker-compose" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><span class="section-number">3.1. </span>目的<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.1. </span>目的<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。</div>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">3.2. </span>特徴<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.2. </span>特徴<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">OASEを利用するための絶対条件である、Exastro OASE Agentの導入方法となります。</div>
 <div class="line">Docker Compose を利用することで、Exastro OASE Agentを簡単に起動することが可能です。</div>
@@ -215,7 +212,7 @@ $(window).on('load', function () {
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">3.3. </span>前提条件<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.3. </span>前提条件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>Exastro IT Automationについて</p>
 <div class="line-block">
@@ -227,7 +224,7 @@ $(window).on('load', function () {
 <div class="line">動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。</div>
 </div>
 <table class="docutils align-default" id="id8">
-<caption><span class="caption-number">表 3.1 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id8" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -253,7 +250,7 @@ $(window).on('load', function () {
 <li><p>動作確認済みオペレーティングシステム</p>
 <p>以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id9">
-<caption><span class="caption-number">表 3.2 </span><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 3.2 </span><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -280,7 +277,7 @@ $(window).on('load', function () {
 <p>手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
 以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id10">
-<caption><span class="caption-number">表 3.3 </span><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 3.3 </span><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 66.7%" />
 <col style="width: 33.3%" />
@@ -318,9 +315,9 @@ $(window).on('load', function () {
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">3.4. </span>インストール<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.4. </span>インストール<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <section id="id5">
-<h3><span class="section-number">3.4.1. </span>準備<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>準備<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">はじめに、各種構成ファイルを取得します。docker-compose.ymlなどの起動に必要なファイル群を取得します。</div>
 </div>
@@ -337,13 +334,13 @@ $(window).on('load', function () {
 <div class="line">環境変数の設定ファイル（.env）を、サンプルから作成します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-number">リスト 3.1 </span><span class="caption-text">（Docker利用時）サンプルからコピー</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.1 </span><span class="caption-text">（Docker利用時）サンプルからコピー</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.docker.sample<span class="w"> </span>.env
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">リスト 3.2 </span><span class="caption-text">（Podman利用時）サンプルからコピー</span><a class="headerlink" href="#id12" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.2 </span><span class="caption-text">（Podman利用時）サンプルからコピー</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.podman.sample<span class="w"> </span>.env
 </pre></div>
 </div>
@@ -356,18 +353,18 @@ $(window).on('load', function () {
 </div>
 </section>
 <section id="id6">
-<h3><span class="section-number">3.4.2. </span>起動<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>起動<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">docker もしくは docker-compose コマンドを使いコンテナを起動します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-number">リスト 3.3 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id13" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.3 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-number">リスト 3.4 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.4 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">  </span>--wait
 </pre></div>
 </div>
@@ -375,7 +372,7 @@ $(window).on('load', function () {
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">3.5. </span>パラメータ一覧<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.5. </span>パラメータ一覧<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Exastro OASE Agentの仕様と一部のパラメータの関連については、<a class="reference internal" href="../manuals/oase/oase_management.html#oase-agent-flow"><span class="std std-ref">OASE Agentの処理フローと.envの設定値</span></a> にて説明しています。</div>
 </div>

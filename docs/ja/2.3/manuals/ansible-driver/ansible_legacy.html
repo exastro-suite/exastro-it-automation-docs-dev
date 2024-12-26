@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>2. Ansible-Legacy &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="3. Ansible-Pioneer" href="ansible_pioneer.html" />
@@ -77,8 +73,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.4/manuals/ansible-driver/ansible_legacy.html">current</option>
-              <option value="../../../../ja/2.4/manuals/ansible-driver/ansible_legacy.html">2.4(current)</option>
+              <option value="../../../../ja/2.5/manuals/ansible-driver/ansible_legacy.html">current</option>
+              <option value="../../../../ja/2.5/manuals/ansible-driver/ansible_legacy.html">2.5(current)</option>
+              <option value="../../../../ja/2.4/manuals/ansible-driver/ansible_legacy.html">2.4</option>
               <option value="../../../../ja/2.3/manuals/ansible-driver/ansible_legacy.html" selected>2.3</option>
               <option value="../../../../ja/2.2/manuals/ansible-driver/ansible_legacy.html">2.2</option>
               <option value="../../../../ja/2.1/manuals/ansible-driver/ansible_legacy.html">2.1</option>
@@ -254,15 +251,15 @@
 <div class="body" role="main">
 
   <section id="ansible-legacy">
-<h1><span class="section-number">2. </span>Ansible-Legacy<a class="headerlink" href="#ansible-legacy" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>Ansible-Legacy<a class="headerlink" href="#ansible-legacy" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Ansible driverのLegacy機能および操作方法について説明します。</div>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">2.2. </span>Ansible-Legacy概要<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Ansible-Legacy概要<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Ansible標準の機能を用いて各種ホストへ設定を投入します。</div>
 <div class="line">構築コードを単体YAMLファイルとして登録し、作業パターンをその組み合わせで構成します。</div>
@@ -270,12 +267,12 @@
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.3. </span>Ansible-Legacy メニュー構成<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Ansible-Legacy メニュー構成<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本章では、Ansible-Legacyのメニュー構成について説明します。</div>
 </div>
 <section id="id4">
-<h3><span class="section-number">2.3.1. </span>メニュー/画面一覧<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>メニュー/画面一覧<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line"><strong>基本コンソールのメニュー</strong></div>
@@ -286,7 +283,7 @@
 <div class="line">Ansible-Legacyで利用する 基本コンソールのメニュー一覧を以下に記述します。</div>
 </div>
 <table class="docutils align-left" id="id20">
-<caption><span class="caption-number">表 2.55 </span><span class="caption-text">基本コンソール メニュー/画面一覧</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.55 </span><span class="caption-text">基本コンソール メニュー/画面一覧</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 7.1%" />
 <col style="width: 28.6%" />
@@ -318,7 +315,7 @@
 <div class="line">Ansible共通のメニュー一覧を以下に記述します。</div>
 </div>
 <table class="docutils align-left" id="id21">
-<caption><span class="caption-number">表 2.56 </span><span class="caption-text">Ansible共通 メニュー/画面一覧</span><a class="headerlink" href="#id21" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.56 </span><span class="caption-text">Ansible共通 メニュー/画面一覧</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 7.1%" />
 <col style="width: 21.4%" />
@@ -391,7 +388,7 @@
 <div class="line">Ansible-Legacyのメニュー一覧を以下に記述します。</div>
 </div>
 <table class="docutils align-left" id="id22">
-<caption><span class="caption-number">表 2.57 </span><span class="caption-text">Ansible-Legacy メニュー/画面一覧</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.57 </span><span class="caption-text">Ansible-Legacy メニュー/画面一覧</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15.4%" />
 <col style="width: 23.1%" />
@@ -458,12 +455,12 @@
 </section>
 </section>
 <section id="id5">
-<h2><span class="section-number">2.4. </span>Ansible-Legacy利用手順<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Ansible-Legacy利用手順<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Ansible-Legacyの利用手順について説明します。</div>
 </div>
 <section id="id6">
-<h3><span class="section-number">2.4.1. </span>Ansible-Legacy作業フロー<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Ansible-Legacy作業フロー<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">以下は、Ansible-Legacyで作業を実行するまでの流れです。</div>
 </div>
@@ -578,37 +575,38 @@
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">2.5. </span>Ansible-Legacy メニュー操作方法説明<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Ansible-Legacy メニュー操作方法説明<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本章では、Ansible-Legacyで利用するメニューについて説明します。</div>
 </div>
 <section id="id8">
-<h3><span class="section-number">2.5.1. </span>基本コンソール<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.5.1. </span>基本コンソール<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">基本コンソールについての操作は「 <a class="reference internal" href="../it_automation_base/basic_console.html"><span class="doc">基本コンソール</span></a> 」を参照してください。</div>
 </div>
 </section>
 <section id="ansible">
-<h3><span class="section-number">2.5.2. </span>Ansible共通<a class="headerlink" href="#ansible" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.5.2. </span>Ansible共通<a class="headerlink" href="#ansible" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Ansible共通についての操作は「 <a class="reference internal" href="ansible_common.html"><span class="doc">Ansible共通</span></a> 」を参照してください。</div>
 </div>
 </section>
 <section id="id9">
-<h3><span class="section-number">2.5.3. </span>Ansible-Legacy<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.5.3. </span>Ansible-Legacy<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本節では、Ansible-Legacyの操作について記載します。</div>
 </div>
 <section id="movement">
-<span id="ansible-legacy-movement-list"></span><h4>Movement一覧<a class="headerlink" href="#movement" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="ansible-legacy-movement-list"></span><h4>Movement一覧<a class="headerlink" href="#movement" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">Movement情報のメンテナンス（閲覧/登録/更新/廃止）を行います。</div>
 </div>
 <figure class="align-default" id="id23">
-<a class="reference internal image-reference" href="../../_images/movement_list.png"><img alt="サブメニュー画面（Movement一覧）" src="../../_images/movement_list.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/movement_list.png"><img alt="サブメニュー画面（Movement一覧）" src="../../_images/movement_list.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.14 </span><span class="caption-text">サブメニュー画面（Movement一覧）</span><a class="headerlink" href="#id23" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.14 </span><span class="caption-text">サブメニュー画面（Movement一覧）</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -616,9 +614,10 @@
 <div class="line"><span class="guilabel">登録</span> ボタンより、Movement情報の登録を行います。</div>
 </div>
 <figure class="align-default" id="id24">
-<a class="reference internal image-reference" href="../../_images/registration_movement_list.gif"><img alt="登録画面（Movement一覧）" src="../../_images/registration_movement_list.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/registration_movement_list.gif"><img alt="登録画面（Movement一覧）" src="../../_images/registration_movement_list.gif" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.15 </span><span class="caption-text">登録画面（Movement一覧）</span><a class="headerlink" href="#id24" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.15 </span><span class="caption-text">登録画面（Movement一覧）</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -626,7 +625,7 @@
 <div class="line">登録画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id25">
-<caption><span class="caption-number">表 2.58 </span><span class="caption-text">登録画面項目一覧（Movement一覧）</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.58 </span><span class="caption-text">登録画面項目一覧（Movement一覧）</span><a class="headerlink" href="#id25" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="3"><p>項目</p></th>
 <th class="head"><p>説明</p></th>
@@ -770,16 +769,17 @@
 </ol>
 </section>
 <section id="playbook">
-<span id="ansible-legacy-playbook-file-list"></span><h4>Playbook素材集<a class="headerlink" href="#playbook" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="ansible-legacy-playbook-file-list"></span><h4>Playbook素材集<a class="headerlink" href="#playbook" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">ユーザが作成したPlaybookのメンテナンス（閲覧/登録/更新/廃止）を行います。</div>
 <div class="line">Playbookの記述など関しては、「 <a class="reference internal" href="#ansible-legacy-write-playbook-ansible-legacy"><span class="std std-ref">Playbook（Ansible-Legacy）の記述</span></a> 」を参照してください。</div>
 </div>
 <figure class="align-default" id="id26">
-<a class="reference internal image-reference" href="../../_images/playbook_list.png"><img alt="サブメニュー画面（Playbook素材集）" src="../../_images/playbook_list.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/playbook_list.png"><img alt="サブメニュー画面（Playbook素材集）" src="../../_images/playbook_list.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.16 </span><span class="caption-text">サブメニュー画面（Playbook素材集）</span><a class="headerlink" href="#id26" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.16 </span><span class="caption-text">サブメニュー画面（Playbook素材集）</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -787,9 +787,10 @@
 <div class="line"><span class="guilabel">登録</span> ボタンより、Playbookの登録を行います。</div>
 </div>
 <figure class="align-default" id="id27">
-<a class="reference internal image-reference" href="../../_images/registration_playbook_list.gif"><img alt="登録画面（Playbook素材集）" src="../../_images/registration_playbook_list.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/registration_playbook_list.gif"><img alt="登録画面（Playbook素材集）" src="../../_images/registration_playbook_list.gif" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.17 </span><span class="caption-text">登録画面（Playbook素材集）</span><a class="headerlink" href="#id27" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.17 </span><span class="caption-text">登録画面（Playbook素材集）</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -797,7 +798,7 @@
 <div class="line">登録画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id28">
-<caption><span class="caption-number">表 2.59 </span><span class="caption-text">登録画面項目一覧（Playbook素材集）</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.59 </span><span class="caption-text">登録画面項目一覧（Playbook素材集）</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 50.0%" />
@@ -859,15 +860,16 @@
 </div>
 </section>
 <section id="movement-playbook">
-<span id="ansible-legacy-movement-details"></span><h4>Movement-Playbook紐付<a class="headerlink" href="#movement-playbook" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="ansible-legacy-movement-details"></span><h4>Movement-Playbook紐付<a class="headerlink" href="#movement-playbook" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">MovementでインクルードするPlaybookのメンテナンス（閲覧/登録/更新/廃止）を行います。</div>
 </div>
 <figure class="align-default" id="id29">
-<a class="reference internal image-reference" href="../../_images/movement_playbook_link.png"><img alt="サブメニュー画面（Movement-Playbook紐付）" src="../../_images/movement_playbook_link.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/movement_playbook_link.png"><img alt="サブメニュー画面（Movement-Playbook紐付）" src="../../_images/movement_playbook_link.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.18 </span><span class="caption-text">サブメニュー画面（Movement-Playbook紐付）</span><a class="headerlink" href="#id29" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.18 </span><span class="caption-text">サブメニュー画面（Movement-Playbook紐付）</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -875,9 +877,10 @@
 <div class="line"><span class="guilabel">登録</span> ボタンより、MovementでインクルードするPlaybookの登録を行います。</div>
 </div>
 <figure class="align-default" id="id30">
-<a class="reference internal image-reference" href="../../_images/registration_movement_playbook_link.gif"><img alt="登録画面（Movement-Playbook紐付）" src="../../_images/registration_movement_playbook_link.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/registration_movement_playbook_link.gif"><img alt="登録画面（Movement-Playbook紐付）" src="../../_images/registration_movement_playbook_link.gif" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.19 </span><span class="caption-text">登録画面（Movement-Playbook紐付）</span><a class="headerlink" href="#id30" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.19 </span><span class="caption-text">登録画面（Movement-Playbook紐付）</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -885,7 +888,7 @@
 <div class="line">登録画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id31">
-<caption><span class="caption-number">表 2.60 </span><span class="caption-text">登録画面項目一覧（Movement-Playbook紐付の場合）</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.60 </span><span class="caption-text">登録画面項目一覧（Movement-Playbook紐付の場合）</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 55.6%" />
@@ -953,16 +956,17 @@
 </ol>
 </section>
 <section id="ansible-legacy-substitution-value-auto-registration-setting">
-<span id="id10"></span><h4>代入値自動登録設定<a class="headerlink" href="#ansible-legacy-substitution-value-auto-registration-setting" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id10"></span><h4>代入値自動登録設定<a class="headerlink" href="#ansible-legacy-substitution-value-auto-registration-setting" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">パラメータシートの項目の設定値とMovementの変数との紐付管理（閲覧/登録/更新/廃止）を行います。</div>
 <div class="line">登録した情報は作業実行により <span class="menuselection">Ansible-Legacy ▶ 代入値管理</span> と <span class="menuselection">Ansible-Legacy ▶ 作業対象ホスト</span> に反映されます。</div>
 </div>
 <figure class="align-default" id="id32">
-<a class="reference internal image-reference" href="../../_images/substitution_value_auto_registration_setting.png"><img alt="サブメニュー画面（代入値自動登録設定）" src="../../_images/substitution_value_auto_registration_setting.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/substitution_value_auto_registration_setting.png"><img alt="サブメニュー画面（代入値自動登録設定）" src="../../_images/substitution_value_auto_registration_setting.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.20 </span><span class="caption-text">サブメニュー画面（代入値自動登録設定）</span><a class="headerlink" href="#id32" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.20 </span><span class="caption-text">サブメニュー画面（代入値自動登録設定）</span><a class="headerlink" href="#id32" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -970,9 +974,10 @@
 <div class="line"><span class="guilabel">登録</span> ボタンより、パラメータシートの項目の設定値とMovementの変数との紐付登録を行います。</div>
 </div>
 <figure class="align-default" id="id33">
-<a class="reference internal image-reference" href="../../_images/registration_substitution_value_automatic_setting.gif"><img alt="登録画面（代入値自動登録設定）" src="../../_images/registration_substitution_value_automatic_setting.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/registration_substitution_value_automatic_setting.gif"><img alt="登録画面（代入値自動登録設定）" src="../../_images/registration_substitution_value_automatic_setting.gif" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.21 </span><span class="caption-text">登録画面（代入値自動登録設定）</span><a class="headerlink" href="#id33" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.21 </span><span class="caption-text">登録画面（代入値自動登録設定）</span><a class="headerlink" href="#id33" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -980,7 +985,7 @@
 <div class="line">登録画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id34">
-<caption><span class="caption-number">表 2.61 </span><span class="caption-text">登録画面項目一覧（代入値自動登録設定）</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.61 </span><span class="caption-text">登録画面項目一覧（代入値自動登録設定）</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p>項目</p></th>
 <th class="head"><p>説明</p></th>
@@ -1093,7 +1098,8 @@
 <div class="line">パラメータシート（バンドル）と代入値自動登録設定の関係を以下の図に示します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/parameter.png"><img alt="パラメータシート（バンドル）使用時の代入値自動登録設定登録方法" src="../../_images/parameter.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/parameter.png"><img alt="パラメータシート（バンドル）使用時の代入値自動登録設定登録方法" src="../../_images/parameter.png" style="width: 600px;" />
+</a>
 </figure>
 </div>
 <div class="admonition tip" id="ansible-legacy-substitution">
@@ -1115,7 +1121,7 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> でパラメータシートに登録されている項目の設定値とPlaybook内の変数を紐付けします。</div>
 </div>
 <table class="docutils align-left" id="id35">
-<caption><span class="caption-number">表 2.62 </span><span class="caption-text">パラメータシートの登録内容</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.62 </span><span class="caption-text">パラメータシートの登録内容</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p><strong>ホスト名</strong></p></th>
 <th class="head" rowspan="2"><p><strong>オペレーション名</strong></p></th>
@@ -1138,7 +1144,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id36">
-<caption><span class="caption-number">表 2.63 </span><span class="caption-text">代入値自動登録設定の登録内容</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.63 </span><span class="caption-text">代入値自動登録設定の登録内容</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 18.2%" />
@@ -1228,7 +1234,7 @@
 <div class="line"><span class="menuselection">Ansible共通 ▶ ファイル管理</span> ／ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> で下記のように登録します。</div>
 </div>
 <table class="docutils align-left" id="id37">
-<caption><span class="caption-number">表 2.64 </span><span class="caption-text">ファイル管理の登録内容</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.64 </span><span class="caption-text">ファイル管理の登録内容</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 55.6%" />
 <col style="width: 44.4%" />
@@ -1245,7 +1251,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id38">
-<caption><span class="caption-number">表 2.65 </span><span class="caption-text">テンプレート管理の登録内容</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.65 </span><span class="caption-text">テンプレート管理の登録内容</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 55.6%" />
 <col style="width: 44.4%" />
@@ -1266,13 +1272,14 @@
 <div class="line"><span class="menuselection">パラメータシート定義・作成</span> で「Ansible共通:ファイル管理:ファイル埋込変数名」「Ansible共通:テンプレート管理:テンプレート埋込変数名」をパラメータシートの項目としてパラメータシート作成後、パラメータシートで項目の設定値としてファイル埋込変数とテンプレート埋込変数を登録します。</div>
 </div>
 <figure class="align-default" id="id39">
-<a class="reference internal image-reference" href="../../_images/menu_create.png"><img alt="パラメータシート定義・作成画面" src="../../_images/menu_create.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menu_create.png"><img alt="パラメータシート定義・作成画面" src="../../_images/menu_create.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.22 </span><span class="caption-text">パラメータシート定義・作成画面</span><a class="headerlink" href="#id39" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.22 </span><span class="caption-text">パラメータシート定義・作成画面</span><a class="headerlink" href="#id39" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id40">
-<caption><span class="caption-number">表 2.66 </span><span class="caption-text">サンプルパラメータシートの登録内容</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.66 </span><span class="caption-text">サンプルパラメータシートの登録内容</span><a class="headerlink" href="#id40" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p><strong>ホスト名</strong></p></th>
 <th class="head" rowspan="2"><p><strong>オペレーション名</strong></p></th>
@@ -1295,7 +1302,7 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> で2. のパラメータシートに登録した項目の設定値とPlaybookの変数を紐付して <span class="menuselection">Ansible-Legacy ▶ 作業実行</span> で作業実行します。</div>
 </div>
 <table class="docutils align-left" id="id41">
-<caption><span class="caption-number">表 2.67 </span><span class="caption-text">代入値自動登録設定の登録内容</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.67 </span><span class="caption-text">代入値自動登録設定の登録内容</span><a class="headerlink" href="#id41" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 45.5%" />
 <col style="width: 27.3%" />
@@ -1323,9 +1330,10 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 作業状態確認</span> の <span class="guilabel">代入値確認</span> ボタンで具体値に '{{ CPF_test }}' '{{ TPF_sample }}' が反映されていることが確認できます。</div>
 </div>
 <figure class="align-default" id="id42">
-<a class="reference internal image-reference" href="../../_images/general_operations_note.png"><img alt="作業状態確認の代入値管理" src="../../_images/general_operations_note.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/general_operations_note.png"><img alt="作業状態確認の代入値管理" src="../../_images/general_operations_note.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.23 </span><span class="caption-text">作業状態確認の代入値管理</span><a class="headerlink" href="#id42" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.23 </span><span class="caption-text">作業状態確認の代入値管理</span><a class="headerlink" href="#id42" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -1333,16 +1341,17 @@
 </div>
 </section>
 <section id="ansible-legacy-execution">
-<span id="id11"></span><h4>作業実行<a class="headerlink" href="#ansible-legacy-execution" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id11"></span><h4>作業実行<a class="headerlink" href="#ansible-legacy-execution" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">作業対象のMovementをMovement一覧から選択します。</div>
 <div class="line">作業対象のオペレーションをオペレーション一覧から選択します。</div>
 <div class="line">作業実行には、3種類の実行種別があります。実行種別に応じたボタンをクリックすることで <span class="menuselection">Ansible-Legacy ▶ 作業状態確認</span> に遷移し、実行されます。</div>
 </div>
 <figure class="align-default" id="id43">
-<a class="reference internal image-reference" href="../../_images/execution_screen.gif"><img alt="作業実行画面" src="../../_images/execution_screen.gif" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/execution_screen.gif"><img alt="作業実行画面" src="../../_images/execution_screen.gif" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.24 </span><span class="caption-text">作業実行画面</span><a class="headerlink" href="#id43" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.24 </span><span class="caption-text">作業実行画面</span><a class="headerlink" href="#id43" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -1378,14 +1387,15 @@
 </div>
 </section>
 <section id="ansible-legacy-check-operation-status">
-<span id="id12"></span><h4>作業状態確認<a class="headerlink" href="#ansible-legacy-check-operation-status" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id12"></span><h4>作業状態確認<a class="headerlink" href="#ansible-legacy-check-operation-status" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">作業の実行状態を監視します。</div>
 </div>
 <figure class="align-default" id="id44">
-<a class="reference internal image-reference" href="../../_images/check_operation_status.png"><img alt="サブメニュー画面（作業状態確認）" src="../../_images/check_operation_status.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/check_operation_status.png"><img alt="サブメニュー画面（作業状態確認）" src="../../_images/check_operation_status.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.25 </span><span class="caption-text">サブメニュー画面（作業状態確認）</span><a class="headerlink" href="#id44" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.25 </span><span class="caption-text">サブメニュー画面（作業状態確認）</span><a class="headerlink" href="#id44" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -1427,7 +1437,7 @@
 <div class="line">exec_&lt;グループ番号&gt;_&lt;通番&gt;</div>
 </div>
 <table class="docutils align-left" id="id45">
-<caption><span class="caption-number">表 2.68 </span><span class="caption-text">分割された実行ログファイルの命名要素</span><a class="headerlink" href="#id45" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.68 </span><span class="caption-text">分割された実行ログファイルの命名要素</span><a class="headerlink" href="#id45" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 28.6%" />
 <col style="width: 71.4%" />
@@ -1473,16 +1483,17 @@
 </ol>
 </section>
 <section id="ansible-legacy-execution-list">
-<span id="id13"></span><h4>作業管理<a class="headerlink" href="#ansible-legacy-execution-list" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id13"></span><h4>作業管理<a class="headerlink" href="#ansible-legacy-execution-list" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">作業の履歴を閲覧できます。</div>
 <div class="line">条件を指定し <span class="guilabel">フィルタ</span> ボタンをクリックすると、該当する作業の履歴を閲覧できます。</div>
 <div class="line"><span class="guilabel">詳細</span> ボタンで <span class="menuselection">Ansible-Legacy ▶ 作業状態確認</span> に遷移し、実行状態の詳細を閲覧することができます。</div>
 </div>
 <figure class="align-default" id="id46">
-<a class="reference internal image-reference" href="../../_images/execution_list.png"><img alt="サブメニュー画面（作業管理）" src="../../_images/execution_list.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/execution_list.png"><img alt="サブメニュー画面（作業管理）" src="../../_images/execution_list.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.26 </span><span class="caption-text">サブメニュー画面（作業管理）</span><a class="headerlink" href="#id46" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.26 </span><span class="caption-text">サブメニュー画面（作業管理）</span><a class="headerlink" href="#id46" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -1490,7 +1501,7 @@
 <div class="line">閲覧画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id47">
-<caption><span class="caption-number">表 2.69 </span><span class="caption-text">閲覧画面項目一覧（作業管理）</span><a class="headerlink" href="#id47" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.69 </span><span class="caption-text">閲覧画面項目一覧（作業管理）</span><a class="headerlink" href="#id47" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 12.5%" />
@@ -1590,15 +1601,16 @@
 </ol>
 </section>
 <section id="ansible-legacy-target-host">
-<span id="id14"></span><h4>作業対象ホスト<a class="headerlink" href="#ansible-legacy-target-host" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id14"></span><h4>作業対象ホスト<a class="headerlink" href="#ansible-legacy-target-host" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">作業実行毎の作業対象ホストを閲覧できます。</div>
 </div>
 <figure class="align-default" id="id48">
-<a class="reference internal image-reference" href="../../_images/target_host.png"><img alt="サブメニュー画面（作業対象ホスト）" src="../../_images/target_host.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/target_host.png"><img alt="サブメニュー画面（作業対象ホスト）" src="../../_images/target_host.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.27 </span><span class="caption-text">サブメニュー画面（作業対象ホスト）</span><a class="headerlink" href="#id48" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.27 </span><span class="caption-text">サブメニュー画面（作業対象ホスト）</span><a class="headerlink" href="#id48" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -1606,7 +1618,7 @@
 <div class="line">閲覧画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id49">
-<caption><span class="caption-number">表 2.70 </span><span class="caption-text">閲覧画面項目一覧（作業対象ホスト）</span><a class="headerlink" href="#id49" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.70 </span><span class="caption-text">閲覧画面項目一覧（作業対象ホスト）</span><a class="headerlink" href="#id49" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 27.3%" />
 <col style="width: 72.7%" />
@@ -1641,15 +1653,16 @@
 </ol>
 </section>
 <section id="ansible-legacy-substitution-value-list">
-<span id="id15"></span><h4>代入値管理<a class="headerlink" href="#ansible-legacy-substitution-value-list" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id15"></span><h4>代入値管理<a class="headerlink" href="#ansible-legacy-substitution-value-list" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">作業実行毎の変数の具体値を閲覧できます。</div>
 </div>
 <figure class="align-default" id="id50">
-<a class="reference internal image-reference" href="../../_images/substitution_value_list.png"><img alt="サブメニュー画面（代入値管理）" src="../../_images/substitution_value_list.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/substitution_value_list.png"><img alt="サブメニュー画面（代入値管理）" src="../../_images/substitution_value_list.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.28 </span><span class="caption-text">サブメニュー画面（代入値管理）</span><a class="headerlink" href="#id50" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.28 </span><span class="caption-text">サブメニュー画面（代入値管理）</span><a class="headerlink" href="#id50" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -1657,7 +1670,7 @@
 <div class="line">閲覧画面の項目一覧は以下のとおりです。</div>
 </div>
 <table class="docutils align-left" id="id51">
-<caption><span class="caption-number">表 2.71 </span><span class="caption-text">閲覧画面項目一覧（代入値管理）</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.71 </span><span class="caption-text">閲覧画面項目一覧（代入値管理）</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="3"><p>項目</p></th>
 <th class="head"><p>説明</p></th>
@@ -1720,13 +1733,13 @@
 </section>
 </section>
 <section id="playbook-ansible-legacy">
-<span id="ansible-legacy-write-playbook-ansible-legacy"></span><h2><span class="section-number">2.6. </span>Playbook（Ansible-Legacy）の記述<a class="headerlink" href="#playbook-ansible-legacy" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="ansible-legacy-write-playbook-ansible-legacy"></span><h2><span class="section-number">2.6. </span>Playbook（Ansible-Legacy）の記述<a class="headerlink" href="#playbook-ansible-legacy" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">「 <a class="reference internal" href="#ansible-legacy-playbook-file-list"><span class="std std-ref">Playbook素材集</span></a> 」でアップロードされたPlaybookは、ITAで生成するマスターPlaybookよりinclude形式で実行されます。</div>
 <div class="line">ITAで作成するマスターPlaybookはへッダーセクションとtasksセクションで構成されます。</div>
 </div>
 <section id="id16">
-<h3><span class="section-number">2.6.1. </span>ヘッダーセクション<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.6.1. </span>ヘッダーセクション<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">アップロードするPlaybookにはヘッダーセクションは含む必要はありません。</div>
 <div class="line">ヘッダーセクションは、デフォルト値が決まっていますが、 <span class="menuselection">Ansible-Legacy ▶ Movement一覧</span> の <span class="menuselection">ヘッダーセクション</span> で変更することが出来ます。</div>
@@ -1742,7 +1755,7 @@
 </div>
 </section>
 <section id="tasks">
-<h3><span class="section-number">2.6.2. </span>tasksセクション<a class="headerlink" href="#tasks" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.6.2. </span>tasksセクション<a class="headerlink" href="#tasks" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">アップロードされたPlaybookは、ITAで生成するマスタPlaybookよりinclude形式で実行されます。</div>
 <div class="line">Playbook基本書式についてはAnsible公式マニュアルを参照してください。</div>
@@ -1762,14 +1775,15 @@
 <div class="line">アップロードさたPlaybookは、 <span class="menuselection">Ansible-Legacy ▶ Movement-Playbook紐付</span> の <span class="menuselection">インクルード順序</span> に従いincludeします。</div>
 </div>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../../_images/legacy_session.png"><img alt="../../_images/legacy_session.png" src="../../_images/legacy_session.png" style="width: 8.85417in; height: 6.67187in;" /></a>
+<a class="reference internal image-reference" href="../../_images/legacy_session.png"><img alt="../../_images/legacy_session.png" src="../../_images/legacy_session.png" style="width: 8.85417in; height: 6.67187in;" />
+</a>
 </figure>
 </section>
 </section>
 <section id="id17">
-<h2><span class="section-number">2.7. </span>付録<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.7. </span>付録<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
 <section id="ansibleita">
-<span id="ansible-legacy-the-linkage-between-the-input-data-used-during-ansible-execution-and-ita-menu"></span><h3><span class="section-number">2.7.1. </span>Ansible実行時に使用される投入データとITAメニューの紐づけ<a class="headerlink" href="#ansibleita" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="ansible-legacy-the-linkage-between-the-input-data-used-during-ansible-execution-and-ita-menu"></span><h3><span class="section-number">2.7.1. </span>Ansible実行時に使用される投入データとITAメニューの紐づけ<a class="headerlink" href="#ansibleita" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ITAの各メニューより情報を抜出してAnsible実行に必要な投入データを作ります。この際、 <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">パスワード</span> や <span class="menuselection">Ansible-Legacy ▶ 代入値管理</span> で <span class="menuselection">Sensitive設定</span> が「True」に設定されている変数の具体値は、ansible-vaultで暗号化されています。</div>
 <div class="line">「投入データ」はZIP形式で <span class="menuselection">Ansible-Legacy ▶ 作業状態確認</span> の <span class="menuselection">投入データ</span> よりダウンロードが可能です。</div>
@@ -1778,9 +1792,9 @@
 <div class="line">各種データとITAメニューの関係性は以下の通りです。</div>
 </div>
 <section id="id18">
-<h4>Ansible-Legacy投入データ<a class="headerlink" href="#id18" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>Ansible-Legacy投入データ<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h4>
 <table class="docutils align-left" id="id52">
-<caption><span class="caption-number">表 2.72 </span><span class="caption-text">Ansible-Legacy投入データ</span><a class="headerlink" href="#id52" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.72 </span><span class="caption-text">Ansible-Legacy投入データ</span><a class="headerlink" href="#id52" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22.2%" />
 <col style="width: 22.2%" />
@@ -1892,15 +1906,15 @@
 </section>
 </section>
 <section id="ansible-legacy-the-linkage-between-the-output-data-used-during-ansible-execution-and-ita-menu">
-<span id="id19"></span><h3><span class="section-number">2.7.2. </span>Ansible実行時に作成される結果データ<a class="headerlink" href="#ansible-legacy-the-linkage-between-the-output-data-used-during-ansible-execution-and-ita-menu" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id19"></span><h3><span class="section-number">2.7.2. </span>Ansible実行時に作成される結果データ<a class="headerlink" href="#ansible-legacy-the-linkage-between-the-output-data-used-during-ansible-execution-and-ita-menu" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">「投入データ」をansibleで実行した結果を「結果データ」としてZIP形式で保存します。</div>
 <div class="line">「結果データ」はZIP形式で <span class="menuselection">Ansible-Legacy ▶ 作業状態確認</span> の <span class="menuselection">結果データ</span> よりダウンロードが可能です。</div>
 </div>
 <section id="legacy">
-<h4>Legacy結果データに保存されるファイル一覧<a class="headerlink" href="#legacy" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>Legacy結果データに保存されるファイル一覧<a class="headerlink" href="#legacy" title="Link to this heading">¶</a></h4>
 <table class="docutils align-left" id="id53">
-<caption><span class="caption-number">表 2.73 </span><span class="caption-text">Ansible-Legacy結果データに保存されるファイル一覧</span><a class="headerlink" href="#id53" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.73 </span><span class="caption-text">Ansible-Legacy結果データに保存されるファイル一覧</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 45.5%" />

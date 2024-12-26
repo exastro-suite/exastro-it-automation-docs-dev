@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>3. メンテナンスモード &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="4. データバックアップ・リストア" href="backup_and_restore.html" />
@@ -77,8 +73,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.4/manuals/maintenance/maintenance_mode.html">current</option>
-              <option value="../../../../ja/2.4/manuals/maintenance/maintenance_mode.html">2.4(current)</option>
+              <option value="../../../../ja/2.5/manuals/maintenance/maintenance_mode.html">current</option>
+              <option value="../../../../ja/2.5/manuals/maintenance/maintenance_mode.html">2.5(current)</option>
+              <option value="../../../../ja/2.4/manuals/maintenance/maintenance_mode.html">2.4</option>
               <option value="../../../../ja/2.3/manuals/maintenance/maintenance_mode.html">2.3</option>
               <option value="../../../../ja/2.2/manuals/maintenance/maintenance_mode.html" selected>2.2</option>
               <option value="../../../../ja/2.1/manuals/maintenance/maintenance_mode.html">2.1</option>
@@ -229,22 +226,22 @@
 <div class="body" role="main">
 
   <section id="ita-maintenance-mode">
-<span id="id1"></span><h1><span class="section-number">3. </span>メンテナンスモード<a class="headerlink" href="#ita-maintenance-mode" title="この見出しへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">3. </span>メンテナンスモード<a class="headerlink" href="#ita-maintenance-mode" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">3.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、ITAにおける メンテナンスモード について説明します。</div>
 <div class="line">メンテナンスモードの設定はシステム管理者のみ可能です（オーガナイゼーションユーザーからはアクセス出来ません）。</div>
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">3.2. </span>メンテナンスモードとは<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.2. </span>メンテナンスモードとは<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">データの閲覧は可能な状態で、データベースに対する登録・更新やバックヤード処理を止め、データベースのバックアップやバージョンアップをより安全に行うための機能です。</div>
 <div class="line">メンテナンスモードは、システム上の全オーガナイゼーション・ワークスペースに対して適用されます。</div>
 </div>
 <section id="ita-maintenance-mode-purpose-of-use">
-<span id="id4"></span><h3><span class="section-number">3.2.1. </span>メンテナンスモードの利用用途<a class="headerlink" href="#ita-maintenance-mode-purpose-of-use" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">3.2.1. </span>メンテナンスモードの利用用途<a class="headerlink" href="#ita-maintenance-mode-purpose-of-use" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードには「BACKYARD_EXECUTE_STOP」と「DATA_UPDATE_STOP」の2つの種類があります。</div>
 <div class="line">「BACKYARD_EXECUTE_STOP」を有効にすると、作業実行などを行うバックヤード機能が、新たに処理を実行しなくなります。</div>
@@ -273,28 +270,30 @@
 <div class="line">という手順を踏むことで、データベースのバックアップやバージョンアップを実行する前に、動作中のバックヤード処理を無くすことができます。</div>
 </div>
 <figure class="align-default" id="id16">
-<a class="reference internal image-reference" href="../../_images/purpose_of_use.png"><img alt="メンテナンスモードの利用用途" src="../../_images/purpose_of_use.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/purpose_of_use.png"><img alt="メンテナンスモードの利用用途" src="../../_images/purpose_of_use.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 3.70 </span><span class="caption-text">メンテナンスモードの利用用途</span><a class="headerlink" href="#id16" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.70 </span><span class="caption-text">メンテナンスモードの利用用途</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
 <div class="line">メンテナンスモードを有効にすると、Web画面の上部にメンテナンス中である旨のメッセージが表示されます。</div>
 </div>
 <figure class="align-default" id="id17">
-<a class="reference internal image-reference" href="../../_images/mode_message.png"><img alt="メンテナンスモード中のWeb画面" src="../../_images/mode_message.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mode_message.png"><img alt="メンテナンスモード中のWeb画面" src="../../_images/mode_message.png" style="width: 600px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 3.71 </span><span class="caption-text">メンテナンスモード中のWeb画面</span><a class="headerlink" href="#id17" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 3.71 </span><span class="caption-text">メンテナンスモード中のWeb画面</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="ita-maintenance-mode-setting-value">
-<span id="id5"></span><h3><span class="section-number">3.2.2. </span>メンテナンスモードの種類と設定値について<a class="headerlink" href="#ita-maintenance-mode-setting-value" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">3.2.2. </span>メンテナンスモードの種類と設定値について<a class="headerlink" href="#ita-maintenance-mode-setting-value" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードの種類と設定値は以下です。</div>
 </div>
 <table class="docutils align-left" id="id18">
-<caption><span class="caption-number">表 3.66 </span><span class="caption-text">メンテナンスモードの種類と設定値について</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 3.66 </span><span class="caption-text">メンテナンスモードの種類と設定値について</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -344,9 +343,9 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">3.3. </span>メンテナンスモードの確認、設定変更について<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.3. </span>メンテナンスモードの確認、設定変更について<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <section id="id7">
-<h3><span class="section-number">3.3.1. </span>前提条件<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>前提条件<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本作業には下記のコマンドが必要となるため、事前にインストールをしてください。</div>
 </div>
@@ -361,7 +360,7 @@
 </ul>
 </section>
 <section id="id8">
-<h3><span class="section-number">3.3.2. </span>メンテナンスモード設定の流れ<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>メンテナンスモード設定の流れ<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードの設定を変更する流れは以下の通りとなります。</div>
 </div>
@@ -386,9 +385,9 @@
 </section>
 </section>
 <section id="id9">
-<h2><span class="section-number">3.4. </span>メンテナンスモード設定確認、設定手順<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.4. </span>メンテナンスモード設定確認、設定手順<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <section id="ita-maintenance-mode-preparation">
-<span id="id10"></span><h3><span class="section-number">3.4.1. </span>事前準備<a class="headerlink" href="#ita-maintenance-mode-preparation" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id10"></span><h3><span class="section-number">3.4.1. </span>事前準備<a class="headerlink" href="#ita-maintenance-mode-preparation" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">GitHub リポジトリから取得した資材の中にある、シェルスクリプトを実行しオーガナイゼーションを作成します。</div>
 <div class="line">confファイルは、各種設定・取得シェルで使用します。</div>
@@ -426,7 +425,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/exast
 </ol>
 </section>
 <section id="ita-maintenance-mode-confirm">
-<span id="id11"></span><h3><span class="section-number">3.4.2. </span>メンテナンスモードの確認<a class="headerlink" href="#ita-maintenance-mode-confirm" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id11"></span><h3><span class="section-number">3.4.2. </span>メンテナンスモードの確認<a class="headerlink" href="#ita-maintenance-mode-confirm" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メンテナンスモードの設定変更にあたって、現在のメンテナンスモードの状態を確認します。</div>
 </div>
@@ -480,7 +479,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </ul>
 </section>
 <section id="ita-maintenance-mode-create-json">
-<span id="id12"></span><h3><span class="section-number">3.4.3. </span>メンテナンスモードの設定を作成<a class="headerlink" href="#ita-maintenance-mode-create-json" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id12"></span><h3><span class="section-number">3.4.3. </span>メンテナンスモードの設定を作成<a class="headerlink" href="#ita-maintenance-mode-create-json" title="Link to this heading">¶</a></h3>
 <ul>
 <li><p>変更するメンテナンスモードのjsonファイルを設定</p>
 <div class="line-block">
@@ -508,7 +507,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">変更後</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-number">リスト 3.30 </span><span class="caption-text">例:「backyard_execute_stop」を「1(有効)」へ変更</span><a class="headerlink" href="#id19" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.30 </span><span class="caption-text">例:「backyard_execute_stop」を「1(有効)」へ変更</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="o">{</span>
 <span class="w">     </span><span class="s2">&quot;backyard_execute_stop&quot;</span>:<span class="w"> </span><span class="s2">&quot;1&quot;</span>,
 <span class="w">     </span><span class="s2">&quot;data_update_stop&quot;</span>:<span class="w"> </span><span class="s2">&quot;0&quot;</span>
@@ -520,7 +519,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </ul>
 </section>
 <section id="ita-maintenance-mode-change-settings">
-<span id="id13"></span><h3><span class="section-number">3.4.4. </span>メンテナンスモードの設定を変更<a class="headerlink" href="#ita-maintenance-mode-change-settings" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id13"></span><h3><span class="section-number">3.4.4. </span>メンテナンスモードの設定を変更<a class="headerlink" href="#ita-maintenance-mode-change-settings" title="Link to this heading">¶</a></h3>
 <ul>
 <li><p>コマンド</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./update-maintenance-mode-setting.sh<span class="w"> </span>update-maintenance-mode-setting.json
@@ -598,7 +597,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </section>
 </section>
 <section id="ita-maintenance-mode-get-backyard-execute-check">
-<span id="id14"></span><h2><span class="section-number">3.5. </span>バックヤード起動状態一括取得<a class="headerlink" href="#ita-maintenance-mode-get-backyard-execute-check" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id14"></span><h2><span class="section-number">3.5. </span>バックヤード起動状態一括取得<a class="headerlink" href="#ita-maintenance-mode-get-backyard-execute-check" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">システム上のすべてのオーガナイゼーションおよびワークスペースにおける、以下のバックヤードが行う処理についてステータスが「準備中」「実行中」「実行中(遅延)」である対象を取得します。</div>
 </div>
@@ -638,7 +637,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">（Conductor内で実行される各ドライバの処理はカウントされます。）</div>
 </div>
 <section id="id15">
-<h3><span class="section-number">3.5.1. </span>バックヤード起動状態一括取得の実行<a class="headerlink" href="#id15" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.5.1. </span>バックヤード起動状態一括取得の実行<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">利用前に必要な準備として「<a class="reference internal" href="#ita-maintenance-mode-preparation"><span class="std std-ref">事前準備</span></a>」を参照してください。</div>
 </div>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>2. VM作成 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="3. リソース管理" href="resource_management.html" />
@@ -77,8 +73,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.4/templates/vmware/create_server.html" selected>current</option>
-              <option value="../../../../ja/2.4/templates/vmware/create_server.html" selected>2.4(current)</option>
+              <option value="../../../../ja/2.5/templates/vmware/create_server.html">current</option>
+              <option value="../../../../ja/2.5/templates/vmware/create_server.html">2.5(current)</option>
+              <option value="../../../../ja/2.4/templates/vmware/create_server.html" selected>2.4</option>
               <option value="../../../../ja/2.3/templates/vmware/create_server.html">2.3</option>
               <option value="../../../../ja/2.2/templates/vmware/create_server.html">2.2</option>
               <option value="../../../../ja/2.1/templates/vmware/create_server.html">2.1</option>
@@ -207,24 +204,25 @@
 <div class="body" role="main">
 
   <section id="vm">
-<h1><span class="section-number">2. </span>VM作成<a class="headerlink" href="#vm" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>VM作成<a class="headerlink" href="#vm" title="Link to this heading">¶</a></h1>
 <div class="line-block">
 <div class="line">本書では、VM作成の機能および操作方法について説明します。</div>
 </div>
 <section id="id1">
-<h2><span class="section-number">2.1. </span>概要<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>VMWareを介してVM（仮想マシン）を作成する機能です。</p>
 </section>
 <section id="id2">
-<h2><span class="section-number">2.2. </span>メニュー項目<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>メニュー項目<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <section id="create-server">
-<span id="id3"></span><h3><span class="section-number">2.2.1. </span>サーバー作成<a class="headerlink" href="#create-server" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id3"></span><h3><span class="section-number">2.2.1. </span>サーバー作成<a class="headerlink" href="#create-server" title="Link to this heading">¶</a></h3>
 <p>VM作成を行うためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuCS_v2-4.png"><img alt="サーバー作成メニュー画面" src="../../_images/menuCS_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuCS_v2-4.png"><img alt="サーバー作成メニュー画面" src="../../_images/menuCS_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id8">
-<caption><span class="caption-number">表 2.100 </span><span class="caption-text">メニュー項目一覧（サーバー作成）</span><a class="headerlink" href="#id8" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.100 </span><span class="caption-text">メニュー項目一覧（サーバー作成）</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -299,13 +297,14 @@
 </table>
 </section>
 <section id="vcenter">
-<span id="vcenter-connectinfo"></span><h3><span class="section-number">2.2.2. </span>vCenter接続情報<a class="headerlink" href="#vcenter" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="vcenter-connectinfo"></span><h3><span class="section-number">2.2.2. </span>vCenter接続情報<a class="headerlink" href="#vcenter" title="Link to this heading">¶</a></h3>
 <p>vCenterに接続する情報を入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuVC_v2-4.png"><img alt="vCenter接続情報メニュー画面" src="../../_images/menuVC_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuVC_v2-4.png"><img alt="vCenter接続情報メニュー画面" src="../../_images/menuVC_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id9">
-<caption><span class="caption-number">表 2.101 </span><span class="caption-text">メニュー項目一覧（vCenter接続情報）</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.101 </span><span class="caption-text">メニュー項目一覧（vCenter接続情報）</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -350,13 +349,14 @@
 </table>
 </section>
 <section id="ip">
-<span id="ip-address"></span><h3><span class="section-number">2.2.3. </span>IPアドレス<a class="headerlink" href="#ip" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="ip-address"></span><h3><span class="section-number">2.2.3. </span>IPアドレス<a class="headerlink" href="#ip" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるIPアドレスを入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuIP_v2-4.png"><img alt="IPアドレスメニュー画面" src="../../_images/menuIP_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuIP_v2-4.png"><img alt="IPアドレスメニュー画面" src="../../_images/menuIP_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id10">
-<caption><span class="caption-number">表 2.102 </span><span class="caption-text">メニュー項目一覧（IPアドレス）</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.102 </span><span class="caption-text">メニュー項目一覧（IPアドレス）</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.9%" />
 <col style="width: 29.0%" />
@@ -407,13 +407,14 @@
 </table>
 </section>
 <section id="foldername">
-<span id="id4"></span><h3><span class="section-number">2.2.4. </span>フォルダ名<a class="headerlink" href="#foldername" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">2.2.4. </span>フォルダ名<a class="headerlink" href="#foldername" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるフォルダ名を入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuFN_v2-4.png"><img alt="フォルダ名メニュー画面" src="../../_images/menuFN_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuFN_v2-4.png"><img alt="フォルダ名メニュー画面" src="../../_images/menuFN_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id11">
-<caption><span class="caption-number">表 2.103 </span><span class="caption-text">メニュー項目一覧（フォルダ）</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.103 </span><span class="caption-text">メニュー項目一覧（フォルダ）</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -440,13 +441,14 @@
 </table>
 </section>
 <section id="template">
-<span id="id5"></span><h3><span class="section-number">2.2.5. </span>テンプレート<a class="headerlink" href="#template" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id5"></span><h3><span class="section-number">2.2.5. </span>テンプレート<a class="headerlink" href="#template" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるテンプレートを入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuTE_v2-4.png"><img alt="テンプレートメニュー画面" src="../../_images/menuTE_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuTE_v2-4.png"><img alt="テンプレートメニュー画面" src="../../_images/menuTE_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id12">
-<caption><span class="caption-number">表 2.104 </span><span class="caption-text">メニュー項目一覧（テンプレート）</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.104 </span><span class="caption-text">メニュー項目一覧（テンプレート）</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -515,13 +517,14 @@
 </table>
 </section>
 <section id="cpu">
-<h3><span class="section-number">2.2.6. </span>CPU<a class="headerlink" href="#cpu" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.6. </span>CPU<a class="headerlink" href="#cpu" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるVMのCPU数を入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuCPU_v2-4.png"><img alt="CPUメニュー画面" src="../../_images/menuCPU_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuCPU_v2-4.png"><img alt="CPUメニュー画面" src="../../_images/menuCPU_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id13">
-<caption><span class="caption-number">表 2.105 </span><span class="caption-text">メニュー項目一覧（CPU）</span><a class="headerlink" href="#id13" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.105 </span><span class="caption-text">メニュー項目一覧（CPU）</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -548,13 +551,14 @@
 </table>
 </section>
 <section id="mb">
-<h3><span class="section-number">2.2.7. </span>メモリ(MB)<a class="headerlink" href="#mb" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.7. </span>メモリ(MB)<a class="headerlink" href="#mb" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるVMのメモリ容量を入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuME_v2-4.png"><img alt="メモリメニュー画面" src="../../_images/menuME_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuME_v2-4.png"><img alt="メモリメニュー画面" src="../../_images/menuME_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id14">
-<caption><span class="caption-number">表 2.106 </span><span class="caption-text">メニュー項目一覧（メモリ(MB)）</span><a class="headerlink" href="#id14" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.106 </span><span class="caption-text">メニュー項目一覧（メモリ(MB)）</span><a class="headerlink" href="#id14" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -581,13 +585,14 @@
 </table>
 </section>
 <section id="gb">
-<h3><span class="section-number">2.2.8. </span>ディスク(GB)<a class="headerlink" href="#gb" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.8. </span>ディスク(GB)<a class="headerlink" href="#gb" title="Link to this heading">¶</a></h3>
 <p>vCenter内に作成されるVMのディスク容量を入力するためのメニュー項目です。</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/menuDC_v2-4.png"><img alt="ディスクメニュー画面" src="../../_images/menuDC_v2-4.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/menuDC_v2-4.png"><img alt="ディスクメニュー画面" src="../../_images/menuDC_v2-4.png" style="width: 800px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id15">
-<caption><span class="caption-number">表 2.107 </span><span class="caption-text">メニュー項目一覧（ディスク(GB)）</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.107 </span><span class="caption-text">メニュー項目一覧（ディスク(GB)）</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -615,12 +620,12 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">2.3. </span>利用手順<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.3. </span>利用手順<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">VM作成の利用手順について説明します。</div>
 </div>
 <section id="id7">
-<h3><span class="section-number">2.3.1. </span>VM作成作業フロー<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>VM作成作業フロー<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">以下は、VM作成でサーバー作成を実行するまでの流れです。</div>
 </div>
@@ -639,7 +644,8 @@
 <div class="line">詳細は「 <a class="reference internal" href="../../manuals/ansible-driver/ansible_common.html#ansible-common-global-variable-list"><span class="std std-ref">グローバル変数管理</span></a> 」を参照してください。</div>
 </div>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/global_variable_list_v2-4.png"><img alt="具体値を編集する" src="../../_images/global_variable_list_v2-4.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/global_variable_list_v2-4.png"><img alt="具体値を編集する" src="../../_images/global_variable_list_v2-4.png" style="width: 600px;" />
+</a>
 </figure>
 </li>
 <li><div class="line-block">
@@ -678,7 +684,8 @@
 <div class="line">詳細は「 <a class="reference internal" href="../../manuals/it_automation_base/conductor.html#conductor-list"><span class="std std-ref">Conductor一覧</span></a> 」を参照してください。</div>
 </div>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/conductor_create_server_v2-4.png"><img alt="サーバー作成" src="../../_images/conductor_create_server_v2-4.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/conductor_create_server_v2-4.png"><img alt="サーバー作成" src="../../_images/conductor_create_server_v2-4.png" style="width: 600px;" />
+</a>
 </figure>
 </li>
 <li><div class="line-block">

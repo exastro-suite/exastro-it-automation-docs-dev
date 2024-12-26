@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>&lt;no title&gt; &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/jquery-3.6.3.min.js"></script>
-    <script src="../_static/exastro_documents.js"></script>
-    <script src="../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script src="../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" /> 
   </head>
@@ -75,8 +71,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../ja/2.4/include/check_installation_status.html" selected>current</option>
-              <option value="../../../ja/2.4/include/check_installation_status.html" selected>2.4(current)</option>
+              <option value="../../../ja/2.5/include/check_installation_status.html">current</option>
+              <option value="../../../ja/2.5/include/check_installation_status.html">2.5(current)</option>
+              <option value="../../../ja/2.4/include/check_installation_status.html" selected>2.4</option>
               <option value="../../../ja/2.3/include/check_installation_status.html">2.3</option>
               <option value="../../../ja/2.2/include/check_installation_status.html">2.2</option>
               <option value="../../../ja/2.1/include/check_installation_status.html">2.1</option>
@@ -157,7 +154,7 @@
 <div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id1" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
 </pre></div>
@@ -168,7 +165,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </s
 <div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">出力結果</span><a class="headerlink" href="#id2" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">出力結果</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
 ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m

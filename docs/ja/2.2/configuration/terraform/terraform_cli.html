@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>2. Terraform CLI &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="インストール" href="../../installation/index.html" />
@@ -77,8 +73,9 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.4/configuration/terraform/terraform_cli.html">current</option>
-              <option value="../../../../ja/2.4/configuration/terraform/terraform_cli.html">2.4(current)</option>
+              <option value="../../../../ja/2.5/configuration/terraform/terraform_cli.html">current</option>
+              <option value="../../../../ja/2.5/configuration/terraform/terraform_cli.html">2.5(current)</option>
+              <option value="../../../../ja/2.4/configuration/terraform/terraform_cli.html">2.4</option>
               <option value="../../../../ja/2.3/configuration/terraform/terraform_cli.html">2.3</option>
               <option value="../../../../ja/2.2/configuration/terraform/terraform_cli.html" selected>2.2</option>
               <option value="../../../../ja/2.1/configuration/terraform/terraform_cli.html">2.1</option>
@@ -185,9 +182,9 @@
 <div class="body" role="main">
 
   <section id="terraform-cli">
-<h1><span class="section-number">2. </span>Terraform CLI<a class="headerlink" href="#terraform-cli" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>Terraform CLI<a class="headerlink" href="#terraform-cli" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Exastro IT Automation（以下、ITAとも記載する）で Terraform CLI 連携機能 (以下、Terraform CLI driver) として運用する為のシステム構成と環境構築について説明します。</div>
 <div class="line"><br /></div>
@@ -196,22 +193,23 @@
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">2.2. </span>システム構成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>システム構成<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Terraform CLI driver は Exastro IT Automation のデプロイ時に選択した場合にのみ提供されます。</div>
 <div class="line"><br /></div>
 <div class="line">以下に Terraform CLI におけるシステム構成イメージを記載します。</div>
 </div>
 <section id="id3">
-<h3><span class="section-number">2.2.1. </span>システム構成イメージ<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>システム構成イメージ<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <figure class="align-default" id="id5">
-<a class="reference internal image-reference" href="../../_images/terraform_cli.png"><img alt="Terraform CLI システム構成イメージ" src="../../_images/terraform_cli.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/terraform_cli.png"><img alt="Terraform CLI システム構成イメージ" src="../../_images/terraform_cli.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 2.4 </span><span class="caption-text">Terraform CLI システム構成イメージ</span><a class="headerlink" href="#id5" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 2.4 </span><span class="caption-text">Terraform CLI システム構成イメージ</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id6">
-<caption><span class="caption-number">表 2.8 </span><span class="caption-text">システム通信要件</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 2.8 </span><span class="caption-text">システム通信要件</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 12.5%" />
@@ -276,7 +274,7 @@
 </section>
 </section>
 <section id="id4">
-<h2><span class="section-number">2.3. </span>システム要件<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.3. </span>システム要件<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Terraform CLI driver は Exastro IT Automation システムのシステム要件に準拠するため、<a class="reference internal" href="../../installation/helm_on_kubernetes.html"><span class="doc">Helm chart (Kubernetes)</span></a> を参照してください。</div>
 </div>
