@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>1.7. ルールに複数の条件を設定した場合のイベントのTTL問題について &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="1.8. 不要になったイベントについて" href="OASE_advanced2_sorry-switch-back.html" />
@@ -201,9 +197,9 @@
 <div class="body" role="main">
 
   <section id="ttl">
-<h1><span class="section-number">1.7. </span>ルールに複数の条件を設定した場合のイベントのTTL問題について<a class="headerlink" href="#ttl" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">1.7. </span>ルールに複数の条件を設定した場合のイベントのTTL問題について<a class="headerlink" href="#ttl" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><span class="section-number">1.7.1. </span>状況の整理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.7.1. </span>状況の整理<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">今回、Sorry画面切り戻しの設定でも明らかなように、複数のフィルターを条件に設定することが可能です。</div>
 <div class="line">そこで条件が成立するためには、それぞれのフィルターで検知されるイベントがTTL内である必要があります。</div>
@@ -250,7 +246,7 @@
 </ol>
 </div></blockquote>
 <section id="id2">
-<h3><span class="section-number">1.7.1.1. </span>ラベルの作成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.7.1.1. </span>ラベルの作成<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ループして作成された、後続イベント待ちのイベントに付与する結論ラベルに使用するラベルを作成します。</div>
 </div>
@@ -261,10 +257,11 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のラベルの設定を追加していきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_ラベル作成詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_advanced_sorry-switch-back_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_ラベル作成詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_advanced_sorry-switch-back_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-number">表 1.73 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id4" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.73 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -286,7 +283,7 @@
 </section>
 </section>
 <section id="id3">
-<h2><span class="section-number">1.7.2. </span>ルールの設定<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.7.2. </span>ルールの設定<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">前のシナリオで作成した「sorry画面切り戻し」のルールでは、「sorry_switch」というフィルターが条件の一部になっています。</div>
 <div class="line">そこに、「sorry_switch」というフィルターのみを条件とした、「Sorry表示中」のルールを作成してみましょう。</div>
@@ -295,10 +292,11 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_ルール設定詳細画面.png"><img alt="ルール" src="../../_images/OASE_advanced_sorry-switch-back_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_ルール設定詳細画面.png"><img alt="ルール" src="../../_images/OASE_advanced_sorry-switch-back_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-number">表 1.74 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id5" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.74 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 8.3%" />
 <col style="width: 8.3%" />
@@ -409,7 +407,8 @@
 </div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_結果確認.gif"><img alt="イベントフロー_結論イベント" src="../../_images/OASE_advanced_sorry-switch-back_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_advanced_sorry-switch-back_結果確認.gif"><img alt="イベントフロー_結論イベント" src="../../_images/OASE_advanced_sorry-switch-back_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" />
+</a>
 </figure>
 </section>
 </section>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>1.4. インスタンスのスケールイン実施 (解答) &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="1.5. Sorry画面切り戻し実施 (演習問題)" href="OASE_practice_sorry-switch-back.html" />
@@ -219,14 +215,14 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">1.4. </span>インスタンスのスケールイン実施 (解答)<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">1.4. </span>インスタンスのスケールイン実施 (解答)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">1.4.1. </span>問題 (再掲)<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.1. </span>問題 (再掲)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">以下のようなリクエスト数が閾値内に回復したイベントが発生したときに、スケールインのアクションが実行されるようにOASEの設定を行ってください。</div>
 </div>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-number">表 1.48 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id15" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.48 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 40.0%" />
@@ -259,7 +255,7 @@
 </table>
 </section>
 <section id="id3">
-<h2><span class="section-number">1.4.2. </span>自動化する作業の具体的な検討<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>自動化する作業の具体的な検討<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">まずは作業計画を立てましょう。</div>
 </div>
@@ -295,9 +291,9 @@
 </ol>
 </section>
 <section id="id4">
-<h2><span class="section-number">1.4.3. </span>イベント収集設定<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.3. </span>イベント収集設定<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <section id="id5">
-<h3><span class="section-number">1.4.3.1. </span>イベント収集設定<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.3.1. </span>イベント収集設定<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">イベント収集設定では、エージェントがどの外部サービスからイベントを収集するかを設定します。</div>
 </div>
@@ -314,10 +310,11 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のイベント収集の登録をしていきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_エージェント登録詳細画面.png"><img alt="イベント収集登録画面" src="../../_images/OASE_answer_scale-in_%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_エージェント登録詳細画面.png"><img alt="イベント収集登録画面" src="../../_images/OASE_answer_scale-in_%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id16">
-<caption><span class="caption-number">表 1.49 </span><span class="caption-text">イベント収集設定値</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.49 </span><span class="caption-text">イベント収集設定値</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 13.3%" />
@@ -368,12 +365,12 @@
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">1.4.4. </span>ラベルの設定<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.4. </span>ラベルの設定<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">収集するイベントに付与するラベルの作成と付与する条件を設定します。</div>
 </div>
 <table class="docutils align-default" id="id17">
-<caption><span class="caption-number">表 1.50 </span><span class="caption-text">ラベル一覧</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.50 </span><span class="caption-text">ラベル一覧</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -402,7 +399,7 @@
 </div>
 </div>
 <section id="id7">
-<h3><span class="section-number">1.4.4.1. </span>ラベルの作成<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.4.1. </span>ラベルの作成<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <div class="line-block">
@@ -420,10 +417,11 @@
 <div class="line">必要に応じて、<span class="guilabel">追加</span> ボタンを押して行数を追加しましょう。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル作成登録詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル作成登録詳細画面.png"><img alt="ラベル作成画面" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BD%9C%E6%88%90%E7%99%BB%E9%8C%B2%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-number">表 1.51 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.51 </span><span class="caption-text">ラベル作成の設定値</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -456,7 +454,7 @@
 </div>
 </section>
 <section id="id8">
-<h3><span class="section-number">1.4.4.2. </span>ラベルを付与する条件の設定<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.4.2. </span>ラベルを付与する条件の設定<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">ラベル付与</span> では、イベントにラベルを付与する条件と、条件に合った際に付与するラベルの内容を設定します。</div>
 <div class="line">今回は、リクエスト数閾値内回復を知らせるものであるかどうかを示すラベルを付与する必要があります。</div>
@@ -475,10 +473,11 @@
 <div class="line">必要に応じて、<span class="guilabel">追加</span> ボタンを押して行数を追加しましょう。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル付与詳細画面.png"><img alt="ラベル付与" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E4%B8%8E%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ラベル付与詳細画面.png"><img alt="ラベル付与" src="../../_images/OASE_answer_scale-in_%E3%83%A9%E3%83%99%E3%83%AB%E4%BB%98%E4%B8%8E%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-number">表 1.52 </span><span class="caption-text">ラベル付与の設定値</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.52 </span><span class="caption-text">ラベル付与の設定値</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 11.1%" />
@@ -544,7 +543,7 @@
 </section>
 </section>
 <section id="oase">
-<h2><span class="section-number">1.4.5. </span>OASEエージェントの設定<a class="headerlink" href="#oase" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.5. </span>OASEエージェントの設定<a class="headerlink" href="#oase" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">OASEエージェントの設定を行い、エージェントを実行します。</div>
 </div>
@@ -562,7 +561,7 @@
 </div>
 </div>
 <section id="env">
-<h3><span class="section-number">1.4.5.1. </span>.envの設定<a class="headerlink" href="#env" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.5.1. </span>.envの設定<a class="headerlink" href="#env" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">.envの項目にこれまでの工程で設定した値を設定します。</div>
 </div>
@@ -570,10 +569,11 @@
 <div class="line"><code class="file docutils literal notranslate"><span class="pre">exastro-docker-compose/ita_ag_oase/.env</span></code> に下記の内容を入力します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_OASEエージェント設定画面.png"><img alt=".env" src="../../_images/OASE_answer_scale-in_OASE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_OASEエージェント設定画面.png"><img alt=".env" src="../../_images/OASE_answer_scale-in_OASE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-number">表 1.53 </span><span class="caption-text">.envの設定値</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.53 </span><span class="caption-text">.envの設定値</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -624,18 +624,18 @@
 </div>
 </section>
 <section id="id9">
-<h3><span class="section-number">1.4.5.2. </span>エージェントの実行<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.5.2. </span>エージェントの実行<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">次のコマンドを使い、コンテナを起動してみましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 1.16 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 1.16 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-number">リスト 1.17 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id22" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 1.17 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
@@ -647,13 +647,13 @@
 <div class="line">正常に接続できているか、以下のコマンドでLogの確認をします。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-number">リスト 1.18 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id23" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 1.18 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 1.19 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id24" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 1.19 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>logs<span class="w"> </span>-f
 </pre></div>
 </div>
@@ -664,7 +664,7 @@
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">1.4.6. </span>ルールの設定<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4.6. </span>ルールの設定<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><span class="menuselection">ルール</span> では、イベントを特定する条件と、その条件に合致したイベントが発生した場合に実行したい作業を紐づけることができます。</div>
 <div class="line">イベントを特定する条件は <span class="menuselection">フィルター</span> 、実行したい作業は <span class="menuselection">アクション</span> 、でそれぞれ設定します。</div>
@@ -682,7 +682,7 @@
 <div class="line">まずは、以下のような、２台稼働時のリクエスト数閾値内回復のイベントを発生させて、設定を進めましょう。</div>
 </div>
 <table class="docutils align-default" id="id25">
-<caption><span class="caption-number">表 1.54 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.54 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id25" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -706,7 +706,7 @@
 </tbody>
 </table>
 <section id="id11">
-<h3><span class="section-number">1.4.6.1. </span>フィルターの設定<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.6.1. </span>フィルターの設定<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">フィルター</span> では、ラベルをもとにイベントを検知するための条件を設定します。</div>
 <div class="line">イベントの件名と本文からスケールインを実施する条件に合うイベントを特定できるように条件を設定してみましょう。</div>
@@ -725,10 +725,11 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のフィルターの設定を追加していきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定詳細画面.png"><img alt="フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 1.55 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.55 </span><span class="caption-text">フィルターの設定値</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -780,7 +781,8 @@
 <div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> からは以下のように設定します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定.gif"><img alt="イベントフロー_フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_フィルター設定.gif"><img alt="イベントフロー_フィルター" src="../../_images/OASE_answer_scale-in_%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" />
+</a>
 </figure>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -790,7 +792,7 @@
 </div>
 </section>
 <section id="id12">
-<h3><span class="section-number">1.4.6.2. </span>アクションの設定<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.6.2. </span>アクションの設定<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">アクション</span> では、ITAで作成したConductorとオペレーションを指定できます。</div>
 <div class="line">インスタンスを1台スケールインするアクションを登録してみましょう。</div>
@@ -799,10 +801,11 @@
 <div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> から、<span class="menuselection">アクション</span> を設定します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定.gif"><img alt="イベントフロー_アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定.gif"><img alt="イベントフロー_アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 1.56 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.56 </span><span class="caption-text">アクションの設定値</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -850,14 +853,15 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のアクションの設定を追加していきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定詳細画面.png"><img alt="アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_アクション設定詳細画面.png"><img alt="アクション" src="../../_images/OASE_answer_scale-in_%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 </section>
 <section id="id13">
-<h3><span class="section-number">1.4.6.3. </span>ルールの設定<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.6.3. </span>ルールの設定<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">ルール</span> では、フィルターとアクションを紐づけます。</div>
 <div class="line">そのフィルターでイベントを検知した場合に実行したいアクションを紐づけましょう。</div>
@@ -866,10 +870,11 @@
 <div class="line"><span class="menuselection">OASE ▶ イベント ▶ イベントフロー</span> から、<span class="menuselection">ルール</span> を設定します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定.gif"><img alt="イベントフロー_ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定.gif"><img alt="イベントフロー_ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A.gif" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id28">
-<caption><span class="caption-number">表 1.57 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.57 </span><span class="caption-text">ルールの設定値</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 8.7%" />
 <col style="width: 8.7%" />
@@ -959,14 +964,15 @@
 <div class="line"><span class="guilabel">登録</span> ボタンを押し、以下のルールの設定を追加していきます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定詳細画面.png"><img alt="ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_ルール設定詳細画面.png"><img alt="ルール" src="../../_images/OASE_answer_scale-in_%E3%83%AB%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2.png" style="width: 1200px;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line">入力が終わったら、<span class="guilabel">編集確認</span> ボタンを押して登録します。</div>
 </div>
 </section>
 <section id="id14">
-<h3><span class="section-number">1.4.6.4. </span>結果の確認<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.6.4. </span>結果の確認<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">以上の設定が完了したら、発生したイベントをもとにアクションが実行される様子を、<span class="menuselection">イベントフロー</span> 画面から確認してみましょう。</div>
 </div>
@@ -977,7 +983,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id29">
-<caption><span class="caption-number">表 1.58 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.58 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1005,13 +1011,14 @@
 <div class="line">アクションが実行されたことを示す結論イベントに <span class="menuselection">ルール</span> で設定したラベルが付与されていることも確認しましょう。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_結果確認.gif"><img alt="イベントフロー_結論イベント" src="../../_images/OASE_answer_scale-in_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_結果確認.gif"><img alt="イベントフロー_結論イベント" src="../../_images/OASE_answer_scale-in_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D.gif" style="width: 1200px;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line">さて次に、2台稼働時のリクエスト数閾値内回復のイベントを発生させてみましょう。</div>
 </div>
 <table class="docutils align-default" id="id30">
-<caption><span class="caption-number">表 1.59 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.59 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1038,7 +1045,8 @@
 <div class="line">そうすると、事前に設定したルールが適用され、結論イベントの発生まで確認できます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_結果確認2.gif"><img alt="イベントフロー_結論イベント_2回目" src="../../_images/OASE_answer_scale-in_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D2.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/OASE_answer_scale-in_結果確認2.gif"><img alt="イベントフロー_結論イベント_2回目" src="../../_images/OASE_answer_scale-in_%E7%B5%90%E6%9E%9C%E7%A2%BA%E8%AA%8D2.gif" style="width: 1200px;" />
+</a>
 </figure>
 </section>
 </section>

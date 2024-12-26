@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>ユーザー管理 (解答) &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="サーバー構築・運用 - Ansible-LegacyRole" href="../ansible_legacy_role/index.html" />
@@ -226,15 +222,15 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1>ユーザー管理 (解答)<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>ユーザー管理 (解答)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2>問題 (再掲)<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>問題 (再掲)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">下記のようなユーザーを Exastro IT Automation を使って管理できるようにします。</div>
 <div class="line">また、その際に、ユーザー管理だけではなく、ホスト名設定、パッケージ管理も併せて実施できる必要があります。</div>
 </div>
 <table class="docutils align-default" id="id20">
-<caption><span class="caption-number">表 103 </span><span class="caption-text">ユーザー情報</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 103 </span><span class="caption-text">ユーザー情報</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -273,19 +269,19 @@
 </table>
 </section>
 <section id="id3">
-<h2>パラメータ設計<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>パラメータ設計<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。</div>
 <div class="line">まずは、ユーザーをパラメータシート上で管理できるようにしておきます。</div>
 </div>
 <section id="groups-legacy-parameter-sheet">
-<span id="id4"></span><h3>グループのパラメータシート作成<a class="headerlink" href="#groups-legacy-parameter-sheet" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3>グループのパラメータシート作成<a class="headerlink" href="#groups-legacy-parameter-sheet" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">グループ用のパラメータシートを作成します。</div>
 <div class="line">利用する Ansible Playbook は下記のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 308 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id21" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 308 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create/update<span class="w"> </span>group
 <span class="w">  </span>group:
@@ -310,7 +306,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id22">
-<caption><span class="caption-number">表 104 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 104 </span><span class="caption-text">グループ設定のパラメータ</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -353,10 +349,11 @@
 </div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/グループパラメータシート作成.png"><img alt="グループのパラメータシート" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/グループパラメータシート作成.png"><img alt="グループのパラメータシート" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="filter-table docutils align-default" id="id23">
-<caption><span class="caption-number">表 105 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id23" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 105 </span><span class="caption-text">グループパラメータシートの設定値</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 25.0%" />
@@ -444,7 +441,7 @@
 </tbody>
 </table>
 <table class="filter-table docutils align-default" id="id24">
-<caption><span class="caption-number">表 106 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 106 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id24" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -483,13 +480,13 @@
 </table>
 </section>
 <section id="id5">
-<h3>ユーザーのパラメータシート作成<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>ユーザーのパラメータシート作成<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ユーザー用のパラメータシートを作成します。</div>
 <div class="line">利用する Ansible Playbook は下記のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 309 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id25" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 309 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create<span class="w"> </span>user
 <span class="w">  </span>user:
@@ -544,7 +541,7 @@
 </div>
 </div>
 <table class="docutils align-default" id="id26">
-<caption><span class="caption-number">表 107 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id26" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 107 </span><span class="caption-text">ユーザー設定のパラメータ</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -604,10 +601,11 @@
 </div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_1.png"><img alt="ユーザーのパラメータシートの作成1" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_1.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_1.png"><img alt="ユーザーのパラメータシートの作成1" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_1.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="filter-table docutils align-default" id="id27">
-<caption><span class="caption-number">表 108 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 108 </span><span class="caption-text">パラメータ項目の設定値(1/2)</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 16.7%" />
@@ -727,10 +725,11 @@
 </tbody>
 </table>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_2.png"><img alt="ユーザーのパラメータシート作成_2" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーパラメータシート作成_2.png"><img alt="ユーザーのパラメータシート作成_2" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%E4%BD%9C%E6%88%90_2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="filter-table docutils align-default" id="id28">
-<caption><span class="caption-number">表 109 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 109 </span><span class="caption-text">パラメータ項目の設定値(2/2)</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 20.0%" />
@@ -834,7 +833,7 @@
 </tbody>
 </table>
 <table class="filter-table docutils align-default" id="id29">
-<caption><span class="caption-number">表 110 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 110 </span><span class="caption-text">パラメータシート作成情報の設定値</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -874,19 +873,19 @@
 </section>
 </section>
 <section id="id6">
-<h2>作業対象の登録<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>作業対象の登録<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">作業実施を行う対象機器の登録を行います。</div>
 </div>
 <section id="id7">
-<h3>機器登録<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>機器登録<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">作業対象となるサーバーは <a class="reference internal" href="Legacy_scenario1.html"><span class="doc">前のシナリオ</span></a> で登録した web01 を利用するため、作業は不要です。</div>
 </div>
 </section>
 </section>
 <section id="id8">
-<h2>作業手順の登録<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>作業手順の登録<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">グループを作成・削除してから、ユーザーを作成・削除する順番で Ansible Playbook が実行されるように Movement を設定します。</div>
 <div class="line">これまでのシナリオでは、1つの Movement ごとに1つの Ansible Playbook を紐付けていましたが、今回は 1つの Movement に対して、グループ管理とユーザー管理が行えるように設定します。</div>
@@ -898,15 +897,16 @@
 </div>
 </div>
 <section id="movement">
-<h3>Movement 登録<a class="headerlink" href="#movement" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Movement 登録<a class="headerlink" href="#movement" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement一覧</span> から、ユーザー管理のための Movement を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーMovement登録設定.png"><img alt="Movement登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCMovement%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーMovement登録設定.png"><img alt="Movement登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCMovement%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id30">
-<caption><span class="caption-number">表 111 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id30" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 111 </span><span class="caption-text">Movement 情報の設定値</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -930,7 +930,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 310 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id31" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 310 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -940,12 +940,12 @@
 </div>
 </section>
 <section id="ansible-playbook">
-<h3>Ansible Playbook 登録<a class="headerlink" href="#ansible-playbook" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Ansible Playbook 登録<a class="headerlink" href="#ansible-playbook" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でgroup.ymlとuser.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 311 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id32" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 311 </span><span class="caption-text">group.yml</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create/update<span class="w"> </span>group
 <span class="w">  </span>group:
@@ -970,7 +970,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 312 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id33" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 312 </span><span class="caption-text">user.yml</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---
 -<span class="w"> </span>name:<span class="w"> </span>create<span class="w"> </span>user
 <span class="w">  </span>user:
@@ -1028,10 +1028,11 @@
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> から、上記のPlaybookを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/Ansible-Playbook登録.png"><img alt="Ansible-Playbook登録" src="../../_images/Ansible-Playbook%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Ansible-Playbook登録.png"><img alt="Ansible-Playbook登録" src="../../_images/Ansible-Playbook%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id34">
-<caption><span class="caption-number">表 112 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 112 </span><span class="caption-text">Ansible Playbook 情報の登録</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1052,17 +1053,18 @@
 </table>
 </section>
 <section id="movement-ansible-playbook">
-<h3>Movement と Ansible Playbook の紐付け<a class="headerlink" href="#movement-ansible-playbook" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Movement と Ansible Playbook の紐付け<a class="headerlink" href="#movement-ansible-playbook" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ Movement-Playbook紐付</span> から、Movement と Ansible Playbook の紐付けを行います。</div>
 <div class="line">本シナリオでは、 group.yml および user.ymlを利用します。</div>
 <div class="line">ユーザーを作成する際には、先にグループを指定する必要があるため下記の順序でインクルードする必要があります。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/MovementとPlaybook紐付け.png"><img alt="MovementとAnsible Playbook の紐づけ" src="../../_images/Movement%E3%81%A8Playbook%E7%B4%90%E4%BB%98%E3%81%91.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/MovementとPlaybook紐付け.png"><img alt="MovementとAnsible Playbook の紐づけ" src="../../_images/Movement%E3%81%A8Playbook%E7%B4%90%E4%BB%98%E3%81%91.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id35">
-<caption><span class="caption-number">表 113 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 113 </span><span class="caption-text">Movement-Playbook紐付け情報の登録</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1087,17 +1089,18 @@
 </table>
 </section>
 <section id="id9">
-<h3>代入値自動登録設定<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>代入値自動登録設定<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定</span> から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。</div>
 <div class="line">大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。</div>
 <div class="line"><span class="menuselection">Ansible-Legacy ▶ 代入値自動登録設定 ▶ 全件ダウンロード・ファイル一括登録</span> から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/グループの代入値自動登録設定_一括登録.png"><img alt="グループの代入値自動登録設定" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/グループの代入値自動登録設定_一括登録.png"><img alt="グループの代入値自動登録設定" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id36">
-<caption><span class="caption-number">表 114 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id36" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 114 </span><span class="caption-text">グループの代入値自動登録設定の設定値</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -1196,22 +1199,27 @@
 </tbody>
 </table>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録1.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録1.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録2.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録2.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B22.png" style="width: 1200px;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録3.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録3.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B23.png" style="width: 1200px;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録4.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B24.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録4.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B24.png" style="width: 1200px;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録5.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B25.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーの代入値自動登録設定_一括登録5.png"><img alt="ユーザーの代入値自動登録設定" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BB%A3%E5%85%A5%E5%80%A4%E8%87%AA%E5%8B%95%E7%99%BB%E9%8C%B2%E8%A8%AD%E5%AE%9A_%E4%B8%80%E6%8B%AC%E7%99%BB%E9%8C%B25.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id37">
-<caption><span class="caption-number">表 115 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id37" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 115 </span><span class="caption-text">ユーザーの代入値自動登録設定の設定値</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 9.1%" />
@@ -1563,24 +1571,24 @@
 </table>
 </section>
 <section id="id10">
-<h3>機器登録<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>機器登録<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">作業対象となるサーバーは <a class="reference internal" href="Legacy_scenario1.html"><span class="doc">前のシナリオ</span></a> で登録した web01 を利用するため、作業は不要です。</div>
 </div>
 </section>
 </section>
 <section id="id11">
-<h2>ユーザー追加作業の実施<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>ユーザー追加作業の実施<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Movement を実行してユーザーとグループを追加します。</div>
 </div>
 <section id="id12">
-<h3>作業概要の作成<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業概要の作成<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">まずは作業計画を立てましょう。</div>
 </div>
 <table class="docutils align-default" id="id38">
-<caption><span class="caption-number">表 116 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id38" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 116 </span><span class="caption-text">作業の方針</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -1599,15 +1607,16 @@
 </table>
 </section>
 <section id="id13">
-<h3>作業概要登録<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業概要登録<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/オペレーション登録.png"><img alt="Conductor作業実行" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/オペレーション登録.png"><img alt="Conductor作業実行" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id39">
-<caption><span class="caption-number">表 117 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id39" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 117 </span><span class="caption-text">オペレーション登録内容</span><a class="headerlink" href="#id39" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 60.0%" />
 <col style="width: 40.0%" />
@@ -1625,15 +1634,16 @@
 </table>
 </section>
 <section id="id14">
-<h3>パラメータ設定<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>パラメータ設定<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">入力用 ▶ グループ</span> から、グループに対するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/グループのパラメータ登録.png"><img alt="グループのパラメータ登録" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/グループのパラメータ登録.png"><img alt="グループのパラメータ登録" src="../../_images/%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id40">
-<caption><span class="caption-number">表 118 </span><span class="caption-text">グループパラメータの設定値</span><a class="headerlink" href="#id40" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 118 </span><span class="caption-text">グループパラメータの設定値</span><a class="headerlink" href="#id40" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 44.4%" />
@@ -1679,13 +1689,15 @@
 <div class="line"><span class="menuselection">入力用 ▶ ユーザー</span> から、ユーザーに対するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーのパラメータ登録_1.png"><img alt="ユーザのパラメータ登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2_1.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーのパラメータ登録_1.png"><img alt="ユーザのパラメータ登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2_1.png" style="width: 1200px;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ユーザーのパラメータ登録_2.png"><img alt="ユーザのパラメータ登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2_2.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/ユーザーのパラメータ登録_2.png"><img alt="ユーザのパラメータ登録" src="../../_images/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E7%99%BB%E9%8C%B2_2.png" style="width: 1200px;" />
+</a>
 </figure>
 <table class="docutils align-default" id="id41">
-<caption><span class="caption-number">表 119 </span><span class="caption-text">ユーザーパラメータの設定値</span><a class="headerlink" href="#id41" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 119 </span><span class="caption-text">ユーザーパラメータの設定値</span><a class="headerlink" href="#id41" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 5.9%" />
 <col style="width: 23.5%" />
@@ -1785,7 +1797,7 @@
 </table>
 </section>
 <section id="id15">
-<h3>作業実行<a class="headerlink" href="#id15" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>作業実行<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">
@@ -1795,14 +1807,14 @@
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 313 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id42" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 313 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;www|app&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 314 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id43" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 314 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1811,14 +1823,14 @@ cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 315 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 315 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id44" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;www|app&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 316 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id45" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 316 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1835,7 +1847,8 @@ cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/作業実行.png"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/作業実行.png"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.png" style="width: 1200px;" />
+</a>
 </figure>
 <ol class="arabic">
 <li><p>事後確認</p>
@@ -1846,14 +1859,14 @@ cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 317 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 317 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;app|www&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 318 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id47" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 318 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>www:x:10001:
 app:x:10002:
 </pre></div>
@@ -1863,14 +1876,14 @@ app:x:10002:
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 319 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 319 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;app|www&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 320 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id49" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 320 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id49" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wwwuser01:x:10001:10001:Web<span class="w"> </span>server<span class="w"> </span>mainterner:/home/wwwuser01:/bin/bash
 wwwuser02:x:10002:10001:Web<span class="w"> </span>server<span class="w"> </span>mainterner:/home/wwwuser02:/bin/bash
 appuser01:x:20001:10002:Application<span class="w"> </span>server<span class="w"> </span>mainterner:/home/appuser01:/bin/bash
@@ -1883,7 +1896,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 </section>
 </section>
 <section id="id16">
-<h2>(参考) 既存のジョブフローへの追加<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>(参考) 既存のジョブフローへの追加<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本演習では、ジョブフローを利用せずに Movement から直接ユーザー設定作業を実施しましたが、当然ジョブフローの利用も可能です。</div>
 <div class="line">ジョブフローシナリオまでに行ったサーバー構築の一連の作業の中に本演習で作成した Movement を組み込むことで、ホスト名登録、パッケージ導入、ユーザー登録といった一連の作業フローを組み立てることができます。</div>
@@ -1907,7 +1920,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">ただし、個別オペレーションを使った場合、実行時のオペレーションとは異なるオペレーションによりパラメータが管理されるため、運用上パラメータの見通しが悪くなることもあります。</div>
 </div>
 <section id="id17">
-<h3>ジョブフローの編集と実行 (失敗例)<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>ジョブフローの編集と実行 (失敗例)<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Conductor ▶ Conductor一覧</span> から、<kbd class="kbd docutils literal notranslate">サーバー構築</kbd> の <span class="guilabel">詳細</span> を押下し、ジョブフローを編集します。</div>
 </div>
@@ -1917,7 +1930,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">3. 各 Mode 間を下記の様に再接続します。</div>
 </div>
 <table class="docutils align-default" id="id50">
-<caption><span class="caption-number">表 120 </span><span class="caption-text">オブジェクト間の接続</span><a class="headerlink" href="#id50" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 120 </span><span class="caption-text">オブジェクト間の接続</span><a class="headerlink" href="#id50" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1949,7 +1962,8 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">7. オペレーションに <kbd class="kbd docutils literal notranslate">Webサーバーへユーザー追加作業</kbd> を選択し、<span class="guilabel">作業実行</span> を押下します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/コンダクター実行失敗例.gif"><img alt="実行失敗" src="../../_images/%E3%82%B3%E3%83%B3%E3%83%80%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%9F%E8%A1%8C%E5%A4%B1%E6%95%97%E4%BE%8B.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/コンダクター実行失敗例.gif"><img alt="実行失敗" src="../../_images/%E3%82%B3%E3%83%B3%E3%83%80%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%9F%E8%A1%8C%E5%A4%B1%E6%95%97%E4%BE%8B.gif" style="width: 1200px;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line"><span class="menuselection">Conductor作業確認</span> 画面が開き、ホスト名設定の Movement が ERROR となり想定外エラーになるはずです。</div>
@@ -1957,7 +1971,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 </div>
 </section>
 <section id="id18">
-<h3>ジョブフローの編集と実行 (成功例)<a class="headerlink" href="#id18" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>ジョブフローの編集と実行 (成功例)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">Conductor ▶ Conductor一覧</span> から、<kbd class="kbd docutils literal notranslate">サーバー構築</kbd> の <span class="guilabel">詳細</span> を押下し、再度ジョブフローを編集します。</div>
 </div>
@@ -1967,7 +1981,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">3. 各 Mode に対して下記の様に個別オペレーションを設定します。</div>
 </div>
 <table class="docutils align-default" id="id51">
-<caption><span class="caption-number">表 121 </span><span class="caption-text">個別オペレーション設定</span><a class="headerlink" href="#id51" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 121 </span><span class="caption-text">個別オペレーション設定</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1996,7 +2010,8 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 <div class="line">7. オペレーションに <kbd class="kbd docutils literal notranslate">Webサーバーへユーザー追加作業</kbd> を選択し、<span class="guilabel">作業実行</span> を押下します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/コンダクター実行成功例.gif"><img alt="実行成功" src="../../_images/%E3%82%B3%E3%83%B3%E3%83%80%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%9F%E8%A1%8C%E6%88%90%E5%8A%9F%E4%BE%8B.gif" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/コンダクター実行成功例.gif"><img alt="実行成功" src="../../_images/%E3%82%B3%E3%83%B3%E3%83%80%E3%82%AF%E3%82%BF%E3%83%BC%E5%AE%9F%E8%A1%8C%E6%88%90%E5%8A%9F%E4%BE%8B.gif" style="width: 1200px;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line"><span class="menuselection">Conductor作業確認</span> 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。</div>
@@ -2004,7 +2019,7 @@ appuser02:x:20002:10002:Application<span class="w"> </span>server<span class="w"
 </section>
 </section>
 <section id="id19">
-<h2>まとめ<a class="headerlink" href="#id19" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>まとめ<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本シナリオでは、これまでのシナリオの確認のために、演習課題を実施しました。</div>
 <div class="line">また Conductor のパラメータ連携の1つの手段として、個別オペレーションについて紹介をしました。</div>

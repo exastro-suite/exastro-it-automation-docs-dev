@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>1. CI/CD For IaC機能 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="OASE" href="../oase/index.html" />
@@ -240,20 +236,20 @@
 <div class="body" role="main">
 
   <section id="ci-cd-for-iac">
-<h1><span class="section-number">1. </span>CI/CD For IaC機能<a class="headerlink" href="#ci-cd-for-iac" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">1. </span>CI/CD For IaC機能<a class="headerlink" href="#ci-cd-for-iac" title="Link to this heading">¶</a></h1>
 <section id="id1">
-<h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、CI/CD For IaC機能の機能および操作方法について説明します。</div>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">1.2. </span>用語の定義<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.2. </span>用語の定義<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では以下として記載します。</div>
 </div>
 <table class="docutils align-default" id="id18">
-<caption><span class="caption-number">表 1.145 </span><span class="caption-text">用語説明</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.145 </span><span class="caption-text">用語説明</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>用語名</p></th>
 <th class="head"><p>内容</p></th>
@@ -284,9 +280,9 @@
 </table>
 </section>
 <section id="id3">
-<h2><span class="section-number">1.3. </span>CI/CD For IaC機能の概要<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.3. </span>CI/CD For IaC機能の概要<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <section id="id4">
-<h3><span class="section-number">1.3.1. </span>機能概要<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>機能概要<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">CI/CD For IaC機能は、大きく分けて2つの機能があります。</div>
 </div>
@@ -310,25 +306,26 @@
 </ol>
 </section>
 <section id="id5">
-<h3><span class="section-number">1.3.2. </span>機能概要図<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.3.2. </span>機能概要図<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">CI/CD For IaC機能の概要図を以下に示します。</div>
 </div>
-<a class="reference internal image-reference" href="../../_images/CICD_overviews.png"><img alt="../../_images/CICD_overviews.png" src="../../_images/CICD_overviews.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/CICD_overviews.png"><img alt="../../_images/CICD_overviews.png" src="../../_images/CICD_overviews.png" style="width: 800px;" />
+</a>
 </section>
 </section>
 <section id="id6">
-<h2><span class="section-number">1.4. </span>CI/CD For IaC機能 メニュー構成<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4. </span>CI/CD For IaC機能 メニュー構成<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本章では、CI/CD For IaC機能のメニュー構成について説明します。</div>
 </div>
 <section id="id7">
-<h3><span class="section-number">1.4.1. </span>メニュー/画面一覧<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.1. </span>メニュー/画面一覧<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">CI/CD For IaC機能のメニュー一覧を以下に記述します。</div>
 </div>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-number">表 1.146 </span><span class="caption-text">表 2.1-1 CI/CD For IaC機能 メニュー一覧</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.146 </span><span class="caption-text">表 2.1-1 CI/CD For IaC機能 メニュー一覧</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>No</strong></p></th>
 <th class="head"><p><strong>メニューグループ</strong></p></th>
@@ -357,17 +354,18 @@
 </section>
 </section>
 <section id="id8">
-<h2><span class="section-number">1.5. </span>CI/CD For IaC機能 利用手順<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.5. </span>CI/CD For IaC機能 利用手順<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">CI/CD For IaC機能の利用手順について説明します。</div>
 </div>
 <section id="id9">
-<h3><span class="section-number">1.5.1. </span>作業フロー<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.5.1. </span>作業フロー<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">CI/CD For IaC機能の標準的な作業フローは以下のとおりです。</div>
 <div class="line">各作業の詳細は次項に記載しています。</div>
 </div>
-<a class="reference internal image-reference" href="../../_images/CICD_flow.png"><img alt="../../_images/CICD_flow.png" src="../../_images/CICD_flow.png" style="width: 5.68819in; height: 3.35972in;" /></a>
+<a class="reference internal image-reference" href="../../_images/CICD_flow.png"><img alt="../../_images/CICD_flow.png" src="../../_images/CICD_flow.png" style="width: 5.68819in; height: 3.35972in;" />
+</a>
 <p><strong>作業フロー詳細と参照先</strong></p>
 <ol class="arabic">
 <li><div class="line-block">
@@ -399,17 +397,17 @@
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">1.6. </span>CI/CD For IaC機能メニュー操作説明<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.6. </span>CI/CD For IaC機能メニュー操作説明<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本章では、CI/CD For IaC機能のメニュー操作について説明します。</div>
 </div>
 <section id="id11">
-<h3><span class="section-number">1.6.1. </span>CI/CD For IaC メニュー<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.6.1. </span>CI/CD For IaC メニュー<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本節では、CI/CD For IaC機能をインストールした状態で表示されるメニューの操作について記載します。</div>
 </div>
 <section id="cicd-for-iac-remote-repository">
-<span id="id12"></span><h4>リモートリポジトリ<a class="headerlink" href="#cicd-for-iac-remote-repository" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id12"></span><h4>リモートリポジトリ<a class="headerlink" href="#cicd-for-iac-remote-repository" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">「リモートリポジトリ」メニューでは、連携するGItリポジトリの情報を登録します。</div>
@@ -417,9 +415,10 @@
 </li>
 </ol>
 <figure class="align-default" id="id20">
-<a class="reference internal image-reference" href="../../_images/remote_repository_menu.png"><img alt="サブメニュー画面（リモートリポジトリ）" src="../../_images/remote_repository_menu.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/remote_repository_menu.png"><img alt="サブメニュー画面（リモートリポジトリ）" src="../../_images/remote_repository_menu.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.115 </span><span class="caption-text">サブメニュー画面（リモートリポジトリ）</span><a class="headerlink" href="#id20" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.115 </span><span class="caption-text">サブメニュー画面（リモートリポジトリ）</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -427,7 +426,7 @@
 <div class="line">リモートリポジトリ画面の入力項目は以下の通りです。</div>
 </div>
 <table class="docutils align-default" id="id21">
-<caption><span class="caption-number">表 1.147 </span><span class="caption-text">リモートリポジトリ画面 入力項目一覧</span><a class="headerlink" href="#id21" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.147 </span><span class="caption-text">リモートリポジトリ画面 入力項目一覧</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p><strong>項目</strong></p></th>
 <th class="head"><p><strong>説明</strong></p></th>
@@ -601,7 +600,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">リモートリポジトリとの同期状態を表示する項目は以下の通りです。</div>
 </div>
 <table class="docutils align-left" id="id22">
-<caption><span class="caption-number">表 1.148 </span><span class="caption-text">リモートリポジトリ画面 同期状態表示項目一覧</span><a class="headerlink" href="#id22" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.148 </span><span class="caption-text">リモートリポジトリ画面 同期状態表示項目一覧</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 66.7%" />
@@ -658,7 +657,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </ol>
 </section>
 <section id="cicd-for-iac-file-link">
-<span id="id13"></span><h4>資材紐付<a class="headerlink" href="#cicd-for-iac-file-link" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id13"></span><h4>資材紐付<a class="headerlink" href="#cicd-for-iac-file-link" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">「資材紐付」メニューでは、紐付元資材と紐付先資材を紐付し、紐付先資材の動作検証を行う為のオペレーションとMovementを登録します。</div>
@@ -667,9 +666,10 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </li>
 </ol>
 <figure class="align-default" id="id23">
-<a class="reference internal image-reference" href="../../_images/file_link_menu.png"><img alt="サブメニュー画面（資材紐付）" src="../../_images/file_link_menu.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/file_link_menu.png"><img alt="サブメニュー画面（資材紐付）" src="../../_images/file_link_menu.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.116 </span><span class="caption-text">サブメニュー画面（資材紐付）</span><a class="headerlink" href="#id23" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.116 </span><span class="caption-text">サブメニュー画面（資材紐付）</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -677,7 +677,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">資材紐付画面の入力項目は以下の通りです。</div>
 </div>
 <table class="docutils align-left" id="id24">
-<caption><span class="caption-number">表 1.149 </span><span class="caption-text">資材紐付画面 入力項目一覧</span><a class="headerlink" href="#id24" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.149 </span><span class="caption-text">資材紐付画面 入力項目一覧</span><a class="headerlink" href="#id24" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 9.4%" />
 <col style="width: 9.4%" />
@@ -863,7 +863,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">Gitリポジトリの資材と紐付先資材との同期の状態を表示する項目は以下の通りです。</div>
 </div>
 <table class="docutils align-left" id="id25">
-<caption><span class="caption-number">表 1.150 </span><span class="caption-text">資材紐付画面 状態表示項目一覧</span><a class="headerlink" href="#id25" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.150 </span><span class="caption-text">資材紐付画面 状態表示項目一覧</span><a class="headerlink" href="#id25" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10.0%" />
 <col style="width: 20.0%" />
@@ -943,7 +943,8 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <li><div class="line-block">
 <div class="line">紐付先資材の更新処理の流れ</div>
 </div>
-<a class="reference internal image-reference" href="../../_images/CICD_flow2.png"><img alt="../../_images/CICD_flow2.png" src="../../_images/CICD_flow2.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/CICD_flow2.png"><img alt="../../_images/CICD_flow2.png" src="../../_images/CICD_flow2.png" style="width: 600px;" />
+</a>
 </li>
 </ol>
 <div class="line-block">
@@ -964,13 +965,13 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </section>
 </section>
 <section id="id14">
-<h3><span class="section-number">1.6.2. </span>CI/CD For IaC 非表示メニュー<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.6.2. </span>CI/CD For IaC 非表示メニュー<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本節では、CI/CD For IaC機能をインストールした状態では表示されないメニューの操作について記載します。</div>
 <div class="line">各メニューにアクセスするには、「管理コンソール/ロール・メニュー紐付管理」で各メニューを復活処理を行うことによって表示されるようになります。</div>
 </div>
 <section id="id15">
-<h4>リモートリポジトリ資材<a class="headerlink" href="#id15" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>リモートリポジトリ資材<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
 <div class="line">「リモートリポジトリ資材」メニューには、紐付元資材の一覧が表示されます。</div>
@@ -982,9 +983,10 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </li>
 </ol>
 <figure class="align-default" id="id26">
-<a class="reference internal image-reference" href="../../_images/remote_repository_file_menu.png"><img alt="サブメニュー画面（リモートリポジトリ資材）" src="../../_images/remote_repository_file_menu.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/remote_repository_file_menu.png"><img alt="サブメニュー画面（リモートリポジトリ資材）" src="../../_images/remote_repository_file_menu.png" style="width: 800px;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.117 </span><span class="caption-text">サブメニュー画面（リモートリポジトリ資材）</span><a class="headerlink" href="#id26" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.117 </span><span class="caption-text">サブメニュー画面（リモートリポジトリ資材）</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -992,7 +994,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">リモートリポジトリ資材画面の表示項目は以下の通りです。</div>
 </div>
 <table class="docutils align-default" id="id27">
-<caption><span class="caption-number">表 1.151 </span><span class="caption-text">リモートリポジトリ資材画面 項目一覧</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.151 </span><span class="caption-text">リモートリポジトリ資材画面 項目一覧</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>項目</strong></p></th>
 <th class="head"><p><strong>説明</strong></p></th>
@@ -1030,9 +1032,9 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </section>
 </section>
 <section id="id16">
-<h2><span class="section-number">1.7. </span>付録<a class="headerlink" href="#id16" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.7. </span>付録<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
 <section id="git">
-<span id="cicd-for-iac-repository-register-notes"></span><h3><span class="section-number">1.7.1. </span>資材をGitリポジトリに登録する場合の注意事項<a class="headerlink" href="#git" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="cicd-for-iac-repository-register-notes"></span><h3><span class="section-number">1.7.1. </span>資材をGitリポジトリに登録する場合の注意事項<a class="headerlink" href="#git" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">資材をGitリポジトリに登録する場合の注意事項を以下に記述します。</div>
 </div>
@@ -1048,7 +1050,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </ol>
 </section>
 <section id="cicd-for-iac-role-package-notes">
-<span id="id17"></span><h3><span class="section-number">1.7.2. </span>ロールパッケージ管理に紐付する資材をGitリポジトリに登録する場合の注意事項<a class="headerlink" href="#cicd-for-iac-role-package-notes" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id17"></span><h3><span class="section-number">1.7.2. </span>ロールパッケージ管理に紐付する資材をGitリポジトリに登録する場合の注意事項<a class="headerlink" href="#cicd-for-iac-role-package-notes" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">「Ansible-LegacyRole/ロールパッケージ管理」メニューに紐付する資材をGitリポジトリに登録する場合の注意事項を以下に記述します。</div>
 </div>
@@ -1065,7 +1067,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">Gitリポジトリのルートディレクトリ</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id28">
-<div class="code-block-caption"><span class="caption-number">リスト 1.25 </span><span class="caption-text">Gitリポジトリのルートディレクトリ</span><a class="headerlink" href="#id28" title="このコードへのパーマリンク">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 1.25 </span><span class="caption-text">Gitリポジトリのルートディレクトリ</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="p">|</span>-<span class="w">  </span>roles<span class="w">          </span>・・・・・・・roles<span class="w"> </span>ディレクトリとして認識しません。
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">  </span>ita_readme_test_role.yml
 <span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w"> </span>test_role
@@ -1091,7 +1093,8 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">「<a class="reference internal" href="#cicd-for-iac-file-link"><span class="std std-ref">資材紐付</span></a>」メニューの資材パスに「sample/roles」が表示されます。「Ansible-LegacyRole/ロールパッケージ管理」メニューに紐付ける資材パスには、「sample/roles」を選択して下さい。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/sample_roles.png"><img alt="sample_role" src="../../_images/sample_roles.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../../_images/sample_roles.png"><img alt="sample_role" src="../../_images/sample_roles.png" style="width: 800px;" />
+</a>
 </figure>
 </section>
 </section>

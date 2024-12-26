@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>1. 認証 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../../_static/exastro_documents.js"></script>
-    <script src="../../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <script src="../../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="2. Exastro Platform API" href="platform-api.html" />
@@ -199,11 +195,11 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">1. </span>認証<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">1. </span>認証<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="api">
-<h2><span class="section-number">1.1. </span>APIのアクセス（認証）について<a class="headerlink" href="#api" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.1. </span>APIのアクセス（認証）について<a class="headerlink" href="#api" title="Link to this heading">¶</a></h2>
 <section id="id2">
-<h3><span class="section-number">1.1.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本内容はExastro Suite (IT Automation 2.0系)のAPIを利用するためのシステム管理者向け手順について記載しています。</div>
 <div class="line">Exastro Suite (IT Automation 2.0系)のAPIの呼び出し方法として、次の２つがあります。</div>
@@ -221,13 +217,13 @@
 </div>
 </section>
 <section id="basic">
-<h3><span class="section-number">1.1.2. </span>Basic認証<a class="headerlink" href="#basic" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.1.2. </span>Basic認証<a class="headerlink" href="#basic" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ユーザー名、パスワードを指定してAPIを呼出す、簡易的な認証方式として利用することが出来ます。</div>
 <div class="line">使用するユーザーが二要素認証を設定している場合は、この認証方式は使用出来ません。</div>
 </div>
 <section id="id3">
-<h4>実行手順（サンプル）<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>実行手順（サンプル）<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">以下のサンプルはBasic認証を使用して、オーガナイゼーション一覧取得APIを呼出しています。</div>
 </div>
@@ -242,13 +238,13 @@ curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</s
 </section>
 </section>
 <section id="bearer">
-<h3><span class="section-number">1.1.3. </span>Bearer認証<a class="headerlink" href="#bearer" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.1.3. </span>Bearer認証<a class="headerlink" href="#bearer" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">アクセストークンを指定してAPIを呼び出す認証方式です。</div>
 <div class="line">本実行手順の中には２つのトークンがあります、それぞれの役割・特徴は次の通りです。</div>
 </div>
 <table class="docutils align-left" id="id9">
-<caption><span class="caption-number">表 1.106 </span><span class="caption-text">トークンの種類</span><a class="headerlink" href="#id9" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.106 </span><span class="caption-text">トークンの種類</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -276,7 +272,7 @@ curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</s
 </tbody>
 </table>
 <section id="refresh-token">
-<h4>事前準備手順（サンプル） - refresh_tokenの払い出し<a class="headerlink" href="#refresh-token" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>事前準備手順（サンプル） - refresh_tokenの払い出し<a class="headerlink" href="#refresh-token" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">以下のサンプルはrefresh_tokenを払い出すサンプルです。</div>
 <div class="line">※二要素認証の設定の有無によって、パラメータに違いがあります。</div>
@@ -348,7 +344,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 </div>
 </section>
 <section id="id4">
-<h4>実行手順（サンプル）<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>実行手順（サンプル）<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">以下のサンプルはBearer認証を使用して、オーガナイゼーション一覧取得APIを呼出しています。</div>
 </div>
@@ -372,9 +368,9 @@ curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Aut
 </section>
 </section>
 <section id="id5">
-<h3><span class="section-number">1.1.4. </span>付録<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.1.4. </span>付録<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <section id="id6">
-<h4>発行済みのrefresh_tokenの有効期限の確認<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>発行済みのrefresh_tokenの有効期限の確認<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
 <ul>
 <li><div class="line-block">
 <div class="line">Basic認証</div>
@@ -430,7 +426,7 @@ curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Aut
 </pre></div>
 </div>
 <table class="docutils align-left" id="id10">
-<caption><span class="caption-number">表 1.107 </span><span class="caption-text">発行済みのrefresh_tokenの有効期限の確認</span><a class="headerlink" href="#id10" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.107 </span><span class="caption-text">発行済みのrefresh_tokenの有効期限の確認</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -457,7 +453,7 @@ curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Aut
 </table>
 </section>
 <section id="id7">
-<h4>発行済みのrefresh_tokenの無効化<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h4>
+<h4>発行済みのrefresh_tokenの無効化<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">発行者本人分の全てのrefresh_tokenを無効化し、使用できないようにするには以下のAPIを実行します。</div>
 </div>
@@ -511,7 +507,7 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </section>
 </section>
 <section id="id8">
-<h3><span class="section-number">1.1.5. </span>トークンの有効期限の設定変更<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.1.5. </span>トークンの有効期限の設定変更<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">トークンの有効期限の日数は、以下で設定出来ます。</div>
 <div class="line">※設定はシステム管理者のtokenにのみに反映されます</div>
@@ -532,7 +528,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/exastro-login.png"><img alt="ログイン画面" src="../../../_images/exastro-login.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/exastro-login.png"><img alt="ログイン画面" src="../../../_images/exastro-login.png" style="width: 400px;" />
+</a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -545,7 +542,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/keycloak_tokens.png"><img alt="Tokens" src="../../../_images/keycloak_tokens.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/keycloak_tokens.png"><img alt="Tokens" src="../../../_images/keycloak_tokens.png" style="width: 500px;" />
+</a>
 </figure>
 <ol class="arabic" start="2">
 <li><div class="line-block">
@@ -568,7 +566,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/keycloak_offline_session_max_limited.png"><img alt="Offline Session Max Limited" src="../../../_images/keycloak_offline_session_max_limited.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/keycloak_offline_session_max_limited.png"><img alt="Offline Session Max Limited" src="../../../_images/keycloak_offline_session_max_limited.png" style="width: 500px;" />
+</a>
 </figure>
 </li>
 <li><div class="line-block">
@@ -581,7 +580,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/keycloak_clients.png"><img alt="Clients" src="../../../_images/keycloak_clients.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/keycloak_clients.png"><img alt="Clients" src="../../../_images/keycloak_clients.png" style="width: 500px;" />
+</a>
 </figure>
 <ol class="arabic" start="2">
 <li><div class="line-block">
@@ -590,7 +590,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/keycloak_platform-api.png"><img alt="platform-api" src="../../../_images/keycloak_platform-api.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/keycloak_platform-api.png"><img alt="platform-api" src="../../../_images/keycloak_platform-api.png" style="width: 500px;" />
+</a>
 </figure>
 <ol class="arabic" start="3">
 <li><div class="line-block">
@@ -617,7 +618,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </s
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../../_images/keycloak_advanced_settings.png"><img alt="Advanced Settings" src="../../../_images/keycloak_advanced_settings.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/keycloak_advanced_settings.png"><img alt="Advanced Settings" src="../../../_images/keycloak_advanced_settings.png" style="width: 500px;" />
+</a>
 </figure>
 </li>
 </ul>

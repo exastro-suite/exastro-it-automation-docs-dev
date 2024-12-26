@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,28 +19,25 @@
     
     
     <title>Ansible Execution Agent - Online &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/tabs.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../../_static/exastro_documents.js"></script>
-    <script src="../../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <script src="../../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="オフライン" href="../../offline/index.html" />
@@ -212,9 +208,9 @@
 <div class="body" role="main">
 
   <section id="ansible-execution-agent-online">
-<span id="ansible-execution-agent"></span><h1>Ansible Execution Agent - Online<a class="headerlink" href="#ansible-execution-agent-online" title="この見出しへのパーマリンク">¶</a></h1>
+<span id="ansible-execution-agent"></span><h1>Ansible Execution Agent - Online<a class="headerlink" href="#ansible-execution-agent-online" title="Link to this heading">¶</a></h1>
 <section id="ansible-execution-agent-purpose">
-<span id="id1"></span><h2>目的<a class="headerlink" href="#ansible-execution-agent-purpose" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id1"></span><h2>目的<a class="headerlink" href="#ansible-execution-agent-purpose" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Exastro IT Automation （以下、ITAとも記載する）においてAnsibleをPULL型で実行する際に必要となる、</div>
 <div class="line">Ansible Execution Agentを導入する手順について説明します。</div>
@@ -233,7 +229,7 @@
 </div>
 </section>
 <section id="ansible-execution-agent-feature">
-<span id="id2"></span><h2>特徴<a class="headerlink" href="#ansible-execution-agent-feature" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h2>特徴<a class="headerlink" href="#ansible-execution-agent-feature" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Ansible Execution Agentとは、ITAで実行する、「Ansible-Legacy」、「Ansible-Pioneer」、「Ansible-LegacyRole」の作業実行を、</div>
 <div class="line">PULL型で行うためのエージェント機能を提供します。</div>
@@ -246,7 +242,7 @@
 </ul>
 </section>
 <section id="ansible-execution-agent-precondition">
-<span id="id3"></span><h2>前提条件<a class="headerlink" href="#ansible-execution-agent-precondition" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id3"></span><h2>前提条件<a class="headerlink" href="#ansible-execution-agent-precondition" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">後述する以下の各種要件を満たしていること</div>
 </div>
@@ -258,12 +254,12 @@
 <li><p><a class="reference internal" href="#ansible-exrcution-agent-other-requirements"><span class="std std-ref">その他の要件</span></a></p></li>
 </ul>
 <section id="ansible-exrcution-agent-hardware-requirements">
-<span id="id4"></span><h3>ハードウェア要件<a class="headerlink" href="#ansible-exrcution-agent-hardware-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h3>ハードウェア要件<a class="headerlink" href="#ansible-exrcution-agent-hardware-requirements" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>動作確認済み構成</p></li>
 </ul>
 <table class="docutils align-left" id="id16">
-<caption><span class="caption-number">表 40 </span><span class="caption-text">動作確認済み最小構成</span><a class="headerlink" href="#id16" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 40 </span><span class="caption-text">動作確認済み最小構成</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>リソース種別</p></th>
 <th class="head"><p>要求リソース</p></th>
@@ -282,7 +278,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id17">
-<caption><span class="caption-number">表 41 </span><span class="caption-text">動作確認済み推奨構成</span><a class="headerlink" href="#id17" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 41 </span><span class="caption-text">動作確認済み推奨構成</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>リソース種別</p></th>
 <th class="head"><p>要求リソース</p></th>
@@ -309,7 +305,7 @@
 </div>
 </section>
 <section id="ansible-exrcution-agent-communication-requirements">
-<span id="id5"></span><h3>通信要件<a class="headerlink" href="#ansible-exrcution-agent-communication-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id5"></span><h3>通信要件<a class="headerlink" href="#ansible-exrcution-agent-communication-requirements" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">エージェントサーバから、外部NWへの通信が可能である必要があります。</div>
 </div>
@@ -319,16 +315,17 @@
 <li><p>作業対象サーバ</p></li>
 </ul>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../../../_images/ae_agent_nw.drawio.png"><img alt="エージェントサーバの通信要件" src="../../../_images/ae_agent_nw.drawio.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/ae_agent_nw.drawio.png"><img alt="エージェントサーバの通信要件" src="../../../_images/ae_agent_nw.drawio.png" style="width: 600px;" />
+</a>
 </figure>
 </section>
 <section id="os">
-<span id="ansible-exrcution-agent-os-requirements"></span><h3>OS要件<a class="headerlink" href="#os" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="ansible-exrcution-agent-os-requirements"></span><h3>OS要件<a class="headerlink" href="#os" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">動作確認済みのOSは以下です。</div>
 </div>
 <table class="docutils align-left" id="id18">
-<caption><span class="caption-number">表 42 </span><span class="caption-text">動作確認済みOS</span><a class="headerlink" href="#id18" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 42 </span><span class="caption-text">動作確認済みOS</span><a class="headerlink" href="#id18" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>OS種別</p></th>
 <th class="head"><p>バージョン</p></th>
@@ -359,7 +356,7 @@ Permissive
 </div>
 </section>
 <section id="ansible-exrcution-agent-oftware-requirements">
-<span id="id6"></span><h3>ソフトウェア要件<a class="headerlink" href="#ansible-exrcution-agent-oftware-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id6"></span><h3>ソフトウェア要件<a class="headerlink" href="#ansible-exrcution-agent-oftware-requirements" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Python3.9以上がインストールされており、python3コマンドとpip3コマンドにエイリアスが紐づいていること</p></li>
 <li><p>インストールを実行するユーザで、以下のコマンドが実行できること</p></li>
@@ -376,9 +373,9 @@ pip<span class="w"> </span><span class="m">21</span>.2.3<span class="w"> </span>
 </div>
 </section>
 <section id="ansible-exrcution-agent-other-requirements">
-<span id="id7"></span><h3>その他の要件<a class="headerlink" href="#ansible-exrcution-agent-other-requirements" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id7"></span><h3>その他の要件<a class="headerlink" href="#ansible-exrcution-agent-other-requirements" title="Link to this heading">¶</a></h3>
 <section id="rhel">
-<span id="ansible-exrcution-agent-rhel-support-requirements"></span><h4>RHEL(サポート付きライセンス利用の場合)<a class="headerlink" href="#rhel" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="ansible-exrcution-agent-rhel-support-requirements"></span><h4>RHEL(サポート付きライセンス利用の場合)<a class="headerlink" href="#rhel" title="Link to this heading">¶</a></h4>
 <p>有償版のAnsible-builder、Ansible-runnerを利用する場合、サブスクリプションの登録、リポジトリ有効化は、インストーラ実行前に実施しておいてください。</p>
 <ul>
 <li><p>Red Hat コンテナーレジストリーの認証</p>
@@ -404,12 +401,12 @@ sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<sp
 </ul>
 </section>
 <section id="ansible-builder">
-<span id="ansible-exrcution-agent-base-images"></span><h4>Ansible builderで使用する動作確認済みのベースイメージ<a class="headerlink" href="#ansible-builder" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="ansible-exrcution-agent-base-images"></span><h4>Ansible builderで使用する動作確認済みのベースイメージ<a class="headerlink" href="#ansible-builder" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>動作確認済みビルドのベースイメージ</p></li>
 </ul>
 <table class="docutils align-left" id="id19">
-<caption><span class="caption-number">表 43 </span><span class="caption-text">動作確認済みビルドのベースイメージ</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 43 </span><span class="caption-text">動作確認済みビルドのベースイメージ</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>ベースイメージ種別</p></th>
 <th class="head"><p>イメージ取得先</p></th>
@@ -431,12 +428,12 @@ sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<sp
 </section>
 </section>
 <section id="ansible-execution-agent-parameter-list">
-<span id="id8"></span><h2>パラメータ一覧<a class="headerlink" href="#ansible-execution-agent-parameter-list" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id8"></span><h2>パラメータ一覧<a class="headerlink" href="#ansible-execution-agent-parameter-list" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">インストーラで生成される、env内のパラメータについて</div>
 </div>
 <table class="docutils align-left" id="id20">
-<caption><span class="caption-number">表 44 </span><span class="caption-text">env内のパラメータ</span><a class="headerlink" href="#id20" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 44 </span><span class="caption-text">env内のパラメータ</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>パラメータ名</p></th>
 <th class="head"><p>内容</p></th>
@@ -609,9 +606,9 @@ sudo<span class="w"> </span>subscription-manager<span class="w"> </span>repos<sp
 </div>
 </section>
 <section id="ansible-execution-agent-install">
-<span id="id9"></span><h2>インストール<a class="headerlink" href="#ansible-execution-agent-install" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id9"></span><h2>インストール<a class="headerlink" href="#ansible-execution-agent-install" title="Link to this heading">¶</a></h2>
 <section id="id10">
-<h3>準備<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>準備<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">以下より、最新のsetup.shを取得し、実行権限を付与してください。</div>
 </div>
@@ -622,7 +619,7 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span>
 </div>
 </section>
 <section id="id11">
-<h3>対話での問い合わせ事項<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>対話での問い合わせ事項<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>エージェントのバージョン情報</p></li>
 <li><p>サービス名</p></li>
@@ -633,7 +630,7 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span>
 </ul>
 </section>
 <section id="id12">
-<h3>Ansible Execution Agentのインストール<a class="headerlink" href="#id12" title="この見出しへのパーマリンク">¶</a></h3>
+<h3>Ansible Execution Agentのインストール<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">setup.shを実行し、後述する対話事項に沿って進めてください。</div>
 </div>
@@ -887,7 +884,7 @@ Input<span class="w"> </span>Value<span class="w"> </span>:
 </section>
 </section>
 <section id="ansible-execution-agent-uninstall">
-<span id="id13"></span><h2>アンインストール<a class="headerlink" href="#ansible-execution-agent-uninstall" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id13"></span><h2>アンインストール<a class="headerlink" href="#ansible-execution-agent-uninstall" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">setup.shを実行し、後述する対話事項に沿って進めてください。</div>
 </div>
@@ -950,7 +947,7 @@ Input<span class="w"> </span>Value<span class="w"> </span>:
 </div></div>
 </section>
 <section id="ansible-execution-agent-service-cmd">
-<span id="id14"></span><h2>サービスの手動での操作、確認方法<a class="headerlink" href="#ansible-execution-agent-service-cmd" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id14"></span><h2>サービスの手動での操作、確認方法<a class="headerlink" href="#ansible-execution-agent-service-cmd" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">以下のコマンドにて、サービスの状態を確認できます。</div>
 </div>
@@ -982,7 +979,7 @@ $<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w">
 </div></div>
 </section>
 <section id="ansible-execution-agent-service-log">
-<span id="id15"></span><h2>サービスのログ確認方法<a class="headerlink" href="#ansible-execution-agent-service-log" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id15"></span><h2>サービスのログ確認方法<a class="headerlink" href="#ansible-execution-agent-service-log" title="Link to this heading">¶</a></h2>
 <ul>
 <li><div class="line-block">
 <div class="line">アプリケーションログ</div>

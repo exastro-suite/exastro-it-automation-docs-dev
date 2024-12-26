@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>6. メール送信サーバ設定 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="7. オーガナイゼーション設定" href="organization_settings.html" />
@@ -200,20 +196,20 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">6. </span>メール送信サーバ設定<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">6. </span>メール送信サーバ設定<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">6.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">6.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書では、Exastro Suite における メール送信サーバ設定  について説明します。</div>
 </div>
 </section>
 <section id="email-sending-server-settings">
-<span id="id3"></span><h2><span class="section-number">6.2. </span>メール送信サーバの設定<a class="headerlink" href="#email-sending-server-settings" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id3"></span><h2><span class="section-number">6.2. </span>メール送信サーバの設定<a class="headerlink" href="#email-sending-server-settings" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">IT AutomationやOASEで利用するイベントごとの通知をメールで受け取るためには、送信用メールサーバの設定を行う必要があります。</div>
 </div>
 <section id="id4">
-<h3><span class="section-number">6.2.1. </span>メール送信サーバの登録<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>メール送信サーバの登録<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メール送信サーバは、下記の手順で登録します。</div>
 </div>
@@ -225,16 +221,18 @@
 <li><div class="line-block">
 <div class="line">メニューより <span class="menuselection">メール送信サーバ設定</span> をクリックします。</div>
 </div>
-<a class="reference internal image-reference" href="../../_images/platform_menu.png"><img alt="../../_images/platform_menu.png" class="align-left" src="../../_images/platform_menu.png" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/platform_menu.png"><img alt="../../_images/platform_menu.png" class="align-left" src="../../_images/platform_menu.png" style="width: 200px;" />
+</a>
 </li>
 <li><div class="line-block">
 <div class="line"><span class="menuselection">メール送信サーバ設定</span> 画面が表示されるので、メール送信サーバの情報を入力し、 <span class="guilabel">登録</span> をクリックします。</div>
 </div>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A.png" style="width: 600px;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id6">
-<caption><span class="caption-number">表 6.1 </span><span class="caption-text">メール送信サーバ設定登録</span><a class="headerlink" href="#id6" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 6.1 </span><span class="caption-text">メール送信サーバ設定登録</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 83.3%" />
@@ -317,7 +315,7 @@
 </ol>
 </section>
 <section id="id5">
-<h3><span class="section-number">6.2.2. </span>メール送信サーバの削除<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">6.2.2. </span>メール送信サーバの削除<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">メール送信サーバ設定の削除は、下記の手順で行ないます。</div>
 </div>
@@ -329,20 +327,23 @@
 <li><div class="line-block">
 <div class="line">メニューより <span class="menuselection">メール送信サーバ設定</span> をクリックします。</div>
 </div>
-<a class="reference internal image-reference" href="../../_images/platform_menu.png"><img alt="../../_images/platform_menu.png" class="align-left" src="../../_images/platform_menu.png" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/platform_menu.png"><img alt="../../_images/platform_menu.png" class="align-left" src="../../_images/platform_menu.png" style="width: 200px;" />
+</a>
 </li>
 <li><div class="line-block">
 <div class="line"><span class="menuselection">メール送信サーバ設定</span> 画面が表示されるので、 <span class="guilabel">設定削除</span> をクリックします。</div>
 </div>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定_delete.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A_delete.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A_delete.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定_delete.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A_delete.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A_delete.png" style="width: 600px;" />
+</a>
 </figure>
 </li>
 <li><div class="line-block">
 <div class="line">確認メッセージが表示されるので、<kbd class="kbd docutils literal notranslate">削除</kbd> を入力し、 <span class="guilabel">はい、削除します</span> をクリックします。</div>
 </div>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定削除実行確認画面.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A%E5%89%8A%E9%99%A4%E5%AE%9F%E8%A1%8C%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A%E5%89%8A%E9%99%A4%E5%AE%9F%E8%A1%8C%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../_images/メール送信サーバ設定削除実行確認画面.png"><img alt="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A%E5%89%8A%E9%99%A4%E5%AE%9F%E8%A1%8C%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2.png" src="../../_images/%E3%83%A1%E3%83%BC%E3%83%AB%E9%80%81%E4%BF%A1%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9A%E5%89%8A%E9%99%A4%E5%AE%9F%E8%A1%8C%E7%A2%BA%E8%AA%8D%E7%94%BB%E9%9D%A2.png" style="width: 600px;" />
+</a>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

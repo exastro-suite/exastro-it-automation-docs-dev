@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="ja">
+<html lang="ja" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144561796-1"></script>
@@ -20,27 +19,24 @@
     
     
     <title>1. ホストグループ機能 &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/option.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/jquery-3.6.3.min.js"></script>
-    <script src="../../_static/exastro_documents.js"></script>
-    <script src="../../_static/swagger/swagger-ui-bundle.js"></script>
-    <script src="../../_static/swagger/swagger-ui-standalone-preset.js"></script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="../../_static/documentation_options.js?v=c033477b"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
+    <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
+    <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
+    <script src="../../_static/swagger/swagger-ui-standalone-preset.js?v=88d26966"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="Ansible ドライバ" href="../ansible-driver/index.html" />
@@ -227,25 +223,26 @@
 <div class="body" role="main">
 
   <section id="host-group">
-<span id="id1"></span><h1><span class="section-number">1. </span>ホストグループ機能<a class="headerlink" href="#host-group" title="この見出しへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">1. </span>ホストグループ機能<a class="headerlink" href="#host-group" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">本書は、Exastro IT Automationのホストグループの機能および操作方法について説明します。</div>
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">1.2. </span>ホストグループの概要と利点<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.2. </span>ホストグループの概要と利点<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <section id="id4">
-<h3><span class="section-number">1.2.1. </span>ホストグループの概要<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>ホストグループの概要<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">ホストグループとは、ホスト群を論理的な単位（機能・役割）でまとめたグループのことを指します。</div>
 <div class="line">ホストグループの概念図は下のようになります。</div>
 </div>
 <figure class="align-left" id="id23">
-<a class="reference internal image-reference" href="../../_images/overview_base.drawio.png"><img alt="ホストグループ概要図" src="../../_images/overview_base.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_base.drawio.png"><img alt="ホストグループ概要図" src="../../_images/overview_base.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.82 </span><span class="caption-text">ホストグループ概要図</span><a class="headerlink" href="#id23" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.82 </span><span class="caption-text">ホストグループ概要図</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -271,9 +268,9 @@
 </div>
 </section>
 <section id="id5">
-<h3><span class="section-number">1.2.2. </span>ホストグループの利点<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>ホストグループの利点<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <section id="id6">
-<h4><span class="section-number">1.2.2.1. </span>ホストグループ間のパラメータの継承<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">1.2.2.1. </span>ホストグループ間のパラメータの継承<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">親ホストグループに設定したパラメータは子ホストグループに継承されます。</div>
 </div>
@@ -282,9 +279,10 @@
 <div class="line">ただし、具体値がない場合は継承されません。</div>
 </div>
 <figure class="align-left" id="id24">
-<a class="reference internal image-reference" href="../../_images/overview_inheritance_1.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承1)" src="../../_images/overview_inheritance_1.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_inheritance_1.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承1)" src="../../_images/overview_inheritance_1.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.83 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承1)</span><a class="headerlink" href="#id24" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.83 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承1)</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -296,9 +294,10 @@
 <div class="line">これにより、zabbix12には、zabbix11と同じように、zabbix1の設定が継承されます。</div>
 </div>
 <figure class="align-left" id="id25">
-<a class="reference internal image-reference" href="../../_images/overview_inheritance_2.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承2)" src="../../_images/overview_inheritance_2.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_inheritance_2.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承2)" src="../../_images/overview_inheritance_2.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.84 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承2)</span><a class="headerlink" href="#id25" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.84 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承2)</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -306,9 +305,10 @@
 <div class="line">下図の例では、zabbix11、zabbix12はzabbix1とvirtualserverに属しています。</div>
 </div>
 <figure class="align-left" id="id26">
-<a class="reference internal image-reference" href="../../_images/overview_inheritance_3.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承3)" src="../../_images/overview_inheritance_3.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_inheritance_3.drawio.png"><img alt="ホストグループ概要図(ホストグループ間のパラメータの継承3)" src="../../_images/overview_inheritance_3.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.85 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承3)</span><a class="headerlink" href="#id26" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.85 </span><span class="caption-text">ホストグループ概要図(ホストグループ間のパラメータの継承3)</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -324,7 +324,7 @@
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">1.3. </span>ホストグループ機能の主要機能<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.3. </span>ホストグループ機能の主要機能<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">ホストグループの設定管理、および、パラメータシートのホストグループ単位のレコードをホスト単位に分割する機能です。</div>
 <div class="line"><br /></div>
@@ -342,12 +342,12 @@
 </div>
 </section>
 <section id="id8">
-<h2><span class="section-number">1.4. </span>ホストグループ機能のメニューグループ<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">1.4. </span>ホストグループ機能のメニューグループ<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><span class="menuselection">ホストグループ機能</span> のメニューグループと、それに所属するメニューは以下となります。</div>
 </div>
 <table class="docutils align-left" id="id27">
-<caption><span class="caption-number">表 1.55 </span><span class="caption-text">ホストグループ機能</span><a class="headerlink" href="#id27" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.55 </span><span class="caption-text">ホストグループ機能</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">No</div>
@@ -439,7 +439,7 @@
 </tbody>
 </table>
 <section id="id9">
-<h3><span class="section-number">1.4.1. </span>メニューグループ「ホストグループ管理」について<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">1.4.1. </span>メニューグループ「ホストグループ管理」について<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><span class="menuselection">ホストグループ一覧</span> 、<span class="menuselection">ホストグループ親子紐付</span> 、<span class="menuselection">ホスト紐付管理</span> は、ホストグループを登録し、どのオペレーションでどのホストを作業対象とするかを定義するために必要なメニューとなります。</div>
 <div class="line">操作の詳細は「<a class="reference internal" href="#hostunit-setting"><span class="std std-ref">ホストグループからホスト単位へのレコード分割と各作業について</span></a> 」で説明します。</div>
@@ -447,13 +447,13 @@
 </section>
 </section>
 <section id="hostunit-setting">
-<span id="id10"></span><h2><span class="section-number">1.5. </span>ホストグループからホスト単位へのレコード分割と各作業について<a class="headerlink" href="#hostunit-setting" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="id10"></span><h2><span class="section-number">1.5. </span>ホストグループからホスト単位へのレコード分割と各作業について<a class="headerlink" href="#hostunit-setting" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">各メニューを使用して、ホストグループを登録し、ホスト単位の情報を作業実行へ設定するフローは以下、表のようになります。</div>
 <div class="line">作業の詳細は各段落で説明します。</div>
 </div>
 <span id="hostgroup-workflows"></span><table class="docutils align-left" id="id11">
-<caption><span class="caption-number">表 1.56 </span><span class="caption-text">各作業の作業内容と対象メニュー</span><a class="headerlink" href="#id11" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.56 </span><span class="caption-text">各作業の作業内容と対象メニュー</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10.0%" />
 <col style="width: 20.0%" />
@@ -574,7 +574,7 @@
 </div>
 </div>
 <section id="hostgroup-workflows-image">
-<span id="id12"></span><h3><span class="section-number">1.5.1. </span>作業内容とレコードのイメージ<a class="headerlink" href="#hostgroup-workflows-image" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id12"></span><h3><span class="section-number">1.5.1. </span>作業内容とレコードのイメージ<a class="headerlink" href="#hostgroup-workflows-image" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line"><a class="reference internal" href="#hostgroup-workflows"><span class="std std-ref">各作業の作業内容と対象メニュー</span></a> のNoの作業内容の各メニューのレコードイメージです。</div>
 <div class="line">作業内容の詳細は <a class="reference internal" href="#hostgroup-workflows-details"><span class="std std-ref">作業内容の詳細について</span></a> を参照してください。</div>
@@ -874,7 +874,7 @@
 </ol>
 </section>
 <section id="hostgroup-workflows-details">
-<span id="id13"></span><h3><span class="section-number">1.5.2. </span>作業内容の詳細について<a class="headerlink" href="#hostgroup-workflows-details" title="この見出しへのパーマリンク">¶</a></h3>
+<span id="id13"></span><h3><span class="section-number">1.5.2. </span>作業内容の詳細について<a class="headerlink" href="#hostgroup-workflows-details" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line-block">
 <div class="line"><a class="reference internal" href="#hostgroup-workflows"><span class="std std-ref">各作業の作業内容と対象メニュー</span></a> に基づき、の作業内容の詳細ついて説明します。</div>
@@ -882,22 +882,23 @@
 <div class="line">作業内容のレコードイメージは <a class="reference internal" href="#hostgroup-workflows-image"><span class="std std-ref">作業内容とレコードのイメージ</span></a> を参照してください。</div>
 </div>
 <section id="para-create">
-<span id="id14"></span><h4><span class="section-number">1.5.2.1. </span>パラメータシート作成<a class="headerlink" href="#para-create" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id14"></span><h4><span class="section-number">1.5.2.1. </span>パラメータシート作成<a class="headerlink" href="#para-create" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">パラメータシート作成機能を利用してパラメータシートメニューを作成します。</div>
 <div class="line">パラメータシート作成機能の詳細については「<a class="reference internal" href="../create_param/menu_creation.html"><span class="doc">パラメータシート作成機能</span></a>」を参照してください。</div>
 </div>
 </section>
 <section id="hostgroup-register">
-<span id="id15"></span><h4><span class="section-number">1.5.2.2. </span>ホストグループの登録<a class="headerlink" href="#hostgroup-register" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id15"></span><h4><span class="section-number">1.5.2.2. </span>ホストグループの登録<a class="headerlink" href="#hostgroup-register" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line"><span class="menuselection">ホストグループ一覧</span> メニューを使用してホストグループを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/hostgroup_management_register.png"><img alt="ホストグループの登録" src="../../_images/hostgroup_management_register.png" style="width: 6.4939in; height: 4.56706in;" /></a>
+<a class="reference internal image-reference" href="../../_images/hostgroup_management_register.png"><img alt="ホストグループの登録" src="../../_images/hostgroup_management_register.png" style="width: 6.4939in; height: 4.56706in;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id28">
-<caption><span class="caption-number">表 1.57 </span><span class="caption-text">ホストグループ一覧の登録</span><a class="headerlink" href="#id28" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.57 </span><span class="caption-text">ホストグループ一覧の登録</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">項目</div>
@@ -974,15 +975,16 @@
 </div>
 </section>
 <section id="hostgroup-definition">
-<span id="id16"></span><h4><span class="section-number">1.5.2.3. </span>ホストグループ親子関係の定義<a class="headerlink" href="#hostgroup-definition" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id16"></span><h4><span class="section-number">1.5.2.3. </span>ホストグループ親子関係の定義<a class="headerlink" href="#hostgroup-definition" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line"><span class="menuselection">ホストグループ親子紐付</span> メニューを使用してホストグループの親子関係を定義します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_register.png"><img alt="ホストグループ親子紐付" src="../../_images/hostgroup_parent_child_link_list_register.png" style="width: 6.33388in; height: 4.82042in;" /></a>
+<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_register.png"><img alt="ホストグループ親子紐付" src="../../_images/hostgroup_parent_child_link_list_register.png" style="width: 6.33388in; height: 4.82042in;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id29">
-<caption><span class="caption-number">表 1.58 </span><span class="caption-text">ホストグループ親子紐付の登録</span><a class="headerlink" href="#id29" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.58 </span><span class="caption-text">ホストグループ親子紐付の登録</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">項目</div>
@@ -1059,22 +1061,24 @@
 </div>
 </div>
 <figure class="align-default" id="id30">
-<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_error_loop.png"><img alt="一覧/更新：エラー（親子関係がループ）" src="../../_images/hostgroup_parent_child_link_list_error_loop.png" style="width: 5.22863in; height: 0.99251in;" /></a>
+<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_error_loop.png"><img alt="一覧/更新：エラー（親子関係がループ）" src="../../_images/hostgroup_parent_child_link_list_error_loop.png" style="width: 5.22863in; height: 0.99251in;" />
+</a>
 <figcaption>
-<p><span class="caption-number">図 1.86 </span><span class="caption-text">一覧/更新：エラー（親子関係がループ）</span><a class="headerlink" href="#id30" title="この画像へのパーマリンク">¶</a></p>
+<p><span class="caption-number">図 1.86 </span><span class="caption-text">一覧/更新：エラー（親子関係がループ）</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="host-tie">
-<span id="id17"></span><h4><span class="section-number">1.5.2.4. </span>ホストグループとオペレーションと作業対象ホストの紐付け<a class="headerlink" href="#host-tie" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id17"></span><h4><span class="section-number">1.5.2.4. </span>ホストグループとオペレーションと作業対象ホストの紐付け<a class="headerlink" href="#host-tie" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line"><span class="menuselection">ホスト紐付管理</span> メニューを使用してホストグループとオペレーションに紐付く作業対象ホストを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/host_link_list_register.png"><img alt="ホストグループ管理" src="../../_images/host_link_list_register.png" style="width: 5.92051in; height: 4.22037in;" /></a>
+<a class="reference internal image-reference" href="../../_images/host_link_list_register.png"><img alt="ホストグループ管理" src="../../_images/host_link_list_register.png" style="width: 5.92051in; height: 4.22037in;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id31">
-<caption><span class="caption-number">表 1.59 </span><span class="caption-text">ホスト紐付管理</span><a class="headerlink" href="#id31" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.59 </span><span class="caption-text">ホスト紐付管理</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">項目</div>
@@ -1181,7 +1185,8 @@
 </li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト1.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%881.png" style="width: 4.72721in; height: 4.6604in;" /></a>
+<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト1.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%881.png" style="width: 4.72721in; height: 4.6604in;" />
+</a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -1191,7 +1196,8 @@
 </li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト2.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%882.png" style="width: 4.72721in; height: 4.6604in;" /></a>
+<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト2.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%882.png" style="width: 4.72721in; height: 4.6604in;" />
+</a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -1201,7 +1207,8 @@
 </li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト3.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%883.png" style="width: 4.72721in; height: 4.6604in;" /></a>
+<a class="reference internal image-reference" href="../../_images/ホストグループ_作業対象ホスト3.png"><img alt="作業対象ホスト" src="../../_images/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97_%E4%BD%9C%E6%A5%AD%E5%AF%BE%E8%B1%A1%E3%83%9B%E3%82%B9%E3%83%883.png" style="width: 4.72721in; height: 4.6604in;" />
+</a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -1210,10 +1217,12 @@
 </li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_ex1.png"><img alt="ホストグループ親子紐付（例1）" src="../../_images/hostgroup_parent_child_link_list_ex1.png" style="width: 6.22721in; height: 4.6604in;" /></a>
+<a class="reference internal image-reference" href="../../_images/hostgroup_parent_child_link_list_ex1.png"><img alt="ホストグループ親子紐付（例1）" src="../../_images/hostgroup_parent_child_link_list_ex1.png" style="width: 6.22721in; height: 4.6604in;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/host_link_list_ex1.png"><img alt="ホスト紐付管理（例1）" src="../../_images/host_link_list_ex1.png" style="width: 6.29388in; height: 2.78024in;" /></a>
+<a class="reference internal image-reference" href="../../_images/host_link_list_ex1.png"><img alt="ホスト紐付管理（例1）" src="../../_images/host_link_list_ex1.png" style="width: 6.29388in; height: 2.78024in;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line">上記の例ではオペレーションを空登録したホストグループzabbix1、zabbix2の紐付はすべてのオペレーションで有効になります。</div>
@@ -1226,7 +1235,8 @@
 </li>
 </ul>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/overview_inheritance_ex1_op1.drawio.png"><img alt="オペレーション「OP1」でのホストグループ紐付" src="../../_images/overview_inheritance_ex1_op1.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_inheritance_ex1_op1.drawio.png"><img alt="オペレーション「OP1」でのホストグループ紐付" src="../../_images/overview_inheritance_ex1_op1.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 </figure>
 <ul>
 <li><div class="line-block">
@@ -1235,20 +1245,22 @@
 </li>
 </ul>
 <figure class="align-left">
-<a class="reference internal image-reference" href="../../_images/overview_inheritance_ex1_op10.drawio.png"><img alt="オペレーション「OP1」以外でのホストグループ紐付" src="../../_images/overview_inheritance_ex1_op10.drawio.png" style="width: 6.67391in; height: 3.20028in;" /></a>
+<a class="reference internal image-reference" href="../../_images/overview_inheritance_ex1_op10.drawio.png"><img alt="オペレーション「OP1」以外でのホストグループ紐付" src="../../_images/overview_inheritance_ex1_op10.drawio.png" style="width: 6.67391in; height: 3.20028in;" />
+</a>
 </figure>
 </section>
 <section id="para-register">
-<span id="id18"></span><h4><span class="section-number">1.5.2.5. </span>パラメータシートへの登録<a class="headerlink" href="#para-register" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id18"></span><h4><span class="section-number">1.5.2.5. </span>パラメータシートへの登録<a class="headerlink" href="#para-register" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">「 <a class="reference internal" href="#para-create"><span class="std std-ref">パラメータシート作成</span></a>」で作成したホストグループ用のパラメータシートメニューで、作業対象ホストまたはホストグループがもつ項目に、オペレーションごとの具体値を登録します。</div>
 <div class="line">登録後は参照/更新/廃止/復活が可能です。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hostgroup_register.png"><img alt="パラメータシート(ホストグループ利用)" src="../../_images/parameter_sheet_as_hostgroup_register.png" style="width: 5.36046in; height: 4.67374in;" /></a>
+<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hostgroup_register.png"><img alt="パラメータシート(ホストグループ利用)" src="../../_images/parameter_sheet_as_hostgroup_register.png" style="width: 5.36046in; height: 4.67374in;" />
+</a>
 </figure>
 <table class="docutils align-left" id="id32">
-<caption><span class="caption-number">表 1.60 </span><span class="caption-text">パラメータシート(ホストグループ利用)</span><a class="headerlink" href="#id32" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.60 </span><span class="caption-text">パラメータシート(ホストグループ利用)</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">項目</div>
@@ -1409,7 +1421,7 @@
 </div>
 </section>
 <section id="hosted">
-<span id="id19"></span><h4><span class="section-number">1.5.2.6. </span>ホスト化<a class="headerlink" href="#hosted" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id19"></span><h4><span class="section-number">1.5.2.6. </span>ホスト化<a class="headerlink" href="#hosted" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line-block">
 <div class="line">「 <a class="reference internal" href="#para-register"><span class="std std-ref">パラメータシートへの登録</span></a> 」で登録した情報は、内部の処理「ホストグループ分解機能」により、オペレーション毎にまとめ、更にホストグループの紐付けに従い作業対象ホスト単位まで継承が行われます。</div>
@@ -1418,7 +1430,8 @@
 <div class="line">代入値自動登録用のメニューグループに所属するメニューになります。 参照のみ可能で、登録/更新/廃止/復活は不可です。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_subst_filter_0.png"><img alt="ホスト化(代入値自動登録用メニュー)" src="../../_images/parameter_sheet_as_hg_subst_filter_0.png" style="width: 6.45389in; height: 4.55373in;" /></a>
+<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_subst_filter_0.png"><img alt="ホスト化(代入値自動登録用メニュー)" src="../../_images/parameter_sheet_as_hg_subst_filter_0.png" style="width: 6.45389in; height: 4.55373in;" />
+</a>
 </figure>
 <div class="line-block">
 <div class="line">ホスト化の流れの例を以下で説明します。</div>
@@ -1429,7 +1442,7 @@
 <div class="line">（「 <a class="reference internal" href="#para-register"><span class="std std-ref">パラメータシートへの登録</span></a> 」で登録する情報）</div>
 </div>
 <table class="docutils align-left" id="id33">
-<caption><span class="caption-number">表 1.61 </span><span class="caption-text">「 <a class="reference internal" href="#para-register"><span class="std std-ref">パラメータシートへの登録</span></a>」で登録する情報</span><a class="headerlink" href="#id33" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.61 </span><span class="caption-text">「 <a class="reference internal" href="#para-register"><span class="std std-ref">パラメータシートへの登録</span></a>」で登録する情報</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1467,7 +1480,7 @@
 <div class="line">（「<a class="reference internal" href="#hostgroup-definition"><span class="std std-ref">ホストグループ親子関係の定義</span></a>」で登録する情報）</div>
 </div>
 <table class="docutils align-left" id="id34">
-<caption><span class="caption-number">表 1.62 </span><span class="caption-text">ホストグループの親子関係</span><a class="headerlink" href="#id34" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.62 </span><span class="caption-text">ホストグループの親子関係</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1498,7 +1511,7 @@
 <div class="line">（「<a class="reference internal" href="#host-tie"><span class="std std-ref">ホストグループとオペレーションと作業対象ホストの紐付け</span></a>」で登録する情報）</div>
 </div>
 <table class="docutils align-left" id="id35">
-<caption><span class="caption-number">表 1.63 </span><span class="caption-text">作業対象ホストの紐付情報</span><a class="headerlink" href="#id35" title="このテーブルへのパーマリンク">¶</a></caption>
+<caption><span class="caption-number">表 1.63 </span><span class="caption-text">作業対象ホストの紐付情報</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 33.3%" />
@@ -1536,10 +1549,12 @@
 </li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_filter.png"><img alt="ホスト化(入力用メニュー)" src="../../_images/parameter_sheet_as_hg_filter.png" style="width: 6.45389in; height: 4.55373in;" /></a>
+<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_filter.png"><img alt="ホスト化(入力用メニュー)" src="../../_images/parameter_sheet_as_hg_filter.png" style="width: 6.45389in; height: 4.55373in;" />
+</a>
 </figure>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_subst_filter.png"><img alt="ホスト化(代入値自動登録用メニュー)" src="../../_images/parameter_sheet_as_hg_subst_filter.png" style="width: 6.45389in; height: 4.55373in;" /></a>
+<a class="reference internal image-reference" href="../../_images/parameter_sheet_as_hg_subst_filter.png"><img alt="ホスト化(代入値自動登録用メニュー)" src="../../_images/parameter_sheet_as_hg_subst_filter.png" style="width: 6.45389in; height: 4.55373in;" />
+</a>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -1551,7 +1566,7 @@
 </div>
 </section>
 <section id="setvalue-tie">
-<span id="id20"></span><h4><span class="section-number">1.5.2.7. </span>オペレーションと作業対象ホストごとの項目の設定値を紐付け<a class="headerlink" href="#setvalue-tie" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id20"></span><h4><span class="section-number">1.5.2.7. </span>オペレーションと作業対象ホストごとの項目の設定値を紐付け<a class="headerlink" href="#setvalue-tie" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line-block">
 <div class="line"><span class="menuselection">代入値自動登録設定</span> メニュー画面で連携対象としたメニューと項目を、Movementの変数に紐付けます。登録/更新/廃止/復活が可能です。</div>
@@ -1561,7 +1576,7 @@
 </div>
 </section>
 <section id="host-reflection">
-<span id="id21"></span><h4><span class="section-number">1.5.2.8. </span>オペレーションに紐付く作業対象ホストの反映<a class="headerlink" href="#host-reflection" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id21"></span><h4><span class="section-number">1.5.2.8. </span>オペレーションに紐付く作業対象ホストの反映<a class="headerlink" href="#host-reflection" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">オペレーションに関連付く作業対象ホストが自動で反映されます。</div>
 <div class="line">反映結果は「 <span class="menuselection">作業対象ホスト</span> 」メニュー画面で確認できます。</div>
@@ -1569,7 +1584,7 @@
 </div>
 </section>
 <section id="value-reflect">
-<span id="id22"></span><h4><span class="section-number">1.5.2.9. </span>代入値の反映<a class="headerlink" href="#value-reflect" title="この見出しへのパーマリンク">¶</a></h4>
+<span id="id22"></span><h4><span class="section-number">1.5.2.9. </span>代入値の反映<a class="headerlink" href="#value-reflect" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">オペレーションごとに、対象のMovement で利用されるPlaybookやテンプレートファイル内の変数に代入する具体値が自動で反映されます。</div>
 <div class="line">ここでの具体値は「 <a class="reference internal" href="#para-register"><span class="std std-ref">パラメータシートへの登録</span></a>」で入力した具体値となります。</div>
