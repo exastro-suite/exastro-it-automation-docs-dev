@@ -749,7 +749,7 @@ Applying parameters（API）
 =============================
 
 | This API performs Conductor execution from operation generation to parameter application.
-| Note that this API will not confirm if the Conductor has ended or not. To check the Conductor status, do so from :menuselection:`Conductor  -->  Conductor operation list`.
+| Note that this API will not confirm if the Conductor has ended or not. To check the Conductor status, do so from :menuselection:`Conductor  -->  Conductor operation history`.
 
 .. _api_apply_request_format_description:
 

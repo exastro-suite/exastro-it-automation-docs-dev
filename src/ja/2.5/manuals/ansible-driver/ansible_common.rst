@@ -224,7 +224,7 @@ ITA独自変数
   項目が未設定で :menuselection:`各モード --> 作業実行` から作業実行した場合はエラーになります。
 
 
-Movemebt ID
+Movement ID
 ***********
 
 | 作業実行時に選択された :menuselection:`各モード --> Movement一覧` の :menuselection:`Movement ID` を変数として扱えます。
