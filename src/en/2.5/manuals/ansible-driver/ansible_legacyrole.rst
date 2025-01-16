@@ -126,8 +126,23 @@ Ansible-LegacyRole workflow
       | For more information, see :ref:`ansible_common_ansible_automation_controller_hosts`.
 
    #. | **Register Interface information**
-      | From the :menuselection:`Ansible common --> Interface information` menu, select either Ansible Core or Ansible Automation Controller for the execution engine and register connection information for the execution engine server
+      | From the :menuselection:`Ansible common --> Interface information` menu, select Ansible Core, Ansible Automation Controller or Ansible Execution Agent for the execution engine and register connection information for the execution engine server
       | For more information, see :ref:`ansible_common_interface_information`.
+
+   #. | **Register Execution environment definition template management(If needed)**
+      | From the :menuselection:`Ansible common --> Execution environment definition template management` menu, Register the template file for the Execution environment definition file (execution-environment.yml) which is used to build the Execution environment by the ansible-builder within the Ansible Execution Agent.
+      | For more information, see :ref:`ansible_execution_environment_definition_template_list` and :ref:`ansible_common_environment_definition_make`.
+      | Installing ITA registers a template file that allows users to add python module and ansible galaxy collections.
+
+   #. | **Register "Execution environment parameter definition" parameter sheet. sheet(If needed)**
+      | Register Parameters that will be embedded to the execution environment definition file (execution-environment.yml) template file registered in :menuselection:`Ansible common --> Execution environment definition template management`.
+      | For more information, see :ref:`ansible_common_environment_definition_make`.
+      | Installing ITA registers , the :menuselection:`"Execution environment parameter definition" parameter sheet` with the parameters that embeds to the execution environment definition template file (execution-environment.yml) file is registered.
+
+   #. | **Register Execution environment management (If needed)**
+      | Register a link between the  :menuselection:`"Execution environment parameter definition" parameter sheet` and the template file for the execution environment definition file (execution-environment.yml) registered in :menuselection:`Ansible common --> Execution environment definition template management`
+      | For more information, see :ref:`ansible_execution_environment_list`.
+      | Installing ITA registers a link between the :menuselection:`"Execution environment parameter definition" parameter sheet` and :menuselection:`Ansible common --> Execution environment definition template management`.
 
    #. | **Register Movement**
       | From the :menuselection:`Ansible-Legacy --> Movement list` menu, register a Movement.
@@ -216,7 +231,7 @@ Movement list
 
 #. | Maintains (view.register/edit/discard) Movement information.
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/movement_list.png
+   .. figure:: /images/ja/ansible-legacyrole/movement_list/movement_list_v2_5.png
       :width: 800px
       :alt: Submenu (Movement list) 
 
@@ -224,7 +239,7 @@ Movement list
 
 #. | Press the :guilabel:`Register` button to register Movement information.
 
-   .. figure:: /images/ja/ansible-legacyrole/movement_list/registration_movement_list.gif
+   .. figure:: /images/ja/ansible-legacyrole/movement_list/registration_movement_list_v2_5.gif
       :width: 800px
       :alt: Registration page (Movement list) 
 
@@ -234,101 +249,111 @@ Movement list
 #. | The items found in the registration page are as following.
 
    .. table:: Registration page item list (Movement list) 
+      :widths: 10 15 15 60 10 10 20
       :align: left
-
-      +-----------------------------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      | Item                              | Description                                                             | Input \   | Input method | Restrictions      |
-      |                                   |                                                                         | required  |              |                   |
-      |                                   |                                                                         |           |              |                   |
-      +===================================+=========================================================================+===========+==============+===================+
-      | MovementID                        | Displays an automatically numbered string of 36 characters.             | ー        | Automatic    | ー                |
-      +-----------------------------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      | Movement name                     | Display a name for the Movement.                                        | ○        | Manual       | Maximum leng\     |
-      |                                   |                                                                         |           |              | th 255 bytes      |
-      +-----------------------------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      | Delay timer                       | Enter the specified period (1~) in order for the status to display a w\ | ー        | Manual       | 0～2,147,483,647  |
-      |                                   | arning when the Movement is delayed for the specified period. \         |           |              |                   |
-      |                                   | (Unit: minutes)                                                         |           |              |                   |
-      |                                   |                                                                         |           |              |                   |
-      |                                   | No warning will be dispalyed if nothing is entered.                     |           |              |                   |
-      +-----------------+-----------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      | Ansible use \   | Host specifi\   | Select "Host name" in order to specify a host without using IP address. | ○        | List select\ | Same as desc\     |
-      | information     | cation format   |                                                                         |           | ion          | ription.          |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 +-----------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      |                 | WinRM connection| Select "True" if the execution target is a Windows server.\             | ー        | List select\ | Same as desc\     |
-      |                 |                 |                                                                         |           | ion          | ription.          |
-      |                 +-----------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      |                 | Header section\ | Edit the parent Playbook automatically generated by ITA from the begi\  | ー        | Manual       | Maximum leng\     |
-      |                 |  ※1            | nning to the tasks or roles section.                                    |           |              | th 4000 bytes     |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | The following will be applied if the column is not entered.             |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | .. code-block:: yaml                                                    |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |    - hosts: all                                                         |           |              |                   |
-      |                 |                 |      remote_user: "{{ __loginuser__ }}"                                 |           |              |                   |
-      |                 |                 |      gather_facts: no                                                   |           |              |                   |
-      |                 |                 |      become: yes                                                        |           |              |                   |
-      |                 |                 |      # If using winrm connection, become: yes is not applied.           |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | The different parameter values can be described with Variables.         |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | .. code-block:: yaml                                                    |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |     become_user: '{{△vvv△}}'                                          |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |     △：Half-width space                                                |           |              |                   |
-      |                 |                 |     ':Must be enclosed in single or double quotations.                  |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | For more information regarding writing parameter values with variable\  |           |              |                   |
-      |                 |                 |  s, see":ref:`ansible_common_option_var_listup`.                        |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | The Variable's  Specific value are registered from  :menuselection:`A\  |           |              |                   |
-      |                 |                 | nsible-Legacy -->  Substitute value auto registration settings`.        |           |              |                   |
-      |                 +-----------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      |                 | Option p\       | Enter Movement fixed option parameters.                                 | ー        | Manual       | Maximum len\      |
-      |                 | arameter        |                                                                         |           |              | gth 4000 bytes    |
-      |                 |                 | For more inforamtion regarding option parameteres, see\                 |           |              |                   |
-      |                 |                 | ":ref:`ansible_common_option_parameter_list`"\                          |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | + | If the :menuselection:`Ansible common --> Interface information`'s\ |           |              |                   |
-      |                 |                 |       :menuselection:`Execution engine` is \                            |           |              |                   |
-      |                 |                 |     "Ansible Core"                                                      |           |              |                   |
-      |                 |                 |   | Input the ansible-playbook command's option parameter.\             |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | + | If the :menuselection:`Execution engine` is\                        |           |              |                   |
-      |                 |                 |     "Ansible Automation Controller",                                    |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |   | Input Job template's parameter.                                     |           |              |                   |
-      |                 |                 |   | For more information regarding job tempaltes, see th\               |           |              |                   |
-      |                 |                 |      e official Ansible Automation Controller manuals\                  |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | Movement fixed option parameters are input from\                        |           |              |                   |
-      |                 |                 |  :menuselection:`Ansible common --> Interface information`'s'\          |           |              |                   |
-      |                 |                 | :menuselection:`Operation parameter`.                                   |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 +-----------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      |                 | ansible.cfg     | Upload the ansible.cfg file that will be used when executed.            | ー        | File\        | Maximum size\     |
-      |                 |                 |                                                                         |           | election     | 100 mb            |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 | If nothing is uplaoded, the default will be used.                       |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 |                 |                                                                         |           |              |                   |
-      |                 +--------+--------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      |                 | Ansibl\| Execu\ | Displays the execution environments created by the Ansible A\           | ー        | List sel\    | Same as desc\     |
-      |                 | e Auto\| tion e\| utomation Controller.                                                   |           | ection       | ription.          |
-      |                 | matio\ | nviro\ |                                                                         |           |              |                   |
-      |                 | n Cont\| nment\ | Select the execution environment that will be used.                     |           |              |                   |
-      |                 | roller\| ※2    |                                                                         |           |              |                   |
-      |                 | use in\|        | If nothing is selected, the default execution value configure\          |           |              |                   |
-      |                 | format\|        | d to Ansible Automation Controller will be used.                        |           |              |                   |
-      |                 | ion    |        |                                                                         |           |              |                   |
-      +-----------------+--------+--------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
-      | Remarks                           | Free description field                                                  | ー        | Manual       | Maximum length    |
-      |                                   |                                                                         |           |              | \4000 bytes       |
-      +-----------------------------------+-------------------------------------------------------------------------+-----------+--------------+-------------------+
+      +-------------------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      | Item                                | Description                                                                       | Input \   | Input method | Restrictions                                          |
+      |                                     |                                                                                   | required  |              |                                                       |
+      +=====================================+===================================================================================+===========+==============+=======================================================+
+      | MovementID                          | Displays an automatically numbered string of 36 characters.                       | ー        | Automatic    | ー                                                    |
+      +-------------------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      | Movement name                       | Input a name for the Movement.                                                    | ○        | Manual       | Maximum length 255 bytes                              |
+      +-------------------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      | Delay                               | Enter the specified period (1~) in order for the :menuselection:`Status`  \       | ー        | Manual       | 0～2,147,483,647                                      |
+      | timer                               | in Ansible Legacy to display a warning when the Movement is delayed  \            |           |              |                                                       |
+      |                                     | for the specified period.(Unit: minutes) \                                        |           |              |                                                       |
+      |                                     |                                                                                   |           |              |                                                       |
+      |                                     | No warning will be dispalyed if nothing is entered.                               |           |              |                                                       |
+      +-----------+-------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      | Ansible   | Host specification \    | Select "Host name" in order to specify a host without using IP address.           | ○        | List \       | Same as description.                                  |
+      | use infor\| format                  |                                                                                   |           | selection    |                                                       |
+      | mation    |                         |                                                                                   |           |              |                                                       |
+      |           +-------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | WinRM connection        | Select "True" if the execution target is a Windows server.                        | ー        | List \       | Same as description.                                  |
+      |           |                         |                                                                                   |           | selection    |                                                       |
+      |           +-------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | Header section\         | Edit the parent Playbook automatically generated by ITA from the begi\            | ー        | Manual       | Maximum leng\                                         |
+      |           |  ※1                    | nning to the tasks or roles section.                                              |           |              | th 4000 bytes                                         |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | The following will be applied if the column is not entered.                       |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | .. code-block:: yaml                                                              |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |    - hosts: all                                                                   |           |              |                                                       |
+      |           |                         |      remote_user: "{{ __loginuser__ }}"                                           |           |              |                                                       |
+      |           |                         |      gather_facts: no                                                             |           |              |                                                       |
+      |           |                         |      become: yes                                                                  |           |              |                                                       |
+      |           |                         |      # If using winrm connection, become: yes is not applied.                     |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | The different parameter values can be described with Variables.                   |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | .. code-block:: yaml                                                              |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |     become_user: '{{△vvv△}}'                                                    |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |     △：Half-width space                                                          |           |              |                                                       |
+      |           |                         |     ':Must be enclosed in single or double quotations.                            |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | For more information regarding writing parameter values with variable\            |           |              |                                                       |
+      |           |                         |  s, see":ref:`ansible_common_option_var_listup`.                                  |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | The Variable's  Specific value are registered from  :menuselection:`A\            |           |              |                                                       |
+      |           |                         | nsible-Legacy -->  Substitute value auto registration settings`.                  |           |              |                                                       |
+      |           +-------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | Option parameter        | Enter Movement fixed option parameters.                                           | ー        | Manual       | Maximum length 4000 bytes                             |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | For more inforamtion regarding option parameteres, see\                           |           |              |                                                       |
+      |           |                         | ":ref:`ansible_common_option_parameter_list`"\                                    |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | + | If the :menuselection:`Ansible common --> Interface information`'s\           |           |              |                                                       |
+      |           |                         |       :menuselection:`Execution engine` is \                                      |           |              |                                                       |
+      |           |                         |     "Ansible Core" or "Ansible Execution engine"                                  |           |              |                                                       |
+      |           |                         |   | Input the ansible-playbook command's option parameter.\                       |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | + | If the :menuselection:`Execution engine` is\                                  |           |              |                                                       |
+      |           |                         |     "Ansible Automation Controller",                                              |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |   | Input Job template's parameter.                                               |           |              |                                                       |
+      |           |                         |   | For more information regarding job tempaltes, see th\                         |           |              |                                                       |
+      |           |                         |      e official Ansible Automation Controller manuals\                            |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         | Movement fixed option parameters are input from\                                  |           |              |                                                       |
+      |           |                         |  :menuselection:`Ansible common --> Interface information`'s'\                    |           |              |                                                       |
+      |           |                         | :menuselection:`Operation parameter`.                                             |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           +-------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | ansible.cfg             | Upload the ansible.cfg file that will be used when executed.                      | ー        | File \       | Maximum size 100MB                                    |
+      |           |                         |                                                                                   |           | selection    |                                                       |
+      |           |                         | If nothing is uploaded, the default will be used.                                 |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           |                         |                                                                                   |           |              |                                                       |
+      |           +-------------+-----------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | Ansible \   | Execution\| Displays the :menuselection:`Execution environment name` registered in :menus\    | ー        | List \       | Same as description.                                  |
+      |           | Execution \ |  environm\| election:`Ansible common --> Execution environment definition`. Select the Execut\|           | selection    |                                                       |
+      |           | Agent \     | ent       | ion environment name that is linked with the "Execution environment parameter de\ |           |              |                                                       |
+      |           | use info\   |           | finition" parameter sheet and the Template file used when building the execution \|           |              |                                                       |
+      |           | rmation     |           |                                                                                   |           |              |                                                       |
+      |           |             |           | This item is required if "Ansible Execution Agent" is selected as the :menusel\   |           |              |                                                       |
+      |           |             |           | ection:`Execution engine` in :menuselection:`Ansible common --> Interf\.          |           |              |                                                       |
+      |           |             |           | ace information`.                                                                 |           |              |                                                       |
+      |           +             +-----------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           |             | ansible-\ | Input the _ansible-builder parameters used when building the execution environm\  | ー        | Manual       | Maximum length 4000                                   |
+      |           |             | builder\  | ent with the ansible-builder in Ansible Execution Agent                           |           |              |                                                       |
+      |           |             |  parameter| For more information, see the ansible-builder manual.                             |           |              |                                                       |
+      |           |             |           |                                                                                   |           |              |                                                       |
+      |           |             |           |                                                                                   |           |              |                                                       |
+      |           |             |           |                                                                                   |           |              |                                                       |
+      |           +-------------+-----------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |           | Ansible \   | Execution\| Displays the Execution environment where the Ansible Automation Controlle\        | ー        | List \       | Same as description.                                  |
+      |           | Automatio \ |  environ\ | r is created to. Select which one to use.                                         |           | selection    |                                                       |
+      |           | Controller\ | ment※2   | If nothing is selected, the default execution value configure\                    |           |              |                                                       |
+      |           |  use inform\|           | d to Ansible Automation Controller will be used.                                  |           |              |                                                       |
+      |           | ation       |           |                                                                                   |           |              |                                                       |
+      +-----------+-------------+-----------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      | Remarks                             | Free description field                                                            | ー        | Manual       | Maximum length 4000 bytes                             |
+      +-------------------------------------+-----------------------------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
 
    .. tip:: | ※1 If the has "become: yes" configured.
        | The following settings must be configured to the target.
@@ -1078,7 +1103,7 @@ Execute
 | Select an Operation from the Operation list.
 | There are 3 different types of execution types. Clicking the one of the execution buttons moves the user to :menuselection:`Ansible-LegacyRole --> Confirm execution status` where the execution process will start
 
-.. figure:: /images/ja/ansible-legacyrole/execution/execution_screen.gif
+.. figure:: /images/ja/ansible-legacyrole/execution/execution_screen_v2_5.gif
    :width: 800px
    :alt: Execute menu
 
@@ -1108,7 +1133,7 @@ Confirm execution status
 
 | Allows users to monitor execution statuses.
 
-.. figure:: /images/ja/ansible-legacyrole/check_work_status/check_operation_status.png
+.. figure:: /images/ja/ansible-legacyrole/check_work_status/check_operation_status_v2_5.png
    :width: 800px
    :alt: Submenu (Confirm execution status) 
 
@@ -1176,7 +1201,7 @@ Execution management
    | Specify search conditions and press the :guilabel:`Filter` button to view a table of executions.
    | Pressing the :guilabel:`Details` button moves the user to :menuselection:`Ansible-LegacyRole --> Confirm execution status`  where they can view detailed information regarding the execution status.
 
-.. figure:: /images/ja/ansible-legacy/work_management/execution_list.png
+.. figure:: /images/ja/ansible-legacyrole/work_management/execution_list_v2_5.png
    :width: 800px
    :alt: Submenu (Execution management) 
 
@@ -1198,6 +1223,10 @@ Execution management
       | Execution type                                                                | Displays the Execution type.                                                 |
       +-------------------------------------------------------------------------------+------------------------------------------------------------------------------+
       | Status                                                                        | Displays the status of the Execution.                                        |
+      +-------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+      | Emergency stop flag                                                           | Displays whether the operation has been stopped by the Emergency stop butto\ |
+      |                                                                               | n from the :menuselection:`Ansible-LegacyRole --> Execution status check\    |
+      |                                                                               | ` menu or not.                                                               |
       +-------------------------------------------------------------------------------+------------------------------------------------------------------------------+
       | Execution engine                                                              | Displays the Execution engine used.                                          |
       +-------------------------------------------------------------------------------+------------------------------------------------------------------------------+
@@ -1221,6 +1250,12 @@ Execution management
       |                     |                               | Header section          | Displays the selected Movement's header section.                             |
       |                     |                               +-------------------------+------------------------------------------------------------------------------+
       |                     |                               | ansible.cfg             | Allows users to download the selected Movement's ansible.cfg file.           |
+      |                     +-------------------------------+-------------------------+------------------------------------------------------------------------------+
+      |                     | Ansible Execution Agent \     | Execution environment   | Displays the Ansible Execution Agent's execution environment of the \        |
+      |                     | use information               |                         | selected Movement.                                                           |
+      |                     +                               +-------------------------+------------------------------------------------------------------------------+
+      |                     |                               | ansible-builder\        | Displays the ansible-builder of the selected Movement.                       |
+      |                     |                               | parameter               |                                                                              |
       |                     +-------------------------------+-------------------------+------------------------------------------------------------------------------+
       |                     | Ansible Automation \          | Execution environment   | Displays the selected Movement's execution environment.                      |
       |                     | Controller use information    |                         |                                                                              |
@@ -1761,38 +1796,47 @@ Ansible-LegacyRole input data
      - Menu
      - Item
      - Directory unzip path
+     - Remarks
    * - Ansible-LegacyRole
      - Role package management
      - Role package
      - /roles
+     -
    * - Ansible Common
      - Template management
      - Template file
      - /template_files
+     -
    * - Ansible common
      - File management
      - File material
      - /copy_files
+     -
    * - Ansible-LegacyRole
      - Substitute value management
      - Specific value（File）
      - /upload_files
+     -
    * - Ansible common
      - Global variable management
      - Variable name/Specific value
      - /host_vars
+     -
    * - Ansible-LegacyRole
      - Substitute value management
      - Variable name/Specific value
      - /host_vars
+     -
    * - Ansible-LegacyRole
      - Template management
      - Template embedded variable
      - /host_vars
+     -
    * - Ansible-LegacyRole
      - File management
      - File embedded variable
      - /host_vars
+     -
    * - Ansible common
      - Device list
      - | Login user ID
@@ -1801,22 +1845,39 @@ Ansible-LegacyRole input data
        | DNSHost name
        | IP address
      - /host_vars
+     -
    * - Ansible common
      - Device list
      - ssh authentication key file
      - /ssh_key_files
+     - 
+   * - Ansible common
+     - Device list
+     - | winrm public key file
+       | winrm secret key file
+     - /winrm_key_files
+     - 
    * - Ansible common
      - Device list
      - Server certification
      - /winrm_ca_files
+     -
    * - Ansible common
      - Interface information
      - Option parameter
-     - /AnsibleExecOption.txt
+     - | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Core" or "Ansible Automation Controller".
+       | /AnsibleExecOption.txt
+       | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
+       | /env/cmdline 
+     - 
    * - Ansible-LegacyRole
      - Movement list
      - Option parameter
-     - /AnsibleExecOption.txt
+     - | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Core」「Ansible Automation Controller".
+       | /AnsibleExecOption.txt
+       | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
+       | /env/cmdline 
+     - 
    * - Ansible common
      - Device list
      - | Login user ID
@@ -1827,11 +1888,32 @@ Ansible-LegacyRole input data
        | Inventory file additional option
        | WinRM connection information
        | Connection option
+     - | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Core」「Ansible Automation Controller".
+       | /hosts
+       | If the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
+       | /inventory/hosts 
      - /hosts
    * - Ansible-LegacyRole
      - Movement-Role link
      - Role name・Include order
      - /site.yml
+     - 
+   * - Ansible common
+     - Execution environment definition template management
+     - Template file
+     - builder_executable_files/execution-environment.yml
+     - Only if the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
+   * - Ansible common
+     - "Execution environment parameter definition" parameter sheet.
+     - Upload files
+     - builder_executable_files/{{Rest API item name}}_Upload file name
+     - Only if the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
+   * - Ansible common
+     - Execution environment management
+     - Tag name
+     - | builder_executable_files/builder.sh
+       | runner_executable_files/start.sh
+     - Only if the :menuselection:`Execution engine` in :menuselection:`Ansible common --> Interface information` is set to "Ansible Execution Agent".
 
 
 .. _ansible_legacyrole_the_linkage_between_the_output_data_used_during_ansible_execution_and_ita_menu:
@@ -1847,7 +1929,7 @@ Ansible-LegacyRole result data File list
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: Ansible-LegacyRole result data File list
-   :widths: 20 50 20 20
+   :widths: 20 50 20 20 20
    :header-rows: 1
    :align: left
 
@@ -1855,9 +1937,11 @@ Ansible-LegacyRole result data File list
      - Recorded contents
      - Ansible Core
      - Ansible Automation Controller
+     - Ansible Execution Agent
    * - result.txt
      - Records Ansible execution result's execution results
      - 〇
+     -
      -
    * - error.log
      - | Error output file with Executing.
@@ -1865,8 +1949,10 @@ Ansible-LegacyRole result data File list
        | Contents displayed in the Execute confirmation error log.
      - 〇
      - 〇
+     - 〇
    * - exec.log.org
      - xecution log output by Ansible-playbook
+     - 〇
      - 〇
      - 〇
    * - exec.log
@@ -1874,17 +1960,27 @@ Ansible-LegacyRole result data File list
        | Contents displayed to the Execution confirmation execution log
      - 〇
      - 〇
+     - 〇
    * - exec_<Execution number>_<group number>
      - | Divided execution log file
        | For more information regarding file name conventions, see the execution log in :ref:`ansible_legacyrole_check_operation_status` .
      -
      - 〇
+     -
    * - forced.txt
      - Text file if stopped with Emergency stop
      - 〇
      -
+     - 〇
    * - user_files
      - A directory where files are recorded when some file is output to ITA's original variable "\__\workflowdir\__\" in the playbook executed.
      - 〇
+     - 〇
+     - 〇
+   * - | child_exec.log
+       | child_error.log
+     - ansible-builder execution log
+     - 
+     - 
      - 〇
 

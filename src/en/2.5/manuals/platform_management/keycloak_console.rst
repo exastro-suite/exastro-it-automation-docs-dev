@@ -147,3 +147,81 @@ Adding system administrator
 
 
    | Finishing this will have added a user with the priveleges as a system admin.
+
+.. _access_token_lifespan_change:
+
+Changing the validity period of access tokens
+------------------------------
+
+| During processes that may take a long time, such as uploading/downloading large files, a message saying "Failed to authenticate" may display. 
+| This problem can be solved by changing the validity period of the acecss token.
+
+#. | Select Client (Value same as Organization ID)
+
+   | Select the desired realm with the aforementioned `Select Realm (Organization) ` and select :menuselection:`Client` from the menu.
+   | This will display the :menuselection:`Client list` page. From the Client ID row, select the :guilabel:`Client that has the same value as the Organization`.
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | DisplayAdvanced settings(Client)
+
+   | This will display the :menuselection:`Client details` page. Select :menuselection:`Advanced`.
+   | From the right side of the Advanced page, select "Advanced settings" under "Jump to section".
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | Changing access token validity period
+
+   | Change the access token's validity period items from "inherits from realm settings" to "Validity period" and input the desired time.
+   | Scroll down and press the :guilabel:`Save` button to save any changes made.
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced_access_token_lifespan.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_client_advanced_access_token_lifespan_save.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. note::
+      | If Access tokens exceeds the max time set in SSO session/idle/Max SSO sessions, the token will be deactivated even if within the validity period.
+      | If the user needs the access token's validity period to be more than the default SSO default settings (idle(30min)/SSO session(10h)), 
+      | change the SSO session/Idle/Max SSO session time to fit.
+
+
+Changing SSO session/idle/Max SSO sessions
+---------------------------------------------
+
+#. | Display Session Settings
+
+   | Select the desired realm with the aforementioned `Select Realm (Organization) ` and select :menuselection:`Realm settings` from the menu.
+   | This will display the :menuselection:`Realm settings` page. Select :menuselection:`Session` and move to the :menuselection:`Session Settings` page.
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+#. | Changing access token validity period
+
+   | Input the desired time to the SSO session/idle/Max SSO sessions item.
+   | Scroll down and press the :guilabel:`Save` button to save any changes made.
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions_edit.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+
+   .. figure:: /images/ja/manuals/platform/keycloak_console/keycloak_console_realm_sessions_save.png
+      :width: 600px
+      :align: left
+      :class: with-border-thin
+ 

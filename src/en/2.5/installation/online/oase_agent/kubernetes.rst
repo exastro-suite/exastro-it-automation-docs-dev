@@ -16,54 +16,53 @@
 
 .. _oase_agent_kubernetes_install:
 
-=================================
+=======================
 OASE Agent on Kubernetes - Online
-=================================
+=======================
 
-目的
+Introduction
+====
+| This document aims to explain how to install the Exastro OASE Agent, which is used to link with external services when using OASE, on Kubernetes.
+
+Features
 ====
 
-| 本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。
+| This document contains information on how to install Exastro OASE Agent with high availability and service level.
+| For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version of the OASE Agent <docker_compose>`.
+| For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
-特徴
-====
-
-| OASEを利用するための絶対条件である、Exastro OASE Agentの高い可用性やサービスレベルを必要とされる際の、Exastro IT Automation の導入方法となります。
-| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版 OASE Agent<docker_compose>` の利用を推奨します。
-| Exastro OASE Agentの設定や運用については、:ref:`エージェント概要<agent_about>` をご参照ください。
-
-前提条件
+Prerequisites
 ========
 
-- Exastro IT Automationについて
+- Exastro IT Automation
 
-  | Exastro OASE Agentの運用には、Exastro OASE AgentとExastro IT Automationのバージョンが一致している必要があります。
+  | Both the Exastro OASE Agent and the Exastro IT Automation must be on the same version in order to operate the Exastro OASE Agent.
 
-- クライアント要件
+- Client requirements
 
-  | 動作確認が取れているクライアントアプリケーションのバージョンは下記のとおりです。
+  | The following describes confirmed compatible client application as well as their versions.
 
-  .. list-table:: クライアント要件
+  .. list-table:: Client requirements
    :widths: 20, 20
    :header-rows: 1
 
-   * - アプリケーション
-     - バージョン
+   * - Application
+     - Version
    * - Helm
      - v3.9.x
    * - kubectl
      - 1.23
 
-- デプロイ環境
+- Deploy environment
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
+  | The following describes confirmed compatible operation systems as well as their versions.
 
-  .. list-table:: ハードウェア要件(最小構成)
+  .. list-table:: Hardware requirements (minimum requirements)
    :widths: 1, 1
    :header-rows: 1
-  
-   * - リソース種別
-     - 要求リソース
+
+   * - Resource type
+     - Required resource
    * - CPU
      - 2 Cores (3.0 GHz, x86_64)
    * - Memory
@@ -71,50 +70,48 @@ OASE Agent on Kubernetes - Online
    * - Storage (Container image size)
      - 10GB
    * - Kubernetes (Container image size)
-     - 1.23 以上
+     - 1.23 or later
 
-- 通信要件
+- Communication Protocols
 
-  - OASE Agentから収集対象サーバにアクセスできる必要があります。
-  - コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
+  - The user must be able to access the target fetch server from the OASE Agent.
+  - The user must be able to connect to Docker Hub in order to acquire the container image from the container environment.
 
-.. warning::
-    | :doc:`Helm chart (Kubernetes) 版<../exastro/kubernetes>` で構築した環境にデプロイする場合、
-    | OASE Agentに対応する最小要件を追加で容易する必要があります。
+  .. warning::
+    | If deploying to an environment constructed in :doc:`Helm chart (Kubernetes) version <../exastro/kubernetes>`, make sure that the environment has enough specs to meet additional minimum specs of the OASE Agent.
 
-
-インストールの準備
+Preparation
 ==================
 
-Helm リポジトリの登録
+Register Helm repository
 ---------------------
 
-| Exastro OASE AgentはExastro システムと同一の Helm リポジトリ上に存在しています。
+| The Exastro OASE Agent exists on the same helm repository as the Exastro system.
 
 - Exastro OASE Agent
 
 .. csv-table::
- :header: リポジトリ
+ :header: Repository
  :widths: 50
 
  https://exastro-suite.github.io/exastro-helm/
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Cmmand
 
-   # Exastro システムの Helm リポジトリを登録
+   # Register Exastro system's Helm repository.
    helm repo add exastro https://exastro-suite.github.io/exastro-helm/ --namespace exastro
-   # リポジトリ情報の更新
+   # Update repository information
    helm repo update
 
-デフォルト設定値の取得
+Fetch default setting values
 ----------------------
 
-| 投入するパラメータを管理しやすくするために、下記のコマンドから共通基盤 values.yaml のデフォルト値を出力します。
+| The following command outputs the values.yaml default values. This makes it easier to manage the input parameters.
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    helm show values exastro/exastro-agent > exastro-agent.yaml
 
@@ -252,46 +249,46 @@ Helm リポジトリの登録
    </details>
 
 
-| 以降の手順では、この :file:`exastro-agent.yaml` に対してインストールに必要なパラメータを設定してきいます。
+| The following steps will configure required parameters to :file:`exastro-agent.yaml`.
 
-OASE Agentの設定
+OASE Agent settings
 ----------------
 
 | OASE Agentを立ち上げる際の代表的な設定方法について紹介します。
-| 下記の例では、永続ボリュームはhostPathで設定してます。
+| In the following example, the persistent volume is configured to hostPath.
 
-- シンプル構成
-- 複数エージェント（同一Pod）
-- 複数エージェント（別Pod）
+- Simple architecture
+- Multiple agents (Same Pod) 
+- Multiple agents (Different Pod) 
 
-パラメータ
+Parameter
 ^^^^^^^^^^
 
-| 利用可能なパラメータについては下記を参照してください。
+| See the following in order to see the usable parameters.
 
 .. include:: ../../../include/helm_option_ita-ag-oase.rst
 
-| ※リフレッシュトークンの取得に関しては :ref:`exastro_refresh_token` を参照してください。
+| ※For more information regarding fetching refresh tokens, see :ref:`exastro_refresh_token`.
 
-OASE Agentのパラメータ設定例
+OASE Agent parameter setting example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| Agentの設定例を下記に記載します。
+| The following is a sample of Agent settings.
 
 .. tabs::
 
-   .. group-tab:: シンプル構成
+   .. group-tab:: Simple architecture
 
-      - 特徴
+      - Features
 
-      | 1Podに1コンテナのシンプルな構成
+      | Simple architecture with 1 container for 1 pod.
 
 
-      - 設定例
+      - Setting example
 
-      1.  OASE Agentの設定
+      1.  OASE Agent settings
   
-          | OASE Agentの設定します。
+          | Configure the OASE Agent.
 
           .. code-block:: diff
            :caption: exastro-agent.yaml
@@ -314,35 +311,35 @@ OASE Agentのパラメータ設定例
                    LOG_LEVEL: INFO
                    AGENT_NAME: "oase-agent"
            -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
            -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # Exastro IT Automation で作成した WorkspaceID
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 イベント収集 で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
+           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
-   .. group-tab:: 複数エージェント（同一Pod）
+   .. group-tab:: Multiple Agents (Same pod) 
 
-      - 特徴
+      - Features
 
-      | 1Podに複数コンテナを立てる構成。
-      | image以下を増やしていくことで複数構築可能だが、その分リソースは増やす必要があります。
+      | Architecture where multiple containers are built on 1 Pod.
+      | While multiple constructions can be done by increasing the following image, make sure to increase the amount of resources to compensate.
 
 
-      - 設定例
+      - Setting example
 
-      1.  OASE Agentの設定
+      1.  OASE Agent settings
   
-          | OASE Agentの設定します。
+          | Configure OASE Agent
 
           .. code-block:: diff
            :caption: exastro-agent.yaml
@@ -364,23 +361,23 @@ OASE Agentのパラメータ設定例
                    EXECUTE_INTERVAL: "10"
                    LOG_LEVEL: INFO
                    AGENT_NAME: "oase-agent"
-           +       AGENT_NAME: "oase-agent-1"                                               # 起動する OASEエージェントの名前
+           +       AGENT_NAME: "oase-agent-1"                                               # Name of the OASE Agent
            -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
            -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
+           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
            +   - image:
            +       repository: ""
            +       # Overrides the image tag whose default is the chart appVersion.
@@ -393,34 +390,50 @@ OASE Agentのパラメータ設定例
            +       ITERATION: "500"
            +       EXECUTE_INTERVAL: "10"
            +       LOG_LEVEL: INFO
-           +       AGENT_NAME: "oase-agent-2"                                               # 起動する OASEエージェントの名前
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
+           +       AGENT_NAME: "oase-agent-2"                                               # Name of the OASE Agent
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # WorkspaceID created in Exastro IT Automation
            +       # ROLES: "_ws_admin"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
            +     secret:
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
-           +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Exastro IT Automation で作成した ユーザー名
-           +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Exastro IT Automation で作成した パスワード
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
+           +       EXASTRO_USERNAME: "your-ita-user-name"                                   # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
 
-   .. group-tab:: 複数エージェント（別Pod）
+   .. group-tab:: Multiple Agents (Different Pod) 
 
-      - 特徴
+      - Features
 
-      | 複数のPodを立てる構成。
-      | 不要エージェントを個別に停止できる利点がありますが、
-      | それぞれのPodに対して永続化ボリュームを作成する必要があります。
+      | Architecture built on multiple Pods.
+      | While there are merits to being able to stop single agents, 
+      | The user must prepare persistent volumes for each Pod.
 
-      - 設定例
+      - Setting example
 
-      1.  設定値ファイルを用意
+      1.  Prepare Setting value file
 
-          | exastro-agent.yamlをコピーして、exastro-agent-1.yamlを用意してください。
-          | exastro-agent.yamlをコピーして、exastro-agent-2.yamlを用意してください。
+          | Copy exastro-agent.yaml and prepare exastro-agent-1.yaml
+          | Copy exastro-agent.yaml and prepare exastro-agent-2.yaml
 
-      2.  一つ目のOASE Agentの設定
+      2.  First OASE Agent           +       AGENT_NAME: "oase-agent-1"                                               # Name of the OASE Agent
+           -       EXASTRO_URL: "http://platform-auth:8000"
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
+           -       EXASTRO_ORGANIZATION_ID: "org001"
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
+           -       EXASTRO_WORKSPACE_ID: "ws01"
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
+                   # ROLES: "_ws_admin"
+           -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
+                 secret:
+           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
+                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_PASSWORD: "sample-password"
+           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
           .. code-block:: diff
            :caption: exastro-agent-1.yaml
@@ -443,23 +456,23 @@ OASE Agentのパラメータ設定例
                    LOG_LEVEL: INFO
                    AGENT_NAME: "oase-agent"
            -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
            -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-1"   # OASE管理 イベント収集 で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
+           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
-      3.  一つ目のOASE Agentの定義名を設定
+      3.  Configure First OASE Agent definition name
 
           .. code-block:: diff
            :caption: exastro-agent-1.yaml
@@ -468,10 +481,10 @@ OASE Agentのパラメータ設定例
 
              imagePullSecrets: []
            - nameOverride: ""
-           + nameOverride: "ita-ag-oase-1"    # Exastro OASE Agent の定義名
+           + nameOverride: "ita-ag-oase-1"    # Exastro OASE Agent definition name
              fullnameOverride: ""
 
-      4.  一つ目のOASE AgentのmatchLabelsを設定
+      4.  Configure first OASE Agent's matchLabels
 
           .. code-block:: diff
            :caption: exastro-agent-1.yaml
@@ -488,9 +501,9 @@ OASE Agentのパラメータ設定例
            -   # matchLabels:
            -   #   release: "stable"
            +   matchLabels:
-           +     release: "pv-ita-ag-oase-1"    # 利用する永続ボリューム名を指定
+           +     release: "pv-ita-ag-oase-1"    # Specify the name of the presistent volume that will be used
 
-      5.  二つ目のOASE Agentの設定
+      5. Configure Second OASE Agent definition name
 
           .. code-block:: diff
            :caption: exastro-agent-2.yaml
@@ -513,23 +526,23 @@ OASE Agentのパラメータ設定例
                    LOG_LEVEL: INFO
                    AGENT_NAME: "oase-agent"
            -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                     # Exastro IT Automation の Service URL
+           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                            # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
            -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
+           +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # WorkspaceID created in Exastro IT Automation
                    # ROLES: "_ws_admin"
            -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
+           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
+           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
+           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
-      6.  二つ目のOASE Agentの定義名を設定します。
+      6.  Configure Second OASE Agent definition name
 
           .. code-block:: diff
            :caption: exastro-agent-2.yaml
@@ -538,10 +551,10 @@ OASE Agentのパラメータ設定例
 
              imagePullSecrets: []
            - nameOverride: ""
-           + nameOverride: "ita-ag-oase-2"    # Exastro OASE Agent の定義名
+           + nameOverride: "ita-ag-oase-2"    # Exastro OASE Agent definition name
              fullnameOverride: ""
 
-      7.  二つ目のOASE AgentのmatchLabelsを設定
+      7.  Configure Second OASE Agent's matchLabels
 
           .. code-block:: diff
            :caption: exastro-agent-2.yaml
@@ -558,35 +571,35 @@ OASE Agentのパラメータ設定例
            -   # matchLabels:
            -   #   release: "stable"
            +   matchLabels:
-           +     release: "pv-ita-ag-oase-2"    # 利用する永続ボリューム名を指定
+           +     release: "pv-ita-ag-oase-2"    # Specify the name of the presistent volume that will be used
 
 .. _agent_persistent_volume:
 
-永続ボリュームの設定
+Persistent volume settings
 --------------------
 
-| データベースのデータ永続化 (クラスタ内コンテナがある場合)、および、ファイルの永続化のために、永続ボリュームを設定する必要があります。
-| 永続ボリュームの詳細については、 `永続ボリューム - Kubernetes <https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/#%E6%B0%B8%E7%B6%9A%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0>`_ を参照してください。
+| In order to persist data in a database(if the container is within a cluster), or files, the user will need to configure a persistent volume. 
+| For more information regarding persistent volumes, see `Persistent volumes - Kubernetes <https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/#%E6%B0%B8%E7%B6%9A%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0>`_ を参照してください。
 
 .. tabs::
 
-   .. group-tab:: Kubernetes ノードのディレクトリ
+   .. group-tab:: Kubernetes Node directory
 
-      - 特徴
+      - Features
 
-      | Kubernetes のノード上のストレージ領域を利用するため、別途ストレージを調達する必要はありませんが、この方法は非推奨のため検証や開発時のみの利用
+      | This method uses storage on the Kubernetes node. There is no need to provide seperate storage, but we recommend that this method is only used for testing and developing.
 
       .. danger::
-          | データの永続化自体は可能ですが、コンピュートノードの増減や変更によりデータが消えてしまう可能性があるため本番環境では使用しないでください。
-          | また、Azure で構築した AKS クラスタは、クラスタを停止すると AKS クラスターの Node が解放されるため、保存していた情報は消えてしまいます。そのため、Node が停止しないように注意が必要となります。
+          | While persisting data is possible, data might be deleted if compute nodes are changed. We strongly recommend against using this method to persist data in production.
+          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted. 
 
-      - 利用例
+      - Example
 
-      | hostPath を使用した例を記載します。
+      | The example below uses hostPath.
 
       .. tabs::
 
-         .. group-tab:: シンプル構成 & 複数エージェント（同一Pod）
+         .. group-tab:: Simple architecture and Multiple Agents (Same Pod) 
 
             .. code-block:: diff
               :caption: pv-ita-ag-oase.yaml
@@ -611,7 +624,7 @@ OASE Agentのパラメータ設定例
                   type: DirectoryOrCreate
 
 
-         .. group-tab:: 複数エージェント（別Pod）
+         .. group-tab:: Multiple Agents (Different Pod) 
 
             .. code-block:: diff
               :caption: pv-ita-ag-oase-1.yaml
@@ -657,22 +670,25 @@ OASE Agentのパラメータ設定例
                   path: /var/data/exastro-suite/exastro-agent/ita-ag-oase-2
                   type: DirectoryOrCreate
 
-.. _インストール-2:
+.. _Install2:
 
-インストール
+Install
 ============
 
-永続ボリュームの作成
+.. note::
+   | If the installation fails, follow :ref:`ita_uninstall` and try reinstalling.
+
+Create Persistent volumes
 --------------------
 
-| :ref:`agent_persistent_volume` で作成したマニフェストファイルを適用し、ボリュームを作成します。
+| Apply the manifest file created in :ref:`agent_persistent_volume` and create persistent volume.
 
 .. code-block:: bash
 
     # pv-ita-ag-oase.yaml
     kubectl apply -f pv-ita-ag-oase.yaml
 
-    # 複数エージェント（別Pod）の場合は下記を実施
+    # Run the following for Multiple Agents (Different Pod)
     # pv-ita-ag-oase-1.yaml 
     kubectl apply -f pv-ita-ag-oase-1.yaml
 
@@ -682,7 +698,7 @@ OASE Agentのパラメータ設定例
 
 .. code-block:: bash
 
-    # 確認
+    # Confirm
     kubectl get pv
 
 .. code-block:: bash
@@ -696,26 +712,26 @@ OASE Agentのパラメータ設定例
     pv-ita-ag-oase-1   10Gi       RWX            Retain           Available                                     5s
     pv-ita-ag-oase-2   10Gi       RWX            Retain           Available                                     6s
 
-インストール
+Install
 ------------
 
-| Helm バージョンとアプリケーションのバージョンについては `exastro-helmのサイト <https://github.com/exastro-suite/exastro-helm>`_ をご確認ください。
+| See the  `exastro-helm site <https://github.com/exastro-suite/exastro-helm>` for more information regarding the Helm and Application versions.
 
 .. tabs::
 
-   .. group-tab:: シンプル構成 & 複数エージェント（同一Pod）
+   .. group-tab:: Simple architecture & Multiple Agent (Same Pod) 
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      1. Use Helm command to install on Kubernetes environment.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm install exastro-agent exastro/exastro-agent \
               --namespace exastro --create-namespace \
               --values exastro-agent.yaml
 
          .. code-block:: bash
-            :caption: 出力結果
+            :caption: Output results
 
             NAME: exastro-agent
             LAST DEPLOYED: Wed Feb 14 14:36:27 2024
@@ -724,36 +740,36 @@ OASE Agentのパラメータ設定例
             REVISION: 1
             TEST SUITE: None
 
-      2. インストール状況確認
+      2. Confirm Installation status
 
          .. code-block:: bash
-             :caption: コマンド
+             :caption: Command
              
-             # Pod の一覧を取得
+             # Fetch Pod  list
              kubectl get po --namespace exastro
              
-             | 正常に起動している場合は、“Running” となります。
-             | ※正常に起動するまで数分かかる場合があります。
+             | If running normally, the status will say "Running".
+             | ※The user might have to wait a couple of minutes before the status changes to "Running".
 
          .. code-block:: bash
-             :caption: 出力結果
+             :caption: Output results
              
               NAME                             READY   STATUS    RESTARTS   AGE
               ita-ag-oase-66cb7669c6-m2q8c     1/1     Running   0          16m
 
-   .. group-tab:: 複数エージェント（別Pod）
+   .. group-tab:: Multiple Agents (Different Pod) 
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      1. Use Helm command to install on Kubernetes environment.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm install exastro-agent-1 exastro/exastro-agent \
               --namespace exastro --create-namespace \
               --values exastro-agent-1.yaml
 
          .. code-block:: bash
-            :caption: 出力結果
+            :caption: Output results
 
             NAME: exastro-agent-1
             LAST DEPLOYED: Wed Feb 14 14:36:27 2024
@@ -763,14 +779,14 @@ OASE Agentのパラメータ設定例
             TEST SUITE: None
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm install exastro-agent-2 exastro/exastro-agent \
               --namespace exastro --create-namespace \
               --values exastro-agent-2.yaml
          
          .. code-block:: bash
-            :caption: 出力結果
+            :caption: Output results
 
             NAME: exastro-agent-2
             LAST DEPLOYED: Wed Feb 14 14:36:27 2024
@@ -779,78 +795,79 @@ OASE Agentのパラメータ設定例
             REVISION: 1
             TEST SUITE: None
 
-      2. インストール状況確認
+      2. | Check install status
            
          .. code-block:: bash
-             :caption: コマンド
+             :caption: Command
              
              # Pod の一覧を取得
              kubectl get po --namespace exastro
              
-             | 正常に起動している場合は、“Running” となります。
-             | ※正常に起動するまで数分かかる場合があります。
+             | If running normally, the status will say "Running".
+             | ※The user might have to wait a couple of minutes before the status changes to "Running".
 
          .. code-block:: bash
-             :caption: 出力結果
+             :caption: Output results
              
               NAME                             READY   STATUS    RESTARTS   AGE
               ita-ag-oase-1-66cb7669c6-m2q8c   1/1     Running   0          16m
               ita-ag-oase-2-787fb97f75-9s7xj   1/1     Running   0          13m
 
 
-アップグレード
+Update
 ==============
 
-| OASE Agentのアップグレード方法について紹介します。
+| This section describes how to update the OASE Agent.
 
-アップグレードの準備
+
+Update preparation
 --------------------
 
-.. warning:: 
-  | アップグレード実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
+.. warning::
+  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
 
-| 更新前のバージョンを確認します。
+| Check the version before updating.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の確認
+   # Check Repository information
    helm search repo exastro
 
 .. code-block:: shell
    :linenos:
-   :caption: 実行結果
+   :caption: Run results
    :emphasize-lines: 4
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                         1.3.24          2.3.0           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-agent                   1.0.3           2.3.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-it-automation           1.4.22          2.3.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-platform                1.7.14          1.7.0           A Helm chart for Exastro Platform. Exastro Plat...
 
-| Helm リポジトリを更新します。
+| Update the Helm repository.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の更新
+   # Update Repository information
    helm repo update
 
-| 更新後のバージョンを確認します。
+| Check that it has been updated to the latest version.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の確認
+   # Check Repository information
    helm search repo exastro
 
 .. code-block:: shell
    :linenos:
-   :caption: 実行結果
+   :caption: Run results
    :emphasize-lines: 4
 
    helm search repo exastro
@@ -860,28 +877,28 @@ OASE Agentのパラメータ設定例
    exastro/exastro-it-automation      2.4.1           2.4.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-platform           1.8.1           1.8.0           A Helm chart for Exastro Platform. Exastro Plat...
 
-アップグレード
+Update
 --------------
 
-サービス停止
+Stop service
 ^^^^^^^^^^^^
 
 .. include:: ../../../include/stop_service_k8s_agent.rst
 
-アップグレード実施
+Start Update
 ^^^^^^^^^^^^^^^^^^
 
-| アップグレードを実施します。
+| Start the update.
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   helm upgrade exastro-agent exastro/exastro-agent \
     --namespace exastro \
     --values exastro-agent.yaml
 
 .. code-block:: bash
-  :caption: 出力結果
+  :caption: Output results
 
   Release "exastro-agent" has been upgraded. Happy Helming!
   NAME: exastro-agent
@@ -891,99 +908,102 @@ OASE Agentのパラメータ設定例
   REVISION: 2
   TEST SUITE: None
 
-サービス再開
+Restart service
 ^^^^^^^^^^^^
 
 .. include:: ../../../include/start_service_k8s_agent.rst
 
 
-アップグレード状況確認
+Check Update status
 ^^^^^^^^^^^^^^^^^^^^^^
 
-| コマンドラインから以下のコマンドを入力して、アップグレードが完了していることを確認します。
+| Input the following commands from the command line and check that the agent has been updated.
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # Pod の一覧を取得
+   # Fetc Pod list
    kubectl get po --namespace exastro
 
-| 正常に起動している場合は、Running” となります。
-| ※正常に起動するまで数分かかる場合があります。
+| If running normally, the status will say "Running".
+| ※The user might have to wait a couple of minutes before the status changes to "Running".
 
 .. code-block:: bash
-   :caption: 出力結果
+   :caption: Output results
 
    NAME                                                      READY   STATUS      RESTARTS   AGE
    ita-ag-oase-7ff9488b55-rrn58                              1/1     Running     0             81s
 
-アンインストール
+Uninstall
 ================
 
-| OASE Agentのアンインストール方法について紹介します。
+| This section explains how to uninstall the OASE Agent.
 
-アンインストールの準備
+Uninstall preparation
 ----------------------
 
-.. warning:: 
-  | アンインストール実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
+.. warning::
+  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
 
-アンインストール
+Uninstall
 ----------------
 
-アンインストール実施
+Start Uninstall
 ^^^^^^^^^^^^^^^^^^^^
 
-| アンインストールを実施します。
+| Start the uninstall process.
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   helm uninstall exastro-agent --namespace exastro
 
 .. code-block:: bash
-  :caption: 出力結果
+  :caption: Output results
 
   release "exastro-agent" uninstalled
 
-永続ボリュームを削除
-^^^^^^^^^^^^^^^^^^^^
+.. _delete_pv:
 
-| Persitent Volume（PV） を Kubernetes 上に hostPath で作成した場合の方法を記載します。
-| マネージドデータベースを含む外部データベースを利用している場合は、環境にあったデータ削除方法を実施してください。
+Delete persistent volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+| This section describes how to delete data if a persistent volume(PV) has been created on Kubernetes using hostPath.
+| If using external databases (managed databases included), make sure to delete environmental data as well.
 
-エージェント用
+For Agents
 **************
 
 .. warning:: 
-  | エージェント用のPVが複数存在する場合はそれらすべての削除を実施してください。
+  | If there are multiple persistent volumes for Agents, make sure to delete them all.
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-ita-ag-oase
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-ita-ag-oase" deleted
 
-永続データを削除
+Deleting Persistent data
 ^^^^^^^^^^^^^^^^
 
-| Kubernetes のコントロールノードにログインし、データを削除します。
+| Log in to the Kubernetes Control node and delete the data.
 
-エージェント用
+
+For Agents
 **************
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/data/exastro-suite/exastro-agent/ita-ag-oase` を指定した場合の例です。
+| The following command is an example where the hostPath is specified to :file:`/var/data/exastro-suite/exastro-agent/ita-ag-oase` when the Persistent Volume was created.
+
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/data/exastro-suite/exastro-agent/ita-ag-oase
 

@@ -49,6 +49,24 @@ Modes
   :width: 720px
   :align: center
 
+3. History
+
+| Allows users to select wether to export history data or not. Select either "With history" or "Without history". If any unique items (IDs, No, Etc.) already exists in the import destination, the export data will be prioritized.
+
+.. tabs::
+
+   .. tab:: When "With history" is specified
+
+     .. figure:: /images/ja/export_import/overview/jnl_1_diagram.drawio.png
+       :width: 720px
+       :align: center
+
+   .. tab:: When "Without history" is specified
+
+     .. figure:: /images/ja/export_import/overview/jnl_2_diagram.drawio.png
+       :width: 720px
+       :align: center
+ 
 Example
 ^^^^^^
 
@@ -87,6 +105,205 @@ Example
 .. figure:: /images/ja/export_import/overview/separate_servers.png
   :width: 1000px
   :align: center
+
+
+Export/Import environment compatibility
+====================================================
+
+Environment differences (ITA versions and installed drivers)
+-------------------------------------------------------------------
+
+| The following sections explains which environments are compatible with each other when they have environment differences.
+
+.. warning::
+   | A KYM file can be backwards-compatible if the following requirements are met.
+   | ・The KYM file is exported from an ITA with version 2.5.0 or later.
+   | ・The ITA environment where the file was exported from must be newer than the ITA version of the import destination environment.
+   | ・The drivers installed in the exported exported ITA must be installed to the import destination environment.
+
+
+| The following examples are when the data from Environment A is exported and imported to Environment B.
+
+.. _export_import_environment_and_drivers:
+
+.. list-table:: Export/Import environment compatibility
+   :header-rows: 1
+   :align: left
+
+   * - Case 
+     - Environment A version
+     - Environment A driver
+     - Environment B version
+     - Environment B driver
+     - | Environment differences
+       | (Version/Driver)
+     - | Environment A→Environment B
+       | Import compatibility
+     - Remarks
+   * - A
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - No environment differences
+     - 〇
+     - 
+   * - B
+     - 2.5.X
+     - | CI/CD for IaC 
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - Difference in drivers
+     - 〇
+     - 
+   * - C
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - Difference in version
+     - 〇
+     - 
+   * - D
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - | Difference in version (A:2.5.X < B:2.5.Y)
+       | Difference in drivers
+     - 〇
+     - 
+   * - E
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - Difference in drivers
+     - △※
+     - 
+   * - F
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | 
+     - | Difference in version (A:2.5.X < B:2.5.Y)
+       | Difference in drivers
+     - △※
+     - 
+   * - G
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - | Difference in version (A:2.5.Y > B:2.5.X)
+     - ×
+     - 
+   * - H
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | 
+     - 2.5.X
+     - | CI/CD for IaC 
+       | OASE
+     - | Difference in version (A:2.5.Y > B:2.5.X)
+       | Difference in drivers
+     - ×
+     - 
+   * - I
+     - 2.5.Y
+     - | CI/CD for IaC 
+       | OASE
+     - 2.5.X
+     - | CI/CD for IaC 
+       | 
+     - | Difference in version (A:2.5.Y > B:2.5.X)
+       | Difference in drivers
+     - ×
+     - 
+
+.. tabs::
+
+   .. tab:: Case A（Can import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_A.drawio.png
+         :alt: Export/Import (Case A)
+         :align: center
+         :width: 800px
+
+   .. tab:: Case B（Can import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_B.drawio.png
+         :alt: Export/Import (Case B)
+         :align: center
+         :width: 800px
+
+   .. tab:: Case C（Can import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_C.drawio.png
+         :alt: Export/Import (Case C)
+         :align: center
+         :width: 800px
+      
+   .. tab:: Case D（Can import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_D.drawio.png
+         :alt: Export/Import (Case D)
+         :align: center
+         :width: 800px
+   .. tab:: Case E（Can import※）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_E.drawio.png
+         :alt: Export/Import (Case E)
+         :align: center
+         :width: 800px
+
+      .. warning:: | Using the Driver install/uninstsall function（ :ref:`organization_edit` ）.
+         | Can import by adjusting the installed drivers to match the Case A or Case B.
+
+   .. tab:: Case F（Can import※）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_F.drawio.png
+         :alt: Export/Import (Case F)
+         :align: center
+         :width: 800px    
+
+      .. warning:: | Using the Driver install/uninstsall function（ :ref:`organization_edit` ）.
+         | Can import by adjusting the installed drivers to match the Case C or Case D.      
+         
+
+   .. tab:: Case G（Cannot import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_G.drawio.png
+         :alt: Export/Import (Case G)
+         :align: center
+         :width: 800px    
+
+   .. tab:: Case H（Cannot import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_H.drawio.png
+         :alt: Export/Import (Case H)
+         :align: center
+         :width: 800px    
+         
+   .. tab:: Case I（Cannot import）
+
+      .. figure:: /images/ja/export_import/export_import_ptn_I.drawio.png
+         :alt: Export/Import (Case I)
+         :align: center
+         :width: 800px    
 
 
 Menu export/import page
@@ -159,7 +376,7 @@ Menu export
    +--------+--------------------------+-------------------------------------------------------+
    | 7      | Conductor                | Conductor edit/execution                              |
    +--------+                          +-------------------------------------------------------+
-   | 8      |                          | Conductor operation list                              |
+   | 8      |                          | Conductor operation history                           |
    +--------+                          +-------------------------------------------------------+
    | 9      |                          | Conductor confirmation                                |
    +--------+                          +-------------------------------------------------------+
@@ -254,6 +471,20 @@ Menu export
    | Exclude deleted information | Does not export data with the "deleted" status.            |
    +-----------------------------+------------------------------------------------------------+
 
+.. list-table:: History
+   :header-rows: 1
+   :align: left
+
+   * - No
+     - Menu/Page
+     - Description
+   * - 1
+     - With history
+     - Exports records with their history included.
+   * - 2
+     - Without history
+     - Exports records without their history.
+
 | (2) Select which menus to export and press the 《Export》 button.
 
 .. figure:: /images/ja/export_import/overview/menu_export_1.png
@@ -318,7 +549,7 @@ Import menu
 | Menus that have their checkbox ticked will be imported.
 | Make sure to untick the checkbox for menus that will be not imported.
 
-.. figure:: /images/ja/export_import/overview/menu_import_3.png
+.. figure:: /images/ja/export_import/overview/menu_import_3_v2-5.drawio.png
    :width: 1000px
    :alt: Import menu page(3)
    :align: center
@@ -327,7 +558,7 @@ Import menu
 
 | (3) A pop-up box for confirming the import will be displayed. Check the contents before pressing 《Start Import》.
 
-.. figure:: /images/ja/export_import/overview/menu_import_4.png
+.. figure:: /images/ja/export_import/overview/menu_import_4_v2-5.drawio.png
    :width: 1000px
    :alt: Import menu page(4)
    :align: center
@@ -352,7 +583,7 @@ Menu export/import management page
 
 | This menu allows the users to manage the status of the exports and imports executed in the [Export Menu] and [Import Menu].
 
-.. figure:: /images/ja/export_import/overview/menu_export_import_1.png
+.. figure:: /images/ja/export_import/overview/menu_export_import_1_v2-5.drawio.png
    :width: 1000px
    :alt: Menu export/import management page
    :align: center
@@ -382,6 +613,9 @@ Menu export/import management page
    +------------+--------------------------------------------------------------------------------------------------------------+
    | Deleted\   | Displays either 〔Include deleted data〕or〔Exclude deleted data〕.                                          |
    | information|                                                                                                              |
+   +------------+--------------------------------------------------------------------------------------------------------------+
+   | History i\ | Displays either "With history" or "Without history"                                                          |
+   | nformation |                                                                                                              |
    +------------+--------------------------------------------------------------------------------------------------------------+
    | Time \     |                                                                                                              |
    |specified   | Displays only if the mode is〔Time specified〕.                                                              |

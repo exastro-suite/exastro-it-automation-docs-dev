@@ -74,6 +74,8 @@ Configure Two-factor authentication
       :align: left
       :class: with-border-thin
 
+.. _exastro_refresh_token:
+
 Issue tokens
 ------------
 
