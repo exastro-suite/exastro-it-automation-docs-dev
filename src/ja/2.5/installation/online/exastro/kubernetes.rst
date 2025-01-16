@@ -15,7 +15,7 @@
    </script>
 
 ==============================
-OASE Exastro on Kubernetes - Online
+Exastro on Kubernetes - Online
 ==============================
 
 目的
