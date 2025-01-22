@@ -1,3 +1,6 @@
+
+.. _plan:
+
 ==============
 Resource plans
 ==============
@@ -194,6 +197,14 @@ Confirming current resource plan items
                   }
                 },
                 {
+                  "id": "ita.organization.common.upload_file_size_limit",
+                  "informations": {
+                    "default": 104857600,
+                    "description": "Maximum byte size of upload file for organization default",
+                    "max": 107374182400
+                  }
+                },
+                {
                   "id": "platform.roles",
                   "informations": {
                     "default": 1000,
@@ -260,7 +271,7 @@ Register resource plan
 
       | This will display the Resource plan list. Press the :guilabel:`Create` button and register a new resource plan.
 
-      .. figure:: /images/ja/manuals/platform/plan/plan_list_0.png
+      .. figure:: /images/ja/manuals/platform/plan/plan_list_0_v1_9.png
          :width: 600px
          :align: left
          :class: with-border-thin
@@ -271,7 +282,7 @@ Register resource plan
               
           | Copy and use the `add-plan.sample.json` under the fetched tools folder.
 
-        .. figure:: /images/ja/manuals/platform/plan/plan_create.png
+        .. figure:: /images/ja/manuals/platform/plan/plan_create_v1_9.png
            :width: 600px
            :align: left
            :class: with-border-thin
@@ -294,6 +305,7 @@ Register resource plan
              - | Specify limit for the organization resources.
                | The maximum and default values for the different items are as following.
                | ita.organization.ansible.execution_limit:【Max:1000】【Default:25】 
+               | ita.organization.common.upload_file_size_limit:【Max:107374182400】【Default:104857600】 
                | platform.roles:【Max:1000】【Default:1000】 
                | platform.users:【Max:10000】【Default:10000】 
                | platform.workspaces:【Max:1000】【Default:100】 
@@ -328,6 +340,7 @@ Register resource plan
                 },
                 "limits": {
                     "ita.organization.ansible.execution_limit": 25,
+                    "ita.organization.common.upload_file_size_limit": 104857600,
                     "platform.workspaces": 500,
                     "platform.users": 1000,
                     "platform.roles": 500
@@ -455,6 +468,10 @@ Register resource plan
    | "ita.organization.ansible.execution_limit" is the max amount of Movements that can be executed by IT Automation's Ansible driver at once (per organization).
    | The max amount of executions that can happen simultaneously per organization depends on the configured settings. Note that the Exastro system also have a limit of how many executions can happen at once, so the absolute max limit will be the max value set to the system settings.
    | As a result, executing more Movements than the configured limit will start a queue and execute movements when there is space.
+
+.. note:: ita.organization.common.upload_file_size_limit
+ 
+   | The ita.organization.common.upload_file_size_limit is the maximum size of files that can be uploaded to IT Automation (in bytes).
 
 .. .. todo:: システムの上限値の説明は、別途記載
 

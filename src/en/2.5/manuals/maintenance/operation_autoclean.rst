@@ -11,7 +11,7 @@ Operation auto-clean function overview
 ============================
 
 | This function uses user specified values to automatically clean operations registered to :menuselection:`Basic console --> Operation list`. The timing of when they are deleted are based the operation's Scheduled execution date and the user specified  "Logic deletion days" and "Physical deletion days" values.
-| If the "Logic deletion days" are exceeded, the data will be discarded. if "Physical deletion days" are exceeded, the data will be deleted from the database.
+| If the "Logic deletion days" are exceeded, the data will be discarded. if "Physical deletion days" are exceeded, the data and linked files will be deleted from the database.
 | The auto-clean function deletes operations once per day at 00:02.
 
 Operation auto-clean function menu structure
