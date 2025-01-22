@@ -43,13 +43,13 @@ Conductor menu list
    | 2      |                      | Conductor notification definiti\| Allows users to maintain (view/register/update) definitions regarding Conductor execu\   |
    |        |                      | on                              | tion notifications.                                                                      |
    +--------+                      +---------------------------------+------------------------------------------------------------------------------------------+
-   | 3      |                      | Conductor list                  | Allows users to maintain (view/discard) Conductors.                                      |
+   | 3      |                      | Conductor history                  | Allows users to maintain (view/discard) Conductors.                                      |
    |        |                      |                                 |                                                                                          |
    |        |                      |                                 | Click the :guilabel:`Details` button to move to the Conductor edit/execution menu.       |
    +--------+                      +---------------------------------+------------------------------------------------------------------------------------------+
    | 4      |                      | Conductor class edit            | Allows users to edit and execute Conductors.                                             |
    +--------+                      +---------------------------------+------------------------------------------------------------------------------------------+
-   | 5      |                      | Conductor operation list        | Allows users to view the Conductor list (Execution history).                             |
+   | 5      |                      | Conductor operation history     | Allows users to view the Conductor history (Execution history).                             |
    |        |                      |                                 |                                                                                          |
    |        |                      |                                 | Click the :guilabel:`Details` button to move to the Conductor confirmation menu.         |
    +--------+                      +---------------------------------+------------------------------------------------------------------------------------------+
@@ -57,7 +57,7 @@ Conductor menu list
    +--------+                      +---------------------------------+------------------------------------------------------------------------------------------+
    | 7      |                      | Conductor scheduled execution   | Allows users to maintain (view/register)update Conductors that are regularly executed.   |
    |        |                      |                                 |                                                                                          |
-   |        |                      |                                 | Click the :guilabel:`Operation list confirmation` button to move to the Conductor \      |
+   |        |                      |                                 | Click the :guilabel:`Operation history` button to move to the Conductor \                |
    |        |                      |                                 | list menu.                                                                               |
    +--------+----------------------+---------------------------------+------------------------------------------------------------------------------------------+
 
@@ -278,18 +278,18 @@ Conductor notification definition
 .. _conductor_list:
 
 
-Conductor list
+Conductor history
 -------------
 
-#. | The :menuselection:`"Conductor list"` menu allows users to view and discard registered conductors.
+#. | The :menuselection:`"Conductor history"` menu allows users to view and discard registered conductors.
 
    |Click the :guilabel:`Details` button in the :menuselection:`"List" submenu` and move to the :ref:`conductor_editandexcute` page.
 
 .. figure:: /images/ja/conductor/conductor_class_list/conductor-list.gif
    :width: 800px
-   :alt: "Conductor list" menu
+   :alt: "Conductor history" menu
 
-   "Conductor list" menu
+   "Conductor history" menu
 
 .. _conductor_editandexcute:
 
@@ -312,7 +312,7 @@ Conductor edit/execution
    +------------+---------------------------------------------------------------------------------------------------------+
    | View mode  | - | Allows users to view Conductors                                                                     |
    |            |                                                                                                         |
-   |            | - | Clicking the :guilabel:`Details` button in the "Conductor list" menu moves the user to this mode.   |
+   |            | - | Clicking the :guilabel:`Details` button in the "Conductor history" menu moves the user to this mode.   |
    |            |                                                                                                         |
    |            | - | Click :guilabel:`Edit` button to change to "Edit" mode.                                             |
    +------------+---------------------------------------------------------------------------------------------------------+
@@ -1004,7 +1004,7 @@ Node detailed information
 "View" mode
 ~~~~~~~~~~~~~~~~~~~~~~
 
-| The "View" mode is  displayed whenever a conductor is registered or when the user moves from the "Conductor list" menu.
+| The "View" mode is  displayed whenever a conductor is registered or when the user moves from the "Conductor history" menu.
 
 .. figure:: /images/ja/conductor/condudtor_edit_and_excute/conductor_view_mode.png
    :width: 800px
@@ -1133,10 +1133,10 @@ Conductor execute
 
 .. _conductor_conductor_job_list:
 
-Conductor list
+Conductor history
 -----------------
 
-#. | In the [Conductor list] page, users can manage already executed Conductors.
+#. | In the [Conductor history] page, users can manage already executed Conductors.
    | Specify the desired conditions and click the :guilabel:`Filter` button to display a list of executed Conductors.
    | Clicking the :guilabel:`Details` button in the Display field moves the user to :ref:`conductor_check_conductor_job`.
    | Clicking the :guilabel:`Input data file(zip)` button compiles all the Movement input files (*) under the executed Conductor and downloads it for the user.
@@ -1341,7 +1341,7 @@ Conductor scheduled execution
 ---------------------
 
 1. The :menuselection:`"Conductor scheduled execution" menu` allows users to manage Conductor operations that are regularly executed on a schedule.
-2. | Clicking the :guilabel:`Confirm Operation list` button in the  :menuselection:`"Conductor scheduled execution" menu-->"List" submenu` moves the user to the 
+2. | Clicking the :guilabel:`Operation history` button in the  :menuselection:`"Conductor scheduled execution" menu-->"List" submenu` moves the user to the 
    | :ref:`conductor_conductor_job_list` menu.
 
 3. Click the :guilabel:`Register` button to register a scheduled execution.

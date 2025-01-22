@@ -19,7 +19,7 @@
     
     
     <title>4. Ansible-LegacyRole &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../platform_management/index.html">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../organization_management/index.html">Organization management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../it_automation_base/index.html">Basic operation</a></li>
@@ -246,7 +247,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">Ansible Driver</a></li>
     
     <li><span class="section-number">4. </span>Ansible-LegacyRole</li>
@@ -290,7 +291,7 @@
 <div class="line">The basic console menus used by Ansible-Legacy are as following.</div>
 </div>
 <table class="docutils align-left" id="id16">
-<caption><span class="caption-number">表 4.8 </span><span class="caption-text">基本コンソール メニュー/画面一覧</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.9 </span><span class="caption-text">基本コンソール メニュー/画面一覧</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 7.1%" />
 <col style="width: 28.6%" />
@@ -365,8 +366,29 @@
 </li>
 <li><div class="line-block">
 <div class="line"><strong>Register Interface information</strong></div>
-<div class="line">From the <span class="menuselection">Ansible common ▶ Interface information</span> menu, select either Ansible Core or Ansible Automation Controller for the execution engine and register connection information for the execution engine server</div>
+<div class="line">From the <span class="menuselection">Ansible common ▶ Interface information</span> menu, select Ansible Core, Ansible Automation Controller or Ansible Execution Agent for the execution engine and register connection information for the execution engine server</div>
 <div class="line">For more information, see <a class="reference internal" href="ansible_common.html#ansible-common-interface-information"><span class="std std-ref">Interface information</span></a>.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Register Execution environment definition template management(If needed)</strong></div>
+<div class="line">From the <span class="menuselection">Ansible common ▶ Execution environment definition template management</span> menu, Register the template file for the Execution environment definition file (execution-environment.yml) which is used to build the Execution environment by the ansible-builder within the Ansible Execution Agent.</div>
+<div class="line">For more information, see <span class="xref std std-ref">ansible_execution_environment_definition_template_list</span> and <a class="reference internal" href="ansible_common.html#ansible-common-environment-definition-make"><span class="std std-ref">Using the Template file registered to Ansible common ▶ Execution environment definition template ` and  :menuselection:&quot;Execution Environment Parameter Definition&quot; Parameter sheet`</span></a>.</div>
+<div class="line">Installing ITA registers a template file that allows users to add python module and ansible galaxy collections.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Register &quot;Execution environment parameter definition&quot; parameter sheet. sheet(If needed)</strong></div>
+<div class="line">Register Parameters that will be embedded to the execution environment definition file (execution-environment.yml) template file registered in <span class="menuselection">Ansible common ▶ Execution environment definition template management</span>.</div>
+<div class="line">For more information, see <a class="reference internal" href="ansible_common.html#ansible-common-environment-definition-make"><span class="std std-ref">Using the Template file registered to Ansible common ▶ Execution environment definition template ` and  :menuselection:&quot;Execution Environment Parameter Definition&quot; Parameter sheet`</span></a>.</div>
+<div class="line">Installing ITA registers , the <span class="menuselection">&quot;Execution environment parameter definition&quot; parameter sheet</span> with the parameters that embeds to the execution environment definition template file (execution-environment.yml) file is registered.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><strong>Register Execution environment management (If needed)</strong></div>
+<div class="line">Register a link between the  <span class="menuselection">&quot;Execution environment parameter definition&quot; parameter sheet</span> and the template file for the execution environment definition file (execution-environment.yml) registered in <span class="menuselection">Ansible common ▶ Execution environment definition template management</span></div>
+<div class="line">For more information, see <a class="reference internal" href="ansible_common.html#ansible-execution-environment-list"><span class="std std-ref">Execution environment management</span></a>.</div>
+<div class="line">Installing ITA registers a link between the <span class="menuselection">&quot;Execution environment parameter definition&quot; parameter sheet</span> and <span class="menuselection">Ansible common ▶ Execution environment definition template management</span>.</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -487,7 +509,7 @@
 <div class="line">Maintains (view.register/edit/discard) Movement information.</div>
 </div>
 <figure class="align-default" id="id17">
-<a class="reference internal image-reference" href="../../_images/movement_list1.png"><img alt="Submenu (Movement list)" src="../../_images/movement_list1.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/movement_list_v2_51.png"><img alt="Submenu (Movement list)" src="../../_images/movement_list_v2_51.png" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 4.13 </span><span class="caption-text">Submenu (Movement list)</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
@@ -498,7 +520,7 @@
 <div class="line">Press the <span class="guilabel">Register</span> button to register Movement information.</div>
 </div>
 <figure class="align-default" id="id18">
-<a class="reference internal image-reference" href="../../_images/registration_movement_list1.gif"><img alt="Registration page (Movement list)" src="../../_images/registration_movement_list1.gif" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/registration_movement_list_v2_51.gif"><img alt="Registration page (Movement list)" src="../../_images/registration_movement_list_v2_51.gif" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 4.14 </span><span class="caption-text">Registration page (Movement list)</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
@@ -617,7 +639,7 @@
 <div class="line">The items found in the registration page are as following.</div>
 </div>
 <table class="docutils align-left" id="id23">
-<caption><span class="caption-number">表 4.9 </span><span class="caption-text">Registration page Item list（Movement-Role link）</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.10 </span><span class="caption-text">Registration page Item list（Movement-Role link）</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 50.0%" />
@@ -715,7 +737,7 @@
 <div class="line">The items found in the registration page are as following.</div>
 </div>
 <table class="docutils align-left" id="id26">
-<caption><span class="caption-number">表 4.10 </span><span class="caption-text">Registration page Item list（Variable nest management）</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.11 </span><span class="caption-text">Registration page Item list（Variable nest management）</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 50.0%" />
@@ -854,7 +876,7 @@
 <div class="line">If a role package is registered with variables defined like in Step 1. the following will be registered to <span class="menuselection">Ansible-LegacyRole ▶ Variable nest management</span> and the user will able to select the following member variables in <span class="menuselection">Ansible-LegacyRole ▶ Substitute value auto registration settings</span> by default.</div>
 </div>
 <table class="docutils align-left" id="id29">
-<caption><span class="caption-number">表 4.11 </span><span class="caption-text">Variable nest management registration contents</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.12 </span><span class="caption-text">Variable nest management registration contents</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 30.0%" />
@@ -898,7 +920,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id30">
-<caption><span class="caption-number">表 4.12 </span><span class="caption-text">Selectable Member variables in Substitute value auto registration settings</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.13 </span><span class="caption-text">Selectable Member variables in Substitute value auto registration settings</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 44.4%" />
 <col style="width: 55.6%" />
@@ -940,7 +962,7 @@
 <div class="line">In <span class="menuselection">Ansible-LegacyRole ▶ Variable nest management</span>, edit the Member variable &quot;0.user.root.prod&quot;'s Maximum repetitions from &quot;1&quot; to &quot;3&quot;.</div>
 </div>
 <table class="docutils align-left" id="id31">
-<caption><span class="caption-number">表 4.13 </span><span class="caption-text">Variable nest management edited contents</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.14 </span><span class="caption-text">Variable nest management edited contents</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 30.0%" />
@@ -965,7 +987,7 @@
 <div class="line">(Member variable [0].user.root[0].prod[1].prod_user and [0].user.root[0].prod[2].prod_user are added to the pulldown selection)</div>
 </div>
 <table class="docutils align-left" id="id32">
-<caption><span class="caption-number">表 4.14 </span><span class="caption-text">Selectable Member variables in Substitute value auto registration settings</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.15 </span><span class="caption-text">Selectable Member variables in Substitute value auto registration settings</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 44.4%" />
 <col style="width: 55.6%" />
@@ -1041,7 +1063,7 @@
 <div class="line">In :menuselection:<a href="#id14"><span class="problematic" id="id15">`</span></a>Ansible-LegacyRole --&gt; Substitute value auto registration settings`m link Role variables and th setting values for items registered to the Parameter sheets.</div>
 </div>
 <table class="docutils align-left" id="id33">
-<caption><span class="caption-number">表 4.15 </span><span class="caption-text">Parameter sheet registration contents</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.16 </span><span class="caption-text">Parameter sheet registration contents</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p><strong>Host name</strong></p></th>
 <th class="head" rowspan="2"><p><strong>Operation name</strong></p></th>
@@ -1064,7 +1086,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id34">
-<caption><span class="caption-number">表 4.16 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.17 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 36.4%" />
 <col style="width: 18.2%" />
@@ -1166,7 +1188,7 @@
 <div class="line">In the <span class="menuselection">Ansible-LegacyRole ▶ Substitute value auto registration settings</span> menu, link Role variables and setting values for items registered to the Parameter sheets.</div>
 </div>
 <table class="docutils align-left" id="id35">
-<caption><span class="caption-number">表 4.17 </span><span class="caption-text">Parameter sheet registration contents</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.18 </span><span class="caption-text">Parameter sheet registration contents</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p>Host name</p></th>
 <th class="head" rowspan="2"><p>Operation name</p></th>
@@ -1185,7 +1207,7 @@
 </tbody>
 </table>
 <table class="docutils align-left" id="id36">
-<caption><span class="caption-number">表 4.18 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.19 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 24.0%" />
 <col style="width: 12.0%" />
@@ -1239,7 +1261,7 @@
 <div class="line">Register the following in:menuselection:<cite>Ansible common --&gt; File management</cite> / <span class="menuselection">Ansible common ▶ Template management</span>.</div>
 </div>
 <table class="docutils align-left" id="id37">
-<caption><span class="caption-number">表 4.19 </span><span class="caption-text">Template management registration contents</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.20 </span><span class="caption-text">Template management registration contents</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 55.6%" />
 <col style="width: 44.4%" />
@@ -1267,7 +1289,7 @@
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id39">
-<caption><span class="caption-number">表 4.20 </span><span class="caption-text">Sample parameter sheet registration contents</span><a class="headerlink" href="#id39" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.21 </span><span class="caption-text">Sample parameter sheet registration contents</span><a class="headerlink" href="#id39" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p><strong>Host name</strong></p></th>
 <th class="head" rowspan="2"><p><strong>Operation name</strong></p></th>
@@ -1290,7 +1312,7 @@
 <div class="line">In <span class="menuselection">Ansible-LegacyRole ▶ Substitute value auto registration settings</span>, link the Playbook variable and the Item setting value of the Parameter sheet registered in Step 2. and Execute Ansible in  <span class="menuselection">Ansible-Legacy ▶ Execute</span>.</div>
 </div>
 <table class="docutils align-left" id="id40">
-<caption><span class="caption-number">表 4.21 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id40" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.22 </span><span class="caption-text">Substitute value auto registration settings registration contents</span><a class="headerlink" href="#id40" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 45.5%" />
 <col style="width: 27.3%" />
@@ -1336,7 +1358,7 @@
 <div class="line">There are 3 different types of execution types. Clicking the one of the execution buttons moves the user to <span class="menuselection">Ansible-LegacyRole ▶ Confirm execution status</span> where the execution process will start</div>
 </div>
 <figure class="align-default" id="id42">
-<a class="reference internal image-reference" href="../../_images/execution_screen1.gif"><img alt="Execute menu" src="../../_images/execution_screen1.gif" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/execution_screen_v2_51.gif"><img alt="Execute menu" src="../../_images/execution_screen_v2_51.gif" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 4.25 </span><span class="caption-text">Execute menu</span><a class="headerlink" href="#id42" title="Link to this image">¶</a></p>
@@ -1380,7 +1402,7 @@
 <div class="line">Allows users to monitor execution statuses.</div>
 </div>
 <figure class="align-default" id="id43">
-<a class="reference internal image-reference" href="../../_images/check_operation_status1.png"><img alt="Submenu (Confirm execution status)" src="../../_images/check_operation_status1.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/check_operation_status_v2_51.png"><img alt="Submenu (Confirm execution status)" src="../../_images/check_operation_status_v2_51.png" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 4.26 </span><span class="caption-text">Submenu (Confirm execution status)</span><a class="headerlink" href="#id43" title="Link to this image">¶</a></p>
@@ -1425,7 +1447,7 @@
 <div class="line">exec_&lt;Group number&gt;_&lt;Serial number&gt;</div>
 </div>
 <table class="docutils align-left" id="id44">
-<caption><span class="caption-number">表 4.22 </span><span class="caption-text">Divided execution log file naming convention</span><a class="headerlink" href="#id44" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.23 </span><span class="caption-text">Divided execution log file naming convention</span><a class="headerlink" href="#id44" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 28.6%" />
 <col style="width: 71.4%" />
@@ -1480,7 +1502,7 @@
 </div>
 </div></blockquote>
 <figure class="align-default" id="id45">
-<a class="reference internal image-reference" href="../../_images/execution_list.png"><img alt="Submenu (Execution management)" src="../../_images/execution_list.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/execution_list_v2_51.png"><img alt="Submenu (Execution management)" src="../../_images/execution_list_v2_51.png" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 4.27 </span><span class="caption-text">Submenu (Execution management)</span><a class="headerlink" href="#id45" title="Link to this image">¶</a></p>
@@ -1491,7 +1513,7 @@
 <div class="line">The items found in the page are as following.</div>
 </div>
 <table class="docutils align-left" id="id46">
-<caption><span class="caption-number">表 4.23 </span><span class="caption-text">View page item list (Execution management)</span><a class="headerlink" href="#id46" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.24 </span><span class="caption-text">View page item list (Execution management)</span><a class="headerlink" href="#id46" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 12.5%" />
 <col style="width: 12.5%" />
@@ -1513,76 +1535,86 @@
 <tr class="row-even"><td colspan="3"><p>Status</p></td>
 <td><p>Displays the status of the Execution.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>Execution engine</p></td>
+<tr class="row-odd"><td colspan="3"><p>Emergency stop flag</p></td>
+<td><p>Displays whether the operation has been stopped by the Emergency stop button from the <span class="menuselection">Ansible-LegacyRole ▶ Execution status check</span> menu or not.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>Execution engine</p></td>
 <td><p>Displays the Execution engine used.</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Called Conductor</p></td>
+<tr class="row-odd"><td colspan="3"><p>Called Conductor</p></td>
 <td><p>Displays the Conductor name if executed from Conductor.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>Execution user</p></td>
+<tr class="row-even"><td colspan="3"><p>Execution user</p></td>
 <td><p>Displays the user who executed the Ansible.</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Registration date</p></td>
+<tr class="row-odd"><td colspan="3"><p>Registration date</p></td>
 <td><p>Displays when the Execute button was clicked.</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="8"><p>Movement</p></td>
+<tr class="row-even"><td rowspan="10"><p>Movement</p></td>
 <td colspan="2"><p>ID</p></td>
 <td><p>Displays the selected Movement ID.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>name</p></td>
+<tr class="row-odd"><td colspan="2"><p>name</p></td>
 <td><p>Displays the selected Movement name</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>Delay timer</p></td>
+<tr class="row-even"><td colspan="2"><p>Delay timer</p></td>
 <td><p>Displays the delay timer value configured to the Movement.</p></td>
 </tr>
-<tr class="row-even"><td rowspan="4"><p>Ansible use information</p></td>
+<tr class="row-odd"><td rowspan="4"><p>Ansible use information</p></td>
 <td><p>Host specification format</p></td>
 <td><p>Displays the selected Movement's Host specification format.</p></td>
 </tr>
-<tr class="row-odd"><td><p>WinRM connection</p></td>
+<tr class="row-even"><td><p>WinRM connection</p></td>
 <td><p>Displays the selected Movement's WinRM connection.</p></td>
 </tr>
-<tr class="row-even"><td><p>Header section</p></td>
+<tr class="row-odd"><td><p>Header section</p></td>
 <td><p>Displays the selected Movement's header section.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ansible.cfg</p></td>
+<tr class="row-even"><td><p>ansible.cfg</p></td>
 <td><p>Allows users to download the selected Movement's ansible.cfg file.</p></td>
 </tr>
-<tr class="row-even"><td><p>Ansible Automation Controller use information</p></td>
+<tr class="row-odd"><td rowspan="2"><p>Ansible Execution Agent use information</p></td>
+<td><p>Execution environment</p></td>
+<td><p>Displays the Ansible Execution Agent's execution environment of the selected Movement.</p></td>
+</tr>
+<tr class="row-even"><td><p>ansible-builderparameter</p></td>
+<td><p>Displays the ansible-builder of the selected Movement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ansible Automation Controller use information</p></td>
 <td><p>Execution environment</p></td>
 <td><p>Displays the selected Movement's execution environment.</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="2"><p>Operation</p></td>
+<tr class="row-even"><td rowspan="2"><p>Operation</p></td>
 <td colspan="2"><p>No.</p></td>
 <td><p>Displays the selected Operation's ID</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>Name</p></td>
+<tr class="row-odd"><td colspan="2"><p>Name</p></td>
 <td><p>Displays the selected Operation's name</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>Input data</p></td>
+<tr class="row-even"><td colspan="3"><p>Input data</p></td>
 <td><p>Allows users to download the input data in a Zip file</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Result data</p></td>
+<tr class="row-odd"><td colspan="3"><p>Result data</p></td>
 <td><p>Allows users to download the result data in a Zip file.</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="3"><p>Execution status</p></td>
+<tr class="row-even"><td rowspan="3"><p>Execution status</p></td>
 <td colspan="2"><p>Reservation date</p></td>
 <td><p>Displays the reservation date if the execution is reserved.</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>Start date</p></td>
+<tr class="row-odd"><td colspan="2"><p>Start date</p></td>
 <td><p>Displays when the execution will start.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>End date</p></td>
+<tr class="row-even"><td colspan="2"><p>End date</p></td>
 <td><p>Displays when the execution will end.</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>Collect status</p></td>
+<tr class="row-odd"><td rowspan="2"><p>Collect status</p></td>
 <td colspan="2"><p>Status</p></td>
 <td><p>Displays the Connection function's status.</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>Collection log</p></td>
+<tr class="row-even"><td colspan="2"><p>Collection log</p></td>
 <td><p>Allows users to downlaod the Collection function's log.</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Conductor instance number</p></td>
+<tr class="row-odd"><td colspan="3"><p>Conductor instance number</p></td>
 <td><p>Displays the Conductor instance number if executed from Conductor.</p></td>
 </tr>
 </tbody>
@@ -1608,7 +1640,7 @@
 <div class="line">The items found in the view page are as following.</div>
 </div>
 <table class="docutils align-left" id="id48">
-<caption><span class="caption-number">表 4.24 </span><span class="caption-text">View page item list (Target host)</span><a class="headerlink" href="#id48" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.25 </span><span class="caption-text">View page item list (Target host)</span><a class="headerlink" href="#id48" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 27.3%" />
 <col style="width: 72.7%" />
@@ -1660,7 +1692,7 @@
 <div class="line">The items found in the page are as following.</div>
 </div>
 <table class="docutils align-left" id="id50">
-<caption><span class="caption-number">表 4.25 </span><span class="caption-text">View page item list (Substitute value management)</span><a class="headerlink" href="#id50" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.26 </span><span class="caption-text">View page item list (Substitute value management)</span><a class="headerlink" href="#id50" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="3"><p>Item</p></th>
 <th class="head"><p>Description</p></th>
@@ -2049,7 +2081,7 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </div>
 <blockquote>
 <div><table class="docutils align-left" id="id51">
-<caption><span class="caption-number">表 4.26 </span><span class="caption-text">Variable adoption rule</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.27 </span><span class="caption-text">Variable adoption rule</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 27.3%" />
 <col style="width: 27.3%" />
@@ -2101,7 +2133,7 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 <div class="line">The 7 use examples uses the previous figure as a base.</div>
 </div>
 <table class="docutils align-left" id="id53">
-<caption><span class="caption-number">表 4.27 </span><span class="caption-text">Ansible Automation Controller system requirements</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 4.28 </span><span class="caption-text">Ansible Automation Controller system requirements</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30.4%" />
 <col style="width: 69.6%" />
@@ -2265,116 +2297,6 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </div>
 <section id="ansible-legacyrole-input-data">
 <h4>Ansible-LegacyRole input data<a class="headerlink" href="#ansible-legacyrole-input-data" title="Link to this heading">¶</a></h4>
-<table class="docutils align-left" id="id61">
-<caption><span class="caption-number">表 4.28 </span><span class="caption-text">Ansible-LegacyRole Input data</span><a class="headerlink" href="#id61" title="Link to this table">¶</a></caption>
-<colgroup>
-<col style="width: 22.2%" />
-<col style="width: 22.2%" />
-<col style="width: 33.3%" />
-<col style="width: 22.2%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Menu group</p></th>
-<th class="head"><p>Menu</p></th>
-<th class="head"><p>Item</p></th>
-<th class="head"><p>Directory unzip path</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Role package management</p></td>
-<td><p>Role package</p></td>
-<td><p>/roles</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible Common</p></td>
-<td><p>Template management</p></td>
-<td><p>Template file</p></td>
-<td><p>/template_files</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible common</p></td>
-<td><p>File management</p></td>
-<td><p>File material</p></td>
-<td><p>/copy_files</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Substitute value management</p></td>
-<td><p>Specific value（File）</p></td>
-<td><p>/upload_files</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible common</p></td>
-<td><p>Global variable management</p></td>
-<td><p>Variable name/Specific value</p></td>
-<td><p>/host_vars</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Substitute value management</p></td>
-<td><p>Variable name/Specific value</p></td>
-<td><p>/host_vars</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Template management</p></td>
-<td><p>Template embedded variable</p></td>
-<td><p>/host_vars</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible-LegacyRole</p></td>
-<td><p>File management</p></td>
-<td><p>File embedded variable</p></td>
-<td><p>/host_vars</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible common</p></td>
-<td><p>Device list</p></td>
-<td><div class="line-block">
-<div class="line">Login user ID</div>
-<div class="line">Login password   ※Encrypted with ansible-vault</div>
-<div class="line">Host name</div>
-<div class="line">DNSHost name</div>
-<div class="line">IP address</div>
-</div>
-</td>
-<td><p>/host_vars</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible common</p></td>
-<td><p>Device list</p></td>
-<td><p>ssh authentication key file</p></td>
-<td><p>/ssh_key_files</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible common</p></td>
-<td><p>Device list</p></td>
-<td><p>Server certification</p></td>
-<td><p>/winrm_ca_files</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible common</p></td>
-<td><p>Interface information</p></td>
-<td><p>Option parameter</p></td>
-<td><p>/AnsibleExecOption.txt</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Movement list</p></td>
-<td><p>Option parameter</p></td>
-<td><p>/AnsibleExecOption.txt</p></td>
-</tr>
-<tr class="row-odd"><td><p>Ansible common</p></td>
-<td><p>Device list</p></td>
-<td><div class="line-block">
-<div class="line">Login user ID</div>
-<div class="line">Login password   ※Encrypted with ansible-vault</div>
-<div class="line">Host name</div>
-<div class="line">DNSHost name</div>
-<div class="line">IP address</div>
-<div class="line">Inventory file additional option</div>
-<div class="line">WinRM connection information</div>
-<div class="line">Connection option</div>
-</div>
-</td>
-<td><p>/hosts</p></td>
-</tr>
-<tr class="row-even"><td><p>Ansible-LegacyRole</p></td>
-<td><p>Movement-Role link</p></td>
-<td><p>Role name・Include order</p></td>
-<td><p>/site.yml</p></td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
 <section id="result-data-created-when-executing-ansible">
@@ -2385,25 +2307,28 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </div>
 <section id="ansible-legacyrole-result-data-file-list">
 <h4>Ansible-LegacyRole result data File list<a class="headerlink" href="#ansible-legacyrole-result-data-file-list" title="Link to this heading">¶</a></h4>
-<table class="docutils align-left" id="id62">
-<caption><span class="caption-number">表 4.29 </span><span class="caption-text">Ansible-LegacyRole result data File list</span><a class="headerlink" href="#id62" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id61">
+<caption><span class="caption-number">表 4.29 </span><span class="caption-text">Ansible-LegacyRole result data File list</span><a class="headerlink" href="#id61" title="Link to this table">¶</a></caption>
 <colgroup>
-<col style="width: 18.2%" />
-<col style="width: 45.5%" />
-<col style="width: 18.2%" />
-<col style="width: 18.2%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>File name</p></th>
 <th class="head"><p>Recorded contents</p></th>
 <th class="head"><p>Ansible Core</p></th>
 <th class="head"><p>Ansible Automation Controller</p></th>
+<th class="head"><p>Ansible Execution Agent</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>result.txt</p></td>
 <td><p>Records Ansible execution result's execution results</p></td>
 <td><p>〇</p></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>error.log</p></td>
@@ -2415,9 +2340,11 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-even"><td><p>exec.log.org</p></td>
 <td><p>xecution log output by Ansible-playbook</p></td>
+<td><p>〇</p></td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
 </tr>
@@ -2429,6 +2356,7 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </td>
 <td><p>〇</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-even"><td><p>exec_&lt;Execution number&gt;_&lt;group number&gt;</p></td>
 <td><div class="line-block">
@@ -2438,15 +2366,28 @@ The variable's Specific value has its encrypted contents configured by ansible-v
 </td>
 <td></td>
 <td><p>〇</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>forced.txt</p></td>
 <td><p>Text file if stopped with Emergency stop</p></td>
 <td><p>〇</p></td>
 <td></td>
+<td><p>〇</p></td>
 </tr>
 <tr class="row-even"><td><p>user_files</p></td>
 <td><p>A directory where files are recorded when some file is output to ITA's original variable &quot;__workflowdir__&quot; in the playbook executed.</p></td>
 <td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">child_exec.log</div>
+<div class="line">child_error.log</div>
+</div>
+</td>
+<td><p>ansible-builder execution log</p></td>
+<td></td>
+<td></td>
 <td><p>〇</p></td>
 </tr>
 </tbody>

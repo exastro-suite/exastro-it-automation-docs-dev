@@ -19,7 +19,7 @@
     
     
     <title>6. Keycloak console &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">System management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="general.html">1. Login</a></li>
 <li class="toctree-l3"><a class="reference internal" href="organization.html">2. Organization</a></li>
@@ -127,6 +128,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#introduction">6.1. Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id1">6.2. KeyCloak console</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#adding-system-administrator">6.2.1. Adding system administrator</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#changing-the-validity-period-of-access-tokens">6.2.2. Changing the validity period of access tokens</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#changing-sso-session-idle-max-sso-sessions">6.2.3. Changing SSO session/idle/Max SSO sessions</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +167,8 @@
 <li><a class="reference internal" href="#introduction">6.1. Introduction</a></li>
 <li><a class="reference internal" href="#id1">6.2. KeyCloak console</a><ul>
 <li><a class="reference internal" href="#adding-system-administrator">6.2.1. Adding system administrator</a></li>
+<li><a class="reference internal" href="#changing-the-validity-period-of-access-tokens">6.2.2. Changing the validity period of access tokens</a></li>
+<li><a class="reference internal" href="#changing-sso-session-idle-max-sso-sessions">6.2.3. Changing SSO session/idle/Max SSO sessions</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +184,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">System management</a></li>
     
     <li><span class="section-number">6. </span>Keycloak console</li>
@@ -443,6 +448,96 @@
 <div class="line-block">
 <div class="line">Finishing this will have added a user with the priveleges as a system admin.</div>
 </div>
+</li>
+</ol>
+</section>
+<section id="changing-the-validity-period-of-access-tokens">
+<span id="access-token-lifespan-change"></span><h3><span class="section-number">6.2.2. </span>Changing the validity period of access tokens<a class="headerlink" href="#changing-the-validity-period-of-access-tokens" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">During processes that may take a long time, such as uploading/downloading large files, a message saying &quot;Failed to authenticate&quot; may display.</div>
+<div class="line">This problem can be solved by changing the validity period of the acecss token.</div>
+</div>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">Select Client (Value same as Organization ID)</div>
+</div>
+<div class="line-block">
+<div class="line">Select the desired realm with the aforementioned <cite>Select Realm (Organization) ` and select :menuselection:`Client</cite> from the menu.</div>
+<div class="line">This will display the <span class="menuselection">Client list</span> page. From the Client ID row, select the <span class="guilabel">Client that has the same value as the Organization</span>.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client.png"><img alt="../../_images/keycloak_console_client.png" class="with-border-thin" src="../../_images/keycloak_console_client.png" style="width: 600px;" />
+</a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">DisplayAdvanced settings(Client)</div>
+</div>
+<div class="line-block">
+<div class="line">This will display the <span class="menuselection">Client details</span> page. Select <span class="menuselection">Advanced</span>.</div>
+<div class="line">From the right side of the Advanced page, select &quot;Advanced settings&quot; under &quot;Jump to section&quot;.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced.png"><img alt="../../_images/keycloak_console_client_advanced.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced.png" style="width: 600px;" />
+</a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">Changing access token validity period</div>
+</div>
+<div class="line-block">
+<div class="line">Change the access token's validity period items from &quot;inherits from realm settings&quot; to &quot;Validity period&quot; and input the desired time.</div>
+<div class="line">Scroll down and press the <span class="guilabel">Save</span> button to save any changes made.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced_access_token_lifespan.png"><img alt="../../_images/keycloak_console_client_advanced_access_token_lifespan.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced_access_token_lifespan.png" style="width: 600px;" />
+</a>
+</figure>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png"><img alt="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png" class="with-border-thin" src="../../_images/keycloak_console_client_advanced_access_token_lifespan_save.png" style="width: 600px;" />
+</a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line">If Access tokens exceeds the max time set in SSO session/idle/Max SSO sessions, the token will be deactivated even if within the validity period.</div>
+<div class="line">If the user needs the access token's validity period to be more than the default SSO default settings (idle(30min)/SSO session(10h)),</div>
+<div class="line">change the SSO session/Idle/Max SSO session time to fit.</div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+<section id="changing-sso-session-idle-max-sso-sessions">
+<h3><span class="section-number">6.2.3. </span>Changing SSO session/idle/Max SSO sessions<a class="headerlink" href="#changing-sso-session-idle-max-sso-sessions" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><div class="line-block">
+<div class="line">Display Session Settings</div>
+</div>
+<div class="line-block">
+<div class="line">Select the desired realm with the aforementioned <cite>Select Realm (Organization) ` and select :menuselection:`Realm settings</cite> from the menu.</div>
+<div class="line">This will display the <span class="menuselection">Realm settings</span> page. Select <span class="menuselection">Session</span> and move to the <span class="menuselection">Session Settings</span> page.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions.png"><img alt="../../_images/keycloak_console_realm_sessions.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions.png" style="width: 600px;" />
+</a>
+</figure>
+</li>
+<li><div class="line-block">
+<div class="line">Changing access token validity period</div>
+</div>
+<div class="line-block">
+<div class="line">Input the desired time to the SSO session/idle/Max SSO sessions item.</div>
+<div class="line">Scroll down and press the <span class="guilabel">Save</span> button to save any changes made.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions_edit.png"><img alt="../../_images/keycloak_console_realm_sessions_edit.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions_edit.png" style="width: 600px;" />
+</a>
+</figure>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/keycloak_console_realm_sessions_save.png"><img alt="../../_images/keycloak_console_realm_sessions_save.png" class="with-border-thin" src="../../_images/keycloak_console_realm_sessions_save.png" style="width: 600px;" />
+</a>
+</figure>
 </li>
 </ol>
 </section>

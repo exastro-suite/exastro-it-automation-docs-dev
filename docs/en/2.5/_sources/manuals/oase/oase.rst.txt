@@ -157,7 +157,7 @@ Selecting Display pattern
    * - Known event
      - Events that has been detected by the evaluation function.
    * - Unknown event
-     - | Events that could not be singled out by the filter function (was not detected by the evaluation function).
+     - | Events that could not be singled out by the filter function (was not detected by the evaluation function).※
        | If the event is unkown, the user should consider what to do with it as an evaluation target.
    * - Expired event
      - | Event removed from evaluation targets caused by one of the following reasons.
@@ -169,6 +169,34 @@ Selecting Display pattern
      - Displays the information of the action that will be executed when a rule is matched.
    * - Rule
      - Displays Rule ID and Rule name.
+
+     
+| ※  If the settings in :menuselection:`OASE management --> Event collection` seen below are wrong, events will be handled as unknown events.
+| ("_exastro_not_available" is labeled as a key.)
+| Compare with the Event's RAW data and reconfigure the settings in :menuselection:`OASE Management --> Event collection`.
+| For more information regarding response keys and event ID keys, see :ref:`here<oase_agent_respons_key_enevnt_id_key>`.
+
+.. list-table:: How to see wrong settings(_exastro_not_available)
+ :widths: 3 2 5
+ :header-rows: 1
+ :align: left
+
+ * - Assigned label value
+   - Set fixing point
+   - Description
+ * - RESPONSE_KEY not found
+   - Response key
+   - Adds a label if the specified key does not exist in any events. 
+ * - | RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)
+     | RESPONSE_LIST_FLAG is incorrect.(Not List Type)
+   - Response list flag
+   - | Adds  a label if "False" is selected in the settings while the actual values are in a list.
+     | Adds a label if "True" is selected in the settings while the actual values are not in a list.
+ * - EVENT_ID_KEY not found
+   - Event ID key
+   - Adds a label if a non-existent key is specified to the data the corresponds to the Event's "Response key".
+
+
 
 Time range specification
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -258,9 +286,9 @@ Event history
    * - Object ID
      - Automatically given by the system and cannot be edited.
    * - Event collection settings ID
-     - [Source data] Agent
+     - [Source data] OASE management/Event collection/Event collection settings ID
    * - Event collection time
-     - The time/date of when the Agent fetched the Event.
+     - The date/time of when the Agent fetched the Event.
    * - Event valid time
      - The time period in which the event is valid.
    * - Event status
@@ -277,9 +305,11 @@ Event history
      - Information regarding the attached label.
    * - Evaluation rule name
      - | [Source data]
-       | Rule →Rule label name
+       | OASE/Rule/Rule label name
    * - Used event
      - Event use for evaluation.
+
+| For more information on how to search, see :ref:`event_history_search_method`.
 
 .. _label_creation:
 
@@ -351,7 +381,7 @@ Labeling
       |                                   |                                                         |              |              | h 255 bytes     |
       +-----------------------------------+---------------------------------------------------------+--------------+--------------+-----------------+
       | Event collection settings name    | Displays the Event collection settings name register\   | 〇           | List selecti\| ー              |
-      |                                   | ed by the Agent.                                        |              | on           |                 |
+      |                                   | ed in the Event collection.                             |              | on           |                 |
       +-----------------+-----------------+---------------------------------------------------------+--------------+--------------+-----------------+
       |                 | Key            | Specify the Event property key for the Search condition\ | ー           | Manual       | Maximum length \|
       |                 |                 | s in JSON query language (JMESPath)                     |              |              | 255 bytes ※1   |
@@ -405,7 +435,9 @@ Labeling
       |                 |                 | Enclose with []                                         |              |              |                 |
       +-----------------+-----------------+---------------------------------------------------------+--------------+--------------+-----------------+
       | Label           | Key             | The label keys registered in the Create label menu ar\  | 〇           | List select\ | ※1             |
-      |                 |                 | e displayed                                             |              | ion          |                 |
+      |                 |                 | e displayed and can be selected.                        |              | ion          |                 |
+      |                 |                 |                                                         |              |              |                 |
+      |                 |                 | ・_exastro_host                                         |              |              |                 |
       |                 +-----------------+---------------------------------------------------------+--------------+--------------+-----------------+
       |                 | Value           | Input the value that will be labeled.                   | ー           | Manual       | Maximum length\ |
       |                 |                 |                                                         |              |              |  255 bytes ※1  |
@@ -681,12 +713,14 @@ Action
      - Manual
      - Maximum length 255 bytes
    * - Conductor name
-     - [Source data] Conductor list
+     - | [Source data]
+       | Conductor/Conductor list/Conductor name
      - 〇
      - List selection
      - ー
    * - Operation name
-     - [Source data] Operation list
+     - | [Source data]
+       | Basic console/Operation list/Operation name
      - 〇
      - List selection
      - ー
@@ -697,13 +731,15 @@ Action
      - Default value：False
    * - Specify (Host) 
      - | Select the Action target host.
-       | [Source data] device list
+       | [Source data]
+       | Ansible common/Device list/Host name
      - ー
      - List selection
      - ー
    * - Parameter sheet
      - | Select the Parameter sheet that the Action will use.
-       | [Source data]Menu list
+       | [Source data]
+       | Parameter sheet(Input)/Parameter sheet name(ja)
      - ー
      - List selection
      - ー
@@ -767,7 +803,8 @@ Rule
      - Manual
      - Maximum length 255 bytes
    * - Filter A
-     - [Source data]Filter 
+     - | [Source data]
+       | OASE/Rule/Filter/Filter ID
      - 〇
      - List selection
      - ー
@@ -780,11 +817,12 @@ Rule
      - List selection
      - ー
    * - Filter B
-     - [Source data]Filter
+     - | [Source data]
+       | OASE/Rule/Filter/Filter ID
      - ー
      - List selection
      - ー
-   * - Pre-operation notification
+   * - Pre-notification
      - 
      - ー
      - Select file
@@ -795,13 +833,14 @@ Rule
      - ー
      - ー
      - ー
-   * - Pre-operation notification destination
+   * - Pre-notification destination
      - Select a destination for where the notifications will be sent.
      - ー
      - List selection
      - ー
-   * - Action ID
-     - [Source data]Action
+   * - Action name
+     - | [Source data]
+       | OASE/Action/Action name
      - ー
      - List selection
      - ー
@@ -849,10 +888,7 @@ Rule
      - Manual
      - Maximum length 4000 bytes
 
-.. note::
- | ※1 Templates does not support variables at the moment.
- |     This function is planned to be released in a later version.
- | Example：{{ labels._exastro_fetched_time }}
+| ※1 For more information regarding templates that can be used for pre/post notifications, see :ref:`variables_available_templates`.
 
 
 Click the :guilabel:`Conclusion label settings` field to open up a window where the user can configure Conclusion label settings.
@@ -915,9 +951,11 @@ Evaluation results
    * - Action history ID
      - The Label key can contain half width alphanumeric chatacters and the following symbols: (_-).
    * - Rule ID
-     - [Source data] Rule 
+     - | [Source data]
+       | OASE/Rule/Rule ID
    * - Rule name
-     - [Source data] Rule
+     - | [Source data]
+       | OASE/Rule/Rule name
    * - Status
      - | The following statuses exists.
        | ・Evaluated.
@@ -931,27 +969,37 @@ Evaluation results
        | ・Confirmed
        | ・Confirmation denied
    * - Action ID
-     - [Source data]Action
+     - | [Source data]
+       | OASEAction Action ID
    * - Action name
-     - [Source data]Action
+     - | [Source data]
+       | OASEAction Action name
    * - Conductor instance ID
-     - [Source data]Conductor operation list
+     - | [Source data]
+       | Conductor/Conductor history/Conductor instance ID
    * - Conductor name
-     - [Source data]Conductor operation list
+     - | [Source data]
+       | Conductor/Conductor history/Conductor name
    * - Operation ID
-     - [Source data]Operation list
+     - | [Source data]
+       | Basic console/Operation list/Operation ID
    * - Operation name
-     - [Source data]Operation list
+     - | [Source data]
+       | Basic console/Operation list/Operation name
    * - Event link
      - [Source data]Rule 
    * - Specify Host ID
-     - [Source data]Device list
+     - | [Source data]
+       | Ansible common/Device list/Management system item number
    * - Specify Host name
-     - [Source data]Device list
+     - | [Source data]
+       | Ansible common/Device list/Host name
    * - Parameter sheet name
-     - [Source data]Menu management
+     - | [Source data]
+       | Parameter data sheet definition list/Parameter sheet name(ja)
    * - Parameter sheet (rest) 
-     - [Source data]Management
+     - | [Source data]
+       | Parameter sheet definition list/Parameter sheet name(rest)
    * - Use event ID
      - List of Event IDs leading to the Action execution.
    * - Action (Inheriting original event label) 
@@ -1065,3 +1113,275 @@ Confirmation items when Event history and Evaluation results displays large amou
 | It will re-match with the rule and continuously generate new Conclusion event, which will create a loop.
 | This will cause the Event history and Evaluation results will have massive amounts of records registered to them.
 | If needed, make sure to configure the settings to prevent that.
+
+
+.. _event_history_search_method:
+
+Event history search method
+-------------------------
+
+| Users can use the following methods to search.
+
+.. table:: Event history page Search method list
+ :widths: 3 2 2 2
+ :align: left
+
+ +-----------------------------------+--------------------------------------------------------------+
+ | **Item**                          | **Search**                                                   |
+ |                                   +----------------+----------------------+----------------------+
+ |                                   | **Complete M\  | **Part match**       | **No match**         |
+ |                                   | atch**         |                      |                      |
+ +===================================+================+======================+======================+
+ | Object ID                         | Search hit     | Validation error     | Validation error     |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Event collection settings ID      | Search hit     | Search hit           | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Event collect date/time           | Search hit     | ※1                  | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Event validation date/time        | Search hit     | ※1                  | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Event state                       | Search hit     | Search hit           | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Event type                        | Search hit     | Search hit           | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Label                             | Search hit     | Search hit           | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Valuation rule name               | Search hit     | Search hit           | No display           |
+ +-----------------------------------+----------------+----------------------+----------------------+
+ | Use event ※2                     | Search hit     | Validation error     | Validation error     |
+ +-----------------------------------+----------------+----------------------+----------------------+
+
+| ※1 See below for more information regarding Part match for Event collect date/time and Event validation date/time.
+
+Patch match that can be used when searching
+  | YYYY/MM/DD
+  | YYYY/MM/DD hh
+  | YYYY/MM/DD hh:mm
+  |
+
+Patch match that can be used when searching (Validation error)
+  | If the string is not finished or the last character is a colon.
+  | YYYY/MM/D
+  | YYYY/MM/DD h
+  | YYYY/MM/DD hh:
+  | YYYY/MM/DD hh:mm:
+  | Example: 2024/09/01 12:2
+  |
+
+
+| ※2 See below for more information regarding search methods for use events.
+
+Use all characters of the Record's "Use event" value.
+  | Multiple items
+  | ["ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')",... "ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')"]
+  | 1 Item
+  | ["ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')"]
+  |
+
+Use the contents of the Record's "Use event" value array.
+  | Multiple items
+  | "ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')",... "ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')"
+  | 1 item
+  | "ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')"
+  |
+
+Use the ObjectId character string of the Record's "Use event" value.
+  | Multiple items
+  | ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx'),... ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')
+  | 1 item
+  | ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')
+  | 
+
+Use the value inside the ObjectID of the Record's "Use event" value.
+  | Multiple items
+  | xxxxxxxxxxxxxxxxxxxxxxxx,... yyyyyyyyyyyyyyyyyyyyyyyy
+  | 1 item
+  | xxxxxxxxxxxxxxxxxxxxxxxx'
+
+
+
+.. _variables_available_templates:
+
+Pre/Post-notification template
+---------------------------------
+
+| The Pre/Post-notification templates are as following.
+
+.. code-block:: none
+   :name: Pre-notification templates
+   :caption: Pre-notification templates
+   :lineno-start: 1
+
+   [TITLE]
+   Pre-notification
+
+   [BODY]
+   Event
+   {%- for event in events -%}
+   {%- set i = loop.index %}
+       Event source data #{{ i }}
+   {%- for  key, value in event._exastro_events.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor -%}
+   {%- endfor %}
+       Conclusion event label    ： {{ action_log.conclusion_event_labels }}
+       
+   Rule information
+       Matched rule ID           ： {{ rule.rule_id }}
+       Matched rule name         ： {{ rule.rule_name }}
+       Condition
+         Filter A
+           Filter ID             ： {{ rule.filter_a }}
+           Filter name           ： {{ rule.filter_a_name }}
+           Filter condition      ： {{ rul    e.filter_a_condition_json }}
+         Filter operator         ： {{ rule.filter_operator }}
+         Filter B
+           Filter ID             ： {{ rule.filter_b }}
+           Filter name           ： {{ rule.filter_b_name }}
+           Filter condition      ： {{ rule.filter_b_condition_json }}
+       Conclusion event
+         Source event label inheritance
+           Action               ： {{ rule.action_label_inheritance_flag }}
+           Event                ： {{ rule.event_label_inheritance_flag }}
+         Conclusion label settings： {{ rule.conclusion_label_settings }}
+       TTL                      ： {{ rule.ttl }}
+       Remarks                  ： {{ rule.note }}
+
+   Action information
+       Action ID                ： {{ action.action_id }}
+       Action name              ： {{ action.action_name }}
+       Operation ID             ： {{ action.operation_id }}
+       Operation name           ： {{ action.operation_name }}
+       Executing Conductor ID   ： {{ action.conductor_class_id }}
+       Executing Conductor name ： {{ action.conductor_name }}
+       Host
+         Event link             ： {{ action.event_collaboration }}
+         Specify                ： {{ action.host_id }}
+       Using parameter sheet    ： {{ action.parameter_sheet_id }}
+       Remarks                  ： {{ action.note }}
+
+
+
+.. code-block:: none
+   :name: Post-notification templates
+   :caption: Post-notification templates
+   :lineno-start: 1
+
+   [TITLE]
+   Post-notification
+
+   [BODY]
+   Event 
+   {%- for event in events -%}
+   {%- set i = loop.index %}
+     Event  #{{ i }}
+       Event ID           ： {{ event.labels._id }}
+       Event collect settings ID     ： {{ event.labels._exastro_event_collection_settings_id }}
+       Event collect settings name     ： {{ event.labels._exastro_event_collection_settings_name }}
+       Event fetch time       ： {{ event.labels._exastro_fetched_time }}
+       Event label
+   {%- for key, value in event.labels.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor %}
+       Event source data
+   {%- for  key, value in event._exastro_events.items() %}
+         ・{{ key }}：{{ value }}
+   {%- endfor -%}
+   {%- endfor %}
+
+   Matched results
+     Status                     ： {{ action_log.status }}
+     Register date/time         ： {{ action_log.time_register }}
+     Executed Conductor ID      ： {{ action_log.conductor_instance_id }}
+     Executed Conductor Name    ： {{ action_log.conductor_instance_name }}
+     Conclusion Event label     ： {{ action_log.conclusion_event_labels }}
+
+   Rule information
+     Matched rule ID            ： {{ rule.rule_id }}
+     Matched rule name          ： {{ rule.rule_name }}
+     Condition
+       Filter A
+         Filter ID              ： {{ rule.filter_a }}
+         Filter name            ： {{ rule.filter_a_name }}
+         Filter condition       ： {{ rule.filter_a_condition_json }}
+       Filter operator          ： {{ rule.filter_operator }}
+       Filter B
+         Filter ID              ： {{ rule.filter_b }}
+         Filter name            ： {{ rule.filter_b_name }}
+         Filter condition       ： {{ rule.filter_b_condition_json }}    
+     Conclusion Event 
+       Source event label inheritence
+         Action                 ： {{ rule.action_label_inheritance_flag }}
+         Event                  ： {{ rule.event_label_inheritance_flag }}
+       Conclusion label settings： {{ rule.conclusion_label_settings }}
+     TTL                        ： {{ rule.ttl }}
+     Remarks                    ： {{ rule.note }}
+
+   Action information
+     Action ID                  ： {{ action.action_id }}
+     Action name                ： {{ action.action_name }}
+     Operation ID               ： {{ action.operation_id }}
+     Operation name             ： {{ action.operation_name }}
+     Executing Conductor ID     ： {{ action.conductor_class_id }}
+     Executing Conductor name   ： {{ action.conductor_name }}
+     Host
+       Event link               ： {{ action.event_collaboration }}
+       Specify                  ： {{ action.host_id }}
+     Using parameter sheet      ： {{ action.parameter_sheet_id }}
+     Remarks                    ： {{ action.note }}
+
+   Conductor information
+     Status                     ： {{ conductor.status }}
+     Operation ID               ： {{ conductor.operation_id }}
+     Operation name             ： {{ conductor.operation_name }}
+     Register date/time         ： {{ conductor.time_register }}
+     Reservation date/time      ： {{ conductor.time_book }}
+     Start date/time            ： {{ conductor.time_start }}
+     End date/time              ： {{ conductor.time_end }}
+     Emergency stop flag        ： {{ conductor.abort_execute_flag }}
+     Remarks                    ： {{ conductor.note }}
+
+
+
+Result pattern when using variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Patterned variables found in results are as following.
+
+- | action_log.status
+  | Rule matched
+  | Executing
+  | Completed
+  | Completed (abnormal)
+  | Waiting for completion confirmation
+  | Completion confirmed
+  | Completion confirmation rejected
+  | 
+
+- | rule.action_label_inheritance_flag
+  | Used as a parameter
+  | Not use as a parameter
+  | 
+
+- | rule.event_label_inheritance_flag
+  | Inheriting Conclusion Events
+  | Not Inheriting Conclusion Events
+  | 
+
+- | conductor.status
+  | Unexecuted
+  | Unexecuted (scheduled)
+  | Executing
+  | Executing (delayed)
+  | Paused
+  | Completed
+  | Abend
+  | Ended with warning
+  | Emergency stop
+  | Cancelled reservation
+  | Unexpected error
+  | 
+
+- | conductor.note
+  | Issued
+  | not issued

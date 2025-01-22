@@ -19,7 +19,7 @@
     
     
     <title>5. Collect function &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../platform_management/index.html">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../organization_management/index.html">Organization management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../it_automation_base/index.html">Basic operation</a></li>
@@ -250,7 +251,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">Ansible Driver</a></li>
     
     <li><span class="section-number">5. </span>Collect function</li>
@@ -375,7 +376,7 @@
 <ol class="arabic">
 <li><p>Collect target file format</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-number">リスト 5.18 </span><span class="caption-text">Files output in YAML format.</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.29 </span><span class="caption-text">Files output in YAML format.</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■File<span class="w"> </span>name：RH_snmp.yml
 ■File<span class="w"> </span>contents：
 VAR_RH_sshd_config:
@@ -393,7 +394,7 @@ VAR_RH_sshd_config:
 <div class="line">The collectable directory path (output destination for the source file) can be handled as the following variable in IaC (Playbook, Role).</div>
 </div>
 <span id="table-ita-original-variable"></span><table class="docutils align-left" id="id6">
-<caption><span class="caption-number">表 5.10 </span><span class="caption-text">Collect function target directory ITA original variables</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.29 </span><span class="caption-text">Collect function target directory ITA original variables</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 35.7%" />
 <col style="width: 53.6%" />
@@ -428,7 +429,7 @@ VAR_RH_sshd_config:
 <div class="line">The upper directory of the collectable directories (parameters) depends on the &quot;Data relay storage path (Ansible”, Ansible driver execution mdoe and the No. of the operation.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-number">リスト 5.19 </span><span class="caption-text">Collect target directory path</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.30 </span><span class="caption-text">Collect target directory path</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="p">|</span>-<span class="w">  </span>_parameters<span class="w">           </span>※1
 <span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost<span class="w">         </span>※2
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>-<span class="w">  </span>SAMPLE.yml<span class="w">    </span>※3
@@ -459,7 +460,7 @@ VAR_RH_sshd_config:
 </div>
 </div>
 <table class="docutils align-left" id="id8">
-<caption><span class="caption-number">表 5.11 </span><span class="caption-text">Upper directory paths for the different Ansible-Driver modes</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.30 </span><span class="caption-text">Upper directory paths for the different Ansible-Driver modes</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 17.9%" />
 <col style="width: 17.9%" />
@@ -501,7 +502,7 @@ VAR_RH_sshd_config:
 <div class="line">■　e.g.) File path and Directory structure for Collect target file.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-number">リスト 5.20 </span><span class="caption-text">Collect targetfile path and directory structure</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.31 </span><span class="caption-text">Collect targetfile path and directory structure</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Execution<span class="w"> </span>mode：<span class="w"> </span>Ansible-Legacy
 Execution<span class="w"> </span>No：<span class="w"> </span><span class="m">00000000</span>-0000-0000-0000-000000000001
 Target：<span class="w"> </span>localhost
@@ -524,7 +525,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 <div class="line">The following description methods are available for specifying the files to be uploaded, which are placed under the _parameters_file distribution.</div>
 </div>
 <table class="docutils align-left" id="id10">
-<caption><span class="caption-number">表 5.12 </span><span class="caption-text">Upload target file specification method</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.31 </span><span class="caption-text">Upload target file specification method</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 21.7%" />
 <col style="width: 65.2%" />
@@ -558,7 +559,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 <div class="line">■　e.g.) Directory structure and source file contents when using variables of Normal variable structure.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-number">リスト 5.21 </span><span class="caption-text">Directory structure and source file contents when using variables of Normal variable structure.</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.32 </span><span class="caption-text">Directory structure and source file contents when using variables of Normal variable structure.</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>■Structure
 <span class="w"> </span>【Upper<span class="w"> </span>directory】
 <span class="w">    </span><span class="p">|</span>-<span class="w">  </span>_parameters
@@ -593,7 +594,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">リスト 5.22 </span><span class="caption-text">Normal variable</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.33 </span><span class="caption-text">Normal variable</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">VAR_users</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 </pre></div>
 </div>
@@ -608,7 +609,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-number">リスト 5.23 </span><span class="caption-text">Multiple specific value structure</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.34 </span><span class="caption-text">Multiple specific value structure</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">VAR_users</span><span class="p">:</span>
 <span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 <span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
@@ -625,7 +626,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-number">リスト 5.24 </span><span class="caption-text">多段変数の構造の変数の場合</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.35 </span><span class="caption-text">多段変数の構造の変数の場合</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">VAR_users</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alice</span><span class="w">      </span><span class="c1">#Member variable</span>
 <span class="w">      </span><span class="nt">authorized</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
@@ -660,7 +661,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ol>
 <table class="docutils align-left" id="id15">
-<caption><span class="caption-number">表 5.13 </span><span class="caption-text">Ansible common Menu list</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.32 </span><span class="caption-text">Ansible common Menu list</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
 <th class="head"><p>Menu group</p></th>
@@ -694,7 +695,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ol>
 <table class="docutils align-left" id="id17">
-<caption><span class="caption-number">表 5.14 </span><span class="caption-text">Ansible driver menu list</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.33 </span><span class="caption-text">Ansible driver menu list</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
 <th class="head"><p>Menu group</p></th>
@@ -834,7 +835,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </li>
 </ol>
 <table class="docutils align-left" id="id21">
-<caption><span class="caption-number">表 5.15 </span><span class="caption-text">Registration page item list（Collection item value management）：Collect item(From)</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.34 </span><span class="caption-text">Registration page item list（Collection item value management）：Collect item(From)</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item：Collect item(From)</p></th>
 <th class="head"><p>Description</p></th>
@@ -870,7 +871,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 </tbody>
 </table>
 <table class="docutils align-left" id="id22">
-<caption><span class="caption-number">表 5.16 </span><span class="caption-text">Registration page item list（Collection item value management）：Parameter sheet(To)</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.35 </span><span class="caption-text">Registration page item list（Collection item value management）：Parameter sheet(To)</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item：Parameter sheet(To)</p></th>
 <th class="head"><p>Description</p></th>
@@ -901,7 +902,7 @@ Collect<span class="w"> </span>target<span class="w"> </span>file<span class="w"
 <div class="line">■e.g.) If the variable has a normal variable structure.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-number">リスト 5.25 </span><span class="caption-text">If the variable has a normal variable structure.</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.36 </span><span class="caption-text">If the variable has a normal variable structure.</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■File<span class="w"> </span>name:<span class="w"> </span>SAMPLE.yml
 ■File<span class="w"> </span>contents
 
@@ -920,7 +921,7 @@ Variable<span class="w"> </span>name:<span class="w"> </span>VAR_sample_config_1
 <div class="line">■ e.g.) If the variable has a multiple variable structure 1</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 5.26 </span><span class="caption-text">If the variable has a multiple variable structure 1</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.37 </span><span class="caption-text">If the variable has a multiple variable structure 1</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■File<span class="w"> </span>name:<span class="w"> </span>SAMPLE_2.yml
 ■File<span class="w"> </span>contents
 
@@ -942,7 +943,7 @@ Member<span class="w"> </span>variable：<span class="w">  </span><span class="o
 <div class="line">■ e.g.) If the variable has a multiple variable structure 2</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 5.27 </span><span class="caption-text">If the variable has a multiple variable structure 2</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.38 </span><span class="caption-text">If the variable has a multiple variable structure 2</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■File<span class="w"> </span>name:<span class="w"> </span>RH_sshd.yml
 ■File<span class="w"> </span>contents
 
@@ -966,7 +967,7 @@ VAR_RH_sshd_config:
 <div class="line">■e.g.)If the variable has a multiple variable structure 3</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id26">
-<div class="code-block-caption"><span class="caption-number">リスト 5.28 </span><span class="caption-text">If the variable has a multiple variable structure 3</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.39 </span><span class="caption-text">If the variable has a multiple variable structure 3</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■File<span class="w"> </span>name:<span class="w"> </span>RH_snmp.yml
 ■File<span class="w"> </span>contents
 
@@ -1008,7 +1009,7 @@ Member<span class="w"> </span>variable：<span class="w">  </span>com2sec<span c
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id28">
-<caption><span class="caption-number">表 5.17 </span><span class="caption-text">Execution management collect status details</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.36 </span><span class="caption-text">Execution management collect status details</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Description</p></th>
@@ -1034,7 +1035,7 @@ Member<span class="w"> </span>variable：<span class="w">  </span>com2sec<span c
 </tbody>
 </table>
 <table class="docutils align-left" id="id29">
-<caption><span class="caption-number">表 5.18 </span><span class="caption-text">Collect status details</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.37 </span><span class="caption-text">Collect status details</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><div class="line-block">
 <div class="line">Operation status</div>
@@ -1113,7 +1114,7 @@ Member<span class="w"> </span>variable：<span class="w">  </span>com2sec<span c
 <div class="line">■ e.g.) Logfile Output contents example</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 5.29 </span><span class="caption-text">Logfile Output contents example - Collected</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.40 </span><span class="caption-text">Logfile Output contents example - Collected</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
 <span class="w"> </span>REST<span class="w"> </span>DATA<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>menu<span class="w"> </span>ID:<span class="w"> </span>collect_001<span class="w"> </span>operation<span class="w"> </span>NO:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
 <span class="w"> </span>Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
@@ -1127,7 +1128,7 @@ Member<span class="w"> </span>variable：<span class="w">  </span>com2sec<span c
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 5.30 </span><span class="caption-text">Logfile Output contents example - Collected(with notification)</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.41 </span><span class="caption-text">Logfile Output contents example - Collected(with notification)</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
 <span class="o">{</span><span class="s1">&#39;item_1&#39;</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">&#39;status_code&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg_args&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg&#39;</span>:<span class="w"> </span><span class="s1">&#39;Regular expression error (1,Value:sample_value)&#39;</span><span class="o">}]}</span>
 <span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>register<span class="w"> </span>or<span class="w"> </span>update<span class="w"> </span>data<span class="w"> </span><span class="k">in</span><span class="w"> </span>CMDB.<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>
@@ -1144,13 +1145,13 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 5.31 </span><span class="caption-text">Logfile Output contents example - Collect error [Operation]</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.42 </span><span class="caption-text">Logfile Output contents example - Collect error [Operation]</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Operation<span class="w"> </span>is<span class="w"> </span>abolished,<span class="w"> </span>so<span class="w"> </span>registration<span class="w"> </span>and<span class="w"> </span>update<span class="w"> </span>processing<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span><span class="o">(</span>Operation<span class="w"> </span>No:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 5.32 </span><span class="caption-text">Logfile Output contents example - Collect error [host]</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.43 </span><span class="caption-text">Logfile Output contents example - Collect error [host]</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="o">)</span>.
 <span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="o">)</span>.
 <span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="o">)</span>.
@@ -1158,7 +1159,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 5.33 </span><span class="caption-text">Logfile Output contents example - Not target</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.44 </span><span class="caption-text">Logfile Output contents example - Not target</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>There<span class="w"> </span>is<span class="w"> </span>no<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>collection<span class="w"> </span>target<span class="w"> </span>directory.
 </pre></div>
 </div>
@@ -1236,7 +1237,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">2. Ansible config collecting and Parameter creating Playbook.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="makeyml-ansible-yml">
-<div class="code-block-caption"><span class="caption-number">リスト 5.34 </span><span class="caption-text">makeYml_Ansible.yml</span><a class="headerlink" href="#makeyml-ansible-yml" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.45 </span><span class="caption-text">makeYml_Ansible.yml</span><a class="headerlink" href="#makeyml-ansible-yml" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make yaml file</span>
 <span class="w">   </span><span class="nt">blockinfile</span><span class="p">:</span>
 <span class="w">     </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
@@ -1300,7 +1301,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-number">リスト 5.35 </span><span class="caption-text">gather_facts valid setting example</span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.46 </span><span class="caption-text">gather_facts valid setting example</span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
 <span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}&quot;</span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
@@ -1317,7 +1318,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">The following section shows an example of the directory and the collect process when multiple &quot;PREFIX (file name)-Variable names&quot; are set to a single &quot;Menu-Item&quot; and there are multiple corresponding source files in the target host's collect directory.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="collect-target-file">
-<div class="code-block-caption"><span class="caption-number">リスト 5.36 </span><span class="caption-text">Collect target file</span><a class="headerlink" href="#collect-target-file" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.47 </span><span class="caption-text">Collect target file</span><a class="headerlink" href="#collect-target-file" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【Upper<span class="w"> </span>directory】
 <span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
 <span class="w">       </span><span class="p">|</span>-<span class="w">  </span>ita-sample01
@@ -1333,7 +1334,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">■File name：SAMPLE_01.yml ,SAMPLE_02.yml</div>
 </div>
 <table class="docutils align-left" id="id36">
-<caption><span class="caption-number">表 5.19 </span><span class="caption-text">File contents</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.38 </span><span class="caption-text">File contents</span><a class="headerlink" href="#id36" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -1403,7 +1404,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">For Collect target files output in Yaml format, the handling of values during the registration process in the parameter sheet are handled as following.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-number">リスト 5.37 </span><span class="caption-text">Sample.yml</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.48 </span><span class="caption-text">Sample.yml</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">VAR_TEST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TEST</span>
 <span class="nt">VAR_STR_TEST1</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TEST1&#39;</span>
 <span class="nt">VAR_STR_TEST2</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TEST2&quot;</span>
@@ -1422,6 +1423,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <span class="nt">VAR_NON</span><span class="p">:</span>
 <span class="nt">VAR_Quotation</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
 <span class="nt">VAR_WQuotation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="nt">VAR_INT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
 </pre></div>
 </div>
 </div>
@@ -1429,7 +1431,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">■ Collect target YAML (sample.yml) key and value</div>
 </div>
 <table class="docutils align-left" id="id38">
-<caption><span class="caption-number">表 5.20 </span><span class="caption-text">Collect target YAML (sample.yml) key and value</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.39 </span><span class="caption-text">Collect target YAML (sample.yml) key and value</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10.7%" />
 <col style="width: 35.7%" />
@@ -1534,13 +1536,18 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <td><p>&quot;&quot;</p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>VAR_INT</p></td>
+<td><p>100</p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <div class="line-block">
 <div class="line">■ Collecting YAML(sample.yml)</div>
 </div>
 <table class="docutils align-left" id="id39">
-<caption><span class="caption-number">表 5.21 </span><span class="caption-text">Collecting YAML(sample.yml)</span><a class="headerlink" href="#id39" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.40 </span><span class="caption-text">Collecting YAML(sample.yml)</span><a class="headerlink" href="#id39" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
 <th class="head"><p>Collect target (Key:Value)</p></th>
@@ -1689,6 +1696,13 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <td><p>string</p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>VAR_INT: 100</p></td>
+<td><p>パラメータ/VAR_INT</p></td>
+<td><p>&quot;100&quot;</p></td>
+<td><p>string</p></td>
+<td><p>100</p></td>
+</tr>
 </tbody>
 </table>
 <div class="line-block">
@@ -1706,7 +1720,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </figcaption>
 </figure>
 <figure class="align-default" id="id41">
-<a class="reference internal image-reference" href="../../_images/val_test_filter_item10_18.png"><img alt="Target parameter sheet on WebUI display result 2" src="../../_images/val_test_filter_item10_18.png" style="width: 6.96252in; height: 1.98221in;" />
+<a class="reference internal image-reference" href="../../_images/val_test_filter_item10_19.png"><img alt="Target parameter sheet on WebUI display result 2" src="../../_images/val_test_filter_item10_19.png" style="width: 6.96252in; height: 1.98221in;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 5.16 </span><span class="caption-text">Target parameter sheet on WebUI display result 2</span><a class="headerlink" href="#id41" title="Link to this image">¶</a></p>
@@ -1716,7 +1730,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <li><p>Results fetched with Target Parameter sheet's RESTAPI(filter)</p></li>
 </ul>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 5.38 </span><span class="caption-text">RESTAPI(filter) response</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.49 </span><span class="caption-text">RESTAPI(filter) response</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
@@ -1728,21 +1742,22 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <span class="w">                </span><span class="nt">&quot;item_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_10&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_11&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_12&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_13&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_12&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_13&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_14&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_15&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_16&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_17&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_18&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_19&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST1&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TEST2&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_4&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_5&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_6&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;item_7&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NULL&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_8&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;item_9&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_8&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;item_9&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_execute_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023/05/17 13:58:47&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_update_date_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023/05/17 14:00:07.944031&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="nt">&quot;last_updated_user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Collect execute function&quot;</span><span class="p">,</span>
@@ -1768,7 +1783,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">This section describes an example of specifying an Upload target file for a Collect target file output in Yaml format, when the same file name needs to be handled on the same host and by hierarchy.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 5.39 </span><span class="caption-text">Collect target file File path and Directory structure (Multiple file with same file name)</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.50 </span><span class="caption-text">Collect target file File path and Directory structure (Multiple file with same file name)</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【Upper<span class="w"> </span>directory】
 <span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
 <span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
@@ -1800,7 +1815,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 </div>
 <table class="docutils align-left" id="id44">
-<caption><span class="caption-number">表 5.22 </span><span class="caption-text">Collect target file</span><a class="headerlink" href="#id44" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 5.41 </span><span class="caption-text">Collect target file</span><a class="headerlink" href="#id44" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 40.0%" />
@@ -1839,7 +1854,7 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 <div class="line">Files being deleted must have the Target variable name's value be blank.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 5.40 </span><span class="caption-text">Collect target file's File path and Directory structure when deleting File upload item</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 5.51 </span><span class="caption-text">Collect target file's File path and Directory structure when deleting File upload item</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【Upper<span class="w"> </span>directory】
 <span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
 <span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost

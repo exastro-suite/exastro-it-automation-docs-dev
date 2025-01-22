@@ -612,14 +612,14 @@ Parameter sheets and Data sheets
    |                             | oading it.                                                    |
    |                             +-----+-----+---------------------------------------------------+
    |                             | In\ | Ma\ | Input the maximum amount of bytes for the file \  |
-   |                             | pu\ | im\ | uploads                                           |
-   |                             | t \ | mu\ | Maximum value is 104857600 bytes.                 |
-   |                             | it\ | m \ |                                                   |
-   |                             | em  | Fi\ |  This item is required if the input method is se\ |
-   |                             |     | le\ |  t to "File upload".                              |
+   |                             | pu\ | im\ | uploads.                                          |
+   |                             | t \ | mu\ | Maximum value is the same as the \                |
+   |                             | it\ | m \ | "ita.organization.common.upload_file_size_limit"\ |
+   |                             | em  | Fi\ |  value set in  :ref:`plan`.                       |
+   |                             |     | le\ |                                                   |
    |                             |     |  b\ |                                                   |
-   |                             |     | yt\ |                                                   |
-   |                             |     | es  |                                                   |
+   |                             |     | yt\ |  This item is required if the input method is se\ |
+   |                             |     | es  |  t to "File upload".                              |
    |                             |     |     |                                                   |
    +-----------------------------+-----+-----+---------------------------------------------------+
    | Link                        | Displays the input URL as a link                              |

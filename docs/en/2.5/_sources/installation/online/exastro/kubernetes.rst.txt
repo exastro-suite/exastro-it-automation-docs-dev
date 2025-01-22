@@ -14,49 +14,49 @@
    });
    </script>
 
-==============================
-Exastro on Kubernetes - Online
-==============================
+=======================
+Helm chart (Kubernetes) - Online
+=======================
 
-目的
+Introduction
 ====
 
-| 本書では、Exastro IT Automation を利用する際に必要となる、Exastro Platform および Exastro IT Automation を Kubernetes 上に導入する手順について説明します。
+| This document aims to explain how to install Exastro Platform and/or Exastro IT Automation on Kubernetes.
 
-特徴
+Features
 ====
 
-| 高い可用性やサービスレベルを必要とされる際の、Exastro IT Automation の導入方法となります。
-| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版<docker_compose>` の利用を推奨します。
+| This method allows the user to install Exastro IT Automation with the highest level of availability and service.
+| For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version<docker_compose>`.
 
-前提条件
+Prerequisites
 ========
 
-- クライアント要件
+- Client requirements
 
-  | 動作確認が取れているクライアントアプリケーションのバージョンは下記のとおりです。
+  | The following describes confirmed compatible client application as well as their versions.
 
-  .. list-table:: クライアント要件
+  .. list-table:: Client requirements
    :widths: 20, 20
    :header-rows: 1
 
-   * - アプリケーション
-     - バージョン
+   * - Application
+     - Version
    * - Helm
      - v3.9.x
    * - kubectl
      - 1.23
 
-- デプロイ環境
+- Deploy environment
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
+  | The following describes confirmed compatible operation systems as well as their versions.
 
-  .. list-table:: ハードウェア要件(最小構成)
+  .. list-table:: Hardware requirements (minimum requirements)
    :widths: 20, 20
    :header-rows: 1
 
-   * - リソース種別
-     - 要求リソース
+   * - Resource type
+     - Required resource
    * - CPU
      - 2 Cores (3.0 GHz, x86_64)
    * - Memory
@@ -64,14 +64,14 @@ Exastro on Kubernetes - Online
    * - Storage (Container image size)
      - 10GB
    * - Kubernetes (Container image size)
-     - 1.23 以上
+     - 1.23 or later
 
-  .. list-table:: ハードウェア要件(推奨構成)
+  .. list-table:: Hardware requirements (Recommended requirements)
    :widths: 20, 20
    :header-rows: 1
 
-   * - リソース種別
-     - 要求リソース
+   * - Resource type
+     - Required resource
    * - CPU
      - 4 Cores (3.0 GHz, x86_64)
    * - Memory
@@ -79,63 +79,63 @@ Exastro on Kubernetes - Online
    * - Storage (Container image size)
      - 120GB
    * - Kubernetes (Container image size)
-     - 1.23 以上
+     - 1.23 or later
 
   .. warning::
-    | 要求リソースは Exastro IT Automation のコア機能に対する値です。同一クラスタ上に Keycloak や MariaDB などの外部ツールをデプロイする場合は、その分のリソースが別途必要となります。
-    | データベースおよびファイルの永続化のために、別途ストレージ領域を用意する必要があります。
-    | Storage サイズには、Exastro IT Automation が使用する入出力データのファイルは含まれていないため、利用状況に応じて容量を見積もる必要があります。
+    | The required resources for the minimum configuration are for Exastro IT Automation's core functions. Additional resources will be required if you are planning to deploy external systems, such as GitLab and Ansible Automation Platform.
+    | Users will have to prepare an additional storage area if they wish to persist databases or files.
+    | The storage space is only an estimate and varies based on the user's needs. Make sure to take that into account when securing storage space.
 
-- 通信要件
+- Communication Protocols
 
-  - | クライアントからデプロイ先のコンテナ環境にアクセスできる必要があります。
-  - | Platform 管理者用と一般ユーザー用の2つ通信ポートが使用となります。
-  - | コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
+  - The client must be able to access the deploying container environment.
+  - The user will need 2 ports. One for the Platform administrator and one for normal users.
+  - The user must be able to connect to Docker Hub in order to acquire the container image from the container environment.
 
-- 外部コンポーネント
+- External components
 
-  - | MariaDB、もしくは、MySQL サーバ
-  - | GitLab リポジトリ、および、アカウントの払い出しが可能なこと
+  - MariaDB or MySQL server
+  - Must be able to create Gitlab accounts and repositories.
 
   .. warning::
-    | GitLab 環境を同一クラスタに構築する場合は、GitLab のシステム要件に対応する最小要件を追加で容易する必要があります。
-    | Database 環境を同一クラスタに構築する場合は、使用する Database のシステム要件に対応する最小要件を定義する必要があります
+    | If the user is construcing the GitLab environment on the same cluster, the GitLab's minimum system requirements changes in order to support the additional load.
+    | If the user is construcing the Database environment on the same cluster, the Database's minimum system requirements changes in order to support the additional load.
 
 
-インストールの準備
+Preparation
 ==================
 
-Helm リポジトリの登録
+Register Helm repository
 ---------------------
 
-| Exastro システムは、以下の2つのアプリケーションから構成されています。
-| Exastro の全ツールは同一の Helm リポジトリ上に存在しています。
+| The Exastro system is constructed by the following 2 applications.
+| All the Exastro tools exists on the same Helm repository.
 
-- 共通基盤 (Exastro Platform)
+- Shared Platform (Exastro Platform)
 - Exastro IT Automation
 
 .. csv-table::
- :header: リポジトリ
+ :header: Repository
  :widths: 50
 
  https://exastro-suite.github.io/exastro-helm/
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Cmmand
 
-   # Exastro システムの Helm リポジトリを登録
+   # Register Exastro system's Helm repository.
    helm repo add exastro https://exastro-suite.github.io/exastro-helm/ --namespace exastro
-   # リポジトリ情報の更新
+   # Update repository information
    helm repo update
 
-デフォルト設定値の取得
+Fetch default setting values
 ----------------------
 
-| 投入するパラメータを管理しやすくするために、下記のコマンドから共通基盤 values.yaml のデフォルト値を出力します。
+| The following command outputs the values.yaml default values. This makes it easier to manage the input parameters.
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    helm show values exastro/exastro > exastro.yaml
 
@@ -153,33 +153,33 @@ Helm リポジトリの登録
 
    </details>
 
-| 以降の手順では、この :file:`exastro.yaml` に対してインストールに必要なパラメータを設定してきいます。
+| In the next section, the manual will explain how to set the correct parameters to :file:`exastro.yaml` needed to install Exastro.
 
 .. _service_setting:
 
-サービス公開の設定
+Service publish settings
 ------------------
 
-| Exastro サービスを公開するための代表的な3つの設定方法について紹介します。
+| There are 3 main methods to publish Exastro.
 
 - Ingress
 - LoadBalancer
 - NodePort
 
 .. note::
-  | ここで紹介する方法以外にもサービス公開方法はあります。ユーザーの環境ごとに適切な構成・設定を選択してください。
+  | There are different methods other than the ones introduced in this manual. We recommend that the users uses one that fits their environment.
 
-パラメータ
+Parameters
 ^^^^^^^^^^
 
-| 利用可能なパラメータについては下記を参照してください。
+| See the following for what parameters can be used.
 
 .. include:: ../../../include/helm_option_platform-auth.rst
 
-設定例
+Setting example
 ^^^^^^
 
-| 各サービス公開方法の設定例を下記に記載します。
+| This sections displays examples of the settings for publishing the service.
 
 .. tabs::
 
@@ -187,40 +187,39 @@ Helm リポジトリの登録
 
       .. _ingress_setting:
 
-      |
+      - Features
 
-      - 特徴
+      | The service can be published if Ingress Controller is usable through Public clouds or other means.
+      | This method requires the user to construct a loadBalancer within the cluster and comes with benefits and merits if the user wants to be able to operate it themselves.
 
-        | パブリッククラウドなどで Ingress Controller が利用可能な場合、Ingress を使ったサービス公開ができます。
-        | クラスタ内にロードバランサーを構築して、ユーザー自身が運用したい場合などにメリットがあります。
+      - Setting example
 
-      - 設定例
+      | The service is published using DNS by registering the Service domain information to Ingress.
+      | For checking Domain names in Azure, see :doc:`../../../configuration/kubernetes/aks`.
+      | Specify the :kbd:`annotations` required by the Cloud provider.
+      | The following example uses AKS's Ingress Controller.
 
-        | サービス公開用のドメイン情報を Ingress に登録することでDNSを使ったサービス公開を行います。
-        | Azure におけるドメイン名の確認方法については :doc:`../../../configuration/kubernetes/aks` を確認してください。
-        | クラウドプロバイダ毎に必要な :kbd:`annotations` を指定してください。
-        | 下記は、AKS の Ingress Controller を使用する際の例を記載しています。
 
         .. literalinclude:: ../../literal_includes/exastro_ingress_setting.yaml
            :diff: ../../literal_includes/exastro.yaml
            :caption: exastro.yaml
            :language: yaml
 
-        | ※ 大容量ファイルのアップロードなどで処理に時間が掛かる場合は、想定する最大時間(秒数)の設定が必要となります。  
+        | ※ Make sure to configure max time-out time (seconds) for processes where large amount of files might be uploaded.  
 
         .. code-block:: shell
            :caption: ingress - annotations
 
            nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
 
-        | ※ Ingress を使用して HTTPS 接続を有効にする際は、以下の設定が必要となります。
+        | ※ If HTTPS connectivity is activated while using Ingress, the following settings must be configured.
 
-        .. code-block:: diff
-           :caption: exastro.yaml
+      .. code-block:: diff
+         :caption: exastro.yaml
 
-              platform-auth:
-                extraEnv:
-                  # Please set the URL to access
+          platform-auth:
+            extraEnv:
+              # Please set the URL to access
            -      EXTERNAL_URL: "http://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
            -      EXTERNAL_URL_MNG: "http://exastro-suite-mng.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
            +      EXTERNAL_URL: "https://exastro-suite.xxxxxxxxxxxxxxxxxx.japaneast.aksapp.io"
@@ -264,20 +263,19 @@ Helm リポジトリの登録
            +            ...
            +            -----END PRIVATE KEY-----
 
-
    .. group-tab:: LoadBalancer
 
       |
 
-      - 特徴
+      - Features
 
-        | パブリッククラウドなどで LoadBalancer が利用可能な場合、LoadBalancer を使ったサービス公開ができます。
-        | Ingress とは異なり、クラスタ外部(多くは、パブリッククラウドのサービス上)にロードバランサーがデプロイされるため、ユーザー自身が運用する必要がないことにメリットがあります。
+      | The service can be published using LoadBalancer if it is usable through a public cloud or other means.
+      | Different from using Ingress, the LoadBalancer is deployed externally from the cluster (often on the public cloud service). This means that the user don't have to operate it. 
 
-      - 設定例
+      - Setting example
 
-        | :kbd:`service.type` に :kbd:`LoadBalancer` を設定することで、LoadBalancer を使ったサービス公開ができます。
-        | 下記は、LoadBalancer を使用する際の例を記載しています。
+      | The service is published using LoadBalancer by configuring :kbd:`LoadBalancer` to :kbd:`service.type`.
+      | The following example uses LoadBalancer.
 
         .. literalinclude:: ../../literal_includes/exastro_loadbalancer_setting.yaml
            :diff: ../../literal_includes/exastro.yaml
@@ -288,15 +286,15 @@ Helm リポジトリの登録
 
       |
 
-      - 特徴
+      - Features
 
-        | ユーザー自身の環境でロードバランサーを準備する、もしくは、検証などの環境では NodePort を使ったサービス公開ができます。
-        | Ingress や LoadBalancer とは異なり、ネイティブな Kubernetes で利用可能です。
+      | The service can be deployed using Nodeport if the user has prepared a LoadBalancer on their own environment or if the user is using a test environment.
+      | Different from using Ingress and LoadBalancer, this publication method can be done natively on Kubernetes.
 
-      - 設定例
+      - Setting example
 
-        | :kbd:`service.type` に :kbd:`NodePort` を設定することで、NodePort を使ったサービス公開ができます。
-        | 下記は、NodePort を使用する際の例を記載しています。
+      | The service can be published with Nodeport by setting :kbd:`NodePort` to :kbd:`service.type`.
+      | The following example uses NodePort.
 
         .. literalinclude:: ../../literal_includes/exastro_nodeport_setting.yaml
            :diff: ../../literal_includes/exastro.yaml
@@ -305,50 +303,47 @@ Helm リポジトリの登録
 
 .. _DATABASE_SETUP:
 
-データベース連携
+Database link
 ----------------
 
-| Exastro サービスを利用するためには、CMDB やオーガナイゼーションの管理のためのデータベースが必要となります。
-| データベース利用時の3つの設定方法について説明します。
+| In order to use the Exastro service, the user will need a database for managing CMDB and Organizations.
+| This document will describe 3 different setting methods when using databases.
 
-- 外部データベース
-- データベースコンテナ
+- External database
+- Database container
 
 .. tabs::
 
-   .. tab:: 外部データベース
+   .. tab:: External database
 
-      | 外部データベースを利用する場合は、以下の内容に従ってインストールを進める必要があります。
+      - Features
 
-      - | 特徴
+      | If the user is using external databases, make sure to follow the contents below when installing.
 
-      | マネージドデータベースや別途用意した Kubernetes クラスタ外のデータベースを利用します。
-      | Kubernetes クラスタ外にあるため、環境を分離して管理することが可能です。
-
-      .. warning::
-
-         | 複数のITAを構築する場合はlower_case_table_namesの設定を統一してください。
-         | ※統一しないと環境間でのメニューエクスポート・インポートが正常に動作しなくなる可能性があります。
-
-      - | 設定例
-
-      | 外部データベースを操作するために必要な接続情報を設定します。
+      | This uses a database external to the Kubernetes cluster.
+      | As the database is not on the Kubernetes cluster, it will have to be managed seperately from the environment.
 
       .. warning::
-        | :command:`DB_ADMIN_USER` と :command:`MONGO_ADMIN_USER` で指定するDBの管理ユーザには、データベースとユーザを作成する権限が必要です。
+
+        | If constructing multiple ITA environments, make sure to unify the "lower_case_table_names" settings.
+        | ※If the settings are not unified, the "Menu export/import function might not work properly.
+
+      - | Setting example
+
+      | Configure the required connection information in order to operate the external database.
 
       .. warning::
-        | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
+        | The DB management user specified with :command:`DB_ADMIN_USER` and :command:`MONGO_ADMIN_USER` must have permission to create databases and users.
 
       .. warning::
-         | :command:`DB_ADMIN_USER` で指定するDBの管理ユーザーには、データベースとユーザーを作成する権限が必要です。
+        | Authorization information can be all plaintext(Base64 encoding not required).
 
       .. warning::
-         | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
+         | All certification information can be written in plaintext (no need for base64 encoding).
 
-      1. | Exastro IT Automation 用データベースの設定
+      1. | Exastro IT Automation database settings
 
-         | データベースの接続情報を設定します。
+          | Configure the database's connection information.
 
          .. include:: ../../../include/helm_option_itaDatabaseDefinition.rst
 
@@ -357,9 +352,9 @@ Helm リポジトリの登録
             :caption: exastro.yaml
             :language: yaml
 
-      2. | Exastro 共通基盤用データベースの設定
+      2. | Exastro platform database settings
 
-         | データベースの接続情報を設定します。
+          | Configure database's connection information.
 
          .. include:: ../../../include/helm_option_pfDatabaseDefinition.rst
 
@@ -368,15 +363,15 @@ Helm リポジトリの登録
             :caption: exastro.yaml
             :language: yaml
 
-      3.  OASE用データベースの設定
+      3.  OASE database settings
 
-          | OASE用データベースの接続情報を設定します。(OASEを利用しない場合設定不要)
+          | Configure OASE database's connection information (Not required if not using OASE).
 
           .. warning::
-             | MongoDBのユーザやデータベースを「自動払い出し( :ref:`organization_creation` )」で利用する場合は、:command:`MONGO_HOST` の指定が必要です。
-             | :command:`MONGO_ADMIN_USER` がユーザやデータベースの作成・削除が可能（rootロールまたは同等の権限）である必要があります。
-             | 上記の権限がない場合は「Python接続文字列( :ref:`organization_creation` )」の指定が必要です。
-             | また、自動払い出しを利用しない場合は :command:`MONGO_HOST` の指定は不要です。
+             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
+             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
 
@@ -385,9 +380,9 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      4.  データベースコンテナの無効化
+      4.  Deactivating database containers
 
-          | データベースコンテナが起動しないように設定します。
+          | Configure the database container so it does not start.
 
           .. include:: ../../../include/helm_option_databaseDefinition.rst
 
@@ -396,9 +391,7 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      5.  MongoDBコンテナの無効化
-
-          | MongoDBコンテナが起動しないように設定します。(OASEを利用しない場合も設定必要)
+          | Configure the MongoDB database container so it does not start.(Not required if not using OASE)
 
           .. include:: ../../../include/helm_option_mongo.rst
 
@@ -407,52 +400,53 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-   .. tab:: データベースコンテナ
+   .. tab:: Database container
 
-      - | 特徴
+      - | Features
 
-      | Kubernetes クラスタ内にデプロイしたデータベースコンテナを利用します。
-      | Exastro と同じ Kubernetes クラスタにコンテナとして管理できます。
+      | This method uses the Database container deployed within the Kubernetes cluster.
+      | This database container can be managed as a container on the same Exastro and Kubernetes cluster.
 
-      - | 設定例
+      - | Setting example
 
-      | データベースコンテナの root パスワードを作成し、他のコンテナからもアクセスできるように作成した root アカウントのパスワードを設定します。
-      | また、データベースのデータを永続化するために利用するストレージを指定します。
-
-      .. warning::
-        | :command:`DB_ADMIN_USER` と :command:`MONGO_ADMIN_USER` で指定するDBの管理ユーザには、データベースとユーザを作成する権限が必要です。
+      | Create a password for the database container's root and configure the root account password to the database so it can be accessed from other containers.
+      | Then specify the using storage so the data can be persisted.
 
       .. warning::
-        | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
+        | The DB management user specified with :command:`DB_ADMIN_USER` and :command:`MONGO_ADMIN_USER` must have permission to create databases and users.
+
+      .. warning::
+        | Authorization information can be all plaintext(Base64 encoding not required).
 
       .. _configuration_database_container:
 
-      1. | データベースコンテナの設定
+      1. | Configure Database container
 
-         | データベースコンテナの root パスワードを設定します。
-         | また、データベースのデータを永続化するために利用するストレージを指定します。
+          | Configure password for the Database container's root.
+          | Then specify the using storage so the data can be persisted.
 
-         .. include:: ../../../include/helm_option_databaseDefinition.rst
+          .. include:: .. include:: ../../../include/helm_option_databaseDefinition.rst
 
-         .. tabs::
+          .. tabs::
 
-           .. tab:: Storage Class 利用
+            .. tab:: Using Storage Class
 
               .. literalinclude:: ../../literal_includes/exastro_database_storage_class.yaml
                  :diff: ../../literal_includes/exastro.yaml
                  :caption: exastro.yaml
                  :language: yaml
 
-           .. tab:: hostPath 利用
+            .. tab:: Using hostPath
 
               .. literalinclude:: ../../literal_includes/exastro_database_hostpath.yaml
                  :diff: ../../literal_includes/exastro.yaml
                  :caption: exastro.yaml
                  :language: yaml
 
-      2.  | Exastro IT Automation 用データベースの設定
 
-          | Exastro IT Automation コンテナがデータベースに接続できるようにするために、:ref:`DATABASE_SETUP` で作成した root アカウントのパスワードを設定します。
+      2.  | Configure Exastro IT Automation database
+
+          | Configure the root acount password created in the :ref:`DATABASE_SETUP` section in order to make the database accessible from the Exastro IT Automation container.
 
           .. include:: ../../../include/helm_option_itaDatabaseDefinition.rst
 
@@ -461,9 +455,9 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      3.  | Exastro 共通基盤用データベースの設定
+      3.  | Configure Exastro platform database
 
-          | Exastro 共通基盤のコンテナがデータベースに接続できるようにするために、「1.  データベースコンテナの設定」で作成した root アカウントのパスワードを設定します。
+          | Configure the root account password created in "1. Configure Database container" in order to make the database accessible from the Exastro Platform container.
 
           .. include:: ../../../include/helm_option_pfDatabaseDefinition.rst
 
@@ -472,15 +466,15 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      4.  OASE用データベースの設定
+      4.  Configure OASE database
 
-          | OASE用データベースの接続情報を設定します。
+          | Configure connection information to the OASE database.
 
           .. warning::
-             | MongoDBのユーザやデータベースを「自動払い出し( :ref:`organization_creation` )」で利用する場合は、:command:`MONGO_HOST` の指定が必要です。
-             | :command:`MONGO_ADMIN_USER` がユーザやデータベースの作成・削除が可能（rootロールまたは同等の権限）である必要があります。
-             | 上記の権限がない場合は「Python接続文字列( :ref:`organization_creation` )」の指定が必要です。
-             | また、自動払い出しを利用しない場合は :command:`MONGO_HOST` の指定は不要です。
+             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
+             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
 
@@ -489,27 +483,27 @@ Helm リポジトリの登録
              :caption: exastro.yaml
              :language: yaml
 
-      5.  MongoDBコンテナの設定
+      5.  Configure MongoDB container.
 
-          | データベースのデータを永続化するために利用するストレージを指定します
+          | Specify storage for persisting database data.
 
           .. warning::
-             | MongoDBコンテナを利用しない場合、:command:`exastro-platform.mongo.enabled` をfalseに指定して下さい。
+             |If the user is not using MongoDB container, make sure to set :command:`exastro-platform.mongo.enabled` to false.
 
           .. include:: ../../../include/helm_option_mongo.rst
 
           .. tabs::
 
-            .. tab:: hostPath 利用
+            .. tab:: Using hostPath
 
                .. literalinclude:: ../../literal_includes/exastro_mongodb_hostpath.yaml
                   :diff: ../../literal_includes/exastro.yaml
                   :caption: exastro.yaml
                   :language: yaml
 
-      6.  データベースコンテナのProbe設定
+      6.  Configure Database container's Probe.
 
-          | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeはデフォルトで以下の設定値が適用されています。
+          | The database container or MongoDB container's LivenessProbe and ReadinessProbe has the following values applied by default.
 
           .. include:: ../../../include/helm_option_database_probe.rst
 
@@ -519,13 +513,13 @@ Helm リポジトリの登録
 
           .. tabs::
 
-          | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeの設定値を変更したい場合は、以下のようにパラメータを追記します。
+          | In order to change setting values for the database container or MongoDB container's LivenessProbe and ReadinessProbe, add the parameters as seen below.
           .. literalinclude:: ../../literal_includes/exastro_database_probe_setting.yaml
              :diff: ../../literal_includes/exastro.yaml
              :caption: exastro.yaml
              :language: yaml
 
-          .. | データベースコンテナおよびMongoDBコンテナのProbeを無効にしたい場合は、以下のようにパラメータを追記します。
+          .. | In order to deactivate the Database or MongoDB container probes, do as seen below.
 
           .. .. literalinclude:: ../../literal_includes/exastro_database_probe_invalid_setting.yaml
           ..    :diff: ../../literal_includes/exastro.yaml
@@ -533,36 +527,37 @@ Helm リポジトリの登録
           ..    :language: yaml
 
           .. .. tip::
-          ..    | Probe設定を無効にしてインストールすると、インストール中に以下のようなwarningメッセージが表示されますが、無視して問題ありません。
+          ..    | Installing while the Probe settings are deactivated, a warning message will be displayed while installing. This message can be discarded.
 
           ..    .. code-block:: shell
-          ..       :caption: メッセージ
+          ..       :caption: Message
 
           ..       warning: cannot overwrite table with non table for exastro.exastro-platform.mariadb.livenessProbe
           ..       warning: cannot overwrite table with non table for exastro.exastro-platform.mariadb.readinessProbe
 
-.. _installation_kubernetes_Keycloak 設定:
 
-アプリケーションの DB ユーザー設定
-----------------------------------
+.. _installation_kubernetes_Keycloak settings:
 
-| Exastro でアプリケーションのために作成する DB ユーザーの設定をします。
+App DB user settings
+--------------------------------
 
-設定例
+| Configure DB users in for applications in Exastro.
+
+Setting example
 ^^^^^^
 
-| 下記のアプリケーションが利用・作成する DB ユーザーをそれぞれ設定します。
+| Configure DB users for each of the following.
 
 - Exastro IT Automation
-- Exastro 共通基盤
+- Exastro platform
 - Keycloak
 
 .. warning::
-  | 認証情報などはすべて平文で問題ありません。(Base64エンコードは不要)
+  | Authorization information can be all plaintext(Base64 encoding not required).
 
-1. | Exastro IT Automation 用データベースの設定
+1.  Configure Exastro IT Automation database
 
-   | アプリケーションが利用・作成する DB ユーザーを設定します。
+    | Configure DB user that will be used and created by applications.
 
    .. include:: ../../../include/helm_option_itaDatabaseDefinition.rst
 
@@ -571,9 +566,10 @@ Helm リポジトリの登録
       :caption: exastro.yaml
       :language: yaml
 
-2. | Keycloak 用データベースの設定
 
-   | アプリケーションが利用・作成する DB ユーザーを設定します。
+2.  Configure Keycloak database
+
+    | Configure DB user that will be used and created by applications.
 
    .. include:: ../../../include/helm_option_keycloakDefinition.rst
 
@@ -582,9 +578,10 @@ Helm リポジトリの登録
       :caption: exastro.yaml
       :language: yaml
 
-3. | Exastro 共通基盤用データベースの設定
 
-   | アプリケーションが利用・作成する DB ユーザーを設定します。
+3.  Configure Exastro platform database
+
+    | Configure DB user that will be used and created by applications.
 
    .. include:: ../../../include/helm_option_pfDatabaseDefinition.rst
 
@@ -595,24 +592,23 @@ Helm リポジトリの登録
 
 .. _installation_kubernetes_gitlablinkage:
 
-GitLab 連携設定
+GitLab link settings
 ---------------
 
-| GitLab 連携のための接続情報を登録します。
+| Configure connection information in order to link with GitLab.
 
-.. warning::
-     | GitLab 連携を利用しない場合は、下記のように設定してください。
-     | GITLAB_HOST: ""
+- External Gitlab
+- GitLab container
 
 .. include:: ../../../include/helm_option_gitlabDefinition.rst
 
-.. warning::
-  | GITLAB_ROOT_TOKEN は下記の権限スコープが割り当てられたトークンが必要です。
-  | ・api
-  | ・write_repository
-  | ・sudo
+      .. warning::
+        | The GITLAB_ROOT_TOKEN needs a token that contains permissions for the following:
+        | ・api
+        | ・write_repository
+        | ・sudo
 
-| 下記は、GitLab 連携の設定例を記載しています。
+      | The following is an example of GitLab link configurations.
 
 .. literalinclude:: ../../literal_includes/exastro_gitlab_setting.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -621,20 +617,18 @@ GitLab 連携設定
 
 .. _installation_kubernetes_proxy_settings:
 
-Proxy設定
+Proxy settings
 ---------
 
-| Proxy環境下で、Exastroシステムを利用する際の情報を設定します。
+| Configure the following information when running Exastro under a Proxy environment.
 
 .. include:: ../../../include/helm_option_proxyDefinition.rst
+   .. _create_system_manager:
 
-.. _create_system_manager:
-.. _install_helm:
+Create Exastro system admin
+----------------------------
 
-システム管理者の作成
---------------------
-
-| セットアップ時に システム管理者の初期ユーザーを作成するための情報を設定します。
+| Configure the infomation that will be used to create the Exastro system admin when setting up Keycloak.
 
 .. include:: ../../../include/helm_option_keycloakDefinition.rst
 
@@ -645,52 +639,53 @@ Proxy設定
 
 .. _persistent_volume:
 
-永続ボリュームの設定
+Configure Persistent volume
 --------------------
 
-| データベースのデータ永続化 (クラスタ内コンテナがある場合)、および、ファイルの永続化のために、永続ボリュームを設定する必要があります。
-| 永続ボリュームの詳細については、 `永続ボリューム - Kubernetes <https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/#%E6%B0%B8%E7%B6%9A%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0>`_ を参照してください。
+| In order to persist databases( for container within clusters) and files, the user will have to configure a persistent volume.
+| For more information regarding persistent volumes, see `Persistent Volumes - Kubernetes <https://kubernetes.io/docs/concepts/storage/persistent-volumes/>`_.
 
-| ストレージ利用時の2つの方法について説明します。
+| This document describes 2 persisting methods for the following:
 
 .. note::
-    | 監査ログを永続ボリュームに出力する際は、永続ボリュームの設定が必要となります。
+    | If outputting monitoring logs to a persistent volume, a persistent volume must be configured.
 
-- マネージドディスク
-- Kubernetes ノードのディレクトリ
+
+- Managed disk
+- Kubernetes note directory
 
 .. tabs::
 
-   .. tab:: マネージドディスク
+   .. tab:: Managed disk
 
       |
 
-      - 特徴
+      - Features
 
-        | パブリッククラウドで提供されるストレージサービスを利用することでストレージの構築や維持管理が不要となります。
+      | Storage construction and maintenance is not required if the user is using a storage service provided by a public cloud.
 
-      - 設定例
+      - Setting example
 
-        | Azure のストレージを利用する場合、下記のように StorageClass を定義することで利用が可能です。
-        | 詳細は、 `Azure Kubernetes Service (AKS) でのアプリケーションのストレージ オプション <https://learn.microsoft.com/ja-jp/azure/aks/concepts-storage#storage-classes>`_ を参照してください。
+      | If the user is using storage from Azure, the user can persist data by defining StorageClass as shown below.
+      | For more information, see  `Storage options for applications in Azure Kubernetes Service (AKS) <https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes>`_.
 
         .. literalinclude:: ../../literal_includes/storage-class-exastro-suite.yaml
-           :caption: storage-class-exastro-suite.yaml
-           :linenos:
+        :caption: storage-class-exastro-suite.yaml
+        :linenos:
 
-        .. code-block:: diff
-           :caption: exastro.yaml
+      .. code-block:: diff
+        :caption: exastro.yaml
 
-             itaGlobalDefinition:
-               persistence:
-                 enabled: true
-                 accessMode: ReadWriteMany
-                 size: 10Gi
-                 volumeType: hostPath # e.g.) hostPath or AKS
-           -      storageClass: "-" # e.g.) azurefile or - (None)
-           +      storageClass: "azurefile" # e.g.) azurefile or - (None)
+          itaGlobalDefinition:
+            persistence:
+              enabled: true
+              accessMode: ReadWriteMany
+              size: 10Gi
+              volumeType: hostPath # e.g.) hostPath or AKS
+        -      storageClass: "-" # e.g.) azurefile or - (None)
+        +      storageClass: "azurefile" # e.g.) azurefile or - (None)
 
-        | ※ 下記は、:ref:`DATABASE_SETUP` で設定済みです。
+      | ※ The following has been configured in :ref:`DATABASE_SETUP`.
 
         .. code-block:: diff
            :caption: exastro.yaml
@@ -705,7 +700,7 @@ Proxy設定
            -      storageClass: "-" # e.g.) azurefile or - (None)
            +      storageClass: "exastro-suite-azurefile-csi-nfs" # e.g.) azurefile or - (None)
 
-        | ※ 監査ログを永続ボリュームに出力する際は、以下の設定が必要となります
+        | ※ Configure the following in order to output monitoring logs to a persistent volume.
 
         .. code-block:: diff
            :caption: exastro.yaml
@@ -722,43 +717,41 @@ Proxy設定
            -      storageClass: "-" # e.g.) azurefile or - (None)
            +      storageClass: "exastro-suite-azurefile-csi-nfs" # e.g.) azurefile or - (None)
 
-   .. tab:: Kubernetes ノードのディレクトリ
+   .. tab:: Kubernetes node directory
 
-      |
+      - Features
 
-      - 特徴
-
-        | Kubernetes のノード上のストレージ領域を利用するため、別途ストレージを調達する必要はありませんが、この方法は非推奨のため検証や開発時のみの利用
+      | This method uses storage on the Kubernetes node. There is no need to provide seperate storage, but we recommend that this method is only used for testing and developing.
 
       .. tip::
-          | hostpathで指定するディレクトリは、アクセス権を設定する必要があります
-          | 例） chmod 777 [該当のディレクトリ]
+          | The user must have permission to access the directory specified with hostpath must.
+          | Example) chmod 777 [corresponding directory]
 
       .. danger::
-          | データの永続化自体は可能ですが、コンピュートノードの増減や変更によりデータが消えてしまう可能性があるため本番環境では使用しないでください。
-          | また、Azure で構築した AKS クラスタは、クラスタを停止すると AKS クラスターの Node が解放されるため、保存していた情報は消えてしまいます。そのため、Node が停止しないように注意が必要となります。
+          | While persisting data is possible, data might be deleted if compute nodes are changed. We strongly recommend against using this method to persist data in production.
+          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted. 
 
-      - 利用例
+      - Example
 
-        | hostPath を使用した例を記載します。
+      | The example below uses hostPath.
 
         .. literalinclude:: ../../literal_includes/pv-database.yaml
-           :caption: pv-database.yaml (データベース用ボリューム)
+           :caption: pv-database.yaml (Database volume)
            :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-ita-common.yaml
-           :caption: pv-ita-common.yaml (ファイル用ボリューム)
-           :linenos:
+        :caption: pv-ita-common.yaml (File volume)
+        :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-mongo.yaml
-           :caption: pv-mongo.yaml (OASE用ボリューム) ※OASEを利用しない場合設定不要
-           :linenos:
+        :caption: pv-mongo.yaml (OASE volume) ※Not required if not using OASE
+        :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-gitlab.yaml
-           :caption: pv-gitlab.yaml (GitLab用ボリューム) ※外部GitLabを利用する場合設定不要
-           :linenos:
+        :caption: pv-gitlab.yaml (GitLab volume) ※Not required if using external GitLab
+        :linenos:
 
-        | ※ 監査ログを永続ボリュームに出力する際は、以下の設定が必要となります
+        | ※ Configure the following for outputting the monitoring log to persistent volumes.
 
         .. code-block:: diff
            :caption: exastro.yaml
@@ -775,21 +768,22 @@ Proxy設定
                  storageClass: "-" # e.g.) azurefile or - (None)
 
         .. literalinclude:: ../../literal_includes/pv-pf-auditlog.yaml
-           :caption: pv-pf-auditlog.yaml (監査ログファイル用ボリューム)
+           :caption: pv-pf-auditlog.yaml (Volume for monitoring log file)
            :linenos:
 
-.. _インストール-1:
 
-インストール
+.. _Install1:
+
+Install
 ============
 
 .. note::
-   | インストールに失敗した場合は、 :ref:`ita_uninstall` を実施して、再度インストールを実施してください。
+   | If the installation fails, follow :ref:`ita_uninstall` and try reinstalling.
 
-永続ボリュームの作成
+Create Persistent volumes
 --------------------
 
-| :ref:`persistent_volume` で作成したマニフェストファイルを適用し、ボリュームを作成します。
+| Apply the manifest file created in :ref:`persistent_volume` and create persistent volume.
 
 .. code-block:: bash
 
@@ -799,14 +793,15 @@ Proxy設定
     # pv-ita-common.yaml
     kubectl apply -f pv-ita-common.yaml
 
-    # pv-mongo.yaml ※OASEを利用しない場合設定不要
+    # pv-mongo.yaml ※Not required if not using OASE
     kubectl apply -f pv-mongo.yaml
 
-    # pv-gitlab.yaml ※外部GitLabを利用する場合設定不要
+    # pv-gitlab.yaml ※Not required if using external GitLab
     kubectl apply -f pv-gitlab.yaml
 
-    # pv-pf-auditlog.yaml ※監査ログを永続ボリュームに出力しない場合は設定不要
+    # pv-pf-auditlog.yaml ※Not required 監査ログを永続ボリュームに出力しない場合は設定不要
     kubectl apply -f pv-pf-auditlog.yaml
+
 
 .. code-block:: bash
 
@@ -815,42 +810,41 @@ Proxy設定
 
 .. code-block:: bash
 
-    NAME            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
-    pv-auditlog     10Gi       RWX            Retain           Available                                   26s
-    pv-database     20Gi       RWO            Retain           Available                                   19s
-    pv-gitlab       20Gi       RWX            Retain           Available                                   5s
-    pv-ita-common   10Gi       RWX            Retain           Available                                   9s
-    pv-mongo        20Gi       RWO            Retain           Available                                   5s
+    NAME            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                                  STORAGECLASS   REASON   AGE
+    pv-database     20Gi       RWO            Retain           Available                                                                  6s
+    pv-gitlab       20Gi       RWX            Retain           Available                                                                  5s
+    pv-ita-common   10Gi       RWX            Retain           Available                                                                  6s
+    pv-mongo        20Gi       RWO            Retain           Available   exastro/volume-mongo-storage-mongo-0                           5s
 
 .. _ita_install:
 
-インストール
+Install
 ------------
 
-| Helm バージョンとアプリケーションのバージョンについては `exastro-helmのサイト <https://github.com/exastro-suite/exastro-helm>`_ をご確認ください。
+| See the  `exastro-helm site <https://github.com/exastro-suite/exastro-helm>` for more information regarding the Helm and Application versions.
 
 .. include:: ../../../include/helm_versions.rst
 
-| インストール時にサービスの公開方法によって、アクセス方法が異なります。
-| Ingress, LoadBalancer, NodePort それぞれの方法について説明します。
+| The access method changes depending on which publication method was used during installation.
+| This section describes the methods for Ingress, LoadBalancer and NodePort.
 
 .. tabs::
 
    .. group-tab:: Ingress
 
-      | 以下の手順でインストールを行います。
+      | Follow the steps below and start installing.
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      1. Use Helm command to install on Kubernetes environment.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
 
          .. code-block:: bash
-            :caption: 出力結果
+            :caption: Output results
 
             NAME: exastro
             LAST DEPLOYED: Sat Jan 28 15:00:02 2023
@@ -891,23 +885,23 @@ Proxy設定
 
             # Note: You can display this note again by executing the following command.
 
-         | 以下、上記の出力結果に従って操作をします。
+         | Use the output results from the last step for the following steps.
 
-      2. | インストール状況確認
+      2. | Check install status
 
          .. include:: ../../../include/check_installation_status.rst
 
-      3. 暗号化キーのバックアップ
+      3. Backup encrypt key
 
          .. include:: ../../../include/backup_encrypt_key_k8s.rst
 
-      4. 接続確認
+      4. Check connection
 
-         | 出力結果に従って、:menuselection:`Administrator Console` の URL にアクセスします。
-         | 下記は、実行例のため :ref:`service_setting` で設定したホスト名に読み替えてください。
+         | Follow the output results and access the :menuselection:`Administrator Console` URL.
+         | The following is an example. Please change the host name with the one set in :ref:`service_setting`.
 
          .. code-block:: bash
-            :caption: 出力結果(例)
+            :caption: Output results(Example)
 
             *************************
             * Service Console       *
@@ -919,29 +913,29 @@ Proxy設定
             *************************
             http://exastro-suite-mng.example.local/auth/
 
-         .. list-table:: 接続確認用URL
+         .. list-table:: Connection check URL
             :widths: 20 40
             :header-rows: 0
             :align: left
 
-            * - 管理コンソール
+            * - Managment console
               - http://exastro-suite-mng.example.local/auth/
 
    .. group-tab:: LoadBalancer
 
-      | 以下の手順でインストールを行います。
+      | Follow the steps below and start installing.
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      1. Use Helm command to install on Kubernetes environment.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
 
          .. code-block:: bash
-            :caption: 出力結果(例)
+            :caption: Output results(Example)
 
             NAME: exastro
             LAST DEPLOYED: Sat Jan 28 15:00:02 2023
@@ -987,24 +981,24 @@ Proxy設定
 
             # Note: You can display this note again by executing the following command.
 
-         | 以下、上記の出力結果に従って操作をします。
+         | Follow the output results for the following steps.
 
-      2. | インストール状況確認
+      2. | Check installation
 
          .. include:: ../../../include/check_installation_status.rst
 
-      3. 暗号化キーのバックアップ
+      3. Backup encrypt key
 
          .. include:: ../../../include/backup_encrypt_key_k8s.rst
 
-      4. 接続確認
+      4. Check connection
 
-         | 1. で実行した :command:`helm install` の出力結果のコマンドをコンソール上に貼り付けて実行します。
+         | Copy and paste the commands output from step 1.:command:`helm install` to the console and run them.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
-            # helm install コマンドの実行結果を貼り付けて実行
+            # Running the commands from the helm install results
             export NODE_SVC_PORT=$(kubectl get services platform-auth --namespace exastro -o jsonpath="{.spec.ports[0].nodePort}")
             export NODE_MGT_PORT=$(kubectl get services platform-auth --namespace exastro -o jsonpath="{.spec.ports[1].nodePort}")
             export NODE_IP=$(kubectl get services platform-auth --namespace exastro -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
@@ -1013,16 +1007,16 @@ Proxy設定
             # *************************
             echo http://$NODE_IP:$NODE_MGT_PORT/auth/
 
-            # *************************
+            # *********************
             # * Service Console       *
             # *************************
             echo http://$NODE_IP:$NODE_SVC_PORT
 
-         | 出力結果に従って、:menuselection:`Administrator Console` の URL にアクセスします。
-         | 下記は、実行例のため実際のコマンド実行結果に読み替えてください。
+         | Follow the output results and access the URL to :menuselection:`Administrator Console`.
+         | The following is an example. Please change the following with the data from the commands results.
 
          .. code-block:: bash
-            :caption: 出力結果(例)
+            :caption: Output results(Example)
 
             *************************
             * Administrator Console *
@@ -1034,29 +1028,29 @@ Proxy設定
             *************************
             http://172.16.20.XXX:31798
 
-         .. list-table:: 接続確認用URL
+         .. list-table:: Connection check URL
             :widths: 20 40
             :header-rows: 0
             :align: left
 
-            * - 管理コンソール
+            * - Managment console
               - http://172.16.20.xxx:32031/auth/
 
    .. group-tab:: NodePort
 
-      | 以下の手順でインストールを行います。
+      | Follow the steps below to start installing.
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      1. Use Helm command to install on Kubernetes environment.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             helm upgrade exastro exastro/exastro --install \
               --namespace exastro --create-namespace \
               --values exastro.yaml
 
          .. code-block:: bash
-            :caption: 出力結果
+            :caption: Output results
 
             NAME: exastro
             LAST DEPLOYED: Sun Jan 29 12:18:02 2023
@@ -1101,22 +1095,22 @@ Proxy設定
 
             # Note: You can display this note again by executing the following command.
 
-         | 以下、上記の出力結果に従って操作をします。
+         | Follow the output results for the following steps.
 
-      2. | インストール状況確認
+      2. | Check install status
 
          .. include:: ../../../include/check_installation_status.rst
 
-      3. 暗号化キーのバックアップ
+      3. Backup encrypt key
 
          .. include:: ../../../include/backup_encrypt_key_k8s.rst
 
-      4. 接続確認
+      4. Check connection
 
-         | 1. で実行した :command:`helm install` の出力結果のコマンドをコンソール上に貼り付けて実行します。
+         | 1. Copy and paste the commands output from step 1.:command:`helm install` to the console and run them.
 
          .. code-block:: bash
-            :caption: コマンド
+            :caption: Command
 
             export NODE_SVC_PORT=$(kubectl get services platform-auth --namespace exastro -o jsonpath="{.spec.ports[0].nodePort}")
             export NODE_MGT_PORT=$(kubectl get services platform-auth --namespace exastro -o jsonpath="{.spec.ports[1].nodePort}")
@@ -1131,11 +1125,11 @@ Proxy設定
             # *************************
             echo http://$NODE_IP:$NODE_SVC_PORT
 
-         | 出力結果に従って、:menuselection:`Administrator Console` の URL にアクセスします。
-         | 下記は、実行例のため実際のコマンド実行結果に読み替えてください。
+         | Follow the output results and access the URL to :menuselection:`Administrator Console`.
+         | The following is an example. Please change the following with the data from the commands results.
 
          .. code-block:: bash
-            :caption: 出力結果(例)
+            :caption: Output results(Example)
 
             *************************
             * Administrator Console *
@@ -1148,69 +1142,69 @@ Proxy設定
             http://172.16.20.xxx:30080
 
 
-         .. list-table:: 接続確認用URL
+         .. list-table:: Connection check URL
             :widths: 20 40
             :header-rows: 0
             :align: left
 
-            * - 管理コンソール
+            * - Managment console
               - http://172.16.20.xxx:30081/auth/
 
-管理コンソールへのログイン
+Log in to Managment console
 --------------------------
 
-| 以下の画面が表示された場合、:menuselection:`Administration Console` を選択して、ログイン画面を開きます。
-
+| If the page belows is displayed, select :menuselection:`Administration Console` and log in.
+ 
 .. figure:: /images/ja/manuals/platform/keycloak/administrator-console.png
   :alt: administrator-console
   :width: 600px
-  :name: 管理コンソール
+  :name: Management console
 
-| ログイン ID とパスワードは :ref:`create_system_manager` で登録した、:kbd:`KEYCLOAK_USER` 及び :kbd:`KEYCLOAK_PASSWORD` です。
+| The Login ID and password are the :kbd:`KEYCLOAK_USER` and :kbd:`KEYCLOAK_PASSWORD` registered in :ref:`create_system_manager`.
 
 .. figure:: /images/ja/manuals/platform/login/exastro-login.png
   :alt: login
   :width: 300px
-  :name: ログイン画面
+  :name: Login page
 
-| Keycloak の管理画面が開きます。
+| Open the Keycloak managment page.
 
 .. figure:: /images/ja/manuals/platform/keycloak/keycloak-home.png
   :alt: login
   :width: 600px
-  :name: Keycloak 管理画面
+  :name: Keycloak management page
 
-| ログインが確認できたら、:doc:`../../../manuals/platform_management/organization` の作成を行います。
+| Once logged in, create a :doc:`../../../manuals/platform_management/organization`.
 
-アップグレード
+Update
 ==============
 
-| Exastro システムのアップグレード方法について紹介します。
+| This section describes how to update the Exastro system.
 
 
-アップグレードの準備
+Update preparation
 --------------------
 
 .. warning::
-  | アップグレード実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
+  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
 
-Helm リポジトリの更新
+Update Helm repository
 ^^^^^^^^^^^^^^^^^^^^^
 
-| Exastro システムの Helm リポジトリを更新します。
+| Update the Exastro system's Helm repository.
 
-| 更新前のバージョンを確認します。
+| Check the version before updating.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の確認
+   # Check Repository information
    helm search repo exastro
 
 .. code-block:: shell
    :linenos:
-   :caption: 実行結果
+   :caption: Run results
    :emphasize-lines: 3
 
    helm search repo exastro
@@ -1219,27 +1213,27 @@ Helm リポジトリの更新
    exastro/exastro-it-automation   1.2.0           2.0.3           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-platform        1.5.0           1.4.0           A Helm chart for Exastro Platform. Exastro Plat...
 
-| Helm リポジトリを更新します。
+| Update the Helm repository.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の更新
+   # Update Repository information
    helm repo update
 
-| 更新後のバージョンを確認します。
+| Check that it has been updated to the latest version.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # リポジトリ情報の確認
+   # Check Repository information
    helm search repo exastro
 
 .. code-block:: shell
    :linenos:
-   :caption: 実行結果
+   :caption: Run results
    :emphasize-lines: 3
 
    helm search repo exastro
@@ -1249,19 +1243,20 @@ Helm リポジトリの更新
    exastro/exastro-platform        1.5.0           1.4.0           A Helm chart for Exastro Platform. Exastro Plat...
 
 
-デフォルト設定値の更新の確認
+Check default setting values and update data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| デフォルト値の更新を確認します。
-| インストール時に作成した設定ファイル :file:`exastro.yaml` とアップグレード後の設定ファイルを比較します。
+| Check the updated default values.
+| Compare the :file:`exastro.yaml` file pre and post update.
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    diff -u exastro.yaml <(helm show values exastro/exastro)
 
+
 .. code-block:: diff
-   :caption: 実行結果
+   :caption: Run results
 
    exastro-platform:
      platform-api:
@@ -1280,19 +1275,18 @@ Helm リポジトリの更新
            - host: exastro-suite.example.local
              paths:
 
-設定値の更新
+Update setting values
 ^^^^^^^^^^^^
-
 .. warning::
-  | ユーザ名やパスワードはバージョンアップ前のものと合わせる必要があります。
+  | Both the username and password must be the same as before updating the system.
 
-| デフォルト設定値の比較結果から、項目の追加などにより設定値の追加が必要な場合は更新をしてください。
-| 設定値の更新が不要であればこの手順はスキップしてください。
-| 例えば下記の差分確認結果から、:kbd:`exastro-platform.platform-auth.extraEnv` が追加されていますので、必要に応じて、:file:`exastro.yaml` に項目と設定値を追加します。
+| After comparing the default setting values, add any desired items and setting values before updating.
+| If no setting value update is needed, skip this step.
+| E.g. In the example below, :kbd:`exastro-platform.platform-auth.extraEnv` is added, meaning that the corresponding setting items and values in :file:`exastro.yaml` must be added.
 
 
 .. code-block:: diff
-   :caption: 実行結果
+   :caption: Run results
 
    exastro-platform:
      platform-api:
@@ -1313,10 +1307,10 @@ Helm リポジトリの更新
 
 .. _change_encrypt_key:
 
-暗号化キーの指定
+Specify Encryption key
 ^^^^^^^^^^^^^^^^
 
-| :ref:`backup_encrypt_key` でバックアップした暗号化キーを指定します。
+| Specify the encryption key backed up in :ref:`backup_encrypt_key`.
 
 .. literalinclude:: ../../literal_includes/update_exastro.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -1325,35 +1319,35 @@ Helm リポジトリの更新
 
 .. _ita_upgrade:
 
-アップグレード
+Update
 --------------
 
 .. warning::
-  | バージョン2.2.1以前から2.3.0以降へのアップグレードを行う場合は一度 :ref:`ita_uninstall` の :ref:`delete_pv` まで行い、再度 :ref:`ita_install` してください。
+  | If updating from version 2.2.1 or before to 2.3.0 or later, the user must perform :ref:`ita_uninstall`'s :ref:`delete_pv` and then re-run :ref:`ita_install`.
 
 .. danger::
-  | :ref:`delete_data` は行わないでください。
-  | 永続データの削除を行うとアップグレード前のデータがすべて消えてしまいます。
+  | Do not run :ref:`delete_data`.
+  | Deleting persistent data will delete all data before the update.
 
-サービス停止
+Stop service
 ^^^^^^^^^^^^
 
 .. include:: ../../../include/stop_service_k8s.rst
 
-アップグレード実施
+Start Update
 ^^^^^^^^^^^^^^^^^^
 
-| アップグレードを実施します。
+| Start the update.
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   helm upgrade exastro exastro/exastro --install \
     --namespace exastro --create-namespace \
     --values exastro.yaml
 
 .. code-block:: bash
-  :caption: 出力結果
+  :caption: Output results
 
   NAME: exastro
   LAST DEPLOYED: Sat Jan 28 15:00:02 2023
@@ -1395,19 +1389,19 @@ Helm リポジトリの更新
     # Note: You can display this note again by executing the following command.
 
 
-サービス再開
+Restart service
 ^^^^^^^^^^^^
 
-※ :file:`exastro.yaml` で指定されたreplicasで、再開されますので、基本的には再開不要です。
+※ The replicas specified in :file:`exastro.yaml` will be re-started. There is therefore no need to restart them manually.
 
-:ref:`helm_on_kubernetes_upgrade_status` にお進みください。
+Move on to :ref:`helm_on_kubernetes_upgrade_status`.
 
 
 .. include:: ../../../include/start_service_k8s.rst
 
 .. _helm_on_kubernetes_upgrade_status:
 
-アップグレード状況確認
+Confirm Update status.
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../../../include/check_installation_status.rst
@@ -1415,193 +1409,195 @@ Helm リポジトリの更新
 
 .. _ita_uninstall:
 
-アンインストール
+Uninstall
 ================
 
-| Exastro システムのアンインストール方法について紹介します。
+| This section explains how to uninstall Exastro.
 
-アンインストールの準備
+Uninstall preparation
 ----------------------
 
 .. warning::
-  | アンインストール実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
+  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
 
-アンインストール
+Uninstall
 ----------------
 
-アンインストール実施
+Start Uninstall
 ^^^^^^^^^^^^^^^^^^^^
 
-| アンインストールを実施します。
+| Start the uninstall process.
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   helm uninstall exastro --namespace exastro
 
 .. code-block:: bash
-  :caption: 出力結果
+  :caption: Output results
 
   release "exastro" uninstalled
 
 .. _delete_pv:
 
-永続ボリュームを削除
-^^^^^^^^^^^^^^^^^^^^
+Delete persistent volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+| This section describes how to delete data if a persistent volume(PV) has been created on Kubernetes using hostPath.
+| If using external databases (managed databases included), make sure to delete environmental data as well.
 
-| Persitent Volume（PV） を Kubernetes 上に hostPath で作成した場合の方法を記載します。
-| マネージドデータベースを含む外部データベースを利用している場合は、環境にあったデータ削除方法を実施してください。
-
-データベース用
+For Databases
 **************
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-database
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-database" deleted
 
 
-ファイル用
+For Files
 **********
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-ita-common
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-ita-common" deleted
 
-OASE用
+For OASE
 ******
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-mongo
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-mongo" deleted
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pvc volume-mongo-storage-mongo-0 --namespace exastro
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolumeclaim "volume-mongo-storage-mongo-0" deleted
 
-GitLab用
+For GitLab
 ********
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-gitlab
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-gitlab" deleted
 
-監査ログファイル用
+For Monitoring log files
 ******************
 
 .. code-block:: bash
-  :caption: コマンド
+  :caption: Command
 
   kubectl delete pv pv-auditlog
 
 .. code-block:: bash
-  :caption: 実行結果
+  :caption: Execution results
 
   persistentvolume "pv-auditlog" deleted
 
 .. _delete_data:
 
-永続データを削除
+Deleting Persistent data
 ^^^^^^^^^^^^^^^^
 
-| Kubernetes のコントロールノードにログインし、データを削除します。
+| Log in to the Kubernetes Control node and delete the data.
 
-データベース用
+
+For Databases
 **************
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/data/exastro-suite/exastro-platform/database` を指定した場合の例です。
+| The following command is an example where the hostPath is specified to :file:`/var/data/exastro-suite/exastro-platform/database` when the Persistent Volume was created.
+
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/data/exastro-suite/exastro-platform/database
 
-ファイル用
-**********
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/data/exastro-suite/exastro-it-automation/ita-common` を指定した場合の例です。
+For Files
+^^^^^^^^^^^^^^^^^^^^
+
+| The following command is an example where the hostPath is specified to :file:`/var/data/exastro-suite/exastro-it-automation/ita-common` when the Persistent Volume was created.
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/data/exastro-suite/exastro-it-automation/ita-common
 
-OASE用
+For OASE
 ******
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/data/exastro-suite/exastro-platform/mongo` を指定した場合の例です。
+| The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/mongo` when the Persistent Volume was created.
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/data/exastro-suite/exastro-platform/mongo
 
-GitLab用
+For GitLab
 ********
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/data/exastro-suite/exastro-platform/gitlab` を指定した場合の例です。
+| The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/gitlab` when the Persistent Volume was created.
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/data/exastro-suite/exastro-platform/gitlab
 
 
-監査ログファイル用
+For Monitoring log files
 ******************
 
-| 下記コマンドは、Persistent Volume 作成時の hostPath に :file:`/var/log/exastro` を指定した場合の例です。
+| The following command is an example where the hostPath is specified to  :file:`/var/log/exastro` when the Persistent Volume was created.
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # 永続データがあるコントロールノードにログイン
+   # Log in to control node that has persistent data
    ssh user@contol.node.example
 
-   # 永続データの削除
+   # Delete persistent data
    sudo rm -rf /var/log/exastro

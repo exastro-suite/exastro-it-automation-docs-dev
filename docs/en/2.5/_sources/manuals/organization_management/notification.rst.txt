@@ -47,7 +47,7 @@ Registering Notification destination settings procedure.
       
 #. | This will display the :menuselection:`New notification destination settings` page. Input the notification destination's information and click :guilabel:`Register`.
 
-   .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面.png
+   .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_v2-5.png
       :width: 600px
       :align: left
 
@@ -101,7 +101,7 @@ Confirming Notification destination settings details
 #. | This will display the :menuselection:`Notification destaintion settings details` page.
    | In this menu, users can confirm the settings, edit, delete and test the notifications.
 
-   .. image:: /images/ja/manuals/platform/notification/通知先設定詳細画面.png
+   .. image:: /images/ja/manuals/platform/notification/通知先設定編集画面_v2-5.png
       :width: 600px
       :align: left
 

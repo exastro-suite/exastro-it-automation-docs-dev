@@ -51,18 +51,18 @@ Main menu
    * - 3
      - Operation status
      - | Displays the status of all Conductors in a pie graph.
-       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation list" menu.
+       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation history" menu.
      - Display
    * - 4
      - Operation results
      - | Displays the Operation results of all the Conductor in a pie graph.
-       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation list" menu.
+       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation history" menu.
      - Display
    * - 5
      - Operation history
      - | Displays the Conductors' operation history divided by dates in a bar graph.
        | The user can view the number of items and detailed information by overing the cursor over the bar graph.
-       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation list" menu.
+       | Pressing the number in the "CON" row moves the user to the "Conductor" menu group's "Conductor operation history" menu.
      - Display
    * - 6
      - Menu set

@@ -19,7 +19,7 @@
     
     
     <title>Docker Compose - Online &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=a5c4661c" />
@@ -41,7 +41,7 @@
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="OASE Agent" href="../oase_agent/index.html" />
-    <link rel="prev" title="Exastro on Kubernetes - Online" href="kubernetes.html" /> 
+    <link rel="prev" title="Helm chart (Kubernetes) - Online" href="kubernetes.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,7 +102,7 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="kubernetes.html" title="前のトピックへ">Exastro on Kubernetes - Online</a></li>
+        <li class="prev"><a href="kubernetes.html" title="前のトピックへ">Helm chart (Kubernetes) - Online</a></li>
         <li class="next"><a href="../oase_agent/index.html" title="次のトピックへ">OASE Agent</a></li>
       </ul>
     </div>
@@ -116,10 +116,10 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">インストール</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">オンライン</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Online</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Exastro</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="kubernetes.html">Exastro on Kubernetes - Online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kubernetes.html">Helm chart (Kubernetes) - Online</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Docker Compose - Online</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#features">Features</a></li>
@@ -142,7 +142,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../offline/index.html">Offline</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">マニュアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../learn/index.html">Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">Manuals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">貢献</a></li>
 </ul>
 
@@ -208,8 +209,8 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../../index.html">HOME</a></li>
-    <li><a href="../../index.html">インストール</a></li>
-    <li><a href="../index.html">オンライン</a></li>
+    <li><a href="../../index.html">Installation</a></li>
+    <li><a href="../index.html">Online</a></li>
     <li><a href="index.html">Exastro</a></li>
     
     <li>Docker Compose - Online</li>
@@ -255,7 +256,7 @@ $(window).on('load', function () {
 <div class="line">The hardware requirements for the Container environment are as follows.</div>
 </div>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-number">表 27 </span><span class="caption-text">Hardware requirements(Minimum)</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 24 </span><span class="caption-text">Hardware requirements(Minimum)</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -278,7 +279,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-number">表 28 </span><span class="caption-text">Hardware requirements(Recommended)</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 25 </span><span class="caption-text">Hardware requirements(Recommended)</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -330,7 +331,7 @@ $(window).on('load', function () {
 <ul>
 <li><p>Communication Protocols</p>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-number">表 29 </span><span class="caption-text">Communication Protocols</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 26 </span><span class="caption-text">Communication Protocols</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 33.3%" />
@@ -383,7 +384,7 @@ $(window).on('load', function () {
 <li><p>Confirmed compatible Operation systems</p>
 <p>The following describes confirmed compatible operation systems as well as their versions.</p>
 <table class="docutils align-default" id="id6">
-<caption><span class="caption-number">表 30 </span><span class="caption-text">Operating systems</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 27 </span><span class="caption-text">Operating systems</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -409,7 +410,7 @@ $(window).on('load', function () {
 <li><p>Confirmed compatible Operation systems and container platforms</p>
 <p>The following describes confirmed compatible operation systems as well as their versions.</p>
 <table class="docutils align-default" id="id7">
-<caption><span class="caption-number">表 31 </span><span class="caption-text">Tested environments</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 28 </span><span class="caption-text">Tested environments</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29.4%" />
 <col style="width: 23.5%" />
@@ -473,7 +474,7 @@ $(window).on('load', function () {
 <div class="line">The user must prepare an URL for releasing the service.</div>
 </div>
 <table class="docutils align-default" id="id8">
-<caption><span class="caption-number">表 32 </span><span class="caption-text">Example 1) Releasing service with IP Address</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 29 </span><span class="caption-text">Example 1) Releasing service with IP Address</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -496,7 +497,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id9">
-<caption><span class="caption-number">表 33 </span><span class="caption-text">Example 2) Releasing service with Domain</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 30 </span><span class="caption-text">Example 2) Releasing service with Domain</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -519,7 +520,7 @@ $(window).on('load', function () {
 </tbody>
 </table>
 <table class="docutils align-default" id="id10">
-<caption><span class="caption-number">表 34 </span><span class="caption-text">Example 3) Releasing service through LoadBalancer</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 31 </span><span class="caption-text">Example 3) Releasing service through LoadBalancer</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 42.9%" />
 <col style="width: 57.1%" />
@@ -569,7 +570,7 @@ $(window).on('load', function () {
 <div class="line">The following is an example where the user is &quot;test_user&quot; and the home directory is &quot;/home/test_user&quot;.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-number">リスト 108 </span><span class="caption-text">Install command</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 104 </span><span class="caption-text">Install command</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>install
 </pre></div>
 </div>
@@ -579,19 +580,19 @@ $(window).on('load', function () {
 <div class="line">When all the required packages are installed, the user will be able to customize the installation with the following values:</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">リスト 109 </span><span class="caption-text">Confirm OASE container deployment</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 105 </span><span class="caption-text">Confirm OASE container deployment</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Deploy<span class="w"> </span>OASE<span class="w"> </span>containers?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>y<span class="o">]</span>:
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-number">リスト 110 </span><span class="caption-text">Confirm GitLab container deployment</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 106 </span><span class="caption-text">Confirm GitLab container deployment</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Deploy<span class="w"> </span>GitLab<span class="w"> </span>container?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>n<span class="o">]</span>:
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<div class="code-block-caption"><span class="caption-number">リスト 111 </span><span class="caption-text">Confirm automatic password generation?</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 107 </span><span class="caption-text">Confirm automatic password generation?</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asks to automatically generate Maria DB and System admin password.</span>
 Generate<span class="w"> </span>all<span class="w"> </span>password<span class="w"> </span>and<span class="w"> </span>token<span class="w"> </span>automatically?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>y<span class="o">]</span>:
 </pre></div>
@@ -599,27 +600,27 @@ Generate<span class="w"> </span>all<span class="w"> </span>password<span class="
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" name="aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" role="tab" tabindex="0">https encrypted connection</button><button aria-controls="panel-0-aHR0cCBjb25uZWN0aW9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-aHR0cCBjb25uZWN0aW9u" name="aHR0cCBjb25uZWN0aW9u" role="tab" tabindex="-1">http connection</button></div><div aria-labelledby="tab-0-aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" class="sphinx-tabs-panel group-tab" id="panel-0-aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" name="aHR0cHMgZW5jcnlwdGVkIGNvbm5lY3Rpb24=" role="tabpanel" tabindex="0"><div class="literal-block-wrapper docutils container" id="id15">
-<div class="code-block-caption"><span class="caption-number">リスト 112 </span><span class="caption-text">Exastro service URL</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 108 </span><span class="caption-text">Exastro service URL</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#Input 30800 for the port number if the OS is Red Hat Enterprise Linux. For everything else, input 80.</span>
 Input<span class="w"> </span>the<span class="w"> </span>Exastro<span class="w"> </span>service<span class="w"> </span>URL:<span class="w"> </span>https://ita.example.com:30080
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id16">
-<div class="code-block-caption"><span class="caption-number">リスト 113 </span><span class="caption-text">Exastro management service URL</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 109 </span><span class="caption-text">Exastro management service URL</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#Input 30801 for the port number if the OS is Red Hat Enterprise Linux. For everything else, input 81.</span>
 Input<span class="w"> </span>the<span class="w"> </span>Exastro<span class="w"> </span>management<span class="w"> </span>URL:<span class="w"> </span>https://ita.example.com:30081
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id17">
-<div class="code-block-caption"><span class="caption-number">リスト 114 </span><span class="caption-text">Self-signed SSL/TSL certificate generation (If Exastro service URL/Exastro management service URL is set to https)</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 110 </span><span class="caption-text">Self-signed SSL/TSL certificate generation (If Exastro service URL/Exastro management service URL is set to https)</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Generate<span class="w"> </span>self-signed<span class="w"> </span>SSL<span class="w"> </span>certificate?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>y<span class="o">]</span>:
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id18">
-<div class="code-block-caption"><span class="caption-number">リスト 115 </span><span class="caption-text">Server certificate/Secret key file path (If Self-signed SSL/TSL certificate generation is set to &quot;n&quot;)</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 111 </span><span class="caption-text">Server certificate/Secret key file path (If Self-signed SSL/TSL certificate generation is set to &quot;n&quot;)</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#Specify the server certificate file path for the certificate file path and the secret key file&#39;s file path for the private-key file path.</span>
 Input<span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>SSL<span class="w"> </span>certificate<span class="w"> </span>file.
 certificate<span class="w"> </span>file<span class="w"> </span>path:
@@ -638,7 +639,7 @@ private-key<span class="w"> </span>file<span class="w"> </span>path:
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id19">
-<div class="code-block-caption"><span class="caption-number">リスト 116 </span><span class="caption-text">Exastro Management service URL</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 112 </span><span class="caption-text">Exastro Management service URL</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>Exastro<span class="w"> </span>management<span class="w"> </span>URL:
 </pre></div>
 </div>
@@ -652,7 +653,7 @@ private-key<span class="w"> </span>file<span class="w"> </span>path:
 </div>
 </div></div>
 <div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 117 </span><span class="caption-text">Gitlab container URL(Required if deploying Gitlab container).</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 113 </span><span class="caption-text">Gitlab container URL(Required if deploying Gitlab container).</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Input<span class="w"> </span>the<span class="w"> </span>external<span class="w"> </span>URL<span class="w"> </span>of<span class="w"> </span>GitLab<span class="w"> </span>container<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span><span class="o">(</span>nothing<span class="o">)]</span>:
 </pre></div>
 </div>
@@ -665,19 +666,19 @@ private-key<span class="w"> </span>file<span class="w"> </span>path:
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 118 </span><span class="caption-text">Exastro service URL</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 114 </span><span class="caption-text">Exastro service URL</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Service<span class="w"> </span>URL?<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>http://127.0.0.1:30080<span class="o">]</span>:<span class="w"> </span>http://ita.example.com:30080
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id22">
-<div class="code-block-caption"><span class="caption-number">リスト 119 </span><span class="caption-text">Exastro management service URL</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 115 </span><span class="caption-text">Exastro management service URL</span><a class="headerlink" href="#id22" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Management<span class="w"> </span>URL?<span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>http://127.0.0.1:30081<span class="o">]</span>:<span class="w"> </span>http://ita.example.com:30081
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id23">
-<div class="code-block-caption"><span class="caption-number">リスト 120 </span><span class="caption-text">Confirm generated settings file</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 116 </span><span class="caption-text">Confirm generated settings file</span><a class="headerlink" href="#id23" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>System<span class="w"> </span>parametes<span class="w"> </span>are<span class="w"> </span>bellow.
 
 System<span class="w"> </span>administrator<span class="w"> </span>password:<span class="w">    </span>********
@@ -698,7 +699,7 @@ Generate<span class="w"> </span>.env<span class="w"> </span>file<span class="w">
 <div class="line">Inputting either <strong class="command">y</strong> or <strong class="command">yes</strong> will download all Docker Compose files needed to run Exastro from GitHub and change the firewall settings.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
-<div class="code-block-caption"><span class="caption-number">リスト 121 </span><span class="caption-text">Check Exastro container deployment</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 117 </span><span class="caption-text">Check Exastro container deployment</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Deploy<span class="w"> </span>Exastro<span class="w"> </span>containers<span class="w"> </span>now?<span class="w"> </span><span class="o">(</span>y/n<span class="o">)</span><span class="w"> </span><span class="o">[</span>default:<span class="w"> </span>n<span class="o">]</span>:
 </pre></div>
 </div>
@@ -709,7 +710,7 @@ Generate<span class="w"> </span>.env<span class="w"> </span>file<span class="w">
 <div class="line">The Exastro system deployment process may take several minutes (Depends on the network situation and server specs).</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id25">
-<div class="code-block-caption"><span class="caption-number">リスト 122 </span><span class="caption-text">Running Exastro container deployment</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 118 </span><span class="caption-text">Running Exastro container deployment</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Please<span class="w"> </span><span class="nb">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>a<span class="w"> </span>little<span class="w"> </span><span class="k">while</span>.<span class="w"> </span>It<span class="w"> </span>will<span class="w"> </span>take<span class="w"> </span><span class="m">10</span><span class="w"> </span>minutes<span class="w"> </span>or<span class="w"> </span>later..........
 </pre></div>
 </div>
@@ -718,7 +719,7 @@ Generate<span class="w"> </span>.env<span class="w"> </span>file<span class="w">
 <div class="line">When the Exastro system deployment is finnished, the service connection information will be output.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id26">
-<div class="code-block-caption"><span class="caption-number">リスト 123 </span><span class="caption-text">Service connection information outpu</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 119 </span><span class="caption-text">Service connection information outpu</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>System<span class="w"> </span>manager<span class="w"> </span>page:
 <span class="w">  </span>URL:<span class="w">                </span>http://ita.example.com:30081/
 <span class="w">  </span>Login<span class="w"> </span>user:<span class="w">         </span>admin
@@ -777,7 +778,7 @@ Reboot<span class="w"> </span>now?<span class="w"> </span><span class="o">(</spa
 <section id="let-s-give-it-a-try">
 <h2>Let's give it a Try!!<a class="headerlink" href="#let-s-give-it-a-try" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">We recommend users go through <span class="xref std std-doc">../../../learn/quickstart/index</span> in order to learn how to use the software.</div>
+<div class="line">We recommend users go through <a class="reference internal" href="../../../learn/quickstart/index.html"><span class="doc">クイックスタート</span></a> in order to learn how to use the software.</div>
 <div class="line">The Quickstart guide guides the user through scenarios where they learn how to use Exastro IT Automation, how the parameter sheets works, etc.</div>
 </div>
 </section>
@@ -801,7 +802,7 @@ Reboot<span class="w"> </span>now?<span class="w"> </span><span class="o">(</spa
 <div class="line">Update the exastro-docker-compose repository.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id27">
-<div class="code-block-caption"><span class="caption-number">リスト 124 </span><span class="caption-text">Command</span><a class="headerlink" href="#id27" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 120 </span><span class="caption-text">Command</span><a class="headerlink" href="#id27" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># Check exastro-docker-compose repository</span>
 <span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 <span class="linenos">3</span>git<span class="w"> </span>pull
@@ -816,7 +817,7 @@ Reboot<span class="w"> </span>now?<span class="w"> </span><span class="o">(</spa
 <div class="line">Compare the <code class="file docutils literal notranslate"><span class="pre">exastro.yaml</span></code> file pre and post update.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id28">
-<div class="code-block-caption"><span class="caption-number">リスト 125 </span><span class="caption-text">Command</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 121 </span><span class="caption-text">Command</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 <span class="c1"># For AlmaLinux or Ubuntu OS</span>
@@ -843,7 +844,7 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line">Start the update.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 126 </span><span class="caption-text">Command</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 122 </span><span class="caption-text">Command</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>install
 </pre></div>
 </div>
@@ -877,7 +878,7 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line">Deletes the Container image as well.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 127 </span><span class="caption-text">Command</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 123 </span><span class="caption-text">Command</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>remove<span class="w"> </span>-c
 </pre></div>
 </div>
@@ -888,7 +889,7 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <section id="delete-container">
 <h5>Delete Container<a class="headerlink" href="#delete-container" title="Link to this heading">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 128 </span><span class="caption-text">Command</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 124 </span><span class="caption-text">Command</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-sf<span class="w"> </span>https://ita.exastro.org/setup<span class="o">)</span><span class="w"> </span>remove
 </pre></div>
 </div>
@@ -897,7 +898,7 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <section id="delete-volume">
 <h5>Delete Volume<a class="headerlink" href="#delete-volume" title="Link to this heading">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 129 </span><span class="caption-text">Command</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 125 </span><span class="caption-text">Command</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>volume<span class="w"> </span>ls<span class="w"> </span>-qf<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="k">)</span>
 
 <span class="c1"># Confirm that the Volume has been deleted</span>
@@ -909,7 +910,7 @@ docker<span class="w"> </span>volume<span class="w"> </span>ls
 <section id="delete-volumes">
 <h5>Delete .volumes<a class="headerlink" href="#delete-volumes" title="Link to this heading">¶</a></h5>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 130 </span><span class="caption-text">Command</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 126 </span><span class="caption-text">Command</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>.volumes
@@ -926,7 +927,7 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 131 </span><span class="caption-text">Command</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 127 </span><span class="caption-text">Command</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
 
 git<span class="w"> </span>checkout<span class="w"> </span>.volumes
@@ -945,7 +946,7 @@ git<span class="w"> </span>checkout<span class="w"> </span>.volumes
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span>前のトピックへ</span>Exastro on Kubernetes - Online</a></li>
+    <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span>前のトピックへ</span>Helm chart (Kubernetes) - Online</a></li>
     <li class="next"><a href="../oase_agent/index.html" title="次のトピックへ"><span>次のトピックへ</span>OASE Agent</a></li>
   </ul>
 </div>

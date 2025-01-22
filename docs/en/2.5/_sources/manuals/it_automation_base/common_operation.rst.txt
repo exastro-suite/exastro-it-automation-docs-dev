@@ -167,8 +167,10 @@ List tab
      | Select search conditions from pulldown menu or manual input and press the Enter key or click the \ :guilabel:`Filter`\  button to display registered information.
   #. | Excel download
      | Allows users to download all files that meets the search conditions in an Excel format.
-  #. | JSON download
+  #. | JSON download/JSON download (Without file)
      | Allows users to download all files that meets the search conditions in an JSON format.
+     | If a file upload item is included, the file data will be downloaded in base64 format.
+     | ※If :guilabel:`JSON download（without file）` is selected, the file data will not be downloaded.
 
   .. note::
             | Downloaded excel type and JSON files types from the display filter can be used in "\ :ref:`management_console_download_all_and_edit_file_uploads`\".
