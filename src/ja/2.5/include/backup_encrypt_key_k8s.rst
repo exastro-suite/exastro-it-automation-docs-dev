@@ -6,9 +6,8 @@
    | 暗号化キーを紛失した場合、バックアップデータからシステムを復旧した際にデータの復号ができなくなります。
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: コマンド（Exastro IT Automation ENCRYPT_KEY）
 
-   # Exastro IT Automation ENCRYPT_KEY
    kubectl get secret ita-secret-ita-global --namespace exastro -o jsonpath='{.data.ENCRYPT_KEY}' | base64 -d
 
 .. code-block:: bash
@@ -17,9 +16,8 @@
    JnIoXzJtPic2MXFqRl1yI1chMj8hWzQrNypmVn41Pk8=
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: コマンド（Exastro Platform ENCRYPT_KEY）
 
-   # Exastro Platform ENCRYPT_KEY
    kubectl get secret platform-secret-pf-global --namespace exastro -o jsonpath='{.data.ENCRYPT_KEY}' | base64 -d
 
 .. code-block:: bash
