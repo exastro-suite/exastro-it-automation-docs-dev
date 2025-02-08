@@ -20,35 +20,35 @@
 OASE Agent on Docker Compose - Online
 =====================================
 
-目的
+Introduction
 ====
 
-| 本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。
+| This document aims to explain how to install the Exastro OASE Agent, which is used to link with external services when using OASE.
 
-特徴
+Features
 ====
 
-| OASEを利用するための絶対条件である、Exastro OASE Agentの導入方法となります。
-| Docker Compose を利用することで、Exastro OASE Agentを簡単に起動することが可能です。
-| Exastro OASE Agentの設定や運用については、:ref:`エージェント概要<agent_about>` をご参照ください。
+| This document contains information on how to install the Exastro OASE Agent, which is required in order to use Exastro OASE.
+| Users can easily boot the Exastro OASE Agent by using Docker Compose.
+| For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
-前提条件
+Pre-requisites
 ========
 
-- Exastro IT Automationについて
+- Exastro IT Automation
 
-  | Exastro OASE Agentの運用には、Exastro OASE AgentとExastro IT Automationのバージョンが一致している必要があります。
+  | In order to operate the Exastro OASE Agent, both the Exastro OASE Agent and the Exastro IT Automation must be operating on the same version.
 
-- デプロイ環境
+- Deploy environment
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
+  | The following describes confirmed compatible container environments as well as their resources and versions.
 
-  .. list-table:: ハードウェア要件(最小構成)
+  .. list-table:: Hardware requirements(Minimum)
    :widths: 1, 1
    :header-rows: 1
   
-   * - リソース種別
-     - 要求リソース
+   * - Resource type
+     - Required resource
    * - CPU
      - 2 Cores (3.0 GHz, x86_64)
    * - Memory
@@ -56,325 +56,323 @@ OASE Agent on Docker Compose - Online
    * - Storage (Container image size)
      - 10GB
 
-- 動作確認済みオペレーティングシステム
+- Confirmed compatible Operation systems
 
-  以下は、動作確認済のバージョンとなります。
+  The following describes confirmed compatible operation systems as well as their versions.
 
-  .. list-table:: オペレーティングシステム
+  .. list-table:: Operating systems
    :widths: 20, 20
    :header-rows: 1
 
-   * - 種別
-     - バージョン
+   * - Type
+     - Version
    * - Red Hat Enterprise Linux
-     - バージョン	8
+     - Version	8
    * - AlmaLinux
-     - バージョン	8
+     - Version	8
    * - Ubuntu
-     - バージョン	22.04
+     - Version	22.04
 
-- 動作確認済みコンテナプラットフォーム
+- Confirmed compatible Operation systems and container platforms
 
-  手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
-  以下は、動作確認済のバージョンとなります。
+  The following describes confirmed compatible operation systems as well as their versions.
 
-  .. list-table:: コンテナプラットフォーム
+  .. list-table:: Container Platforms
    :widths: 20, 10
    :header-rows: 1
 
-   * - ソフトウェア
-     - バージョン
-   * - Podman Engine ※Podman 利用時
-     - バージョン	4.4
-   * - Docker Compose ※Podman 利用時
-     - バージョン	2.20
-   * - Docker Engine ※Docker 利用時
-     - バージョン	24
+   * - Software
+     - Version
+   * - Podman Engine ※When using Podman
+     - Version	4.4
+   * - Docker Compose ※When using Podman
+     - Version	2.20
+   * - Docker Engine ※When using Docker
+     - Version	24
 
 
-- アプリケーション
+Application
 
-  | :command:`sudo` コマンドが実行できる必要があります。
+  | The user must be able to run :command:`sudo` commands.
 
 .. warning::
-   | Exastro OASE Agent のプロセスは一般ユーザ権限で起動する必要があります。(rootユーザーでのインストールはできません)
-   | また、利用する一般ユーザは sudoer で、全操作権限を持っている必要があります。
+   | The Exastro OASE Agent process must be able to be run with normal user permissions (it is not possible to install with root user).
+   | Any normal users must be sudoer and have complete permissions.
 
 
-インストール
+Install
 ============
 
-準備
+Preparation
 ----
 
-| はじめに、各種構成ファイルを取得します。docker-compose.ymlなどの起動に必要なファイル群を取得します。
+| First, the user must fetch the different structure files. In this section, we will fetch the file groups required to boot the agent, such as docker-compose.yml.
 
 .. code-block:: shell
 
    git clone https://github.com/exastro-suite/exastro-docker-compose.git
 
-| 以降は、exastro-docker-compose/ita_ag_oaseディレクトリで作業をします。
+| The following steps will be done in the exastro-docker-compose/ita_ag_oase directory.
 
 .. code-block:: shell
 
    cd exastro-docker-compose/ita_ag_oase
 
-| 環境変数の設定ファイル（.env）を、サンプルから作成します。 
+| Make a environment setting file（.env） from the sample. 
 
 .. code-block:: shell
-   :caption: （Docker利用時）サンプルからコピー
+   :caption: Copied from sample （When using Docker）
 
    cp .env.docker.sample .env
 
 .. code-block:: shell
-   :caption: （Podman利用時）サンプルからコピー
+   :caption: Copied from sample  （When using Podman）
 
    cp .env.podman.sample .env
 
-| 末尾のパラメータ一覧を参考に、起動に必要な情報を .env に登録します。 
+| Refer to the parameter list and register an .env file. 
 
 .. code-block:: shell
 
    vi .env
 
-起動
+Boot
 ----
 
-| docker もしくは docker-compose コマンドを使いコンテナを起動します。
+| Use either docker or docker-compose command to boot the container.
 
 .. code-block:: shell
-   :caption: docker コマンドを利用する場合(Docker環境)
+   :caption: Using docker command(Docke environment)
 
    docker compose up -d --wait  
 
 .. code-block:: shell
-   :caption: docker-compose コマンドを利用する場合(Podman環境)
+   :caption: using docker-compose command(Podman environment)
 
    docker-compose up -d --wait  
 
-パラメータ一覧
+Parameter list
 ==============
 
-| Exastro OASE Agentの仕様と一部のパラメータの関連については、:ref:`oase_agent_flow` にて説明しています。
+| For more information regarding Exastro OASE Agent and how some of the parameter works, see :ref:`oase_agent_flow`.
 
 .. list-table:: 
  :widths: 5, 7, 1, 5
  :header-rows: 1
 
- * - パラメータ
-   - 説明
-   - 変更
-   - デフォルト値・選択可能な設定値
+ * - Parameter
+   - Description
+   - Changeable
+   - Default value/Selectable setting value
  * - NETWORK_ID
-   - OASE エージェント で利用する Docker ネットワークのID
-   - 可
+   - Docker Network ID used by the OASE Agent
+   - Yes
    - 20230101
  * - LOGGING_MAX_SIZE
-   - コンテナ毎のログファイルの1ファイルあたりのファイルサイズ
-   - 可
+   - Max file size for the container's log files.
+   - Yes
    - 10m
  * - LOGGING_MAX_FILE
-   - コンテナ毎のログファイルの世代数
-   - 可
+   - Maximum amount of generations for the container's log files.
+   - Yes
    - 10
  * - TZ
-   - OASE エージェント システムで使用するタイムゾーン
-   - 可
+   - The Time zone used by the OASGE Agent system.
+   - Yes
    - Asia/Tokyo
  * - DEFAULT_LANGUAGE
-   - OASE エージェント システムで使用する規定の言語
-   - 可
+   - Default language used by the OASE Agent System.
+   - Yes
    - ja
  * - LANGUAGE
-   - OASE エージェント システムで使用する言語
-   - 可
+   - Language used by the OASE Agent System.
+   - Yes
    - en
  * - ITA_VERSION
-   - OASE エージェント のバージョン
-   - 可
+   - OASE Agent version
+   - Yes
    - 2.3.0
  * - UID
-   - OASE エージェント の実行ユーザ
-   - 不要
-   - 1000 (デフォルト): Docker 利用の場合
+   - OASE Agent execution user
+   - Not required
+   - 1000 (Default): Using Docker
   
-     0: Podman 利用の場合
+     0: When using Podman
  * - HOST_DOCKER_GID
-   - ホスト上の Docker のグループID
-   - 不要
-   - 999: Docker 利用の場合
+   - Docker group ID on the host
+   - Not required
+   - 999: Using Docker
 
-     0: Podman 利用の場合
+     0: When using Podman
  * - AGENT_NAME
-   - 起動する OASEエージェントの名前
-   - 可
+   - Name of the OASE Agent
+   - Yes
    - ita-oase-agent-01
  * - EXASTRO_URL
-   - Exastro IT Automation の Service URL
-   - 可
+   - Exastro IT Automation's Service URL
+   - Yes
    - http://localhost:30080
  * - EXASTRO_ORGANIZATION_ID
-   - Exastro IT Automation で作成した OrganizationID
-   - 必須
-   - 無し
+   - OrganizationID created in Exastro IT Automation
+   - Required
+   - None 
  * - EXASTRO_WORKSPACE_ID
-   - Exastro IT Automation で作成した WorkspaceID
-   - 必須
-   - 無し
+   - WorkspaceID created in Exastro IT Automation
+   - Required
+   - None 
  * - EXASTRO_REFRESH_TOKEN
-   - | Exastro システム管理画面から取得したリフレッシュトークン※
-     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
-   - 可
-   - 無し
+   - | Refresh token fetched from the Exastro System management page※
+     | ※The user's role must have edit permission for the OASE - Event - Event history menu.
+   - Yes
+   - None 
  * - EXASTRO_USERNAME
-   - | Exastro IT Automation で作成した ユーザー名
-     | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
-     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
-   - 可
+   - | Username created in Exastro IT Automation
+     | ※Refresh token fetched from the Exastro System management page.
+     | ※If not using EXASTRO_REFRESH_TOKEN（Not recommended）
+   - Yes
    - admin
  * - EXASTRO_PASSWORD
-   - | Exastro IT Automation で作成した パスワード
-     | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
-   - 可
+   - | Password created in Exastro IT Automation.
+     | ※If not using EXASTRO_REFRESH_TOKEN（Not recommended）
+   - Yes
    - Ch@ngeMe
  * - EVENT_COLLECTION_SETTINGS_NAMES
-   - Exastro IT Automation のOASE管理 イベント収集 で作成した イベント収集設定名
-   - 必須
-   - 無し※カンマ区切りで複数指定可能
+   - The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
+   - Required
+   - None ※Multiple can be specified by dividing with commas.
  * - ITERATION
-   - OASE エージェント が設定を初期化するまでの、処理の繰り返し数
-   - 可
-   - 10（上限値: 120、下限値: 10）
+   - Number of process iterations before the OASE Agent settings resets.
+   - Yes
+   - 10（Max: 120, Min: 10）
  * - EXECUTE_INTERVAL
-   - OASE エージェント のデータ収集処理の実行間隔
-   - 可
-   - 5（下限値: 3）
+   - OASE Agent's data fetch process execution interval
+   - Yes
+   - 5（Min: 3）
  * - LOG_LEVEL
-   - OASE エージェント のログレベル
-   - 可
+   - OASE Agent's log level
+   - Yes
    - INFO
 
-| ※リフレッシュトークンの取得に関しては :ref:`exastro_refresh_token` を参照してください。
+| ※For more information regarding fetching Refresh tokens, see :ref:`exastro_refresh_token`.
 
-アップグレード
+Update
 ==============
 
-| Exastro OASE Agentのアップグレード方法について紹介します。
+| This section explains how to update the Exastro OASE Agent.
 
 
-アップグレードの準備
+Update preparation
 --------------------
 
 .. warning:: 
-  | アップグレード実施前に、バックアップを取得しておくことを推奨します。
-  | バックアップ対象は :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/` です。
+  | We highly recommend taking a backup before updating the system.
+  | Backup target is :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/`.
 
-リポジトリの更新
+Update repository
 ^^^^^^^^^^^^^^^^
 
-| exastro-docker-composeリポジトリを更新します。
+| Update the exastro-docker-compose repository.
 
 .. code-block:: shell
    :linenos:
-   :caption: コマンド
+   :caption: Command
 
-   # exastro-docker-composeリポジトリの確認
+   # Confirm exastro-docker-compose repository
    cd ~/exastro-docker-compose/ita_ag_oase
    git pull
 
-デフォルト設定値の更新の確認
+Check the updated default setting values.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| デフォルト値の更新を確認します。
-| インストール時に作成した設定ファイル :file:`~/exastro-docker-compose/.env` とアップグレード後の設定ファイルを比較します。
+| Check the updated default values.
+| Compare the settings filed created when installing the system :file:`~/exastro-docker-compose/.env` and the settings file after the update.
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    cd ~/exastro-docker-compose/ita_ag_oase
 
-   # OSがAlmaLinuxまたはUbuntuの場合
+   # If the OS is AlmaLinux or Ubuntu
    diff .env .env.docker.sample
-   # OSがRed Hat Enterprise Linuxの場合
+   # If the OS is Red Hat Enterprise Linux
    diff .env .env.podman.sample
 
-設定値の更新
+Update setting values
 ^^^^^^^^^^^^
 
-| デフォルト設定値の比較結果から、項目の追加などにより設定値の追加が必要な場合は更新をしてください。
-| 設定値の更新が不要であればこの手順はスキップしてください。
+| Use the comparison results to check if there are any added items that needs setting values added to. If there are none or the user does not need to change any values, proceed to the next step.
 
-アップグレード
+Update
 --------------
 
-アップグレード実施
+Update the system
 ^^^^^^^^^^^^^^^^^^
 
-| アップグレードを実施します。
+| Start the Update process.
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    cd ~/exastro-docker-compose/ita_ag_oase
 
 .. code-block:: shell
-   :caption: docker コマンドを利用する場合(Docker環境)
+   :caption: For using docker command(Docker environment)
 
    docker compose up -d --wait  
 
 .. code-block:: shell
-   :caption: docker-compose コマンドを利用する場合(Podman環境)
+   :caption: For using docker-compose command(Podman environment)
 
    docker-compose up -d --wait  
 
 
-アンインストール
+Uninstall
 ================
 
-| Exastro OASE Agentのアンインストール方法について紹介します。
+| This sections explains how to uninstall the Exastro OASE agent
 
-アンインストールの準備
+Uninstallment preparation
 ----------------------
 
 .. warning:: 
-  | アンインストール実施前に、バックアップを取得しておくことを推奨します。
-  | バックアップ対象は :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/` です。
+  | We highly recommend taking a backup before uninstalling the system.
+  | The backup target is :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/`.
 
-アンインストール
+Uninstall
 ----------------
 
-アンインストール実施
+Start Uninstallment process
 ^^^^^^^^^^^^^^^^^^^^
 
-| アンインストールを実施します。
+| Start uninstalling
 
 
 .. code-block:: shell
-   :caption: コマンド
+   :caption: Command
 
    cd ~/exastro-docker-compose/ita_ag_oase
 
 .. code-block:: shell
-   :caption: docker コマンドを利用する場合(Docker環境)
+   :caption: For using docker command(Docker environment)
 
-   # コンテナのみ削除する場合
+   # For only deleting the Container
    docker compose down
 
-   # コンテナ＋コンテナイメージ＋ボリュームを削除する場合
+   # For deleting the Container+ Container Image+ Volume
    docker compose down --rmi all --volumes
 
 .. code-block:: shell
-   :caption: docker-compose コマンドを利用する場合(Podman環境)
+   :caption: For using docker-compose command(Podman environment)
 
-   # コンテナのみ削除する場合
+   # For only deleting the Container
    docker-compose down
 
-   # コンテナ＋コンテナイメージ＋ボリュームを削除する場合
+   # For deleting the Container+ Container Image+ Volume
    docker-compose down --rmi all --volumes
 
 .. code-block:: bash
-   :caption: コマンド
+   :caption: Command
 
-   # データを削除する場合
+   # For deleting the data
    rm -rf ~/exastro-docker-compose/ita_ag_oase/.volumes/storage/*
 

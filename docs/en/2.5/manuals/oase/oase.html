@@ -19,7 +19,7 @@
     
     
     <title>3. OASE &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../platform_management/index.html">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../organization_management/index.html">Organization management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../it_automation_base/index.html">Basic operation</a></li>
@@ -156,6 +157,8 @@
 <li class="toctree-l5"><a class="reference internal" href="#labeling-example-regular-expression">3.5.2. Labeling example (regular expression)</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#event-data-format-sent-by-agent">3.5.3. Event data format sent by Agent</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#confirmation-items-when-event-history-and-evaluation-results-displays-large-amounts-of-records">3.5.4. Confirmation items when Event history and Evaluation results displays large amounts of records.</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#event-history-search-method">3.5.5. Event history search method</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pre-post-notification-template">3.5.6. Pre/Post-notification template</a></li>
 </ul>
 </li>
 </ul>
@@ -218,6 +221,11 @@
 <li><a class="reference internal" href="#labeling-example-regular-expression">3.5.2. Labeling example (regular expression)</a></li>
 <li><a class="reference internal" href="#event-data-format-sent-by-agent">3.5.3. Event data format sent by Agent</a></li>
 <li><a class="reference internal" href="#confirmation-items-when-event-history-and-evaluation-results-displays-large-amounts-of-records">3.5.4. Confirmation items when Event history and Evaluation results displays large amounts of records.</a></li>
+<li><a class="reference internal" href="#event-history-search-method">3.5.5. Event history search method</a></li>
+<li><a class="reference internal" href="#pre-post-notification-template">3.5.6. Pre/Post-notification template</a><ul>
+<li><a class="reference internal" href="#result-pattern-when-using-variables">Result pattern when using variables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -233,7 +241,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">OASE</a></li>
     
     <li><span class="section-number">3. </span>OASE</li>
@@ -264,8 +272,8 @@
 <div class="line"><strong>OASE menu</strong></div>
 <div class="line">The menus found in the OASE menu are as following.</div>
 </div>
-<table class="docutils align-left" id="id15">
-<caption><span class="caption-number">表 3.40 </span><span class="caption-text">OASE menu list</span><a class="headerlink" href="#id15" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id16">
+<caption><span class="caption-number">表 3.47 </span><span class="caption-text">OASE menu list</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 11.1%" />
@@ -389,18 +397,18 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">It can be used similarly to the following menus: <span class="menuselection">OASE ▶ Event history</span>, <span class="menuselection">OASE ▶ Filter</span>, <span class="menuselection">OASE ▶ Action</span> and <span class="menuselection">OASE ▶ Rule</span>.</div>
 </div>
-<figure class="align-default" id="id16">
+<figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="../../_images/event_flow_menu.png"><img alt="Submenu (Event flow)" src="../../_images/event_flow_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.73 </span><span class="caption-text">Submenu (Event flow)</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.73 </span><span class="caption-text">Submenu (Event flow)</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id17">
+<figure class="align-default" id="id18">
 <a class="reference internal image-reference" href="../../_images/event_flow_screen_v2-4.png"><img alt="Using Event flow" src="../../_images/event_flow_screen_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.74 </span><span class="caption-text">Using Event flow</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.74 </span><span class="caption-text">Using Event flow</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -414,11 +422,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">Users can check the source data of the collected events.</div>
 </div>
-<figure class="align-default" id="id18">
+<figure class="align-default" id="id19">
 <a class="reference internal image-reference" href="../../_images/event_flow_event_raw_data.png"><img alt="RAW Event data (Event flow)" src="../../_images/event_flow_event_raw_data.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.75 </span><span class="caption-text">RAW Event data (Event flow)</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.75 </span><span class="caption-text">RAW Event data (Event flow)</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -427,15 +435,15 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">Users can display which events to display by pressing the <span class="guilabel">Select display pattern</span> button (multiple items can be selected).</div>
 </div>
-<figure class="align-default" id="id19">
+<figure class="align-default" id="id20">
 <a class="reference internal image-reference" href="../../_images/event_flow_display_pattern_v2-4.png"><img alt="Select Display pattern (Event flow)" src="../../_images/event_flow_display_pattern_v2-4.png" style="width: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.76 </span><span class="caption-text">Select Display pattern (Event flow)</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.76 </span><span class="caption-text">Select Display pattern (Event flow)</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id20">
-<caption><span class="caption-number">表 3.41 </span><span class="caption-text">Event flow page Select Display pattern.</span><a class="headerlink" href="#id20" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id21">
+<caption><span class="caption-number">表 3.48 </span><span class="caption-text">Event flow page Select Display pattern.</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -458,7 +466,7 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tr>
 <tr class="row-even"><td><p>Unknown event</p></td>
 <td><div class="line-block">
-<div class="line">Events that could not be singled out by the filter function (was not detected by the evaluation function).</div>
+<div class="line">Events that could not be singled out by the filter function (was not detected by the evaluation function).※</div>
 <div class="line">If the event is unkown, the user should consider what to do with it as an evaluation target.</div>
 </div>
 </td>
@@ -482,28 +490,70 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">※  If the settings in <span class="menuselection">OASE management ▶ Event collection</span> seen below are wrong, events will be handled as unknown events.</div>
+<div class="line">(&quot;_exastro_not_available&quot; is labeled as a key.)</div>
+<div class="line">Compare with the Event's RAW data and reconfigure the settings in <span class="menuselection">OASE Management ▶ Event collection</span>.</div>
+<div class="line">For more information regarding response keys and event ID keys, see <a class="reference internal" href="oase_management.html#oase-agent-respons-key-enevnt-id-key"><span class="std std-ref">here</span></a>.</div>
+</div>
+<table class="docutils align-left" id="id22">
+<caption><span class="caption-number">表 3.49 </span><span class="caption-text">How to see wrong settings(_exastro_not_available)</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Assigned label value</p></th>
+<th class="head"><p>Set fixing point</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RESPONSE_KEY not found</p></td>
+<td><p>Response key</p></td>
+<td><p>Adds a label if the specified key does not exist in any events.</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">RESPONSE_LIST_FLAG is incorrect.(Not Dict Type)</div>
+<div class="line">RESPONSE_LIST_FLAG is incorrect.(Not List Type)</div>
+</div>
+</td>
+<td><p>Response list flag</p></td>
+<td><div class="line-block">
+<div class="line">Adds  a label if &quot;False&quot; is selected in the settings while the actual values are in a list.</div>
+<div class="line">Adds a label if &quot;True&quot; is selected in the settings while the actual values are not in a list.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>EVENT_ID_KEY not found</p></td>
+<td><p>Event ID key</p></td>
+<td><p>Adds a label if a non-existent key is specified to the data the corresponds to the Event's &quot;Response key&quot;.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="time-range-specification">
 <h4>Time range specification<a class="headerlink" href="#time-range-specification" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">Users can press the <span class="guilabel">Specify range</span> button to specify the time period of displayed items.</div>
 </div>
-<figure class="align-default" id="id21">
+<figure class="align-default" id="id23">
 <a class="reference internal image-reference" href="../../_images/event_flow_time.png"><img alt="Specifying range (Event flow)" src="../../_images/event_flow_time.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.77 </span><span class="caption-text">Specifying range (Event flow)</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.77 </span><span class="caption-text">Specifying range (Event flow)</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
 <div class="line">Press the <span class="guilabel">X hour(s)</span> to specify the time period.</div>
 <div class="line">The default value is 1 hour. The minimum value is 5 minutes and the maximum value is 5 years.</div>
 </div>
-<figure class="align-default" id="id22">
+<figure class="align-default" id="id24">
 <a class="reference internal image-reference" href="../../_images/event_flow_time_select.png"><img alt="Specifying time (Event flow)" src="../../_images/event_flow_time_select.png" style="width: 100px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.78 </span><span class="caption-text">Specifying time (Event flow)</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.78 </span><span class="caption-text">Specifying time (Event flow)</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -512,20 +562,20 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">Users can maintain (view/register/edit/discard) <span class="menuselection">Filter</span>, <span class="menuselection">Action</span> and:menuselection:<cite>Rule</cite> both in the Event flow menu and in their respective menus.</div>
 </div>
-<figure class="align-default" id="id23">
+<figure class="align-default" id="id25">
 <a class="reference internal image-reference" href="../../_images/event_flow_drag_drop_v2-4.gif"><img alt="Drag and drop (Event flow)" src="../../_images/event_flow_drag_drop_v2-4.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.79 </span><span class="caption-text">Drag and drop (Event flow)</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.79 </span><span class="caption-text">Drag and drop (Event flow)</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="filter">
 <h5>Filter<a class="headerlink" href="#filter" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id24">
+<figure class="align-default" id="id26">
 <a class="reference internal image-reference" href="../../_images/event_flow_filter_v2-4.png"><img alt="Filter input (Event flow)" src="../../_images/event_flow_filter_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.80 </span><span class="caption-text">Filter input (Event flow)</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.80 </span><span class="caption-text">Filter input (Event flow)</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -534,11 +584,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </section>
 <section id="action">
 <h5>Action<a class="headerlink" href="#action" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id25">
+<figure class="align-default" id="id27">
 <a class="reference internal image-reference" href="../../_images/event_flow_action_v2-4.png"><img alt="Action input (Event flow)" src="../../_images/event_flow_action_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.81 </span><span class="caption-text">Action input (Event flow)</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.81 </span><span class="caption-text">Action input (Event flow)</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -547,11 +597,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </section>
 <section id="rule">
 <h5>Rule<a class="headerlink" href="#rule" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id26">
+<figure class="align-default" id="id28">
 <a class="reference internal image-reference" href="../../_images/event_flow_rule_v2-4.png"><img alt="Rule input (Event flow)" src="../../_images/event_flow_rule_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.82 </span><span class="caption-text">Rule input (Event flow)</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.82 </span><span class="caption-text">Rule input (Event flow)</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -568,11 +618,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id27">
+<figure class="align-default" id="id29">
 <a class="reference internal image-reference" href="../../_images/event_history_menu.png"><img alt="Submenu (Event history)" src="../../_images/event_history_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.83 </span><span class="caption-text">Submenu (Event history)</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.83 </span><span class="caption-text">Submenu (Event history)</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -581,8 +631,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id28">
-<caption><span class="caption-number">表 3.42 </span><span class="caption-text">Event history Item list</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id30">
+<caption><span class="caption-number">表 3.50 </span><span class="caption-text">Event history Item list</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -597,10 +647,10 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>Automatically given by the system and cannot be edited.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Event collection settings ID</p></td>
-<td><p>[Source data] Agent</p></td>
+<td><p>[Source data] OASE management/Event collection/Event collection settings ID</p></td>
 </tr>
 <tr class="row-even"><td><p>Event collection time</p></td>
-<td><p>The time/date of when the Agent fetched the Event.</p></td>
+<td><p>The date/time of when the Agent fetched the Event.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Event valid time</p></td>
 <td><p>The time period in which the event is valid.</p></td>
@@ -629,7 +679,7 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <tr class="row-odd"><td><p>Evaluation rule name</p></td>
 <td><div class="line-block">
 <div class="line">[Source data]</div>
-<div class="line">Rule →Rule label name</div>
+<div class="line">OASE/Rule/Rule label name</div>
 </div>
 </td>
 </tr>
@@ -638,6 +688,9 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">For more information on how to search, see <a class="reference internal" href="#event-history-search-method"><span class="std std-ref">Event history search method</span></a>.</div>
+</div>
 </section>
 <section id="create-label">
 <span id="label-creation"></span><h3><span class="section-number">3.4.4. </span>Create label<a class="headerlink" href="#create-label" title="Link to this heading">¶</a></h3>
@@ -647,11 +700,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id29">
+<figure class="align-default" id="id31">
 <a class="reference internal image-reference" href="../../_images/label_creation_menu.png"><img alt="Submenu (Create label)" src="../../_images/label_creation_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.84 </span><span class="caption-text">Submenu (Create label)</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.84 </span><span class="caption-text">Submenu (Create label)</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -660,8 +713,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id30">
-<caption><span class="caption-number">表 3.43 </span><span class="caption-text">Create label Input item list</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id32">
+<caption><span class="caption-number">表 3.51 </span><span class="caption-text">Create label Input item list</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.8%" />
 <col style="width: 41.7%" />
@@ -715,11 +768,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id31">
+<figure class="align-default" id="id33">
 <a class="reference internal image-reference" href="../../_images/labeling_menu.png"><img alt="Submenu (Labeling)" src="../../_images/labeling_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.85 </span><span class="caption-text">Submenu (Labeling)</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.85 </span><span class="caption-text">Submenu (Labeling)</span><a class="headerlink" href="#id33" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -737,8 +790,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">※2 The different value data types are as following.</div>
 </div>
-<table class="docutils align-left" id="id32">
-<caption><span class="caption-number">表 3.44 </span><span class="caption-text">Labeling menu Value data types</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id34">
+<caption><span class="caption-number">表 3.52 </span><span class="caption-text">Labeling menu Value data types</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 33.3%" />
@@ -828,8 +881,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">※3 See below for information regarding regular expressions in the Labeling menu.</div>
 </div>
-<table class="docutils align-left" id="id33">
-<caption><span class="caption-number">表 3.45 </span><span class="caption-text">Types of regular expressions in the Labeling menu</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id35">
+<caption><span class="caption-number">表 3.53 </span><span class="caption-text">Types of regular expressions in the Labeling menu</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 75.0%" />
@@ -866,11 +919,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id34">
+<figure class="align-default" id="id36">
 <a class="reference internal image-reference" href="../../_images/filter_create_menu_v2-4.png"><img alt="Submenu (Filter)" src="../../_images/filter_create_menu_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.86 </span><span class="caption-text">Submenu (Filter)</span><a class="headerlink" href="#id34" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.86 </span><span class="caption-text">Submenu (Filter)</span><a class="headerlink" href="#id36" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -939,11 +992,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tbody>
 </table>
 <p>Click the <span class="guilabel">Filter conditions</span> field to open up a window where the user can configure filter conditions.</p>
-<figure class="align-default" id="id35">
+<figure class="align-default" id="id37">
 <a class="reference internal image-reference" href="../../_images/filter_condition_v2-4.png"><img alt="Filter condition settings" src="../../_images/filter_condition_v2-4.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.87 </span><span class="caption-text">Filter condition settings</span><a class="headerlink" href="#id35" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.87 </span><span class="caption-text">Filter condition settings</span><a class="headerlink" href="#id37" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="3">
@@ -1006,11 +1059,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id36">
+<figure class="align-default" id="id38">
 <a class="reference internal image-reference" href="../../_images/action_create_menu_v2-4.png"><img alt="Submenu (Action)" src="../../_images/action_create_menu_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.88 </span><span class="caption-text">Submenu (Action)</span><a class="headerlink" href="#id36" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.88 </span><span class="caption-text">Submenu (Action)</span><a class="headerlink" href="#id38" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1043,13 +1096,21 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>Maximum length 255 bytes</p></td>
 </tr>
 <tr class="row-odd"><td><p>Conductor name</p></td>
-<td><p>[Source data] Conductor list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Conductor/Conductor list/Conductor name</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>Operation name</p></td>
-<td><p>[Source data] Operation list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Basic console/Operation list/Operation name</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
@@ -1063,7 +1124,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <tr class="row-even"><td><p>Specify (Host)</p></td>
 <td><div class="line-block">
 <div class="line">Select the Action target host.</div>
-<div class="line">[Source data] device list</div>
+<div class="line">[Source data]</div>
+<div class="line">Ansible common/Device list/Host name</div>
 </div>
 </td>
 <td><p>ー</p></td>
@@ -1073,7 +1135,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <tr class="row-odd"><td><p>Parameter sheet</p></td>
 <td><div class="line-block">
 <div class="line">Select the Parameter sheet that the Action will use.</div>
-<div class="line">[Source data]Menu list</div>
+<div class="line">[Source data]</div>
+<div class="line">Parameter sheet(Input)/Parameter sheet name(ja)</div>
 </div>
 </td>
 <td><p>ー</p></td>
@@ -1103,11 +1166,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id37">
+<figure class="align-default" id="id39">
 <a class="reference internal image-reference" href="../../_images/rule_create_menu.png"><img alt="Submenu (Rule)" src="../../_images/rule_create_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.89 </span><span class="caption-text">Submenu (Rule)</span><a class="headerlink" href="#id37" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.89 </span><span class="caption-text">Submenu (Rule)</span><a class="headerlink" href="#id39" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1174,7 +1237,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>Maximum length 255 bytes</p></td>
 </tr>
 <tr class="row-even"><td><p>Filter A</p></td>
-<td><p>[Source data]Filter</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASE/Rule/Filter/Filter ID</div>
+</div>
+</td>
 <td><p>〇</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
@@ -1192,12 +1259,16 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>ー</p></td>
 </tr>
 <tr class="row-even"><td><p>Filter B</p></td>
-<td><p>[Source data]Filter</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASE/Rule/Filter/Filter ID</div>
+</div>
+</td>
 <td><p>ー</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-odd"><td><p>Pre-operation notification</p></td>
+<tr class="row-odd"><td><p>Pre-notification</p></td>
 <td></td>
 <td><p>ー</p></td>
 <td><p>Select file</p></td>
@@ -1213,14 +1284,18 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>ー</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-odd"><td><p>Pre-operation notification destination</p></td>
+<tr class="row-odd"><td><p>Pre-notification destination</p></td>
 <td><p>Select a destination for where the notifications will be sent.</p></td>
 <td><p>ー</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td><p>Action ID</p></td>
-<td><p>[Source data]Action</p></td>
+<tr class="row-even"><td><p>Action name</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASE/Action/Action name</div>
+</div>
+</td>
 <td><p>ー</p></td>
 <td><p>List selection</p></td>
 <td><p>ー</p></td>
@@ -1287,22 +1362,15 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
 <div class="line-block">
-<div class="line">※1 Templates does not support variables at the moment.</div>
-<div class="line-block">
-<div class="line">This function is planned to be released in a later version.</div>
-</div>
-<div class="line">Example：{{ labels._exastro_fetched_time }}</div>
-</div>
+<div class="line">※1 For more information regarding templates that can be used for pre/post notifications, see <a class="reference internal" href="#variables-available-templates"><span class="std std-ref">Pre/Post-notification template</span></a>.</div>
 </div>
 <p>Click the <span class="guilabel">Conclusion label settings</span> field to open up a window where the user can configure Conclusion label settings.</p>
-<figure class="align-default" id="id38">
+<figure class="align-default" id="id40">
 <a class="reference internal image-reference" href="../../_images/conclusion_label_settings_v2-4.png"><img alt="Conclusion label settings" src="../../_images/conclusion_label_settings_v2-4.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.90 </span><span class="caption-text">Conclusion label settings</span><a class="headerlink" href="#id38" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.90 </span><span class="caption-text">Conclusion label settings</span><a class="headerlink" href="#id40" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="3">
@@ -1355,11 +1423,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id39">
+<figure class="align-default" id="id41">
 <a class="reference internal image-reference" href="../../_images/evaluation_results_menu.png"><img alt="Submenu (Evaluation results)" src="../../_images/evaluation_results_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.91 </span><span class="caption-text">Submenu (Evaluation results)</span><a class="headerlink" href="#id39" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.91 </span><span class="caption-text">Submenu (Evaluation results)</span><a class="headerlink" href="#id41" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1384,10 +1452,18 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <td><p>The Label key can contain half width alphanumeric chatacters and the following symbols: (_-).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Rule ID</p></td>
-<td><p>[Source data] Rule</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASE/Rule/Rule ID</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Rule name</p></td>
-<td><p>[Source data] Rule</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASE/Rule/Rule name</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Status</p></td>
 <td><div class="line-block">
@@ -1406,37 +1482,77 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </td>
 </tr>
 <tr class="row-even"><td><p>Action ID</p></td>
-<td><p>[Source data]Action</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASEAction Action ID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Action name</p></td>
-<td><p>[Source data]Action</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">OASEAction Action name</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Conductor instance ID</p></td>
-<td><p>[Source data]Conductor operation list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Conductor/Conductor history/Conductor instance ID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Conductor name</p></td>
-<td><p>[Source data]Conductor operation list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Conductor/Conductor history/Conductor name</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Operation ID</p></td>
-<td><p>[Source data]Operation list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Basic console/Operation list/Operation ID</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Operation name</p></td>
-<td><p>[Source data]Operation list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Basic console/Operation list/Operation name</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Event link</p></td>
 <td><p>[Source data]Rule</p></td>
 </tr>
 <tr class="row-odd"><td><p>Specify Host ID</p></td>
-<td><p>[Source data]Device list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Ansible common/Device list/Management system item number</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Specify Host name</p></td>
-<td><p>[Source data]Device list</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Ansible common/Device list/Host name</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Parameter sheet name</p></td>
-<td><p>[Source data]Menu management</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Parameter data sheet definition list/Parameter sheet name(ja)</div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Parameter sheet (rest)</p></td>
-<td><p>[Source data]Management</p></td>
+<td><div class="line-block">
+<div class="line">[Source data]</div>
+<div class="line">Parameter sheet definition list/Parameter sheet name(rest)</div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Use event ID</p></td>
 <td><p>List of Event IDs leading to the Action execution.</p></td>
@@ -1470,11 +1586,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">The following sections contains Labeling setting examples</div>
 </div>
-<figure class="align-default" id="id40">
+<figure class="align-default" id="id42">
 <a class="reference internal image-reference" href="../../_images/labeling_sample.png"><img alt="Labeling input example (Labeling)" src="../../_images/labeling_sample.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.92 </span><span class="caption-text">Labeling input example (Labeling)</span><a class="headerlink" href="#id40" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.92 </span><span class="caption-text">Labeling input example (Labeling)</span><a class="headerlink" href="#id42" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1483,8 +1599,8 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line-block">
 <div class="line">Labeling examples using regular expressions can be seen below.</div>
 </div>
-<table class="docutils align-left" id="id41">
-<caption><span class="caption-number">表 3.46 </span><span class="caption-text">Regular expression examples with and without options.</span><a class="headerlink" href="#id41" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id43">
+<caption><span class="caption-number">表 3.54 </span><span class="caption-text">Regular expression examples with and without options.</span><a class="headerlink" href="#id43" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 18.2%" />
@@ -1539,11 +1655,11 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id42">
+<figure class="align-default" id="id44">
 <a class="reference internal image-reference" href="../../_images/labeling_regexp.png"><img alt="Settings when using Regular expressions" src="../../_images/labeling_regexp.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.93 </span><span class="caption-text">Settings when using Regular expressions</span><a class="headerlink" href="#id42" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.93 </span><span class="caption-text">Settings when using Regular expressions</span><a class="headerlink" href="#id44" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1553,7 +1669,7 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line">The format of the Event data sent my the Agent are as following.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="data-sample-sent-from-mail-server">
-<div class="code-block-caption"><span class="caption-number">リスト 3.1 </span><span class="caption-text">Data sample sent from Mail server</span><a class="headerlink" href="#data-sample-sent-from-mail-server" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 3.13 </span><span class="caption-text">Data sample sent from Mail server</span><a class="headerlink" href="#data-sample-sent-from-mail-server" title="Link to this code">¶</a></div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>{
 <span class="linenos"> 2</span>        &quot;event&quot;: [{
 <span class="linenos"> 3</span>            &quot;message_id&quot;: &quot;&lt;20231004071711.06338770D0A0@ita-oase-mailserver.localdomain&gt;&quot;,
@@ -1586,6 +1702,262 @@ Press the &quot;Details&quot; button moves the user to the Conductor execution c
 <div class="line">This will cause the Event history and Evaluation results will have massive amounts of records registered to them.</div>
 <div class="line">If needed, make sure to configure the settings to prevent that.</div>
 </div>
+</section>
+<section id="event-history-search-method">
+<span id="id15"></span><h3><span class="section-number">3.5.5. </span>Event history search method<a class="headerlink" href="#event-history-search-method" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">Users can use the following methods to search.</div>
+</div>
+<div class="line-block">
+<div class="line">※1 See below for more information regarding Part match for Event collect date/time and Event validation date/time.</div>
+</div>
+<dl>
+<dt>Patch match that can be used when searching</dt><dd><div class="line-block">
+<div class="line">YYYY/MM/DD</div>
+<div class="line">YYYY/MM/DD hh</div>
+<div class="line">YYYY/MM/DD hh:mm</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+<dt>Patch match that can be used when searching (Validation error)</dt><dd><div class="line-block">
+<div class="line">If the string is not finished or the last character is a colon.</div>
+<div class="line">YYYY/MM/D</div>
+<div class="line">YYYY/MM/DD h</div>
+<div class="line">YYYY/MM/DD hh:</div>
+<div class="line">YYYY/MM/DD hh:mm:</div>
+<div class="line">Example: 2024/09/01 12:2</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">※2 See below for more information regarding search methods for use events.</div>
+</div>
+<dl>
+<dt>Use all characters of the Record's &quot;Use event&quot; value.</dt><dd><div class="line-block">
+<div class="line">Multiple items</div>
+<div class="line">[&quot;ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')&quot;,... &quot;ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')&quot;]</div>
+<div class="line">1 Item</div>
+<div class="line">[&quot;ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')&quot;]</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+<dt>Use the contents of the Record's &quot;Use event&quot; value array.</dt><dd><div class="line-block">
+<div class="line">Multiple items</div>
+<div class="line">&quot;ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')&quot;,... &quot;ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')&quot;</div>
+<div class="line">1 item</div>
+<div class="line">&quot;ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')&quot;</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+<dt>Use the ObjectId character string of the Record's &quot;Use event&quot; value.</dt><dd><div class="line-block">
+<div class="line">Multiple items</div>
+<div class="line">ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx'),... ObjectId('yyyyyyyyyyyyyyyyyyyyyyyy')</div>
+<div class="line">1 item</div>
+<div class="line">ObjectId('xxxxxxxxxxxxxxxxxxxxxxxx')</div>
+<div class="line"><br /></div>
+</div>
+</dd>
+<dt>Use the value inside the ObjectID of the Record's &quot;Use event&quot; value.</dt><dd><div class="line-block">
+<div class="line">Multiple items</div>
+<div class="line">xxxxxxxxxxxxxxxxxxxxxxxx,... yyyyyyyyyyyyyyyyyyyyyyyy</div>
+<div class="line">1 item</div>
+<div class="line">xxxxxxxxxxxxxxxxxxxxxxxx'</div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="pre-post-notification-template">
+<span id="variables-available-templates"></span><h3><span class="section-number">3.5.6. </span>Pre/Post-notification template<a class="headerlink" href="#pre-post-notification-template" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">The Pre/Post-notification templates are as following.</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="pre-notification-templates">
+<div class="code-block-caption"><span class="caption-number">リスト 3.14 </span><span class="caption-text">Pre-notification templates</span><a class="headerlink" href="#pre-notification-templates" title="Link to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>[TITLE]
+<span class="linenos"> 2</span>Pre-notification
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>[BODY]
+<span class="linenos"> 5</span>Event
+<span class="linenos"> 6</span>{%- for event in events -%}
+<span class="linenos"> 7</span>{%- set i = loop.index %}
+<span class="linenos"> 8</span>    Event source data #{{ i }}
+<span class="linenos"> 9</span>{%- for  key, value in event._exastro_events.items() %}
+<span class="linenos">10</span>      ・{{ key }}：{{ value }}
+<span class="linenos">11</span>{%- endfor -%}
+<span class="linenos">12</span>{%- endfor %}
+<span class="linenos">13</span>    Conclusion event label    ： {{ action_log.conclusion_event_labels }}
+<span class="linenos">14</span>
+<span class="linenos">15</span>Rule information
+<span class="linenos">16</span>    Matched rule ID           ： {{ rule.rule_id }}
+<span class="linenos">17</span>    Matched rule name         ： {{ rule.rule_name }}
+<span class="linenos">18</span>    Condition
+<span class="linenos">19</span>      Filter A
+<span class="linenos">20</span>        Filter ID             ： {{ rule.filter_a }}
+<span class="linenos">21</span>        Filter name           ： {{ rule.filter_a_name }}
+<span class="linenos">22</span>        Filter condition      ： {{ rul    e.filter_a_condition_json }}
+<span class="linenos">23</span>      Filter operator         ： {{ rule.filter_operator }}
+<span class="linenos">24</span>      Filter B
+<span class="linenos">25</span>        Filter ID             ： {{ rule.filter_b }}
+<span class="linenos">26</span>        Filter name           ： {{ rule.filter_b_name }}
+<span class="linenos">27</span>        Filter condition      ： {{ rule.filter_b_condition_json }}
+<span class="linenos">28</span>    Conclusion event
+<span class="linenos">29</span>      Source event label inheritance
+<span class="linenos">30</span>        Action               ： {{ rule.action_label_inheritance_flag }}
+<span class="linenos">31</span>        Event                ： {{ rule.event_label_inheritance_flag }}
+<span class="linenos">32</span>      Conclusion label settings： {{ rule.conclusion_label_settings }}
+<span class="linenos">33</span>    TTL                      ： {{ rule.ttl }}
+<span class="linenos">34</span>    Remarks                  ： {{ rule.note }}
+<span class="linenos">35</span>
+<span class="linenos">36</span>Action information
+<span class="linenos">37</span>    Action ID                ： {{ action.action_id }}
+<span class="linenos">38</span>    Action name              ： {{ action.action_name }}
+<span class="linenos">39</span>    Operation ID             ： {{ action.operation_id }}
+<span class="linenos">40</span>    Operation name           ： {{ action.operation_name }}
+<span class="linenos">41</span>    Executing Conductor ID   ： {{ action.conductor_class_id }}
+<span class="linenos">42</span>    Executing Conductor name ： {{ action.conductor_name }}
+<span class="linenos">43</span>    Host
+<span class="linenos">44</span>      Event link             ： {{ action.event_collaboration }}
+<span class="linenos">45</span>      Specify                ： {{ action.host_id }}
+<span class="linenos">46</span>    Using parameter sheet    ： {{ action.parameter_sheet_id }}
+<span class="linenos">47</span>    Remarks                  ： {{ action.note }}
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="post-notification-templates">
+<div class="code-block-caption"><span class="caption-number">リスト 3.15 </span><span class="caption-text">Post-notification templates</span><a class="headerlink" href="#post-notification-templates" title="Link to this code">¶</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>[TITLE]
+<span class="linenos"> 2</span>Post-notification
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>[BODY]
+<span class="linenos"> 5</span>Event
+<span class="linenos"> 6</span>{%- for event in events -%}
+<span class="linenos"> 7</span>{%- set i = loop.index %}
+<span class="linenos"> 8</span>  Event  #{{ i }}
+<span class="linenos"> 9</span>    Event ID           ： {{ event.labels._id }}
+<span class="linenos">10</span>    Event collect settings ID     ： {{ event.labels._exastro_event_collection_settings_id }}
+<span class="linenos">11</span>    Event collect settings name     ： {{ event.labels._exastro_event_collection_settings_name }}
+<span class="linenos">12</span>    Event fetch time       ： {{ event.labels._exastro_fetched_time }}
+<span class="linenos">13</span>    Event label
+<span class="linenos">14</span>{%- for key, value in event.labels.items() %}
+<span class="linenos">15</span>      ・{{ key }}：{{ value }}
+<span class="linenos">16</span>{%- endfor %}
+<span class="linenos">17</span>    Event source data
+<span class="linenos">18</span>{%- for  key, value in event._exastro_events.items() %}
+<span class="linenos">19</span>      ・{{ key }}：{{ value }}
+<span class="linenos">20</span>{%- endfor -%}
+<span class="linenos">21</span>{%- endfor %}
+<span class="linenos">22</span>
+<span class="linenos">23</span>Matched results
+<span class="linenos">24</span>  Status                     ： {{ action_log.status }}
+<span class="linenos">25</span>  Register date/time         ： {{ action_log.time_register }}
+<span class="linenos">26</span>  Executed Conductor ID      ： {{ action_log.conductor_instance_id }}
+<span class="linenos">27</span>  Executed Conductor Name    ： {{ action_log.conductor_instance_name }}
+<span class="linenos">28</span>  Conclusion Event label     ： {{ action_log.conclusion_event_labels }}
+<span class="linenos">29</span>
+<span class="linenos">30</span>Rule information
+<span class="linenos">31</span>  Matched rule ID            ： {{ rule.rule_id }}
+<span class="linenos">32</span>  Matched rule name          ： {{ rule.rule_name }}
+<span class="linenos">33</span>  Condition
+<span class="linenos">34</span>    Filter A
+<span class="linenos">35</span>      Filter ID              ： {{ rule.filter_a }}
+<span class="linenos">36</span>      Filter name            ： {{ rule.filter_a_name }}
+<span class="linenos">37</span>      Filter condition       ： {{ rule.filter_a_condition_json }}
+<span class="linenos">38</span>    Filter operator          ： {{ rule.filter_operator }}
+<span class="linenos">39</span>    Filter B
+<span class="linenos">40</span>      Filter ID              ： {{ rule.filter_b }}
+<span class="linenos">41</span>      Filter name            ： {{ rule.filter_b_name }}
+<span class="linenos">42</span>      Filter condition       ： {{ rule.filter_b_condition_json }}
+<span class="linenos">43</span>  Conclusion Event
+<span class="linenos">44</span>    Source event label inheritence
+<span class="linenos">45</span>      Action                 ： {{ rule.action_label_inheritance_flag }}
+<span class="linenos">46</span>      Event                  ： {{ rule.event_label_inheritance_flag }}
+<span class="linenos">47</span>    Conclusion label settings： {{ rule.conclusion_label_settings }}
+<span class="linenos">48</span>  TTL                        ： {{ rule.ttl }}
+<span class="linenos">49</span>  Remarks                    ： {{ rule.note }}
+<span class="linenos">50</span>
+<span class="linenos">51</span>Action information
+<span class="linenos">52</span>  Action ID                  ： {{ action.action_id }}
+<span class="linenos">53</span>  Action name                ： {{ action.action_name }}
+<span class="linenos">54</span>  Operation ID               ： {{ action.operation_id }}
+<span class="linenos">55</span>  Operation name             ： {{ action.operation_name }}
+<span class="linenos">56</span>  Executing Conductor ID     ： {{ action.conductor_class_id }}
+<span class="linenos">57</span>  Executing Conductor name   ： {{ action.conductor_name }}
+<span class="linenos">58</span>  Host
+<span class="linenos">59</span>    Event link               ： {{ action.event_collaboration }}
+<span class="linenos">60</span>    Specify                  ： {{ action.host_id }}
+<span class="linenos">61</span>  Using parameter sheet      ： {{ action.parameter_sheet_id }}
+<span class="linenos">62</span>  Remarks                    ： {{ action.note }}
+<span class="linenos">63</span>
+<span class="linenos">64</span>Conductor information
+<span class="linenos">65</span>  Status                     ： {{ conductor.status }}
+<span class="linenos">66</span>  Operation ID               ： {{ conductor.operation_id }}
+<span class="linenos">67</span>  Operation name             ： {{ conductor.operation_name }}
+<span class="linenos">68</span>  Register date/time         ： {{ conductor.time_register }}
+<span class="linenos">69</span>  Reservation date/time      ： {{ conductor.time_book }}
+<span class="linenos">70</span>  Start date/time            ： {{ conductor.time_start }}
+<span class="linenos">71</span>  End date/time              ： {{ conductor.time_end }}
+<span class="linenos">72</span>  Emergency stop flag        ： {{ conductor.abort_execute_flag }}
+<span class="linenos">73</span>  Remarks                    ： {{ conductor.note }}
+</pre></div>
+</div>
+</div>
+<section id="result-pattern-when-using-variables">
+<h4>Result pattern when using variables<a class="headerlink" href="#result-pattern-when-using-variables" title="Link to this heading">¶</a></h4>
+<div class="line-block">
+<div class="line">Patterned variables found in results are as following.</div>
+</div>
+<ul>
+<li><div class="line-block">
+<div class="line">action_log.status</div>
+<div class="line">Rule matched</div>
+<div class="line">Executing</div>
+<div class="line">Completed</div>
+<div class="line">Completed (abnormal)</div>
+<div class="line">Waiting for completion confirmation</div>
+<div class="line">Completion confirmed</div>
+<div class="line">Completion confirmation rejected</div>
+<div class="line"><br /></div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">rule.action_label_inheritance_flag</div>
+<div class="line">Used as a parameter</div>
+<div class="line">Not use as a parameter</div>
+<div class="line"><br /></div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">rule.event_label_inheritance_flag</div>
+<div class="line">Inheriting Conclusion Events</div>
+<div class="line">Not Inheriting Conclusion Events</div>
+<div class="line"><br /></div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">conductor.status</div>
+<div class="line">Unexecuted</div>
+<div class="line">Unexecuted (scheduled)</div>
+<div class="line">Executing</div>
+<div class="line">Executing (delayed)</div>
+<div class="line">Paused</div>
+<div class="line">Completed</div>
+<div class="line">Abend</div>
+<div class="line">Ended with warning</div>
+<div class="line">Emergency stop</div>
+<div class="line">Cancelled reservation</div>
+<div class="line">Unexpected error</div>
+<div class="line"><br /></div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">conductor.note</div>
+<div class="line">Issued</div>
+<div class="line">not issued</div>
+</div>
+</li>
+</ul>
+</section>
 </section>
 </section>
 </section>

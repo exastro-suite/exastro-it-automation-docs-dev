@@ -9,7 +9,7 @@
    contain the root `toctree` directive.
 
 ==========
-マニュアル
+Manuals
 ==========
 
 .. raw:: html

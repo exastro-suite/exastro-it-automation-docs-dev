@@ -21,7 +21,7 @@ Create user
 
 #. | Log in to the Exastro system as the Organization administrator.
 
-#. | From the menu, click :menuselection:`User management`.
+#. | From the menu, click :menuselection:`User list`.
 
    .. image:: /images/ja/manuals/platform/platform_menu.png
       :width: 200px
@@ -78,7 +78,7 @@ Edit user
 
 #. | Log in to the Exastro system as the Organization administrator.
 
-#. | From the menu, click :menuselection:`User management`.
+#. | From the menu, click :menuselection:`User list`.
 
    .. image:: /images/ja/manuals/platform/platform_menu.png
       :width: 200px
@@ -131,7 +131,7 @@ Delete user
 
 #. | Log in to the Exastro system as the Organization administrator.
 
-#. | From the menu, click :menuselection:`User management`.
+#. | From the menu, click :menuselection:`User list`.
 
    .. image:: /images/ja/manuals/platform/platform_menu.png
       :width: 200px
@@ -152,3 +152,80 @@ Delete user
    .. tip::
       | It is not possible to restore roles once deleted.
       | It is not possible to delete the Organization administrator.
+
+Bulk registering/deleting users
+--------------
+
+| It is possible to download users in bulk in excel format.
+| Users can use the same format to register and delete users in bulks.
+
+#. | Login to the Exastro system as the Organization admin.
+
+#. | From the menu, click :menuselection:`User bulk registration/deletion`.
+
+   .. image:: /images/ja/manuals/platform/platform_menu.png
+      :width: 200px
+      :align: left
+
+#. | This displays the :menuselection:`User bulk registration/deletion` page. Download the file that suits the user's purpose.
+
+   - | For updating/deleting already registered information, press :guilabel:`Download all` and download the file.
+   - | For registering new items, press :guilabel:`For new registrations`  and download the file.
+
+   .. figure:: /images/ja/manuals/platform/user/ユーザー一括登録・削除画面.png
+      :width: 600px
+      :align: left
+
+#. | Edit the download file and save it.
+   - | For more information on editing contents, refer to the precatiouns at the top of the file.
+
+   .. warning::
+      | When Registering/Updating, if users with "delete" selected for "Execution process type", nothing will be registered/updated.
+      | When deleting, if users with "register/update" selected for "Execution process type", nothing will be deleted.
+
+#. | Click either :guilabel:`File bulk register` or :guilabel:`File bulk delete`, select the target file and click the :guilabel:`OK` on the displayed message.
+
+   .. figure:: /images/ja/manuals/platform/user/ユーザー一括登録・削除画面_confirm.png
+      :width: 600px
+      :align: left
+
+#. | This displays the :menuselection:`Bulk process results` page, where users can see the results of the bulk registration/deletion process.
+   - | Users can press the :guilabel:`Update` to update the page and press the :guilabel:`Download` button to see information regarding the process information and see information regarding any occurring errors.
+
+   .. figure:: /images/ja/manuals/platform/user/ユーザー一括登録・削除画面_results.png
+      :width: 600px
+      :align: left
+
+   | The items found in the Bulk process result page are as following.
+
+   .. list-table::
+      :widths: 50 100
+      :header-rows: 1
+      :align: left
+
+      * - Item name
+        - Description
+      * - Error process results
+        - | When the process ends in an error, users can download the process results file.
+          | The process results file contains information regarding the error.
+      * - Execution date/time
+        - The date and time for when the bulk registration/deletion happened
+      * - Execution section
+        - | File bulk registration/ File bulk deletion
+      * - Status
+        - | The following statuses exists.
+          | ・NotExecuted
+          | ・Executing
+          | ・Completion
+          | ・Failed
+      * - Target number
+        - Number of users who were registered/deleted
+      * - Succeed number
+        - Number of users that were succesfully registered/deleted
+      * - Error numbers
+        - Number of users that were not succesfully registered/deleted
+      * - Process results message
+        - If the process ends in an error, an error message will be displayed.
+      * - User
+        - The user who ran the process
+

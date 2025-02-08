@@ -19,7 +19,7 @@
     
     
     <title>2. Organization &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -116,8 +116,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">System management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="general.html">1. Login</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">2. Organization</a><ul>
@@ -204,7 +205,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">System management</a></li>
     
     <li><span class="section-number">2. </span>Organization</li>
@@ -319,7 +320,7 @@
 </a>
 </figure>
 <table class="docutils align-left" id="id1">
-<caption><span class="caption-number">表 2.8 </span><span class="caption-text">Organization creation input items.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 2.33 </span><span class="caption-text">Organization creation input items.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 10.0%" />
@@ -371,9 +372,7 @@
 </tr>
 <tr class="row-odd"><td rowspan="5"><p>Exastro IT AutomationOption settings</p></td>
 <td colspan="2"><p>Install driver</p></td>
-<td><p>Specify which drivers to install.</p>
-<p>Installed drivers cannot be deleted.</p>
-</td>
+<td><p>Specify which drivers to install.</p></td>
 </tr>
 <tr class="row-even"><td rowspan="4"></td>
 <td><p>CI/CD for IaC</p></td>
@@ -425,7 +424,7 @@ The MongoDB account must have root role or similar permissions.</p>
 <div class="line">For more information, see <span class="xref std std-doc">../../reference/api/system_manager/platform-api</span>.</div>
 </div>
 <table class="docutils align-left" id="id2">
-<caption><span class="caption-number">表 2.9 </span><span class="caption-text">Organization creation parameters</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 2.34 </span><span class="caption-text">Organization creation parameters</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22.7%" />
 <col style="width: 27.3%" />
@@ -499,7 +498,6 @@ The MongoDB account must have root role or similar permissions.</p>
 <tr class="row-even"><td><p>optionsIta.drivers</p></td>
 <td><div class="line-block">
 <div class="line">Set to True to install the target driver. Set to False if not installing.</div>
-<div class="line">If no driver key is input, the value will be set to True by default.</div>
 <div class="line">MongoDB is needed in order to install Exastro OASE. This item is not available if the system does not have MongoDB (&quot;MONGO_HOST&quot; environment variable is empty)</div>
 </div>
 </td>
@@ -550,7 +548,7 @@ The MongoDB account must have root role or similar permissions.</p>
 </ol>
 <div class="line-block">
 <div class="line">If using cURL and Rest API, execute the following commands.</div>
-<div class="line">The authentication information used by the BASIC authentication are the <kbd class="kbd docutils literal notranslate">KEYCLOAK_USER</kbd> and <kbd class="kbd docutils literal notranslate">KEYCLOAK_PASSWORD</kbd> registered in <a class="reference internal" href="../../installation/online/exastro/kubernetes.html#create-system-manager"><span class="std std-ref">システム管理者の作成</span></a>.</div>
+<div class="line">The authentication information used by the BASIC authentication are the <kbd class="kbd docutils literal notranslate">KEYCLOAK_USER</kbd> and <kbd class="kbd docutils literal notranslate">KEYCLOAK_PASSWORD</kbd> registered in <span class="xref std std-ref">create_system_manager</span>.</div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -662,7 +660,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">The returned items and their descriptions are as following.</div>
 </div>
 <table class="docutils align-left" id="id3">
-<caption><span class="caption-number">表 2.10 </span><span class="caption-text">Return item description</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 2.35 </span><span class="caption-text">Return item description</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 83.3%" />
@@ -715,7 +713,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">When an Organization is being created, the status will change to the following in order.</div>
 </div>
 <table class="docutils align-left" id="id4">
-<caption><span class="caption-number">表 2.11 </span><span class="caption-text">Organization creation status</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 2.36 </span><span class="caption-text">Organization creation status</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 83.3%" />
@@ -770,7 +768,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </div></div>
 </section>
 <section id="edit-organization">
-<h3><span class="section-number">2.3.5. </span>Edit Organization<a class="headerlink" href="#edit-organization" title="Link to this heading">¶</a></h3>
+<span id="organization-edit"></span><h3><span class="section-number">2.3.5. </span>Edit Organization<a class="headerlink" href="#edit-organization" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Follow the steps below to edit Organizations.</div>
 </div>
@@ -797,7 +795,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">Users can edit the name of the Organization.</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/orgname_edit_v2-4.png"><img alt="images/ja/manuals/platform/Organization/orgname_edit_v2-4.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/orgname_edit_v2-4.png" style="width: 600px;" />
+<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/orgname_edit_v2-5.png"><img alt="images/ja/manuals/platform/Organization/orgname_edit_v2-5.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/orgname_edit_v2-5.png" style="width: 600px;" />
 </a>
 </figure>
 <div class="admonition tip">
@@ -808,13 +806,28 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Tick the checkbox for desired driver in order to install it.</div>
-<div class="line">It is not possible to delete installed drivers.</div>
+<div class="line">Switch the for desired drivers to ON in order to install them.</div>
+<div class="line">Users can switch them to OFF to uninstall drivers.</div>
+<div class="line">Check that there are no problems with the contents and press the <span class="guilabel">Register</span> button.</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/org_edit_driver_v2-4.png"><img alt="images/ja/manuals/platform/Organization/org_edit_driver_v2-4.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/org_edit_driver_v2-4.png" style="width: 600px;" />
+<a class="with-border-thin reference internal image-reference" href="../../_images/org_edit_driver_v2-5.png"><img alt="../../_images/org_edit_driver_v2-5.png" class="with-border-thin" src="../../_images/org_edit_driver_v2-5.png" style="width: 600px;" />
 </a>
 </figure>
+</li>
+<li><div class="line-block">
+<div class="line">If uninstalling any drivers, Input <kbd class="kbd docutils literal notranslate">delete</kbd> in the deletion confirmation page and press  <span class="guilabel">Yes, delete</span> button.</div>
+</div>
+<figure class="align-left">
+<a class="with-border-thin reference internal image-reference" href="../../_images/オーガナイゼーション編集_ドライバ削除.png"><img alt="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E5%89%8A%E9%99%A4.png" class="with-border-thin" src="../../_images/%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8A%E3%82%A4%E3%82%BC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%B7%A8%E9%9B%86_%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E5%89%8A%E9%99%A4.png" style="width: 600px;" />
+</a>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">Uninstalling a driver will also automatically delete all related data. Said data cannot be restored.</div>
+</div>
+</div>
 </li>
 <li><div class="line-block">
 <div class="line">Press the <span class="guilabel">Resource plan settings</span> button to link resource plans to the Organization.</div>
@@ -830,7 +843,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">Check that there are no problems with the contents and press the <span class="guilabel">Register</span> button.</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-4.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-4.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-4.png" style="width: 600px;" />
+<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-5.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-5.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-5.png" style="width: 600px;" />
 </a>
 </figure>
 </li>
@@ -838,7 +851,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">In order to remove resource plans from the Organization, press <span class="guilabel">Release</span> button to release it from the Organization.</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-4.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-4.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-4.png" style="width: 600px;" />
+<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-5.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-5.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-5.png" style="width: 600px;" />
 </a>
 </figure>
 </li>
@@ -855,7 +868,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">Check that there are no problems with the contents and press the <span class="guilabel">Register</span> button.</div>
 </div>
 <figure class="align-left">
-<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png" style="width: 600px;" />
+<a class="with-border-thin reference internal image-reference" href="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png"><img alt="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png" class="with-border-thin" src="images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png" style="width: 600px;" />
 </a>
 </figure>
 </li>
@@ -880,7 +893,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">For more information, see <span class="xref std std-doc">../../reference/api/system_manager/platform-api</span>.</div>
 </div>
 <table class="docutils align-left" id="id5">
-<caption><span class="caption-number">表 2.12 </span><span class="caption-text">Organization parameters</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 2.37 </span><span class="caption-text">Organization parameters</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22.7%" />
 <col style="width: 27.3%" />
@@ -914,15 +927,14 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </tr>
 <tr class="row-even"><td><p>optionsIta.driver</p></td>
 <td><div class="line-block">
-<div class="line">Specify install driver.</div>
-<div class="line">Installed drivers cannot be deleted.</div>
+<div class="line">Specify which driver to install/uninstall.</div>
 </div>
 </td>
 <td><div class="line-block">
-<div class="line">If false, this item can be set to true.</div>
+<div class="line">Yes</div>
 </div>
 </td>
-<td><p><kbd class="kbd docutils literal notranslate">true</kbd></p></td>
+<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">true</kbd> <kbd class="kbd docutils literal notranslate">or</kbd> <kbd class="kbd docutils literal notranslate">false</kbd></kbd></p></td>
 </tr>
 <tr class="row-odd"><td><p>optionsIta.services.document_store.name</p></td>
 <td><div class="line-block">
@@ -956,6 +968,12 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">Uninstalling a driver will also automatically delete all related data. Said data cannot be restored.</div>
+</div>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">BASE64_BASIC</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;Specify System administrator&#39;s user name: Specify System administrator&#39;s Password&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
 <span class="nv">BASE_URL</span><span class="o">=</span>Specify<span class="w"> </span>the<span class="w"> </span>System<span class="w"> </span>administrator<span class="s1">&#39;s site URL</span>
 <span class="s1">ORG_ID=Specify the ID of the Organization that will be fetched</span>
@@ -1102,13 +1120,13 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 <div class="line">For the Docker Compose version, access the Exastro Management service URL configured in <a class="reference internal" href="../../installation/online/exastro/docker_compose.html#docker-prep"><span class="std std-ref">Preparation</span></a>.</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-number">リスト 2.28 </span><span class="caption-text">Format</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 2.47 </span><span class="caption-text">Format</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">[</span><span class="n">s</span><span class="p">]:</span><span class="o">//</span><span class="p">{</span><span class="n">Exastro</span> <span class="n">Platform</span> <span class="n">management</span> <span class="n">URL</span><span class="p">}:{</span><span class="n">Exastro</span> <span class="n">Platform</span> <span class="n">management</span> <span class="n">port</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">Organization</span> <span class="n">ID</span><span class="p">}</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-number">リスト 2.29 </span><span class="caption-text">Examples</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 2.48 </span><span class="caption-text">Examples</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helm chart version</span>
 <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">exastro</span><span class="o">-</span><span class="n">suite</span><span class="o">-</span><span class="n">mng</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">local</span><span class="p">:</span><span class="mi">30081</span><span class="o">/</span><span class="n">org001</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span>
 

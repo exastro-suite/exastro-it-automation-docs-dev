@@ -19,7 +19,7 @@
     
     
     <title>7. Operation auto-clean management &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../platform_management/index.html">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../organization_management/index.html">Organization management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../it_automation_base/index.html">Basic operation</a></li>
@@ -182,7 +183,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">Maintenance</a></li>
     
     <li><span class="section-number">7. </span>Operation auto-clean management</li>
@@ -205,7 +206,7 @@
 <h2><span class="section-number">7.2. </span>Operation auto-clean function overview<a class="headerlink" href="#operation-auto-clean-function-overview" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">This function uses user specified values to automatically clean operations registered to <span class="menuselection">Basic console ▶ Operation list</span>. The timing of when they are deleted are based the operation's Scheduled execution date and the user specified  &quot;Logic deletion days&quot; and &quot;Physical deletion days&quot; values.</div>
-<div class="line">If the &quot;Logic deletion days&quot; are exceeded, the data will be discarded. if &quot;Physical deletion days&quot; are exceeded, the data will be deleted from the database.</div>
+<div class="line">If the &quot;Logic deletion days&quot; are exceeded, the data will be discarded. if &quot;Physical deletion days&quot; are exceeded, the data and linked files will be deleted from the database.</div>
 <div class="line">The auto-clean function deletes operations once per day at 00:02.</div>
 </div>
 </section>
@@ -224,7 +225,7 @@
 </li>
 </ol>
 <table class="docutils align-left" id="id1">
-<caption><span class="caption-number">表 7.29 </span><span class="caption-text">Operation auto-clean management menu list</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 7.27 </span><span class="caption-text">Operation auto-clean management menu list</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
 <th class="head"><p>Menu group</p></th>
@@ -248,7 +249,7 @@
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id3">
-<caption><span class="caption-number">表 7.30 </span><span class="caption-text">Default setting values list</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 7.28 </span><span class="caption-text">Default setting values list</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item number</p></th>
 <th class="head"><p>Logic deletion days</p></th>
@@ -370,7 +371,7 @@
 </figcaption>
 </figure>
 <table class="docutils align-left" id="id5">
-<caption><span class="caption-number">表 7.31 </span><span class="caption-text">Register page item list</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 7.29 </span><span class="caption-text">Register page item list</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 9.1%" />
 <col style="width: 45.5%" />

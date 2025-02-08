@@ -137,7 +137,7 @@ Create Organization
             +----------------------------------+------------------------+------------------------+-------------------------------------------------------------------------------------------------+
             | Exastro IT Automation\           | Install driver                                  | Specify which drivers to install.                                                               |
             | Option settings                  |                                                 |                                                                                                 |
-            |                                  |                                                 | Installed drivers cannot be deleted.                                                            |
+            |                                  |                                                 |                                                                                                 |
             +                                  +------------------------+------------------------+-------------------------------------------------------------------------------------------------+
             |                                  |                        | CI/CD for IaC          | For more information regarding the driver, see the following document.                          |
             |                                  |                        |                        |                                                                                                 |
@@ -235,7 +235,6 @@ Create Organization
                 | :program:`all`: Asks for SSL for all IP addresses.(Cannot be selected as the internal API uses HTTP to access.)
             * - optionsIta.drivers
               - | Set to True to install the target driver. Set to False if not installing.
-                | If no driver key is input, the value will be set to True by default.
                 | MongoDB is needed in order to install Exastro OASE. This item is not available if the system does not have MongoDB ("MONGO_HOST" environment variable is empty)
               - Yes
               - | Specify true/false for the following driver keys. Configure whether to install the driver for when creating workspaces or not. Can be ommited.
@@ -434,6 +433,7 @@ Organization list
         * - Organization Create Complete
           - Organization successfully created.
 
+.. _organization_edit:
 
 Edit Organization
 ------------------------
@@ -462,7 +462,7 @@ Edit Organization
 
       #. | Users can edit the name of the Organization.
 
-         .. figure:: /images/ja/manuals/platform/Organization/orgname_edit_v2-4.png
+         .. figure:: /images/ja/manuals/platform/Organization/orgname_edit_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -470,13 +470,25 @@ Edit Organization
          .. tip::
             | The Organization ID cannot be changed.
 
-      #. | Tick the checkbox for desired driver in order to install it.
-         | It is not possible to delete installed drivers.
+      #. | Switch the for desired drivers to ON in order to install them.
+         | Users can switch them to OFF to uninstall drivers.
+         | Check that there are no problems with the contents and press the :guilabel:`Register` button.
 
-         .. figure:: /images/ja/manuals/platform/Organization/org_edit_driver_v2-4.png
+         .. figure:: /images/ja/manuals/platform/organization/org_edit_driver_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
+
+      #. | If uninstalling any drivers, Input :kbd:`delete` in the deletion confirmation page and press  :guilabel:`Yes, delete` button.
+
+         .. figure:: /images/ja/manuals/platform/organization/オーガナイゼーション編集_ドライバ削除.png
+            :width: 600px
+            :align: left
+            :class: with-border-thin
+
+         .. warning::
+            | Uninstalling a driver will also automatically delete all related data. Said data cannot be restored.
+
 
       #. | Press the :guilabel:`Resource plan settings` button to link resource plans to the Organization.
          | Select the desired Resource plan ID from the pulldown menu, specify a start date and press the :guilabel:`Apply` button.
@@ -489,14 +501,14 @@ Edit Organization
       #. | The Resource plan will be added to the Organization line.
          | Check that there are no problems with the contents and press the :guilabel:`Register` button.
 
-         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-4.png
+         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_登録_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
 
       #. | In order to remove resource plans from the Organization, press :guilabel:`Release` button to release it from the Organization.
 
-         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-4.png
+         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -511,7 +523,7 @@ Edit Organization
       #. | Released resource plan lines will be greyed out.
          | Check that there are no problems with the contents and press the :guilabel:`Register` button.
 
-         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-4.png
+         .. figure:: /images/ja/manuals/platform/Organization/オーガナイゼーション編集_リソースプラン解除登録_v2-5.png
             :width: 600px
             :align: left
             :class: with-border-thin
@@ -547,10 +559,9 @@ Edit Organization
           - No
           - :kbd:`true`
         * - optionsIta.driver
-          - | Specify install driver.
-            | Installed drivers cannot be deleted.
-          - | If false, this item can be set to true.
-          - :kbd:`true`
+          - | Specify which driver to install/uninstall.
+          - | Yes
+          - :kbd:`true or false`
         * - optionsIta.services.document_store.name
           - | Required parameter if the optionsIta.drivers' Exastro OASE is active. Not required if Exastro OASE is already active.
             | The value is fixed to "mongodb".
@@ -567,6 +578,8 @@ Edit Organization
           - Yes
           - | Example: mongodb://username:password@hostname:27017/
 
+     .. warning::
+        | Uninstalling a driver will also automatically delete all related data. Said data cannot be restored.
 
      .. code-block:: bash
 

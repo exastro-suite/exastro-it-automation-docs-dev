@@ -19,7 +19,7 @@
     
     
     <title>7. Conductor &#8212; Documentation  ドキュメント</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=639405c8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
@@ -115,8 +115,9 @@
   <aside class="divInner">
     <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../configuration/index.html">Configuration and Construction guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">インストール</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">マニュアル</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../learn/index.html">Learn</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Manuals</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../platform_management/index.html">System management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../organization_management/index.html">Organization management</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Basic operation</a><ul class="current">
@@ -140,15 +141,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#function-operation-description">7.5. Function/Operation description</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-interface-information">7.5.1. Conductor interface information</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-notification-definition">7.5.2. Conductor notification definition</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#conductor-list">7.5.3. Conductor list</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#conductor-history">7.5.3. Conductor history</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-edit-execution">7.5.4. Conductor edit/execution</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor list</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor history</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-confirmation">7.5.6. Conductor confirmation</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#conductor-scheduled-execution">7.5.7. Conductor scheduled execution</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#appendix">7.6. Appendix</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id12">7.6.1. Conductor notification definition</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">7.6.1. Conductor notification definition</a></li>
 </ul>
 </li>
 </ul>
@@ -194,7 +195,7 @@
 <li><a class="reference internal" href="#function-operation-description">7.5. Function/Operation description</a><ul>
 <li><a class="reference internal" href="#conductor-interface-information">7.5.1. Conductor interface information</a></li>
 <li><a class="reference internal" href="#conductor-notification-definition">7.5.2. Conductor notification definition</a></li>
-<li><a class="reference internal" href="#conductor-list">7.5.3. Conductor list</a></li>
+<li><a class="reference internal" href="#conductor-history">7.5.3. Conductor history</a></li>
 <li><a class="reference internal" href="#conductor-edit-execution">7.5.4. Conductor edit/execution</a><ul>
 <li><a class="reference internal" href="#edit-mode">7.5.4.1. &quot;Edit&quot; mode</a><ul>
 <li><a class="reference internal" href="#node-list">7.5.4.1.1. Node list</a></li>
@@ -206,13 +207,13 @@
 <li><a class="reference internal" href="#conductor-execute">7.5.4.4. Conductor execute</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor list</a></li>
+<li><a class="reference internal" href="#conductor-conductor-job-list">7.5.5. Conductor history</a></li>
 <li><a class="reference internal" href="#conductor-confirmation">7.5.6. Conductor confirmation</a></li>
 <li><a class="reference internal" href="#conductor-scheduled-execution">7.5.7. Conductor scheduled execution</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#appendix">7.6. Appendix</a><ul>
-<li><a class="reference internal" href="#id12">7.6.1. Conductor notification definition</a><ul>
+<li><a class="reference internal" href="#id9">7.6.1. Conductor notification definition</a><ul>
 <li><a class="reference internal" href="#conductor-notification-definition-setting-example">7.6.1.1. Conductor notification definition setting example</a></li>
 <li><a class="reference internal" href="#notification-log-output-example">7.6.1.2. Notification log output example</a><ul>
 <li><a class="reference internal" href="#notification-log-structure">7.6.1.2.1. Notification log structure</a></li>
@@ -237,7 +238,7 @@
  <div id="breadcrumbs">
   <ul>
     <li><a href="../../index.html">HOME</a></li>
-    <li><a href="../index.html">マニュアル</a></li>
+    <li><a href="../index.html">Manuals</a></li>
     <li><a href="index.html">Basic operation</a></li>
     
     <li><span class="section-number">7. </span>Conductor</li>
@@ -271,55 +272,6 @@
 <div class="line-block">
 <div class="line">The menus found in the <span class="menuselection">Conductor menu group</span> are as following.</div>
 </div>
-<table class="docutils align-left" id="id13">
-<caption><span class="caption-number">表 7.3 </span><span class="caption-text">Exastro IT Automation Conductor menu list</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>No</strong></p></th>
-<th class="head"><p><strong>Menu group</strong></p></th>
-<th class="head"><p><strong>Menu</strong></p></th>
-<th class="head"><p><strong>Description</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td rowspan="7"><p>Conductor</p></td>
-<td><p>Conductor interface information</p></td>
-<td><p>Allows users to maintain (view/edit) Conductor interface information.</p>
-<p>This menu must have 1 record.</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Conductor notification definition</p></td>
-<td><p>Allows users to maintain (view/register/update) definitions regarding Conductor execution notifications.</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Conductor list</p></td>
-<td><p>Allows users to maintain (view/discard) Conductors.</p>
-<p>Click the <span class="guilabel">Details</span> button to move to the Conductor edit/execution menu.</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Conductor class edit</p></td>
-<td><p>Allows users to edit and execute Conductors.</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>Conductor operation list</p></td>
-<td><p>Allows users to view the Conductor list (Execution history).</p>
-<p>Click the <span class="guilabel">Details</span> button to move to the Conductor confirmation menu.</p>
-</td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>Conductor confirmation</p></td>
-<td><p>Allows the user to check the Conductor execution results.</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>Conductor scheduled execution</p></td>
-<td><p>Allows users to maintain (view/register)update Conductors that are regularly executed.</p>
-<p>Click the <span class="guilabel">Operation list confirmation</span> button to move to the Conductor list menu.</p>
-</td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
 <section id="ita-conductor-procedure">
@@ -405,11 +357,11 @@
 <h3><span class="section-number">7.5.1. </span>Conductor interface information<a class="headerlink" href="#conductor-interface-information" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>In the <span class="menuselection">&quot;Conductor interface information&quot; menu,`users can configure the shared directory path for each Conductor executed movement and the refresh interval for the :menuselection:</span>&quot;Conductor confirmation&quot; menu` menu.</p>
-<figure class="align-default" id="id14">
+<figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../../_images/conductor_interface.png"><img alt="Conductor interface information" src="../../_images/conductor_interface.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.1 </span><span class="caption-text">Conductor interface information</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.1 </span><span class="caption-text">Conductor interface information</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -420,17 +372,17 @@
 <span id="conductor-notice"></span><h3><span class="section-number">7.5.2. </span>Conductor notification definition<a class="headerlink" href="#conductor-notification-definition" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>The <span class="menuselection">&quot;Conductor notification definition&quot;</span> menu allows users to configure definitions regarding notifications from Conductor executions.</p>
-<figure class="align-default" id="id15">
+<figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../../_images/conductor_notice.png"><img alt="Conductor notification definition" src="../../_images/conductor_notice.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.2 </span><span class="caption-text">Conductor notification definition</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.2 </span><span class="caption-text">Conductor notification definition</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
 <li><p>See the following for more information regarding the <span class="menuselection">&quot;Conductor notification definition&quot; menu▶&quot;List&quot; submenu</span>.</p>
-<table class="docutils align-left" id="id16">
-<caption><span class="caption-number">表 7.4 </span><span class="caption-text">&quot;List&quot; submenu</span><a class="headerlink" href="#id16" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id12">
+<caption><span class="caption-number">表 7.3 </span><span class="caption-text">&quot;List&quot; submenu</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Description</p></th>
@@ -497,8 +449,8 @@
 </tbody>
 </table>
 <p>※For more information regarding ITA variables that can be used in messages, see the following.</p>
-<table class="docutils align-left" id="id17">
-<caption><span class="caption-number">表 7.5 </span><span class="caption-text">Conductor notification destination definition ITA variables.</span><a class="headerlink" href="#id17" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id13">
+<caption><span class="caption-number">表 7.4 </span><span class="caption-text">Conductor notification destination definition ITA variables.</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>ITA original variable</p></th>
 <th class="head"><p>Variable specification contents</p></th>
@@ -574,83 +526,25 @@
 </li>
 </ol>
 </section>
-<section id="conductor-list">
-<span id="id1"></span><h3><span class="section-number">7.5.3. </span>Conductor list<a class="headerlink" href="#conductor-list" title="Link to this heading">¶</a></h3>
+<section id="conductor-history">
+<span id="conductor-list"></span><h3><span class="section-number">7.5.3. </span>Conductor history<a class="headerlink" href="#conductor-history" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">The <span class="menuselection">&quot;Conductor list&quot;</span> menu allows users to view and discard registered conductors.</div>
+<div class="line">The <span class="menuselection">&quot;Conductor history&quot;</span> menu allows users to view and discard registered conductors.</div>
 </div>
-<p><a href="#id2"><span class="problematic" id="id3">|</span></a>Click the <span class="guilabel">Details</span> button in the <span class="menuselection">&quot;List&quot; submenu</span> and move to the <a class="reference internal" href="#conductor-editandexcute"><span class="std std-ref">Conductor edit/execution</span></a> page.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|</span></a>Click the <span class="guilabel">Details</span> button in the <span class="menuselection">&quot;List&quot; submenu</span> and move to the <a class="reference internal" href="#conductor-editandexcute"><span class="std std-ref">Conductor edit/execution</span></a> page.</p>
 </li>
 </ol>
-<figure class="align-default" id="id18">
-<a class="reference internal image-reference" href="../../_images/conductor-list.gif"><img alt="&quot;Conductor list&quot; menu" src="../../_images/conductor-list.gif" style="width: 800px;" />
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/conductor-list.gif"><img alt="&quot;Conductor history&quot; menu" src="../../_images/conductor-list.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.3 </span><span class="caption-text">&quot;Conductor list&quot; menu</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.3 </span><span class="caption-text">&quot;Conductor history&quot; menu</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="conductor-edit-execution">
 <span id="conductor-editandexcute"></span><h3><span class="section-number">7.5.4. </span>Conductor edit/execution<a class="headerlink" href="#conductor-edit-execution" title="Link to this heading">¶</a></h3>
-<table class="docutils align-left" id="id19">
-<caption><span class="caption-number">表 7.6 </span><span class="caption-text">Mode list</span><a class="headerlink" href="#id19" title="Link to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33.3%" />
-<col style="width: 66.7%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Mode</strong></p></th>
-<th class="head"><p><strong>Description</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Edit mode</p></td>
-<td><ul>
-<li><div class="line-block">
-<div class="line">Allows users to create new Conductors.</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Is the default mode in the &quot;Conductor Edit/Execution&quot; menu.</div>
-</div>
-</li>
-<li><p><a href="#id4"><span class="problematic" id="id5">|</span></a>Click <span class="guilabel">Select</span> and select a Conductor to change to &quot;View&quot; mode.</p></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>View mode</p></td>
-<td><ul>
-<li><div class="line-block">
-<div class="line">Allows users to view Conductors</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Clicking the <span class="guilabel">Details</span> button in the &quot;Conductor list&quot; menu moves the user to this mode.</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Click <span class="guilabel">Edit</span> button to change to &quot;Edit&quot; mode.</div>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><p>Update mode</p></td>
-<td><ul>
-<li><div class="line-block">
-<div class="line">Allows users to edit existing Conductors.</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Click the <span class="guilabel">Update</span> button to change to the &quot;View&quot; mode.</div>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 <div class="line-block">
 <div class="line">※For more information regarding the different modes, see &quot;<a class="reference internal" href="#conductor-editandexcute-list"><span class="std std-ref">&quot;Conductor edit/execute&quot; menu operation list</span></a> &quot;.</div>
 </div>
@@ -666,15 +560,15 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id20">
+<figure class="align-default" id="id15">
 <a class="reference internal image-reference" href="../../_images/conductor_edit_mode.png"><img alt="Conductor Edit/Execute menu (Edit mode)" src="../../_images/conductor_edit_mode.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.4 </span><span class="caption-text">Conductor Edit/Execute menu (Edit mode)</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.4 </span><span class="caption-text">Conductor Edit/Execute menu (Edit mode)</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="node-list">
-<span id="id6"></span><h5><span class="section-number">7.5.4.1.1. </span>Node list<a class="headerlink" href="#node-list" title="Link to this heading">¶</a></h5>
+<span id="id3"></span><h5><span class="section-number">7.5.4.1.1. </span>Node list<a class="headerlink" href="#node-list" title="Link to this heading">¶</a></h5>
 <ul>
 <li><div class="line-block">
 <div class="line">The bottom right part of the page displays available Nodes.</div>
@@ -745,11 +639,11 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id21">
+<figure class="align-default" id="id16">
 <a class="reference internal image-reference" href="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictions正常例Parallel_branch.png"><img alt="NodeRestrictions (Correct example: Parallel branch)" src="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictions正常例Parallel_branch.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.5 </span><span class="caption-text">NodeRestrictions (Correct example: Parallel branch)</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.5 </span><span class="caption-text">NodeRestrictions (Correct example: Parallel branch)</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -758,11 +652,11 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id22">
+<figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例Parallel_branch.png"><img alt="NodeRestrictions(Bad example: Parallel branch)" src="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例Parallel_branch.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.6 </span><span class="caption-text">NodeRestrictions(Bad example: Parallel branch)</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.6 </span><span class="caption-text">NodeRestrictions(Bad example: Parallel branch)</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -771,11 +665,11 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id23">
+<figure class="align-default" id="id18">
 <a class="reference internal image-reference" href="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例Conditional_branch.png"><img alt="NodeRestrictions(Bad example: Conditional branch)" src="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例Conditional_branch.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.7 </span><span class="caption-text">NodeRestrictions(Bad example: Conditional branch)</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.7 </span><span class="caption-text">NodeRestrictions(Bad example: Conditional branch)</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -784,11 +678,11 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id24">
+<figure class="align-default" id="id19">
 <a class="reference internal image-reference" href="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例連続使用.png"><img alt="NodeRestrictions(Bad example: Continued use)" src="images/ja/conductor/condudtor_edit_and_excute/NodeRestrictionsNG例連続使用.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.8 </span><span class="caption-text">NodeRestrictions(Bad example: Continued use)</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.8 </span><span class="caption-text">NodeRestrictions(Bad example: Continued use)</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -844,15 +738,15 @@
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id25">
+<figure class="align-default" id="id20">
 <a class="reference internal image-reference" href="../../_images/conductor_notice_popup.png"><img alt="Conductor notification settings pop-up window" src="../../_images/conductor_notice_popup.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.9 </span><span class="caption-text">Conductor notification settings pop-up window</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.9 </span><span class="caption-text">Conductor notification settings pop-up window</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id26">
-<caption><span class="caption-number">表 7.7 </span><span class="caption-text">&quot;Conductor&quot; tab</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id21">
+<caption><span class="caption-number">表 7.5 </span><span class="caption-text">&quot;Conductor&quot; tab</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 52.1%" />
@@ -932,8 +826,8 @@
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id27">
-<caption><span class="caption-number">表 7.8 </span><span class="caption-text">Orchestrator name (Ansible Legacy Role) tab</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id22">
+<caption><span class="caption-number">表 7.6 </span><span class="caption-text">Orchestrator name (Ansible Legacy Role) tab</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -998,8 +892,8 @@
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id28">
-<caption><span class="caption-number">表 7.9 </span><span class="caption-text">Node selection tab</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id23">
+<caption><span class="caption-number">表 7.7 </span><span class="caption-text">Node selection tab</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1036,8 +930,8 @@
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id29">
-<caption><span class="caption-number">表 7.10 </span><span class="caption-text">&quot;Conductor call&quot; tab</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id24">
+<caption><span class="caption-number">表 7.8 </span><span class="caption-text">&quot;Conductor call&quot; tab</span><a class="headerlink" href="#id24" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1098,8 +992,8 @@
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id30">
-<caption><span class="caption-number">表 7.11 </span><span class="caption-text">&quot;Conditional branch&quot; tab</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id25">
+<caption><span class="caption-number">表 7.9 </span><span class="caption-text">&quot;Conditional branch&quot; tab</span><a class="headerlink" href="#id25" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Item</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
@@ -1149,8 +1043,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id31">
-<caption><span class="caption-number">表 7.12 </span><span class="caption-text">&quot;Parallel branch&quot; tab</span><a class="headerlink" href="#id31" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id26">
+<caption><span class="caption-number">表 7.10 </span><span class="caption-text">&quot;Parallel branch&quot; tab</span><a class="headerlink" href="#id26" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1191,8 +1085,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id32">
-<caption><span class="caption-number">表 7.13 </span><span class="caption-text">&quot;Parallel Merge&quot; tab</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id27">
+<caption><span class="caption-number">表 7.11 </span><span class="caption-text">&quot;Parallel Merge&quot; tab</span><a class="headerlink" href="#id27" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1233,8 +1127,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id33">
-<caption><span class="caption-number">表 7.14 </span><span class="caption-text">&quot;End&quot; tab</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id28">
+<caption><span class="caption-number">表 7.12 </span><span class="caption-text">&quot;End&quot; tab</span><a class="headerlink" href="#id28" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1282,8 +1176,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id34">
-<caption><span class="caption-number">表 7.15 </span><span class="caption-text">&quot;Status file branch&quot; tab</span><a class="headerlink" href="#id34" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id29">
+<caption><span class="caption-number">表 7.13 </span><span class="caption-text">&quot;Status file branch&quot; tab</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1307,7 +1201,7 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <div class="line">Click the <span class="guilabel">Add condition</span> / <span class="guilabel">Delete condition</span> to add or delete branches.</div>
 </div>
 </div>
-<p><a href="#id7"><span class="problematic" id="id8">|</span></a>The default branch is &quot;if&quot; and &quot;else&quot;.</p>
+<p><a href="#id4"><span class="problematic" id="id5">|</span></a>The default branch is &quot;if&quot; and &quot;else&quot;.</p>
 </td>
 <td><p>-</p></td>
 <td><p>Select</p></td>
@@ -1353,8 +1247,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <div class="line-block">
 <div class="line">In this file, &quot;1&quot; will be valued.</div>
 </div>
-<table class="docutils align-left" id="id35">
-<caption><span class="caption-number">表 7.16 </span><span class="caption-text">Status file ITA original variable</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id30">
+<caption><span class="caption-number">表 7.14 </span><span class="caption-text">Status file ITA original variable</span><a class="headerlink" href="#id30" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 55.6%" />
@@ -1382,15 +1276,15 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <li><p>Drag and drop nodes in the seletion area or select multiple nodes by holding shift and clicking them in order to select multiple Nodes.</p></li>
 <li><p>The items found in the tab are as following.</p></li>
 </ul>
-<figure class="align-default" id="id36">
+<figure class="align-default" id="id31">
 <a class="reference internal image-reference" href="../../_images/conductor_align_nodes.gif"><img alt="Node allignment" src="../../_images/conductor_align_nodes.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.10 </span><span class="caption-text">Node allignment</span><a class="headerlink" href="#id36" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.10 </span><span class="caption-text">Node allignment</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id37">
-<caption><span class="caption-number">表 7.17 </span><span class="caption-text">&quot;Node&quot; tab</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id32">
+<caption><span class="caption-number">表 7.15 </span><span class="caption-text">&quot;Node&quot; tab</span><a class="headerlink" href="#id32" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 54.5%" />
@@ -1467,8 +1361,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<span id="conductor-editandexcute-list"></span><table class="docutils align-left" id="id38">
-<caption><span class="caption-number">表 7.18 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu operation list</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
+<span id="conductor-editandexcute-list"></span><table class="docutils align-left" id="id33">
+<caption><span class="caption-number">表 7.16 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu operation list</span><a class="headerlink" href="#id33" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><p><strong>Item</strong></p></th>
 <th class="head" rowspan="2"><p><strong>Description</strong></p></th>
@@ -1588,17 +1482,17 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <section id="view-mode">
 <h4><span class="section-number">7.5.4.2. </span>&quot;View&quot; mode<a class="headerlink" href="#view-mode" title="Link to this heading">¶</a></h4>
 <div class="line-block">
-<div class="line">The &quot;View&quot; mode is  displayed whenever a conductor is registered or when the user moves from the &quot;Conductor list&quot; menu.</div>
+<div class="line">The &quot;View&quot; mode is  displayed whenever a conductor is registered or when the user moves from the &quot;Conductor history&quot; menu.</div>
 </div>
-<figure class="align-default" id="id39">
+<figure class="align-default" id="id34">
 <a class="reference internal image-reference" href="../../_images/conductor_view_mode.png"><img alt="&quot;Conductor edit/execute&quot; menu(&quot;View&quot; mode)" src="../../_images/conductor_view_mode.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.11 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu(&quot;View&quot; mode)</span><a class="headerlink" href="#id39" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.11 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu(&quot;View&quot; mode)</span><a class="headerlink" href="#id34" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id40">
-<caption><span class="caption-number">表 7.19 </span><span class="caption-text">&quot;View&quot; mode</span><a class="headerlink" href="#id40" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id35">
+<caption><span class="caption-number">表 7.17 </span><span class="caption-text">&quot;View&quot; mode</span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 75.0%" />
@@ -1632,15 +1526,15 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <div class="line-block">
 <div class="line">The &quot;Update&quot; mode is displayed whenever the <span class="guilabel">Edit</span> button in the &quot;View&quot; mode is clicked.</div>
 </div>
-<figure class="align-default" id="id41">
+<figure class="align-default" id="id36">
 <a class="reference internal image-reference" href="../../_images/conductor_update_mode.png"><img alt="&quot;Conductor edit/execute&quot; menu(&quot;Edit&quot; mode)" src="../../_images/conductor_update_mode.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.12 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu(&quot;Edit&quot; mode)</span><a class="headerlink" href="#id41" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.12 </span><span class="caption-text">&quot;Conductor edit/execute&quot; menu(&quot;Edit&quot; mode)</span><a class="headerlink" href="#id36" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id42">
-<caption><span class="caption-number">表 7.20 </span><span class="caption-text">&quot;Edit&quot; mode</span><a class="headerlink" href="#id42" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id37">
+<caption><span class="caption-number">表 7.18 </span><span class="caption-text">&quot;Edit&quot; mode</span><a class="headerlink" href="#id37" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 75.0%" />
@@ -1686,7 +1580,7 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </li>
 <li><p>Selecting an Operation and clicking the <span class="guilabel">Execute</span> button moves the user to the <span class="menuselection">&quot;Conductor confirmation&quot; menu</span> where the operation will be traced.</p></li>
 <li><div class="line-block">
-<div class="line">Input a schedule date in the &quot;Schedule&quot; field and click the:guilabel:<cite>Execute</cite> button. This will create a reservation. The registered information can be seen in <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor list</span></a>.</div>
+<div class="line">Input a schedule date in the &quot;Schedule&quot; field and click the:guilabel:<cite>Execute</cite> button. This will create a reservation. The registered information can be seen in <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor history</span></a>.</div>
 <div class="line">※It is not possible to input a date earlier than the current time/date.</div>
 </div>
 </li>
@@ -1698,8 +1592,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <li><p>The users who have access to the executed Conductors are the one who belonged to the roles who had access to the selected Operation.</p></li>
 <li><p>The shared itms in the &quot;Execution settings&quot; are as following.</p></li>
 </ul>
-<table class="docutils align-left" id="id43">
-<caption><span class="caption-number">表 7.21 </span><span class="caption-text">&quot;Execution settings&quot; shared item list</span><a class="headerlink" href="#id43" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id38">
+<caption><span class="caption-number">表 7.19 </span><span class="caption-text">&quot;Execution settings&quot; shared item list</span><a class="headerlink" href="#id38" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 50.0%" />
@@ -1742,18 +1636,18 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id44">
+<figure class="align-default" id="id39">
 <a class="reference internal image-reference" href="../../_images/conductor_execute.gif"><img alt="Execution" src="../../_images/conductor_execute.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.13 </span><span class="caption-text">Execution</span><a class="headerlink" href="#id44" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.13 </span><span class="caption-text">Execution</span><a class="headerlink" href="#id39" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
 <div class="line"><strong>Specifying Operations</strong></div>
-<div class="line">Select a &quot;Movement&quot; node within the grid and click the :guilabel:<a href="#id9"><span class="problematic" id="id10">`</span></a>Select Operation button to display a list of the avilable Operations.</div>
+<div class="line">Select a &quot;Movement&quot; node within the grid and click the :guilabel:<a href="#id6"><span class="problematic" id="id7">`</span></a>Select Operation button to display a list of the avilable Operations.</div>
 <div class="line">Users can specify operations other than the ID of the operation specified in the Execution settings page.</div>
 <div class="line">By doing so,users can substitute specific values registered as other Operation IDs in said Movement's orchestrator's <a class="reference internal" href="../ansible-driver/ansible_legacy.html#ansible-legacy-substitution-value-list"><span class="std std-ref">Substitute value management</span></a> menu.</div>
 <div class="line">The Individually specified Operation ID settings from the Conductor edit page are saved with Conductor <span class="guilabel">Register</span> / <span class="guilabel">Edit</span>.</div>
@@ -1772,10 +1666,10 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </section>
 </section>
 <section id="conductor-conductor-job-list">
-<span id="id11"></span><h3><span class="section-number">7.5.5. </span>Conductor list<a class="headerlink" href="#conductor-conductor-job-list" title="Link to this heading">¶</a></h3>
+<span id="id8"></span><h3><span class="section-number">7.5.5. </span>Conductor history<a class="headerlink" href="#conductor-conductor-job-list" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">In the [Conductor list] page, users can manage already executed Conductors.</div>
+<div class="line">In the [Conductor history] page, users can manage already executed Conductors.</div>
 <div class="line">Specify the desired conditions and click the <span class="guilabel">Filter</span> button to display a list of executed Conductors.</div>
 <div class="line">Clicking the <span class="guilabel">Details</span> button in the Display field moves the user to <a class="reference internal" href="#conductor-check-conductor-job"><span class="std std-ref">Conductor confirmation</span></a>.</div>
 <div class="line">Clicking the <span class="guilabel">Input data file(zip)</span> button compiles all the Movement input files (*) under the executed Conductor and downloads it for the user.</div>
@@ -1798,16 +1692,16 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Clicking the <span class="guilabel">Details</span> button in &quot;<a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor list</span></a>&quot; opens up the a display where the selected Conductor status is monitored.Users can then delete reservations, resume pauses and call an Emergency stop depending on the situation.</div>
+<div class="line">Clicking the <span class="guilabel">Details</span> button in &quot;<a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor history</span></a>&quot; opens up the a display where the selected Conductor status is monitored.Users can then delete reservations, resume pauses and call an Emergency stop depending on the situation.</div>
 <div class="line">※After selecting &quot;Movement&quot; and &quot;Conductor Call&quot; nodes, <span class="guilabel">Operation information confirmation</span> is displayed on the right side of the screen where the user can move to the &quot;Operation information confirmation&quot; menu.</div>
 </div>
 </li>
 </ul>
-<figure class="align-default" id="id45">
+<figure class="align-default" id="id40">
 <a class="reference internal image-reference" href="../../_images/conductor_job_detail.gif"><img alt="Conductor execution" src="../../_images/conductor_job_detail.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.14 </span><span class="caption-text">Conductor execution</span><a class="headerlink" href="#id45" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.14 </span><span class="caption-text">Conductor execution</span><a class="headerlink" href="#id40" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition tip">
@@ -1823,7 +1717,7 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">Clicking the <span class="guilabel">Delete reservation</span> button changes the status in the &quot; <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor list</span></a>&quot; menu to &quot;Reservation deleted&quot; and can no longer be executed.</div>
+<div class="line">Clicking the <span class="guilabel">Delete reservation</span> button changes the status in the &quot; <a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor history</span></a>&quot; menu to &quot;Reservation deleted&quot; and can no longer be executed.</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -1831,8 +1725,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </div>
 </li>
 </ul>
-<table class="docutils align-left" id="id46">
-<caption><span class="caption-number">表 7.22 </span><span class="caption-text">&quot;Conductor confirmation&quot; shared item list</span><a class="headerlink" href="#id46" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id41">
+<caption><span class="caption-number">表 7.20 </span><span class="caption-text">&quot;Conductor confirmation&quot; shared item list</span><a class="headerlink" href="#id41" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 10.3%" />
 <col style="width: 38.5%" />
@@ -1869,18 +1763,18 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id47">
+<figure class="align-default" id="id42">
 <a class="reference internal image-reference" href="../../_images/conductor_pause_status.png"><img alt="Conductor executing /Conductor Pause status" src="../../_images/conductor_pause_status.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.15 </span><span class="caption-text">Conductor executing /Conductor Pause status</span><a class="headerlink" href="#id47" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.15 </span><span class="caption-text">Conductor executing /Conductor Pause status</span><a class="headerlink" href="#id42" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id48">
+<figure class="align-default" id="id43">
 <a class="reference internal image-reference" href="../../_images/conductor_reserved.png"><img alt="Reserved Conductor execution (Not executed)" src="../../_images/conductor_reserved.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.16 </span><span class="caption-text">Reserved Conductor execution (Not executed)</span><a class="headerlink" href="#id48" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.16 </span><span class="caption-text">Reserved Conductor execution (Not executed)</span><a class="headerlink" href="#id43" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -1892,8 +1786,8 @@ Click <span class="guilabel">Add branch</span> /<span class="guilabel">Delete br
 <li><p>Dispalyed when no Node is selected.</p></li>
 <li><p>The items found in the tab are as following.</p></li>
 </ul>
-<table class="docutils align-left" id="id49">
-<caption><span class="caption-number">表 7.23 </span><span class="caption-text">&quot;Conductor&quot; tab</span><a class="headerlink" href="#id49" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id44">
+<caption><span class="caption-number">表 7.21 </span><span class="caption-text">&quot;Conductor&quot; tab</span><a class="headerlink" href="#id44" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p><strong>Item</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
@@ -1952,8 +1846,8 @@ Displays &quot;False&quot; for everything else.</p></td>
 <li><p>Is displayed when a Node is selected.</p></li>
 <li><p>The items found in the tab are as following.</p></li>
 </ul>
-<table class="docutils align-left" id="id50">
-<caption><span class="caption-number">表 7.24 </span><span class="caption-text">&quot;Node&quot; tab</span><a class="headerlink" href="#id50" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id45">
+<caption><span class="caption-number">表 7.22 </span><span class="caption-text">&quot;Node&quot; tab</span><a class="headerlink" href="#id45" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p><strong>Item</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
@@ -2018,27 +1912,27 @@ Displays &quot;False&quot; for everything else.</p></td>
 <ol class="arabic">
 <li><p>The <span class="menuselection">&quot;Conductor scheduled execution&quot; menu</span> allows users to manage Conductor operations that are regularly executed on a schedule.</p></li>
 <li><div class="line-block">
-<div class="line">Clicking the <span class="guilabel">Confirm Operation list</span> button in the  <span class="menuselection">&quot;Conductor scheduled execution&quot; menu▶&quot;List&quot; submenu</span> moves the user to the</div>
-<div class="line"><a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor list</span></a> menu.</div>
+<div class="line">Clicking the <span class="guilabel">Operation history</span> button in the  <span class="menuselection">&quot;Conductor scheduled execution&quot; menu▶&quot;List&quot; submenu</span> moves the user to the</div>
+<div class="line"><a class="reference internal" href="#conductor-conductor-job-list"><span class="std std-ref">Conductor history</span></a> menu.</div>
 </div>
 </li>
 <li><p>Click the <span class="guilabel">Register</span> button to register a scheduled execution.</p></li>
 </ol>
-<figure class="align-default" id="id51">
+<figure class="align-default" id="id46">
 <a class="reference internal image-reference" href="../../_images/conductor_scheduled_execution_register.gif"><img alt="Conductor scheduled execution registration" src="../../_images/conductor_scheduled_execution_register.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.17 </span><span class="caption-text">Conductor scheduled execution</span><a class="headerlink" href="#id51" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.17 </span><span class="caption-text">Conductor scheduled execution</span><a class="headerlink" href="#id46" title="Link to this image">¶</a></p>
 <div class="legend">
 <p>For more a more detailed schedule, click the <span class="guilabel">Schedule settings</span> button to display a window where they can be configured.</p>
 </div>
 </figcaption>
 </figure>
-<figure class="align-default" id="id52">
+<figure class="align-default" id="id47">
 <a class="reference internal image-reference" href="../../_images/conductor_scheduled_execution.png"><img alt="Conductor scheduled execution Schedule settings" src="../../_images/conductor_scheduled_execution.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 7.18 </span><span class="caption-text">Conductor scheduled execution Schedule settings</span><a class="headerlink" href="#id52" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.18 </span><span class="caption-text">Conductor scheduled execution Schedule settings</span><a class="headerlink" href="#id47" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -2048,8 +1942,8 @@ Displays &quot;False&quot; for everything else.</p></td>
 <div class="line">※4 Time is required when period is &quot;Day&quot;, &quot;Week&quot;, &quot;Month (Specify day)&quot;, &quot;Month (Specify day of week)&quot;, &quot;End of month&quot;.</div>
 <div class="line">※5 When setting work suspension period, both &quot;Start&quot; and &quot;End&quot; are required.</div>
 </div>
-<span id="status-list"></span><table class="docutils align-left" id="id53">
-<caption><span class="caption-number">表 7.25 </span><span class="caption-text">Status list</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
+<span id="status-list"></span><table class="docutils align-left" id="id48">
+<caption><span class="caption-number">表 7.23 </span><span class="caption-text">Status list</span><a class="headerlink" href="#id48" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Status name</strong></p></th>
 <th class="head"><p><strong>Description</strong></p></th>
@@ -2062,7 +1956,7 @@ The status will automatically change to &quot;Operating&quot; when the backyard 
 </tr>
 <tr class="row-odd"><td><p>Operating</p></td>
 <td><p>Status displayed when the conductor is operating normally.
-The system automatically registers the conductor to &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor list</span></a>&quot; based on the registered &quot;Conudctor interval time settings&quot; value and updates the &quot;Next execution date&quot; based on the schedule settings.</p></td>
+The system automatically registers the conductor to &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor history</span></a>&quot; based on the registered &quot;Conudctor interval time settings&quot; value and updates the &quot;Next execution date&quot; based on the schedule settings.</p></td>
 </tr>
 <tr class="row-even"><td><p>Success</p></td>
 <td><p>Status displayed when &quot;Next execution date&quot; passes the &quot;End date&quot;.
@@ -2072,8 +1966,8 @@ No further Conductors will be registered.</p></td>
 <td><p>Status displayed when the Schedule settings contains an invalid value</p></td>
 </tr>
 <tr class="row-even"><td><p>Link error</p></td>
-<td><p>Status displayed when the registration to &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor list</span></a>&quot; fails.
-Similarly to the &quot;Operating&quot; status, the system automatically registers a conductor to the  &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor list</span></a>&quot;  and updates the &quot;Next execution date&quot;.
+<td><p>Status displayed when the registration to &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor history</span></a>&quot; fails.
+Similarly to the &quot;Operating&quot; status, the system automatically registers a conductor to the  &quot;<a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor history</span></a>&quot;  and updates the &quot;Next execution date&quot;.
 If the that registration fails, the status will keep displaying &quot;Link error&quot;.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Unexpected error</p></td>
@@ -2097,7 +1991,7 @@ Restoring the discarded Operation will change the status to &quot;Preparing&quot
 <li><div class="line-block">
 <div class="line">After a schedule is registered, the status change to &quot;Preparing&quot; The Backyard will update the &quot;Next execution date&quot; based on the schedule and change the status to &quot;Operating&quot;.</div>
 </div>
-<p>.(Conductors with the status (Operating) or (Link error) are registered to the <a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor list</span></a> before the time configured in the &quot;Conductor interval time settings&quot; and are updates the &quot;Next execution date&quot; based on the schedule settings.</p>
+<p>.(Conductors with the status (Operating) or (Link error) are registered to the <a class="reference internal" href="#conductor-list"><span class="std std-ref">Conductor history</span></a> before the time configured in the &quot;Conductor interval time settings&quot; and are updates the &quot;Next execution date&quot; based on the schedule settings.</p>
 </li>
 <li><div class="line-block">
 <div class="line">The Conductor interval time settings allows users to decide how many minutes the registration will happen before the &quot;Next execution date&quot; in &quot;Management console - <a class="reference internal" href="management_console.html#system-setting"><span class="std std-ref">System settings</span></a>&quot;.</div>
@@ -2116,12 +2010,12 @@ Restoring the discarded Operation will change the status to &quot;Preparing&quot
 </section>
 <section id="appendix">
 <h2><span class="section-number">7.6. </span>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">¶</a></h2>
-<section id="id12">
-<h3><span class="section-number">7.6.1. </span>Conductor notification definition<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<section id="id9">
+<h3><span class="section-number">7.6.1. </span>Conductor notification definition<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <section id="conductor-notification-definition-setting-example">
 <h4><span class="section-number">7.6.1.1. </span>Conductor notification definition setting example<a class="headerlink" href="#conductor-notification-definition-setting-example" title="Link to this heading">¶</a></h4>
-<table class="docutils align-left" id="id54">
-<caption><span class="caption-number">表 7.26 </span><span class="caption-text">Teams setting example</span><a class="headerlink" href="#id54" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id49">
+<caption><span class="caption-number">表 7.24 </span><span class="caption-text">Teams setting example</span><a class="headerlink" href="#id49" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Setting value</p></th>
@@ -2165,14 +2059,14 @@ Operation URL: __JUMP_URL__, &lt;br&gt; &quot;}</p></td>
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id55">
+<figure class="align-default" id="id50">
 <img alt="Teams notification display example" src="../../_images/conductor_teams_notice.png" />
 <figcaption>
-<p><span class="caption-number">図 7.19 </span><span class="caption-text">Teams notification display example</span><a class="headerlink" href="#id55" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.19 </span><span class="caption-text">Teams notification display example</span><a class="headerlink" href="#id50" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id56">
-<caption><span class="caption-number">表 7.27 </span><span class="caption-text">Slack setting example</span><a class="headerlink" href="#id56" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id51">
+<caption><span class="caption-number">表 7.25 </span><span class="caption-text">Slack setting example</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Item</p></th>
 <th class="head"><p>Setting value</p></th>
@@ -2218,14 +2112,14 @@ Operation URL: __JUMP_URL__, &lt;br&gt; &quot;}</p></td>
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id57">
+<figure class="align-default" id="id52">
 <img alt="Slack notification display example" src="../../_images/conductor_slack_notice.png" />
 <figcaption>
-<p><span class="caption-number">図 7.20 </span><span class="caption-text">Slack notification display example</span><a class="headerlink" href="#id57" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 7.20 </span><span class="caption-text">Slack notification display example</span><a class="headerlink" href="#id52" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id58">
-<caption><span class="caption-number">表 7.28 </span><span class="caption-text">Setting sample (with Proxy settings, notification stop settings and other settings)</span><a class="headerlink" href="#id58" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id53">
+<caption><span class="caption-number">表 7.26 </span><span class="caption-text">Setting sample (with Proxy settings, notification stop settings and other settings)</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Notification name</p></th>
 <th class="head"><p>Notification sample</p></th>

@@ -944,6 +944,7 @@ Handling Collect target file values
    VAR_NON:
    VAR_Quotation: ''
    VAR_WQuotation: ""
+   VAR_INT: 100
 
 
 | ■ Collect target YAML (sample.yml) key and value
@@ -1028,7 +1029,12 @@ Handling Collect target file values
    * - 18
      - VAR_WQuotation
      - ""
+     - 
+   * - 19
+     - VAR_INT
+     - 100
      -
+
 
 | ■ Collecting YAML(sample.yml)
 
@@ -1153,6 +1159,12 @@ Handling Collect target file values
      - ""
      - string
      -
+   * - 19
+     - VAR_INT: 100
+     - パラメータ/VAR_INT
+     - "100"
+     - string
+     - 100
 
 
 | ※This section explains RESTAPI response values and Data types displayed on the WebUI.
@@ -1167,7 +1179,7 @@ Handling Collect target file values
 
    Target parameter sheet on WebUI display result 1
 
-.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item10_18.png
+.. figure:: /images/ja/ansible_common/collect_flow/val_test_filter_item10_19.png
    :alt: Target parameter sheet on WebUI display result 2
    :width: 6.96252in
    :height: 1.98221in
@@ -1190,21 +1202,22 @@ Handling Collect target file values
                    "item_1": "TEST",
                    "item_10": "true",
                    "item_11": "false",
-                   "item_12": true,
-                   "item_13": false,
+                   "item_12": "true",
+                   "item_13": "false",
                    "item_14": "YES",
                    "item_15": "NO",
                    "item_16": null,
                    "item_17": "",
                    "item_18": "",
+                   "item_19": "100",
                    "item_2": "TEST1",
                    "item_3": "TEST2",
                    "item_4": null,
                    "item_5": null,
                    "item_6": "null",
                    "item_7": "NULL",
-                   "item_8": true,
-                   "item_9": false,
+                   "item_8": "true",
+                   "item_9": "false",
                    "last_execute_timestamp": "2023/05/17 13:58:47",
                    "last_update_date_time": "2023/05/17 14:00:07.944031",
                    "last_updated_user": "Collect execute function",

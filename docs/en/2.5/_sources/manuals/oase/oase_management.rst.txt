@@ -23,7 +23,7 @@ Menu list
    +--------+----------------------+--------------------------+----------------------------------------+
    | **No** | **Menu group**       | **Menu**                 | **Description**                        |
    +========+======================+==========================+========================================+
-   | 1      | OASE management      | Agent                    | Manages event collection target infor\ |
+   | 1      | OASE management      | Event collection         | Manages event collection target infor\ |
    |        |                      |                          | mation.                                |
    +--------+                      +--------------------------+----------------------------------------+
    | 2      |                      | Notification templ\      | Manages information used by t\         |
@@ -67,7 +67,7 @@ Workflow
 -  **Workflow details and references**
 
    #. | **Configure Event collection settings**
-      | In the OASE management's Agent menu, register settings related to the Event collection target services.
+      | In the OASE management's Event collection menu, register settings related to the Event collection target services.
 
    #. | **Configure labels**
       | In the OASE Label creation/Labeling menu, configure settings for labeling events OASE.
@@ -132,20 +132,20 @@ Menus
 
 .. _agent:
 
-Agent
+Event collection
 -------------
 
-1. | In :menuselection:`OASE management --> Agent`, users can maintain (view/register/edit/discard) TIL, connection methods, authentication methods, event collection targets, etc.
+1. | In :menuselection:`OASE management --> Event collection`, users can maintain (view/register/edit/discard) TIL, connection methods, authentication methods, event collection targets, etc.
 
 .. figure:: /images/ja/oase/oase_management/agent_menu.png
    :width: 800px
-   :alt: Submenu (Agent) 
+   :alt: Submenu (Event collection) 
 
-   Submenu (Agent) 
+   Submenu (Event collection) 
 
-1. | The Agent※1 page's input items are as following.
+1. | The Event collection※1 page's input items are as following.
 
-   .. table:: Agent page Input item list
+   .. table:: Event collection page Input item list
       :widths: 10 15 60 10 10 20
       :align: left
 
@@ -206,8 +206,8 @@ Agent
       |                 | username         | Input the username for the Event collection target u\  | ー           | Manual       | Maximum 255 \   |
       |                 |                  | ser.                                                   |              |              | bytes           |
       |                 +------------------+--------------------------------------------------------+--------------+--------------+-----------------+
-      |                 | Password         | Input the passworf for the Event collection target u\  | ー           | Manual       | Maximum 4000 \  |
-      |                 |                  | ser.                                                   |              |              | bytes           |
+      |                 | Password         | Input the password for the user who will log in to t\  | ー           | Manual       | Maximum 4000 \  |
+      |                 |                  | he  Event collection target.                           |              |              | bytes           |
       |                 +------------------+--------------------------------------------------------+--------------+--------------+-----------------+
       |                 | Mail box name    | Input the name of the Event collection target mail box.| ー           | Manual       | Maximum 255 \   |
       |                 |                  |                                                        |              |              | bytes           |
@@ -325,9 +325,9 @@ Notification template (common)
    * - Template
      - | Allows the user to edit the Notification template. The types are the following 4.
        | ・New.j2
-       | ・Known (Evaluated) .j2
-       | ・Known (Expired) .j2
-       | ・Unknown.j2
+       | ・Known(evaluated).j2
+       | ・Known(timeout).j2
+       | ・Undetected.j2
      - 〇
      - Manual
      - Maximum size 2MB
@@ -348,97 +348,99 @@ Notification template (common)
     A new event has occured.
 
     [BODY]
-    Details
-    　Event ID　　　：{{ _id }}
-    　Event collection settings：{{ labels._exastro_event_collection_settings_id }}
-    　Event fetch time：{{ labels._exastro_fetched_time }}
-    　Event valid time：{{ labels._exastro_end_time }}
-    　Event type　　：{{ labels._exastro_type }}
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-    　Re-evaluate
-    　　Evaluation rule name　　：{{ labels._exastro_rule_name }}
-    　　Use event　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-    　Label：
+    　Label:
     　  {% for key, value in labels.items() %}
-    　　・{{ key }}：{{ value }}
+    　　・{{ key }}: {{ value }}
     　　{% endfor %}
 
 
 .. code-block:: none
-   :name: Known (Evaluated) .j2
-   :caption: Known (Evaluated) .j2
+   :name: Known(evaluated).j2
+   :caption: Known(evaluated).j2
    :lineno-start: 1
 
-   [TITLE]
-   A known (evaluated) event has occured.
+    [TITLE]
+    A known(evaluated) event has occured.
 
-   [BODY]
-   Details
-   　Event ID　　　：{{ _id }}
-   　Event collection settings：{{ labels._exastro_event_collection_settings_id }}
-   　Event fetch time：{{ labels._exastro_fetched_time }}
-   　Event valid time：{{ labels._exastro_end_time }}
-   　Event type　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　Re-evaluation
-   　　Evaluation rule name　　：{{ labels._exastro_rule_name }}
-   　　Use event　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　Label：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: Known (Expired) .j2
-   :caption: Known (Expired) .j2
+   :name: Known(timeout).j2
+   :caption: Known(timeout).j2
    :lineno-start: 1
 
-   [TITLE]
-   A known (Expired) event has occured.
+    [TITLE]
+    A known(timeout) event has occured.
 
-   [BODY]
-   Details
-   　Event ID　　　：{{ _id }}
-   　Event collection settings：{{ labels._exastro_event_collection_settings_id }}
-   　Event fetch time：{{ labels._exastro_fetched_time }}
-   　Event valid time：{{ labels._exastro_end_time }}
-   　Event type　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　Re-evaluation
-   　　Evaluation rule name　　：{{ labels._exastro_rule_name }}
-   　　Use event　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　Label：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
+
 
 .. code-block:: none
-   :name: Unknown.j2
-   :caption: Unknown.j2
+   :name: Undetected.j2
+   :caption: Undetected.j2
    :lineno-start: 1
 
-   [TITLE]
-   An unknown event has occured.
+    [TITLE]
+    An unknown event has occured.
 
-   [BODY]
-   Details
-   　Event ID　　　：{{ _id }}
-   　Event collection settings：{{ labels._exastro_event_collection_settings_id }}
-   　Event fetch time：{{ labels._exastro_fetched_time }}
-   　Event valid time：{{ labels._exastro_end_time }}
-   　Event type　　：{{ labels._exastro_type }}
+    [BODY]
+    Detailed information
+    　Event ID                 : {{ _id }}
+    　Event collection settings: {{ labels._exastro_event_collection_settings_id }}
+    　Event fetch time         : {{ labels._exastro_fetched_time }}
+    　Event end time           : {{ labels._exastro_end_time }}
+    　Event type               : {{ labels._exastro_type }}
 
-   　Re-evaluation
-   　　Evaluation rule name　　：{{ labels._exastro_rule_name }}
-   　　Use event　　：{{ exastro_events }}
+    　Re-evaluation
+    　　Evaluation rule name   : {{ labels._exastro_rule_name }}
+    　　Event                  : {{ exastro_events }}
 
-   　Label：
-   　  {% for key, value in labels.items() %}
-   　　・{{ key }}：{{ value }}
-   　　{% endfor %}
+    　Label:
+    　  {% for key, value in labels.items() %}
+    　　・{{ key }}: {{ value }}
+    　　{% endfor %}
 
 
 Appendix
@@ -472,13 +474,18 @@ OASE Agent operation flow and ".env" setting Values
  * - EXASTRO_ORGANIZATION_ID
    - Used to distinguish Organizations when API requests are sent to ITA.
  * - EXASTRO_WORKSPACE_ID
-   - Used to distinguish Workspaces when API requests are sent to ITA.
-
-     The specified workspace must be linked to the organization specified to EXASTRO_ORGANIZATION_ID.
+   - | Used to distinguish Workspaces when API requests are sent to ITA.
+     | The specified workspace must be linked to the organization specified to EXASTRO_ORGANIZATION_ID.
+ * - EXASTRO_REFRESH_TOKEN
+   - | Used as a authentication token for Bearer authentication when API requesting to ITA.
+     | ※The user's role must be able to edit the OASE - Event - Event history menu.
  * - EXASTRO_USERNAME
-   - Used as the Basic authentication username when API requests are sent to ITA.
+   - | Used as the Basic authentication username when API requests are sent to ITA.
+     | ※The user's role must be able to edit the OASE - Event - Event history menu.
+     | ※If not using EXASTRO_REFRESH_TOKEN (Not recommended)
  * - EXASTRO_PASSWORD
-   - Used as the Basic authentication password when API requests are sent to ITA.
+   - | Used as the Basic authentication password when API requests are sent to ITA.
+     | ※If not using EXASTRO_REFRESH_TOKEN (Not recommended)
  * - EVENT_COLLECTION_SETTINGS_NAMES
    - The values set to this parameter fetches event collection settings from ITA and generates a setting file.
  * - ITERATION
@@ -815,7 +822,7 @@ Event ID key
    ]
 
 | From these results, the Event type values will have :program:`id` values applied, 
-| meaning that the :menuselection:`OASE management --> Agent` setting values should be as following.
+| meaning that the :menuselection:`OASE management --> Event collection` setting values should be as following.
 
 .. list-table:: 
  :widths: 10, 20
@@ -851,19 +858,19 @@ Event ID key
 
 Agent examples for the different monitoring softwares
 --------------------------------
-| This section contains setting examples in :menuselection:`OASE management --> Agent` for using :dfn:`Zabbix` and :dfn:`Grafana`.
+| This section contains setting examples in :menuselection:`OASE management --> Event collection` for using :dfn:`Zabbix` and :dfn:`Grafana`.
 
 | This section will first display examples using cURL commands to fetch alerts from the softwares.
-| Then, it will explain the order of configuring cURL parameters to :menuselection:`OASE management --> Agent`.
+| Then, it will explain the order of configuring cURL parameters to :menuselection:`OASE management --> Event collection`.
  
 .. warning::
    | The HTTP API might differ depending on the monitoring software version.
-   | Make sure to check how the HTTP API works for the version the user is using before configuring the settings in :menuselection:`OASE management --> Agent`.
+   | Make sure to check how the HTTP API works for the version the user is using before configuring the settings in :menuselection:`OASE management --> Event collection`.
 
 
 Zabbix
 ^^^^^^
-| This section contains an example for configuring :menuselection:`OASE management --> Agent` to fetch events from :dfn:`Zabbix`.
+| This section contains an example for configuring :menuselection:`OASE management --> Event collection` to fetch events from :dfn:`Zabbix`.
 
 | The :dfn:`Zabbix` used in the following section is running the following version.
 | ・zabbix 6.4.12 
@@ -921,7 +928,7 @@ Zabbix
 
 2. | Agent settings example for fetching events from :dfn:`Zabbix`.
   
-| The following settings configures the :menuselection:`OASE management --> Agent` values to fetch values similar to the cURL command listed above.
+| The following settings configures the :menuselection:`OASE management --> Event collection` values to fetch values similar to the cURL command listed above.
 
 .. list-table:: Zabbix setting value example
    :widths: 5 15
@@ -1007,13 +1014,13 @@ Zabbix
           "id": 1
      }
   
-  | Paste the <Zabbix API token> to the  :menuselection:`OASE management --> Agent`'s :menuselection:`Parameter`'s <Zabbix API token>.
+  | Paste the <Zabbix API token> to the  :menuselection:`OASE management --> Event collection`'s :menuselection:`Parameter`'s <Zabbix API token>.
   | ※ <Zabbix API token> can be created from browsers.
   | After logging in through the browser, access Side menu > User settings > API token and create the token by pressing :guilabel:`Create API token`.
 
 Grafan
 ^^^^^^
-| This section contains an example for configuring :menuselection:`OASE management --> Agent` to fetch events from :dfn:`Grafan`.
+| This section contains an example for configuring :menuselection:`OASE management --> Event collection` to fetch events from :dfn:`Grafan`.
 
 | The :dfn:`Grafan` used in the following section is running the following version.
 | ・Grafan 10.3
@@ -1059,9 +1066,9 @@ Grafan
   | For more information regarding Grafana alerts, see the following URL.
   |  https://prometheus.io/docs/prometheus/latest/querying/api/#alerts
 
-2. | Agent settings example for fetching events from :dfn:`Grafana`.
+2. | Event collection settings example for fetching events from :dfn:`Grafana`.
 
-| The following settings configures the :menuselection:`OASE management --> Agent` values to fetch values similar to the cURL command listed above.
+| The following settings configures the :menuselection:`OASE management --> Event collection` values to fetch values similar to the cURL command listed above.
 
 .. list-table:: Grafana setting example
    :widths: 5 15
@@ -1118,5 +1125,5 @@ Grafan
   8. | Click :guilabel:`Copy to clipboard and close` 
      | and paste the Authentication token to the clipboard.
 
-  9. | Paste the Authentication token from the clipboard to :menuselection:`OASE management --> Agent`'s :menuselection:`Authentication token`.
+  9. | Paste the Authentication token from the clipboard to :menuselection:`OASE management --> Event collection`'s :menuselection:`Authentication token`.
 
