@@ -10,7 +10,7 @@ Introduction
 Ansible driver overview
 ==================
 
-| This document explains the functions of Ansible Core, Ansible Automation Controller and the Ansible driver.
+| This document explains the functions of Ansible Core, Ansible Automation Controller, Ansible driver and the Ansible Execution Agent.
 
 Ansible Core
 --------------------
@@ -30,13 +30,24 @@ Ansible Automation Controller
 | For information regarding ITA compatible Ansible Automation Controller versions, see :doc:`../../configuration/ansible/ansible_automation_platform`.
 | Note that all notations regarding the newest version might not work.
 
+Ansible Execution Agent
+-------------------------------
+| The Ansible Execution Agent is a Server for executing Ansible constructed seperately from ITA.
+| Users can construct an environment(Container) with Ansible-builder and run Playbook through an execution environment(Container) with Ansible runner.
+| Ansible Execution Agents must be prepared per Workspace.
+| By preparing multiple Ansible Execution Agents for the same Workspace, users can use a redundant architecture.
+
+.. image:: /images/ja/diagram/ansible_agent_overview.png
+   :width: 6.68819in
+   :height: 3.35972in
+   :alt: Ansible Execution Agent architecture diagram
 
 Ansible driver
 ----------------------
 
-| The Ansible driver uses the ITA functions to automatically run Playbook processes to Servers, Storage or Network devices registered to ITA through either Ansible Core or Ansible Automation Controller. 
+| The Ansible driver uses the ITA functions to automatically run Playbook processes to Servers, Storage or Network devices registered to ITA through either Ansible Core, Ansible Automation Controller or Ansible Execution Agent. 
 
-.. image:: /images/ja/diagram/overview.png
+.. image:: /images/en/diagram/ansible_overview.png
    :width: 6.68819in
    :height: 3.35972in
    :alt: Exastro overview
@@ -214,6 +225,20 @@ Device list
 | The :menuselection:`Ansible common --> Device list ` items can be used as variables if set .
   If the items are not set, the operations run in :menuselection:`Mode --> Execute` will display an error.
 
+Movement ID
+***********
+
+| The :menuselection:`Mode --> Movement list`'s :menuselection:`Movement ID`can be selected as variables
+
+.. list-table::
+   :widths: 50 80
+   :header-rows: 1
+   :align: left
+
+   * - Item name
+     - Variable name
+   * - Movement ID
+     - __movement_id__
 
 Operation
 **************
@@ -235,6 +260,20 @@ Operation
 | Operation ID: :menuselection:`Basic console --> Operation list`'s :menuselection:`Operation ID`
 | Operation name: :menuselection:`Basic console --> Operation list`'s :menuselection:`Operation name`
 |
+Operation instance ID
+******************
+
+| The :menuselection:`Mode --> Operation status confirmation`'s :menuselection:`Operation No．` generated when executed can be selected as variables.
+
+.. list-table::
+   :widths: 50 80
+   :header-rows: 1
+   :align: left
+
+   * - Item name
+     - Variable name
+   * - Operation instance ID
+     - __execution_no__
 
 Conductor instance ID
 ***********************
@@ -424,7 +463,7 @@ Playbook file extractable variable types and their format
 Interactive file extractable variable types and their format
 ******************************************************
 
-| The following table displays what variable types can be extracted from the :menuselection:`Ansible-Legacy --> Interactive file collection`'s :menuselection:`Interactive files`.
+| The following table displays what variable types can be extracted from the :menuselection:`Ansible-Pioneer --> Interactive file collection`'s :menuselection:`Interactive files`.
 
 .. table::  Interactive file extractable variable types and their format
    :widths: 4 8 16
@@ -467,7 +506,7 @@ Interactive file extractable variable types and their format
 Local package file  (ZIP format)  extractable variable types and their format.
 *************************************************************************
 
-| The following table displays what variable types can be extracted from the :menuselection:`Ansible-Legacy --> Role package management`'s :menuselection:`Role package file (ZIP format) `.
+| The following table displays what variable types can be extracted from the :menuselection:`Ansible-LegacyRole --> Role package management`'s :menuselection:`Role package file (ZIP format) `.
 
 .. table::  Local package file  (ZIP format)  extractable variable types and their format.
    :widths: 4 8 2 4 4 4 24
@@ -561,7 +600,7 @@ Local package file  (ZIP format)  extractable variable types and their format.
 Inventory file options and header section parameter value extractable variable types and their format.
 ********************************************************************************************************
 
-| The following table displays what variables can be extraccted with the Parameter values found in :menuselection:`Ansible-Legacy --> Device list`'s :menuselection:`Inventory file option` and :menuselection:`Ansible mode --> Movement list`'s :menuselection:`Header section`
+| The following table displays what variables can be extraccted with the Parameter values found in :menuselection:`Ansible-Common --> Device list`'s :menuselection:`Inventory file option` and :menuselection:`Ansible mode --> Movement list`'s :menuselection:`Header section`
 
 .. table:: Parameter value extractable variable types and their format
    :widths: 25 15 30 80
@@ -770,9 +809,10 @@ Device list
       |                 |                 | nfigured to it, input the passphrase.                  |           |              |  255 bytes      |
       +--------+--------+-----------------+--------------------------------------------------------+-----------+--------------+-----------------+
       | Ansib\ | Legacy\| Authentication\ | Select the authentication for connecting to the tar\   | ー        | List\        | Same as descri\ |
-      | le\    | /Role\ | method          | get from Ansible core・Ansible Automation Controller.  |           |  selection   | ption           |
-      | infor\ | infor\ |                 |                                                        |           |              |                 |
-      | mation | mation |                 | + | Password authentication                            |           |              |                 |
+      | le\    | /Role\ | method          | get from Ansible core・Ansible Automation Controller\  |           |  selection   | ption           |
+      | infor\ | infor\ |                 | ・Ansible Execution Agent.                             |           |              |                 |
+      | mation | mation |                 |                                                        |           |              |                 |
+      |        |        |                 | + | Password authentication                            |           |              |                 |
       |        |        |                 |   | Login password is required.                        |           |              |                 |
       |        |        |                 |                                                        |           |              |                 |
       |        |        |                 | + | Key authentication (No passphrase)                 |           |              |                 |
@@ -786,6 +826,9 @@ Device list
       |        |        |                 | + | Password authentication (winrm)                    |           |              |                 |
       |        |        |                 |   | Input WinR connection information if needed.       |           |              |                 |
       |        |        |                 |                                                        |           |              |                 |
+      |        |        |                 | + | Certificate authentication(winrm)                  |           |              |                 |
+      |        |        |                 |   | winrm public key file and winrm secret key file \  |           |              |                 |
+      |        |        |                 |     must be uploaded.                                  |           |              |                 |
       |        |        +--------+--------+--------------------------------------------------------+-----------+--------------+-----------------+
       |        |        | WinRM\ | Port\  | Input a port number to WinRM connect to the Windows \  | ー        | Manual       | 0～65,535       |
       |        |        | connec\| No.    | Server.                                                |           |              |                 |
@@ -793,20 +836,15 @@ Device list
       |        |        | nforma\|        | If nothing is input, the default value will be us.     |           |              |                 |
       |        |        | tion   |        | ed to connect (5985 :http).                            |           |              |                 |
       |        |        |        +--------+--------------------------------------------------------+-----------+--------------+-----------------+
-      |        |        |        | Serve\ | Input a server certificate if a https port number wa\  | ー        | File\        | Maximum size\   |
-      |        |        |        | r cer\ | s specified for the WinRM connection port.             |           |  selection   | 100MB           |
-      |        |        |        | tifi\  |                                                        |           |              |                 |
-      |        |        |        | cate   | The uploaded file is saved in an encrypted state.      |           |              |                 |
-      |        |        |        |        |                                                        |           |              |                 |
-      |        |        |        |        |                                                        |           |              |                 |
-      |        |        |        |        | ※Not downloadable after registered.                   |           |              |                 |
-      |        |        |        |        |                                                        |           |              |                 |
-      |        |        |        |        | If ommiting server certification, add the followin\    |           |              |                 |
-      |        |        |        |        | g to the Inventory file's options.                     |           |              |                 |
-      |        |        |        |        |                                                        |           |              |                 |
-      |        |        |        |        | .. code-block:: yaml                                   |           |              |                 |
-      |        |        |        |        |                                                        |           |              |                 |
-      |        |        |        |        |    ansible_winrm_server_cert_validation: ignore        |           |              |                 |
+      |        |        |        | winrm \| Input the public key file "ansible_winrm_cert_pem" \   | ー        | File\        | Max size\       |
+      |        |        |        | Public\| if connecting to a WindowsServer through WinRM wi\     |           | selection    | 100MB           |
+      |        |        |        |  key \ | th certificate authentication.                         |           |              |                 |
+      |        |        |        | file   | ※The file cannot be downloaded after being reigstered.|           |              |                 |
+      |        |        |        +--------+--------------------------------------------------------+-----------+--------------+-----------------+
+      |        |        |        | winrm \| Input the secret key file "ansible_winrm_cert_pem" \   | ー        | File\        |  Max size\      |
+      |        |        |        | Secret\| if connecting to a WindowsServer through WinRM wi\     |           | selection    | 100MB           |
+      |        |        |        |  key \ | th certificate authentication.                         |           |              |                 |
+      |        |        |        | file   | ※The file cannot be downloaded after being reigstered.|           |              |                 |
       |        |        |        |        |                                                        |           |              |                 |
       |        +--------+--------+--------+--------------------------------------------------------+-----------+--------------+-----------------+
       |        | Pione\ | Protocol        | Select the protocol that will be used to connect fro\  | ー        | List\        | Same as \       |
@@ -938,9 +976,9 @@ Device list
 Interface information
 --------------------
 
-#. | Select the Ansible Core or the Ansible Automation Controller to be the execution engine and maintain (view/edit) connection interface information for connecting to the execution engine's server.
+#. | Select the Ansible Core, Ansible Automation Controller or Ansible Execution Agent to be the execution engine and maintain (view/edit) connection interface information for connecting to the execution engine's server.
 
-   .. figure:: /images/ja/ansible_common/Interface_information/interface_information.png
+   .. figure:: /images/ja/ansible_common/Interface_information/interface_information_v2_5.png
       :width: 800px
       :alt: Submenu (Interface information) 
 
@@ -948,7 +986,7 @@ Interface information
 
 #. | Press the :guilabel:`Edit` button to edit Interface information.
 
-   .. figure:: /images/ja/ansible_common/Interface_information/registration_interface_information.gif
+   .. figure:: /images/ja/ansible_common/Interface_information/registration_interface_information_v2.5.gif
       :width: 800px
       :alt: Registration page (Interface information) 
 
@@ -961,18 +999,20 @@ Interface information
       :widths: 8 8 8 40 8 8 10
       :align: left
 
+
       +-----------------+--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
       | Item                              | Description                                                   | Input req\| Input method | Restrictions                                          |
       |                                   |                                                               | uired     |              |                                                       |
       +=================+========+========+===============================================================+===========+==============+=======================================================+
       | Number                            | Displays an automatically numbered string of 36 characters.   | ー        | Automatic    | ー                                                    |
       +-----------------+--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
-      | Execution engine                  | Select one of the 2 following\                                | ○        | List\        | Same as description                                   |
+      | Execution engine                  | Select one of the 3 following\                                | ○        | List\        | Same as description                                   |
       |                                   | execution engines.                                            |           | selection    |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | + | Ansible Core                                              |           |              |                                                       |
       |                                   | + | Ansible Automation Controller                             |           |              |                                                       |
-      |                                   |                                                               |           |              |                                                       |
+      |                                   | + | Ansible Execution Agent                                   |           |              |                                                       |
+            |                             |                                                               |           |              |                                                       |
       +-----------------+--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
       | Ansible \       | Host            | Select the Ansible Automation Controller that communicates w\ | ー        | List\        | Required if :menuselection:`Execution engine` is\     |
       | Automation \    |                 | ith ITA from the Hybrid node registered in :menuselection:`\  |           |  selection   | Ansible Automation Controller                         |
@@ -1016,16 +1056,6 @@ Interface information
       |                 |                 |                                                               |           |              |                                                       |
       |                 |                 |                                                               |           |              |                                                       |
       |                 +--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
-      |                 | Execution\      | Select whether to delete the data automatically generated b\  | ー        | List select\ | Required if :menuselection:`Execution engine` is\     |
-      |                 |  data deletion  | y Ansible Automation Controller during operation executio\    |           | ion          | Ansible Automation Controller                         |
-      |                 |                 | n after operation is done.                                    |           |              |                                                       |
-      |                 |                 |                                                               |           |              |                                                       |
-      |                 |                 |  If set to "True", the data will be deleted.                  |           |              |                                                       |
-      |                 |                 |                                                               |           |              |                                                       |
-      |                 |                 | For more information regarding data resources that will\      |           |              |                                                       |
-      |                 |                 |  be deleted, see ":ref:`ansible_common_aac_resources_list`".  |           |              |                                                       |
-      |                 |                 |                                                               |           |              |                                                       |
-      |                 +--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
       |                 | REST API timeo\ | Input a timeout value for the the RestAPI connection \        | ー        | Manual       | 60～3,600                                             |
       |                 | ut value (\     | from ITA to Ansible Automation Controller\                    |           |              |                                                       |
       |                 | seconds)        |                                                               |           |              |                                                       |
@@ -1054,6 +1084,16 @@ Interface information
       |                 +--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
       |                 | Port            | Input a port for the proxy server.                            | ー        | Manual       | 1～65,535                                             |
       |                 |                 |                                                               |           |              |                                                       |
+      |                 +--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
+      |                 | Execution\      | Select whether to delete the data automatically generated b\  | ー        | List select\ | Required if :menuselection:`Execution engine` is\     |
+      |                 |  data deletion  | y Ansible Automation Controller during operation executio\    |           | ion          | Ansible Automation Controller                         |
+      |                 |                 | n after operation is done.                                    |           |              |                                                       |
+      |                 |                 |                                                               |           |              |                                                       |
+      |                 |                 |  If set to "True", the data will be deleted.                  |           |              |                                                       |
+      |                 |                 |                                                               |           |              |                                                       |
+      |                 |                 | For more information regarding data resources that will\      |           |              |                                                       |
+      |                 |                 |  be deleted, see ":ref:`ansible_common_aac_resources_list`".  |           |              |                                                       |
+      |                 |                 |                                                               |           |              |                                                       |
       +-----------------+--------+--------+---------------------------------------------------------------+-----------+--------------+-------------------------------------------------------+
       | Ansible-vault password            | Input a password if the variable's specific values are encr\  | ー        | Manual       | Maximum length 64 btyes                               |
       |                                   | ypted with an ansible-vault command\                          |           |              |                                                       |
@@ -1065,12 +1105,12 @@ Interface information
       |                                   |                                                               |           |              |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | For more information regarding Option parameters, see \       |           |              |                                                       |
-      |                                   |  " :ref:`ansible_common_option_parameter_list` " \            |           |              |                                                       |
-      |                                   | を参照してください。                                          |           |              |                                                       |
+      |                                   |  " :ref:`ansible_common_option_parameter_list` ".             |           |              |                                                       |
+      |                                   |                                                               |           |              |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | + | If the :menuselection:`Execution engine` is  "Ansi\       |           |              |                                                       |
-      |                                   |   | ble Core"  Input the ansible-playbook command's option pa\|           |              |                                                       |
-      |                                   |     rameter.                                                  |           |              |                                                       |
+      |                                   |   | ble Core" or "Ansible Execution Engine" Input the ansib\  |           |              |                                                       |
+      |                                   |     le-playbook command's option parameter.                   |           |              |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | + | If the :menuselection:`Execution engine` is\              |           |              |                                                       |
       |                                   |      "Ansible Automation Controller",                         |           |              |                                                       |
@@ -1115,14 +1155,16 @@ Interface information
       |                                   |                                                               |           |              |                                                       |
       |                                   | + |  "Not executed"                                           |           |              |                                                       |
       |                                   | + |  "Preparing"                                              |           |              |                                                       |
+      |                                   | + |  "Preparation complete"                                   |           |              |                                                       |
+      |                                   | + |  "Waiting for execution"                                  |           |              |                                                       |
       |                                   | + |  "Executing"                                              |           |              |                                                       |
-      |                                   | + |  "Executing (Delayed)"                                   |           |              |                                                       |
+      |                                   | + |  "Executing (Delayed)"                                    |           |              |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | If the :menuselection:`Status` is one of the following, the \ |           |              |                                                       |
       |                                   | log will output all lines.                                    |           |              |                                                       |
       |                                   |                                                               |           |              |                                                       |
       |                                   | + |  "Complete"                                               |           |              |                                                       |
-      |                                   | + |  "Complete (Error)"                                      |           |              |                                                       |
+      |                                   | + |  "Complete (Error)"                                       |           |              |                                                       |
       |                                   | + |  "Unexpected error"                                       |           |              |                                                       |
       |                                   | + |  "Emergency stop"                                         |           |              |                                                       |
       |                                   | + |  "Not executed (Reserved)"                                |           |              |                                                       |
@@ -1478,6 +1520,15 @@ File management
            * - VAR_aac_host
              - Ansible Automation Controller
 
+.. tip:: | **Registering large files**
+   | An error saying "Authentication failed" might occur when sending large files.
+   | This error might be caused of the following reasons, which delays the file registration authentication process, causing the token to run out.
+   | 　・Network speed/status
+   | 　・Security checks and filtering
+   | 
+   | To solve this, see :ref:`access_token_lifespan_change` and change the token lifespan.
+
+
 .. _ansible_common_template_list:
 
 Template management
@@ -1628,6 +1679,172 @@ Template management
 
 .. include:: ../../include/ansible_option_template_list_pioneer_example.rst
 
+Execution environment definition template management
+----------------------------
+
+#. | This menu allows users to manage the template files for execution environment definition files (execution-environment.yml) that are used when building the execution environment (container) with the ansible-builder within the Ansible Execution Agent.
+   | For more information regarding the template file, see :ref:`ansible_common_environment_definition_make`.
+   | When installing ITA, a template file that lets the user add python module and ansible galaxy collection is registered.
+
+   .. figure:: /images/ja/ansible_common/execution_environment_definition_template_list/execution_environment_definition_template_list.png
+      :width: 800px
+      :alt: Submenu page (Execution environment definition template ) 
+
+      Submenu page (Execution environment definition template management) 
+
+#. | Press the :guilabel:`Register` button and register an execution environment definition template.
+
+   .. figure:: /images/ja/ansible_common/execution_environment_definition_template_list/execution_environment_definition_template_list.gif
+      :width: 800px
+      :alt: Registration page (Execution environment definition template management list) 
+
+      Registration page. (Execution environment definition template management) 
+
+#. | The items found in the registration page are as following.
+
+   .. list-table:: Registration page item list (Execution environment definition template management) 
+      :widths: 20 80 10 10 10
+      :header-rows: 1
+      :align: left
+
+      * - Item
+        - Description
+        - Input required 
+        - Input method
+        - Restrictions
+      * - Item No.
+        - | The item number is automatically assigned to the item when registerd and consists of 36 characters.
+        - ー 
+        - Automatic
+        - ー 
+      * - Template name
+        - | Input a name for the template
+        - ○ 
+        - Manual input
+        - Max length 255 bytes.
+      * - Template file
+        - | Input the template file for the execution environment definition file (execution-environment.yml) which is used to build the execution environment with ansible-builder
+        - ○
+        - File registration
+        - | Jinja2 template format
+          | Maximum size 100MB
+      * - Remarks
+        - Free description field.  - ー 
+        - Manual input
+        - Maximum length 4000 bytes
+
+.. _ansible_execution_environment_list:
+
+Execution environment management
+-------------
+
+#. | This menu allows people to manage links between the template file for the execution environment definition file (execution-environment.yml) registered in the :menuselection:`Ansible common --> Execution environment definition template` menu and the :menuselection:`"Execution environment definition template" parameter sheet`.  
+   | For more information regarding the:menuselection:`"Execution environment definition template" parameter sheet`, see :ref:`ansible_common_environment_definition_make`.
+   | Note that installing ITA registers :menuselection:`"Execution environment parameter sheet definition" parameter sheet` that has parameters that embeds to execution environment template files. It also links the :menuselection:`"Execution environment definition template" parameter sheet` and :menuselection:`Ansible common --> Execution environment definition template `.
+
+   .. figure:: /images/ja/ansible_common/execution_environment_list/execution_environment_list.png
+      :width: 800px
+      :alt: Submenu page (Execution environment management) 
+
+      Submenu page (Execution environment management) 
+
+#. | Press the :guilabel:`Register` button to register an Execution environment definition template.
+
+   .. figure:: /images/ja/ansible_common/execution_environment_list/execution_environment_list.gif
+      :width: 800px
+      :alt: Registration page (Execution environment management) 
+
+      Registration page (Execution environment management) 
+
+#. | The items found in the registration page are as following.
+
+   .. table:: Registration page item list (Execution environment management) 
+      :align: left
+
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Item                    | Description                                                                                                                 | Inpu\ | Input method| Restrictions                  |
+      |                         |                                                                                                                             | t re\ |             |                               |
+      |                         |                                                                                                                             | quired|             |                               |
+      +=========================+=============================================================================================================================+=======+=============+===============================+
+      | Item No.                | The item number is automatically assigned to the item when registerd and consists of 36 characters.                         | ー    | Automatic   | ー                            |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Execution environm\     | Input a name for the Execution environment.                                                                                 | ○    | Manual      | Max length 255 bytes.         |
+      | ent name                |                                                                                                                             |       |             |                               |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Execution environment \ | Select whether to build the execution environment with the ansible-builder within Ansible Execution Agent or not when e\    | ○    |             | As written in the descript\   |
+      | construction method     | executing.                                                                                                                  |       |             | ion field.                    |
+      |                         |                                                                                                                             |       |             |                               |
+      |                         | + | ITA                                                                                                                     |       |             |                               |    
+      |                         |   | When selected, the execution environment (container) is built with the ansible-builder.                                 |       |             |                               |
+      |                         |   | Both :menuselection:`Execution environment definition name` and :menuselection:`Template name` must be input.           |       |             |                               |
+      |                         | + | Manual                                                                                                                  |       |             |                               |
+      |                         |   | When selected, the execution environment (container) is not built with the ansible-builder.                             |       |             |                               |
+      |                         |   | The execution environment (container) build externally from ITA must be loaded within Ansible Execution Agent before \  |       |             |                               |
+      |                         |     executing                                                                                                               |       |             |                               |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Tag name                | Input the build image name for the execution environment (container) that will be built by ansible-builder.                 | ○    | Manual      | Max length 255 bytes.         |
+      |                         |                                                                                                                             |       |             |                               |
+      |                         | + | If "ITA" is selected in :menuselection:`Execution Environment construction method` is selected:                         |       |             |                               |
+      |                         |   | The Image name must follow the following naming conventions                                                             |       |             |                               |
+      |                         |   |   Image naming conventions.                                                                                             |       |             |                               |
+      |                         |   |   {{organization_id}}_{{workspace_id}}_"Input tag name"                                                                 |       |             |                               |
+      |                         | + | If "Manual" is selected in :menuselection:`Execution Environment construction method` is selected:                      |       |             |                               |
+      |                         |   | The Image name is the input tag name.                                                                                   |       |             |                               |
+      |                         |                                                                                                                             |       |             |                               |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Execution environmen\   | Displays the :menuselection:`"Execution Environment Parameter Definition" Parameter sheet` menu and record names registere\ | ○    |             | As written in the descript\   |
+      | t definition name       | d for :menuselection:`Execution environment definition template `.\                                                         |       |             | ion field.                    |
+      |                         | Users can select whichever from a list.                                                                                     |       |             |                               |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Template name           | Displays the :menuselection:`Template names` registered in :menuselection:`Execution environment definition template `      | ○    |             | As written in the descrip\    |
+      |                         | Select a Template name.                                                                                                     |       |             | tion field.                   |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+      | Remarks                 | Free description field.                                                                                                     | ○    | Manual      | Max length 255 bytes.         |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------+-------------+-------------------------------+
+
+.. _ansible_agent_list:
+
+Agent management
+----------------
+
+#. | This menu allows users to view the Agent name and Version information of the Ansible Execution Agents connected to ITA.
+
+   .. figure:: /images/ja/ansible_common/ansible_agent_list/ansible_agent_list.png
+      :width: 800px
+      :alt: Submenu page (Agent management) 
+
+      Submenu page (Agent management) 
+
+#. | The items found in the page are as following.
+
+   .. table:: View page item list (Agent management) 
+      :align: left
+
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+      | Item                    | Description                                                                                                                 | Restrictions                  |
+      +=========================+=============================================================================================================================+===============================+
+      | Item No.                | The item number is automatically assigned to the item when registerd and consists of 36 characters.                         | ー                            |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+      | Agent name              | Displays the Ansible Execution Agent name.                                                                                  | ー                            |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+      | Version                 | Displays the Ansible Execution Agent version.                                                                               | ー                            |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+      | Status                  | The following statuses can be displayed.                                                                                    | ー                            |
+      |                         |                                                                                                                             |                               |
+      |                         | + | Valid (Latest)                                                                                                          |                               |
+      |                         |   | Displayed when the Ansible Execution Agent and ITA Version matches and the system has successfuly linked with the Ans\  |                               |
+      |                         |     ible Execution Agent.                                                                                                   |                               |
+      |                         | + | Valid (Update available)                                                                                                |                               |
+      |                         |   | Displayed when the Ansible Execution Agent and ITA Version does not match, but can and has been linked with each other.\|                               |
+      |                         |      We recommend that the user updates the Ansible Execution Agent.                                                        |                               |
+      |                         | + | Can't link (Update required)                                                                                            |                               |
+      |                         |   | Displayed when the Ansible Execution Agent and ITA Version does not match and has no compatibility with each other. \   |                               |
+      |                         |     Update the Ansible Execution Agent and try again.                                                                       |                               |
+      |                         |                                                                                                                             |                               |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+      | Remarks                 | Free description field.                                                                                                     | Free description field.       |
+      +-------------------------+-----------------------------------------------------------------------------------------------------------------------------+-------------------------------+
+
 .. _ansible_common_unmanaged_var_list:
 
 Unmanaged target variable list
@@ -1683,7 +1900,13 @@ Unmanaged target variable list
 Appendix
 ====
 
-.. _ansible_common_backyard_content:
+.. _ansible_common_environment_definition_make:
+
+Using the Template file registered to :menuselection:`Ansible common --> Execution environment definition template ` and  :menuselection:`"Execution Environment Parameter Definition" Parameter sheet`
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.. include:: ../../include/ansible_common_environment_definition_make.rst
+
 
 BackYard contents
 ------------------
@@ -1740,34 +1963,36 @@ Inventory files created by ITA.
 
 
 .. table::   Inventory_host_parameters parameter list
-   :widths: 30 20 20 20 20 20 50
+   :widths: 30 20 20 20 20 20 20 50
    :align: left
 
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | Parameter name                | :menuselection:`Ansible common --> Device list`'s :menuselection:`Authentication method`                                 | Setting value                                                                                                               |
-   +                               +-----------------------+------------------------+------------------------+------------------------+-----------------------+                                                                                                                             +
-   |                               | Password authentica\  | Key authentication     | Key authentication     | Key authentication     | Password authenticati\|                                                                                                                             |
-   |                               | tion                  |                        |                        |                        | on                    |                                                                                                                             |
-   |                               |                       |  (No passphrase)       |  (With passphrase)     |  (Key changed)         | Authentication (winrm)|                                                                                                                             |
-   +===============================+=======================+========================+========================+========================+=======================+=============================================================================================================================+
-   | ansible_host                  | 〇                    | 〇                     | 〇                     | 〇                     | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`DNS host` or :menuselection:`DNS host IP address`.        |
-   |                               |                       |                        |                        |                        |                       | Changes depending on the contents selected in :menuselection:`Mode --> Movement list`'s :menuselection:`host specificatio\  |
-   |                               |                       |                        |                        |                        |                       | n format`.                                                                                                                  |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_user                  | 〇                    | 〇                     | 〇                     | 〇                     | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:` login user`                                              |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_password              | 〇                    |                        |                        |                        | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`login password`                                           |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_ssh_private_key_file  |                       | 〇                     | 〇                     |                        |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:`ssh secret key file`                                      |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_ssh_extra_args        | 〇                    | 〇                     | 〇                     | 〇                     |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:`connection option`                                        |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_connection:           |                       |                        |                        |                        | 〇                    | winrm                                                                                                                       |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_port                  |                       |                        |                        |                        | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`WinRM connection information --> Port number`             |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ansible_winrm_ca_trust_path   |                       |                        |                        |                        | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`WinRM connection information --> Server certificate`      |
-   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Parameter name                | :menuselection:`Ansible common --> Device list`'s :menuselection:`Authentication method`                                 |                       | Setting value                                                                                                               |
+   +                               +-----------------------+------------------------+------------------------+------------------------+-----------------------+                       |                                                                                                                             +
+   |                               | Password authentica\  | Key authentication     | Key authentication     | Key authentication     | Password authenticati\| Certificate authentic\|                                                                                                                             |
+   |                               | tion                  |                        |                        |                        | on                    | action                |                                                                                                                             |
+   |                               |                       |  (No passphrase)       |  (With passphrase)     |  (Key changed)         | Authentication (winrm)|  (winrm)              |                                                                                                                             |
+   +===============================+=======================+========================+========================+========================+=======================+=====================================================================================================================================================+
+   | ansible_host                  | 〇                    | 〇                     | 〇                     | 〇                     | 〇                    | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`DNS host` or :menuselection:`DNS host IP address`.        |
+   |                               |                       |                        |                        |                        |                       |                       | Changes depending on the contents selected in :menuselection:`Mode --> Movement list`'s :menuselection:`host specificatio\  |
+   |                               |                       |                        |                        |                        |                       |                       | n format`.                                                                                                                  |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_user                  | 〇                    | 〇                     | 〇                     | 〇                     | 〇                    |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:` login user`                                              |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_password              | 〇                    |                        |                        |                        | 〇                    |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:`login password`                                           |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_ssh_private_key_file  |                       | 〇                     | 〇                     |                        |                       |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:`ssh secret key file`                                      |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_ssh_extra_args        | 〇                    | 〇                     | 〇                     | 〇                     |                       |                       | :menuselection:`Ansible common --> Device list`'s :menuselection:`connection option`                                        |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_connection:           |                       |                        |                        |                        | 〇                    | 〇                    | winrm                                                                                                                       |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_port                  |                       |                        |                        |                        | 〇                    | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`WinRM connection information --> Port number`             |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+   | ansible_winrm_ca_trust_path   |                       |                        |                        |                        | 〇                    | 〇                    | :menuselection:`Ansible common --> Device list`'s :menuselection:`WinRM connection information --> winrm public key file`   |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------+
+   | ansible_winrm_cert_key_pem    |                       |                        |                        |                        | 〇                    | 〇                    | :menuselection:`Ansible common --> Device list`'s ' :menuselection:`WinRM connection information --> winrm secret key file` |
+   +-------------------------------+-----------------------+------------------------+------------------------+------------------------+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. tip:: | 〇: Setting target
  

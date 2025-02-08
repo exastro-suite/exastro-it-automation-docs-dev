@@ -5,7 +5,7 @@ Ansible Automation Platform link
 Introduction
 ====
 
-| This document aims to explain how System administrators can control Ansible Core and/or Ansible Automation controller usage for users.
+| This document aims to explain how System administrators can control Ansible Core, Ansible Automation controller or Ansible Execution Agent usage for users.
 
 
 Register Ansible Automation Controller
@@ -93,7 +93,7 @@ Steps to register
             {
               "input_limit_setting": true,
               "execution_engine_list": [
-                "Ansible Automation Controller"
+                "Ansible Automation Controller, "Ansible Execution Agent"
               ],
               "initial_data": {
                 "ansible_automation_controller_host_list": [
@@ -129,6 +129,14 @@ Steps to register
                 }
               }
             }
+
+         .. tip:: | Supplementary information regarding execution_engine_list
+                  | execution_engine_list can describe 3 execution engines.
+                  | ・Ansible Core
+                  | ・Ansible Automation Controller
+                  | ・Ansible Execution Agent
+                  | The described execution engines can be used.
+                  | In the JSON example below, the Ansible Automation Controller and Ansible Execution Agent can be used.
 
          .. raw:: html
 
@@ -271,7 +279,7 @@ Steps to register
               -d '{
                     "input_limit_setting": true,
                     "execution_engine_list": [
-                      "Ansible Automation Controller"
+                      "Ansible Automation Controller", "Ansible Execution Agent"
                     ],
                     "initial_data": {
                       "ansible_automation_controller_host_list": [
@@ -307,7 +315,14 @@ Steps to register
                       }
                     }
                   }'
-
+                  
+         .. tip:: | Supplementary information regarding execution_engine_list
+                  | execution_engine_list can describe 3 execution engines.
+                  | ・Ansible Core
+                  | ・Ansible Automation Controller
+                  | ・Ansible Execution Agent
+                  | The described execution engines can be used.
+                  | In the JSON example below, the Ansible Automation Controller and Ansible Execution Agent can be used.
 Confirm Ansible Automation Contoller link
 ---------------------------------------
 

@@ -12,4 +12,5 @@
    platform-api
    ita-api-organization
    ita-api-oase-reciever
+   ita-api-ansible-execution-receiver
    

@@ -650,6 +650,11 @@ Comparison execution
 
    Comparison execution page (Comparison results: file upload item)
 
+.. tip:: | Details regarding file differences
+
+         - | It is possible to see differences between the contents of 2 text based files.
+         - | Do note that it is not possible to see the differences between the contents of failes that contains binary data.
+
 | Comparison results
 
 - | Target host
