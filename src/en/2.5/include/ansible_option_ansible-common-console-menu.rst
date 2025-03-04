@@ -1,46 +1,46 @@
 
-| Ansible共通のメニュー一覧を以下に記述します。
+| The Ansible common menu list are as following.
 
-.. list-table::  Ansible共通 メニュー/画面一覧
+.. list-table::  Ansible common menu list
    :widths: 2 6 20
    :header-rows: 1
    :align: left
 
    * - No
-     - メニュー・画面
-     - 説明
+     - Menu
+     - Description
    * - 1
-     - 機器一覧
-     - 作業対象の機器情報を管理します。
+     - Device list
+     - Manages target device information
    * - 2
-     - インターフェース情報
-     - | Ansible Core、Ansible Automation Controller、Ansible Execution Agentのいずれの実行エンジンを使用するかを選択し、\
-         実行エンジンのサーバへの接続インターフェース情報を管理します。
+     - Interface information
+     - | Select which execution engine will be used, Ansible Core or Ansible Automation Controller.
+       | Manages connection interface information for the Execution engine.
    * - 3
-     - Ansible Automation Controllerホスト一覧
-     - Ansible Automation ControllerのRestAPI実行に必要な情報、および構築資材をAnsible Automation Controllerにファイル転送するために必要な情報を管理します。
+     - Ansible Automation Controller host list
+     - Manages information required to run Ansible Automation Controller's RestAPI and the information required to send construction files to Ansible Automation Controller
    * - 4
-     - グローバル変数管理
-     - 各モードのPlaybookや対話ファイルで共通利用する変数と具体値を管理します。
+     - Global variable management
+     - Manages the variables and their specific values used between all of the mode's Playbook and Interactive files.
    * - 5
-     - ファイル管理
-     - 各モードのPlaybookや対話ファイルで共通利用する素材ファイルと埋込変数を管理します。
+     - File management
+     - Manages Files and embedded variables used by both the different mode's Playbook and Interactive files.
    * - 6
-     - テンプレート管理
-     - 各モードのPlaybookや対話ファイルで共通利用するテンプレートファイルと埋込変数を管理します。
+     - Template management
+     - Manages Files and embedded variables used by both the different mode's Playbook and Template files.
    * - 7
-     - 実行環境定義テンプレート管理
-     - Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルを管理します。
+     - Execution environment definition template management
+     - Manages template files for execution environment definition files (execution-environment.yml) that are used when building the execution environment (container) with the ansible-builder within the Ansible Execution Agent.
    * - 8
-     - 実行環境管理
-     - Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルと、テンプレートに埋め込むパラメータが定義されているパラメータシートの紐付を管理します。
+     - Execution environment management
+     - Manages links Template file for the execution environment definition file (execution-environment.yml) used to build the execution environment (container) with the ansible-builder within the Ansible Execution Agent together with the Parameter sheet that defines the parameters that embeds to the template. 
    * - 9
-     - エージェント管理
-     - ITAと接続したAnsible Execution Agentのエージェント名とバージョン情報を閲覧できます。
+     - Agent management
+     - Allows users to see the agent name name and version of the Ansible Execution Agent conneccted to ITA.
    * - 10
-     - 管理対象外変数リスト
-     - 「 変数抜出対象資材 」で抜出した変数で、 :menuselection:`各モード --> 代入値自動登録設定` の  :menuselection:`:menuselection:`Movement名:変数名` に表示したくない変数を管理します。
+     - Unmanaged variable list
+     - Manages variables extracted with ":ref:`ansible_common_var_listup`" the user does not want to display in :menuselection:`Mode --> Substitute value auto registration settings`'s :menuselection:`Movement name:Variable name` item.
    * - 11
-     - 共通変数利用リスト (※1)
-     - :menuselection:`Ansible共通 --> グローバル変数管理` ・ :menuselection:`Ansible共通 --> ファイル管理` ・ :menuselection:`Ansible共通 --> テンプレート管理` に登録されている変数が、どの素材( :menuselection:`Ansible-Legacy --> Playbook素材集` ・ :menuselection:`Ansible-Pioneer --> 対話ファイル素材集` ・ :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` )で使用しているかを閲覧できます。
+     - Common variable use list (※1) 
+     - Allows users to view which variables registered in :menuselection:`Ansible common --> Global variable management` ・ :menuselection:`Ansible common --> File management` ・ :menuselection:`Ansible common --> Template management` are used with in what file( :menuselection:`Ansible-Legacy --> Playbook file collection` ・ :menuselection:`Ansible-Pioneer --> Interactive file collection` ・ :menuselection:`Ansible-LegacyRole --> Role package list` ).
 

@@ -1,4 +1,3 @@
-
 | The Ansible common menu list are as following.
 
 .. list-table::  Ansible common menu list

@@ -1,22 +1,22 @@
 ===================
-ユーザー管理 (解答)
+User management (Answers)
 ===================
 
 
-問題 (再掲)
+Questions (Repost)
 ===========
 
-| 下記のようなユーザーを Exastro IT Automation を使って管理できるようにします。
-| また、その際に、ユーザー管理だけではなく、ホスト名設定、パッケージ管理も併せて実施できる必要があります。
+| Create and manage the following users in Exastro IT Automation.
+| Make sure to not only manage users, but to also configure host names and manage packages.
 
-.. list-table:: ユーザー情報
+.. list-table:: User information
   :widths: 10 10 10 10
   :header-rows: 1
 
-  * - ユーザー名
-    - ユーザーID
-    - ログインパスワード
-    - グループ名
+  * - User name
+    - User ID
+    - Login password
+    - Group name
   * - wwwuser01
     - 10001
     - password01
@@ -35,283 +35,283 @@
     - app
 
 
-パラメータ設計
+Design parameters
 ==============
 
-| 本演習ではユーザーの管理方法について扱いますが、ユーザーは何らかのグループに必ず所属する必要があります。
-| まずは、ユーザーをパラメータシート上で管理できるようにしておきます。
+| In this guide, we have managed users. But the users also needs to belong to a group.
+| First, we will make it so users can be managed on a parameter sheet.
 
 .. _groups_parameter_sheet:
 
-グループのパラメータシート作成
+Create Group parameter sheets
 ------------------------------
 
-| グループ用のパラメータシートを作成します。
-| 利用する Ansible Role パッケージは `グループ設定 <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>`_ なので、下記のパラメータが管理できるようにパラメータシートを作成しましょう。
+| First, we will create a parameter sheet for groups.
+| The Ansible Role package used here is the `Group settings <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>`_package. Make sure when creating the parameter sheet that the it can manage the following parameters.
 
-.. list-table:: グループ設定のパラメータ
+.. list-table:: Group settings parameters
    :widths: 10 15
    :header-rows: 1
 
-   * - 項目
-     - 説明
+   * - Item 
+     - Description
    * - group_name
-     - グループ名
+     - Group name
    * - group_id
-     -	グループID
+     -	Group ID
    * - action
-     - | 構築時の設定
-       | present: 作成/更新
-       | absent: 削除
+     - | Construction settings
+       | present: Create/Update
+       | absent: Delete
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
-
-.. tip:: 
-   | :kbd:`必須` と :kbd:`一意制約` にチェックを入れることで、外部のパラメータシートから項目を参照できるようになります。
+| From :menuselection:`Create Parameter sheet --> Define/Create Parameter sheet`, register a parameter sheet.
 
 .. tip:: 
-   | パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+   | By checking both :kbd:`Required` and :kbd:`Unique restriction`, the parameter sheet can reference items from external parameter sheets.
+
+.. tip:: 
+   | By checking "use" in the :menuselection:`Use bundle` in the Parameter creation information, we can configure multiple parameters to a single item.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/グループのパラメータシート.png
    :width: 1200px
-   :alt: グループのパラメータシート
+   :alt: Group parameter sheet
 
 .. figure:: ../../../../images/learn/quickstart/answer1/グループパラメータシート作成.gif
    :width: 1200px
-   :alt: グループのパラメータシート作成
+   :alt: Group parameter sheet creation
 
-.. list-table:: グループパラメータシートの設定値
+.. list-table:: Group parameter sheet setting values
    :widths: 10 10 10 10
    :header-rows: 1
    :class: filter-table
 
-   * - 設定項目
-     - 項目1設定値
-     - 項目2設定値
-     - 項目3設定値
-   * - 項目の名前
-     - :kbd:`グループ名`
-     - :kbd:`グループID`
-     - :kbd:`状態`
-   * - 項目の名前(Rest API用) 
+   * - Setting item
+     - Item 1 setting item
+     - Item 2 setting item
+     - Item 3 setting item
+   * - Item name
+     - :kbd:`Group name`
+     - :kbd:`Group ID`
+     - :kbd:`State`
+   * - Item name(Rest API) 
      - :kbd:`group_name`
      - :kbd:`group_id`
      - :kbd:`state`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`整数`
-     - :kbd:`プルダウン選択`
-   * - 最小値
-     - (項目なし)
+   * - Input method
+     - :kbd:`String(Single line)`
+     - :kbd:`Integer`
+     - :kbd:`Pulldown selection`
+   * - Minimum value
+     - (No item)
      - 1000
-     - (項目なし)
-   * - 最大値
-     - (項目なし)
+     - (No item)
+   * - Maximum value
+     - (No item)
      - 
-     - (項目なし)
-   * - 最大バイト数
+     - (No item)
+    * - Maximum byte size
      - :kbd:`32`
-     - (項目なし)
-     - (項目なし)
-   * - 正規表現
+     - (No item)
+     - (No item)
+   * - Regular expression
      - 
-     - (項目なし)
-     - (項目なし)
-   * - 選択項目
-     - (項目なし)
-     - (項目なし)
-     - :kbd:`入力用:状態:present-absent`
-   * - 参照項目
-     - (項目なし)
-     - (項目なし)
+     - (No item)
+     - (No item)
+   * - Select item
+     - (No item)
+     - (No item)
+     - :kbd:`Input:State:present-absent`
+   * - Reference item
+     - (No item)
+     - (No item)
      - 
-   * - 初期値
+   * - Default value
      - 
      - 
      - 
-   * - 必須
+   * - Required
      - ✓
      - ✓
      - ✓
-   * - 一意制約
+   * - Unique restriction
      - ✓
      - ✓
      - 
-   * - 説明
+   * - Description
      - 
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
 
-.. list-table:: パラメータシート作成情報の設定値
+.. list-table:: Parameter creation information setting value
    :widths: 5 10
    :header-rows: 1
    :class: filter-table
 
-   * - 項目名
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - メニュー名
-     - :kbd:`グループ`
-   * - メニュー名(REST)
+   * - Item name
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`Group`
+   * - Parameter sheet name(REST)
      - :kbd:`groups`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Parameter sheet(With host/operation)`
+   * - Display order
      - :kbd:`4`
-   * - バンドル利用
-     - 「利用する」にチェックを入れる(有効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Check the "Use" box(Activate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
 
-ユーザーのパラメータシート作成
+Create parameter sheet for users
 ------------------------------
 
-| ユーザー用のパラメータシートを作成します。
-| 利用する Ansible Role パッケージは `ユーザー設定 <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`_ なので、下記のパラメータが管理できるようにパラメータシートを作成しましょう。
+| Next, we will create a parameter sheets for the users.
+| The Ansible Role package used here is the `User settings <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`_ package. Make sure when creating the parameter sheet that the it can manage the following parameters.
 
-.. list-table:: ユーザー設定のパラメータ
+.. list-table:: User settings parameters
    :widths: 10 15
    :header-rows: 1
 
-   * - 項目
-     - 説明
+   * - Item 
+     - Description
    * - user_name
-     -	ユーザー名
+     -	User name
    * - user_id
-     -	ユーザーID
+     -	User ID
    * - group_id
-     -	グループID
+     -	Group ID
    * - comment
-     -	コメント
+     -	Comment
    * - home_dir
-     - ホームディレクトリ
+     - Home directory
    * - login_shell
-     - ログインシェル名
+     - Login shell
    * - password
-     -	パスワード
+     -	Password
    * - action
-     - | 構築時の設定
-       | present: 作成/更新
-       | absent: 削除
+     - | Construction settings
+       | present: Create/Update
+       | absent: Delete
    * - password_apply
-     - | 構築時のパスワード設定の有無
-       | true: パスワードの設定を行う
-       | false: パスワードの設定を行わない
+     - | Password settings when constructing
+       | true: Will configure a password
+       | false: Will not configure a password
 
 .. warning:: 
-   | `exastro-playbook-collection <https://github.com/exastro-playbook-collection>`_ は、ITA readme を包含した状態で提供されているため、ITA readme で指定された全ての変数に対してパラメータ管理がする必要があります。
+   | Since the `exastro-playbook-collection <https://github.com/exastro-playbook-collection>`_is delivered containing ITA readme. This means that the user will have to manage parameters for all the variables specified in the ITA readme file.
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
+| From :menuselection:`Create Parameter sheet --> Define/Create Parameter sheet`, register a parameter sheet.
 
 .. tip:: 
-   | :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`groups_parameter_sheet` で登録したデータシートを参照できるようになります。
+   | By configuring :kbd:`Pulldown selection` for the :menuselection:`Input method`, we can reference the datasheet registered in :ref:`groups_legacy_parameter_sheet`.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザーのパラメータシート.png
    :width: 1200px
-   :alt: ユーザーのパラメータシート
+   :alt: User parameter sheet
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザーパラメータシート作成_1.gif
    :width: 1200px
-   :alt: ユーザーのパラメータシートの作成1
+   :alt: User parameter creation 1
 
 .. list-table:: パラメータ項目の設定値(1/2)
    :widths: 10 10 10 10 10 10
    :header-rows: 1
    :class: filter-table
 
-   * - 設定項目
-     - 項目1設定値
-     - 項目2設定値
-     - 項目3設定値
-     - 項目4設定値
-     - 項目5設定値
-   * - 項目の名前
-     - :kbd:`ユーザー名`
-     - :kbd:`ユーザーID`
-     - :kbd:`パスワード`
-     - :kbd:`パスワード設定`
-     - :kbd:`グループ`
-   * - 項目の名前(Rest API用) 
+   * - Setting item
+     - Item 1 setting value
+     - Item 2 setting value
+     - Item 3 setting value
+     - Item 4 setting value
+     - Item 5 setting value
+   * - Item name
+     - :kbd:`User name`
+     - :kbd:`User ID`
+     - :kbd:`Password`
+     - :kbd:`Password settings`
+     - :kbd:`Group`
+   * - Item name(Rest API) 
      - :kbd:`user_name`
      - :kbd:`user_id`
      - :kbd:`password`
      - :kbd:`password_apply`
      - :kbd:`group`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`整数`
-     - :kbd:`パスワード`
-     - :kbd:`プルダウン選択`
-     - :kbd:`プルダウン選択`
-   * - 最大バイト数
+   * - Input method
+     - :kbd:`String(Single line)`
+     - :kbd:`Integer`
+     - :kbd:`Password`
+     - :kbd:`Pulldown selection`
+     - :kbd:`Pulldown selection`
+   * - Maximum byte size
      - :kbd:`32`
-     - (項目なし)
+     - (No item)
      - :kbd:`32`
-     - (項目なし)
-     - (項目なし)
-   * - 正規表現
+     - (No item)
+     - (No item)
+   * - Regular expression
      - 
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-   * - 最小値
-     - (項目なし)
+     - (No item)
+     - (No item)
+     - (No item)
+     - (No item)
+   * - Minimum value
+     - (No item)
      - :kbd:`1000`
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
+     - (No item)
+     - (No item)
+     - (No item)
    * - 最大値
-     - (項目なし)
+     - (No item)
      - 
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-   * - 選択項目
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - :kbd:`パラメータシート作成:選択2:True-False`
-     - :kbd:`入力用:グループ:グループ名`
-   * - 参照項目
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - 
-     - 
-   * - 初期値
+     - (No item)
+     - (No item)
+     - (No item)
+   * - Select item
+     - (No item)
+     - (No item)
+     - (No item)
+     - :kbd:`Create Parameter sheet:Selection 2:True-False`
+     - :kbd:`Input:Group:Group name`
+   * - Reference item
+     - (No item)
+     - (No item)
+     - (No item)
      - 
      - 
-     - (項目なし)
+   * - Default value
+     - 
+     - 
+     - (No item)
      - :kbd:`False`
      - 
-   * - 必須
+   * - Required
      - ✓
      - ✓
      - ✓
      - ✓
      - ✓
-   * - 一意制約
+   * - Unique restriction
      - ✓
      - ✓
      - 
      - 
      - 
-   * - 説明
+   * - Description
      - 
      - 
      - 
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
@@ -320,195 +320,195 @@
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザーパラメータシート作成_2.gif
    :width: 1200px
-   :alt: ユーザーのパラメータシート作成_2
+   :alt: User parameter sheet creation 2 
 
-.. list-table:: パラメータ項目の設定値(2/2)
+.. list-table:: Parameter item setting value(2/2)
    :widths: 10 10 10 10 10
    :header-rows: 1
    :class: filter-table
 
-   * - 設定項目
-     - 項目6設定値
-     - 項目7設定値
-     - 項目8設定値
-     - 項目9設定値
-   * - 項目の名前
-     - :kbd:`ホームディレクトリ`
-     - :kbd:`ログインシェル`
-     - :kbd:`コメント`
-     - :kbd:`状態`
-   * - 項目の名前(Rest API用) 
+   * - Setting item
+     - Item 6 setting value
+     - Item 7 setting value
+     - Item 8 setting value
+     - Item 9 setting value
+   * - Item name
+     - :kbd:`Home directory`
+     - :kbd:`Login shell`
+     - :kbd:`Comment`
+     - :kbd:`State`
+   * - Item name(Rest API) 
      - :kbd:`home_dir`
      - :kbd:`login_shell`
      - :kbd:`comment`
      - :kbd:`state`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`プルダウン選択`
-   * - 最大バイト数
+   * - Input method
+     - :kbd:`String(Single line)`
+     - :kbd:`String(Single line)`
+     - :kbd:`String(Single line)`
+     - :kbd:`Pulldown selection`
+   * - Maximum byte size
      - :kbd:`128`
      - :kbd:`32`
      - :kbd:`128`
-     - (項目なし)
-   * - 正規表現
+     - (No item)
+   * - Regular expression
      - 
      - 
      - 
-     - (項目なし)
-   * - 最小値
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-   * - 最大値
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-   * - 選択項目
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
-     - :kbd:`入力用:状態:present-absent`
-   * - 参照項目
-     - (項目なし)
-     - (項目なし)
-     - (項目なし)
+     - (No item)
+   * - Minimum value
+     - (No item)
+     - (No item)
+     - (No item)
+     - (No item)
+   * - Maximum value
+     - (No item)
+     - (No item)
+     - (No item)
+     - (No item)
+   * - Select item
+     - (No item)
+     - (No item)
+     - (No item)
+     - :kbd:`Input:State:present-absent`
+   * - Reference item
+     - (No item)
+     - (No item)
+     - (No item)
      - 
-   * - 初期値
+   * - Default value
      - 
      - :kbd:`/bin/bash`
      - 
      - 
-   * - 必須
+   * - Required
      - ✓
      - ✓
      - ✓
      - ✓
-   * - 一意制約
+   * - Unique restriction
      - 
      - 
      - 
      - 
-   * - 説明
+   * - Description
      - 
      - 
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
      - 
 
-.. list-table:: パラメータシート作成情報の設定値
+.. list-table:: Parameter sheet creation information and setting values
    :widths: 5 10
    :header-rows: 1
    :class: filter-table
 
-   * - 項目名
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - メニュー名
-     - :kbd:`ユーザー`
-   * - メニュー名(REST)
+   * - Item name
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`User`
+   * - Parameter sheet name(REST)
      - :kbd:`users`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Parameter sheet(With host/operation)`
+   * - Display order
      - :kbd:`3`
-   * - バンドル利用
-     - 「利用する」にチェックを入れる(有効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Check the "Use" box(Activate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
 
-作業手順の登録
+Register operation steps
 ==============
 
-| グループを作成・削除してから、ユーザーを作成・削除する順番で Ansible Role が実行されるように Movement を設定します。
-| これまでのシナリオでは、1つの Movement ごとに1つの Ansible Role を紐付けていましたが、今回は 1つの Movement に対して、グループ管理とユーザー管理が行えるように設定します。
+| We will now configure a Movement so when the Ansible Role is executed, the Group(s) are created/deleted and then the users are created/deleted.
+| Up until now, we have only linked 1 Ansible Role per movement. But in this one, we will manage both groups and users with 1 Movement.
 
 .. note:: 
-   | グループ管理とユーザー管理それぞれに対して、Movement を1つずつ作成しても同じように動作させることができます。
+   | We can achieve the same result by creating 1 Movement for both managing groups and managing users.
 
 Movement 登録
 -------------
 
-| :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
+| From :menuselection:`Ansible-LegacyRole --> Movement list`, register a Movement for managing users.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザーMovement登録設定.png
    :width: 1200px
-   :alt: Movement登録
+    :alt: Register Movement
    
-.. list-table:: Movement 情報の設定値
+.. list-table:: Movement information setting value
    :widths: 10 10 10
    :header-rows: 2
 
-   * - Movement名
-     - Ansible利用情報
+   * - Movement name
+     - Ansible use information
      - 
    * - 
-     - ホスト指定形式
-     - ヘッダーセクション
-   * - :kbd:`ユーザー管理`
+     - Host specification method
+     - Header section
+   * - :kbd:`User management`
      - :kbd:`IP`
-     - :kbd:`※ヘッダーセクションを参照`
+     - :kbd:`※reference Header section`
 
 .. code-block:: bash
-   :caption: ヘッダーセクション
+   :caption: Header section
 
    - hosts: all
-     remote_user: "{{ __loginuser__ }}"
+     remote_User: "{{ __loginuser__ }}"
      gather_facts: no
      become: yes
 
-Ansible Role 登録
+Register Ansible Role
 -----------------
 
-| 利用するロールパッケージは :doc:`前のシナリオ <scenario1>` で登録した `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用するため、作業は不要です。
+| In this scenario, we will use the `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_role package registered in the :doc:`previous scenario <scenario1>`. No additional registration of configuration is required.
 
-Movement と Ansible Role の紐付け
+Link Movement and Ansible Role
 ---------------------------------
 
-| :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` から、Movement と Ansible Role パッケージの紐付けを行います。
-| 本シナリオでは、 `グループ管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>`_ および `ユーザー管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`_ を利用します。
-| ユーザーを作成する際には、先にグループを指定する必要があるため下記の順序でインクルードする必要があります。
+| From the :menuselection:`Ansible-LegacyRole --> Movement-Role link` menu, link the Movement with the Ansible Role packages.
+| In this scenario, we will use `Ansible Role package for Group management <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>` and `Ansible Role package for User management <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`.
+| When creating users, we must first specify the group they belong to, meaning that we will have to include the following display orders.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/MovementとAnsibleRoleの紐づけ.png
    :width: 1200px
-   :alt: MovementとAnsibleRoleの紐づけ
+   :alt: Link Movement and AnsibleRole
 
-.. list-table:: Movement-ロール紐付け情報の登録
+.. list-table:: Register Movement-Role link information
   :widths: 10 30 10
   :header-rows: 1
 
-  * - Movement名
-    - ロールパッケージ名:ロール名
-    - インクルード順序
-  * - :kbd:`ユーザー管理`
+  * - Movement name
+    - Role package name: Role name
+    - Include order
+  * - :kbd:`User management`
     - :kbd:`OS-RHEL8:OS-RHEL8/RH_group/OS_build`
     - :kbd:`1`
-  * - :kbd:`ユーザー管理`
+  * - :kbd:`User management`
     - :kbd:`OS-RHEL8:OS-RHEL8/RH_user/OS_build`
     - :kbd:`2`
 
-変数ネスト管理
+Variable nest management
 --------------
 
-| :menuselection:`Ansible-LegacyRole --> 変数ネスト管理` から、管理するグループ、ユーザー数の上限値の設定を行います。
+| From the :menuselection:`Ansible-LegacyRole --> Variable nest management` menu, configure the max value for number of users and groups that can be managed.
 
-| グループおよびユーザーの変数は下記の通り多段変数です。
+| The variables for Group and users are the following multi-stage variables.
 
 .. code-block:: yaml
-   :caption: VAR_RH_group の変数構造(=多段変数)
+   :caption: VAR_RH_group variable structure(=Multi-stage variable)
 
-   # VAR_RH_group に対して、変数のセットが繰り返し、かつ、セット数が不定
+   # Indefinite number variable set (action and pkg name) repeats for VAR_RH_group
    VAR_RH_group:
    - action: present
      group_id: '1100'
@@ -523,7 +523,7 @@ Movement と Ansible Role の紐付け
 .. code-block:: yaml
    :caption: VAR_RH_user の変数構造(=多段変数)
 
-   # VAR_RH_user に対して、変数のセットが繰り返し、かつ、セット数が不定
+   # Indefinite number variable set (action and pkg name) repeats for VAR_RH_user
    VAR_RH_user:
    - action: present
      comment: create testuser
@@ -546,519 +546,519 @@ Movement と Ansible Role の紐付け
      user_name: testuser99
      ...
 
-| 多段変数の場合、その上限数を予め決めておく必要があります。
+| For multi-stage variables, the user must determine a max number in advance.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/変数ネスト管理.gif
    :width: 1200px
-   :alt: 変数ネスト管理
+   :alt: Variable nest management
 
-.. list-table:: 変数ネスト情報の登録
+.. list-table:: Variable nest information registration
    :widths: 10 10 20 10
    :header-rows: 1
 
-   * - Movement名
-     - 変数名
-     - メンバー変数名(繰返し有)
-     - 最大繰返数
-   * - :kbd:`ユーザー管理`
+   * - Movement name
+     - Variable name
+     - Member variable name(Repeating)
+     - Maximum repetitions
+   * - :kbd:`User management`
      - :kbd:`VAR_RH_group`
      - :kbd:`0`
      - :kbd:`5`
-   * - :kbd:`ユーザー管理`
+   * - :kbd:`User management`
      - :kbd:`VAR_RH_user`
      - :kbd:`0`
      - :kbd:`10`
 
-代入値自動登録設定
+Substitute value auto registration settings
 ------------------
 
-| :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Role パッケージの変数の紐付けを行います。
-| 大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。
+| From the :menuselection:`Ansible-LegacyRole --> Substitute value auto registration settings` menu, link the parameter sheet items with the Ansible Role package variables.
+| If the user wants to register large amounts of data, we recommend that they use the Download all/File bulk registration function.
+| From :menuselection:`Ansible-LegacyRole --> Substitute value auto registration settings` --> Download all/File bulk registration, download the file for new registrations. Users can then edit the file to register files and substitute value auto registration settings more easily.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/グループの代入値自動登録設定.gif
    :width: 1200px
-   :alt: グループの代入値自動登録設定
+   :alt: Group substitute value auto registration settings
 
-.. list-table:: グループの代入値自動登録設定の設定値
+.. list-table:: Group substitute value auto registration settings Setting values
   :widths: 40 10 10 20 20 30
   :header-rows: 2
 
-  * - パラメータシート(From)
+  * - Parameter sheet(From)
     -
-    - 登録方式
-    - Movement名
-    - IaC変数(To)
+    - Registration method
+    - Movement name
+    - IaC variable(To)
     -
-  * - メニューグループ:メニュー:項目
-    - 代入順序
+  * - Menu group:Menu:Item
+    - Substitute order
     -
     -
-    - Movement名:変数名
-    - Movement名:変数名:メンバー変数
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+    - Movement name:Variable name
+    - Movement name:Variable name:Member variable
+  * - :kbd:`Substitute value auto registration settings:Group:Group name`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[0].group_name`
-  * - :kbd:`代入値自動登録用:グループ:グループID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[0].group_name`
+  * - :kbd:`Substitute value auto registration settings:Group:Group ID`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[0].group_id`
-  * - :kbd:`代入値自動登録用:グループ:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[0].group_id`
+  * - :kbd:`Substitute value auto registration settings:Group:State`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[0].action`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[0].action`
+  * - :kbd:`Substitute value auto registration settings:Group:Group name`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[1].group_name`
-  * - :kbd:`代入値自動登録用:グループ:グループID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[1].group_name`
+  * - :kbd:`Substitute value auto registration settings:Group:Group ID`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[1].group_id`
-  * - :kbd:`代入値自動登録用:グループ:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[1].group_id`
+  * - :kbd:`Substitute value auto registration settings:Group:State`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[1].action`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[1].action`
   * - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
-  * - :kbd:`代入値自動登録用:グループ:グループ名`
+  * - :kbd:`Substitute value auto registration settings:Group:Group name`
     - :kbd:`5`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[4].group_name`
-  * - :kbd:`代入値自動登録用:グループ:グループID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[4].group_name`
+  * - :kbd:`Substitute value auto registration settings:Group:Group ID`
     - :kbd:`5`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[4].group_id`
-  * - :kbd:`代入値自動登録用:グループ:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[4].group_id`
+  * - :kbd:`Substitute value auto registration settings:Group:State`
     - :kbd:`5`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_group`
-    - :kbd:`ユーザー管理:VAR_RH_group:[4].action`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_group`
+    - :kbd:`User management:VAR_RH_group:[4].action`
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザーの代入値自動登録設定.gif
    :width: 1200px
-   :alt: ユーザーの代入値自動登録設定
+   :alt: Substitute value auto registration settings for User
 
-.. list-table:: ユーザーの代入値自動登録設定の設定値
+.. list-table:: Substitute value auto registration settings values for User 
   :widths: 40 10 10 20 20 30
   :header-rows: 2
 
-  * - パラメータシート(From)
+  * - Parameter sheet(From)
     -
-    - 登録方式
-    - Movement名
-    - IaC変数(To)
+    - Registration method
+    - Movement name
+    - IaC variables(To)
     -
-  * - メニューグループ:メニュー:項目
-    - 代入順序
+  * - Menu group:Menu:Item
+    - Substitute order
     -
     -
-    - Movement名:変数名
-    - Movement名:変数名:メンバー変数
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+    - Movement name:Variable name
+    - Substitute order
+  * - :kbd:`Substitute value auto registration settings:User:User name`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].user_name`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザーID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].user_name`
+  * - :kbd:`Substitute value auto registration settings:User:User ID`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].user_id`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].user_id`
+  * - :kbd:`Substitute value auto registration settings:User:Password`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].password`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード設定`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].password`
+  * - :kbd:`Substitute value auto registration settings:User:Password settings`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].password_apply`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].password_apply`
+  * - :kbd:`Substitute value auto registration settings:User:Group`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].group_id`
-  * - :kbd:`代入値自動登録用:ユーザー:ホームディレクトリ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].group_id`
+  * - :kbd:`Substitute value auto registration settings:User:Home directory`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].home_dir`
-  * - :kbd:`代入値自動登録用:ユーザー:ログインシェル`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].home_dir`
+  * - :kbd:`Substitute value auto registration settings:User:Login shell`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].login_shell`
-  * - :kbd:`代入値自動登録用:ユーザー:コメント`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].login_shell`
+  * - :kbd:`Substitute value auto registration settings:User:Comment`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].comment`
-  * - :kbd:`代入値自動登録用:ユーザー:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].comment`
+  * - :kbd:`Substitute value auto registration settings:User:State`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[0].action`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[0].action`
+  * - :kbd:`Substitute value auto registration settings:User:User name`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].user_name`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザーID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].user_name`
+  * - :kbd:`Substitute value auto registration settings:User:User ID`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].user_id`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].user_id`
+  * - :kbd:`Substitute value auto registration settings:User:Password`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].password`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード設定`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].password`
+  * - :kbd:`Substitute value auto registration settings:User:Password settings`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].password_apply`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].password_apply`
+  * - :kbd:`Substitute value auto registration settings:User:Group`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].group_id`
-  * - :kbd:`代入値自動登録用:ユーザー:ホームディレクトリ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].group_id`
+  * - :kbd:`Substitute value auto registration settings:User:Home directory`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].home_dir`
-  * - :kbd:`代入値自動登録用:ユーザー:ログインシェル`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].home_dir`
+  * - :kbd:`Substitute value auto registration settings:User:Login shell`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].login_shell`
-  * - :kbd:`代入値自動登録用:ユーザー:コメント`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].login_shell`
+  * - :kbd:`Substitute value auto registration settings:User:Comment`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].comment`
-  * - :kbd:`代入値自動登録用:ユーザー:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].comment`
+  * - :kbd:`Substitute value auto registration settings:User:State`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[1].action`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[1].action`
+  * - :kbd:`Substitute value auto registration settings:User:User name`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].user_name`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザーID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].user_name`
+  * - :kbd:`Substitute value auto registration settings:User:User ID`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].user_id`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].user_id`
+  * - :kbd:`Substitute value auto registration settings:User:Password`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].password`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード設定`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].password`
+  * - :kbd:`Substitute value auto registration settings:User:Password settings`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].password_apply`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].password_apply`
+  * - :kbd:`Substitute value auto registration settings:User:Group`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].group_id`
-  * - :kbd:`代入値自動登録用:ユーザー:ホームディレクトリ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].group_id`
+  * - :kbd:`Substitute value auto registration settings:User:Home directory`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].home_dir`
-  * - :kbd:`代入値自動登録用:ユーザー:ログインシェル`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].home_dir`
+  * - :kbd:`Substitute value auto registration settings:User:Login shell`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].login_shell`
-  * - :kbd:`代入値自動登録用:ユーザー:コメント`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].login_shell`
+  * - :kbd:`Substitute value auto registration settings:User:Comment`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].comment`
-  * - :kbd:`代入値自動登録用:ユーザー:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].comment`
+  * - :kbd:`Substitute value auto registration settings:User:State`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[2].action`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[2].action`
+  * - :kbd:`Substitute value auto registration settings:User:User name`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].user_name`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザーID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].user_name`
+  * - :kbd:`Substitute value auto registration settings:User:User ID`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].user_id`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].user_id`
+  * - :kbd:`Substitute value auto registration settings:User:Password`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].password`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード設定`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].password`
+  * - :kbd:`Substitute value auto registration settings:User:Password settings`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].password_apply`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].password_apply`
+  * - :kbd:`Substitute value auto registration settings:User:Group`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].group_id`
-  * - :kbd:`代入値自動登録用:ユーザー:ホームディレクトリ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].group_id`
+  * - :kbd:`Substitute value auto registration settings:User:Home directory`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].home_dir`
-  * - :kbd:`代入値自動登録用:ユーザー:ログインシェル`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].home_dir`
+  * - :kbd:`Substitute value auto registration settings:User:Login shell`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].login_shell`
-  * - :kbd:`代入値自動登録用:ユーザー:コメント`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].login_shell`
+  * - :kbd:`Substitute value auto registration settings:User:Comment`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].comment`
-  * - :kbd:`代入値自動登録用:ユーザー:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].comment`
+  * - :kbd:`Substitute value auto registration settings:User:State`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[3].action`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[3].action`
   * - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザー名`
+  * - :kbd:`Substitute value auto registration settings:User:User name`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].user_name`
-  * - :kbd:`代入値自動登録用:ユーザー:ユーザーID`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].user_name`
+  * - :kbd:`Substitute value auto registration settings:User:User ID`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].user_id`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].user_id`
+  * - :kbd:`Substitute value auto registration settings:User:Password`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].password`
-  * - :kbd:`代入値自動登録用:ユーザー:パスワード設定`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].password`
+  * - :kbd:`Substitute value auto registration settings:User:Password settings`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].password_apply`
-  * - :kbd:`代入値自動登録用:ユーザー:グループ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].password_apply`
+  * - :kbd:`Substitute value auto registration settings:User:Group`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].group_id`
-  * - :kbd:`代入値自動登録用:ユーザー:ホームディレクトリ`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].group_id`
+  * - :kbd:`Substitute value auto registration settings:User:Home directory`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].home_dir`
-  * - :kbd:`代入値自動登録用:ユーザー:ログインシェル`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].home_dir`
+  * - :kbd:`Substitute value auto registration settings:User:Login shell`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].login_shell`
-  * - :kbd:`代入値自動登録用:ユーザー:コメント`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].login_shell`
+  * - :kbd:`Substitute value auto registration settings:User:Comment`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].comment`
-  * - :kbd:`代入値自動登録用:ユーザー:状態`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].comment`
+  * - :kbd:`Substitute value auto registration settings:User:State`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`ユーザー管理`
-    - :kbd:`ユーザー管理:VAR_RH_user`
-    - :kbd:`ユーザー管理:VAR_RH_user:[9].action`
+    - :kbd:`Value type`
+    - :kbd:`User management`
+    - :kbd:`User management:VAR_RH_user`
+    - :kbd:`User management:VAR_RH_user:[9].action`
 
 
-作業対象の登録
+Register operation target
 ==============
 
-| 作業実施を行う対象機器の登録を行います。
+| Register the target device where the operations will be executed to.
 
-機器登録
+Register device
 --------
 
-| 作業対象となるサーバーは :doc:`前のシナリオ <scenario1>` で登録した web01 を利用するため、作業は不要です。
+| We will use the web01 server registered in the :doc:`previous scenario <scenario1>`, meaning no additional steps are required.
 
 
-ユーザー追加作業の実施
+Add users
 ======================
 
-| Movement を実行してユーザーとグループを追加します。
+| Run the Movement and add user and group.
 
-作業概要の作成
-==============
+Create Operation overview
+--------------
 
-| まずは作業計画を立てましょう。
+| Start with planning the operation.
 
-.. list-table:: 作業の方針
+.. list-table:: Operation overview
    :widths: 15 10
    :header-rows: 0
 
-   * - 作業実施日時
+   * - Execution date/time
      - 2023/04/04 12:00:00
-   * - 作業対象
+   * - Target
      - web01(RHEL8)
-   * - 作業内容
-     - Webサーバーへのユーザー追加作業
+   * - Contents
+     - Add user to Web server
 
-作業概要登録
+Register operation overview
 ------------
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From :menuselection:`Basic console --> Operation list`, register the execution date and execution name.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/作業概要登録.png
    :width: 1200px
-   :alt: Conductor作業実行
+   :alt: Conductor execution
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`Webサーバーへのユーザー追加作業`
+   * - Operation name
+     - Execution date/time
+   * - :kbd:`Add user to Web server`
      - :kbd:`2023/04/04 12:00:00`
 
-パラメータ設定
+Configure Parameters
 --------------
 
-| :menuselection:`入力用 --> グループ` から、グループに対するパラメータを登録します。
+| From :menuselection:`Input --> Group`, reigster the parameters for the groups.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/グループのパラメータ登録.gif
    :width: 1200px
-   :alt: グループのパラメータ登録
+   :alt: Register group parameters
 
-.. list-table:: グループパラメータの設定値
+.. list-table:: Group parameter setting values
   :widths: 5 20 5 5 5 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - 代入順序
-    - パラメータ
+  * - Host name
+    - Operation
+    - Substitute order
+    - Parameter
     - 
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
-    - グループ名
-    - グループID
-    - 状態
+    - Group name
+    - Group ID
+    - State
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`1`
     - :kbd:`www`
     - :kbd:`10001`
     - :kbd:`present`
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`2`
     - :kbd:`app`
     - :kbd:`10002`
     - :kbd:`present`
 
-| :menuselection:`入力用 --> ユーザー` から、ユーザーに対するパラメータを登録します。
-| 大量の値を設定する場合は、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録するとパラメータ設定が簡単に行うことが出来ます。
+| From :menuselection:`Input --> User` register the parameters for the users.
+| If the user wants to register large amounts of data, we recommend that they use the Download all/File bulk registration function.
+| From :menuselection:`Ansible-LegacyRole --> Substitute value auto registration settings` --> Download all/File bulk registration, download the file for new registrations. Users can then edit the file to register files and substitute value auto registration settings more easily.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/ユーザのパラメータ登録.gif
    :width: 1200px
-   :alt: ユーザのパラメータ登録
+   :alt: User parameter registration
 
-.. list-table:: ユーザーパラメータの設定値
+.. list-table:: User parameter setting values
   :widths: 5 20 5 5 5 5 5 5 10 5 10 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - 代入順序
-    - パラメータ
+  * - Host name
+    - Operation
+    - Substitute order
+    - Parameter
     - 
     - 
     - 
@@ -1068,19 +1068,19 @@ Movement と Ansible Role の紐付け
     - 
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
-    - ユーザー名
-    - ユーザーID
-    - パスワード
-    - パスワード設定
-    - グループ
-    - ホームディレクトリ
-    - ログインシェル
-    - コメント
-    - 状態
+    - User name
+    - User ID
+    - Password
+    - Password settings
+    - Group
+    - Home directory
+    - Login shell
+    - Comment
+    - State
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`1`
     - :kbd:`wwwuser01`
     - :kbd:`10001`
@@ -1092,7 +1092,7 @@ Movement と Ansible Role の紐付け
     - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`2`
     - :kbd:`wwwuser02`
     - :kbd:`10002`
@@ -1104,7 +1104,7 @@ Movement と Ansible Role の紐付け
     - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`3`
     - :kbd:`appuser01`
     - :kbd:`20001`
@@ -1116,7 +1116,7 @@ Movement と Ansible Role の紐付け
     - :kbd:`Application server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへのユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`4`
     - :kbd:`appuser02`
     - :kbd:`20002`
@@ -1128,78 +1128,78 @@ Movement と Ansible Role の紐付け
     - :kbd:`Application server maintainer`
     - :kbd:`present`
 
-作業実行
+Run operation
 --------
 
-1. 事前確認
+1. Pre-confirmation
 
-   | 現在のサーバーの状態を確認しましょう。
+   | Confirm the current state of the server.
 
-   | グループ一覧を確認します。
-
-   .. code-block:: bash
-      :caption: コマンド
-
-      # グループ一覧の取得
-      cat /etc/group|grep -E "app|www"
+   | Confirm group list.
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Command
 
-      # 何も表示されない
-
-   | ユーザー一覧を確認します。
-
-   .. code-block:: bash
-      :caption: コマンド
-
-      # ユーザー一覧の取得
-      cat /etc/passwd|grep -E "app|www"
+      # Fetch group list
+      cat /etc/group|grep -E "www|app"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
-      # 何も表示されない
+      # Displays nothing
 
-2. 作業実行
+   | Confirm user list.
 
-   | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ユーザー管理` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`Webサーバーへのユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+   .. code-block:: bash
+      :caption: Command
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+      # Fetch user list
+      cat /etc/passwd|grep -E "www|app"
+
+   .. code-block:: bash
+      :caption: Results
+
+      # Displays nothing
+
+2. Run operation
+
+   | From :menuselection:`Ansible-LegacyRole --> Execution`, select the :kbd:`User management` Movement and press :guilabel:` Execute`.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`Add user to Web server` and press :guilabel:`Execute`.
+
+   | This opens the  :menuselection:`Execuction status confirmation` page. In here, check that the status says "Complete" after the execution has finished.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/作業実行.gif
    :width: 1200px
-   :alt: 作業実行
+   :alt: Execute
 
-1. 事後確認
+1. Post-confirmation
 
-   | 再度サーバーに下記のグループとユーザーが設定されていることを確認しましょう。
+   | Check that the following groups and users has been configured.
 
-   | グループ一覧を確認します。
+   | Confirm group list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # グループ一覧の取得
+      # Fetch group list
       cat /etc/group|grep -E "app|www"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       www:x:10001:
       app:x:10002:
 
-   | ユーザー一覧を確認します。
+   | Confirm user list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ユーザー一覧の取得
+      # Fetch user list
       cat /etc/passwd|grep -E "app|www"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       wwwuser01:x:10001:10001:Web server mainterner:/home/wwwuser01:/bin/bash
       wwwuser02:x:10002:10001:Web server mainterner:/home/wwwuser02:/bin/bash
@@ -1207,100 +1207,99 @@ Movement と Ansible Role の紐付け
       appuser02:x:20002:10002:Application server mainterner:/home/appuser02:/bin/bash
 
 
-(参考) 既存のジョブフローへの追加
+(Reference) Adding to existing jobflows
 =================================
 
-| 本演習では、ジョブフローを利用せずに Movement から直接ユーザー設定作業を実施しましたが、当然ジョブフローの利用も可能です。
-| ジョブフローシナリオまでに行ったサーバー構築の一連の作業の中に本演習で作成した Movement を組み込むことで、ホスト名登録、パッケージ導入、ユーザー登録といった一連の作業フローを組み立てることができます。
-| この場合の作業の流れは、
+| In this scenario, although the users directly configured users by using Movements, the same can be done through jobflows as well.
+| By including the Movements created in this scenario in the Server construction operations in the Jobflow scenario, users can register host names, install packages and register users in one jobflow.
+| In order to do so, the user would have to following the steps below.
 
-1. ジョブフローの作成
-2. オペレーション登録
-3. ホスト名のパラメータ登録 (パラメータ変更なし)
-4. パッケージのパラメータ登録 (パラメータ変更なし)
-5. グループのパラメータ登録
-6. ユーザーのパラメータ登録
-7. ジョブフロー実行
+1. Create Jobflow
+2. Register operations
+3. Register host name parameters (No parameter changes)
+4. Register package parameters (No parameter changes)
+5. Register group parameters
+6. Register user parameters
+7. Run Jobflow
 
-| となります。
-| しかし、Exastro IT Automation では、オペレーションと機器の組み合わせごとにパラメータを登録する必要があるため、今回のように、グループとユーザーのみの設定にも関わらず、それ以外のホスト名やパッケージといったパラメータを設定をしなげればなりません。
+| Do note that in Exastro IT Automation, parameters must be registered for each linked operation and device. This means that not only must the user configure the group and user, but also parameters for the host names and packages.
 
-| このような場合に個別オペレーションを設定することで、Movement ごとにオペレーションを設定することができます。
-| ただし、個別オペレーションを使った場合、実行時のオペレーションとは異なるオペレーションによりパラメータが管理されるため、運用上パラメータの見通しが悪くなることもあります。
+| For cases like this, users can use individual operations and configure them to Movements.
+| However, note that if individual operations are used, the managed parameters will be different from the operations when executed. 
 
-ジョブフローの編集と実行 (失敗例)
+Executing and editing Jobflow (Bad example)
 ---------------------------------
 
-| :menuselection:`Conductor --> Conductor一覧` から、:kbd:`サーバー構築` の :guilabel:`詳細` を押下し、ジョブフローを編集します。
+| From the :menuselection:`Conductor --> Conductor list` menu, press the :guilabel:`Details` button under :kbd:`Construct server` and edit the Jobflow.
 
-| 1. 画面上部の :guilabel:` 編集` を押下し、更新モードに移行します。
-| 2. 右下のペインに、作成した :kbd:`ユーザー管理` Movement があるので、これを画面中央にドラッグアンドドロップします。
-| 3. 各 Mode 間を下記の様に再接続します。
+| 1. Press the :guilabel:` Edit` button on the top of the page and change to Edit mode.
+| 2. All the :kbd:`User management` Movements can be seen in the bottom right panel. Drag and drop them to the middle of the screen.
+| 3. Follow the table below and connect the different Nodes to each other.
  
-.. list-table:: オブジェクト間の接続
+.. list-table:: Operation connections
    :widths: 10 10
    :header-rows: 1
 
    * - OUT
      - IN
    * - :kbd:`Start`
-     - :kbd:`ホスト名設定`
-   * - :kbd:`ホスト名設定`
-     - :kbd:`パッケージ管理`
-   * - :kbd:`パッケージ管理`
-     - :kbd:`ユーザー管理`
-   * - :kbd:`ユーザー管理`
+     - :kbd:`Host name settings`
+   * - :kbd:`Host name settings`
+     - :kbd:`Package management`
+   * - :kbd:`Package management`
+     - :kbd:`User management`
+   * - :kbd:`User management`
      - :kbd:`End`
 
 
-| 4. 画面上部にある、 :guilabel:` 更新` を押下します。
-| 5. :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
-| 6. :kbd:`サーバー構築` Conductor を選択し、:guilabel:`選択決定` を押下します。
-| 7. オペレーションに :kbd:`Webサーバーへのユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+| 4. Press the :guilabel:` Update` button on the top of the page.
+| 5. From the :menuselection:`Conductor --> Conductor edit/execute` menu, press the :guilabel:` Select` button.
+| 6. Select the :kbd:`Construct server` Conductor and press the :guilabel:`Select` button.
+| 7. Select the  :kbd:`Add user to Web server` operation and press the :guilabel:`Execute` button.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/実行失敗.gif
    :width: 1200px
-   :alt: 実行失敗
+   :alt: Failed execution
 
-| :menuselection:`Conductor作業確認` 画面が開き、ホスト名設定の Movement が ERROR となり想定外エラーになるはずです。
-| これは、:kbd:`Webサーバーへのユーザー追加作業` に紐づくホスト名のパラメータがないことにより起こる動作です。
+| The :menuselection:`Conductor execution confirmation` menu will be opened and the "Host name configuration" Movement should display "Unexpected error".
+| This is caused by the :kbd:`Add user to Web server` not having any host name parameters linked to it.
 
-ジョブフローの編集と実行 (成功例)
+Executing and editing Jobflow (Good example)
 ---------------------------------
 
-| :menuselection:`Conductor --> Conductor一覧` から、:kbd:`サーバー構築` の :guilabel:`詳細` を押下し、再度ジョブフローを編集します。
+| From the :menuselection:`Conductor --> Conductor list` menu, press the :guilabel:`Details` button under :kbd:`Construct server` and edit the Jobflow.
 
-| 1. 画面上部の :guilabel:` 編集` を押下し、更新モードに移行します。
-| 2. 右下のペインに、作成した :kbd:`ユーザー管理` Movement があるので、これを画面中央にドラッグアンドドロップします。
-| 3. 各 Mode に対して下記の様に個別オペレーションを設定します。
+| 1. Press the :guilabel:` Edit` button on the top of the page and change to Edit mode.
+| 2. All the :kbd:`User management` Movements can be seen in the bottom right panel. Drag and drop them to the middle of the screen.
+| 3. Follow the table below and connect the different Nodes to each other.
  
-.. list-table:: 個別オペレーション設定
+.. list-table:: Operation connections
    :widths: 10 10
    :header-rows: 1
 
    * - Movement
-     - オペレーション名
-   * - :kbd:`ホスト名設定`
-     - :kbd:`RHEL8のホスト名変更作業`
-   * - :kbd:`パッケージ管理`
-     - :kbd:`RHEL8のパッケージ管理`
-   * - :kbd:`ユーザー管理`
-     - :kbd:`Webサーバーへのユーザー追加作業`
+     - Operation name
+   * - :kbd:`Host name settings`
+     - :kbd:`RHEL8 host name change operation`
+   * - :kbd:`Package management`
+     - :kbd:`RHEL8 package management`
+   * - :kbd:`User management`
+     - :kbd:`Add user to Web server`
 
-| 4. 画面上部にある、 :guilabel:` 更新` を押下します。
-| 5. :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
-| 6. :kbd:`サーバー構築` Conductor を選択し、:guilabel:`選択決定` を押下します。
-| 7. オペレーションに :kbd:`Webサーバーへのユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+| 4. Press the :guilabel:` Update` button on the top of the page.
+| 5. From the :menuselection:`Conductor --> Conductor edit/execute` menu, press the :guilabel:` Select` button.
+| 6. Select the :kbd:`Construct server` Conductor and press the :guilabel:`Select` button.
+| 7. Select the  :kbd:`Add user to Web server` operation and press the :guilabel:`Execute` button.
 
 .. figure:: ../../../../images/learn/quickstart/answer1/実行成功.gif
    :width: 1200px
-   :alt: 実行成功
+   :alt: Successful execution
 
-| :menuselection:`Conductor作業確認` 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。
+| The :menuselection:`Conductor execution confirmation` menu will be opened and all Movements should display "Complete".
 
-まとめ
+Summary
 ======
 
-| 本シナリオでは、これまでのシナリオの確認のために、演習課題を実施しました。
-| また Conductor のパラメータ連携の1つの手段として、個別オペレーションについて紹介をしました。
-| より詳細な情報を知りたい場合は、:doc:`../../../manuals/index` を参照してください。
+| This scenario acted as a test where users could test their knowledge from the previous scenarios.
+| Users were also introduced to individual operations, which can be used to link Conductor parameters.
+| For more information, see :doc:`../../../manuals/index`.

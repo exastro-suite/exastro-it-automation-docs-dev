@@ -1,527 +1,527 @@
 ============
-ホスト名管理
+Host name management
 ============
 
-| 本シナリオでは、簡単な例として、ホスト名の設定を題材に Exastro IT Automation の基本操作を学習します。
+| In this scenario, the user will learn how to use Exastro IT Automation by configuring host names.
 
 
-パラメータ設計
+Design parameters
 ==============
 
-| システムの構成情報のフォーマットを設計します。
+| In this step, users will design the format of the system's configuration information.
 
-| システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
+| While users doesnt have to manage all the system information as parameters, we recommend that they add more if needed later.
 
 .. _quickstart_server_information_parmeter:
 
-パラメータシートの作成
+Create parameter sheet
 ----------------------
 
-| :menuselection:`パラメータシート作成` では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。
+| In the :menuselection:`Create parameter sheet` menu, users can manage parameter sheets where they can register setting values (parameters).
 
-.. glossary:: パラメータシート
-   システムのパラメータ情報を管理するデータ構造のことです。
+.. glossary:: Parameter sheet
+   Data structure that manages system's parameter information.
 
-| ホスト名を管理するためのパラメータシートを作成します。
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。
+| Create a parameter sheet for managing the host names.
+| From the :menuselection:`Create parameter sheet --> Define/create parameter sheet` menu, create a parameter sheet called "Server basic information".
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/パラメータシート作成.png
    :width: 1200px
-   :alt: パラメータシート作成
+   :alt: Create parameter sheet
 
-.. list-table:: パラメータシート作成(サーバー基本情報)の項目の設定値
+.. list-table:: Create parameter sheet (Server basic information) item setting values
    :widths: 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目1設定値
-   * - 項目の名前
-     - :kbd:`ホスト名`
-   * - 項目の名前(Rest API用) 
+   * - Setting item
+     - Item 1 setting value
+   * - Item name
+     - :kbd:`Host name`
+   * - Item name(for Rest API) 
      - :kbd:`hostname`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-   * - 最大バイト数
+   * - Input method
+     - :kbd:`String(Single line)`
+   * - Maximum byte number
      - :kbd:`64`
-   * - 正規表現
+   * - Regular expression
      - 
-   * - 初期値
+   * - Default value
      - 
-   * - 必須
+   * - Required
      - ✓
-   * - 一意制約
+   * - Unique restriction
      - 
-   * - 説明
+   * - Description
      - 
-   * - 備考
+   * - Remarks
      - 
 
-.. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
+.. list-table:: Create parameter sheet(Server basic information) parameter sheet creation information setting values
    :widths: 5 10
    :header-rows: 1
 
-   * - 設定項目
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - メニュー名
-     - :kbd:`サーバー基本情報`
-   * - メニュー名(REST)
+   * - Setting item
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`Server basic information`
+   * - Parameter sheet name(REST)
      - :kbd:`server_information`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Parameter sheet（With host/operation）`
+   * - Display order
      - :kbd:`1`
-   * - バンドル利用
-     - 「利用する」にチェックを入れない(無効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Leave unchecked (deactivate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
 
-作業手順の登録
+Register operation procedure
 ==============
 
-| 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
-| 定義した Movement に対して、Ansible Role パッケージを紐付け、更に Ansible Role パッケージ内の変数と :ref:`quickstart_server_information_parmeter` で登録したパラメータシートの項目の紐付けを行います。
+| In order to register the operation procedure, the user must define a Movement(job), which is a unit of operation in Exastro IT Automation.
+| We will then link an Ansible Role package to the defined Movement, and then link the variables within the Ansible Role package with the parameter sheet items registered in  :ref:`quickstart_server_information_parmeter`.
 
 .. glossary:: Movement
-   Exastro IT Automation における、最小の作業単位のことを指します。
-   1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。
+   The smallest operation unit in Exastro IT Automation.
+   1 Movement is the same as 1 ansible-playbook command.
 
-作業項目の設定
+Configure operation items
 --------------
 
-| Exastro IT Automation では、Movement という単位で作業を管理し、作業手順書における作業項目に該当します。
-| Movement は、Ansible Playbook のような IaC (Infrastrucure as Code) を紐付けたり、IaC 内の変数とパラメータシートの設定値を紐付けの際に利用します。
+| In Exastro IT Automation, operations and tasks are managed as units called Movement. Movements corresponds to the operation items in the operation procedure.
+| Movements are used when linking IaCs(Infrastructure as Code(Ansible Playbooks, etc)) and the variables within together with the parameter sheet's setting values.
 
-| :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
+| From the :menuselection:`Ansible-Legacy --> Movement list`, register a Movement for host name settings.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/Movement登録設定.png
    :width: 1200px
-   :alt: Movement登録
+   :alt: Movement registration
 
-.. list-table:: Movement 情報の設定値
+.. list-table:: Movement information setting values
    :widths: 10 10 10
    :header-rows: 2
 
-   * - Movement名
-     - Ansible利用情報
+   * - Movement name
+     - Ansible use information
      - 
    * - 
-     - ホスト指定形式
-     - ヘッダーセクション
-   * - :kbd:`ホスト名設定`
+     - Host specification format
+     - Header section
+   * - :kbd:`Host name settings`
      - :kbd:`IP`
-     - :kbd:`※ヘッダーセクションを参照`
+     - :kbd:`※See header section`
 
 .. code-block:: bash
-   :caption: ヘッダーセクション
+   :caption: Header section
 
    - hosts: all
      remote_user: "{{ __loginuser__ }}"
      gather_facts: no
      become: yes
 
-Ansible Role 登録
+Reguster Ansible Role 
 -----------------
 
-| Ansible Role の登録を行います。Ansible Role は運用手順書内に記載されたコマンドに該当します。
-| 手作業で Ansible Role を作成することも可能ですが、Ansible-Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
-| 本シナリオでは、 `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用します。
+| In this step, we will register an Ansible Role. Ansible Roles corresponds to the commands written in the operation manual.
+| While it is possible to create Ansible Roles manually, the Ansible-Legacy-Role mode assumes that the user is using pre-made Ansible roles.
+| This scenario uses the `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`.
 
-| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ 
+| `Click here to download the Ansible Role packages for OS-RHEL8.  <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ 
 
-| :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` から、ダウンロードした `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ を登録します。
+| From :menuselection:`Ansible-LegacyRole --> Role package management`, register the downloaded `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ file.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/ロールパッケージ管理.gif
    :width: 1200px
-   :alt: ロールパッケージ管理
+   :alt: Role package management
 
-.. list-table:: Ansible Role パッケージ情報の登録
+.. list-table:: Ansible Role package information registration
   :widths: 10 20
   :header-rows: 1
 
-  * - ロールパッケージ名
-    - ロールパッケージファイル(ZIP形式)
+  * - Role package name
+    - Role package file(ZIP format)
   * - :kbd:`OS-RHEL8`
     - :file:`OS-RHEL8.zip`
 
-Movement と Ansible Role の紐付け
+Link Movement and Ansible Role
 ---------------------------------
 
-| :menuselection:`Ansible-LegacyRole --> Movement-ロール紐付` から、Movement と Ansible Role パッケージの紐付けを行います。
-| 本シナリオでは、 `ホスト名管理用の Ansible Role パッケージ <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_hostname/OS_build>`_ を利用します。
+| From :menuselection:`Ansible-LegacyRole --> Movement-Role link` menu, register a link between the Movement and the Ansible Role package.
+| In this scenario, we will use  `Ansible Role package for Host name management <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_hostname/OS_build>`.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/Movement-ロール紐付け.png
    :width: 1200px
-   :alt: Movement-ロール紐付け
+   :alt: Movement-Role link
 
-.. list-table:: Movement-ロール紐付け情報の登録
+.. list-table:: Movement-Role link information registration
   :widths: 10 30 10
   :header-rows: 1
 
-  * - Movement名
-    - ロールパッケージ名:ロール名
-    - インクルード順序
-  * - :kbd:`ホスト名設定`
+  * - Movement name
+    - Role package name:Role name
+    - Include order
+  * - :kbd:`Host name settings`
     - :kbd:`OS-RHEL8:OS-RHEL8/RH_hostname/OS_build`
     - :kbd:`1`
 
-パラメータシートの項目と Ansible Role の変数の紐付け
+Link Parameter sheet item and Ansible Role variables
 ----------------------------------------------------
 
-| OS-RHEL8 Ansible Role パッケージでは、:kbd:`VAR_RH_hostname` という変数にホスト名を代入することで、対象サーバーのホスト名を設定することができます。
+| By substituting the :kbd:`VAR_RH_hostname` variable within the OS-RHEL8 Ansible Role package file, we can configure the host name of the target server.
 
-| :menuselection:`Ansible-LegacyRole --> 代入値自動登録設定` から、サーバー基本情報パラメータシートのホスト名の項目に入るパラメータを、Ansible Role パッケージの :kbd:`VAR_RH_hostname` に代入する設定を行います。
+| From the :menuselection:`Ansible-LegacyRole --> Substitute value auto registration settings` menu, configure the Parameters from the host name item in the Server basic information parameter sheet to substitute the :kbd:`VAR_RH_hostname` variable in the Ansible Role package.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/代入値自動登録設定.gif
    :width: 1200px
-   :alt: 代入値自動登録設定
+   :alt: Substitute value auto registration settings
 
-.. list-table:: 代入値自動登録設定の設定値
+.. list-table::Substitute value auto registration settings
   :widths: 40 10 20 20 30
   :header-rows: 2
 
-  * - パラメータシート(From)
-    - 登録方式
-    - Movement名
-    - IaC変数(To)
+  * - Parameter sheet(From)
+    - Registration method
+    - Movement name
+    - IaC variable(To)
     -
-  * - メニューグループ:メニュー:項目
+  * - Menu group:Menu:Item
     -
     -
-    - Movement名:変数名
-    - Movement名:変数名:メンバー変数
-  * - :kbd:`代入値自動登録用:サーバー基本情報:ホスト名`
-    - :kbd:`Value型`
-    - :kbd:`ホスト名設定`
-    - :kbd:`ホスト名設定:VAR_RH_hostname`
+    - Movement name:Variable name
+    - Movement name:Variable name:Member variable
+  * - :kbd:`Substitute value auto registration:Server basic information:Host name`
+    - :kbd:`Value type`
+    - :kbd:`Host name settings`
+    - :kbd:`Host name settings:VAR_RH_hostname`
     - 
 
-作業対象の登録
+Register operation target
 ==============
 
-| 作業を行う対象機器を登録します。
+| In this step, we will register the device which will have operations run to them.
 
-機器登録
+Register device
 --------
 
-| 作業対象となるサーバを機器一覧に登録します。
+| Register the target server to the Device list.
 
-| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象であるサーバーの接続情報を登録します。
+| From the :menuselection:`Ansible common --> device list` menu, register the connection information to the server that will be the operation target.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/機器一覧登録設定.gif
    :width: 1200px
-   :alt: 機器一覧登録
+   :alt: Device list registration
 
-.. list-table:: 機器一覧の設定値
+.. list-table:: Device list setting values
    :widths: 10 10 15 10 10 10
    :header-rows: 3
 
-   * - HW機器種別
-     - ホスト名
-     - IPアドレス
-     - ログインパスワード
-     - ssh鍵認証情報
-     - Ansible利用情報
+   * - HW device type
+     - Host name
+     - IP address
+     - Login password
+     - ssh key authentication information
+     - Ansible use information
    * - 
      - 
      - 
-     - ユーザ
-     - ssh秘密鍵ファイル
-     - Legacy/Role利用情報
+     - User
+     - ssh secret key file
+     - Legacy/Role use information
    * - 
      - 
      - 
      - 
      - 
-     - 認証方式
+     - Authentication method
    * - :kbd:`SV`
      - :kbd:`server01`
-     - :kbd:`192.168.0.1 ※適切なIPアドレスを設定`
-     - :kbd:`接続ユーザ名`
-     - :kbd:`(秘密鍵ファイル)`
-     - :kbd:`鍵認証(パスフレーズなし)`
+     - :kbd:`192.168.0.1 ※Configure correct IP address`
+     - :kbd:`Connecting user name`
+     - :kbd:`(Secret key file)`
+     - :kbd:`Key authentication(No passphrase)`
 
 .. tip::
-   | 今回のシナリオでは鍵認証で実行しますが、パスワード認証での実行も可能です。
-   | 認証方式は、作業対象サーバーへのログインの方法に応じて適宜変更してください。
+   | In this scenario, we will execute to the target machine using key authentication, but users can also use Password authentication.
+   | Change the authentication method to fit the preffered login method of the target operation server.
 
 
-ホスト名変更作業実施(1回目)
+Run Change host name operation(1st time)
 ===========================
 
-作業概要の作成
+Create Operation overview
 --------------
 
-| 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
-| まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
+| Before configuring specific parameters or operation procedures, we recommend that the user starts with a plan.
+| First, let's quicky organize information for what kind of task should be done to what device, and when.
 
-.. list-table:: 作業の方針
+.. list-table:: Operation objective
    :widths: 15 10
    :header-rows: 0
 
-   * - 作業実施日時
-     - 2023/04/01 12:00:00
-   * - 作業対象
-     - server01(RHEL8)
-   * - 作業内容
-     - ホスト名の変更
+   * - Operation execution date/time
+     - 2024/04/01 12:00:00
+   * - Operation target
+     - Target operation server(RHEL8)
+   * - Operation contents
+     - Change host name
 
-作業概要登録
+Register operation overview
 ------------
 
-| オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
-| 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
+| In the Operation registration step, we will define the overview of the operation. We will create 1 operation per task. We recommend not reusing the operations.
+| Use the operation objective from before as a base and input the operation information.
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
+.. glossary:: Operation
+   An Operation in Exastro IT Automation is a task that can be run and can have target machines and parameters link to them.
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From the :menuselection:`Basic console --> Operation list` menu, register the execution date/time and operation name.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/オペレーション登録.gif
    :width: 1200px
-   :alt: オペレーション登録
+   :alt: Operation registration
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`RHEL8のホスト名変更作業`
-     - :kbd:`2023/04/01 12:00:00`
+   * - Operation name
+     - Scheduled execution date/time
+   * - :kbd:`RHEL8 host name change operation`
+     - :kbd:`2024/04/01 12:00:00`
 
-パラメータ設定
+Configure parameters
 --------------
 
-| パラメータシートには、設定したい値を機器ごとにパラメータを登録します。
-| 本シナリオでは、:kbd:`server01` というホスト名、RHEL8 サーバに設定します。
+| In the parameter sheet, register the desired parameters for each of the devices.
+| In this scenario, we will configure the host name :kbd:`server01` to the target RHEL8 server.
 
-| :menuselection:`入力用 --> サーバー基本情報` から、ホストに対するパラメータを登録します。
+| From the :menuselection:`Input --> Server basic information` menu, register the parameters for the host.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/パラメータ登録.gif
    :width: 1200px
-   :alt: パラメータ登録
+   :alt: Parameter registration
 
-.. list-table:: サーバー基本情報パラメータの設定値
+.. list-table:: Server basic information parameter setting values
   :widths: 5 20 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - パラメータ
+  * - Host name
+    - Operation
+    - Parameter
   * - 
-    - オペレーション名
-    - ホスト名
-  * - server01
-    - :kbd:`2023/04/01 12:00:00_RHEL8のホスト名変更作業`
+    - Operation name
+    - Host name
+  * - :kbd:`server01`
+    - :kbd:`2024/04/01 12:00:00_RHEL8 host name change operation`
     - :kbd:`server01`
 
-作業実行
+Execute
 --------
 
-1. 事前確認
+1. Pre-confirmation
 
-   | まずは、現在のサーバーの状態を確認しましょう。
-   | サーバに SSH ログインし、現在のホスト名を確認します。
+   | First, confirm the status of the current server.
+   | Log in to the target server through SSH and confirm the current host name.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ホスト名の取得
+      # Fetch host name
       hostnamectl status --static
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Execution results
 
-      # 結果は環境ごとに異なります
+      # Depends on the environment
       localhost
 
-2. 作業実行
+2. Execute
 
-   | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名変更作業` を選択し :guilabel:`選択決定` を押下します。
-   | 最後に、実行内容を確認し、:guilabel:`作業実行` を押下します。
+   | From the :menuselection:`Ansible-Legacy --> Execute` menu, select the :kbd:`Host name settings` Movement and press the :guilabel:` Execute` button.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`RHEL8 host name change operation` for the operation and press the :guilabel:`Select` button.
+   | Lastly, confirm the contents of the execution and press :guilabel:`Execute`.
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+   | This opens the  :menuselection:`Execution status confirmation` menu. Check that ths status says "Complete" after the execution has finished.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/作業実行.gif
    :width: 1200px
-   :alt: 作業実行
+   :alt: Execution
 
-3. 事後確認
+3. Post-confirmation
 
-   | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
+   | Log in to the target server through SSH again and check that the host name has been changed.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ホスト名の取得
+      # Fetch host name
       hostnamectl status --static
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Execution results
 
       server01
 
 
-ホスト名変更作業実施(2回目)
+Run Change host name operation(2nd time)
 ===========================
 
-作業概要の作成
+Create Operation overview
 --------------
 
-| 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
-| まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
+| Before configuring specific parameters or operation procedures, we recommend that the user starts with a plan.
+| First, let's quicky organize information for what kind of task should be done to what device, and when.
 
-.. list-table:: 作業の方針
-   :widths: 15 10
+.. list-table:: Operation objective
+   :widths: 10 10
    :header-rows: 0
 
-   * - 作業実施日時
+   * - Operation execution date/time
      - 2024/05/01 12:00:00
-   * - 作業対象
-     - server01(RHEL8)
-   * - 作業内容
-     - ホスト名の更新
+   * - Operation target
+     - Target operation server(RHEL8)
+   * - Operation contents
+     - Update Host name
 
-作業概要登録
+Register operation overview
 ------------
 
-| オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
-| 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
+| In the Operation registration step, we will define the overview of the operation. We will create 1 operation per task. We recommend not reusing the operations.
+| Use the operation objective from before as a base and input the operation information.
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
+.. glossary:: Operation
+   An Operation in Exastro IT Automation is a task that can be run and can have target machines and parameters link to them.
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From the :menuselection:`Basic console --> Operation list` menu, register the execution date/time and operation name.
 
 .. figure:: /images/learn/quickstart/scenario1/更新用オペレーション登録.png
    :width: 1200px
-   :alt: オペレーション登録
+   :alt: Operation registration
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`RHEL8のホスト名更新作業`
+   * - Operation name
+     - Scheduled execution date/time
+   * - :kbd:`RHEL8 host name change operation`
      - :kbd:`2024/05/01 12:00:00`
 
 .. tip::
-   | 作業実施日時は、本シナリオでは適当な日時で問題ありませんが、作業日が定まっている場合は、正確な作業実施の予定日時を設定することを推奨します。
-   | 定期作業などの繰り返し行われる作業のように、作業日が定まっていない場合は現在の日時を登録しても問題ありません。
+   | In this scenario, the execution date/time can be set to any date. However, we recommend specifying a specific date if the user has a planned date for the execution.
+   | If the operation does not have a set date or is planned to be executed multiple times over a period, the user can set the current date.
 
 
-パラメータ設定
+Configure parameters
 --------------
 
-| 本シナリオでは、:kbd:`server01` というホスト名をパラメータ値として設定しました。
-| しかし、:menuselection:`機器一覧` でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。
+| In this scenario, we will configure the host name :kbd:`server01` as a parameter value.
+| However, the host name is also managed in the :menuselection:`Device list` menu. This will cause the host name to be managed multiple times. 
 
-| Exastro IT Automation では、機器の情報を :ref:`ansible_common_ita_original_variable` で取得することができ、ログイン先のホスト名は  :kbd:`__inventory_hostname__` という、変数を使うことで取得できるため、パラメータの一元管理が可能となります。
+| In Exastro IT Automation, device information can be fetched with :ref:`ansible_common_ita_original_variable`, and the host name can be fetched as the :kbd:`__inventory_hostname__` variable. This means that we can centrally manage it.
 
-| :menuselection:`入力用 --> サーバー基本情報` から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。
+| In the :menuselection:`Input --> Server basic information` menu, use ITA original variables to register the host name registered in the device list.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/更新用パラメータ設定.png
    :width: 1200px
-   :alt: パラメータ設定
+   :alt: Parameter registration
 
-.. list-table:: サーバー基本情報パラメータの設定値
+.. list-table:: Server basic information parameter setting value
   :widths: 5 10 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - パラメータ
+  * - Host name
+    - Operation
+    - Parameter
   * - 
-    - オペレーション名
-    - ホスト名
+    - Operation name
+    - Host name
   * - :kbd:`server01`
-    - :kbd:`2024/05/01 12:00:00_RHEL8のホスト名更新作業`
+    - :kbd:`2024/05/01 12:00:00_RHEL8 host name change operation`
     - :kbd:`"{{ __inventory_hostname__ }}"`
 
 
-機器情報の更新
+Update device information
 --------------
 
-| 作業対象となるサーバー server01 のホスト名を db01 に変更します。
+| In this section, we will change the host name of the target server to db01.
 
-| :menuselection:`Ansible共通 --> 機器一覧` から、作業対象である server01 のホスト名を db01 に更新します。
+| From the :menuselection:`Ansible common --> Device list` menu, update the host name of the target server to db01.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/機器一覧変更.png
    :width: 1200px
-   :alt: パラメータ登録
+   :alt: Parameter registration
 
-.. list-table:: 機器一覧の設定値
+.. list-table:: Device list setting values
    :widths: 10 10 20 10 10 20
    :header-rows: 3
 
-   * - HW機器種別
-     - ホスト名
-     - IPアドレス
-     - ログインパスワード
+   * - HW device type
+     - Host name
+     - IP address
+     - Login password
      - 
-     - Ansible利用情報
+     - Ansible use information
    * - 
      - 
      - 
-     - ユーザ
-     - パスワード
-     - Legacy/Role利用情報
+     - User 
+     - Password
+     - Legacy/Role use information
    * - 
      - 
      - 
      - 
      - 
-     - 認証方式
+     - Authentication method
    * - :kbd:`SV`
      - :kbd:`db01`
-     - :kbd:`192.168.0.1` ※適切なIPアドレスを設定
+     - :kbd:`192.168.0.1` ※Configure correct IP address`
      - :kbd:`root`
-     - (パスワード)
-     - :kbd:`パスワード認証`
+     - (Password)
+     - :kbd:`Password authentication`
 
 
-作業実行
+Execute
 --------
 
-1. 作業実行
+1. Execute
 
-   | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名更新作業` を選択し :guilabel:`選択決定` を押下します。
-   | 最後に、実行内容を確認し、:guilabel:`作業実行` を押下します。
+   | From the :menuselection:`Ansible-Legacy --> Execute` menu, select the :kbd:`Host name settings` Movement and press the :guilabel:` Execute` button.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`RHEL8 host name change operation` for the operation and press the :guilabel:`Select` button.
+   | Lastly, confirm the contents of the execution and press :guilabel:`Execute`.
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+   | This opens the  :menuselection:`Execution status confirmation` menu. Check that ths status says "Complete" after the execution has finished.
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/作業実行.gif
    :width: 1200px
-   :alt: 作業実行
+   :alt: Execution
 
-2. 事後確認
+2. Post-confirmation
 
-   | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
+   | Log in to the target server through SSH again and check that the host name has been changed.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ホスト名の取得
+      # Fetch host name
       hostnamectl status --static
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Execution results
 
       db01
 
-| 以降は、 :menuselection:`Ansible共通 --> 機器一覧` から、ホスト名を変更し、作業実行をするだけでホスト名の更新を行うことが可能です。
+| Now, the user can change the host name by changing the host name in  :menuselection:`Ansible common --> Device list` and executing the operation.
 
 
-まとめ
+Summary
 ======
 
-| 本シナリオでは、RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法やコンセプトについて紹介をしました。
-| :doc:`次のシナリオ <scenario2>` では、より実用的なパラメータシートの管理方法について紹介をします。
+| This guide taught the user the basics of Exastro IT Automation by having them go through a scenario where they had to configure host names to a RHEL8 server.
+| In the :doc:`next scenario <scenario2>` the user will learn how to manage parameter sheets.

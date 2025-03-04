@@ -1,45 +1,45 @@
 =======================================
-サーバー構築・運用 - Ansible-LegacyRole
+Server contruction/operation - Ansible-LegacyRole
 =======================================
 
 
-| 本頁は、シナリオに沿って Exastro IT Automation の基本操作やテクニックを学習するための教材です。
-| 本シナリオでは、サーバーの構築や構成管理を行うことを題材として扱いますが、ワークスペースごとにサーバ、ネットーワーク機器、ストレージといった異なるタイプの機器を管理することも可能で、本シナリオはあくまで数ある構成パターンの一例であることを理解してください。
+| In this document, the user can learn how to use Exastro IT Automation by following a scenario.
+| While this scenario will have the user manage Server constructions and configurations, the user can also manage different type of devices, such as network and storage devices.
 
 
-前提
+Pre-requisites
 ====
 
-| 本シナリオを操作するに必要となる条件は、下記の通りです。
+| This scenario requires the following.
 
-1. 作業可能なサーバ(RHEL8)がある。
-2. 利用するユーザはsshでログイン可能で、sudoer で全操作権限を持っている必要があります。
-3. 作業用ワークスペース
+1. An operatable server (RHEL8).
+2. The user can log in with ssh and has sudoer permissions.
+3. A workspace.
 
-.. glossary:: 作業対象サーバ
-   Exastro IT Automation が Ansible を利用して、行う操作対象のサーバのことです。 
+.. glossary:: Target server
+   The server that Exastro IT Automation will execute operations to using Ansible. 
 
-.. glossary:: ワークスペース
-   システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。
+.. glossary:: Workspace
+   Area that can centrally manage design information for system constructions, configurations and automated tasks.
 
 
-各シナリオの流れ
+Scenarios
 ================
 
-| 実施内容の流れはどのシナリオも同じ流れとなり、具体的には下記の流れとなります。
+| The contents of the scenarios follow the same steps.
 
-1. パラメータ設計
-2. 作業手順の登録
-3. 作業対象の登録
-4. 作業概要の作成
-5. パラメータ設定
-6. 作業実行
+1. Design parameters
+2. Register operation procedure
+3. Register operation target
+4. Create operation overview
+5. Configure Parameters
+6. Execute
 
-| まず、パラメータを格納するための「1. パラメータ設計」と「2. 作業手順の登録」、「3. 作業対象の登録」をします。
-| 次に、作業を実行する前に、いつ、何に対して、どういった作業を行うのかといった「4. 作業概要の作成」をします。
-| そして「5. パラメータ設定」を行い、「6. 作業実行」をします。
+| First, the user will have to perform step 1, 2 and 3 in order to store parameters.
+| Next, they will perform step 4 in order to define what when should be performed to where.
+| Lastly, they will perform 5 and finnish with step 6.
 
-シナリオ
+Scenario
 ========
 
 .. .. raw:: html

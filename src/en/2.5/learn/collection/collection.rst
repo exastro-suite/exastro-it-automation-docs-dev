@@ -1,25 +1,28 @@
 ==============
-収集・比較機能
+Collect/Compare function
 ==============
 
-| 本シナリオでは、簡単な例として、ユーザー管理を題材に Exastro IT Automation の基本操作を学習します。
+| In this scenario, the user will learn how to use Exastro IT Automation's most basic features by managing users.
 
-.. glossary:: 収集機能
-   収集機能とは、ITAで実施した、作業実行結果（規定のフォーマットで出力されたソースファイル）を元に、パラメータシートへ値を自動で登録する機能。
+.. glossary:: Collect function
+   
+   収集機能とは、ITAで実施した、
+   作業実行結果(規定のフォーマットで出力されたソースファイル)を元に、
+   パラメータシートへ値を自動で登録する機能。
 
-.. glossary:: 比較機能
+.. glossary:: Compare function
    比較機能とは、ITAのパラメータシート作成機能で作成したパラメータシートを比較し、差分を出力する機能です。
 
-作業前システム情報の収集
+Collect pre-execution system information
 ========================
 
-パラメータシートの作成
+Create parameter sheet
 ----------------------
 
-| まずは、収集機能を使って現在のシステム情報を収集していきましょう。
-| 収集機能は、登録された設定値から対象のファイルの値をパラメータシートに登録、更新します。
+| First, let's use the Collect function to collect information about the system in the current state.
+| The Collect function updates and registers target values to a parameter sheet based on registered setting values.
 
-| 今回利用する Ansible Playbookは以下のPlaybookになります。下記のパラメータが管理できるようにパラメータシートを作成しましょう。
+| The Ansible Playbook used is written below. Make sure to create the parameter sheet so it can use the parameters below.
 
 .. code-block:: bash
    :caption: system_collection.yml
@@ -61,94 +64,94 @@
        flat: yes
 
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、システム情報を収集してくるために、「システム情報」というパラメータシートを作成します。
+| From the :menuselection:`Create Parameter sheet --> Define/Create Parameter sheet` menu, create a Parameter sheet for collecting system information called "System information".
 
 .. figure:: /images/learn/quickstart/collection/パラメータシート作成1.gif
    :width: 1200px
-   :alt: パラメータシート作成
+   :alt: Parameter sheet creation
 
-.. list-table:: パラメータシート作成の項目の設定値1
+.. list-table:: Parameter sheet creation item setting values 1
    :widths: 10 10 10 10 10 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目1設定値
-     - 項目2設定値
-     - 項目3設定値
-     - 項目4設定値
-     - 項目5設定値
-     - 項目6設定値
-   * - グループ
+   * - Setting item
+     - Item 1 setting item
+     - Item 2 setting item
+     - Item 3 setting item
+     - Item 4 setting item
+     - Item 5 setting item
+     - Item 6 setting item
+   * - Group
      - 
      - 
      - :kbd:`ansible_default_ipv4`
      - :kbd:`ansible_default_ipv4`
      - :kbd:`ansible_default_ipv4`
      - 
-   * - 項目の名前
+   * - Item name
      - :kbd:`ansible_architecture`
      - :kbd:`ansible_bios_version`
      - :kbd:`address`
      - :kbd:`interface`
      - :kbd:`network`
      - :kbd:`ansible_distribution`
-   * - 項目の名前(Rest API用) 
+   * - Item name(Rest API) 
      - :kbd:`ansible_architecture`
      - :kbd:`ansible_bios_version`
      - :kbd:`address`
      - :kbd:`interface`
      - :kbd:`network`
      - :kbd:`ansible_distribution`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-   * - 選択項目
+   * - Input method
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+   * - Select item
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
-   * - 正規表現
+   * - Regular expression
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 初期値
+   * - Default value
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 必須
+   * - Required
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 一意制約
+   * - Unique restriction
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 説明
+   * - Description
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
@@ -158,90 +161,89 @@
 
 .. figure:: /images/learn/quickstart/collection/パラメータシート作成2.gif
    :width: 1200px
-   :alt: パラメータシート作成
+   :alt: Parameter sheet creation
 
-.. list-table:: パラメータシート作成の項目の設定値2
+.. list-table:: Parameter sheet creation item setting values 2
    :widths: 10 10 10 10 10 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目7設定値
-     - 項目8設定値
-     - 項目9設定値
-     - 項目10設定値
-     - 項目11設定値
-     - 項目12設定値
-   * - グループ
+   * - Setting item
+     - Item 7 setting item
+     - Item 8 setting item
+     - Item 9 setting item
+     - Item 10 setting item
+     - Item 11 setting item
+     - Item 12 setting item
+   * - Group
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 項目の名前
+   * - Item name
      - :kbd:`ansible_distribution_file_path`
      - :kbd:`ansible_distribution_file_variety`
      - :kbd:`ansible_distribution_major_version`
      - :kbd:`ansible_distribution_release`
      - :kbd:`ansible_distribution_version`
      - :kbd:`ansible_machine`
-   * - 項目の名前(Rest API用) 
+   * - Item name (Rest API) 
      - :kbd:`ansible_distribution_file_path`
      - :kbd:`ansible_distribution_file_variety`
      - :kbd:`ansible_distribution_major_version`
      - :kbd:`ansible_distribution_release`
      - :kbd:`ansible_distribution_version`
      - :kbd:`ansible_machine`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-   * - 選択項目
+   * - Input method
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+   * - Select item
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
-   * - 正規表現
+   * - Regular expression
+     - 
+     - 
+     - 
+     - 
+     - 
+     - Default value
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 初期値
+   * - Required
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 必須
+   * - Unique restriction
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 一意制約
+   * - Description
      - 
      - 
      - 
      - 
      - 
      - 
-   * - 説明
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
@@ -251,207 +253,208 @@
 
 .. figure:: /images/learn/quickstart/collection/パラメータシート作成3.gif
    :width: 1200px
-   :alt: パラメータシート作成
+   :alt: Parameter sheet creation
 
-.. list-table:: パラメータシート作成の項目の設定値3
+.. list-table:: Parameter sheet creation item setting values 3
    :widths: 10 10 10 10 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目13設定値
-     - 項目14設定値
-     - 項目15設定値
-     - 項目16設定値
-     - 項目17設定値
-   * - グループ
+   * - Setting item
+     - Item 13 setting item
+     - Item 14 setting item
+     - Item 15 setting item
+     - Item 16 setting item
+     - Item 17 setting item
+   * - Group
      - 
      - 
      - 
      - 
      - 
-   * - 項目の名前
+   * - Item name
      - :kbd:`ansible_memtotal_mb`
      - :kbd:`ansible_nodename`
      - :kbd:`ansible_os_family`
      - :kbd:`ansible_pkg_mgr`
      - :kbd:`ansible_processor_cores`
-   * - 項目の名前(Rest API用) 
+   * - Item name (Rest API) 
      - :kbd:`ansible_memtotal_mb`
      - :kbd:`ansible_nodename`
      - :kbd:`ansible_os_family`
      - :kbd:`ansible_pkg_mgr`
      - :kbd:`ansible_processor_cores`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-     - :kbd:`文字列(単一行)`
-   * - 選択項目
+   * - Input method
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+     - :kbd:`String (Single line)`
+   * - Select item
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
      - :kbd:`64`
-   * - 正規表現
+   * - Regular expression
      - 
      - 
      - 
      - 
      - 
-   * - 初期値
+   * - Default value
      - 
      - 
      - 
      - 
      - 
-   * - 必須
+   * - Required
      - 
      - 
      - 
      - 
      - 
-   * - 一意制約
+   * - Unique restriction
      - 
      - 
      - 
      - 
      - 
-   * - 説明
+   * - Description
      - 
      - 
      - 
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
      - 
      - 
      - 
 
-.. list-table:: パラメータシート作成情報の設定値
+.. list-table:: Parameter sheet creation information setting values
    :widths: 5 10
    :header-rows: 1
 
-   * - 項目名
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - パラメータシート名
-     - :kbd:`システム情報`
-   * - パラメータシート名(REST)
+   * - Item name
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`System information`
+   * - Parameter sheet name(REST)
      - :kbd:`system_information`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Parameter sheet(With host/operation)`
+   * - Display order
      - :kbd:`1`
-   * - バンドル利用
-     - 「利用する」にチェックを入れない(無効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Uncheck the "Use" box(Deactivate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
-| 次に、:menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、Ansibleを実行するために必要となる、「ホスト名紐付け用」というパラメータシートを作成します。
+| Next, from the :menuselection:`Create Parameter sheet --> Parameter sheet definition/creation` menu, create a parameter sheet called "Host name link".
+| This parameter sheet will be required in order to run Ansible.
 
 .. figure:: /images/learn/quickstart/collection/パラメータシート作成.png
    :width: 1200px
-   :alt: パラメータシート作成
+   :alt: Parameter sheet creation
 
-.. list-table:: パラメータシート作成(ホスト名紐付け用)の項目の設定値
+.. list-table:: Parameter sheet creation(For linking Host name) item setting values
    :widths: 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目1設定値
-   * - 項目の名前
+   * - Setting item
+     - Item 1 setting value
+   * - Item name
      - :kbd:`hostname`
-   * - 項目の名前(Rest API用) 
+   * - Item name(Rest API) 
      - :kbd:`hostname`
-   * - 入力方式
-     - :kbd:`プルダウン選択`
-   * - 選択項目
-     - :kbd:`Ansible項目:機器一覧:ホスト名`
-   * - 参照項目
+   * - Input method
+     - :kbd:`Pulldown selection`
+   * - Setting item
+     - :kbd:`Ansible item:Device list:Host name`
+   * - Reference
      - 
-   * - 初期値
+   * - Default value
      - 
-   * - 必須
+   * - Required
      - 
-   * - 一意制約
+   * - Unique restriction
      - 
-   * - 説明
+   * - Description
      - 
-   * - 備考
+   * - Remarks
      - 
 
-.. list-table:: パラメータシート作成(ホスト名紐付け用)のパラメータシート作成情報の設定値
+.. list-table:: Parameter sheet (For linking Host name) creation information setting values
    :widths: 5 10
    :header-rows: 1
 
-   * - 設定項目
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - パラメータシート名
-     - :kbd:`ホスト名紐付け用`
-   * - パラメータシート名(REST)
-     - :kbd:`host_association`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Item name
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`Host name link`
+   * - Parameter sheet name(REST)
+     - :kbd:`host_name_link`
+   * - Creation target
+     - :kbd:`Parameter sheet(With host/operation)`
+   * - Display order
      - :kbd:`2`
-   * - バンドル利用
-     - 「利用する」にチェックを入れない(無効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Uncheck the "Use" box(Deactivate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
-作業手順の登録
+Register operation procedure
 --------------
 
-| 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
-| 定義した Movement に対して、Ansible Playbook の紐付けを行います。
+| In order to register the operation procedure, the user must define a Movement(job), which is an unit of operation in Exastro IT Automation.
+| We will then link an Ansible Playbook to the defined Movement, and then link the variables within the Ansible Playbook with the parameter sheet items registered in :ref:`quickstart_server_information_parmeter`.
 
-| :menuselection:`Ansible-Legacy --> Movement一覧` から、システム情報収集のための Movement を登録します。
+| From the :menuselection:`Ansible-Legacy --> Movement list` menu, register a Movement for collecting system information.
 
 .. glossary:: Movement
-   Exastro IT Automation における、最小の作業単位のことを指します。
-   1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。
+   The smallest operation unit in Exastro IT Automation.
+   1 Movement is the same as 1 ansible-playbook command.
 
 .. figure:: /images/learn/quickstart/collection/Movement登録.png
    :width: 1200px
-   :alt: Movement登録
+   :alt: Register Movement
 
-.. list-table:: Movement 情報の設定値
+.. list-table:: Movement information setting values
    :widths: 10 10 10
    :header-rows: 2
 
-   * - Movement名
-     - Ansible利用情報
+   * - Movement name
+     - Ansible use information
      - 
    * - 
-     - ホスト指定形式
-     - ヘッダーセクション
-   * - :kbd:`システム情報収集`
+     - Hist specification format
+     - Header section
+   * - :kbd:`Collect system information`
      - :kbd:`IP`
-     - :kbd:`※ヘッダーセクションを参照`
+     - :kbd:`※See header section`
 
 .. code-block:: bash
-   :caption: ヘッダーセクション
+   :caption: Header section
 
    - hosts: all
      remote_user: "{{ __loginuser__ }}"
      gather_facts: yes
      become: yes
 
-Ansible Playbook 登録
+Register Ansible Playbook
 ---------------------
 
-| Ansible Playbook の登録を行います。Ansible Playbook は運用手順書内に記載されたコマンドに該当します。
-| 本シナリオでは system_collection.yml を使用します。
+| In this step, we will register an Ansible Playbook. Ansible Playbooks corresponds to the commands written in operation manual.
+| This scenario uses system_collection.yml.
 
 .. code-block:: bash
    :caption: system_collection.yml
@@ -492,169 +495,172 @@ Ansible Playbook 登録
        dest: "{{ __parameter_dir__ }}/{{ inventory_hostname }}/"
        flat: yes
 
-| :menuselection:`Ansible-Legacy --> Playbook素材集` から、上記のPlaybookを登録します。
+| From the :menuselection:`Ansible-Legacy --> Playbook file collection` menu, register the Playbook written above.
 
 .. figure:: /images/learn/quickstart/collection/Playbook素材集.png
    :width: 1200px
-   :alt: Playbook登録
+   :alt: Playbook registration
 
-.. list-table:: Ansible Playbook 情報の登録
+.. list-table:: Ansible Playbook information registration
   :widths: 10 15
   :header-rows: 1
 
-  * - Playbook素材名
-    - Playbook素材
+  * - Playbook file name
+    - Playbook file
   * - :kbd:`system_collection`
     - :file:`system_collection.yml`
 
-Movement と Ansible Playbook の紐付け
+Link Movement and Ansible Playbook
 -------------------------------------
 
-| :menuselection:`Ansible-Legacy --> Movement-ロール紐付` から、Movement と Ansible Playbook の紐付けを行います。
-| 本シナリオでは、 system_collection.yml を利用します。
+| From the :menuselection:`Ansible-Legacy --> Movement-Playbook link` menu,link the previously registered Movement and Ansible Playbook.
+| In this scenario, we are using system_collection.yml.
 
 .. figure:: /images/learn/quickstart/collection/Movement-Playbook紐付.png
    :width: 1200px
-   :alt: Movement-Playbook紐付け
+   :alt: Movement-Playbook link
 
-.. list-table:: Movement-Playbook紐付け情報の登録
+.. list-table:: Movement-Playbook link information registration
   :widths: 10 10 10
   :header-rows: 1
 
-  * - Movement名
-    - Playbook素材
-    - インクルード順序
-  * - :kbd:`システム情報収集`
+  * - Movement name
+    - Playbook file
+    - Include order
+  * - :kbd:`System information collection`
     - :kbd:`system_collection`
     - :kbd:`1`
 
-パラメータシートの項目と Ansible Playbook の変数の紐付け
+Link Parameter sheet items and Ansible Playbook
 --------------------------------------------------------
 
-| system_collection.ymlでは、:kbd:`VAR_hostname` にシステム情報を収集したい作業対象ホストを入れます。
+| Substitute the system_collection.yml's :kbd:`VAR_hostname` variable with the host name of the target machine which will have it's information collected.
 
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
+| From the :menuselection:`Ansible-Legacy --> Substitute value auto registration settings` menu, link the parameter sheet items with the Ansible Playbook variables.
 
 .. figure:: /images/learn/quickstart/collection/代入値自動登録設定.png
    :width: 1200px
-   :alt: 代入値自動登録設定
+   :alt: Substitute value auto registration settings
 
-.. list-table:: グループの代入値自動登録設定の設定値
+.. list-table:: Group substitute value auto registration setting Setting values
   :widths: 40 10 10 20 20 10
   :header-rows: 2
 
-  * - パラメータシート(From)
+  * - Parameter sheet(From)
     -
-    - 登録方式
-    - Movement名
-    - IaC変数(To)
+    - Registration format
+    - Movement name
+    - IaC variable(To)
     -
-  * - メニューグループ:メニュー:項目
-    - 代入順序
+  * - Menu group:Menu:Item
+    - Substitute order
     -
     -
-    - Movement名:変数名
-    - 代入順序
-  * - :kbd:`代入値自動登録用:ホスト紐付け用:パラメータ/hostname`
-    - :kbd:`入力無し`
-    - :kbd:`Value型`
-    - :kbd:`システム情報収集`
-    - :kbd:`システム情報収集:VAR_hostname`
-    - :kbd:`入力無し`
+    - Movement name:Variable name
+    - Substitute order
+  * - :kbd:`Substitute value auto registration:Host name link:Parameter/hostname`
+    - :kbd:`No input`
+    - :kbd:`Value type`
+    - :kbd:`System information collection`
+    - :kbd:`System information collection:VAR_hostname`
+    - :kbd:`No input`
 
-収集項目値管理
+Collection item value management
 --------------
 
-| 収集項目値管理 にて、作業実行結果（ソースファイル）とパラメータシートの項目の紐づけ設定がされていないと、収集機能は動作しません。
+| The Collect function 
+In the Collection item value management menu, 
+収集項目値管理 にて、作業実行結果(ソースファイル)と
+パラメータシートの項目の紐づけ設定がされていないと、収集機能は動作しません。
 
-| :menuselection:`Ansible共通 --> 収集項目値管理` から、ソースファイルとパラメータシートの項目の紐付情報の登録をします。
+| :menuselection:`Ansible common --> 収集項目値管理` から、ソースファイルとパラメータシートの項目の紐付情報の登録をします。
 
 .. figure:: /images/learn/quickstart/collection/収集項目値管理.gif
    :width: 1200px
-   :alt: 収集項目値管理
+   :alt: Collection item value management
 
-.. list-table:: 収集項目値管理の設定値
+.. list-table:: Collection item value management Setting values
   :widths: 10 10 10 20
   :header-rows: 2
 
-  * - 収集項目(From)
+  * - Collect item(From)
     -
     - 
-    - パラメータシート(To)
-  * - バース形式
-    - PREFIX(ファイル名)
-    - 変数名
-    - メニューグループ:項目
+    - Parameter sheet(To)
+  * - Parse format
+    - PREFIX(File name)
+    - Variable name
+    - Menu group:Item
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_architecture`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_architecture`
+    - :kbd:`Input:System information:Parameter/ansible_architecture`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_bios_version`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_bios_version`
+    - :kbd:`Input:System information:Parameter/ansible_bios_version`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_default_ipv4__address`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_default_ipv4/address`
+    - :kbd:`Input:System information:Parameter/ansible_default_ipv4/address`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_default_ipv4__interface`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_default_ipv4/interface`
+    - :kbd:`Input:System information:Parameter/ansible_default_ipv4/interface`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_default_ipv4__network`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_default_ipv4/network`
+    - :kbd:`Input:System information:Parameter/ansible_default_ipv4/network`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution`
+    - :kbd:`Input:System information:Parameter/ansible_distribution`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution_file_path`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution_file_path`
+    - :kbd:`Input:System information:Parameter/ansible_distribution_file_path`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution_file_variety`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution_file_variety`
+    - :kbd:`Input:System information:Parameter/ansible_distribution_file_variety`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution_major_version`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution_major_version`
+    - :kbd:`Input:System information:Parameter/ansible_distribution_major_version`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution_release`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution_release`
+    - :kbd:`Input:System information:Parameter/ansible_distribution_release`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_distribution_version`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_distribution_version`
+    - :kbd:`Input:System information:Parameter/ansible_distribution_version`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_machine`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_machine`
+    - :kbd:`Input:System information:Parameter/ansible_machine`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_memtotal_mb`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_memtotal_mb`
+    - :kbd:`Input:System information:Parameter/ansible_memtotal_mb`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_nodename`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_nodename`
+    - :kbd:`Input:System information:Parameter/ansible_nodename`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_os_family`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_os_family`
+    - :kbd:`Input:System information:Parameter/ansible_os_family`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_pkg_mgr`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_pkg_mgr`
+    - :kbd:`Input:System information:Parameter/ansible_pkg_mgr`
   * - :kbd:`YAML`
     - :kbd:`system`
     - :kbd:`ansible_processor_cores`
-    - :kbd:`入力用:システム情報:パラメータ/ansible_processor_cores`
+    - :kbd:`Input:System information:Parameter/ansible_processor_cores`
 
-| 登録する件数が多いので、ファイル一括登録（Excel）から登録するのを推奨します。
+| 登録する件数が多いので、ファイル一括登録(Excel)から登録するのを推奨します。
 
 作業対象の登録
 --------------
@@ -676,9 +682,9 @@ Movement と Ansible Playbook の紐付け
    :widths: 10 10 15 10 10 10
    :header-rows: 3
 
-   * - HW機器種別
-     - ホスト名
-     - IPアドレス
+   * - HW device type
+     - Host name
+     - IP address
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
@@ -741,7 +747,7 @@ Movement と Ansible Playbook の紐付け
    :widths: 10 10
    :header-rows: 1
 
-   * - オペレーション名
+   * - Operation name
      - 実施予定日時
    * - :kbd:`作業前データ収集`
      - :kbd:`2024/04/01 12:00:00`
@@ -750,12 +756,12 @@ Movement と Ansible Playbook の紐付け
    | 作業実施日時は、本シナリオでは適当な日時で問題ありませんが、作業日が定まっている場合は、正確な作業実施の予定日時を設定することを推奨します。
    | 定期作業などの繰り返し行われる作業のように、作業日が定まっていない場合は現在の日時を登録しても問題ありません。
 
-パラメータ設定
+Parameter settings
 --------------
 
 | 作成したパラメータシートに作業対象ホストとオペレーションを登録します。
 
-| :menuselection:`入力用 --> ホスト名紐付け用` から、作業対象ホストとオペレーションとパラメータを登録します。
+| :menuselection:`Input --> Host name link` から、作業対象ホストとオペレーションとパラメータを登録します。
 
 .. figure:: /images/learn/quickstart/collection/作業前パラメータ入力.png
    :width: 1200px
@@ -765,7 +771,7 @@ Movement と Ansible Playbook の紐付け
   :widths: 5 15 5
   :header-rows: 2
 
-  * - ホスト名
+  * - Host name
     - オペレーション
     - パラメータ
   * - 
@@ -780,7 +786,7 @@ Movement と Ansible Playbook の紐付け
 
 1. 作業実行
 
-   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`システム情報収集` Movement を選択し、:guilabel:` 作業実行` を押下します。
+   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`System information collection` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`作業前データ収集` を選択し、:guilabel:`作業実行` を押下します。
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
@@ -791,7 +797,7 @@ Movement と Ansible Playbook の紐付け
 
 2. 事後確認
 
-   | :menuselection:`入力用 --> システム情報` から、パラメータの入力情報を確認しましょう。
+   | :menuselection:`Input --> システム情報` から、パラメータの入力情報を確認しましょう。
    | パラメータシート作成・定義で作成した、システム情報のパラメータが問題なく入力されているか確認しましょう。
    | また、この後の比較作業で実施日時を入力する必要があるので、:menuselection:`基本コンソール --> オペレーション一覧` から、実施した日付を確認しておきましょう。
 
@@ -828,7 +834,7 @@ Movement と Ansible Playbook の紐付け
 パラメータ設定
 --------------
 
-| :menuselection:`入力用 --> ホスト名紐付け用` から、作業対象ホストとオペレーションとパラメータを登録します。
+| :menuselection:`Input --> Host name link` から、作業対象ホストとオペレーションとパラメータを登録します。
 
 .. figure:: /images/learn/quickstart/collection/作業後パラメータ入力.png
    :width: 1200px
@@ -838,7 +844,7 @@ Movement と Ansible Playbook の紐付け
   :widths: 5 15 5
   :header-rows: 2
 
-  * - ホスト名
+  * - Host name
     - オペレーション
     - パラメータ
   * - 
@@ -853,7 +859,7 @@ Movement と Ansible Playbook の紐付け
 
 1. 作業実行
 
-   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`システム情報収集` Movement を選択し、:guilabel:` 作業実行` を押下します。
+   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`System information collection` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`作業後データ収集` を選択し、:guilabel:`作業実行` を押下します。
 
    | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
@@ -864,7 +870,7 @@ Movement と Ansible Playbook の紐付け
 
 2. 事後確認
 
-   | :menuselection:`入力用 --> システム情報` から、パラメータの入力情報を確認しましょう。
+   | :menuselection:`Input --> システム情報` から、パラメータの入力情報を確認しましょう。
    | パラメータシート作成・定義で作成した、システム情報のパラメータが問題なく入力されているか確認しましょう。
    | 問題なくシステム情報が収集出来ていれば、ホスト名変更前と変更後の2つのパラメータが入力されています。
    | また、この後の比較作業で実施日時を入力する必要があるので、:menuselection:`基本コンソール --> オペレーション一覧` から、実施した日付を確認しておきましょう。
@@ -894,8 +900,8 @@ Movement と Ansible Playbook の紐付け
     - 詳細設定フラグ
     - 備考
   * - :kbd:`システム情報の差異`
-    - :kbd:`システム情報`
-    - :kbd:`システム情報`
+    - :kbd:`System information`
+    - :kbd:`System information`
     - :kbd:`False`
     - 
 
@@ -909,7 +915,7 @@ Movement と Ansible Playbook の紐付け
 | :menuselection:`比較 --> 比較実行` から、比較対象のパラメータを選択しましょう。
 
    | :menuselection:`比較実行 --> 比較設定選択` から、:kbd:`システム情報の差異` 比較設定 を選択し、次に :guilabel:` 対象ホスト` を選択し対象のホストを選択します。
-   | 次に、比較対象のパラメータシートを実施した日時をそれぞれ入力、選択します。実施した日時は :menuselection:`入力用 --> システム情報` から最終実行日時を確認してみてください。 
+   | 次に、比較対象のパラメータシートを実施した日時をそれぞれ入力、選択します。実施した日時は :menuselection:`Input --> システム情報` から最終実行日時を確認してみてください。 
    | 最後に、:menuselection:`比較実行` を押下します。
 
    | そうすると画面右側に比較結果が表示されますので、そちらから先ほど変更したホスト名(ansible_nodename)の欄を確認してみましょう。すると、変更前に収集したパラメータと変更後に収集したパラメータの差異が出ているのが確認できると思います。

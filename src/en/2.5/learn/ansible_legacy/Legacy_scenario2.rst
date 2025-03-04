@@ -1,251 +1,250 @@
 ==============
-パッケージ管理
+Package management
 ==============
 
-| 本シナリオでは、パッケージのインストールやアンインストールといったパッケージ管理を通して、より実用的なパラメータシートの管理・運用のテクニックについて学習します。
+| In this scenario, the user will learn techniques on how to manage and operate parameter sheets better by installing and uninstalling packages.
 
-.. tip:: 本シナリオに入る前に、 :doc:`前のシナリオ <Legacy_scenario1>` を完了させておくことを推奨します。
+.. tip:: We highly recommend that the user finishes the :doc:`previous scenario <Legacy_scenario1>` before starting this one.
 
 
-パラメータ設計
+Design parameters
 ==============
 
-| 本シナリオで扱うパラメータシートの設定項目は、「パッケージ名」と「あるべきインストール状態」の2つの設定項目です。
-| ここで検討すべきポイントは、
+| The parameter sheet setting items used in this scenario are "Package name" and "Desired install state".
+| With these items, we can:
 
-- 「あるべきインストール状態」である「インストールされている状態」か「インストールされていない状態」のいずれかの状態を管理する方法
-- 不定数のパッケージを管理する方法
+- Manage whether the state of the package should be "Installed" or "Not installed" with The "Desired install state" item.
+- Manage multiple indefinite packages.
 
-| の2点です。
-| このポイントを中心に、パラメータシートの設計方法を見ていきましょう。
+| Let us now see how we can design parameter sheets to do this.
 
-選択肢の作成
+Create selectable options
 ------------
 
-| パラメータの登録時に手入力をすると、タイプミスなどにより作業ミスが発生する可能性が高くなります。
-| パラメータの選択肢を作成することで、このようなパラメータの入力ミスを防止することができます。
+| Registering parameters through manual input will always come with the risk of typing mistakes or other errors.
+| By making the parameters selectable, we can prevent such mistakes.
 
-| まずは、「あるべきインストール状態」である :kbd:`present` (インストールされている状態) と :kbd:`absent` (インストールされていない状態) の選択肢を作成します。
-| 具体的には、データシートを作成し、その中に選択肢として表示するパラメータを投入します。
+| First, we will create the options for the "Desired install state" item, being :kbd:`present` (Installed) and :kbd:`absent` (Not installed).
+| More specifically, we will create a data sheet and input parameters that will be selectable options.
 
-.. glossary:: データシート
-   Exastro IT Automation が使用する固定値のパラメータを管理するデータ構造のことです。
+.. glossary:: Data sheet
+   Data structure that manages fixed parameter values used by Exastro IT Automation.
 
 .. _quickstart_legacy_create_datasheet:
 
-データシートの作成
+Create data sheet
 ^^^^^^^^^^^^^^^^^^
 
-| データシートを作成します。
+| Create a data sheet
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、データシートを登録します。
+| From the :menuselection:`Create parameter sheet --> Define/create parameter sheet` menu, create a data sheet.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/データシート作成.png
    :width: 1200px
-   :alt: データシートの作成
+   :alt: Data sheet creation
 
-.. list-table:: データシートの項目の設定値
+.. list-table:: Data sheet item setting values
    :widths: 10 10
    :header-rows: 1
 
-   * - 設定項目
-     - 項目1設定値
-   * - 項目の名前
+   * - Setting item
+     - Item 1 setting value
+   * - Item name
      - :kbd:`present-absent`
-   * - 項目の名前(Rest API用) 
+   * - Item name(for Rest API) 
      - :kbd:`present-absent`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-   * - 最大バイト数
+   * - Input method
+     - :kbd:`String(Single line)`
+   * - Maximum byte number
      - :kbd:`16`
-   * - 正規表現
+   * - Regular expression
      - 
-   * - 初期値
+   * - Default value
      - 
-   * - 必須
+   * - Required
      - ✓
-   * - 一意制約
-     - ✓
-   * - 説明
+   * - Unique restriction
      - 
-   * - 備考
+   * - Description
+     - 
+   * - Remarks
      - 
 
-.. list-table:: パラメータシート作成情報の設定値
+.. list-table:: Parameter sheet creation information setting values
    :widths: 5 10
    :header-rows: 1
 
-   * - 項目名
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - パラメータシート名
-     - :kbd:`状態`
-   * - パラメータシート名(REST)
+   * - Setting item
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`State`
+   * - Parameter sheet name(REST)
      - :kbd:`state`
-   * - 作成対象
-     - :kbd:`データシート`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Data sheet`
+   * - Dispaly order
      - :kbd:`99999`
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
-選択肢を登録
+Register options
 ^^^^^^^^^^^^
 
-| パラメータリスト内に表示するパラメータを設定します。
-| :menuselection:`入力用 --> 状態` から、パッケージのあるべきインストール状態を登録します。
+| In this step, we will register that parameters that will be displayed as selectable options in the parameter list.
+| In the :menuselection:`Input --> State` menu, register the desired install state of the packages.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/選択肢を登録.png
    :width: 1200px
-   :alt: 選択肢を登録
+   :alt: Selectable option registration
 
-.. list-table:: 状態の設定値
+.. list-table:: State setting values
    :widths: 10 10
    :header-rows: 2
 
-   * - パラメータ
-     - 備考
+   * - Parameter
+     - Remarks
    * - present-absent
      - 
    * - :kbd:`present`
-     - インストール
+     - Install
    * - :kbd:`absent`
-     - アンインストール
+     - Uninstall
 
-パラメータシートの作成
+Create parameter sheet
 ----------------------
 
-| サーバやネットワーク機器のパラメータを管理する際に、1つの設定項目に対して複数のパラメータが存在することがあります。
-| 例えば、IP アドレスやユーザなどのように、一つの機器上に複数の値を管理する必要がある場合があります。
-| こういったパラメータをテーブル形式で管理する場合、IPアドレスやユーザが増えるごとにテーブル内の項目を増やす必要があるため、パラメータシートのフォーマット修正が都度必要となり、管理が煩雑になってしまいます。
+| When managing parameters for server and network devices, the user might need to manage multiple parameters for single items.
+| For example, IP addresses, users and other items that might have multiple values on a single machine.
+| For cases like this, we can manage the parameters in a table format. This allows the user to freely add IP addresses and users later without having to fix the format of the parameter sheet. 
 
-| そこで、本シナリオではバンドルというパラメータシートを使い、複数のパラメータを管理する方法を紹介します。
+| Therefore, in this scenario, we will use bundled parameter sheets, which allows us to manage multiple parameters.
 
-| :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、パラメータシートを登録します。
-| 項目1の :menuselection:`入力方式` を :kbd:`プルダウン選択` に設定することで、:ref:`quickstart_legacy_create_datasheet` で登録したデータシートを参照できるようになります。
+| In the :menuselection:`Create paramete sheet --> Define/create parameter sheet` menu, register a parameter sheet.
+| By configuring item 1's :menuselection:`Input method` to :kbd:`Pulldown selection`, the user can reference the data sheet created in :ref:`quickstart_legacy_create_datasheet`.
 
-| パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
+| In the parameter sheet creation information, we can check the  :menuselection:`Use bundles` option to configure multiple parameters for single items.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/パラメータシート項目設定.png
    :width: 1200px
-   :alt: パラメータシート作成情報設定
+   :alt: Parameter sheet creation information settings
 
-.. list-table:: パラメータ項目設定
+.. list-table:: Parameter item settings
    :widths: 10 10 10
    :header-rows: 1
    :class: filter-table
 
-   * - 設定項目
-     - 項目1設定値
-     - 項目2設定値
-   * - 項目の名前
-     - :kbd:`パッケージ名`
-     - :kbd:`状態`
-   * - 項目の名前(Rest API用) 
+   * - Setting item
+     - Item 1 setting value
+     - Item 2 setting value
+   * - Item name
+     - :kbd:`Package name`
+     - :kbd:`State`
+   * - Item name(for Rest API) 
      - :kbd:`package_name`
      - :kbd:`state`
-   * - 入力方式
-     - :kbd:`文字列(単一行)`
-     - :kbd:`プルダウン選択`
-   * - 最大バイト数
+   * - Input method
+     - :kbd:`String(Single line)`
+     - :kbd:`Pulldown selection`
+   * - Maximum byte number
      - :kbd:`64`
-     - (項目なし)
-   * - 正規表現
+     - (No item)
+   * - Regular expression
      - 
-     - (項目なし)
-   * - 選択項目
-     - (項目なし)
-     - :kbd:`入力用:状態:present-absent`
-   * - 参照項目
-     - (項目なし)
+     - (No item)
+   * - Select item
+     - (No item)
+     - :kbd:`Input:State:present-absent`
+   * - Reference item
+     - (No item)
      - 
 
-   * - 初期値
+   * - Default value
      - 
      - 
-   * - 必須
+   * - Required
      - ✓
      - ✓
-   * - 一意制約
+   * - Unique restriction
      - 
      - 
-   * - 説明
+   * - Description
      - 
      - 
-   * - 備考
+   * - Remarks
      - 
      - 
 
 
-.. list-table:: パラメータシート作成情報の設定値
+.. list-table:: Parameter sheet creation information setting values
    :widths: 5 10
    :header-rows: 1
    :class: filter-table
 
-   * - 項目名
-     - 設定値
-   * - 項番
-     - (自動入力)
-   * - パラメータシート名
-     - :kbd:`導入パッケージ`
-   * - パラメータシート名(REST)
+   * - Setting item
+     - Setting value
+   * - Item number
+     - (Automatic)
+   * - Parameter sheet name
+     - :kbd:`Install package`
+   * - Parameter sheet name(REST)
      - :kbd:`packages`
-   * - 作成対象
-     - :kbd:`パラメータシート（ホスト/オペレーションあり）`
-   * - 表示順序
+   * - Creation target
+     - :kbd:`Parameter sheet（With host/operation）`
+   * - Display order
      - :kbd:`2`
-   * - バンドル利用
-     - 「利用する」にチェックを入れる(有効)
-   * - 最終更新日時
-     - (自動入力)
-   * - 最終更新者
-     - (自動入力)
+   * - Use bundles
+     - Check (Activate)
+   * - Last updated date/time
+     - (Automatic)
+   * - Last updated by
+     - (Automatic)
 
 
-作業手順の登録
+Register operation procedure
 ==============
 
-| 作業手順を登録するために、作業単位となるジョブ(Movement)を定義します。
-| 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数とパラメータシートの項目の紐付けを行います。
+| In order to register the operation procedure, the user must define a Movement(job), which is a unit of operation in Exastro IT Automation.
+| We will then link the an Ansible Playbook to the defined Movement, and then link the variables within the Ansible Playbook with the parameter sheet items.
 
-Movement 登録
+Register Movement
 -------------
 
-| :menuselection:`Ansible-Legacy --> Movement一覧` から、パッケージ管理のための Movement を登録します。
+ From the :menuselection:`Ansible-Legacy --> Movement list` menu, register a Movement for the Package management.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/Movement登録.png
    :width: 1200px
-   :alt: Movement登録
+   :alt: Movement registration
 
-.. list-table:: Movement 情報の設定値
+.. list-table:: Movement information setting values
    :widths: 10 10 10
    :header-rows: 2
 
-   * - Movement名
-     - Ansible利用情報
+   * - Movement name
+     - Ansible use information
      - 
    * - 
-     - ホスト指定形式
-     - ヘッダーセクション
-   * - :kbd:`パッケージ管理`
+     - Host specification format
+     - Header section
+   * - :kbd:`Package management`
      - :kbd:`IP`
-     - :kbd:`※ヘッダーセクションを参照`
+     - :kbd:`※See header section`
 
 .. code-block:: bash
-   :caption: ヘッダーセクション
+   :caption: Header section
 
    - hosts: all
      remote_user: "{{ __loginuser__ }}"
      gather_facts: no
      become: yes
 
-Ansible Playbook 登録
+Register Ansible Playbook
 ---------------------
 
-| 本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でpackage.ymlを作成してください。
+| This scenario uses the following Playbook. Copy it, and save it as a yml file with the name "hostname.yml".
 
 .. code-block:: bash
    :caption: package.yml
@@ -269,471 +268,471 @@ Ansible Playbook 登録
        - "{{ action }}"
      when: item.1 == 'absent'
 
-| :menuselection:`Ansible-Legacy --> Playbook素材集` から、から、上記のPlaybookを登録します。
+| From :menuselection:`Ansible-Legacy --> Playbook file collection`, register the Playbook above.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/Ansible-Playbook登録.png
    :width: 1200px
-   :alt: ansible-playbook登録
+   :alt: Playbook registration
 
-.. list-table:: Ansible Playbook 情報の登録
+.. list-table:: Ansible Playbook information registration
   :widths: 10 10
   :header-rows: 1
 
-  * - Playbook素材名
-    - Playbook素材
+  * - Playbook file name
+    - Playbook file
   * - :kbd:`package`
     - :file:`package.yml`
 
-Movement と Ansible Playbook の紐付け
+Link Movement and Ansible Playbook
 -------------------------------------
 
-| :menuselection:`Ansible-Legacy --> Movement-Playbook紐付` から、Movement と Ansible Playbook の紐付けを行います。
-| 本シナリオでは、 package.ymlを利用します。
+| From the :menuselection:`Ansible-Legacy --> Movement-role link` menu, register a link between the Movement and the Ansible Playbook.
+| In this scenario, we will use package.yml.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/MovementとPlaybook紐付け.png
    :width: 1200px
-   :alt: MovementとPlaybook紐づけ
+   :alt: Movement-Playbook link
 
-.. list-table:: Movement-Playbook紐付け情報の登録
+.. list-table:: Movement-Playbook link information registration
   :widths: 10 10 10
   :header-rows: 1
 
-  * - Movement名
-    - Playbook素材
-    - インクルード順序
-  * - :kbd:`パッケージ管理`
+  * - Movement name
+    - Playbook file
+    - Include order
+  * - :kbd:`Package management`
     - :kbd:`package.yml`
     - :kbd:`1`
 
-代入値自動登録設定
+Link Parameter sheet item and Ansible Playbook
 ------------------
 
-| package.yml では、:kbd:`pkg_name` という変数に管理するパッケージ名を、:kbd:`action` という変数にパッケージの状態を代入することで、対象サーバーのパッケージを管理することができます。
+| By substituting the :kbd:`pkg_name` variable within the package.yml file with the :kbd:`action` package state variable, we can manage packages on the target server.
 
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、導入パッケージパラメータシートのパッケージ名と状態の項目に入るパラメータと、 Ansible Playbook の :kbd:`pkg_name` と :kbd:`action` 内の変数の紐付けを行います。
+| From the :menuselection:`Ansible-Legacy --> Substitute value auto registration settings` menu,configure the Parameters from the Package name and state items in the Input package parameter sheet to substitute the :kbd:`pkg_name` and :kbd:`action` variables in the Ansible Playbook.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/代入値自動登録設定.png
   :width: 1200px
-  :alt: 代入値自動登録設定
+   :alt: Substitute value auto registration settings
 
-.. list-table:: 代入値自動登録設定の設定値
+.. list-table:: Substitute value auto registration settings
   :widths: 40 10 10 20 20 10
   :header-rows: 2
 
-  * - パラメータシート(From)
+  * - Parameter sheet(From)
     -
-    - 登録方式
-    - Movement名
-    - IaC変数(To)
+    - Registration method
+    - Movement name
+    - IaC variable(To)
     - 
-  * - メニューグループ:メニュー:項目
-    - 代入順序
+  * - Menu group:Menu:Item
+    - Substitute order
     -
     -
-    - Movement名:変数名
-    - 代入順序
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+    - Movement variable:variable name
+    - Substitute order
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`1`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`1`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`1`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`2`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`2`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`2`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`3`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`3`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`3`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`4`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`4`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`4`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`5`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`5`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`5`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`5`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`6`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`6`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`6`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`6`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`7`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`7`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`7`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`7`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`8`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`8`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`8`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`8`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`9`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`9`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`9`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`9`
-  * - :kbd:`代入値自動登録用:導入パッケージ:パッケージ名`
+  * - :kbd:`Substitute value auto registration:Input package:Package name`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:pkg_name`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:pkg_name`
     - :kbd:`10`
-  * - :kbd:`代入値自動登録用:導入パッケージ:状態`
+  * - :kbd:`Substitute value auto registration:Input package:State`
     - :kbd:`10`
-    - :kbd:`Value型`
-    - :kbd:`パッケージ管理`
-    - :kbd:`パッケージ管理:action`
+    - :kbd:`Value type`
+    - :kbd:`Package management`
+    - :kbd:`Package management:action`
     - :kbd:`10`
 
-| これだけの項目の設定に設定値を入力するのは、 Web 画面の操作ではかなり苦労することでしょう。
-| このような大量のデータを一度に登録するような場合は、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。
+| Manually inputting all these values through the Web UI would be unrealistic.
+| For cases where the users wants to register large amounts of data, they can use the Download all/file bulk registration function to register data using a file.
+| From :menuselection:`Ansible-Legacy --> Substitute value auto registration settings` --> Download all/File bulk registration, download the file for new registrations. Users can then edit the file to register files and substitute value auto registration settings more easily.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/代入値自動登録設定_一括登録Excel.png
    :width: 1200px
-   :alt: 代入値自動登録設定(一括登録)
+   :alt: Substitute value auto registration settings(bulk registration)
 
 
-作業対象の登録
+Register target
 ==============
 
-| 作業実施を行う対象機器の登録を行います。
+| In this section we will register the device that will be the target machine for our operations.
 
-機器登録
+Register device
 --------
 
-| 作業対象となるサーバーは :doc:`前のシナリオ <Legacy_scenario1>` で登録した db01 を利用するため、作業は不要です。
+| This scenario uses the "db01" server registered in the :doc:`previous scenario <Legacy_scenario1>`. No additional registration or configuration is required.
 
 
-パッケージのインストール実施(1回目)
+Run package install operation(1st time)
 ===================================
 
-作業概要の作成
+Create Operation overview
 --------------
 
-| :doc:`前のシナリオ <Legacy_scenario1>` と同様に、まずは作業計画を立てましょう。
+| Similarly to the :doc:`previous scenario <Legacy_scenario1>`, start with planning the operation.
 
-.. list-table:: 作業の方針
+.. list-table:: Operation overview
    :widths: 5 10
    :header-rows: 0
 
-   * - 作業実施日時
+   * - Execution date/time
      - 2024/04/02 12:00:00
-   * - 作業対象
+   * - Target
      - db01(RHEL8)
-   * - 作業内容
-     - パッケージのインストール・アンインストール
+   * - Contents
+     - Install/Uninstall packages
 
-作業概要登録
+Register operation overview
 ------------
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From :menuselection:`Basic console --> Operation list`, register the execution date and execution name.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/オペレーション登録.png
    :width: 1200px
-   :alt: オペレーション登録
+   :alt: Conductor execution
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`RHEL8のパッケージ管理`
+   * - Operation name
+     - Execution date/time
+   * - :kbd:`RHEL8 package management`
      - :kbd:`2024/04/02 12:00:00`
 
-パラメータ設定
+Configure Parameters
 --------------
 
-| パラメータシートには、設定したい値を機器ごとに登録します。
-| 本シナリオでは、db01 というホストに対して、 :kbd:`postgresql-server` というパッケージをインストールし DB サーバーを構築します。
+| In the parameter sheets, register the desired values for each of the machines.
+| In this scenario, we will install a package called :kbd:`postgresql-server` to the db01 host and construct a DB server.
 
-| :menuselection:`入力用 --> 導入パッケージ` から、ホストに対するパラメータを登録します。
+| From :menuselection:`Input --> Input package` register the parameters for the host.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/パラメータ設定.png
    :width: 1200px
-   :alt: パラメータ設定
+   :alt: Parameter settings
 
-.. list-table:: 導入パッケージパラメータの設定値
+.. list-table:: Input package parameter setting values
   :widths: 5 20 5 10 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - 代入順序
-    - パラメータ
+  * - Host name
+    - Operation
+    - Substitute order
+    - Parameter
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
-    - パッケージ名
-    - 状態
+    - Package name
+    - State
   * - db01
-    - :kbd:`2024/04/02 12:00:00_RHEL8のパッケージ管理`
+    - :kbd:`2024/04/02 12:00:00_RHEL8 package management`
     - :kbd:`1`
     - :kbd:`postgresql-server`
     - :kbd:`present`
 
-作業実行
+Run operation
 --------
 
-1. 事前確認
+1. Pre-confirmation
 
-   | まずは、現在のサーバーの状態を確認しましょう。
-   | サーバに SSH ログインし、 postgresql-server のインストール状況を確認します。
+   | First, confirm the current state of the server.
+   | SSH login to the server and check that the install state of postgresql-server.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q postgresql-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       package postgresql-server is not installed
 
-2. 作業実行
+2. Run operation
 
-   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`パッケージ管理` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のパッケージ管理` を選択し、:guilabel:`作業実行` を押下します。
+   | From :menuselection:`Ansible-Legacy --> Execution`, select the :kbd:`Package management` Movement and press :guilabel:` Execute`.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`RHEL8 package management` and press :guilabel:`Execute`.
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+   | This opens the  :menuselection:`Execuction status confirmation` page. In here, check that the status says "Complete" after the execution has finished.
 
    .. figure:: /images/learn/quickstart/Legacy_scenario2/作業実行.png
       :width: 1200px
-      :alt: 作業実行
+      :alt: Execute
 
-3. 事後確認
+3. Post-confirmation
 
-   | 再度サーバに SSH ログインし、postgresql-server のインストール状況を確認し postgresql-server がインストールされていることを確認します。
+   | Relogin to the server with SSH and check the install state of postgresql-server. It should be installed.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q postgresql-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
-      # 環境ごとにバージョンは異なります
+      # Version depends on environment
       postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 
 
-パッケージのインストール実施(2回目)
+Run package install operation(2nd time)
 ===================================
 
-作業概要の作成
+Create Operation overview
 --------------
 
-| 先ほどと同様に、まずは作業計画を立てましょう。
+| Same as the step before, start planning the operation.
 
-.. list-table:: 作業の方針
+.. list-table:: Operation overview
    :widths: 5 10
    :header-rows: 0
 
-   * - 作業実施日時
+   * - Execution date/time
      - 2024/05/02 12:00:00
-   * - 作業対象
+   * - Target
      - db01(RHEL8)
-   * - 作業内容
-     - DBパッケージへ変更
+   * - Contents
+     - Install/Uninstall packages
 
-作業概要登録
+Register operation overview
 ------------
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From :menuselection:`Basic console --> Operation list`, register the execution date and execution name.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/変更用オペレーション登録.png
    :width: 1200px
-   :alt: オペレーション登録
+   :alt: Conductor execution
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`RHEL8をDBパッケージへ変更`
+   * - Operation name
+     - Execution date/time
+   * - :kbd:`Change RHEL8 to DB package`
      - :kbd:`2024/05/02 12:00:00`
 
 
-パラメータ設定
+Configure Parameters
 --------------
 
-| 本シナリオでは、db01 というホストに対して、 :kbd:`postgresql-server` というパッケージをインストールし DB サーバーを構築しました。
-| しかし、その後、postgresql-server ではなく mariadb-server に変更する必要が出てきました。
+| In this scenario, we installed a package called :kbd:`postgresql-server` to the db01 host and constructed a DB server.
+| However, what should we do if we want to change it to a mariadb-server?
 
-| :menuselection:`入力用 --> 導入パッケージ` から、新たなパラメータを登録します。
+| From :menuselection:`Input --> Input package` register new parameters.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario2/更新用パラメータ設定.png
    :width: 1200px
-   :alt: パラメータ設定2
+   :alt: Parameter settings 2
 
-.. list-table:: 導入パッケージパラメータの設定値
+.. list-table:: Input package parameter setting values
   :widths: 5 20 5 10 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
-    - 代入順序
-    - パラメータ
+  * - Host name
+    - Operation
+    - Substitute order
+    - Parameter
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
-    - パッケージ名
-    - 状態
+    - Package name
+    - State
   * - db01
-    - :kbd:`2023/05/02 12:00:00_RHEL8をDBパッケージへ変更`
+    - :kbd:`2023/05/02 12:00:00_Change RHEL8 to DB package`
     - :kbd:`1`
     - :kbd:`postgresql-server`
     - :kbd:`absent`
   * - db01
-    - :kbd:`2023/05/02 12:00:00_RHEL8をDBパッケージへ変更`
+    - :kbd:`2023/05/02 12:00:00_Change RHEL8 to DB package`
     - :kbd:`2`
     - :kbd:`mariadb-server`
     - :kbd:`present`
 
-作業実行
+Execute
 --------
 
-1. 事前確認
+1. Pre-confirmation
 
-   | 現在のサーバーの状態を確認しましょう。
-   | サーバに SSH ログインし、パッケージのインストール状態を確認します。
+   | First, confirm the current state of the server.
+   | SSH login to the server and check the install state of the packages.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q postgresql-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
-      # 環境ごとにバージョンは異なります
+      # Version depends on environment
       postgresql-server-10.23-1.module+el8.7.0+17280+3a452e1f.x86_64
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q mariadb-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       package mariadb-server is not installed
 
-2. 作業実行
+2. Run operation
 
-   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`パッケージ管理` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8をDBパッケージへ変更` を選択し、:guilabel:`作業実行` を押下します。
+   | From :menuselection:`Ansible-Legacy --> Execution`, select the :kbd:`Package management` Movement and press :guilabel:` Execute`.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`Change RHEL8 to DB package` and press :guilabel:`Execute`.
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+   | This opens the  :menuselection:`Execuction status confirmation` page. In here, check that the status says "Done" after the execution has finished.
 
    .. figure:: /images/learn/quickstart/Legacy_scenario2/更新作業実行2.png
       :width: 1200px
-      :alt: 作業実行2
+      :alt: Execution 2
 
-3. 事後確認
+3. Post-confirmation
 
-   | 再度サーバに SSH ログインし、postgresql-server がアンインストールされ、mariadb-server がインストールされていることを確認します。
+   | Relogin to the server with SSH and check that postgresql-server has been uninstalled and that mariadb-server has been installed.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q postgresql-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       package postgresql-server is not installed
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       rpm -q mariadb-server
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       mariadb-server-10.3.35-1.module+el8.6.0+15949+4ba4ec26.x86_64
 
 
-まとめ
+Summary
 ======
 
-| 本シナリオでは、RHEL8 サーバ上のパッケージを管理するシナリオを通して、Exastro IT Automation のパラメータシートの運用方法について紹介をしました。
+| This guide taught the user a more efficient method of using Exastro IT Automation's parameter sheets through a scenario where they managed packages for a RHEL8 server.
 
-- 入力値が確定している場合は、データシートを利用して入力ミスを防ぐことが可能です。
-- 複数かつ数が不定のパラメータを管理する場合は、「バンドル」を利用することで柔軟なパラメータ管理を行うことが可能です。
-- 大量のパラメータを設定する場合は、「全件ダウンロード・ファイル一括登録」を利用することでファイルからのデータ登録を行うことが可能です。
+- If the input values are fixed, users can use data sheets to prevent input mistakes.
+- If the user wants to manage multiple indefinite parameters, they can use "Bundled" menus to manage parameters more flexibly.
+- If the user wants to configure large amounts of parameters, they can use the "Download all/File bulk registration" function to upload a file containing the parameters.
 
-| :doc:`次のシナリオ <Legacy_scenario3>` では、一連の作業を実行する方法について紹介をします。
+| In the :doc:`next scenario <../ansible_legacy/Legacy_scenario3>`, the user will learn how to run multiple jobs in succession.

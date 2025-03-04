@@ -254,7 +254,7 @@ Fetch default setting values
 OASE Agent settings
 ----------------
 
-| OASE Agentを立ち上げる際の代表的な設定方法について紹介します。
+| This section contains a standard example of settings when starting an OASE Agent.
 | In the following example, the persistent volume is configured to hostPath.
 
 - Simple architecture

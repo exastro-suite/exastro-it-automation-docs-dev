@@ -1,27 +1,27 @@
 =======================
-ユーザー管理 (演習問題)
+User Management (Practice questions)
 =======================
 
-| 本シナリオでは、:doc:`前のシナリオ <scenario3>` までに構築した Web サーバに対して、ユーザーを管理できるようにしましょう。
-| 利用する Ansible Role パッケージは、下記の2つです。
+| In this scenario, we will make users managable in the Web server created in the :doc:`previous scenario <scenario3>`
+| The Ansible Role packages used are the following:
 
-- `ユーザー設定 <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`_
-- `グループ設定 <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>`_
+- `User settings <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_user/OS_build>`_
+- `Group settings <https://github.com/exastro-playbook-collection/OS-RHEL8/tree/master/RH_group/OS_build>`_
 
-問題
+Questions
 ====
 
-| 下記のようなユーザを Exastro IT Automation を使って管理できるようにしてください。
-| また、その際に、ユーザー管理だけではなく、ホスト名設定、パッケージ管理も併せて実施できる様にしてください。
+| Create and manage the following users in Exastro IT Automation.
+| Make sure to not only manage users, but to also configure host names and manage packages.
 
-.. list-table:: ユーザー情報
+.. list-table:: User information
   :widths: 10 10 10 10
   :header-rows: 1
 
-  * - ユーザー名
-    - ユーザーID
-    - グループ名
-    - ログインパスワード
+  * - User name
+    - User ID
+    - Group name
+    - Login password
   * - wwwuser01
     - 10001
     - www
@@ -40,7 +40,7 @@
     - password02
 
 
-解答
+Answers
 ====
 
 | :doc:`answer1`

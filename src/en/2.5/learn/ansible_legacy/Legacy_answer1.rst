@@ -166,7 +166,7 @@ Create Group parameter sheets
      - 
      - 
 
-.. list-table:: Parameter creation information setting value
+.. list-table:: Parameter sheet creation information setting values
    :widths: 5 10
    :header-rows: 1
    :class: filter-table
@@ -195,14 +195,14 @@ Create parameter sheet for users
 ------------------------------
 
 | Next, we will create a parameter sheets for the users.
-| The Ansible Playbook used is written below. Make sure to create the parameter sheet so it can use the parameter below.
+| The Ansible Playbook used is written below. Make sure to create the parameter sheet so it can use the parameters below.
 
 .. code-block:: bash
    :caption: user.yml
 
    ---
    - name: create user
-     user:
+     User:
        name: "{{ item.0 }}"
        uid: "{{ item.1 }}"
        group: "{{ item.2 }}"
@@ -223,7 +223,7 @@ Create parameter sheet for users
      when: item.7 == 'present' and password_apply
 
    - name: create user
-     user:
+     User:
        name: "{{ item.0 }}"
        uid: "{{ item.1 }}"
        group: "{{ item.2 }}"
@@ -242,7 +242,7 @@ Create parameter sheet for users
      when: item.6 == 'present' and not password_apply
 
    - name: delete user
-     user:
+     User:
        state: absent
        name: "{{ item.0 }}"
        remove: 'yes'
@@ -289,7 +289,7 @@ Create parameter sheet for users
    :width: 1200px
    :alt: User parameter creation 1
 
-.. list-table:: パラメータ項目の設定値(1/2)
+.. list-table:: Parameter item setting value(1/2)
    :widths: 10 10 10 10 10 10
    :header-rows: 1
    :class: filter-table
@@ -509,11 +509,11 @@ Register device
 Register operation steps
 ==============
 
-| We will now configure a Movement so it executes the Ansible Playbook so the Group(s) are created/deleted and then the users are created/deleted.
-| Up until now, we have only linked 1 Ansible Playbook per movement, but in this one, we will manage both groups and users with 1 Movement.
+| We will now configure a Movement so when the Ansible Playbook is executed, the Group(s) are created/deleted and then the users are created/deleted.
+| Up until now, we have only linked 1 Ansible Playbook per movement. But in this one, we will manage both groups and users with 1 Movement.
 
 .. note:: 
-   | We can achieve the same result by creating 1 Movement for bboth managing groups and managing users.
+   | We can achieve the same result by creating 1 Movement for both managing groups and managing users.
 
 Register Movement
 -------------
@@ -542,7 +542,7 @@ Register Movement
    :caption: Header section
 
    - hosts: all
-     remote_user: "{{ __loginuser__ }}"
+     remote_User: "{{ __loginuser__ }}"
      gather_facts: no
      become: yes
 
@@ -580,7 +580,7 @@ Register Ansible Playbook
 
    ---
    - name: create user
-     user:
+     User:
        name: "{{ item.0 }}"
        uid: "{{ item.1 }}"
        group: "{{ item.2 }}"
@@ -601,7 +601,7 @@ Register Ansible Playbook
      when: item.7 == 'present' and password_apply
 
    - name: create user
-     user:
+     User:
        name: "{{ item.0 }}"
        uid: "{{ item.1 }}"
        group: "{{ item.2 }}"
@@ -620,7 +620,7 @@ Register Ansible Playbook
      when: item.6 == 'present' and not password_apply
 
    - name: delete user
-     user:
+     User:
        state: absent
        name: "{{ item.0 }}"
        remove: 'yes'
@@ -675,15 +675,15 @@ Link Movement and Ansible Playbook
 Substitute value auto registration settings
 ------------------
 
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定` から、パラメータシートの項目と Ansible Playbook の変数の紐付けを行います。
-| 大量のデータを一度に登録するような場合には、全件ダウンロード・ファイル一括登録を使って、ファイルからデータを投入する方法が適切です。
-| :menuselection:`Ansible-Legacy --> 代入値自動登録設定 --> 全件ダウンロード・ファイル一括登録` から、新規登録用ファイルをダウンロードします。ダウンロードしたファイルを編集し、ファイル一括登録にてファイルを登録すると代入値自動登録設定が簡単に行うことが出来ます。
+| From :menuselection:`Ansible-Legacy --> Substitute value auto registration settings`, link the parameter sheet items and the Ansible Playbook variables with each other.
+| If the user wants to register large amounts of data, we recommend that they use the Download all/File bulk registration function.
+| From :menuselection:`Ansible-Legacy --> Substitute value auto registration settings` --> Download all/File bulk registration, download the file for new registrations. Users can then edit the file to register files and substitute value auto registration settings more easily.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/グループの代入値自動登録設定_一括登録.png
    :width: 1200px
-   :alt: グループの代入値自動登録設定
+   :alt: Group substitute value auto registration settings
 
-.. list-table:: グループの代入値自動登録設定の設定値
+.. list-table:: Group substitute value auto registration settings Setting values
   :widths: 40 10 10 20 20 10
   :header-rows: 2
 
@@ -691,7 +691,7 @@ Substitute value auto registration settings
     -
     - Registration method
     - Movement name
-    - IaC変数(To)
+    - IaC variable(To)
     -
   * - Menu group:Menu:Item
     - Substitute order
@@ -762,25 +762,25 @@ Substitute value auto registration settings
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーの代入値自動登録設定_一括登録1.png
    :width: 1200px
-   :alt: User's Substitute value auto registration settings
+   :alt: Substitute value auto registration settings for User
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーの代入値自動登録設定_一括登録2.png
    :width: 1200px
-   :alt: User's Substitute value auto registration settings
+   :alt: Substitute value auto registration settings for User
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーの代入値自動登録設定_一括登録3.png
    :width: 1200px
-   :alt: User's Substitute value auto registration settings
+   :alt: Substitute value auto registration settings for User
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーの代入値自動登録設定_一括登録4.png
    :width: 1200px
-   :alt: User's Substitute value auto registration settings
+   :alt: Substitute value auto registration settings for User
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーの代入値自動登録設定_一括登録5.png
    :width: 1200px
-   :alt: User's Substitute value auto registration settings
+   :alt: Substitute value auto registration settings for User
 
-.. list-table:: User's Substitute value auto registration settings
+.. list-table:: Substitute value auto registration settings values for User
   :widths: 40 10 10 20 20 10
   :header-rows: 2
 
@@ -796,217 +796,217 @@ Substitute value auto registration settings
     -
     - Movement name:Variable name
     - Substitute order
-  * - :kbd:`Substitute value auto registration:ユーザー:User name`
+  * - :kbd:`Substitute value auto registration:User:User name`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_name`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:User ID`
+  * - :kbd:`Substitute value auto registration:User:User ID`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_id`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:パスワード`
+  * - :kbd:`Substitute value auto registration:User:Password`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:Password settings`
+  * - :kbd:`Substitute value auto registration:User:Password settings`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password_apply`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:グループ`
+  * - :kbd:`Substitute value auto registration:User:Group`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:group`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:Home directory`
+  * - :kbd:`Substitute value auto registration:User:Home directory`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:home_dir`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:Login shell`
+  * - :kbd:`Substitute value auto registration:User:Login shell`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:login_shell`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:Comment`
+  * - :kbd:`Substitute value auto registration:User:Comment`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:comment`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:State`
+  * - :kbd:`Substitute value auto registration:User:State`
     - :kbd:`1`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_action`
     - :kbd:`1`
-  * - :kbd:`Substitute value auto registration:ユーザー:User name`
+  * - :kbd:`Substitute value auto registration:User:User name`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_name`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:User ID`
+  * - :kbd:`Substitute value auto registration:User:User ID`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_id`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:パスワード`
+  * - :kbd:`Substitute value auto registration:User:Password`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:Password settings`
+  * - :kbd:`Substitute value auto registration:User:Password settings`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password_apply`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:グループ`
+  * - :kbd:`Substitute value auto registration:User:Group`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:group`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:Home directory`
+  * - :kbd:`Substitute value auto registration:User:Home directory`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:home_dir`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:Login shell`
+  * - :kbd:`Substitute value auto registration:User:Login shell`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:login_shell`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:Comment`
+  * - :kbd:`Substitute value auto registration:User:Comment`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:comment`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:State`
+  * - :kbd:`Substitute value auto registration:User:State`
     - :kbd:`2`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_action`
     - :kbd:`2`
-  * - :kbd:`Substitute value auto registration:ユーザー:User name`
+  * - :kbd:`Substitute value auto registration:User:User name`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_name`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:User ID`
+  * - :kbd:`Substitute value auto registration:User:User ID`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_id`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:パスワード`
+  * - :kbd:`Substitute value auto registration:User:Password`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:Password settings`
+  * - :kbd:`Substitute value auto registration:User:Password settings`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password_apply`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:グループ`
+  * - :kbd:`Substitute value auto registration:User:Group`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:group`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:Home directory`
+  * - :kbd:`Substitute value auto registration:User:Home directory`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:home_dir`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:Login shell`
+  * - :kbd:`Substitute value auto registration:User:Login shell`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:login_shell`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:Comment`
+  * - :kbd:`Substitute value auto registration:User:Comment`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:comment`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:State`
+  * - :kbd:`Substitute value auto registration:User:State`
     - :kbd:`3`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_action`
     - :kbd:`3`
-  * - :kbd:`Substitute value auto registration:ユーザー:User name`
+  * - :kbd:`Substitute value auto registration:User:User name`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_name`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:User ID`
+  * - :kbd:`Substitute value auto registration:User:User ID`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_id`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:パスワード`
+  * - :kbd:`Substitute value auto registration:User:Password`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:Password settings`
+  * - :kbd:`Substitute value auto registration:User:Password settings`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password_apply`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:グループ`
+  * - :kbd:`Substitute value auto registration:User:Group`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:group`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:Home directory`
+  * - :kbd:`Substitute value auto registration:User:Home directory`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:home_dir`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:Login shell`
+  * - :kbd:`Substitute value auto registration:User:Login shell`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:login_shell`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:Comment`
+  * - :kbd:`Substitute value auto registration:User:Comment`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:comment`
     - :kbd:`4`
-  * - :kbd:`Substitute value auto registration:ユーザー:State`
+  * - :kbd:`Substitute value auto registration:User:State`
     - :kbd:`4`
     - :kbd:`Value type`
     - :kbd:`User management`
@@ -1018,163 +1018,163 @@ Substitute value auto registration settings
     - :kbd:`...`
     - :kbd:`...`
     - :kbd:`...`
-  * - :kbd:`Substitute value auto registration:ユーザー:User name`
+  * - :kbd:`Substitute value auto registration:User:User name`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_name`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:User ID`
+  * - :kbd:`Substitute value auto registration:User:User ID`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_id`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:パスワード`
+  * - :kbd:`Substitute value auto registration:User:Password`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:Password settings`
+  * - :kbd:`Substitute value auto registration:User:Password settings`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:password_apply`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:グループ`
+  * - :kbd:`Substitute value auto registration:User:Group`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:group`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:Home directory`
+  * - :kbd:`Substitute value auto registration:User:Home directory`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:home_dir`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:Login shell`
+  * - :kbd:`Substitute value auto registration:User:Login shell`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:login_shell`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:Comment`
+  * - :kbd:`Substitute value auto registration:User:Comment`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:comment`
     - :kbd:`10`
-  * - :kbd:`Substitute value auto registration:ユーザー:State`
+  * - :kbd:`Substitute value auto registration:User:State`
     - :kbd:`10`
     - :kbd:`Value type`
     - :kbd:`User management`
     - :kbd:`User management:user_action`
     - :kbd:`10`
 
-機器登録
+Register device
 --------
 
-| 作業対象となるサーバーは :doc:`前のシナリオ <Legacy_scenario1>` で登録した web01 を利用するため、作業は不要です。
+| This scenario uses the "web01" server registered in the :doc:`previous scenario <Legacy_scenario1>`. No additional registration or configuration is required.
 
 
-ユーザー追加作業の実施
+Add users
 ======================
 
-| Movement を実行してユーザーとグループを追加します。
+| Run the Movement and add user and group.
 
-作業概要の作成
+Create Operation overview
 --------------
 
-| まずは作業計画を立てましょう。
+| Start with planning the operation.
 
-.. list-table:: 作業の方針
+.. list-table:: Operation overview
    :widths: 5 10
    :header-rows: 0
 
-   * - 作業実施日時
+   * - Execution date/time
      - 2024/04/04 12:00:00
-   * - 作業対象
+   * - Target
      - web01(RHEL8)
-   * - 作業内容
-     - Webサーバーへユーザー追加作業
+   * - Contents
+     - Add user to Web server
 
-作業概要登録
+Register operation overview
 ------------
 
-| :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
+| From :menuselection:`Basic console --> Operation list`, register the execution date and execution name.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/オペレーション登録.png
    :width: 1200px
-   :alt: Conductor作業実行
+   :alt: Conductor execution
 
-.. list-table:: オペレーション登録内容
+.. list-table:: Operation registration contents
    :widths: 15 10
    :header-rows: 1
 
-   * - オペレーション名
-     - 実施予定日時
-   * - :kbd:`Webサーバーへユーザー追加作業`
+   * - Operation name
+     - Execution date/time
+   * - :kbd:`Add user to Web server`
      - :kbd:`2024/04/04 12:00:00`
 
 
-パラメータ設定
+Configure Parameters
 --------------
 
-| :menuselection:`Input --> グループ` から、グループに対するパラメータを登録します。
+| From :menuselection:`Input --> Group`, reigster the parameters for the groups.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/グループのパラメータ登録.png
    :width: 1200px
-   :alt: グループのパラメータ登録
+   :alt: Group parameter registration
 
-.. list-table:: グループパラメータの設定値
+.. list-table:: Group parameter setting values
   :widths: 5 20 5 5 5 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
+  * - Host name
+    - Operation
     - Substitute order
-    - パラメータ
+    - Parameter
     - 
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
     - Group name
     - Group ID
-    - 状態
+    - State
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`1`
     - :kbd:`www`
     - :kbd:`10001`
     - :kbd:`present`
   * - web01
-    - :kbd:`2023/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2023/04/04 12:00:00_Add user to Web server`
     - :kbd:`2`
     - :kbd:`app`
     - :kbd:`10002`
     - :kbd:`present`
 
-| :menuselection:`Input --> User` から、ユーザーに対するパラメータを登録します。
+| From :menuselection:`Input --> User` register the parameters for the users.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーのパラメータ登録_1.png
    :width: 1200px
-   :alt: ユーザのパラメータ登録
+   :alt: User parameter registration
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/ユーザーのパラメータ登録_2.png
    :width: 1200px
-   :alt: ユーザのパラメータ登録
+   :alt: User parameter registration
 
-.. list-table:: ユーザーパラメータの設定値
+.. list-table:: User parameter setting values
   :widths: 5 20 5 5 5 5 5 5 10 5 10 5
   :header-rows: 2
 
-  * - ホスト名
-    - オペレーション
+  * - Host name
+    - Operation
     - Substitute order
-    - パラメータ
+    - Parameter
     - 
     - 
     - 
@@ -1184,19 +1184,19 @@ Substitute value auto registration settings
     - 
     - 
   * - 
-    - オペレーション名
+    - Operation name
     - 
     - User name
     - User ID
-    - パスワード
-    - パスワード設定
-    - グループ
+    - Password
+    - Password settings
+    - Group
     - Home directory
-    - ログインシェル
-    - コメント
-    - 状態
+    - Login shell
+    - Comment
+    - State
   * - web01
-    - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2024/04/04 12:00:00_Add user to Web server`
     - :kbd:`1`
     - :kbd:`wwwuser01`
     - :kbd:`10001`
@@ -1208,7 +1208,7 @@ Substitute value auto registration settings
     - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2024/04/04 12:00:00_Add user to Web server`
     - :kbd:`2`
     - :kbd:`wwwuser02`
     - :kbd:`10002`
@@ -1220,7 +1220,7 @@ Substitute value auto registration settings
     - :kbd:`Web server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2024/04/04 12:00:00_Add user to Web server`
     - :kbd:`3`
     - :kbd:`appuser01`
     - :kbd:`20001`
@@ -1232,7 +1232,7 @@ Substitute value auto registration settings
     - :kbd:`Application server maintainer`
     - :kbd:`present`
   * - web01
-    - :kbd:`2024/04/04 12:00:00_Webサーバーへユーザー追加作業`
+    - :kbd:`2024/04/04 12:00:00_Add user to Web server`
     - :kbd:`4`
     - :kbd:`appuser02`
     - :kbd:`20002`
@@ -1244,78 +1244,78 @@ Substitute value auto registration settings
     - :kbd:`Application server maintainer`
     - :kbd:`present`
 
-作業実行
+Run operation
 --------
 
-1. 事前確認
+1. Pre-confirmation
 
-   | 現在のサーバーの状態を確認しましょう。
+   | Confirm the current state of the server.
 
-   | グループ一覧を確認します。
+   | Confirm group list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # グループ一覧の取得
+      # Fetch group list
       cat /etc/group|grep -E "www|app"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
-      # 何も表示されない
+      # Displays nothing
 
-   | ユーザー一覧を確認します。
+   | Confirm user list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ユーザー一覧の取得
+      # Fetch user list
       cat /etc/passwd|grep -E "www|app"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
-      # 何も表示されない
+      # Displays nothing
 
-2. 作業実行
+2. Run operation
 
-   | :menuselection:`Ansible-Legacy --> 作業実行` から、:kbd:`User management` Movement を選択し、:guilabel:` 作業実行` を押下します。
-   | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`Webサーバーへユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+   | From :menuselection:`Ansible-Legacy --> Execution`, select the :kbd:`User management` Movement and press :guilabel:` Execute`.
+   | Next, in the :menuselection:`Execution settings`, select :kbd:`Add user to Web server` and press :guilabel:`Execute`.
 
-   | :menuselection:`作業状態確認` 画面が開き、実行が完了した後に、ステータスが「完了」になったことを確認します。
+   | This opens the  :menuselection:`Execuction status confirmation` page. In here, check that the status says "Complete" after the execution has finished.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/作業実行.png
    :width: 1200px
-   :alt: 作業実行
+   :alt: Execute
 
-1. 事後確認
+1. Post-confirmation
 
-   | 再度サーバーに下記のグループとユーザーが設定されていることを確認しましょう。
+   | Check that the following groups and users has been configured.
 
-   | グループ一覧を確認します。
+   | Confirm group list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # グループ一覧の取得
+      # Fetch group list
       cat /etc/group|grep -E "app|www"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       www:x:10001:
       app:x:10002:
 
-   | ユーザー一覧を確認します。
+   | Confirm user list.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      # ユーザー一覧の取得
+      # Fetch user list
       cat /etc/passwd|grep -E "app|www"
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Results
 
       wwwuser01:x:10001:10001:Web server mainterner:/home/wwwuser01:/bin/bash
       wwwuser02:x:10002:10001:Web server mainterner:/home/wwwuser02:/bin/bash
@@ -1323,100 +1323,99 @@ Substitute value auto registration settings
       appuser02:x:20002:10002:Application server mainterner:/home/appuser02:/bin/bash
 
 
-(参考) 既存のジョブフローへの追加
+(Reference) Adding to existing jobflows
 =================================
 
-| 本演習では、ジョブフローを利用せずに Movement から直接ユーザー設定作業を実施しましたが、当然ジョブフローの利用も可能です。
-| ジョブフローシナリオまでに行ったサーバー構築の一連の作業の中に本演習で作成した Movement を組み込むことで、ホスト名登録、パッケージ導入、ユーザー登録といった一連の作業フローを組み立てることができます。
-| この場合の作業の流れは、
+| In this scenario, although the users directly configured users by using Movements, the same can be done through jobflows as well.
+| By including the Movements created in this scenario in the Server construction operations in the Jobflow scenario, users can register host names, install packages and register users in one jobflow.
+| In order to do so, the user would have to following the steps below.
 
-1. ジョブフローの作成
-2. オペレーション登録
-3. ホスト名のパラメータ登録 (パラメータ変更なし)
-4. パッケージのパラメータ登録 (パラメータ変更なし)
-5. グループのパラメータ登録
-6. ユーザーのパラメータ登録
-7. ジョブフロー実行
+1. Create Jobflow
+2. Register operations
+3. Register host name parameters (No parameter changes)
+4. Register package parameters (No parameter changes)
+5. Register group parameters
+6. Register user parameters
+7. Run Jobflow
 
-| となります。
-| しかし、Exastro IT Automation では、オペレーションと機器の組み合わせごとにパラメータを登録する必要があるため、今回のように、グループとユーザーのみの設定にも関わらず、それ以外のホスト名やパッケージといったパラメータを設定をしなげればなりません。
+| Do note that in Exastro IT Automation, parameters must be registered for each linked operation and device. This means that not only must the user configure the group and user, but also parameters for the host names and packages.
 
-| このような場合に個別オペレーションを使うことで、Movement ごとにオペレーションを設定することができます。
-| ただし、個別オペレーションを使った場合、実行時のオペレーションとは異なるオペレーションによりパラメータが管理されるため、運用上パラメータの見通しが悪くなることもあります。
+| For cases like this, users can use individual operations and configure them to Movements.
+| However, note that if individual operations are used, the managed parameters will be different from the operations when executed. 
 
-ジョブフローの編集と実行 (失敗例)
+Executing and editing Jobflow (Bad example)
 ---------------------------------
 
-| :menuselection:`Conductor --> Conductor一覧` から、:kbd:`サーバー構築` の :guilabel:`詳細` を押下し、ジョブフローを編集します。
+| From the :menuselection:`Conductor --> Conductor list` menu, press the :guilabel:`Details` button under :kbd:`Construct server` and edit the Jobflow.
 
-| 1. 画面上部の :guilabel:` 編集` を押下し、更新モードに移行します。
-| 2. 右下のペインに、作成した :kbd:`User management` Movement があるので、これを画面中央にドラッグアンドドロップします。
-| 3. 各 Mode 間を下記の様に再接続します。
+| 1. Press the :guilabel:` Edit` button on the top of the page and change to Edit mode.
+| 2. All the :kbd:`User management` Movements can be seen in the bottom right panel. Drag and drop them to the middle of the screen.
+| 3. Follow the table below and connect the different Nodes to each other.
  
-.. list-table:: オブジェクト間の接続
+.. list-table:: Operation connections
    :widths: 10 10
    :header-rows: 1
 
    * - OUT
      - IN
    * - :kbd:`Start`
-     - :kbd:`ホスト名設定`
-   * - :kbd:`ホスト名設定`
-     - :kbd:`パッケージ管理`
-   * - :kbd:`パッケージ管理`
+     - :kbd:`Host name settings`
+   * - :kbd:`Host name settings`
+     - :kbd:`Package management`
+   * - :kbd:`Package management`
      - :kbd:`User management`
    * - :kbd:`User management`
      - :kbd:`End`
 
 
-| 4. 画面上部にある、 :guilabel:` 更新` を押下します。
-| 5. :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
-| 6. :kbd:`サーバー構築` Conductor を選択し、:guilabel:`選択決定` を押下します。
-| 7. オペレーションに :kbd:`Webサーバーへユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+| 4. Press the :guilabel:` Update` button on the top of the page.
+| 5. From the :menuselection:`Conductor --> Conductor edit/execute` menu, press the :guilabel:` Select` button.
+| 6. Select the :kbd:`Construct server` Conductor and press the :guilabel:`Select` button.
+| 7. Select the  :kbd:`Add user to Web server` operation and press the :guilabel:`Execute` button.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/コンダクター実行失敗例.gif
    :width: 1200px
-   :alt: 実行失敗
+   :alt: Failed execution
 
-| :menuselection:`Conductor作業確認` 画面が開き、ホスト名設定の Movement が ERROR となり想定外エラーになるはずです。
-| これは、:kbd:`Webサーバーへユーザー追加作業` に紐づくホスト名のパラメータがないことにより起こる動作です。
+| The :menuselection:`Conductor execution confirmation` menu will be opened and the "Host name configuration" Movement should display "Unexpected error".
+| This is caused by the :kbd:`Add user to Web server` not having any host name parameters linked to it.
 
-ジョブフローの編集と実行 (成功例)
+Executing and editing Jobflow (Good example)
 ---------------------------------
 
-| :menuselection:`Conductor --> Conductor一覧` から、:kbd:`サーバー構築` の :guilabel:`詳細` を押下し、再度ジョブフローを編集します。
+| From the :menuselection:`Conductor --> Conductor list` menu, press the :guilabel:`Details` button under :kbd:`Construct server` and edit the Jobflow.
 
-| 1. 画面上部の :guilabel:` 編集` を押下し、更新モードに移行します。
-| 2. 右下のペインに、作成した :kbd:`User management` Movement があるので、これを画面中央にドラッグアンドドロップします。
-| 3. 各 Mode に対して下記の様に個別オペレーションを設定します。
+| 1. Press the :guilabel:` Edit` button on the top of the page and change to Edit mode.
+| 2. All the :kbd:`User management` Movements can be seen in the bottom right panel. Drag and drop them to the middle of the screen.
+| 3. Follow the table below and connect the different Nodes to each other.
  
-.. list-table:: 個別オペレーション設定
+.. list-table:: Operation connections
    :widths: 10 10
    :header-rows: 1
 
    * - Movement
-     - オペレーション名
-   * - :kbd:`ホスト名設定`
-     - :kbd:`RHEL8のホスト名変更作業`
-   * - :kbd:`パッケージ管理`
-     - :kbd:`RHEL8のパッケージ管理`
+     - Operation name
+   * - :kbd:`Host name settings`
+     - :kbd:`RHEL8 host name change operation`
+   * - :kbd:`Package management`
+     - :kbd:`RHEL8 package management`
    * - :kbd:`User management`
-     - :kbd:`Webサーバーへユーザー追加作業`
+     - :kbd:`Add user to Web server`
 
-| 4. 画面上部にある、 :guilabel:` 更新` を押下します。
-| 5. :menuselection:`Conductor --> Conductor編集/作業実行` から、:guilabel:` 選択` を押下します。
-| 6. :kbd:`サーバー構築` Conductor を選択し、:guilabel:`選択決定` を押下します。
-| 7. オペレーションに :kbd:`Webサーバーへユーザー追加作業` を選択し、:guilabel:`作業実行` を押下します。
+| 4. Press the :guilabel:` Update` button on the top of the page.
+| 5. From the :menuselection:`Conductor --> Conductor edit/execute` menu, press the :guilabel:` Select` button.
+| 6. Select the :kbd:`Construct server` Conductor and press the :guilabel:`Select` button.
+| 7. Select the  :kbd:`Add user to Web server` operation and press the :guilabel:`Execute` button.
 
 .. figure:: /images/learn/quickstart/Legacy_answer1/コンダクター実行成功例.gif
    :width: 1200px
-   :alt: 実行成功
+   :alt: Successful execution
 
-| :menuselection:`Conductor作業確認` 画面が開き、実行が完了した後に、全ての Movement のステータスが「Done」になったことを確認します。
+| The :menuselection:`Conductor execution confirmation` menu will be opened and all Movements should display "Complete".
 
-まとめ
+Summary
 ======
 
-| 本シナリオでは、これまでのシナリオの確認のために、演習課題を実施しました。
-| また Conductor のパラメータ連携の1つの手段として、個別オペレーションについて紹介をしました。
-| より詳細な情報を知りたい場合は、:doc:`../../../manuals/index` を参照してください。
+| This scenario acted as a test where users could test their knowledge from the previous scenarios.
+| Users were also introduced to individual operations, which can be used to link Conductor parameters.
+| For more information, see :doc:`../../../manuals/index`.

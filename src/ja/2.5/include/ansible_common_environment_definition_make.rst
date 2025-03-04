@@ -2,8 +2,8 @@
 | ITAをインストールすると、:menuselection:`実行環境定義テンプレート管理` と :menuselection:`パラメータシート「実行環境パラメータ定義」` にpythonモジュールやansible galaxyコレクションが追加できるテンプレートファイルとパラメータ値が登録されます。
 
 #. | :menuselection:`Ansible共通 --> 実行環境定義テンプレート管理` に登録するテンプレートファイルの仕様
-   | ファイルの形式は「Jinjer2型式」です。
-   | ファイルの書式は、ansible-biulderで使用する定義ファイル「execution-environment.yml」に準じます。詳細は、ansible-biulderのマニュアルを参照して下さい。
+   | ファイルの形式は「Jinja2型式」です。
+   | ファイルの書式は、ansible-builderで使用する定義ファイル「execution-environment.yml」に準じます。詳細は、ansible-builderのマニュアルを参照して下さい。
 
 #. | ITAインストール時に登録される :menuselection:`パラメータシート「実行環境パラメータ定義」` の項目一覧は以下のとおりです。
 
