@@ -212,6 +212,49 @@ Ansible builderで使用する動作確認済みのベースイメージ
      - サポート付きライセンス利用の場合
 
 
+推奨事項
+========
+
+専用ユーザーの払い出し
+----------------------
+
+| Ansible Execution Agent の利用には、適切なメニューに紐付けされたロールを持つユーザーを作成することを推奨します。
+| ※ユーザーとロールの作成については、:doc:`../../../manuals/organization_management/user` を参照してください。
+| ※ロールとメニューの紐付けについては、:ref:`role_menu_link` を参照してください。
+
+.. list-table:: 推奨ロール設定
+   :header-rows: 1
+   :align: left
+
+   * - ロール名
+     - ロール種別
+     - 権限 / ワークスペース
+   * - 任意（例: ansible_execution_agent）
+     - workspace
+     - <対象ワークスペース>:使用
+
+
+.. list-table:: 推奨ロール・メニュー紐付
+   :header-rows: 1
+   :align: left
+
+   * - ロール
+     - メニュー
+     - 紐付
+   * - <対象ロール>
+     - Ansible-Legacy:作業実行
+     - メンテナンス可
+   * - <対象ロール>
+     - Ansible-Pioneer:作業実行
+     - メンテナンス可
+   * - <対象ロール>
+     - Ansible-LegacyRole:作業実行
+     - メンテナンス可
+   * - <対象ロール>
+     - Ansible共通:エージェント管理
+     - メンテナンス可
+
+
 .. _ansible_execution_agent_parameter_list:
 
 パラメータ一覧
@@ -468,7 +511,7 @@ Ansible Execution Agentのインストール
          Input Value [default: /home/<ログインユーザー>/exastro ]:
 
       | ⑦ 使用するAnsible-builder、Ansible-runnerを指定してください。
-      |   償版を利用する場合は、リポジトリ有効化したうえで、2を指定してください。
+      |   有償版を利用する場合は、リポジトリ有効化したうえで、2を指定してください。
 
       .. code-block:: bash
 

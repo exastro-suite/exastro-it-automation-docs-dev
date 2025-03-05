@@ -101,6 +101,8 @@ OASE Agent on Docker Compose - Online
    | また、利用する一般ユーザは sudoer で、全操作権限を持っている必要があります。
 
 
+.. include:: ../../../include/oase_agent_recommendations.rst
+
 インストール
 ============
 

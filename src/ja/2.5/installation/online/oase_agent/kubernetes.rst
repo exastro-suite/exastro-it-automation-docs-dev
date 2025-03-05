@@ -83,6 +83,9 @@ OASE Agent on Kubernetes - Online
     | OASE Agentに対応する最小要件を追加で容易する必要があります。
 
 
+.. include:: ../../../include/oase_agent_recommendations.rst
+
+
 インストールの準備
 ==================
 
