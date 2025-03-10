@@ -394,7 +394,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id20">
-<div class="code-block-caption"><span class="caption-number">リスト 396 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 414 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -415,7 +415,7 @@
 <div class="line">本シナリオでは、 以下のPlaybookを利用します。以下をコピーして、yml形式でhostname.ymlを作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<div class="code-block-caption"><span class="caption-number">リスト 397 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 415 </span><span class="caption-text">hostname.yml</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
 <span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ hostname }}&quot;</span>
@@ -699,14 +699,14 @@
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 398 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 416 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 399 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 417 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -734,14 +734,14 @@ localhost
 <div class="line">再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 400 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 418 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 401 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 419 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>server01
 </pre></div>
 </div>
@@ -934,14 +934,14 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 402 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 420 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id37" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 403 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 421 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id38" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db01
 </pre></div>
 </div>

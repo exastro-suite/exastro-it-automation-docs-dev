@@ -685,7 +685,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id40">
-<div class="code-block-caption"><span class="caption-number">リスト 469 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 487 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -701,7 +701,7 @@
 <div class="line">以下をコピーして、それぞれのPlaybookをyml形式で作成してください。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-number">リスト 470 </span><span class="caption-text">set_timezone.yml</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 488 </span><span class="caption-text">set_timezone.yml</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>Timezone
 <span class="w">  </span>timezone:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ VAR_locale_timezone }}&quot;</span>
@@ -709,7 +709,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 471 </span><span class="caption-text">add_nameserver.yml</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 489 </span><span class="caption-text">add_nameserver.yml</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>Nameserver
 <span class="w">  </span>lineinfile:
 <span class="w">    </span>dest:<span class="w"> </span>/etc/resolv.conf
@@ -718,7 +718,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 472 </span><span class="caption-text">set_hostname.yml</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 490 </span><span class="caption-text">set_hostname.yml</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Set<span class="w"> </span>a<span class="w"> </span>hostname
 <span class="w">  </span>ansible.builtin.hostname:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ VAR_hostname }}&quot;</span>
@@ -1321,14 +1321,14 @@
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id57">
-<div class="code-block-caption"><span class="caption-number">リスト 473 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 491 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id58">
-<div class="code-block-caption"><span class="caption-number">リスト 474 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 492 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -1338,14 +1338,14 @@ localhost
 <div class="line">resolv.confファイルを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id59">
-<div class="code-block-caption"><span class="caption-number">リスト 475 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id59" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 493 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id59" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
 cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id60">
-<div class="code-block-caption"><span class="caption-number">リスト 476 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id60" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 494 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id60" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 登録する情報が無いことを確認</span>
 </pre></div>
 </div>
@@ -1375,14 +1375,14 @@ cat<span class="w"> </span>/etc/resolv.conf
 <div class="line">ホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id61">
-<div class="code-block-caption"><span class="caption-number">リスト 477 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id61" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 495 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id61" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id62">
-<div class="code-block-caption"><span class="caption-number">リスト 478 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id62" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 496 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id62" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
 dbA
 dbB
@@ -1394,14 +1394,14 @@ webA
 <div class="line">resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id63">
-<div class="code-block-caption"><span class="caption-number">リスト 479 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id63" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 497 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id63" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
 cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id64">
-<div class="code-block-caption"><span class="caption-number">リスト 480 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id64" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 498 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id64" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
 nameserver<span class="w"> </span><span class="m">10</span>.15.1.30
 nameserver<span class="w"> </span><span class="m">10</span>.15.1.30
@@ -1653,14 +1653,14 @@ nameserver<span class="w"> </span><span class="m">10</span>.15.1.62
 <div class="line">作業対象サーバに SSH ログインし、現在のホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id71">
-<div class="code-block-caption"><span class="caption-number">リスト 481 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id71" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 499 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id71" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id72">
-<div class="code-block-caption"><span class="caption-number">リスト 482 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id72" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 500 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id72" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結果は環境ごとに異なります</span>
 localhost
 </pre></div>
@@ -1670,14 +1670,14 @@ localhost
 <div class="line">resolv.confファイルを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id73">
-<div class="code-block-caption"><span class="caption-number">リスト 483 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id73" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 501 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id73" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
 cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id74">
-<div class="code-block-caption"><span class="caption-number">リスト 484 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id74" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 502 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id74" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 登録する情報が無いことを確認</span>
 </pre></div>
 </div>
@@ -1705,14 +1705,14 @@ cat<span class="w"> </span>/etc/resolv.conf
 <div class="line">ホスト名を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id75">
-<div class="code-block-caption"><span class="caption-number">リスト 485 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id75" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 503 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id75" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ホスト名の取得</span>
 hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id76">
-<div class="code-block-caption"><span class="caption-number">リスト 486 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id76" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 504 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id76" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 作業対象サーバによって異なります。</span>
 webB
 </pre></div>
@@ -1722,14 +1722,14 @@ webB
 <div class="line">resolv.confファイルを確認します。パラメータで入力したデータが登録されていることを確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id77">
-<div class="code-block-caption"><span class="caption-number">リスト 487 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id77" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 505 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id77" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># resolv.confファイルの確認</span>
 cat<span class="w"> </span>/etc/resolv.conf
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id78">
-<div class="code-block-caption"><span class="caption-number">リスト 488 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id78" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 506 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id78" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># データが登録されていることを確認します。</span>
 nameserver<span class="w"> </span><span class="m">10</span>.15.1.62
 </pre></div>
