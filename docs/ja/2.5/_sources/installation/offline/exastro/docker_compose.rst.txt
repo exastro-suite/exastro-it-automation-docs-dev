@@ -781,7 +781,7 @@ Exastro on Docker Compose - Offline
       .. code-block:: shell
          :caption: コマンド
 
-         sed -i 's/sudo dnf /#sudo dnf /' setup.sh
+         sed -i 's/sudo dnf config-manager/#sudo dnf config-manager/' setup.sh
 
 
 
