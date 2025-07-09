@@ -190,7 +190,7 @@
 <section id="id3">
 <h2>ログの集約方法<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">本説明において、ログの集約方法に <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd></kbd> を使用して、ログの集約を実施する例を説明します。</div>
+<div class="line">本説明において、ログの集約方法に <kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd> を使用して、ログの集約を実施する例を説明します。</div>
 </div>
 <section id="fluent-bit">
 <h3>Fluent Bitインストール<a class="headerlink" href="#fluent-bit" title="Link to this heading">¶</a></h3>
@@ -206,7 +206,7 @@
 </div>
 <ul>
 <li><div class="line-block">
-<div class="line">使用する <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">cli</kbd></kbd> は事前にインストールされていること</div>
+<div class="line">使用する <kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">cli</kbd> は事前にインストールされていること</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -214,7 +214,7 @@
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">ログの集約先となるNFSサーバーのディレクトリは <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">/var/PersistentVolume/ha</kbd>-<kbd class="kbd docutils literal notranslate">conf</kbd>-<kbd class="kbd docutils literal notranslate">k8s/exastro</kbd>-<kbd class="kbd docutils literal notranslate">logs</kbd></kbd> とし、アクセス権がフルアクセスとなっていること</div>
+<div class="line">ログの集約先となるNFSサーバーのディレクトリは <kbd class="kbd docutils literal notranslate">/var/PersistentVolume/ha</kbd>-<kbd class="kbd docutils literal notranslate">conf</kbd>-<kbd class="kbd docutils literal notranslate">k8s/exastro</kbd>-<kbd class="kbd docutils literal notranslate">logs</kbd> とし、アクセス権がフルアクセスとなっていること</div>
 </div>
 </li>
 </ul>
@@ -279,7 +279,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
-<div class="line">Fluent Bitのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> を実行する前に１度だけ必要となります。</div>
+<div class="line">Fluent Bitのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd> を実行する前に１度だけ必要となります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
@@ -292,7 +292,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 </div>
 </div>
 <div class="line-block">
-<div class="line">出力された <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">fluentbit</kbd>-<kbd class="kbd docutils literal notranslate">values.yaml</kbd></kbd> を以下のように修正します。</div>
+<div class="line">出力された <kbd class="kbd docutils literal notranslate">fluentbit</kbd>-<kbd class="kbd docutils literal notranslate">values.yaml</kbd> を以下のように修正します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">fluentbit-values.yaml</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
@@ -450,7 +450,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <div class="line-block">
-<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> で出力された内容をそのまま使用しているため、コメント化された内容もそのまま記載しています。</div>
+<div class="line"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd> で出力された内容をそのまま使用しているため、コメント化された内容もそのまま記載しています。</div>
 </div>
 </div>
 <div class="admonition note">
@@ -501,7 +501,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 </div>
 </li>
 <li><div class="line-block">
-<div class="line">インストールされた <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd></kbd> の確認</div>
+<div class="line">インストールされた <kbd class="kbd docutils literal notranslate">Fluent</kbd> <kbd class="kbd docutils literal notranslate">Bit</kbd> の確認</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>

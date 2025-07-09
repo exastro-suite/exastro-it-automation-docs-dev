@@ -262,7 +262,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">Webサーバーへの再構築</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -289,7 +289,7 @@
 <div class="line"><span class="menuselection">Ansible共通 ▶ 機器一覧</span> から、作業対象である db01 のホスト名を web01 に更新します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="images/learn/quickstart/scenario3/機器情報の更新.gif"><img alt="機器情報の更新" src="images/learn/quickstart/scenario3/機器情報の更新.gif" style="width: 1200px;" />
+<a class="reference internal image-reference" href="../../images/learn/quickstart/scenario3/機器情報の更新.gif"><img alt="機器情報の更新" src="../../images/learn/quickstart/scenario3/機器情報の更新.gif" style="width: 1200px;" />
 </a>
 </figure>
 <table class="docutils align-default" id="id15">
@@ -398,7 +398,7 @@
 <section id="id9">
 <h2><span class="section-number">3.5. </span>サーバー再構築作業の実施<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">本シナリオでは、db01 というホストに対して、 <kbd class="kbd docutils literal notranslate">httpd</kbd> というパッケージをインストールしますが、前のシナリオで <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd></kbd> というパッケージがインストール済みの状態となっています。</div>
+<div class="line">本シナリオでは、db01 というホストに対して、 <kbd class="kbd docutils literal notranslate">httpd</kbd> というパッケージをインストールしますが、前のシナリオで <kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd> というパッケージがインストール済みの状態となっています。</div>
 <div class="line">db01 というホストを web01 という Web サーバーに作り変えるため、ホスト名と導入パッケージを変更する必要があります。</div>
 </div>
 <table class="docutils align-default" id="id17">
@@ -419,7 +419,7 @@
 <td><p><kbd class="kbd docutils literal notranslate">db01</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">web01</kbd></p></td>
 </tr>
-<tr class="row-odd"><td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd></kbd> パッケージ</p></td>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd> パッケージ</p></td>
 <td><p>インストール済み</p></td>
 <td><p>アンインストール済み</p></td>
 </tr>
@@ -435,7 +435,7 @@
 <div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ホスト名に関するパラメータを登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="images/learn/quickstart/scenario3/サーバ基本情報登録.png"><img alt="サーバ基本情報登録" src="images/learn/quickstart/scenario3/サーバ基本情報登録.png" style="width: 1200px;" />
+<a class="reference internal image-reference" href="../../images/learn/quickstart/scenario3/サーバ基本情報登録.png"><img alt="サーバ基本情報登録" src="../../images/learn/quickstart/scenario3/サーバ基本情報登録.png" style="width: 1200px;" />
 </a>
 </figure>
 <table class="docutils align-default" id="id18">
@@ -457,8 +457,8 @@
 </thead>
 <tbody>
 <tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">web01</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">&quot;{{</kbd> <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> <kbd class="kbd docutils literal notranslate">}}&quot;</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">&quot;{{</kbd> <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> <kbd class="kbd docutils literal notranslate">}}&quot;</kbd></p></td>
 </tr>
 </tbody>
 </table>
@@ -494,13 +494,13 @@
 </thead>
 <tbody>
 <tr class="row-odd"><td><p>web01</p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">1</kbd></p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">mariadb</kbd>-<kbd class="kbd docutils literal notranslate">server</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">absent</kbd></p></td>
 </tr>
 <tr class="row-even"><td><p>web01</p></td>
-<td><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">2023/04/03</kbd> <kbd class="kbd docutils literal notranslate">12:00:00_Webサーバーへの再構築</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">2</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">httpd</kbd></p></td>
 <td><p><kbd class="kbd docutils literal notranslate">present</kbd></p></td>

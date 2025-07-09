@@ -156,6 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kb/index.html">ナレッジベース</a></li>
 </ul>
 
     <!-- <ul>
@@ -318,7 +319,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <div class="line-block">
-<div class="line">Zabbixエージェントのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> を実行する前に１度だけ必要となります。</div>
+<div class="line">Zabbixエージェントのhelmリポジトリ登録は以下のコマンドで実施できます。 <kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd> を実行する前に１度だけ必要となります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id20">
 <div class="code-block-caption"><span class="caption-number">リスト 5.53 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
@@ -335,8 +336,8 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
 <div class="code-block-caption"><span class="caption-number">リスト 5.54 </span><span class="caption-text">zabbix_agent_values.yaml</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
-<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gd">--- /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/ja/2.5/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.org.yaml</span>
-<span class="linenos"> 2</span><span class="gi">+++ /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/ja/2.5/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.yaml</span>
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gd">--- /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.org.yaml</span>
+<span class="linenos"> 2</span><span class="gi">+++ /home/runner/work/exastro-it-automation-docs-dev/exastro-it-automation-docs-dev/workspace/src/share/ja/manuals/maintenance/literal_includes/zabbix_agent_values.yaml</span>
 <span class="linenos"> 3</span><span class="gu">@@ -56,7 +56,7 @@</span>
 <span class="linenos"> 4</span><span class="w"> </span>
 <span class="linenos"> 5</span><span class="w"> </span>    ## Note that since version 6.0 the variable ZBX_SERVER_PORT is not supported anymore. Instead, add a colon (:) followed by the port number to the end of ZBX_SERVER_HOST value.
@@ -361,7 +362,7 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <div class="line-block">
-<div class="line"><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd></kbd> で出力された内容をそのまま使用しているため、コメント化された内容もそのまま記載しています。</div>
+<div class="line"><kbd class="kbd docutils literal notranslate">helm</kbd> <kbd class="kbd docutils literal notranslate">show</kbd> <kbd class="kbd docutils literal notranslate">values</kbd> で出力された内容をそのまま使用しているため、コメント化された内容もそのまま記載しています。</div>
 </div>
 </div>
 </section>
@@ -750,7 +751,7 @@ zabbix-proxy-d8cb67dfc-88ns9<span class="w">                       </span><span 
 <div class="line">ZabbixのWebコンソール画面で、追加したホストにログファイルのアイテムを追加します</div>
 <div class="line">アイテムはログファイル毎（ログローテーション用の日付部分を除く）に設定する必要があります</div>
 <div class="line">ログ一覧は <a class="reference internal" href="log_list.html"><span class="doc">ログ一覧</span></a> を参照</div>
-<div class="line">監視対象のログファイル（正規表現）は、 <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">^exastro</kbd>-<kbd class="kbd docutils literal notranslate">suite\.exastro\.{ログ一覧のサービス}\..*\.log$</kbd></kbd> になります</div>
+<div class="line">監視対象のログファイル（正規表現）は、 <kbd class="kbd docutils literal notranslate">^exastro</kbd>-<kbd class="kbd docutils literal notranslate">suite\.exastro\.{ログ一覧のサービス}\..*\.log$</kbd> になります</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
