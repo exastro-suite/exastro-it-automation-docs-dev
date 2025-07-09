@@ -1,4 +1,4 @@
-FROM python:3.10.0
+FROM python:3.12
 
 ARG HTTP_PROXY=${HTTP_PROXY}
 ARG USERNAME=sphinx
