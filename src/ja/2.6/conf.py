@@ -18,7 +18,6 @@ MenuSelection.BULLET_CHARACTER = '▶'
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'Documentation'
@@ -28,7 +27,6 @@ author = 'NEC'
 # The full version, including alpha/beta/rc tags
 release = ''
 
-# locale_dirs = ['locale/']
 gettext_compact = False
 
 # -- General configuration ---------------------------------------------------
@@ -65,18 +63,19 @@ languages = ["ja", "en"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_*"]
 
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
 html_theme = 'exastro_documents'
-html_theme_path = ['.']
+html_theme_path = ['../..']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['../_static']
+html_static_path = ['../../_static']
 
 html_css_files = [
     'exastro_documents.css',
@@ -110,26 +109,28 @@ googleanalytics_id = 'UA-144561796-1'
 
 copybutton_prompt_text = "Copied it!"
 
+version = '2.5'
+# locale_dirs = ['../locale/' + version ]
+
 html_context = {
     'languages': {
         'ja': '日本語',
         'en': 'English'
     },
     'versions': {
-        'current': '2.6',
-        '2.6(current)': '2.6',
-        '2.5': '2.5',
+        'current': '2.5',
+        '2.5(current)': '2.5',
         '2.4': '2.4',
         '2.3': '2.3',
         '2.2': '2.2',
         '2.1': '2.1',
-        '2.0 ': '2.0'
+        '2.0': '2.0'
     }
 }
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.md': 'markdown', 
+    '.md': 'markdown',
 }
 
 [extensions]
