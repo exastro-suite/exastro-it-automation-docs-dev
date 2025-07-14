@@ -14,3 +14,4 @@
    mailserver_settings 
    organization_settings 
    idp_settings
+   password_policy
