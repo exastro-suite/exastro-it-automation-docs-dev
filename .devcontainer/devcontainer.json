@@ -30,7 +30,8 @@
 		"searKing.preview-vscode",
 		"hediet.vscode-drawio",
 		"nopeslide.vscode-drawio-plugin-mermaid",
-  "l13rary.l13-diff",
+  		"l13rary.l13-diff",
+		"swyddfa.esbonio",
 	],
 	"customizations": {
 		"vscode": {
@@ -56,6 +57,7 @@
     "hediet.vscode-drawio",
     "nopeslide.vscode-drawio-plugin-mermaid",
     "l13rary.l13-diff",
+    "swyddfa.esbonio",
    ],
   },
  },
