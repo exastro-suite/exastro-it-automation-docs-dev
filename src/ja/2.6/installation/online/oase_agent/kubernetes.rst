@@ -327,7 +327,7 @@ OASE Agentのパラメータ設定例
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # サービスアカウントユーザー管理機能から取得したリフレッシュトークン
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
