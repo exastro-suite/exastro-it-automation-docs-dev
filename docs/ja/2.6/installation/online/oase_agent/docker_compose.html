@@ -260,7 +260,7 @@ $(window).on('load', function () {
 <div class="line">動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。</div>
 </div>
 <table class="docutils align-default" id="id21">
-<caption><span class="caption-number">表 39 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 37 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id21" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -286,7 +286,7 @@ $(window).on('load', function () {
 <li><p>動作確認済みオペレーティングシステム</p>
 <p>以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id22">
-<caption><span class="caption-number">表 40 </span><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 38 </span><span class="caption-text">オペレーティングシステム</span><a class="headerlink" href="#id22" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -313,7 +313,7 @@ $(window).on('load', function () {
 <p>手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
 以下は、動作確認済のバージョンとなります。</p>
 <table class="docutils align-default" id="id23">
-<caption><span class="caption-number">表 41 </span><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 39 </span><span class="caption-text">コンテナプラットフォーム</span><a class="headerlink" href="#id23" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 66.7%" />
 <col style="width: 33.3%" />
@@ -355,44 +355,8 @@ $(window).on('load', function () {
 <section id="id5">
 <h3>専用ユーザーの払い出し<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">OASE Agent の利用には、適切なメニューに紐付けされたロールを持つユーザーを作成することを推奨します。</div>
-<div class="line">※ユーザーとロールの作成については、<a class="reference internal" href="../../../manuals/organization_management/user.html"><span class="doc">ユーザー</span></a> を参照してください。</div>
-<div class="line">※ロールとメニューの紐付けについては、<a class="reference internal" href="../../../manuals/it_automation_base/management_console.html#role-menu-link"><span class="std std-ref">ロール・メニュー紐付管理</span></a> を参照してください。</div>
+<div class="line">OASE Agent の利用には、<a class="reference internal" href="../../../manuals/organization_management/service_account_users.html"><span class="doc">サービスアカウントユーザー管理機能</span></a> で作成したサービスアカウントユーザーを使用することを推奨します。</div>
 </div>
-<table class="docutils align-left" id="id24">
-<caption><span class="caption-number">表 42 </span><span class="caption-text">推奨ロール設定</span><a class="headerlink" href="#id24" title="Link to this table">¶</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>ロール名</p></th>
-<th class="head"><p>ロール種別</p></th>
-<th class="head"><p>権限 / ワークスペース</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>任意（例: oase_agent）</p></td>
-<td><p>workspace</p></td>
-<td><p>&lt;対象ワークスペース&gt;:使用</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-left" id="id25">
-<caption><span class="caption-number">表 43 </span><span class="caption-text">推奨ロール・メニュー紐付</span><a class="headerlink" href="#id25" title="Link to this table">¶</a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>ロール</p></th>
-<th class="head"><p>メニュー</p></th>
-<th class="head"><p>紐付</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>&lt;対象ロール&gt;</p></td>
-<td><p>OASE管理:イベント収集</p></td>
-<td><p>閲覧のみ</p></td>
-</tr>
-<tr class="row-odd"><td><p>&lt;対象ロール&gt;</p></td>
-<td><p>イベント:イベント履歴</p></td>
-<td><p>メンテナンス可</p></td>
-</tr>
-</tbody>
-</table>
 </section>
 </section>
 <section id="id6">
@@ -414,14 +378,14 @@ $(window).on('load', function () {
 <div class="line-block">
 <div class="line">環境変数の設定ファイル（.env）を、サンプルから作成します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id26">
-<div class="code-block-caption"><span class="caption-number">リスト 175 </span><span class="caption-text">（Docker利用時）サンプルからコピー</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-number">リスト 175 </span><span class="caption-text">（Docker利用時）サンプルからコピー</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.docker.sample<span class="w"> </span>.env
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id27">
-<div class="code-block-caption"><span class="caption-number">リスト 176 </span><span class="caption-text">（Podman利用時）サンプルからコピー</span><a class="headerlink" href="#id27" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-number">リスト 176 </span><span class="caption-text">（Podman利用時）サンプルからコピー</span><a class="headerlink" href="#id25" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.podman.sample<span class="w"> </span>.env
 </pre></div>
 </div>
@@ -438,14 +402,14 @@ $(window).on('load', function () {
 <div class="line-block">
 <div class="line">docker もしくは docker-compose コマンドを使いコンテナを起動します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id28">
-<div class="code-block-caption"><span class="caption-number">リスト 177 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-number">リスト 177 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id26" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-number">リスト 178 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id27">
+<div class="code-block-caption"><span class="caption-number">リスト 178 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id27" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
@@ -543,8 +507,7 @@ $(window).on('load', function () {
 </tr>
 <tr class="row-odd"><td><p>EXASTRO_REFRESH_TOKEN</p></td>
 <td><div class="line-block">
-<div class="line">Exastro システム管理画面から取得したリフレッシュトークン※</div>
-<div class="line">※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。</div>
+<div class="line"><a class="reference internal" href="../../../manuals/organization_management/service_account_users.html"><span class="doc">サービスアカウントユーザー管理機能</span></a> で取得したリフレッシュトークン</div>
 </div>
 </td>
 <td><p>可</p></td>
@@ -614,8 +577,8 @@ $(window).on('load', function () {
 <div class="line-block">
 <div class="line">exastro-docker-composeリポジトリを更新します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id30">
-<div class="code-block-caption"><span class="caption-number">リスト 179 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id28">
+<div class="code-block-caption"><span class="caption-number">リスト 179 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># exastro-docker-composeリポジトリの確認</span>
 <span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose/ita_ag_oase
 <span class="linenos">3</span>git<span class="w"> </span>pull
@@ -629,8 +592,8 @@ $(window).on('load', function () {
 <div class="line">デフォルト値の更新を確認します。</div>
 <div class="line">インストール時に作成した設定ファイル <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> とアップグレード後の設定ファイルを比較します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id31">
-<div class="code-block-caption"><span class="caption-number">リスト 180 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-number">リスト 180 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id29" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose/ita_ag_oase
 
 <span class="c1"># OSがAlmaLinuxまたはUbuntuの場合</span>
@@ -656,20 +619,20 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line-block">
 <div class="line">アップグレードを実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id32">
-<div class="code-block-caption"><span class="caption-number">リスト 181 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id30">
+<div class="code-block-caption"><span class="caption-number">リスト 181 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id30" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose/ita_ag_oase
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 182 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id31">
+<div class="code-block-caption"><span class="caption-number">リスト 182 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id31" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 183 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id32">
+<div class="code-block-caption"><span class="caption-number">リスト 183 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--wait
 </pre></div>
 </div>
@@ -699,14 +662,14 @@ diff<span class="w"> </span>.env<span class="w"> </span>.env.podman.sample
 <div class="line-block">
 <div class="line">アンインストールを実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-number">リスト 184 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id33">
+<div class="code-block-caption"><span class="caption-number">リスト 184 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose/ita_ag_oase
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id36">
-<div class="code-block-caption"><span class="caption-number">リスト 185 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id36" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id34">
+<div class="code-block-caption"><span class="caption-number">リスト 185 </span><span class="caption-text">docker コマンドを利用する場合(Docker環境)</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># コンテナのみ削除する場合</span>
 docker<span class="w"> </span>compose<span class="w"> </span>down
 
@@ -715,8 +678,8 @@ docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id37">
-<div class="code-block-caption"><span class="caption-number">リスト 186 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id37" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-number">リスト 186 </span><span class="caption-text">docker-compose コマンドを利用する場合(Podman環境)</span><a class="headerlink" href="#id35" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># コンテナのみ削除する場合</span>
 docker-compose<span class="w"> </span>down
 
@@ -725,8 +688,8 @@ docker-compose<span class="w"> </span>down<span class="w"> </span>--rmi<span cla
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id38">
-<div class="code-block-caption"><span class="caption-number">リスト 187 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id38" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id36">
+<div class="code-block-caption"><span class="caption-number">リスト 187 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id36" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># データを削除する場合</span>
 rm<span class="w"> </span>-rf<span class="w"> </span>~/exastro-docker-compose/ita_ag_oase/.volumes/storage/*
 </pre></div>
