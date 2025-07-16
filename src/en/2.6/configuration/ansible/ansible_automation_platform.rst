@@ -3,7 +3,7 @@ Ansible Automation Platform
 ===========================
 
 Introduction
-========
+============
 
 | This guide aims to explain the system configuration and environment needed to operate Exastro IT Automation (hereinafter referred to as ITA)'s Ansible connectivity function (referred to as Ansible Driver)
 | This guide will also explain system configurations and environments for using Ansible Automation Platform as an execution engine.
@@ -16,7 +16,7 @@ Introduction
 
 
 Systen configuration
-============
+====================
 
 | The Ansible driver is a standard function available when deploying Exastro IT Automation.
 |
@@ -25,7 +25,7 @@ Systen configuration
 | The diagram below illustrates an Ansible Automation Platform configuration pattern.
 
 Systen configuration pattern
---------------------
+----------------------------
 
 | Ansible Automation Controller allows for operation of systems with better availability and the use of expanded functions when running Ansible.
 
@@ -63,7 +63,7 @@ Systen configuration pattern
 
       The following diagram illustrates the configuration for Ansible Automation Platform (Hybrid pattern).
 
-      .. figure:: /images/en/diagram/aap_hybrid.png
+      .. figure:: /images/ja/diagram/aap_hybrid.png
          :alt: Ansible Automation Platform (Hybrid pattern)
          :width: 900px
 
@@ -98,8 +98,7 @@ Systen configuration pattern
            - Git
            - | http(s)
              | [80(443)/tcp]
-           - 
-           File link
+           - File link
          * - ④
            - Hybrid node
            - Target device
@@ -121,7 +120,7 @@ Systen configuration pattern
 
       The following diagram illustrates the configuration for Ansible Automation Platform (Seperate Execution node pattern).
 
-      .. figure:: /images/en/diagram/aap_divide.png
+      .. figure:: /images/ja/diagram/aap_divide.png
         :alt: Ansible Automation Platform (Seperate Execution node pattern)
         :width: 1200px
 
@@ -176,7 +175,7 @@ Systen configuration pattern
 
 
 System requirements
-============
+===================
 
 | The system requirements for Ansible driver are based on the ITA System requirements. See :doc:`../../installation/online/exastro/kubernetes` for more information.
 | The following are the system requirements for Ansible Automation Platform.
@@ -185,11 +184,11 @@ System requirements
 
 
 Playbook link
-============
+=============
 
 | The following diagram illustrates The Playbook links between ITA and Ansible Automation Platform.
 
-.. figure:: /images/en/diagram/playbook_link_between_aap_and_container.png
+.. figure:: /images/ja/diagram/playbook_link_between_aap_and_container.png
    :alt: ITA and Ansible Automation Platform 2.x Playbook link Diagram
    :width: 600px
 
@@ -197,7 +196,7 @@ Playbook link
 
 
 Initial settings
-========
+================
 
 | After installing Ansible Automation Platform, configure the following settings depending on the Execution engine.
 
@@ -225,7 +224,7 @@ Initial settings
 
 
 ITA Operation directory preparation
----------------------------
+-----------------------------------
 
 | Create a directory for ITA operations in the Ansible Automation Platform server.
 | For cluster configurations, create the directory on all the configurating servers.
@@ -248,11 +247,11 @@ ITA Operation directory preparation
 
 
 ITA Operation directory publication
----------------------------
+-----------------------------------
 
 | Log in to the Ansible Automation Platform through your browser and set:menuselection:`Settings --> Job --> Path for publishing seperated jobs` to :file:`/var/lib/exastro/`.
 
-.. figure:: /images/en/diagram/publish_ita_operation_directory.png
+.. figure:: /images/ja/diagram/publish_ita_operation_director.png
    :width: 600px
 
 
@@ -303,7 +302,7 @@ Ansible Automation Platform Git user preparation
 
 
 Proxy settings
------------
+--------------
 
 | When running Operations with Ansible Automation Platform settings, an execution environment container image is downloaded from a website specified by Red Hat.
 | Log in to Ansible Automation Platform through your browser, access :menuselection:`Settings --> Job --> Add Environment variables` and configure the following environment variables.
@@ -315,7 +314,7 @@ Proxy settings
 -  HTTP_PROXY
 -  NO_PROXY
 
-.. figure:: /images/en/diagram/proxy_settings.png
+.. figure:: /images/ja/diagram/proxy_settings.png
    :width: 600px
 
 .. warning::
@@ -328,7 +327,7 @@ Adding Organizations
 .. _platform_make_organization:
 
 Create Organizations
---------
+--------------------
 
 | Create an Organization.
 | Log in as admin (administrator) to Ansible Automation Platform.
@@ -432,7 +431,7 @@ Create user
 .. _platform_organization_roles:
 
 Configure Roles
-----------
+---------------
 
 | Configure roles that will link the Users to the Organizations.
 | Log in as admin (administrator) to Ansible Automation Platform.
@@ -452,7 +451,7 @@ Configure Roles
 .. _platform_output_token:
 
 Authentication token pay-out
-----------------
+----------------------------
 
 | Log in as :ref:`platform_architecture_user` to Ansible Automation Platform.
 |
@@ -531,7 +530,7 @@ Add Instance to Instance group
 .. _platform_connection_instance:
 
 Link Organization and Instance group
-----------------------------------
+------------------------------------
 
 |  Link the Instance group from earlier with the organization created in :ref:`platform_make_organization`.
 |  Log in as admin (administrator) to Ansible Automation Platform.
@@ -544,7 +543,7 @@ Link Organization and Instance group
 
 
 Register Authentication token and Organization to ITA
-------------------------------
+-----------------------------------------------------
 
 | Refer to :ref:`ansible_common_interface_information` and Register the Authentication token created in :ref:`platform_output_token` and the Organization created in :ref:`platform_make_organization` to :menuselection:`Ansible common --> Interface information`
 

@@ -13,10 +13,6 @@ Exastro IT Automation Documentation 2.5
    configuration/index
    installation/index
    learn/index
-   manuals/index
-   templates/index
-   reference/index
-   contribute/index
 
 .. raw:: html
 

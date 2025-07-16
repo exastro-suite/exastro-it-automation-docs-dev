@@ -10,9 +10,8 @@ Exastro
 .. toctree::
    :maxdepth: 2
 
-   .. kubernetes
-   
    docker_compose
+.. kubernetes
 
 .. raw:: html
 

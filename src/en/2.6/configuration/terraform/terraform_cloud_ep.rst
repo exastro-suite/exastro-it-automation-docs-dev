@@ -4,7 +4,7 @@ Terraform Cloud/EP
 
 
 Introduction
-========
+============
 
 | This guide aims to explain the system configuration and environment needed to operate  Exastro IT Automation (hereinafter referred to as ITA)'s Terraform Cloud/Enterprise connectivity function.
 |
@@ -13,7 +13,7 @@ Introduction
 
 
 System configuration
-============
+====================
 
 | The Terraform Cloud/EP driver is only provided if selected when deploying Exastro IT Automation.
 |
@@ -25,9 +25,9 @@ System configuration
 
 
 System configuration diagram
---------------------
+----------------------------
 
-.. figure:: /images/en/diagram/terraform_cloud_ep.png
+.. figure:: /images/ja/diagram/terraform_cloud_ep.png
     :alt: Terraform Cloud/EP Systen configuration diagram
     :width: 800px
 
@@ -90,7 +90,7 @@ System configuration diagram
 
 
 System requirements
-============
+===================
 
 | The system requirements for Terraform Cloud/EP driver are based on the ITA System requirements. See :doc:`../../installation/online/exastro/kubernetes` for more information.
 | This section covers the system requirements for Terraform Enterprise and Terraform cloud.
@@ -116,13 +116,13 @@ System requirements
 .. _configuration_terraform_cloud_ep_initial_setting:
 
 Initial settings
-========
+================
 
 | In order to link with Terraform Cloud/EP driver from Terraform, the user must issue a User token from Terraform.
 | Log in to Terraform through a web browser and press the [Create an API token] button under  [User Settings] > [Tokens].
 
 
-.. figure:: /images/en/terraform_cloud_ep_driver/common/create_user_token.png
+.. figure:: /images/ja/terraform_cloud_ep_driver/common/create_user_token.png
     :alt: Issue User token
     :width: 800px
 

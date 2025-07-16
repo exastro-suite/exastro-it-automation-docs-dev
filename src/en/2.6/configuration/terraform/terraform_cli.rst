@@ -4,7 +4,7 @@ Terraform CLI
 
 
 Introduction
-========
+============
 
 | This guide aims to explain the system configuration and environment needed to operate  Exastro IT Automation (hereinafter referred to as ITA)'s Terraform CLI connectivity function (herenafter referred to as Terraform CLI driver)
 |
@@ -13,16 +13,16 @@ Introduction
 
 
 System configuration
-============
+====================
 | The Terraform CLI driveris only provided if selected when deploying Exastro IT Automation.
 |
 | The diagram below illustrates a configuration pattern using Terraform Cloud/EP.
 
 
 System configuration diagram
---------------------
+----------------------------
 
-.. figure:: /images/en/diagram/terraform_cli.png
+.. figure:: /images/ja/diagram/terraform_cli.png
     :alt: Terraform CLI system configuration diagram
     :width: 800px
 
@@ -57,6 +57,6 @@ System configuration diagram
 
 
 System requirements
-============
+===================
 
 | The system requirements for the Terraform CLI driver are based on the ITA System requirements. See :doc:`../../installation/online/exastro/kubernetes` for more information.
