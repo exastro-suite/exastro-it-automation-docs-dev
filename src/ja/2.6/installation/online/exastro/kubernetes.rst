@@ -1341,6 +1341,13 @@ Helm リポジトリの更新
   | :ref:`delete_data` は行わないでください。
   | 永続データの削除を行うとアップグレード前のデータがすべて消えてしまいます。
 
+メンテナンスモードへ移行
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+| アップグレード中の不整合によるエラーの発生を防ぐためにメンテナンスモードに移行します。
+| メンテナンスモードの移行の手順は :doc:`../../../manuals/maintenance/maintenance_mode` を参照してください。
+
+
 サービス停止
 ^^^^^^^^^^^^
 
@@ -1409,14 +1416,22 @@ Helm リポジトリの更新
 :ref:`helm_on_kubernetes_upgrade_status` にお進みください。
 
 
-.. include:: ../../../include/start_service_k8s.rst
+.. include:: ../../../include/start_service_k8s-v2_6_0.rst
 
 .. _helm_on_kubernetes_upgrade_status:
 
 アップグレード状況確認
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../../../include/check_installation_status.rst
+.. include:: ../../../include/check_installation_status-v2_6_0.rst
+
+
+メンテナンスモードの解除
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+| アップグレード前に行ったメンテナンスモードを解除します。
+| メンテナンスモードの解除の手順は :doc:`../../../manuals/maintenance/maintenance_mode` を参照してください。
+
 
 
 .. _ita_uninstall:
