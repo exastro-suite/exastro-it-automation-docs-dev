@@ -1206,6 +1206,7 @@ Helm リポジトリの更新
 | Exastro システムの Helm リポジトリを更新します。
 
 | 更新前のバージョンを確認します。
+| ※下記に記載のバージョンは環境によって異なります。
 
 .. code-block:: shell
    :linenos:
@@ -1235,6 +1236,7 @@ Helm リポジトリの更新
    helm repo update
 
 | 更新後のバージョンを確認します。
+| ※下記に記載のバージョンは環境によって異なります。
 
 .. code-block:: shell
    :linenos:
