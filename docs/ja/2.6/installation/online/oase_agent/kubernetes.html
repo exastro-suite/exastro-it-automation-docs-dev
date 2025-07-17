@@ -1172,8 +1172,9 @@ pv-ita-ag-oase-2<span class="w">   </span>10Gi<span class="w">       </span>RWX<
 <div class="line">Helm バージョンとアプリケーションのバージョンについては <a class="reference external" href="https://github.com/exastro-suite/exastro-helm">exastro-helmのサイト</a> をご確認ください。</div>
 </div>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" name="44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" role="tab" tabindex="0">シンプル構成 &amp; 複数エージェント（同一Pod）</button><button aria-controls="panel-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" name="6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" role="tab" tabindex="-1">複数エージェント（別Pod）</button></div><div aria-labelledby="tab-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" class="sphinx-tabs-panel group-tab" id="panel-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" name="44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" role="tabpanel" tabindex="0"><ol class="arabic">
-<li><p>Helm コマンドを使い Kubernetes 環境にインストールを行います。</p>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" name="44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" role="tab" tabindex="0">シンプル構成 &amp; 複数エージェント（同一Pod）</button><button aria-controls="panel-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" name="6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" role="tab" tabindex="-1">複数エージェント（別Pod）</button></div><div aria-labelledby="tab-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" class="sphinx-tabs-panel group-tab" id="panel-3-44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" name="44K344Oz44OX44Or5qeL5oiQICYg6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5ZCM5LiAUG9k77yJ" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">1. Helm コマンドを使い Kubernetes 環境にインストールを行います。</div>
+</div>
 <div class="literal-block-wrapper docutils container" id="id46">
 <div class="code-block-caption"><span class="caption-number">リスト 144 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>exastro-agent<span class="w"> </span>exastro/exastro-agent<span class="w"> </span><span class="se">\</span>
@@ -1193,8 +1194,9 @@ TEST<span class="w"> </span>SUITE:<span class="w"> </span>None
 </pre></div>
 </div>
 </div>
-</li>
-<li><p>インストール状況確認</p>
+<div class="line-block">
+<div class="line">2. インストール状況確認</div>
+</div>
 <div class="literal-block-wrapper docutils container" id="id48">
 <div class="code-block-caption"><span class="caption-number">リスト 146 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id48" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
@@ -1207,15 +1209,14 @@ kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </s
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
 <div class="code-block-caption"><span class="caption-number">リスト 147 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id49" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>NAME<span class="w">                             </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
-<span class="w"> </span>ita-ag-oase-66cb7669c6-m2q8c<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>16m
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                             </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
+ita-ag-oase-66cb7669c6-m2q8c<span class="w">     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>16m
 </pre></div>
 </div>
 </div>
-</li>
-</ol>
-</div><div aria-labelledby="tab-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" name="6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" role="tabpanel" tabindex="0"><ol class="arabic">
-<li><p>Helm コマンドを使い Kubernetes 環境にインストールを行います。</p>
+</div><div aria-labelledby="tab-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" name="6KSH5pWw44Ko44O844K444Kn44Oz44OI77yI5YilUG9k77yJ" role="tabpanel" tabindex="0"><div class="line-block">
+<div class="line">1. Helm コマンドを使い Kubernetes 環境にインストールを行います。</div>
+</div>
 <div class="literal-block-wrapper docutils container" id="id50">
 <div class="code-block-caption"><span class="caption-number">リスト 148 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id50" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm<span class="w"> </span>install<span class="w"> </span>exastro-agent-1<span class="w"> </span>exastro/exastro-agent<span class="w"> </span><span class="se">\</span>
@@ -1254,8 +1255,9 @@ TEST<span class="w"> </span>SUITE:<span class="w"> </span>None
 </pre></div>
 </div>
 </div>
-</li>
-<li><p>インストール状況確認</p>
+<div class="line-block">
+<div class="line">2. インストール状況確認</div>
+</div>
 <div class="literal-block-wrapper docutils container" id="id54">
 <div class="code-block-caption"><span class="caption-number">リスト 152 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id54" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
@@ -1268,14 +1270,12 @@ kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </s
 </div>
 <div class="literal-block-wrapper docutils container" id="id55">
 <div class="code-block-caption"><span class="caption-number">リスト 153 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>NAME<span class="w">                             </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
-<span class="w"> </span>ita-ag-oase-1-66cb7669c6-m2q8c<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>16m
-<span class="w"> </span>ita-ag-oase-2-787fb97f75-9s7xj<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>13m
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                             </span>READY<span class="w">   </span>STATUS<span class="w">    </span>RESTARTS<span class="w">   </span>AGE
+ita-ag-oase-1-66cb7669c6-m2q8c<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>16m
+ita-ag-oase-2-787fb97f75-9s7xj<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">   </span><span class="m">0</span><span class="w">          </span>13m
 </pre></div>
 </div>
 </div>
-</li>
-</ol>
 </div></div>
 </section>
 </section>
