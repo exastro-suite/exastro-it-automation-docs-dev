@@ -39,7 +39,6 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="サーバー構築・運用 - Ansible-Legacy" href="../ansible_legacy/index.html" />
     <link rel="prev" title="Learn" href="../index.html" /> 
   </head>
 <body id="page" class="ja">
@@ -103,7 +102,6 @@
     <div id="toolbarNavigation">
       <ul>
         <li class="prev"><a href="../index.html" title="前のトピックへ">Learn</a></li>
-        <li class="next"><a href="../ansible_legacy/index.html" title="次のトピックへ">サーバー構築・運用 - Ansible-Legacy</a></li>
       </ul>
     </div>
   </div>
@@ -144,17 +142,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#id16">まとめ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy/index.html">サーバー構築・運用 - Ansible-Legacy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ansible_legacy_role/index.html">サーバー構築・運用 - Ansible-LegacyRole</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../oase/index.html">イベント連携 - OASE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../collection/index.html">収集・比較機能</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../parameter/index.html">パラメータ集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../export_import/index.html">エクスポート/インポート</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hostgroup/index.html">ホストグループ</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Manuals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
 </ul>
 
     <!-- <ul>
@@ -622,7 +611,7 @@
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/オペレーション登録1.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B21.png" style="width: 1200px;" />
+<a class="reference internal image-reference" href="../../_images/オペレーション登録.png"><img alt="オペレーション登録" src="../../_images/%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%99%BB%E9%8C%B2.png" style="width: 1200px;" />
 </a>
 </figure>
 <table class="docutils align-default" id="id27">
@@ -821,7 +810,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line">しかし、<span class="menuselection">機器一覧</span> でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。</div>
 </div>
 <div class="line-block">
-<div class="line">Exastro IT Automation では、機器の情報を <a class="reference internal" href="../../manuals/ansible-driver/ansible_common.html#ansible-common-ita-original-variable"><span class="std std-ref">ITA original variables</span></a> で取得することができ、ログイン先のホスト名は  <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> という変数を使うことで取得できるため、パラメータの一元管理が可能となります。</div>
+<div class="line">Exastro IT Automation では、機器の情報を <span class="xref std std-ref">ansible_common_ita_original_variable</span> で取得することができ、ログイン先のホスト名は  <kbd class="kbd docutils literal notranslate">__inventory_hostname__</kbd> という変数を使うことで取得できるため、パラメータの一元管理が可能となります。</div>
 </div>
 <div class="line-block">
 <div class="line"><span class="menuselection">入力用 ▶ サーバー基本情報</span> から、ITA 独自変数を使って機器一覧に登録してあるホスト名を登録してみましょう。</div>
@@ -957,7 +946,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <div class="line-block">
 <div class="line">RHEL8 サーバに対してホスト名を設定するシナリオを通して、Exastro IT Automation の基本的な操作方法を学習しました。</div>
 <div class="line">また、Exastro IT Automation により自動化の最大のメリットである、繰り返し作業による作業の効率化について学習しました。</div>
-<div class="line"><a class="reference internal" href="../ansible_legacy/Legacy_scenario2.html"><span class="doc">次のシナリオ</span></a> では、より実用的なパラメータシートの管理方法について紹介をします。</div>
+<div class="line"><span class="xref std std-doc">次のシナリオ</span> では、より実用的なパラメータシートの管理方法について紹介をします。</div>
 </div>
 </section>
 </section>
