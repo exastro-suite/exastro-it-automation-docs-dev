@@ -1016,6 +1016,30 @@
 <div class="line-block">
 <div class="line">さて次に、2台稼働となった状態で、以下のようなリクエスト数超過イベントを発生させてみましょう。</div>
 </div>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-number">表 1.35 </span><span class="caption-text">通知メール一覧</span><a class="headerlink" href="#id29" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>通知内容</p></th>
+<th class="head"><p>リクエスト数超過</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><kbd class="kbd docutils literal notranslate">件名</kbd></p></td>
+<td><p><kbd class="kbd docutils literal notranslate">[alert]</kbd> <kbd class="kbd docutils literal notranslate">Requests:</kbd> <kbd class="kbd docutils literal notranslate">Threshold</kbd> <kbd class="kbd docutils literal notranslate">reached</kbd></p></td>
+</tr>
+<tr class="row-odd"><td><p><kbd class="kbd docutils literal notranslate">本文</kbd></p></td>
+<td><div class="line-block">
+<div class="line"><kbd class="kbd docutils literal notranslate">リクエスト数が、閾値を超えました。</kbd></div>
+<div class="line"><kbd class="kbd docutils literal notranslate">RequestCount</kbd> <kbd class="kbd docutils literal notranslate">&gt;</kbd> <kbd class="kbd docutils literal notranslate">100</kbd></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="line-block">
 <div class="line">そうすると、事前に設定したルールが適用され、結論イベントの発生まで確認できます。</div>
 </div>

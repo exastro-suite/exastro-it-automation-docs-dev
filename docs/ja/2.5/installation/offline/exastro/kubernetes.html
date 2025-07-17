@@ -3026,29 +3026,174 @@ k8s-node1
 <div class="line">以下の内容をコピー＆ペーストします。</div>
 </div>
 <details>
-  <summary>preparation.yaml</summary></details><div class="line-block">
+  <summary>preparation.yaml</summary><div class="literal-block-wrapper docutils container" id="id103">
+<div class="code-block-caption"><span class="caption-number">リスト 247 </span><span class="caption-text">preparation.yaml</span><a class="headerlink" href="#id103" title="Link to this code">¶</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nn">---</span>
+<span class="linenos"> 2</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">資材配布など</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8S</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8s-nodeにディレクトリ作成</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="nt">file</span><span class="p">:</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">directory</span>
+<span class="linenos"> 9</span><span class="w">    </span>
+<span class="linenos">10</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">パッケージを展開(rpmファイル)</span>
+<span class="linenos">11</span><span class="w">      </span><span class="nt">unarchive</span><span class="p">:</span>
+<span class="linenos">12</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/k8s-repo.tar.gz</span>
+<span class="linenos">13</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos">14</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos">16</span><span class="w">      </span>
+<span class="linenos">17</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">パッケージを展開(offline-files)</span>
+<span class="linenos">18</span><span class="w">      </span><span class="nt">unarchive</span><span class="p">:</span>
+<span class="linenos">19</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/offline-files.tar.gz</span>
+<span class="linenos">20</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos">21</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos">22</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos">23</span><span class="w">      </span>
+<span class="linenos">24</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">パッケージをインストールするシェルスクリプトをコピー</span>
+<span class="linenos">25</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos">26</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/k8s-pkg-install.sh</span>
+<span class="linenos">27</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos">28</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">パッケージをインストールする</span>
+<span class="linenos">31</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos">32</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/k8s-pkg-install.sh</span>
+<span class="linenos">33</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/k8s-repo</span>
+<span class="linenos">34</span><span class="w">        </span>
+</pre></div>
+</div>
+</div>
+</details><div class="line-block">
 <div class="line">28行目と89行目のexastro-x.x.xx.tgzのバージョンは手順②で取得したバージョンに書き換えます。</div>
 <div class="line">また、永続ボリュームの設定ファイルは使用状況に合わせて適宜削除します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id103">
-<div class="code-block-caption"><span class="caption-number">リスト 247 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id103" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id104">
+<div class="code-block-caption"><span class="caption-number">リスト 248 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id104" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>install-exastro.yaml
 </pre></div>
 </div>
 </div>
 <details>
-  <summary>install-exastro.yaml</summary></details><div class="line-block">
+  <summary>install-exastro.yaml</summary><div class="literal-block-wrapper docutils container" id="id105">
+<div class="code-block-caption"><span class="caption-number">リスト 249 </span><span class="caption-text">install-exastro.yaml</span><a class="headerlink" href="#id105" title="Link to this code">¶</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="nn">---</span>
+<span class="linenos">  2</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exastroのインストール</span>
+<span class="linenos">  3</span><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8S</span>
+<span class="linenos">  4</span><span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="linenos">  5</span><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="linenos">  6</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helmを展開</span>
+<span class="linenos">  7</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos">  8</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tar xzvf /tmp/work/offline-files/get.helm.sh/helm*.tar.gz</span>
+<span class="linenos">  9</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/offline-files/get.helm.sh</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helmをコピー</span>
+<span class="linenos"> 12</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos"> 13</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cp /tmp/work/offline-files/get.helm.sh/linux-amd64/helm /usr/local/bin</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">シェルスクリプトをコピー</span>
+<span class="linenos"> 16</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 17</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/exastro-image-load.sh</span>
+<span class="linenos"> 18</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 19</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exastroのコンテナイメージを展開</span>
+<span class="linenos"> 22</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos"> 23</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tar xzf /tmp/work/exastro-image.tar.gz</span>
+<span class="linenos"> 24</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">シェルスクリプトを実行</span>
+<span class="linenos"> 28</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos"> 29</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./exastro-image-load.sh</span>
+<span class="linenos"> 30</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exastro helm chartをコピー</span>
+<span class="linenos"> 33</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 34</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/exastro-x.x.x.tgz</span>
+<span class="linenos"> 35</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 36</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos"> 37</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exastro.yamlをコピー</span>
+<span class="linenos"> 40</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 41</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/exastro.yaml</span>
+<span class="linenos"> 42</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 43</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pv-database.yamlをコピー</span>
+<span class="linenos"> 46</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 47</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/pv-database.yaml</span>
+<span class="linenos"> 48</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 49</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 50</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pv-ita-common.yamlをコピー</span>
+<span class="linenos"> 53</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 54</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/pv-ita-common.yaml</span>
+<span class="linenos"> 55</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 56</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 57</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pv-mongo.yamlをコピー</span>
+<span class="linenos"> 60</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 61</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/pv-mongo.yaml</span>
+<span class="linenos"> 62</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 63</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 64</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pv-gitlab.yaml をコピー</span>
+<span class="linenos"> 67</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/pv-gitlab.yaml</span>
+<span class="linenos"> 69</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 70</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 71</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pv-pf-auditlog.yaml をコピー</span>
+<span class="linenos"> 74</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 75</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/pv-pf-auditlog.yaml</span>
+<span class="linenos"> 76</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 77</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 78</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">シェルスクリプトのコピー</span>
+<span class="linenos"> 81</span><span class="w">      </span><span class="nt">copy</span><span class="p">:</span>
+<span class="linenos"> 82</span><span class="w">        </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/apply-pv.sh</span>
+<span class="linenos"> 83</span><span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 84</span><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0755</span>
+<span class="linenos"> 85</span><span class="w">        </span><span class="nt">remote_src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="linenos"> 86</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 87</span><span class="w">      </span>
+<span class="linenos"> 88</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">シェルスクリプトを実行</span><span class="w"> </span>
+<span class="linenos"> 89</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span>
+<span class="linenos"> 90</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work/apply-pv.sh</span><span class="w">  </span>
+<span class="linenos"> 91</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 92</span><span class="w">      </span><span class="nt">ignore_errors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos"> 93</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exec exastro v2</span>
+<span class="linenos"> 96</span><span class="w">      </span><span class="nt">shell</span><span class="p">:</span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/local/bin/helm install exastro ./exastro-x.x.x.tgz  --namespace exastro --create-namespace --values exastro.yaml</span>
+<span class="linenos"> 98</span><span class="w">        </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/work</span>
+<span class="linenos"> 99</span><span class="w">      </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;k8s-node1&#39;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names&quot;</span>
+<span class="linenos">100</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
+<span class="linenos">101</span><span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">need checking exastro pod command kubectl get pod -n exastro</span>
+</pre></div>
+</div>
+</div>
+</details><div class="line-block">
 <div class="line">永続ボリュームを作成するシェルスクリプトです。</div>
 <div class="line">永続ボリュームの設定ファイルは使用状況に合わせて適宜削除します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id104">
-<div class="code-block-caption"><span class="caption-number">リスト 248 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id104" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id106">
+<div class="code-block-caption"><span class="caption-number">リスト 250 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id106" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>apply-pv.sh
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id105">
-<div class="code-block-caption"><span class="caption-number">リスト 249 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id105" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id107">
+<div class="code-block-caption"><span class="caption-number">リスト 251 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id107" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 /usr/local/bin/kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>/tmp/work/pv-database.yaml
 /usr/local/bin/kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>/tmp/work/pv-ita-common.yaml
@@ -3061,14 +3206,14 @@ k8s-node1
 <div class="line-block">
 <div class="line">パッケージファイルをインストールするシェルスクリプトを作成します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id106">
-<div class="code-block-caption"><span class="caption-number">リスト 250 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id106" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id108">
+<div class="code-block-caption"><span class="caption-number">リスト 252 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id108" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>k8s-pkg-install.sh
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id107">
-<div class="code-block-caption"><span class="caption-number">リスト 251 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id107" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id109">
+<div class="code-block-caption"><span class="caption-number">リスト 253 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id109" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#ebtables のインストール</span>
@@ -3137,8 +3282,8 @@ rpm<span class="w"> </span>-ivh<span class="w"> </span>--force<span class="w">  
 <div class="line">取得した資材を圧縮します。</div>
 <div class="line">ExastroのコンテナイメージはITA_VERSIONで指定したバージョンがディレクトリ名になっているため、x.x.xはバージョンを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id108">
-<div class="code-block-caption"><span class="caption-number">リスト 252 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id108" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id110">
+<div class="code-block-caption"><span class="caption-number">リスト 254 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id110" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/work
 
 tar<span class="w"> </span>-zcvf<span class="w"> </span>exastro-image.tar.gz<span class="w"> </span>x.x.x
@@ -3151,14 +3296,14 @@ tar<span class="w"> </span>-zcvf<span class="w"> </span>k8s-images.tar.gz<span c
 <div class="line">シェルスクリプトとyamlファイルを圧縮します。</div>
 <div class="line">永続ボリュームの設定ファイルは作成したファイルのみ指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id109">
-<div class="code-block-caption"><span class="caption-number">リスト 253 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id109" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id111">
+<div class="code-block-caption"><span class="caption-number">リスト 255 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id111" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-zcvf<span class="w"> </span>resource.tar.gz<span class="w"> </span>k8s-image-push.sh<span class="w"> </span>k8s-image-load.sh<span class="w"> </span>k8s-images.list<span class="w"> </span>exastro.yaml<span class="w"> </span>inventory.yaml<span class="w"> </span>install-exastro.yaml<span class="w"> </span>preparation.yaml<span class="w"> </span>apply-pv.sh<span class="w"> </span>exastro-image-load.sh<span class="w"> </span>k8s-pkg-install.sh<span class="w"> </span>pv-database.yaml<span class="w"> </span>pv-ita-common.yaml<span class="w"> </span>pv-gitlab.yaml<span class="w"> </span>pv-mongo.yaml<span class="w"> </span>pv-pf-auditlog.yaml
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id110">
-<div class="code-block-caption"><span class="caption-number">リスト 254 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id110" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id112">
+<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id112" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp
 
 tar<span class="w"> </span>-zcvf<span class="w"> </span>k8s-repo.tar.gz<span class="w"> </span>k8s-repo
@@ -3204,8 +3349,8 @@ tar<span class="w"> </span>-zcvf<span class="w"> </span>kubespray.tar.gz<span cl
 <div class="line-block">
 <div class="line">Ansible実行サーバで、取得した資材を展開します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id111">
-<div class="code-block-caption"><span class="caption-number">リスト 255 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id111" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id113">
+<div class="code-block-caption"><span class="caption-number">リスト 257 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id113" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp
 
 tar<span class="w"> </span>xzvf<span class="w"> </span>kubespray.tar.gz
@@ -3227,16 +3372,16 @@ tar<span class="w"> </span>xzvf<span class="w"> </span>/tmp/work/resource.tar.gz
 </section>
 <section id="ansible">
 <h3>⑧Ansible実行サーバでの準備<a class="headerlink" href="#ansible" title="Link to this heading">¶</a></h3>
-<div class="literal-block-wrapper docutils container" id="id112">
-<div class="code-block-caption"><span class="caption-number">リスト 256 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id112" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id114">
+<div class="code-block-caption"><span class="caption-number">リスト 258 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id114" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp
 
 vi<span class="w"> </span>pkg-install.sh
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id113">
-<div class="code-block-caption"><span class="caption-number">リスト 257 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id113" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id115">
+<div class="code-block-caption"><span class="caption-number">リスト 259 </span><span class="caption-text">下記のコードをコピー＆ペーストします</span><a class="headerlink" href="#id115" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1">#ローカルリポジトリを作成</span>
@@ -3277,8 +3422,8 @@ pip3.9<span class="w"> </span>install<span class="w"> </span>--no-index<span cla
 <div class="line-block">
 <div class="line">パッケージファイルをインストールします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id114">
-<div class="code-block-caption"><span class="caption-number">リスト 258 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id114" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id116">
+<div class="code-block-caption"><span class="caption-number">リスト 260 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id116" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>a+x<span class="w"> </span>pkg-install.sh
 
 ./pkg-install.sh
@@ -3288,16 +3433,16 @@ pip3.9<span class="w"> </span>install<span class="w"> </span>--no-index<span cla
 <div class="line-block">
 <div class="line">エラーメッセージが表示された場合は、表示されているmoduleを検索し全てインストールします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id115">
-<div class="code-block-caption"><span class="caption-number">リスト 259 </span><span class="caption-text">メッセージ例</span><a class="headerlink" href="#id115" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id117">
+<div class="code-block-caption"><span class="caption-number">リスト 261 </span><span class="caption-text">メッセージ例</span><a class="headerlink" href="#id117" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>No<span class="w"> </span>available<span class="w"> </span>modular<span class="w"> </span>metadata<span class="w"> </span><span class="k">for</span><span class="w"> </span>modular<span class="w"> </span>package<span class="w"> </span><span class="s1">&#39;perl-Mozilla-CA-20160104-7.module_el8.5.0+2812+ed912d05.noarch&#39;</span>,<span class="w"> </span>it<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>system
 No<span class="w"> </span>available<span class="w"> </span>modular<span class="w"> </span>metadata<span class="w"> </span><span class="k">for</span><span class="w"> </span>modular<span class="w"> </span>package<span class="w"> </span><span class="s1">&#39;perl-Net-SSLeay-1.88-2.module_el8.6.0+2811+fe6c84b0.x86_64&#39;</span>,<span class="w"> </span>it<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>system
 Error:<span class="w"> </span>No<span class="w"> </span>available<span class="w"> </span>modular<span class="w"> </span>metadata<span class="w"> </span><span class="k">for</span><span class="w"> </span>modular<span class="w"> </span>package
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id116">
-<div class="code-block-caption"><span class="caption-number">リスト 260 </span><span class="caption-text">表示されたmoduleを確認し、一度に全てインストールします</span><a class="headerlink" href="#id116" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id118">
+<div class="code-block-caption"><span class="caption-number">リスト 262 </span><span class="caption-text">表示されたmoduleを確認し、一度に全てインストールします</span><a class="headerlink" href="#id118" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#対象がperl-Mozilla-CA 及び perl-Net-SSLeayだった場合</span>
 <span class="nb">cd</span><span class="w"> </span>/tmp/pkg-repo
 ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;perl-Mozilla-CA|perl-Net-SSLeay&quot;</span>
@@ -3308,8 +3453,8 @@ dnf<span class="w"> </span>-y<span class="w"> </span>--disablerepo<span class="o
 <div class="line-block">
 <div class="line">dockerグループにユーザを追加します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id117">
-<div class="code-block-caption"><span class="caption-number">リスト 261 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id117" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id119">
+<div class="code-block-caption"><span class="caption-number">リスト 263 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id119" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>docker
 
 cat<span class="w"> </span>/etc/group<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>docker
@@ -3326,14 +3471,14 @@ reboot
 <div class="line">ExastroをインストールするサーバのIPアドレスとホスト名をHOSTSに登録します。</div>
 <div class="line">※本説明では、1台のKubernetesクラスターを構築する例となっております。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id118">
-<div class="code-block-caption"><span class="caption-number">リスト 262 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id118" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id120">
+<div class="code-block-caption"><span class="caption-number">リスト 264 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id120" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/etc/hosts
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id119">
-<div class="code-block-caption"><span class="caption-number">リスト 263 </span><span class="caption-text">hosts</span><a class="headerlink" href="#id119" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id121">
+<div class="code-block-caption"><span class="caption-number">リスト 265 </span><span class="caption-text">hosts</span><a class="headerlink" href="#id121" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xx.xx.xx.xx<span class="w"> </span>xxx.cluster.local<span class="w"> </span>xxx
 
 <span class="c1">#サーバのIPアドレス：xx.xx.xx.xx</span>
@@ -3345,8 +3490,8 @@ reboot
 <div class="line">SSH Keyの作成を作成します。</div>
 <div class="line">.sshディレクトリにid_rsa.pubが存在する場合は再度作成する必要はありません。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id120">
-<div class="code-block-caption"><span class="caption-number">リスト 264 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id120" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id122">
+<div class="code-block-caption"><span class="caption-number">リスト 266 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id122" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ls<span class="w"> </span>-al
 
 <span class="c1">#.sshディレクトリが存在する場合は作成不要</span>
@@ -3363,8 +3508,8 @@ ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
 <div class="line">実行しているサーバー自身 及び HOSTSに登録したサーバに対して鍵交換を実施します。</div>
 <div class="line">実行後はssh接続ができることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id121">
-<div class="code-block-caption"><span class="caption-number">リスト 265 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id121" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id123">
+<div class="code-block-caption"><span class="caption-number">リスト 267 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id123" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@HOSTSに登録したサーバのホスト名
 
 ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@実行しているサーバのホスト名
@@ -3381,8 +3526,8 @@ ssh<span class="w"> </span>root@HOSTSに登録したサーバのホスト名
 <div class="line-block">
 <div class="line">Exastroをインストールするサーバすべてで以下の手順を実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id122">
-<div class="code-block-caption"><span class="caption-number">リスト 266 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id122" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id124">
+<div class="code-block-caption"><span class="caption-number">リスト 268 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id124" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/etc/sysctl.conf
 </pre></div>
 </div>
@@ -3390,14 +3535,14 @@ ssh<span class="w"> </span>root@HOSTSに登録したサーバのホスト名
 <div class="line-block">
 <div class="line">/etc/sysctl.confに以下の1行を追記します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id123">
-<div class="code-block-caption"><span class="caption-number">リスト 267 </span><span class="caption-text">追記する1行</span><a class="headerlink" href="#id123" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id125">
+<div class="code-block-caption"><span class="caption-number">リスト 269 </span><span class="caption-text">追記する1行</span><a class="headerlink" href="#id125" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="etc-sysctl-conf">
-<div class="code-block-caption"><span class="caption-number">リスト 268 </span><span class="caption-text">sysctl.conf</span><a class="headerlink" href="#etc-sysctl-conf" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 270 </span><span class="caption-text">sysctl.conf</span><a class="headerlink" href="#etc-sysctl-conf" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span># sysctl settings are defined through files in
 # /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysctl.d/.
 #
@@ -3415,8 +3560,8 @@ ssh<span class="w"> </span>root@HOSTSに登録したサーバのホスト名
 <div class="line-block">
 <div class="line">ファイアーウォールを無効化します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id124">
-<div class="code-block-caption"><span class="caption-number">リスト 269 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id124" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id126">
+<div class="code-block-caption"><span class="caption-number">リスト 271 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id126" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>disable<span class="w"> </span>firewalld
 
 systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld
@@ -3428,20 +3573,20 @@ systemctl<span class="w"> </span>status<span class="w"> </span>firewalld
 <div class="line-block">
 <div class="line">SELinuxを無効化します。Disabled となっている場合は実施不要です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id125">
-<div class="code-block-caption"><span class="caption-number">リスト 270 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id125" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id127">
+<div class="code-block-caption"><span class="caption-number">リスト 272 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id127" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>getenforce
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id126">
-<div class="code-block-caption"><span class="caption-number">リスト 271 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id126" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id128">
+<div class="code-block-caption"><span class="caption-number">リスト 273 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id128" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi<span class="w"> </span>/etc/selinux/config
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id127">
-<div class="code-block-caption"><span class="caption-number">リスト 272 </span><span class="caption-text">config</span><a class="headerlink" href="#id127" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id129">
+<div class="code-block-caption"><span class="caption-number">リスト 274 </span><span class="caption-text">config</span><a class="headerlink" href="#id129" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span># This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
 #       enforcing - SELinux security policy is enforced.
@@ -3458,8 +3603,8 @@ SELINUXTYPE=targeted
 <div class="line-block">
 <div class="line">/etc/selinux/config更新後、システムを再起動します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id128">
-<div class="code-block-caption"><span class="caption-number">リスト 273 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id128" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id130">
+<div class="code-block-caption"><span class="caption-number">リスト 275 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id130" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>reboot
 </pre></div>
 </div>
@@ -3467,8 +3612,8 @@ SELINUXTYPE=targeted
 <div class="line-block">
 <div class="line">Disabled となっていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id129">
-<div class="code-block-caption"><span class="caption-number">リスト 274 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id129" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id131">
+<div class="code-block-caption"><span class="caption-number">リスト 276 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id131" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>getenforce
 </pre></div>
 </div>
@@ -3480,8 +3625,8 @@ SELINUXTYPE=targeted
 <div class="line">Ansible実行サーバとして使用するサーバでdockerの例外レジストリを定義します。</div>
 <div class="line">/etc/dockerディレクトリにdaemon.jsonが存在しない場合は新しく作成します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id130">
-<div class="code-block-caption"><span class="caption-number">リスト 275 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id130" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id132">
+<div class="code-block-caption"><span class="caption-number">リスト 277 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id132" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi<span class="w">  </span>/etc/docker/daemon.json
 </pre></div>
 </div>
@@ -3489,8 +3634,8 @@ SELINUXTYPE=targeted
 <div class="line-block">
 <div class="line">以下の1行を追記します。xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id131">
-<div class="code-block-caption"><span class="caption-number">リスト 276 </span><span class="caption-text">daemon.json</span><a class="headerlink" href="#id131" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id133">
+<div class="code-block-caption"><span class="caption-number">リスト 278 </span><span class="caption-text">daemon.json</span><a class="headerlink" href="#id133" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="w"> </span><span class="s2">&quot;insecure-registries&quot;</span>:<span class="o">[</span><span class="w"> </span><span class="s2">&quot;xx.xx.xx.xx:6000&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">}</span>
 </pre></div>
 </div>
@@ -3498,8 +3643,8 @@ SELINUXTYPE=targeted
 <div class="line-block">
 <div class="line">設定ファイルの再読み込みとdockerの再起動を行います。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id132">
-<div class="code-block-caption"><span class="caption-number">リスト 277 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id132" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id134">
+<div class="code-block-caption"><span class="caption-number">リスト 279 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id134" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>daemon-reload
 
 systemctl<span class="w"> </span>start<span class="w"> </span>docker
@@ -3510,8 +3655,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>docker
 <div class="line">シェルスクリプトを実行し、kubernetesのコンテナイメージを読み込みます。</div>
 <div class="line">完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id133">
-<div class="code-block-caption"><span class="caption-number">リスト 278 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id133" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id135">
+<div class="code-block-caption"><span class="caption-number">リスト 280 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id135" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/work
 
 ls<span class="w"> </span>k8s-image-load.sh
@@ -3526,8 +3671,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-load.sh
 <div class="line">docker registryを起動します。</div>
 <div class="line">xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id134">
-<div class="code-block-caption"><span class="caption-number">リスト 279 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id134" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id136">
+<div class="code-block-caption"><span class="caption-number">リスト 281 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id136" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>docker.io/library/registry
 
 <span class="c1">#上記で得られたREPOSITORYとTAGを指定します</span>
@@ -3544,8 +3689,8 @@ docker<span class="w"> </span>ps
 <div class="line-block">
 <div class="line">docker registryにkubernetesのイメージをpushします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id135">
-<div class="code-block-caption"><span class="caption-number">リスト 280 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id135" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id137">
+<div class="code-block-caption"><span class="caption-number">リスト 282 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id137" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>k8s-image-push.sh
 
 chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
@@ -3567,8 +3712,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line">自己署名証明書用のディレクトリを作成します。</div>
 <div class="line">以下の手順をAnsible実行サーバで実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id136">
-<div class="code-block-caption"><span class="caption-number">リスト 281 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id136" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id138">
+<div class="code-block-caption"><span class="caption-number">リスト 283 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id138" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>/etc/nginx/ssl
 </pre></div>
 </div>
@@ -3576,8 +3721,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line-block">
 <div class="line">暗号鍵を作成します</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id137">
-<div class="code-block-caption"><span class="caption-number">リスト 282 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id137" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id139">
+<div class="code-block-caption"><span class="caption-number">リスト 284 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id139" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>/etc/nginx/ssl/server.key<span class="w"> </span><span class="m">2048</span>
 </pre></div>
 </div>
@@ -3586,8 +3731,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line">自己署名証明書リクエストを作成します。</div>
 <div class="line">Country NameはJP、State or Province NameはTokyo、それ以外はEnterキーを押します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id138">
-<div class="code-block-caption"><span class="caption-number">リスト 283 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id138" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id140">
+<div class="code-block-caption"><span class="caption-number">リスト 285 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id140" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>/etc/nginx/ssl/server.key<span class="w"> </span>-out<span class="w"> </span>/etc/nginx/ssl/server.csr
 </pre></div>
 </div>
@@ -3595,8 +3740,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line-block">
 <div class="line">自己署名証明書を作成します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id139">
-<div class="code-block-caption"><span class="caption-number">リスト 284 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id139" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id141">
+<div class="code-block-caption"><span class="caption-number">リスト 286 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id141" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>x509<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-req<span class="w"> </span>-signkey<span class="w"> </span>/etc/nginx/ssl/server.key<span class="w"> </span>-in<span class="w"> </span>/etc/nginx/ssl/server.csr<span class="w"> </span>-out<span class="w"> </span>/etc/nginx/ssl/server.crt
 </pre></div>
 </div>
@@ -3604,8 +3749,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line-block">
 <div class="line">自己署名証明書(server.key server.csr server.srt )が作成されていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id140">
-<div class="code-block-caption"><span class="caption-number">リスト 285 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id140" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id142">
+<div class="code-block-caption"><span class="caption-number">リスト 287 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id142" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>/etc/nginx/ssl
 </pre></div>
 </div>
@@ -3613,8 +3758,8 @@ chmod<span class="w"> </span>a+x<span class="w"> </span>k8s-image-push.sh
 <div class="line-block">
 <div class="line">Nginxの設定をします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id141">
-<div class="code-block-caption"><span class="caption-number">リスト 286 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id141" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id143">
+<div class="code-block-caption"><span class="caption-number">リスト 288 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id143" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>/etc/nginx/nginx.conf<span class="w"> </span>/etc/nginx/nginx.conf.bk
 
 vi<span class="w"> </span>/etc/nginx/nginx.conf
@@ -3625,8 +3770,8 @@ vi<span class="w"> </span>/etc/nginx/nginx.conf
 <div class="line">バックアップを取得した後、nginx.confに以下のブロックを追記します。</div>
 <div class="line">xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id142">
-<div class="code-block-caption"><span class="caption-number">リスト 287 </span><span class="caption-text">nginx.conf</span><a class="headerlink" href="#id142" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id144">
+<div class="code-block-caption"><span class="caption-number">リスト 289 </span><span class="caption-text">nginx.conf</span><a class="headerlink" href="#id144" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>server<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>listen<span class="w">       </span><span class="m">81</span><span class="w"> </span>ssl<span class="w"> </span><span class="p">;</span>
 <span class="w">    </span>ssl_certificate<span class="w"> </span><span class="s2">&quot;/etc/nginx/ssl/server.crt&quot;</span><span class="p">;</span>
@@ -3644,8 +3789,8 @@ vi<span class="w"> </span>/etc/nginx/nginx.conf
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id143">
-<div class="code-block-caption"><span class="caption-number">リスト 288 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id143" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id145">
+<div class="code-block-caption"><span class="caption-number">リスト 290 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id145" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld
 
 systemctl<span class="w"> </span>start<span class="w"> </span>nginx
@@ -3657,8 +3802,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line">xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。</div>
 <div class="line">接続がプライベートではありませんと表示されるため、詳細設定をクリックして先に進みます。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id144">
-<div class="code-block-caption"><span class="caption-number">リスト 289 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id144" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id146">
+<div class="code-block-caption"><span class="caption-number">リスト 291 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id146" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>https://xx.xx.xx.xx:81/v2/_catalog
 </pre></div>
 </div>
@@ -3673,8 +3818,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line">Exastroをインストールするサーバに対して自己署名証明書を送信します。</div>
 <div class="line">xx.xx.xx.xxにはExastroをインストールするサーバのIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id145">
-<div class="code-block-caption"><span class="caption-number">リスト 290 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id145" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id147">
+<div class="code-block-caption"><span class="caption-number">リスト 292 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id147" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>/etc/nginx/ssl/server.crt<span class="w"> </span>root@xx.xx.xx.xx:/usr/share/pki/ca-trust-source/anchors
 </pre></div>
 </div>
@@ -3686,8 +3831,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line">Ansibleを実行してパッケージファイルをインストールするため、hosts.ymlを以下の手順で作成します。</div>
 <div class="line">以下の手順をAnsible実行サーバで実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id146">
-<div class="code-block-caption"><span class="caption-number">リスト 291 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id146" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id148">
+<div class="code-block-caption"><span class="caption-number">リスト 293 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id148" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/kubespray
 </pre></div>
 </div>
@@ -3695,8 +3840,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line-block">
 <div class="line">サンプルのinventoryファイルをコピーします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id147">
-<div class="code-block-caption"><span class="caption-number">リスト 292 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id147" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id149">
+<div class="code-block-caption"><span class="caption-number">リスト 294 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id149" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>-rfp<span class="w"> </span>inventory/sample<span class="w"> </span>inventory/k8s_cluster
 </pre></div>
 </div>
@@ -3705,8 +3850,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line">Kubernetesクラスター環境のIPの変数を設定します。</div>
 <div class="line">xx.xx.xx.xxにはExastroをインストールするサーバのIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id148">
-<div class="code-block-caption"><span class="caption-number">リスト 293 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id148" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id150">
+<div class="code-block-caption"><span class="caption-number">リスト 295 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id150" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span><span class="w"> </span>-a<span class="w"> </span><span class="nv">IPS</span><span class="o">=(</span>xx.xx.xx.xx<span class="o">)</span>
 </pre></div>
 </div>
@@ -3714,8 +3859,8 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line-block">
 <div class="line">hosts.ymlを作成します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id149">
-<div class="code-block-caption"><span class="caption-number">リスト 294 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id149" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id151">
+<div class="code-block-caption"><span class="caption-number">リスト 296 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id151" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CONFIG_FILE</span><span class="o">=</span>inventory/k8s_cluster/hosts.yml<span class="w"> </span>python3.9<span class="w"> </span>contrib/inventory_builder/inventory.py<span class="w"> </span><span class="si">${</span><span class="nv">IPS</span><span class="p">[@]</span><span class="si">}</span>
 </pre></div>
 </div>
@@ -3725,16 +3870,16 @@ systemctl<span class="w"> </span>start<span class="w"> </span>nginx
 <div class="line">以下の記載例はKubernetesクラスターを1台で構成した例です。</div>
 <div class="line">本説明では、各Kubernetesクラスターがコントロールプレーン、ワーカーノードを兼ねた設定で作成するため、全てのnode1に同じホスト名を指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id150">
-<div class="code-block-caption"><span class="caption-number">リスト 295 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id150" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id152">
+<div class="code-block-caption"><span class="caption-number">リスト 297 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id152" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/kubespray/inventory/k8s_cluster
 
 vi<span class="w"> </span>hosts.yml
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id151">
-<div class="code-block-caption"><span class="caption-number">リスト 296 </span><span class="caption-text">hosts.yml</span><a class="headerlink" href="#id151" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id153">
+<div class="code-block-caption"><span class="caption-number">リスト 298 </span><span class="caption-text">hosts.yml</span><a class="headerlink" href="#id153" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>all:
 <span class="w">  </span>hosts:
 <span class="w">    </span>node1:
@@ -3763,8 +3908,8 @@ vi<span class="w"> </span>hosts.yml
 <div class="line-block">
 <div class="line">Exastroをインストールするサーバにパッケージファイルをインストールします。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id152">
-<div class="code-block-caption"><span class="caption-number">リスト 297 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id152" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id154">
+<div class="code-block-caption"><span class="caption-number">リスト 299 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id154" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/work
 
 ls<span class="w"> </span>inventory.yaml
@@ -3783,8 +3928,8 @@ ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory.yaml
 <div class="line">/tmp/workに展開するoffline-filesとnginxコンテナの/usr/share/nginx/html/downloadをマウントします。</div>
 <div class="line">以下の手順をAnsible実行サーバで実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id153">
-<div class="code-block-caption"><span class="caption-number">リスト 298 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id153" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id155">
+<div class="code-block-caption"><span class="caption-number">リスト 300 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id155" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 
 docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>docker.io/library/nginx
@@ -3804,8 +3949,8 @@ docker<span class="w"> </span>ps
 <div class="line">ExastroをインストールするサーバにKubernetesをインストールするための設定ファイルを編集します。</div>
 <div class="line">all.ymlとoffline.ymlを以下のように書き換えます。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id154">
-<div class="code-block-caption"><span class="caption-number">リスト 299 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id154" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id156">
+<div class="code-block-caption"><span class="caption-number">リスト 301 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id156" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/kubespray/inventory/k8s_cluster/group_vars/all
 
 cp<span class="w"> </span>all.yml<span class="w"> </span>all.yml.bk
@@ -3814,8 +3959,8 @@ vi<span class="w"> </span>all.yml
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id155">
-<div class="code-block-caption"><span class="caption-number">リスト 300 </span><span class="caption-text">all.yml</span><a class="headerlink" href="#id155" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id157">
+<div class="code-block-caption"><span class="caption-number">リスト 302 </span><span class="caption-text">all.yml</span><a class="headerlink" href="#id157" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>## Set these proxy values in order to update package manager and docker daemon to use proxies and custom CA for https_proxy if needed
 # http_proxy: &quot;&quot;
 # https_proxy: &quot;&quot;
@@ -3828,16 +3973,16 @@ vi<span class="w"> </span>all.yml
 <div class="line-block">
 <div class="line">xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id156">
-<div class="code-block-caption"><span class="caption-number">リスト 301 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id156" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id158">
+<div class="code-block-caption"><span class="caption-number">リスト 303 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id158" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>offline.yml<span class="w"> </span>offline.yml.bk
 
 vi<span class="w"> </span>offline.yml
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id157">
-<div class="code-block-caption"><span class="caption-number">リスト 302 </span><span class="caption-text">追記する行</span><a class="headerlink" href="#id157" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id159">
+<div class="code-block-caption"><span class="caption-number">リスト 304 </span><span class="caption-text">追記する行</span><a class="headerlink" href="#id159" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>containerd_registries_mirrors:
 <span class="w">  </span>-<span class="w"> </span>prefix:<span class="w"> </span><span class="s2">&quot;{{ registry_host }}&quot;</span>
 <span class="w">    </span>mirrors:
@@ -3848,12 +3993,163 @@ vi<span class="w"> </span>offline.yml
 </div>
 </div>
 <details>
-  <summary>offline.yml</summary></details><div class="line-block">
+  <summary>offline.yml</summary><div class="literal-block-wrapper docutils container" id="id160">
+<div class="code-block-caption"><span class="caption-number">リスト 305 </span><span class="caption-text">offline.yml</span><a class="headerlink" href="#id160" title="Link to this code">¶</a></div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="nn">---</span>
+<span class="linenos">  2</span><span class="c1">## Global Offline settings</span>
+<span class="linenos">  3</span><span class="c1">### Private Container Image Registry</span>
+<span class="linenos">  4</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># registry_host: &quot;myprivateregisry.com&quot;</span>
+<span class="linenos">  5</span><span class="nt">+ registry_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;xx.xx.xx.xx:81&quot;</span>
+<span class="linenos">  6</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># files_repo: &quot;http://myprivatehttpd&quot;</span>
+<span class="linenos">  7</span><span class="nt">+ files_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://xx.xx.xx.xx:8080/download&quot;</span>
+<span class="linenos">  8</span><span class="c1">### If using CentOS, RedHat, AlmaLinux or Fedora</span>
+<span class="linenos">  9</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># yum_repo: &quot;http://myinternalyumrepo&quot;</span>
+<span class="linenos"> 10</span><span class="nt">+ yum_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://xx.xx.xx.xx:81&quot;</span>
+<span class="linenos"> 11</span><span class="c1">### If using Debian</span>
+<span class="linenos"> 12</span><span class="c1"># debian_repo: &quot;http://myinternaldebianrepo&quot;</span>
+<span class="linenos"> 13</span><span class="c1">### If using Ubuntu</span>
+<span class="linenos"> 14</span><span class="c1"># ubuntu_repo: &quot;http://myinternalubunturepo&quot;</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="nt">containerd_registries_mirrors</span><span class="p">:</span>
+<span class="linenos"> 17</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 18</span><span class="w">    </span><span class="nt">mirrors</span><span class="p">:</span>
+<span class="linenos"> 19</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 20</span><span class="w">        </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;pull&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;resolve&quot;</span><span class="p p-Indicator">]</span>
+<span class="linenos"> 21</span><span class="w">        </span><span class="nt">skip_verify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="c1">## Container Registry overrides</span>
+<span class="linenos"> 24</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># kube_image_repo: &quot;{{ registry_host }}&quot;</span>
+<span class="linenos"> 25</span><span class="nt">+ kube_image_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 26</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># gcr_image_repo: &quot;{{ registry_host }}&quot;</span>
+<span class="linenos"> 27</span><span class="nt">+ gcr_image_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 28</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># github_image_repo: &quot;{{ registry_host }}&quot;</span>
+<span class="linenos"> 29</span><span class="nt">+ github_image_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 30</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># docker_image_repo: &quot;{{ registry_host }}&quot;</span>
+<span class="linenos"> 31</span><span class="nt">+ docker_image_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 32</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># quay_image_repo: &quot;{{ registry_host }}&quot;</span>
+<span class="linenos"> 33</span><span class="nt">+ quay_image_repo</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_host</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 34</span>
+<span class="linenos"> 35</span><span class="c1">## Kubernetes components</span>
+<span class="linenos"> 36</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># kubeadm_download_url: &quot;{{ files_repo }}/dl.k8s.io/release/{{ kubeadm_version }}/bin/linux/{{ image_arch }}/kubeadm&quot;</span>
+<span class="linenos"> 37</span><span class="nt">+ kubeadm_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/dl.k8s.io/release/{{</span><span class="nv"> </span><span class="s">kubeadm_version</span><span class="nv"> </span><span class="s">}}/bin/linux/{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}/kubeadm&quot;</span>
+<span class="linenos"> 38</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># kubectl_download_url: &quot;{{ files_repo }}/dl.k8s.io/release/{{ kube_version }}/bin/linux/{{ image_arch }}/kubectl&quot;</span>
+<span class="linenos"> 39</span><span class="nt">+ kubectl_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/dl.k8s.io/release/{{</span><span class="nv"> </span><span class="s">kube_version</span><span class="nv"> </span><span class="s">}}/bin/linux/{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}/kubectl&quot;</span>
+<span class="linenos"> 40</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># kubelet_download_url: &quot;{{ files_repo }}/dl.k8s.io/release/{{ kube_version }}/bin/linux/{{ image_arch }}/kubelet&quot;</span>
+<span class="linenos"> 41</span><span class="nt">+ kubelet_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/dl.k8s.io/release/{{</span><span class="nv"> </span><span class="s">kube_version</span><span class="nv"> </span><span class="s">}}/bin/linux/{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}/kubelet&quot;</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="c1">## CNI Plugins</span>
+<span class="linenos"> 44</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># cni_download_url: &quot;{{ files_repo }}/github.com/containernetworking/plugins/releases/download/{{ cni_version }}/cni-plugins-linux-{{ image_arch }}-{{ cni_version }}.tgz&quot;</span>
+<span class="linenos"> 45</span><span class="nt">+ cni_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/containernetworking/plugins/releases/download/{{</span><span class="nv"> </span><span class="s">cni_version</span><span class="nv"> </span><span class="s">}}/cni-plugins-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">cni_version</span><span class="nv"> </span><span class="s">}}.tgz&quot;</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="c1">## cri-tools</span>
+<span class="linenos"> 48</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># crictl_download_url: &quot;{{ files_repo }}/github.com/kubernetes-sigs/cri-tools/releases/download/{{ crictl_version }}/crictl-{{ crictl_version }}-{{ ansible_system | lower }}-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos"> 49</span><span class="nt">+ crictl_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/kubernetes-sigs/cri-tools/releases/download/{{</span><span class="nv"> </span><span class="s">crictl_version</span><span class="nv"> </span><span class="s">}}/crictl-{{</span><span class="nv"> </span><span class="s">crictl_version</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">ansible_system</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">lower</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="c1">## [Optional] etcd: only if you use etcd_deployment=host</span>
+<span class="linenos"> 52</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># etcd_download_url: &quot;{{ files_repo }}/github.com/etcd-io/etcd/releases/download/{{ etcd_version }}/etcd-{{ etcd_version }}-linux-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos"> 53</span><span class="nt">+ etcd_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/etcd-io/etcd/releases/download/{{</span><span class="nv"> </span><span class="s">etcd_version</span><span class="nv"> </span><span class="s">}}/etcd-{{</span><span class="nv"> </span><span class="s">etcd_version</span><span class="nv"> </span><span class="s">}}-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span><span class="c1"># [Optional] Calico: If using Calico network plugin</span>
+<span class="linenos"> 56</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># calicoctl_download_url: &quot;{{ files_repo }}/github.com/projectcalico/calico/releases/download/{{ calico_ctl_version }}/calicoctl-linux-{{ image_arch }}&quot;</span>
+<span class="linenos"> 57</span><span class="nt">+ calicoctl_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/projectcalico/calico/releases/download/{{</span><span class="nv"> </span><span class="s">calico_ctl_version</span><span class="nv"> </span><span class="s">}}/calicoctl-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 58</span><span class="c1"># [Optional] Calico with kdd: If using Calico network plugin with kdd datastore</span>
+<span class="linenos"> 59</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># calico_crds_download_url: &quot;{{ files_repo }}/github.com/projectcalico/calico/archive/{{ calico_version }}.tar.gz&quot;</span>
+<span class="linenos"> 60</span><span class="nt">+ calico_crds_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/projectcalico/calico/archive/{{</span><span class="nv"> </span><span class="s">calico_version</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span><span class="c1"># [Optional] Cilium: If using Cilium network plugin</span>
+<span class="linenos"> 63</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># ciliumcli_download_url: &quot;{{ files_repo }}/github.com/cilium/cilium-cli/releases/download/{{ cilium_cli_version }}/cilium-linux-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos"> 64</span><span class="nt">+ ciliumcli_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/cilium/cilium-cli/releases/download/{{</span><span class="nv"> </span><span class="s">cilium_cli_version</span><span class="nv"> </span><span class="s">}}/cilium-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span><span class="c1"># [Optional] helm: only if you set helm_enabled: true</span>
+<span class="linenos"> 67</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># helm_download_url: &quot;{{ files_repo }}/get.helm.sh/helm-{{ helm_version }}-linux-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos"> 68</span><span class="nt">+ helm_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/get.helm.sh/helm-{{</span><span class="nv"> </span><span class="s">helm_version</span><span class="nv"> </span><span class="s">}}-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="c1"># [Optional] crun: only if you set crun_enabled: true</span>
+<span class="linenos"> 71</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># crun_download_url: &quot;{{ files_repo }}/github.com/containers/crun/releases/download/{{ crun_version }}/crun-{{ crun_version }}-linux-{{ image_arch }}&quot;</span>
+<span class="linenos"> 72</span><span class="nt">+ crun_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/containers/crun/releases/download/{{</span><span class="nv"> </span><span class="s">crun_version</span><span class="nv"> </span><span class="s">}}/crun-{{</span><span class="nv"> </span><span class="s">crun_version</span><span class="nv"> </span><span class="s">}}-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span><span class="c1"># [Optional] kata: only if you set kata_containers_enabled: true</span>
+<span class="linenos"> 75</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># kata_containers_download_url: &quot;{{ files_repo }}/github.com/kata-containers/kata-containers/releases/download/{{ kata_containers_version }}/kata-static-{{ kata_containers_version }}-{{ ansible_architecture }}.tar.xz&quot;</span>
+<span class="linenos"> 76</span><span class="nt">+ kata_containers_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/kata-containers/kata-containers/releases/download/{{</span><span class="nv"> </span><span class="s">kata_containers_version</span><span class="nv"> </span><span class="s">}}/kata-static-{{</span><span class="nv"> </span><span class="s">kata_containers_version</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">ansible_architecture</span><span class="nv"> </span><span class="s">}}.tar.xz&quot;</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="c1"># [Optional] cri-dockerd: only if you set container_manager: docker</span>
+<span class="linenos"> 79</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># cri_dockerd_download_url: &quot;{{ files_repo }}/github.com/Mirantis/cri-dockerd/releases/download/v{{ cri_dockerd_version }}/cri-dockerd-{{ cri_dockerd_version }}.{{ image_arch }}.tgz&quot;</span>
+<span class="linenos"> 80</span><span class="nt">+ cri_dockerd_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/Mirantis/cri-dockerd/releases/download/v{{</span><span class="nv"> </span><span class="s">cri_dockerd_version</span><span class="nv"> </span><span class="s">}}/cri-dockerd-{{</span><span class="nv"> </span><span class="s">cri_dockerd_version</span><span class="nv"> </span><span class="s">}}.{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tgz&quot;</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span><span class="c1"># [Optional] runc: if you set container_manager to containerd or crio</span>
+<span class="linenos"> 83</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># runc_download_url: &quot;{{ files_repo }}/github.com/opencontainers/runc/releases/download/{{ runc_version }}/runc.{{ image_arch }}&quot;</span>
+<span class="linenos"> 84</span><span class="nt">+ runc_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/opencontainers/runc/releases/download/{{</span><span class="nv"> </span><span class="s">runc_version</span><span class="nv"> </span><span class="s">}}/runc.{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span><span class="c1"># [Optional] cri-o: only if you set container_manager: crio</span>
+<span class="linenos"> 87</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># crio_download_base: &quot;download.opensuse.org/repositories/devel:kubic:libcontainers:stable&quot;</span>
+<span class="linenos"> 88</span><span class="nt">+ crio_download_base</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;download.opensuse.org/repositories/devel:kubic:libcontainers:stable&quot;</span>
+<span class="linenos"> 89</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># crio_download_crio: &quot;http://{{ crio_download_base }}:/cri-o:/&quot;</span>
+<span class="linenos"> 90</span><span class="nt">+ crio_download_crio</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://{{</span><span class="nv"> </span><span class="s">crio_download_base</span><span class="nv"> </span><span class="s">}}:/cri-o:/&quot;</span>
+<span class="linenos"> 91</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># crio_download_url: &quot;{{ files_repo }}/storage.googleapis.com/cri-o/artifacts/cri-o.{{ image_arch }}.{{ crio_version }}.tar.gz&quot;</span>
+<span class="linenos"> 92</span><span class="nt">+ crio_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/storage.googleapis.com/cri-o/artifacts/cri-o.{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.{{</span><span class="nv"> </span><span class="s">crio_version</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 93</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># skopeo_download_url: &quot;{{ files_repo }}/github.com/lework/skopeo-binary/releases/download/{{ skopeo_version }}/skopeo-linux-{{ image_arch }}&quot;</span>
+<span class="linenos"> 94</span><span class="nt">+ skopeo_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/lework/skopeo-binary/releases/download/{{</span><span class="nv"> </span><span class="s">skopeo_version</span><span class="nv"> </span><span class="s">}}/skopeo-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span><span class="c1"># [Optional] containerd: only if you set container_runtime: containerd</span>
+<span class="linenos"> 97</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># containerd_download_url: &quot;{{ files_repo }}/github.com/containerd/containerd/releases/download/v{{ containerd_version }}/containerd-{{ containerd_version }}-linux-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos"> 98</span><span class="nt">+ containerd_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/containerd/containerd/releases/download/v{{</span><span class="nv"> </span><span class="s">containerd_version</span><span class="nv"> </span><span class="s">}}/containerd-{{</span><span class="nv"> </span><span class="s">containerd_version</span><span class="nv"> </span><span class="s">}}-linux-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos"> 99</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># nerdctl_download_url: &quot;{{ files_repo }}/github.com/containerd/nerdctl/releases/download/v{{ nerdctl_version }}/nerdctl-{{ nerdctl_version }}-{{ ansible_system | lower }}-{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos">100</span><span class="nt">+ nerdctl_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/containerd/nerdctl/releases/download/v{{</span><span class="nv"> </span><span class="s">nerdctl_version</span><span class="nv"> </span><span class="s">}}/nerdctl-{{</span><span class="nv"> </span><span class="s">nerdctl_version</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">ansible_system</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">lower</span><span class="nv"> </span><span class="s">}}-{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="c1"># [Optional] runsc,containerd-shim-runsc: only if you set gvisor_enabled: true</span>
+<span class="linenos">103</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># gvisor_runsc_download_url: &quot;{{ files_repo }}/storage.googleapis.com/gvisor/releases/release/{{ gvisor_version }}/{{ ansible_architecture }}/runsc&quot;</span>
+<span class="linenos">104</span><span class="nt">+ gvisor_runsc_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/storage.googleapis.com/gvisor/releases/release/{{</span><span class="nv"> </span><span class="s">gvisor_version</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">ansible_architecture</span><span class="nv"> </span><span class="s">}}/runsc&quot;</span>
+<span class="linenos">105</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># gvisor_containerd_shim_runsc_download_url: &quot;{{ files_repo }}/storage.googleapis.com/gvisor/releases/release/{{ gvisor_version }}/{{ ansible_architecture }}/containerd-shim-runsc-v1&quot;</span>
+<span class="linenos">106</span><span class="nt">+ gvisor_containerd_shim_runsc_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/storage.googleapis.com/gvisor/releases/release/{{</span><span class="nv"> </span><span class="s">gvisor_version</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">ansible_architecture</span><span class="nv"> </span><span class="s">}}/containerd-shim-runsc-v1&quot;</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="c1"># [Optional] Krew: only if you set krew_enabled: true</span>
+<span class="linenos">109</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># krew_download_url: &quot;{{ files_repo }}/github.com/kubernetes-sigs/krew/releases/download/{{ krew_version }}/krew-{{ host_os }}_{{ image_arch }}.tar.gz&quot;</span>
+<span class="linenos">110</span><span class="nt">+ krew_download_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">files_repo</span><span class="nv"> </span><span class="s">}}/github.com/kubernetes-sigs/krew/releases/download/{{</span><span class="nv"> </span><span class="s">krew_version</span><span class="nv"> </span><span class="s">}}/krew-{{</span><span class="nv"> </span><span class="s">host_os</span><span class="nv"> </span><span class="s">}}_{{</span><span class="nv"> </span><span class="s">image_arch</span><span class="nv"> </span><span class="s">}}.tar.gz&quot;</span>
+<span class="linenos">111</span>
+<span class="linenos">112</span><span class="c1">## CentOS/Redhat/AlmaLinux</span>
+<span class="linenos">113</span><span class="c1">### For EL7, base and extras repo must be available, for EL8, baseos and appstream</span>
+<span class="linenos">114</span><span class="c1">### By default we enable those repo automatically</span>
+<span class="linenos">115</span><span class="c1"># rhel_enable_repos: false</span>
+<span class="linenos">116</span><span class="c1">### Docker / Containerd</span>
+<span class="linenos">117</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># docker_rh_repo_base_url: &quot;{{ yum_repo }}/docker-ce/$releasever/$basearch&quot;</span>
+<span class="linenos">118</span><span class="nt">+ docker_rh_repo_base_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">yum_repo</span><span class="nv"> </span><span class="s">}}/docker-ce/$releasever/$basearch&quot;</span>
+<span class="linenos">119</span><span class="p p-Indicator">-</span><span class="w"> </span><span class="c1"># docker_rh_repo_gpgkey: &quot;{{ yum_repo }}/docker-ce/gpg&quot;</span>
+<span class="linenos">120</span><span class="nt">+ docker_rh_repo_gpgkey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">yum_repo</span><span class="nv"> </span><span class="s">}}/docker-ce/gpg&quot;</span>
+<span class="linenos">121</span>
+<span class="linenos">122</span><span class="c1">## Fedora</span>
+<span class="linenos">123</span><span class="c1">### Docker</span>
+<span class="linenos">124</span><span class="c1"># docker_fedora_repo_base_url: &quot;{{ yum_repo }}/docker-ce/{{ ansible_distribution_major_version }}/{{ ansible_architecture }}&quot;</span>
+<span class="linenos">125</span><span class="c1"># docker_fedora_repo_gpgkey: &quot;{{ yum_repo }}/docker-ce/gpg&quot;</span>
+<span class="linenos">126</span><span class="c1">### Containerd</span>
+<span class="linenos">127</span><span class="c1"># containerd_fedora_repo_base_url: &quot;{{ yum_repo }}/containerd&quot;</span>
+<span class="linenos">128</span><span class="c1"># containerd_fedora_repo_gpgkey: &quot;{{ yum_repo }}/docker-ce/gpg&quot;</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="c1">## Debian</span>
+<span class="linenos">131</span><span class="c1">### Docker</span>
+<span class="linenos">132</span><span class="c1"># docker_debian_repo_base_url: &quot;{{ debian_repo }}/docker-ce&quot;</span>
+<span class="linenos">133</span><span class="c1"># docker_debian_repo_gpgkey: &quot;{{ debian_repo }}/docker-ce/gpg&quot;</span>
+<span class="linenos">134</span><span class="c1">### Containerd</span>
+<span class="linenos">135</span><span class="c1"># containerd_debian_repo_base_url: &quot;{{ debian_repo }}/containerd&quot;</span>
+<span class="linenos">136</span><span class="c1"># containerd_debian_repo_gpgkey: &quot;{{ debian_repo }}/containerd/gpg&quot;</span>
+<span class="linenos">137</span><span class="c1"># containerd_debian_repo_repokey: &#39;YOURREPOKEY&#39;</span>
+<span class="linenos">138</span>
+<span class="linenos">139</span><span class="c1">## Ubuntu</span>
+<span class="linenos">140</span><span class="c1">### Docker</span>
+<span class="linenos">141</span><span class="c1"># docker_ubuntu_repo_base_url: &quot;{{ ubuntu_repo }}/docker-ce&quot;</span>
+<span class="linenos">142</span><span class="c1"># docker_ubuntu_repo_gpgkey: &quot;{{ ubuntu_repo }}/docker-ce/gpg&quot;</span>
+<span class="linenos">143</span><span class="c1">### Containerd</span>
+<span class="linenos">144</span><span class="c1"># containerd_ubuntu_repo_base_url: &quot;{{ ubuntu_repo }}/containerd&quot;</span>
+<span class="linenos">145</span><span class="c1"># containerd_ubuntu_repo_gpgkey: &quot;{{ ubuntu_repo }}/containerd/gpg&quot;</span>
+<span class="linenos">146</span><span class="c1"># containerd_ubuntu_repo_repokey: &#39;YOURREPOKEY&#39;</span>
+</pre></div>
+</div>
+</div>
+</details><div class="line-block">
 <div class="line">Kubesparayを実行して、ExastroをインストールするサーバへKubernetesをインストールします。</div>
 <div class="line">完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id158">
-<div class="code-block-caption"><span class="caption-number">リスト 303 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id158" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id161">
+<div class="code-block-caption"><span class="caption-number">リスト 306 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id161" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/kubespray
 
 ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory/k8s_cluster/hosts.yml<span class="w"> </span>--become<span class="w"> </span>--become-user<span class="o">=</span>root<span class="w"> </span>cluster.yml<span class="w"> </span>--private-key<span class="o">=</span>~/.ssh/id_rsa<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;download_retries=10&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>~/kubespray_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d%H%M<span class="k">)</span>.log
@@ -3863,14 +4159,14 @@ ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory/k8s_
 <div class="line-block">
 <div class="line">Exastroをインストールするサーバに接続し、nodeが作成されていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id159">
-<div class="code-block-caption"><span class="caption-number">リスト 304 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id159" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id162">
+<div class="code-block-caption"><span class="caption-number">リスト 307 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id162" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id160">
-<div class="code-block-caption"><span class="caption-number">リスト 305 </span><span class="caption-text">結果サンプル</span><a class="headerlink" href="#id160" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id163">
+<div class="code-block-caption"><span class="caption-number">リスト 308 </span><span class="caption-text">結果サンプル</span><a class="headerlink" href="#id163" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                    </span>STATUS<span class="w">   </span>ROLES<span class="w">           </span>AGE<span class="w">     </span>VERSION
 ITAをインストールするサーバのホスト名<span class="w">   </span>Ready<span class="w">    </span>control-plane<span class="w">   </span>5m10s<span class="w">   </span>v1.27.10
 </pre></div>
@@ -3885,8 +4181,8 @@ ITAをインストールするサーバのホスト名<span class="w">   </span>
 <div class="line">完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)</div>
 <div class="line">以下の手順をAnsible実行サーバで実行します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id161">
-<div class="code-block-caption"><span class="caption-number">リスト 306 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id161" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id164">
+<div class="code-block-caption"><span class="caption-number">リスト 309 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id164" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/work
 
 ls<span class="w"> </span>exastro-image.tar.gz
@@ -3898,8 +4194,8 @@ scp<span class="w"> </span>/tmp/work/exastro-image.tar.gz<span class="w"> </span
 <div class="line-block">
 <div class="line">Exastroのインストールを実行します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id162">
-<div class="code-block-caption"><span class="caption-number">リスト 307 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id162" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id165">
+<div class="code-block-caption"><span class="caption-number">リスト 310 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id165" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>inventory.yaml
 
 ls<span class="w"> </span>install-exastro.yaml
@@ -3911,14 +4207,14 @@ ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory.yaml
 <div class="line-block">
 <div class="line">Exastroをインストールするサーバに接続し、永続ボリュームとpodが作成されていることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id163">
-<div class="code-block-caption"><span class="caption-number">リスト 308 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id163" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id166">
+<div class="code-block-caption"><span class="caption-number">リスト 311 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id166" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>pv
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id164">
-<div class="code-block-caption"><span class="caption-number">リスト 309 </span><span class="caption-text">結果サンプル</span><a class="headerlink" href="#id164" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id167">
+<div class="code-block-caption"><span class="caption-number">リスト 312 </span><span class="caption-text">結果サンプル</span><a class="headerlink" href="#id167" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">            </span>CAPACITY<span class="w">   </span>ACCESS<span class="w"> </span>MODES<span class="w">   </span>RECLAIM<span class="w"> </span>POLICY<span class="w">   </span>STATUS<span class="w">      </span>CLAIM<span class="w">                                  </span>STORAGECLASS<span class="w">   </span>REASON<span class="w">   </span>AGE
 pv-auditlog<span class="w">     </span>10Gi<span class="w">       </span>RWX<span class="w">            </span>Retain<span class="w">           </span>Bound<span class="w">       </span>exastro/pvc-pf-auditlog<span class="w">                                        </span>8m10s
 pv-database<span class="w">     </span>20Gi<span class="w">       </span>RWO<span class="w">            </span>Retain<span class="w">           </span>Bound<span class="w">       </span>exastro/pvc-mariadb<span class="w">                                            </span>8m10s
@@ -3931,8 +4227,8 @@ pv-mongo<span class="w">        </span>20Gi<span class="w">       </span>RWO<spa
 <div class="line-block">
 <div class="line">コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id165">
-<div class="code-block-caption"><span class="caption-number">リスト 310 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id165" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id168">
+<div class="code-block-caption"><span class="caption-number">リスト 313 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id168" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pod の一覧を取得</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>--namespace<span class="w"> </span>exastro
 </pre></div>
@@ -3942,8 +4238,8 @@ kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </s
 <div class="line">正常に起動している場合は、<kbd class="kbd docutils literal notranslate">ita</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd> と <kbd class="kbd docutils literal notranslate">platform</kbd>-<kbd class="kbd docutils literal notranslate">migration</kbd>-<kbd class="kbd docutils literal notranslate">xxx</kbd> が <kbd class="kbd docutils literal notranslate">Completed</kbd> 、その他すべてが <kbd class="kbd docutils literal notranslate">Running</kbd> となります。</div>
 <div class="line">※正常に起動するまで数分かかる場合があります。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id166">
-<div class="code-block-caption"><span class="caption-number">リスト 311 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id166" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id169">
+<div class="code-block-caption"><span class="caption-number">リスト 314 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id169" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                      </span>READY<span class="w">   </span>STATUS<span class="w">      </span>RESTARTS<span class="w">   </span>AGE
 ita-api-admin-6b8567596d-rgjms<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
 ita-api-oase-receiver-6b74bdff6-zmcrw<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span>Running<span class="w">     </span><span class="m">0</span><span class="w">          </span>7h40m
@@ -3995,26 +4291,26 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 <div class="line">暗号化キーを紛失した場合、バックアップデータからシステムを復旧した際にデータの復号ができなくなります。</div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id167">
-<div class="code-block-caption"><span class="caption-number">リスト 312 </span><span class="caption-text">コマンド（Exastro IT Automation ENCRYPT_KEY）</span><a class="headerlink" href="#id167" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id170">
+<div class="code-block-caption"><span class="caption-number">リスト 315 </span><span class="caption-text">コマンド（Exastro IT Automation ENCRYPT_KEY）</span><a class="headerlink" href="#id170" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>ita-secret-ita-global<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.ENCRYPT_KEY}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id168">
-<div class="code-block-caption"><span class="caption-number">リスト 313 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id168" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id171">
+<div class="code-block-caption"><span class="caption-number">リスト 316 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id171" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">JnIoXzJtPic2MXFqRl1yI1chMj8hWzQrNypmVn41Pk8</span><span class="o">=</span>
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id169">
-<div class="code-block-caption"><span class="caption-number">リスト 314 </span><span class="caption-text">コマンド（Exastro Platform ENCRYPT_KEY）</span><a class="headerlink" href="#id169" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id172">
+<div class="code-block-caption"><span class="caption-number">リスト 317 </span><span class="caption-text">コマンド（Exastro Platform ENCRYPT_KEY）</span><a class="headerlink" href="#id172" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>platform-secret-pf-global<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.ENCRYPT_KEY}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id170">
-<div class="code-block-caption"><span class="caption-number">リスト 315 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id170" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id173">
+<div class="code-block-caption"><span class="caption-number">リスト 318 </span><span class="caption-text">出力結果</span><a class="headerlink" href="#id173" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">bHFZe2VEVVM2PmFeQDMqNG4oZT4lTlglLjJJekxBTHE</span><span class="o">=</span>
 </pre></div>
 </div>
@@ -4022,8 +4318,8 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 <div class="line-block">
 <div class="line">下記5つのコマンドを順に実行します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id171">
-<div class="code-block-caption"><span class="caption-number">リスト 316 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id171" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id174">
+<div class="code-block-caption"><span class="caption-number">リスト 319 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id174" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_SVC_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>services<span class="w"> </span>platform-auth<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.spec.ports[0].nodePort}&quot;</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">NODE_MGT_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>services<span class="w"> </span>platform-auth<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.spec.ports[1].nodePort}&quot;</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.items[0].status.addresses[0].address}&quot;</span><span class="k">)</span>
@@ -4043,8 +4339,8 @@ platform-web-6644884657-dmwp6<span class="w">                             </span
 <div class="line">、<span class="menuselection">Administrator Console</span> の URL にアクセスします。</div>
 <div class="line">下記は、実行例のため実際のコマンド実行結果に読み替えてください。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id172">
-<div class="code-block-caption"><span class="caption-number">リスト 317 </span><span class="caption-text">出力結果(例)</span><a class="headerlink" href="#id172" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id175">
+<div class="code-block-caption"><span class="caption-number">リスト 320 </span><span class="caption-text">出力結果(例)</span><a class="headerlink" href="#id175" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>*************************
 *<span class="w"> </span>Administrator<span class="w"> </span>Console<span class="w"> </span>*
 *************************
@@ -4057,8 +4353,8 @@ http://172.16.20.xxx:30080
 </pre></div>
 </div>
 </div>
-<table class="docutils align-left" id="id173">
-<caption><span class="caption-number">表 65 </span><span class="caption-text">接続確認用URL</span><a class="headerlink" href="#id173" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id176">
+<caption><span class="caption-number">表 65 </span><span class="caption-text">接続確認用URL</span><a class="headerlink" href="#id176" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -4117,8 +4413,8 @@ http://172.16.20.xxx:30080
 <div class="line">Exastroのインストールにはansibleを実行しますが、この手順でエラーが起きた場合は一度アンインストールし、永続ボリュームとkubernetesの削除を行った後、再インストールします。</div>
 <div class="line">以下の手順をExastroをインストールするサーバ(Kubernetesクラスター環境)にて実施します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id174">
-<div class="code-block-caption"><span class="caption-number">リスト 318 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id174" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id177">
+<div class="code-block-caption"><span class="caption-number">リスト 321 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id177" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#削除が完了するまでに数分かかることがあります</span>
 helm<span class="w"> </span>uninstall<span class="w"> </span>exastro<span class="w"> </span>--namespace<span class="w"> </span>exastro
 
@@ -4139,8 +4435,8 @@ kibectl<span class="w"> </span>get<span class="w"> </span>pv
 <div class="line">使用するreset.ymlはgit cloneで取得したkubesprayに含まれているため、作成する必要はありません。</div>
 <div class="line">完了後、Kubesparayを実行してKubernetesクラスター環境へKubernetesをインストールする手順から再実行します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id175">
-<div class="code-block-caption"><span class="caption-number">リスト 319 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id175" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id178">
+<div class="code-block-caption"><span class="caption-number">リスト 322 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id178" title="Link to this code">¶</a></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/kubespray
 
 ls<span class="w"> </span>reset.yml
