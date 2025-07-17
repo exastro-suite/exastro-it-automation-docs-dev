@@ -160,7 +160,11 @@
 <li><a class="reference internal" href="#id2">1.1. はじめに</a></li>
 <li><a class="reference internal" href="#id3">1.2. 特徴</a></li>
 <li><a class="reference internal" href="#id4">1.3. 可用性</a><ul>
-<li><a class="reference internal" href="#id5">1.3.1. 自動復旧</a></li>
+<li><a class="reference internal" href="#id5">1.3.1. 自動復旧</a><ul>
+<li><a class="reference internal" href="#probe">フロントエンド系コンテナのProbe</a></li>
+<li><a class="reference internal" href="#id6">サーバーサイドジョブ系コンテナのProbe</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -210,16 +214,57 @@
 <div class="line">Probeを設定することにより、コンテナの状態がチェックされハングアップが発生した際に自動的に再起動が行われるようになります。</div>
 </div>
 <div class="line-block">
-<div class="line">Probeは以下のフロントエンド系コンテナに対して設定されています。</div>
+<div class="line">Probeは以下のフロントエンド系コンテナおよびサーバーサイドジョブ系コンテナに対して設定されています。</div>
 </div>
-<ul class="simple">
-<li><p>platform-auth</p></li>
-<li><p>platform-api</p></li>
-<li><p>platform-web</p></li>
-<li><p>ita-api-admin</p></li>
-<li><p>ita-api-organization</p></li>
-<li><p>ita-api-oase-receiver</p></li>
-<li><p>ita-web-server</p></li>
+<ul>
+<li><p>フロントエンド系コンテナ</p>
+<ul>
+<li><div class="line-block">
+<div class="line">platform-auth</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">platform-api</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">platform-web</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-api-admin</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-api-organization</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-api-ansible-execution-receiver</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-api-oase-receiver</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-web-server</div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>サーバーサイドジョブ系コンテナ</p>
+<ul>
+<li><div class="line-block">
+<div class="line">platform-job</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ita-by-conductor-regularly</div>
+</div>
+</li>
+</ul>
+</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -229,11 +274,9 @@
 </div>
 <div class="line-block">
 <div class="line">ProbeはStartup Probe, Liveness Probe, Readiness Probeの3種類があります。</div>
-<div class="line">各コンテナは自身のヘルスチェック用のエンドポイントにHTTP GETリクエストを10秒毎に行います。</div>
-<div class="line">初回起動時はStartup Probeにより30回失敗した際にコンテナが再起動され、起動後はLiveness Probeにより3回失敗した際にコンテナが再起動されます。</div>
 </div>
-<table class="docutils align-left" id="id6">
-<caption><span class="caption-number">表 1.1 </span><span class="caption-text">Probeの種類</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id7">
+<caption><span class="caption-number">表 1.1 </span><span class="caption-text">Probeの種類</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 80.0%" />
@@ -255,48 +298,14 @@
 </tr>
 </tbody>
 </table>
-<table class="docutils align-left" id="id7">
-<caption><span class="caption-number">表 1.2 </span><span class="caption-text">Startup Probeの設定値</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
-<colgroup>
-<col style="width: 30.0%" />
-<col style="width: 40.0%" />
-<col style="width: 30.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>パラメータ</p></th>
-<th class="head"><p>説明</p></th>
-<th class="head"><p>設定値</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>httpGet.path</p></td>
-<td><p>HTTP GETリクエストによるパスを指定。</p></td>
-<td><p>（コンテナ毎のヘルスチェック用のパス）</p></td>
-</tr>
-<tr class="row-odd"><td><p>httpGet.port</p></td>
-<td><p>HTTP GETリクエストによるポートを指定。</p></td>
-<td><p>port-http</p></td>
-</tr>
-<tr class="row-even"><td><p>timeoutSeconds</p></td>
-<td><p>Probeのタイムアウトを指定（秒）。</p></td>
-<td><p>30</p></td>
-</tr>
-<tr class="row-odd"><td><p>periodSeconds</p></td>
-<td><p>Probeの間隔を指定（秒）。</p></td>
-<td><p>10</p></td>
-</tr>
-<tr class="row-even"><td><p>successThreshold</p></td>
-<td><p>Probeが成功したと判断する最小回数を指定。</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-odd"><td><p>failureThreshold</p></td>
-<td><p>Probeが失敗したと判断する最小回数を指定。</p></td>
-<td><p>30</p></td>
-</tr>
-</tbody>
-</table>
+<section id="probe">
+<h4>フロントエンド系コンテナのProbe<a class="headerlink" href="#probe" title="Link to this heading">¶</a></h4>
+<div class="line-block">
+<div class="line">フロントエンド系コンテナは自身のヘルスチェック用のエンドポイントにHTTP GETリクエストを10秒毎に行います。</div>
+<div class="line">初回起動時はStartup Probeにより30回失敗した際にコンテナが再起動され、起動後はLiveness Probeにより3回失敗した際にコンテナが再起動されます。</div>
+</div>
 <table class="docutils align-left" id="id8">
-<caption><span class="caption-number">表 1.3 </span><span class="caption-text">Liveness Probeの設定値</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 1.2 </span><span class="caption-text">Startup Probeの設定値</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30.0%" />
 <col style="width: 40.0%" />
@@ -331,12 +340,12 @@
 </tr>
 <tr class="row-odd"><td><p>failureThreshold</p></td>
 <td><p>Probeが失敗したと判断する最小回数を指定。</p></td>
-<td><p>3</p></td>
+<td><p>30</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-left" id="id9">
-<caption><span class="caption-number">表 1.4 </span><span class="caption-text">Readiness Probeの設定値</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 1.3 </span><span class="caption-text">Liveness Probeの設定値</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30.0%" />
 <col style="width: 40.0%" />
@@ -375,6 +384,138 @@
 </tr>
 </tbody>
 </table>
+<table class="docutils align-left" id="id10">
+<caption><span class="caption-number">表 1.4 </span><span class="caption-text">Readiness Probeの設定値</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パラメータ</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>設定値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>httpGet.path</p></td>
+<td><p>HTTP GETリクエストによるパスを指定。</p></td>
+<td><p>（コンテナ毎のヘルスチェック用のパス）</p></td>
+</tr>
+<tr class="row-odd"><td><p>httpGet.port</p></td>
+<td><p>HTTP GETリクエストによるポートを指定。</p></td>
+<td><p>port-http</p></td>
+</tr>
+<tr class="row-even"><td><p>timeoutSeconds</p></td>
+<td><p>Probeのタイムアウトを指定（秒）。</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-odd"><td><p>periodSeconds</p></td>
+<td><p>Probeの間隔を指定（秒）。</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>successThreshold</p></td>
+<td><p>Probeが成功したと判断する最小回数を指定。</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>failureThreshold</p></td>
+<td><p>Probeが失敗したと判断する最小回数を指定。</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h4>サーバーサイドジョブ系コンテナのProbe<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
+<div class="line-block">
+<div class="line">サーバーサイドジョブ系コンテナはハングアップしていないことを示すファイルが30秒以内に更新されているかの確認を10秒間隔で行っています。</div>
+<div class="line">初回起動時はStartup Probeにより30回失敗した際にコンテナが再起動され、起動後はLiveness Probeにより3回失敗した際にコンテナが再起動されます。</div>
+</div>
+<table class="docutils align-left" id="id11">
+<caption><span class="caption-number">表 1.5 </span><span class="caption-text">Startup Probeの設定値</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パラメータ</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>設定値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exec.command</p></td>
+<td><div class="line-block">
+<div class="line">Probeで実行するコマンドを指定。</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">（ハングアップしていないことを示すファイルが30秒以内に更新されているかの確認を行うコマンド）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>timeoutSeconds</p></td>
+<td><p>Probeのタイムアウトを指定（秒）。</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>periodSeconds</p></td>
+<td><p>Probeの間隔を指定（秒）。</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>successThreshold</p></td>
+<td><p>Probeが成功したと判断する最小回数を指定。</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>failureThreshold</p></td>
+<td><p>Probeが失敗したと判断する最小回数を指定。</p></td>
+<td><p>30</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-left" id="id12">
+<caption><span class="caption-number">表 1.6 </span><span class="caption-text">Liveness Probeの設定値</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パラメータ</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>設定値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exec.command</p></td>
+<td><div class="line-block">
+<div class="line">Probeで実行するコマンドを指定。</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">（ハングアップしていないことを示すファイルが30秒以内に更新されているかの確認を行うコマンド）</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>timeoutSeconds</p></td>
+<td><p>Probeのタイムアウトを指定（秒）。</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>periodSeconds</p></td>
+<td><p>Probeの間隔を指定（秒）。</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>successThreshold</p></td>
+<td><p>Probeが成功したと判断する最小回数を指定。</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>failureThreshold</p></td>
+<td><p>Probeが失敗したと判断する最小回数を指定。</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </section>
 </section>
