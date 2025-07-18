@@ -1164,8 +1164,8 @@ Exastro on Docker Compose - Offline
          
          docker load  < 2.5.3/my-exastro-ansible-agent-custom.tar.gz
          
-      |  
       | 該当するカスタム化を施したイメージが表示されることを確認します。
+
       .. code-block:: shell
          :caption: イメージ確認用コマンド(オフライン環境)
          
@@ -1234,8 +1234,8 @@ Exastro on Docker Compose - Offline
          
          podman load  < 2.5.3/my-exastro-ansible-agent-custom.tar.gz
          
-      |  
       | 該当するカスタム化を施したイメージが表示されることを確認します。
+      
       .. code-block:: shell
          :caption: イメージ確認用コマンド(オフライン環境)
          

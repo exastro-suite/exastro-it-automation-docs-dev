@@ -189,7 +189,7 @@
 
 | :menuselection:`Ansible-LegacyRole --> Movement一覧` から、ホスト名設定のための Movement を登録します。
 
-.. figure:: /images/learn/quickstart/scenario1/Movement登録.png
+.. figure:: /images/learn/quickstart/scenario1/Movement登録設定.png
    :width: 1200px
    :alt: Movement登録
 
