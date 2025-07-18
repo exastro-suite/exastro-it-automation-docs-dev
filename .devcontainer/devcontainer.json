@@ -13,7 +13,10 @@
 		"terminal.integrated.profiles.linux": {
 			"bash": {
 				"path": "/bin/bash"
-			}
+			},
+   "[rst]": {
+    "editor.fontFamily": "BIZ UDゴシック", "MS ゴシック"
+   },
 		},
 		"terminal.integrated.defaultProfile.linux": "bash",
 	},
@@ -42,6 +45,9 @@
      }
     },
     "terminal.integrated.defaultProfile.linux": "bash",
+    "[rst]": {
+     "editor.fontFamily": "BIZ UDGothic", "MS ゴシック"
+    },
    },
    "extensions": [
     "MS-CEINTL.vscode-language-pack-ja",
