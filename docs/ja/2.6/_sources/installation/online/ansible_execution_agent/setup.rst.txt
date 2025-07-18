@@ -215,6 +215,8 @@ Ansible builderで使用する動作確認済みのベースイメージ
 推奨事項
 ========
 
+.. _ansible_execution_user_recommendation:
+
 専用ユーザーの払い出し
 ----------------------
 
@@ -504,7 +506,7 @@ Ansible Execution Agentのインストール
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑪ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 :ref:`exastro_refresh_token`  を参照。）
+      | ⑪ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
       |   
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
@@ -589,7 +591,7 @@ Ansible Execution Agentのインストール
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑨ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 :ref:`exastro_refresh_token`  を参照。）
+      | ⑨ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
       |   
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
