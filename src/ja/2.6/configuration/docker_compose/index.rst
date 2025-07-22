@@ -7,4 +7,4 @@ Docker Compose
    :numbered: 3
 
    overview
-   docker
+   docker_compose
