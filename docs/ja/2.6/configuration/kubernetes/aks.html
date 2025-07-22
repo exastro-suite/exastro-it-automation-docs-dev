@@ -39,7 +39,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="Ansible" href="../ansible/index.html" />
+    <link rel="next" title="Docker／Podman" href="../docker/index.html" />
     <link rel="prev" title="2. Kubernetes クラスター" href="kubernetes.html" /> 
   </head>
 <body id="page" class="ja">
@@ -103,7 +103,7 @@
     <div id="toolbarNavigation">
       <ul>
         <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span class="section-number">2. </span>Kubernetes クラスター</a></li>
-        <li class="next"><a href="../ansible/index.html" title="次のトピックへ">Ansible</a></li>
+        <li class="next"><a href="../docker/index.html" title="次のトピックへ">Docker／Podman</a></li>
       </ul>
     </div>
   </div>
@@ -121,17 +121,25 @@
 <li class="toctree-l3"><a class="reference internal" href="kubernetes.html">2. Kubernetes クラスター</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">3. Azure Kubernetes Service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id1">3.1. はじめに</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">3.2. 前提条件</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#aks">3.3. AKS クラスタ構築</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id3">3.3.1. AKS クラスタの作成例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#aks-dns">3.3.2. ドメイン名の確認</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.2. システム要件</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#azure-kubernetes-service-aks">3.2.1. Azure Kubernetes Service (AKS) クラスター</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">3.2.2. 通信要件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id4">3.2.3. 外部コンポーネント</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.3. Azure Kubernetes Service (AKS) クラスター構築</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id6">3.3.1. 前提条件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#aks">3.3.2. AKS クラスターの作成例</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#aks-dns">3.3.3. ドメイン名の確認</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../docker/index.html">Docker／Podman</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OASE_agent/index.html">OASE Agent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logging/index.html">ログ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../security/index.html">セキュリティ</a></li>
@@ -159,10 +167,16 @@
   <ul>
 <li><a class="reference internal" href="#">3. Azure Kubernetes Service</a><ul>
 <li><a class="reference internal" href="#id1">3.1. はじめに</a></li>
-<li><a class="reference internal" href="#id2">3.2. 前提条件</a></li>
-<li><a class="reference internal" href="#aks">3.3. AKS クラスタ構築</a><ul>
-<li><a class="reference internal" href="#id3">3.3.1. AKS クラスタの作成例</a></li>
-<li><a class="reference internal" href="#aks-dns">3.3.2. ドメイン名の確認</a></li>
+<li><a class="reference internal" href="#id2">3.2. システム要件</a><ul>
+<li><a class="reference internal" href="#azure-kubernetes-service-aks">3.2.1. Azure Kubernetes Service (AKS) クラスター</a></li>
+<li><a class="reference internal" href="#id3">3.2.2. 通信要件</a></li>
+<li><a class="reference internal" href="#id4">3.2.3. 外部コンポーネント</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">3.3. Azure Kubernetes Service (AKS) クラスター構築</a><ul>
+<li><a class="reference internal" href="#id6">3.3.1. 前提条件</a></li>
+<li><a class="reference internal" href="#aks">3.3.2. AKS クラスターの作成例</a></li>
+<li><a class="reference internal" href="#aks-dns">3.3.3. ドメイン名の確認</a></li>
 </ul>
 </li>
 </ul>
@@ -194,22 +208,125 @@
 <section id="id1">
 <h2><span class="section-number">3.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">本書では、Exastro IT Automation のデプロイ先となる、Azure Kubernetes Service (AKS) クラスタにおけるセットアップ方法について説明します。</div>
+<div class="line">本書では、Exastro IT Automation のデプロイ先となる、Azure Kubernetes Service (AKS) クラスターのシステム要件および構築手順について説明します。</div>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">3.2. </span>前提条件<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.2. </span>システム要件<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="azure-kubernetes-service-aks">
+<h3><span class="section-number">3.2.1. </span>Azure Kubernetes Service (AKS) クラスター<a class="headerlink" href="#azure-kubernetes-service-aks" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>リソース種別</p></th>
+<th class="head"><p>要求リソース</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>仮想マシンサイズ</p></td>
+<td><p>Standard B4ms (4 vCPU / Memory 16 GiB)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage (Container image size)</p></td>
+<td><p>10GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Kubernetes</p></td>
+<td><p>1.23 以上</p></td>
+</tr>
+<tr class="row-odd"><td><p>サーバー台数</p></td>
+<td><p>1台</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-number">表 3.2 </span><span class="caption-text">ハードウェア要件(推奨構成)</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>リソース種別</p></th>
+<th class="head"><p>要求リソース</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>仮想マシンサイズ</p></td>
+<td><p>Standard D4as v5 (4 vCPU / Memory 16 GiB)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage</p></td>
+<td><p>120GB</p></td>
+</tr>
+<tr class="row-even"><td><p>Kubernetes</p></td>
+<td><p>1.23 以上</p></td>
+</tr>
+<tr class="row-odd"><td><p>サーバー台数</p></td>
+<td><p>3台 以上</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">要求リソースは Exastro IT Automation のコア機能に対する値です。同一クラスタ上に Keycloak や MariaDB などの外部ツールをデプロイする場合は、その分のリソースが別途必要となります。</div>
+<div class="line">データベースおよびファイルの永続化のために、別途ReadWriteManyで接続可能なNFS等のストレージ領域を用意する必要があります。</div>
+<div class="line">Storage サイズには、Exastro IT Automation が使用する入出力データのファイルは含まれていないため、利用状況に応じて容量を見積もる必要があります。</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.2.2. </span>通信要件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul>
+<li><div class="line-block">
+<div class="line">クライアントからデプロイ先のコンテナ環境にアクセスできる必要があります。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">Platform 管理者用と一般ユーザー用の2つ通信ポートが使用となります。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。</div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.2.3. </span>外部コンポーネント<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul>
+<li><div class="line-block">
+<div class="line">MariaDB、もしくは、MySQL サーバ</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">GitLab リポジトリ、および、アカウントの払い出しが可能なこと</div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line">GitLab 環境を同一クラスタに構築する場合は、GitLab のシステム要件に対応する最小要件を追加で用意する必要があります。</div>
+<div class="line">Database 環境を同一クラスタに構築する場合は、使用する Database のシステム要件に対応する最小要件を定義する必要があります</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.3. </span>Azure Kubernetes Service (AKS) クラスター構築<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">3.3.1. </span>前提条件<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Azure CLI が利用可能であること。</p></li>
 <li><p>下記の操作を行うために必要な権限を持っていること。</p></li>
 </ul>
 </section>
 <section id="aks">
-<h2><span class="section-number">3.3. </span>AKS クラスタ構築<a class="headerlink" href="#aks" title="Link to this heading">¶</a></h2>
-<section id="id3">
-<h3><span class="section-number">3.3.1. </span>AKS クラスタの作成例<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>AKS クラスターの作成例<a class="headerlink" href="#aks" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">AKS 環境へデプロイした Exastro Suite に接続するための AKS クラスタ作成におけるセットアップ例を紹介します。</div>
+<div class="line">AKS 環境へデプロイした Exastro Suite に接続するための AKS クラスター作成におけるセットアップ例を紹介します。</div>
 <div class="line">必要な設定などは適宜確認の上、環境に合った設定値を投入して下さい。</div>
 </div>
 <ol class="arabic">
@@ -239,7 +356,7 @@
 <td><p>利用するリソースグループ名</p></td>
 </tr>
 <tr class="row-odd"><td><p>CLUSTER_NAME</p></td>
-<td><p>作成する AKS クラスタ名</p></td>
+<td><p>作成する AKS クラスター名</p></td>
 </tr>
 <tr class="row-even"><td><p>PUBLIC_IP_PREFIX_NAME</p></td>
 <td><p>パブリック IP プレフィックス名</p></td>
@@ -260,7 +377,7 @@
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 利用するリソースグループ名</span>
 <span class="nv">RESOURCE_GROUP</span><span class="o">=</span>exastro-suite-group
-<span class="c1"># 作成する AKS クラスタ名</span>
+<span class="c1"># 作成する AKS クラスター名</span>
 <span class="nv">CLUSTER_NAME</span><span class="o">=</span>exastro-suite
 
 <span class="c1"># パブリック IP プレフィックス名</span>
@@ -284,7 +401,7 @@ az<span class="w"> </span>network<span class="w"> </span>public-ip<span class="w
 </pre></div>
 </div>
 </li>
-<li><p>AKS クラスタ作成</p>
+<li><p>AKS クラスター作成</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># AKS クラスタ作成</span>
 az<span class="w"> </span>aks<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--resource-group<span class="w"> </span><span class="si">${</span><span class="nv">RESOURCE_GROUP</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -304,11 +421,11 @@ az<span class="w"> </span>aks<span class="w"> </span>create<span class="w"> </sp
 </ol>
 </section>
 <section id="aks-dns">
-<span id="id4"></span><h3><span class="section-number">3.3.2. </span>ドメイン名の確認<a class="headerlink" href="#aks-dns" title="Link to this heading">¶</a></h3>
+<span id="id7"></span><h3><span class="section-number">3.3.3. </span>ドメイン名の確認<a class="headerlink" href="#aks-dns" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">作成した AKS クラスタにインターネットから接続するためのドメイン名を確認します。</div>
+<div class="line">作成した AKS クラスターにインターネットから接続するためのドメイン名を確認します。</div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># AKS クラスタに設定されているドメイン名の取得</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># AKS クラスターに設定されているドメイン名の取得</span>
 az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="si">${</span><span class="nv">RESOURCE_GROUP</span><span class="si">}</span><span class="w"> </span>-n<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_NAME</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span>addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName<span class="w"> </span>-o<span class="w"> </span>table
 </pre></div>
 </div>
@@ -321,7 +438,7 @@ az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span
 <div class="line">※この出力結果のドメインを後続のIngress利用時の設定として利用します。</div>
 </div>
 <div class="line-block">
-<div class="line">AKS クラスタの構築が完了したら <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Exastro on Kubernetes - Online</span></a> に従って、Exastro IT Automation をインストールします。</div>
+<div class="line">AKS クラスターの構築が完了したら <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Exastro on Kubernetes - Online</span></a> に従って、Exastro IT Automation をインストールします。</div>
 </div>
 </section>
 </section>
@@ -334,7 +451,7 @@ az<span class="w"> </span>aks<span class="w"> </span>show<span class="w"> </span
 <div id="articleNavigation">
   <ul>
     <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">2. </span>Kubernetes クラスター</a></li>
-    <li class="next"><a href="../ansible/index.html" title="次のトピックへ"><span>次のトピックへ</span>Ansible</a></li>
+    <li class="next"><a href="../docker/index.html" title="次のトピックへ"><span>次のトピックへ</span>Docker／Podman</a></li>
   </ul>
 </div>
 

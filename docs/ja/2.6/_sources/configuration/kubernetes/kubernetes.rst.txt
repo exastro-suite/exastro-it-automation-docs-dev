@@ -5,21 +5,87 @@ Kubernetes クラスター
 はじめに
 ========
 
-| 本説明では、Exastro IT Automation のデプロイ先となるKubernetesクラスターを、Kubesprayを用いて構築する方法について説明します。
+| 本書では、Exastro IT Automation のデプロイ先となるKubernetesクラスターのシステム要件および構築手順について説明します。
 
 
-前提条件
-========
+システム要件
+============
 
-- Kubesprayを実行する Ansible実行環境
-- Kubernetesクラスターの構築先の環境（本説明では OS:kbd:`Red Hat Enterprise Linux 8` を使用した手順）
+Kubernetesクラスター
+--------------------
+
+| Kubernetesクラスター環境の最小要求リソースとバージョンは下記のとおりです。
+
+.. list-table:: ハードウェア要件(最小構成)
+ :widths: 20, 20
+ :header-rows: 1
+
+ * - リソース種別
+   - 要求リソース
+ * - CPU
+   - 2 Cores (3.0 GHz, x86_64)
+ * - Memory
+   - 4GB
+ * - Storage (Container image size)
+   - 10GB
+ * - Kubernetes
+   - 1.23 以上
+ * - サーバー台数
+   - 3台
+
+.. list-table:: ハードウェア要件(推奨構成)
+ :widths: 20, 20
+ :header-rows: 1
+
+ * - リソース種別
+   - 要求リソース
+ * - CPU
+   - 4 Cores (3.0 GHz, x86_64)
+ * - Memory
+   - 16GB
+ * - Storage
+   - 120GB
+ * - Kubernetes
+   - 1.23 以上
+ * - サーバー台数
+   - 3台 以上
+
+.. warning::
+  | 要求リソースは Exastro IT Automation のコア機能に対する値です。同一クラスタ上に Keycloak や MariaDB などの外部ツールをデプロイする場合は、その分のリソースが別途必要となります。
+  | データベースおよびファイルの永続化のために、別途ReadWriteManyで接続可能なNFS等のストレージ領域を用意する必要があります。
+  | Storage サイズには、Exastro IT Automation が使用する入出力データのファイルは含まれていないため、利用状況に応じて容量を見積もる必要があります。
+
+通信要件
+--------
+
+- | クライアントからデプロイ先のコンテナ環境にアクセスできる必要があります。
+- | Platform 管理者用と一般ユーザー用の2つ通信ポートが使用となります。
+- | コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
+
+外部コンポーネント
+------------------
+
+- | MariaDB、もしくは、MySQL サーバ
+- | GitLab リポジトリ、および、アカウントの払い出しが可能なこと
+
+.. warning::
+  | GitLab 環境を同一クラスタに構築する場合は、GitLab のシステム要件に対応する最小要件を追加で用意する必要があります。
+  | Database 環境を同一クラスタに構築する場合は、使用する Database のシステム要件に対応する最小要件を定義する必要があります
+
 
 Kubernetesクラスター構築
 ========================
 
-本説明は、公式サイトの手順を参考に実施した手順となっており、Kubernetesのバージョンアップ等により、実際の手順とは異なる場合があります。
+| 本説明では、Exastro システム のデプロイ先となるKubernetesクラスターを、Kubesprayを用いて構築する方法について説明します。
+| 本手順は公式サイトの手順を参考に実施した手順となっており、Kubernetesのバージョンアップ等により、実際の手順とは異なる場合があります。
+| 公式サイト： https://kubernetes.io/ja/docs/setup/production-environment/tools/kubespray/
 
-公式サイト： https://kubernetes.io/ja/docs/setup/production-environment/tools/kubespray/
+前提条件
+--------
+
+- Kubesprayを実行する Ansible実行環境
+- Kubernetesクラスターの構築先の環境（本説明では OS:kbd:`Red Hat Enterprise Linux 8` を使用した手順）
+
 
 Ansible実行環境での準備
 -----------------------
