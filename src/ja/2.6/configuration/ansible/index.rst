@@ -8,3 +8,4 @@ Ansible
 
    ansible_core
    ansible_automation_platform
+   ansible_execution_agent
