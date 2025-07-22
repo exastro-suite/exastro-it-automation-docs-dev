@@ -32,7 +32,7 @@ Exastro on Kubernetes - Online
 前提条件
 ========
 
-Kubernetesクラスターのシステム要件については :doc:`構成・構築ガイド<../../../configuration/kubernetes/kubernetes>` を参照してください。
+| Kubernetesクラスターのシステム要件については :doc:`構成・構築ガイド<../../../configuration/kubernetes/kubernetes>` を参照してください。
 
 - クライアント要件
 
