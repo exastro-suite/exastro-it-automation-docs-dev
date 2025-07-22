@@ -1,5 +1,5 @@
 ==============
-Docker／Podman
+Docker Compose
 ==============
 
 はじめに
