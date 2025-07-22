@@ -188,33 +188,41 @@
 <td><p>グローバル変数管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用する変数と具体値を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>グローバル変数（センシティブ）管理</p></td>
+<td><div class="line-block">
+<div class="line">各モードのPlaybookや対話ファイルで共通利用する変数と具体値を管理します。</div>
+<div class="line">こちらで登録したグローバル変数は、暗号化して保存され、Ansible実行時には、ansible-vaultを通して使用されます。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
 <td><p>ファイル管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用する素材ファイルと埋込変数を管理します。</p></td>
 </tr>
-<tr class="row-odd"><td><p>6</p></td>
+<tr class="row-even"><td><p>6</p></td>
 <td><p>テンプレート管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用するテンプレートファイルと埋込変数を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>7</p></td>
+<tr class="row-odd"><td><p>7</p></td>
 <td><p>実行環境定義テンプレート管理</p></td>
 <td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルを管理します。</p></td>
 </tr>
-<tr class="row-odd"><td><p>8</p></td>
+<tr class="row-even"><td><p>8</p></td>
 <td><p>実行環境管理</p></td>
 <td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルと、テンプレートに埋め込むパラメータが定義されているパラメータシートの紐付を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>9</p></td>
+<tr class="row-odd"><td><p>9</p></td>
 <td><p>エージェント管理</p></td>
 <td><p>ITAと接続したAnsible Execution Agentのエージェント名とバージョン情報を閲覧できます。</p></td>
 </tr>
-<tr class="row-odd"><td><p>10</p></td>
+<tr class="row-even"><td><p>10</p></td>
 <td><p>管理対象外変数リスト</p></td>
 <td><p>「 変数抜出対象資材 」で抜出した変数で、 <span class="menuselection">各モード ▶ 代入値自動登録設定</span> の  <span class="menuselection">:menuselection:`Movement名:変数名</span> に表示したくない変数を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>11</p></td>
+<tr class="row-odd"><td><p>11</p></td>
 <td><p>共通変数利用リスト (※1)</p></td>
-<td><p><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> ・ <span class="menuselection">Ansible共通 ▶ ファイル管理</span> ・ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> に登録されている変数が、どの素材( <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> ・ <span class="menuselection">Ansible-Pioneer ▶ 対話ファイル素材集</span> ・ <span class="menuselection">Ansible-LegacyRole ▶ ロールパッケージ管理</span> )で使用しているかを閲覧できます。</p></td>
+<td><p><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> ・ <span class="menuselection">Ansible共通 ▶ グローバル変数（センシティブ）管理</span> ・ <span class="menuselection">Ansible共通 ▶ ファイル管理</span> ・ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> に登録されている変数が、どの素材( <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> ・ <span class="menuselection">Ansible-Pioneer ▶ 対話ファイル素材集</span> ・ <span class="menuselection">Ansible-LegacyRole ▶ ロールパッケージ管理</span> )で使用しているかを閲覧できます。</p></td>
 </tr>
 </tbody>
 </table>

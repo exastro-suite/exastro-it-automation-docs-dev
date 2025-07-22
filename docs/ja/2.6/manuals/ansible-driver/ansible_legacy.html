@@ -351,33 +351,41 @@
 <td><p>グローバル変数管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用する変数と具体値を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>5</p></td>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>グローバル変数（センシティブ）管理</p></td>
+<td><div class="line-block">
+<div class="line">各モードのPlaybookや対話ファイルで共通利用する変数と具体値を管理します。</div>
+<div class="line">こちらで登録したグローバル変数は、暗号化して保存され、Ansible実行時には、ansible-vaultを通して使用されます。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
 <td><p>ファイル管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用する素材ファイルと埋込変数を管理します。</p></td>
 </tr>
-<tr class="row-odd"><td><p>6</p></td>
+<tr class="row-even"><td><p>6</p></td>
 <td><p>テンプレート管理</p></td>
 <td><p>各モードのPlaybookや対話ファイルで共通利用するテンプレートファイルと埋込変数を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>7</p></td>
+<tr class="row-odd"><td><p>7</p></td>
 <td><p>実行環境定義テンプレート管理</p></td>
 <td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルを管理します。</p></td>
 </tr>
-<tr class="row-odd"><td><p>8</p></td>
+<tr class="row-even"><td><p>8</p></td>
 <td><p>実行環境管理</p></td>
 <td><p>Ansible Execution Agent内にansible-builderで実行環境（コンテナ）をbuildする際の実行環境定義ファイル(execution-environment.yml)のテンプレートファイルと、テンプレートに埋め込むパラメータが定義されているパラメータシートの紐付を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>9</p></td>
+<tr class="row-odd"><td><p>9</p></td>
 <td><p>エージェント管理</p></td>
 <td><p>ITAと接続したAnsible Execution Agentのエージェント名とバージョン情報を閲覧できます。</p></td>
 </tr>
-<tr class="row-odd"><td><p>10</p></td>
+<tr class="row-even"><td><p>10</p></td>
 <td><p>管理対象外変数リスト</p></td>
 <td><p>「 変数抜出対象資材 」で抜出した変数で、 <span class="menuselection">各モード ▶ 代入値自動登録設定</span> の  <span class="menuselection">:menuselection:`Movement名:変数名</span> に表示したくない変数を管理します。</p></td>
 </tr>
-<tr class="row-even"><td><p>11</p></td>
+<tr class="row-odd"><td><p>11</p></td>
 <td><p>共通変数利用リスト (※1)</p></td>
-<td><p><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> ・ <span class="menuselection">Ansible共通 ▶ ファイル管理</span> ・ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> に登録されている変数が、どの素材( <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> ・ <span class="menuselection">Ansible-Pioneer ▶ 対話ファイル素材集</span> ・ <span class="menuselection">Ansible-LegacyRole ▶ ロールパッケージ管理</span> )で使用しているかを閲覧できます。</p></td>
+<td><p><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> ・ <span class="menuselection">Ansible共通 ▶ グローバル変数（センシティブ）管理</span> ・ <span class="menuselection">Ansible共通 ▶ ファイル管理</span> ・ <span class="menuselection">Ansible共通 ▶ テンプレート管理</span> に登録されている変数が、どの素材( <span class="menuselection">Ansible-Legacy ▶ Playbook素材集</span> ・ <span class="menuselection">Ansible-Pioneer ▶ 対話ファイル素材集</span> ・ <span class="menuselection">Ansible-LegacyRole ▶ ロールパッケージ管理</span> )で使用しているかを閲覧できます。</p></td>
 </tr>
 </tbody>
 </table>
@@ -541,8 +549,8 @@
 </li>
 <li><div class="line-block">
 <div class="line"><strong>グローバル変数の登録（必要に応じて実施）</strong></div>
-<div class="line"><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> から、Playbookで使用するグローバル変数を登録します。</div>
-<div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-common-global-variable-list"><span class="std std-ref">グローバル変数管理</span></a> 」を参照してください。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ グローバル変数管理</span> 、<span class="menuselection">Ansible共通 ▶ グローバル変数（センシティブ）管理</span> から、Playbookで使用するグローバル変数を登録します。</div>
+<div class="line">詳細は「 <a class="reference internal" href="ansible_common.html#ansible-common-global-variable-list"><span class="std std-ref">グローバル変数管理</span></a> 」 、「 <a class="reference internal" href="ansible_common.html#ansible-common-global-variable-list-for-sensitiv"><span class="std std-ref">グローバル変数（センシティブ）管理</span></a> 」を参照してください。</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -1954,25 +1962,31 @@
 <td><p>/host_vars</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible-Legacy</p></td>
+<tr class="row-odd"><td><p>Ansible 共通</p></td>
+<td><p>グローバル変数（センシティブ）管理</p></td>
+<td><p>変数名/具体値</p></td>
+<td><p>/host_vars</p></td>
+<td><p>※ansible-vault で暗号化</p></td>
+</tr>
+<tr class="row-even"><td><p>Ansible-Legacy</p></td>
 <td><p>代入値管理</p></td>
 <td><p>変数名/具体値</p></td>
 <td><p>/host_vars</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible-Legacy</p></td>
+<tr class="row-odd"><td><p>Ansible-Legacy</p></td>
 <td><p>template 管理</p></td>
 <td><p>テンプレート埋込変数</p></td>
 <td><p>/host_vars</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible-Legacy</p></td>
+<tr class="row-even"><td><p>Ansible-Legacy</p></td>
 <td><p>ファイル管理</p></td>
 <td><p>ファイル埋込変数</p></td>
 <td><p>/host_vars</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><div class="line-block">
 <div class="line">ログインユーザ ID</div>
@@ -1985,13 +1999,13 @@
 <td><p>/host_vars</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible共通</p></td>
+<tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><p>ssh 認証鍵ファイル</p></td>
 <td><p>/ssh_key_files</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><div class="line-block">
 <div class="line">winrm公開鍵ファイル</div>
@@ -2001,13 +2015,13 @@
 <td><p>/winrm_key_files</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible共通</p></td>
+<tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><p>サーバ証明書</p></td>
 <td><p>/winrm_ca_files</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>インターフェース情報</p></td>
 <td><p>オプションパラメータ</p></td>
 <td><div class="line-block">
@@ -2019,7 +2033,7 @@
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible-Legacy</p></td>
+<tr class="row-even"><td><p>Ansible-Legacy</p></td>
 <td><p>Movement 一覧</p></td>
 <td><p>オプションパラメータ</p></td>
 <td><div class="line-block">
@@ -2031,7 +2045,7 @@
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>機器一覧</p></td>
 <td><div class="line-block">
 <div class="line">ログインユーザ ID</div>
@@ -2053,25 +2067,25 @@
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible-Legacy</p></td>
+<tr class="row-even"><td><p>Ansible-Legacy</p></td>
 <td><p>Movement-Playbook紐付</p></td>
 <td><p>Playbook名・インクルード順序</p></td>
 <td><p>/playbook.yml</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>実行環境定義テンプレート管理</p></td>
 <td><p>テンプレートファイル</p></td>
 <td><p>builder_executable_files/execution-environment.yml</p></td>
 <td><p><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合のみ</p></td>
 </tr>
-<tr class="row-odd"><td><p>Ansible共通</p></td>
+<tr class="row-even"><td><p>Ansible共通</p></td>
 <td><p>パラメータシート「実行環境パラメータ定義」</p></td>
 <td><p>各種アップロードファイル</p></td>
 <td><p>builder_executable_files/{{Rest API用項目名}}_アップロードファイル名</p></td>
 <td><p><span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">実行エンジン</span> が「Ansible Execution Agent」の場合のみ</p></td>
 </tr>
-<tr class="row-even"><td><p>Ansible共通</p></td>
+<tr class="row-odd"><td><p>Ansible共通</p></td>
 <td><p>実行環境管理</p></td>
 <td><p>タグ名</p></td>
 <td><div class="line-block">

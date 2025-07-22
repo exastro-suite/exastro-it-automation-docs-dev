@@ -155,8 +155,8 @@ Ansible-Pioneer作業フロー
       | 詳細は「 :ref:`ansible_pioneer_dialog_files` 」を参照してください。
 
    #. | **グローバル変数の登録（必要に応じて実施）**
-      | :menuselection:`Ansible共通 --> グローバル変数管理` から、対話ファイルで使用するグローバル変数を登録します。
-      | 詳細は「 :ref:`ansible_common_global_variable_list` 」を参照してください。
+      | :menuselection:`Ansible共通 --> グローバル変数管理` 、:menuselection:`Ansible共通 --> グローバル変数（センシティブ）管理` から、対話ファイルで使用するグローバル変数を登録します。
+      | 詳細は「 :ref:`ansible_common_global_variable_list` 」 、「 :ref:`ansible_common_global_variable_list_for_sensitiv`  」を参照してください。
 
    #. | **テンプレートファイルの登録（必要に応じて実施）**
       | :menuselection:`Ansible共通 --> テンプレート管理` から、対話ファイルで使用するテンプレートファイルとテンプレート埋込変数を登録します。
@@ -2175,6 +2175,11 @@ Ansible-Pioneer投入データ
      - 変数名/具体値
      - /host_vars
      - 
+   * - Ansible 共通
+     - グローバル変数（センシティブ）管理
+     - 変数名/具体値
+     - /host_vars
+     - ※ansible-vault で暗号化
    * - Ansible-Pioneer
      - 代入値管理
      - 変数名/具体値
