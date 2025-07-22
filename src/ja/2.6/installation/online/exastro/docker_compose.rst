@@ -32,7 +32,7 @@ Exastro on Docker Compose - Online
 前提条件
 ========
 
-システム要件については :doc:`構成・構築ガイド<../../../configuration/docker/docker>` を参照してください。
+| システム要件については :doc:`構成・構築ガイド<../../../configuration/docker/docker>` を参照してください。
 
 - アプリケーション
 
