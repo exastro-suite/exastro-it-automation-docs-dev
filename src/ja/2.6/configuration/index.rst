@@ -11,7 +11,7 @@
    :maxdepth: 2
 
    kubernetes/index
-   docker/index
+   docker_compose/index
    ansible/index
    OASE_agent/index
    terraform/index
