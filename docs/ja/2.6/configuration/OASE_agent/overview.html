@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>2. Docker／Podman &#8212; Documentation  ドキュメント</title>
+    <title>1. 概要 &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -39,8 +39,8 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="Terraform" href="../terraform/index.html" />
-    <link rel="prev" title="1. Kubernetes クラスター" href="kubernetes.html" /> 
+    <link rel="next" title="2. OASE Agent on Kubernetes" href="kubernetes.html" />
+    <link rel="prev" title="OASE Agent" href="index.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -73,14 +73,14 @@
         <dd>
           <div>
             <select name="version" onchange="location.href=value;">
-              <option value="../../../../ja/2.6/configuration/OASE_agent/docker.html" selected>current</option>
-              <option value="../../../../ja/2.6/configuration/OASE_agent/docker.html" selected>2.6(current)</option>
-              <option value="../../../../ja/2.5/configuration/OASE_agent/docker.html">2.5</option>
-              <option value="../../../../ja/2.4/configuration/OASE_agent/docker.html">2.4</option>
-              <option value="../../../../ja/2.3/configuration/OASE_agent/docker.html">2.3</option>
-              <option value="../../../../ja/2.2/configuration/OASE_agent/docker.html">2.2</option>
-              <option value="../../../../ja/2.1/configuration/OASE_agent/docker.html">2.1</option>
-              <option value="../../../../ja/2.0/configuration/OASE_agent/docker.html">2.0</option>
+              <option value="../../../../ja/2.6/configuration/OASE_agent/overview.html" selected>current</option>
+              <option value="../../../../ja/2.6/configuration/OASE_agent/overview.html" selected>2.6(current)</option>
+              <option value="../../../../ja/2.5/configuration/OASE_agent/overview.html">2.5</option>
+              <option value="../../../../ja/2.4/configuration/OASE_agent/overview.html">2.4</option>
+              <option value="../../../../ja/2.3/configuration/OASE_agent/overview.html">2.3</option>
+              <option value="../../../../ja/2.2/configuration/OASE_agent/overview.html">2.2</option>
+              <option value="../../../../ja/2.1/configuration/OASE_agent/overview.html">2.1</option>
+              <option value="../../../../ja/2.0/configuration/OASE_agent/overview.html">2.0</option>
             </select>
           </div>
         </dd>
@@ -93,8 +93,8 @@
         <dd>
           <div>
             <select name="lang" onchange="location.href=value;">
-              <option value="../../../../ja/2.6/configuration/OASE_agent/docker.html" selected>日本語</option>
-              <option value="../../../../en/2.6/configuration/OASE_agent/docker.html">English</option>
+              <option value="../../../../ja/2.6/configuration/OASE_agent/overview.html" selected>日本語</option>
+              <option value="../../../../en/2.6/configuration/OASE_agent/overview.html">English</option>
             </select>
           </div>
         </dd>
@@ -102,8 +102,8 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span class="section-number">1. </span>Kubernetes クラスター</a></li>
-        <li class="next"><a href="../terraform/index.html" title="次のトピックへ">Terraform</a></li>
+        <li class="prev"><a href="index.html" title="前のトピックへ">OASE Agent</a></li>
+        <li class="next"><a href="kubernetes.html" title="次のトピックへ"><span class="section-number">2. </span>OASE Agent on Kubernetes</a></li>
       </ul>
     </div>
   </div>
@@ -120,11 +120,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../docker_compose/index.html">Docker Compose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">OASE Agent</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kubernetes.html">1. Kubernetes クラスター</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">2. Docker／Podman</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">2.1. はじめに</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. 概要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.1. はじめに</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="kubernetes.html">2. OASE Agent on Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker_compose.html">3. OASE Agent on Docker Compose</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -152,8 +153,8 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">2. Docker／Podman</a><ul>
-<li><a class="reference internal" href="#id1">2.1. はじめに</a></li>
+<li><a class="reference internal" href="#">1. 概要</a><ul>
+<li><a class="reference internal" href="#id2">1.1. はじめに</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +171,7 @@
     <li><a href="../index.html">構成・構築ガイド</a></li>
     <li><a href="index.html">OASE Agent</a></li>
     
-    <li><span class="section-number">2. </span>Docker／Podman</li>
+    <li><span class="section-number">1. </span>概要</li>
   </ul>
 </div>
 
@@ -178,12 +179,12 @@
 <article class="divInner">
 <div class="body" role="main">
 
-  <section id="docker-podman">
-<h1><span class="section-number">2. </span>Docker／Podman<a class="headerlink" href="#docker-podman" title="Link to this heading">¶</a></h1>
-<section id="id1">
-<h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+  <section id="id1">
+<h1><span class="section-number">1. </span>概要<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">作成中</div>
+<div class="line">Exastro OASE Agentとは、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携を行う機能です。</div>
 </div>
 </section>
 </section>
@@ -194,8 +195,8 @@
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="kubernetes.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">1. </span>Kubernetes クラスター</a></li>
-    <li class="next"><a href="../terraform/index.html" title="次のトピックへ"><span>次のトピックへ</span>Terraform</a></li>
+    <li class="prev"><a href="index.html" title="前のトピックへ"><span>前のトピックへ</span>OASE Agent</a></li>
+    <li class="next"><a href="kubernetes.html" title="次のトピックへ"><span>次のトピックへ</span><span class="section-number">2. </span>OASE Agent on Kubernetes</a></li>
   </ul>
 </div>
 

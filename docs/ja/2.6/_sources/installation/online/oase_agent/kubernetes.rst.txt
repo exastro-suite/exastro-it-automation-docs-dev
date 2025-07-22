@@ -24,12 +24,6 @@ OASE Agent on Kubernetes - Online
 ====
 
 | 本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。
-
-特徴
-====
-
-| OASEを利用するための絶対条件である、Exastro OASE Agentの高い可用性やサービスレベルを必要とされる際の、Exastro IT Automation の導入方法となります。
-| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版 OASE Agent<docker_compose>` の利用を推奨します。
 | Exastro OASE Agentの設定や運用については、:ref:`エージェント概要<agent_about>` をご参照ください。
 
 前提条件
@@ -56,31 +50,11 @@ OASE Agent on Kubernetes - Online
 
 - デプロイ環境
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
-
-  .. list-table:: ハードウェア要件(最小構成)
-   :widths: 1, 1
-   :header-rows: 1
-  
-   * - リソース種別
-     - 要求リソース
-   * - CPU
-     - 2 Cores (3.0 GHz, x86_64)
-   * - Memory
-     - 4GB
-   * - Storage (Container image size)
-     - 10GB
-   * - Kubernetes (Container image size)
-     - 1.23 以上
+  | デプロイ環境のシステム要件については :doc:`構成・構築ガイド<../../../configuration/OASE_agent/kubernetes>` を参照してください。
 
 - 通信要件
 
-  - OASE Agentから収集対象サーバにアクセスできる必要があります。
   - コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
-
-.. warning::
-    | :doc:`Helm chart (Kubernetes) 版<../exastro/kubernetes>` で構築した環境にデプロイする場合、
-    | OASE Agentに対応する最小要件を追加で容易する必要があります。
 
 
 .. include:: ../../../include/oase_agent_recommendations.rst

@@ -6,5 +6,6 @@ OASE Agent
    :maxdepth: 2
    :numbered: 3
 
+   overview
    kubernetes
-   docker
+   docker_compose
