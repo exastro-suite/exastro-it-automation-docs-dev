@@ -4,7 +4,7 @@
 Site terms
 ==========
 
-Copyright © NEC Corporation 2019-2023. All rights reserved. 
+Copyright © NEC Corporation 2019-2025. All rights reserved. 
 
 Disclaimer
 ==========

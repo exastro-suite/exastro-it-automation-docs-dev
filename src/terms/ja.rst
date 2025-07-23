@@ -4,7 +4,7 @@
 サイト規約
 ==========
 
-Copyright © NEC Corporation 2019-2023. All rights reserved.
+Copyright © NEC Corporation 2019-2025. All rights reserved.
 
 免責事項
 ========

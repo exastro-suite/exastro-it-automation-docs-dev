@@ -14,6 +14,8 @@
 
 | 通知管理では、IT AutomationやOASEで利用するイベントごとの通知を受け取るための設定を行うことが出来ます。
 
+.. _notification_entry:
+
 通知先設定の登録手順
 --------------------
 
@@ -47,29 +49,79 @@
       
 #. | :menuselection:`新規通知先設定` 画面が表示されるので、通知先の情報を入力し、 :guilabel:`登録` をクリックします。
 
-   .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_v2-5.png
-      :width: 600px
-      :align: left
+   - 通知方法がMailの時の画面
 
-   .. list-table:: 新規通知先設定登録
-      :widths: 40 200
-      :header-rows: 1
-      :align: left
-   
-      * - 項目名
-        - 説明
-      * - 通知先ID
-        - | 通知先に割り当てる一意のIDを指定します。
-          | ここで指定した ID を使ってシステム間の連携を行います。
-          | 初期値として自動的にIDが付与されます。
-      * - 通知先名
-        - | 通知先に割り当てる名前を指定します。
-      * - 通知方法
-        - | 通知方法を指定します。
-      * - 通知先
-        - | 指定した通知方法によって設定が異なります。
-          | 通知先をe-mail形式もしくはURL形式で記載します。
+     .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_Mail.png
+        :width: 600px
+        :align: left
 
+     .. list-table:: 新規通知先設定登録 - Mail
+        :widths: 40 200
+        :header-rows: 1
+        :align: left
+     
+        * - 項目名
+          - 説明
+        * - 通知先ID
+          - | 通知先に割り当てる一意のIDを指定します。
+            | ここで指定した ID を使ってシステム間の連携を行います。
+            | 初期値として自動的にIDが付与されます。
+        * - 通知先名
+          - | 通知先に割り当てる名前を指定します。
+        * - 通知方法
+          - | 通知方法を指定します。
+        * - 通知先(to, cc, bcc)
+          - | Mailで通知するメールアドレスを指定します。
+
+   - 通知方法がTeams(Workflows)の時の画面
+
+     .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_TeamsWF.png
+        :width: 600px
+        :align: left
+
+     .. list-table:: 新規通知先設定登録 - Teams(Workflows)
+        :widths: 40 200
+        :header-rows: 1
+        :align: left
+     
+        * - 項目名
+          - 説明
+        * - 通知先ID
+          - | 通知先に割り当てる一意のIDを指定します。
+            | ここで指定した ID を使ってシステム間の連携を行います。
+            | 初期値として自動的にIDが付与されます。
+        * - 通知先名
+          - | 通知先に割り当てる名前を指定します。
+        * - 通知方法
+          - | 通知方法を指定します。
+        * - 通知先(URL)
+          - | Teamsのワークフローの「Webhook要求を受信するとチャネルに投稿する」で発行したURLを指定します。
+
+   - 通知方法がWebhookの時の画面
+
+     .. figure:: /images/ja/manuals/platform/notification/新規通知先設定画面_Webhook.png
+        :width: 600px
+        :align: left
+
+     .. list-table:: 新規通知先設定登録 - Webhook
+        :widths: 40 200
+        :header-rows: 1
+        :align: left
+     
+        * - 項目名
+          - 説明
+        * - 通知先ID
+          - | 通知先に割り当てる一意のIDを指定します。
+            | ここで指定した ID を使ってシステム間の連携を行います。
+            | 初期値として自動的にIDが付与されます。
+        * - 通知先名
+          - | 通知先に割り当てる名前を指定します。
+        * - 通知方法
+          - | 通知方法を指定します。
+        * - 通知先(URL)
+          - | Webhookを送信するURLを指定します。
+        * - 通知先(Header)
+          - | Webhookを送信する際のHTTP HeaderをJSON形式で指定します。
 
 通知先設定の詳細確認
 --------------------
@@ -101,7 +153,7 @@
 #. | :menuselection:`通知先設定詳細` 画面が表示されます。
    | 詳細確認の他、編集、削除、通知テストが実施できます。
 
-   .. image:: /images/ja/manuals/platform/notification/通知先設定編集画面_v2-5.png
+   .. image:: /images/ja/manuals/platform/notification/通知先設定詳細画面_v2-6.png
       :width: 600px
       :align: left
 
@@ -140,7 +192,7 @@
 
 #. | :menuselection:`通知先設定編集` 画面が表示されるので、通知先の情報を編集し、 :guilabel:`登録` をクリックします。
 
-   .. image:: /images/ja/manuals/platform/notification/通知先設定編集画面.png
+   .. image:: /images/ja/manuals/platform/notification/新規通知先設定画面_Mail.png
       :width: 600px
       :align: left
 
@@ -159,7 +211,7 @@
         - | 通知方法を指定します。
       * - 通知先
         - | 指定した通知方法によって設定が異なります。
-          | 通知先をe-mail形式もしくはURL形式で記載します。
+          | 詳細は :ref:`notification_entry` を参照ください。
 
 通知先設定削除
 --------------

@@ -69,8 +69,7 @@
      - 必須
      - id0001
    * - ita-ag-oase.agents.secret.EXASTRO_REFRESH_TOKEN
-     - | Exastro システム管理画面から取得したリフレッシュトークン※
-       | ※ユーザーのロールが、OASE - イベント - イベント履歴メニューをメンテナンス可能である必要があります。
+     - | :doc:`サービスアカウントユーザー管理機能<../../../manuals/organization_management/service_account_users>` で取得したリフレッシュトークン
      - 可
      - 無し
    * - ita-ag-oase.agents.secret.EXASTRO_USERNAME

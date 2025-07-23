@@ -82,7 +82,34 @@ Ansible Core
 システム要件
 ============
 
+Ansible driver
+--------------
+
 | Ansible driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`../../installation/online/exastro/kubernetes` を参照してください。
+
+作業対象機器
+------------
+
+| Ansible Coreで接続する作業対象機器には下記のソフトウェアのいずれかが必要となります。
+
+.. list-table:: ソフトウェア要件
+   :widths: 50 50
+   :header-rows: 1
+   :align: left
+
+   * - | ソフトウェア
+     - | バージョン
+   * - | Python
+     - | 3.8 - 3.13
+   * - | PowerShell
+     - | 5.1
+
+.. note::
+   | Exastro IT Automation 2.6 で使用する Ansible Core のバージョンは 2.18 です。
+
+.. danger::
+   | 作業対象機器のソフトウェア要件 は Exastro IT Automation のバージョン（Ansible Coreのバージョン）によって変更される可能性があります。
+   | Exastro IT Automationのバージョンを変更する際は、必ず作業対象機器のソフトウェア要件を確認してください。
 
 
 Playbook連携

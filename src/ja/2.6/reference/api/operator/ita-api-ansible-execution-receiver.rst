@@ -13,7 +13,7 @@ Exastro ITA Ansible Execution Receiver API
      $('#article').attr('id', 'swaggerBody');
 
      $api_urls = [
-       {url: "https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/2.5/ita_root/ita_api_ansible_execution_receiver/openapi.yaml", name: "2.5"}
+       {url: "https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/2.6/ita_root/ita_api_ansible_execution_receiver/openapi.yaml", name: "2.6"}
      ]
 
      // Begin Swagger UI call region

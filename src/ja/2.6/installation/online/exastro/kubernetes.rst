@@ -32,6 +32,8 @@ Exastro on Kubernetes - Online
 前提条件
 ========
 
+| Kubernetesクラスターのシステム要件については :doc:`構成・構築ガイド<../../../configuration/kubernetes/kubernetes>` を参照してください。
+
 - クライアント要件
 
   | 動作確認が取れているクライアントアプリケーションのバージョンは下記のとおりです。
@@ -43,64 +45,9 @@ Exastro on Kubernetes - Online
    * - アプリケーション
      - バージョン
    * - Helm
-     - v3.9.x
+     - v3.9.x, v3.18
    * - kubectl
-     - 1.23
-
-- デプロイ環境
-
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
-
-  .. list-table:: ハードウェア要件(最小構成)
-   :widths: 20, 20
-   :header-rows: 1
-
-   * - リソース種別
-     - 要求リソース
-   * - CPU
-     - 2 Cores (3.0 GHz, x86_64)
-   * - Memory
-     - 4GB
-   * - Storage (Container image size)
-     - 10GB
-   * - Kubernetes (Container image size)
-     - 1.23 以上
-
-  .. list-table:: ハードウェア要件(推奨構成)
-   :widths: 20, 20
-   :header-rows: 1
-
-   * - リソース種別
-     - 要求リソース
-   * - CPU
-     - 4 Cores (3.0 GHz, x86_64)
-   * - Memory
-     - 16GB
-   * - Storage (Container image size)
-     - 120GB
-   * - Kubernetes (Container image size)
-     - 1.23 以上
-
-  .. warning::
-    | 要求リソースは Exastro IT Automation のコア機能に対する値です。同一クラスタ上に Keycloak や MariaDB などの外部ツールをデプロイする場合は、その分のリソースが別途必要となります。
-    | データベースおよびファイルの永続化のために、別途ストレージ領域を用意する必要があります。
-    | Storage サイズには、Exastro IT Automation が使用する入出力データのファイルは含まれていないため、利用状況に応じて容量を見積もる必要があります。
-
-- 通信要件
-
-  - | クライアントからデプロイ先のコンテナ環境にアクセスできる必要があります。
-  - | Platform 管理者用と一般ユーザー用の2つ通信ポートが使用となります。
-  - | コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
-
-- 外部コンポーネント
-
-  - | MariaDB、もしくは、MySQL サーバ
-  - | GitLab リポジトリ、および、アカウントの払い出しが可能なこと
-
-  .. warning::
-    | GitLab 環境を同一クラスタに構築する場合は、GitLab のシステム要件に対応する最小要件を追加で容易する必要があります。
-    | Database 環境を同一クラスタに構築する場合は、使用する Database のシステム要件に対応する最小要件を定義する必要があります
-
+     - 1.23, 1.31
 
 インストールの準備
 ==================
@@ -1187,6 +1134,12 @@ Proxy設定
 
 | Exastro システムのアップグレード方法について紹介します。
 
+アップグレードの事前確認
+------------------------
+
+.. danger::
+   | Ansible Core を実行エンジンとしたシステム構成の場合、アップグレードに伴い作業対象機器のシステム要件が変更される場合があります。
+   | アップグレード実施前に :doc:`../../../configuration/ansible/ansible_core` の作業対象機器のシステム要件を確認してください。
 
 アップグレードの準備
 --------------------
@@ -1200,6 +1153,7 @@ Helm リポジトリの更新
 | Exastro システムの Helm リポジトリを更新します。
 
 | 更新前のバージョンを確認します。
+| ※下記に記載のバージョンは環境によって異なります。
 
 .. code-block:: shell
    :linenos:
@@ -1229,6 +1183,7 @@ Helm リポジトリの更新
    helm repo update
 
 | 更新後のバージョンを確認します。
+| ※下記に記載のバージョンは環境によって異なります。
 
 .. code-block:: shell
    :linenos:
@@ -1335,6 +1290,13 @@ Helm リポジトリの更新
   | :ref:`delete_data` は行わないでください。
   | 永続データの削除を行うとアップグレード前のデータがすべて消えてしまいます。
 
+メンテナンスモードへ移行
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+| アップグレード中の不整合によるエラーの発生を防ぐためにメンテナンスモードに移行します。
+| メンテナンスモードの移行の手順は :doc:`../../../manuals/maintenance/maintenance_mode` を参照してください。
+
+
 サービス停止
 ^^^^^^^^^^^^
 
@@ -1403,14 +1365,22 @@ Helm リポジトリの更新
 :ref:`helm_on_kubernetes_upgrade_status` にお進みください。
 
 
-.. include:: ../../../include/start_service_k8s.rst
+.. include:: ../../../include/start_service_k8s-v2_6_0.rst
 
 .. _helm_on_kubernetes_upgrade_status:
 
 アップグレード状況確認
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../../../include/check_installation_status.rst
+.. include:: ../../../include/check_installation_status-v2_6_0.rst
+
+
+メンテナンスモードの解除
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+| アップグレード前に行ったメンテナンスモードを解除します。
+| メンテナンスモードの解除の手順は :doc:`../../../manuals/maintenance/maintenance_mode` を参照してください。
+
 
 
 .. _ita_uninstall:

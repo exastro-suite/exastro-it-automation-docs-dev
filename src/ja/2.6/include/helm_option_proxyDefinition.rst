@@ -33,4 +33,4 @@
      - | Proxy定義のNO_PROXY設定
        | 追加設定がある場合のみ変更してください
      - 可
-     - "127.0.0.1,localhost,platform-auth,platform-api,ita-api-admin,ita-api-organization,ita-api-oase-receiver"
+     - "127.0.0.1,localhost,keycloak,platform-auth,platform-api,ita-api-admin,ita-api-organization,ita-api-oase-receiver,ita-api-ansible-execution-receiver"
