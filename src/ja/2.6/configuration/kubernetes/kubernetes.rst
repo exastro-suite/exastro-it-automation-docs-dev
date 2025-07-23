@@ -31,7 +31,7 @@ Kubernetesクラスター
  * - Kubernetes
    - 1.23 以上
  * - サーバー台数
-   - 3台
+   - 1台
 
 .. list-table:: ハードウェア要件(推奨構成)
  :widths: 20, 20
@@ -48,7 +48,7 @@ Kubernetesクラスター
  * - Kubernetes
    - 1.23 以上
  * - サーバー台数
-   - 3台 以上
+   - 2台 以上
 
 .. warning::
   | 要求リソースは Exastro IT Automation のコア機能に対する値です。同一クラスタ上に Keycloak や MariaDB などの外部ツールをデプロイする場合は、その分のリソースが別途必要となります。
