@@ -13,13 +13,17 @@
 		"terminal.integrated.profiles.linux": {
 			"bash": {
 				"path": "/bin/bash"
-			},
-   "[rst]": {
-    "editor.fontFamily": "BIZ UDゴシック", "MS ゴシック"
-   },
+			}
 		},
 		"terminal.integrated.defaultProfile.linux": "bash",
-	},
+  "[rst]": {
+   "editor.fontFamily": "'BIZ UDGothic','BIZ UDゴシック','MS ゴシック'"
+  },
+  "restructuredtext.linter.doc8.extraArgs": [
+   "--config",
+   "${workspaceFolder}/doc8.ini"
+  ],
+ },
 	"extensions": [
 		"MS-CEINTL.vscode-language-pack-ja",
 		"ms-python.python",
@@ -46,8 +50,12 @@
     },
     "terminal.integrated.defaultProfile.linux": "bash",
     "[rst]": {
-     "editor.fontFamily": "BIZ UDGothic", "MS ゴシック"
+     "editor.fontFamily": "'BIZ UDGothic','BIZ UDゴシック','MS ゴシック'"
     },
+    "restructuredtext.linter.doc8.extraArgs": [
+     "--config",
+     "${workspaceFolder}/doc8.ini"
+    ],
    },
    "extensions": [
     "MS-CEINTL.vscode-language-pack-ja",
