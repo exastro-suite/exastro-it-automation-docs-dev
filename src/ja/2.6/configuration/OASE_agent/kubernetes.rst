@@ -32,6 +32,8 @@ OASE Agent on Kubernetes
    - 10GB
  * - Kubernetes
    - 1.23 以上
+ * - サーバー台数
+   - 1台
 
 .. warning::
     | Exastro IT Automation と同じ Kubernetes クラスター に構築する場合、OASE Agentに対応する最小要件を追加で用意する必要があります。
