@@ -15,3 +15,4 @@
    backup_and_restore
    file_autoclean
    operation_autoclean
+   physical_deletion
