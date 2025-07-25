@@ -384,7 +384,7 @@
 <div class="line">以下の System_group_add.yml と System_user_add.yml は、Playbook素材集にデフォルトで登録されています。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
-<div class="code-block-caption"><span class="caption-number">リスト 477 </span><span class="caption-text">System_group_add.yml</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 475 </span><span class="caption-text">System_group_add.yml</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>group
 <span class="w">  </span>group:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ item }}&quot;</span>
@@ -395,7 +395,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id34">
-<div class="code-block-caption"><span class="caption-number">リスト 478 </span><span class="caption-text">System_user_add.yml</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 476 </span><span class="caption-text">System_user_add.yml</span><a class="headerlink" href="#id34" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>user
 <span class="w">  </span>user:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ item.0 }}&quot;</span>
@@ -679,7 +679,7 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id40">
-<div class="code-block-caption"><span class="caption-number">リスト 479 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 477 </span><span class="caption-text">ヘッダーセクション</span><a class="headerlink" href="#id40" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>hosts:<span class="w"> </span>all
 <span class="w">  </span>remote_user:<span class="w"> </span><span class="s2">&quot;{{ __loginuser__ }}&quot;</span>
 <span class="w">  </span>gather_facts:<span class="w"> </span>no
@@ -701,7 +701,7 @@
 <div class="line">こちらは既に登録されているので、新規で登録する必要はありません。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id41">
-<div class="code-block-caption"><span class="caption-number">リスト 480 </span><span class="caption-text">System_group_add.yml</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 478 </span><span class="caption-text">System_group_add.yml</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>group
 <span class="w">  </span>group:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ item }}&quot;</span>
@@ -712,7 +712,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id42">
-<div class="code-block-caption"><span class="caption-number">リスト 481 </span><span class="caption-text">System_user_add.yml</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 479 </span><span class="caption-text">System_user_add.yml</span><a class="headerlink" href="#id42" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>name:<span class="w"> </span>Add<span class="w"> </span>user
 <span class="w">  </span>user:
 <span class="w">    </span>name:<span class="w"> </span><span class="s2">&quot;{{ item.0 }}&quot;</span>
@@ -1198,14 +1198,14 @@
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id51">
-<div class="code-block-caption"><span class="caption-number">リスト 482 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id51" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 480 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id51" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;test01|test02&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id52">
-<div class="code-block-caption"><span class="caption-number">リスト 483 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id52" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 481 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id52" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1214,14 +1214,14 @@ cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id53">
-<div class="code-block-caption"><span class="caption-number">リスト 484 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id53" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 482 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id53" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;test&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id54">
-<div class="code-block-caption"><span class="caption-number">リスト 485 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id54" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 483 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id54" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何も表示されない</span>
 </pre></div>
 </div>
@@ -1250,14 +1250,14 @@ cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w
 <div class="line">グループ一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id55">
-<div class="code-block-caption"><span class="caption-number">リスト 486 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 484 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># グループ一覧の取得</span>
 cat<span class="w"> </span>/etc/group<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;test01|test02&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id56">
-<div class="code-block-caption"><span class="caption-number">リスト 487 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 485 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>test01
 test02
 </pre></div>
@@ -1267,14 +1267,14 @@ test02
 <div class="line">ユーザー一覧を確認します。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id57">
-<div class="code-block-caption"><span class="caption-number">リスト 488 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 486 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ユーザー一覧の取得</span>
 cat<span class="w"> </span>/etc/passwd<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;test&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id58">
-<div class="code-block-caption"><span class="caption-number">リスト 489 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-number">リスト 487 </span><span class="caption-text">実行結果</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>testuser01
 testuser02
 testuser03
