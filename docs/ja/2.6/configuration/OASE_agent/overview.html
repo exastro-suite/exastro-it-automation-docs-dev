@@ -123,6 +123,17 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">OASE Agent</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">1. 概要</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">1.1. はじめに</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.2. システム要件</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id4">1.2.1. 構築環境</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id5">1.2.2. サーバー要件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id6">1.2.3. 通信要件</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">1.3. システム構成</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id8">1.3.1. 基本的な構成イメージ</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">1.3.2. 構成パターン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="kubernetes.html">2. OASE Agent on Kubernetes</a></li>
@@ -156,6 +167,17 @@
   <ul>
 <li><a class="reference internal" href="#">1. 概要</a><ul>
 <li><a class="reference internal" href="#id2">1.1. はじめに</a></li>
+<li><a class="reference internal" href="#id3">1.2. システム要件</a><ul>
+<li><a class="reference internal" href="#id4">1.2.1. 構築環境</a></li>
+<li><a class="reference internal" href="#id5">1.2.2. サーバー要件</a></li>
+<li><a class="reference internal" href="#id6">1.2.3. 通信要件</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">1.3. システム構成</a><ul>
+<li><a class="reference internal" href="#id8">1.3.1. 基本的な構成イメージ</a></li>
+<li><a class="reference internal" href="#id9">1.3.2. 構成パターン</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -186,7 +208,128 @@
 <h2><span class="section-number">1.1. </span>はじめに<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Exastro OASE Agentとは、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携を行う機能です。</div>
+<div class="line">具体的には、外部システム（例.監視システムやメールサーバー）から情報収集し、それらを最適化されたイベントとしてOASEに送信することを実現します。</div>
+<div class="line">本書では、Exastro OASE Agentを導入するための、構築要件や構成パターンについて解説します。</div>
 </div>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.2. </span>システム要件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">1.2.1. </span>構築環境<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">OASE Agentはコンテナにより提供されます。</div>
+<div class="line">本マニュアル内では、Kubernetesもしくは、DockerおよびPodmanで構築した場合について解説しています。</div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">1.2.2. </span>サーバー要件<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="kubernetes.html"><span class="doc">Kubernetes 版 OASE Agent</span></a> もしくは <a class="reference internal" href="docker_compose.html"><span class="doc">Docker Compose 版 OASE Agent</span></a> をご確認ください。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">1.2.3. </span>通信要件<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">OASE Agentから収集対象サーバ および Exastro IT Automation に対してアウトバウンド通信できる必要があります。</div>
+</div>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-number">表 1.10 </span><span class="caption-text">通信要件</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 13.6%" />
+<col style="width: 45.5%" />
+<col style="width: 11.4%" />
+<col style="width: 18.2%" />
+<col style="width: 11.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>用途</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>通信元 (FROM)</p></th>
+<th class="head"><p>通信先 (TO)</p></th>
+<th class="head"><p>プロトコル</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exastro OASE 連携用</p></td>
+<td><p>収集設定の取得と収集したイベントのOASE機能への送信</p></td>
+<td><p>OASE Agent</p></td>
+<td><div class="line-block">
+<div class="line">Exastro IT Automation</div>
+<div class="line-block">
+<div class="line">(Exastro ITA OASE Receiver API)</div>
+</div>
+</div>
+</td>
+<td><p>HTTP/HTTPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>イベント収集先 連携用</p></td>
+<td><p>外部システム（例.監視ツールやメールサーバー）から情報（障害等）の収集を行う</p></td>
+<td><p>OASE Agent</p></td>
+<td><p>収集対象サーバ (監視ツール)</p></td>
+<td><p>HTTP/HTTPS/IMAP</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">1.3. </span>システム構成<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="id8">
+<h3><span class="section-number">1.3.1. </span>基本的な構成イメージ<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/oase_agent_kousei_default.drawio.png"><img alt="OASE Agent default" src="../../_images/oase_agent_kousei_default.drawio.png" style="width: 750px;" />
+</a>
+</figure>
+</section>
+<section id="id9">
+<h3><span class="section-number">1.3.2. </span>構成パターン<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<table class="docutils align-left" id="id11">
+<caption><span class="caption-number">表 1.11 </span><span class="caption-text">構成パターン</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>構成</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>複数の外部システムとまとめて連携</p></td>
+<td><p>1つのOASE Agentで、複数の収集対象から情報収集（直列処理）が可能です。</p></td>
+</tr>
+<tr class="row-odd"><td><p>外部システムと個別に連携</p></td>
+<td><div class="line-block">
+<div class="line">収集対象ごとにOASE Agentを用意します。</div>
+<div class="line">1つのコンテナ基盤で、複数のOASE Agentを起動することも可能です。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Active-Standby構成</p></td>
+<td><p>ストレージを共有した、Active-Standby構成によって可用性を実現します。</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>複数の外部システムとまとめて連携</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/oase_agent_kousei_01.drawio.png"><img alt="複数の外部システムとまとめて連携 イメージ" src="../../_images/oase_agent_kousei_01.drawio.png" style="width: 750px;" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>外部システムと個別に連携</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/oase_agent_kousei_02.drawio.png"><img alt="外部システムと個別に連携 イメージ" src="../../_images/oase_agent_kousei_02.drawio.png" style="width: 750px;" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>Active-Standby構成</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/oase_agent_kousei_03.drawio.png"><img alt="外部システムと個別に連携 イメージ" src="../../_images/oase_agent_kousei_03.drawio.png" style="width: 750px;" />
+</a>
+</figure>
+</section>
 </section>
 </section>
 

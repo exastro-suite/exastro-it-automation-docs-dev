@@ -126,7 +126,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#id1">2.1. はじめに</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">2.2. システム要件</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id3">2.2.1. サーバー要件</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id4">2.2.2. 通信要件</a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +162,6 @@
 <li><a class="reference internal" href="#id1">2.1. はじめに</a></li>
 <li><a class="reference internal" href="#id2">2.2. システム要件</a><ul>
 <li><a class="reference internal" href="#id3">2.2.1. サーバー要件</a></li>
-<li><a class="reference internal" href="#id4">2.2.2. 通信要件</a></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +193,7 @@
 <section id="id1">
 <h2><span class="section-number">2.1. </span>はじめに<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">OASEを利用するための絶対条件である Exastro OASE Agent を、高い可用性やサービスレベルでの運用を行う場合の構成方法となります。</div>
+<div class="line">OASEを利用する際に、外部との連携に必要となる Exastro OASE Agent を、高い可用性やサービスレベルでの運用を行う場合の構成方法となります。</div>
 <div class="line">評価や一時的な利用など、簡単に利用を開始したい場合には、<a class="reference internal" href="docker_compose.html"><span class="doc">Docker Compose 版 OASE Agent</span></a> の利用を推奨します。</div>
 </div>
 </section>
@@ -206,8 +204,8 @@
 </div>
 <section id="id3">
 <h3><span class="section-number">2.2.1. </span>サーバー要件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-number">表 2.14 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">表 2.14 </span><span class="caption-text">ハードウェア要件(最小構成)</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -240,12 +238,6 @@
 <div class="line-block">
 <div class="line">Exastro IT Automation と同じ Kubernetes クラスター に構築する場合、OASE Agentに対応する最小要件を追加で用意する必要があります。</div>
 </div>
-</div>
-</section>
-<section id="id4">
-<h3><span class="section-number">2.2.2. </span>通信要件<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
-<div class="line-block">
-<div class="line">OASE Agentから収集対象サーバ および Exastro IT Automation にアクセスできる必要があります。</div>
 </div>
 </section>
 </section>
