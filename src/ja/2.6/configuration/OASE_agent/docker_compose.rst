@@ -5,7 +5,7 @@ OASE Agent on Docker Compose
 はじめに
 ========
 
-| OASEを利用するための絶対条件である Exastro OASE Agent を、評価や一時的な利用など、簡単に利用を開始したい場合の構成方法となります。
+| OASEを利用する際に、外部との連携に必要となる Exastro OASE Agent を、評価や一時的な利用など、簡単に利用を開始したい場合の構成方法となります。
 | 高い可用性やサービスレベルのシステム構築を実現したい場合は、 :doc:`Kubernetes 版 OASE Agent<kubernetes>` の利用を推奨します。
 
 
@@ -35,45 +35,39 @@ OASE Agent on Docker Compose
     | Exastro IT Automation と同じ サーバーに構築する場合、OASE Agentに対応する最小要件を追加で用意する必要があります。
 
 
-オペレーティングシステム
-------------------------
+動作確認済み実績
+----------------
 
-| 以下は、動作確認済のバージョンとなります。
+| 以下は、動作確認済みのオペレーティングシステムとコンテナプラットフォームのバージョンとなります。
 
-.. list-table:: オペレーティングシステム
- :widths: 20, 20
+.. list-table:: 動作確認実績
+ :widths: 25, 20, 20, 20
  :header-rows: 1
 
- * - 種別
-   - バージョン
- * - Red Hat Enterprise Linux
-   - バージョン	8
- * - AlmaLinux
-   - バージョン	8
- * - Ubuntu
-   - バージョン	22.04
+ * - OSバージョン
+   - podmanバージョン
+   - Docker Composeバージョン
+   - Dockerバージョン
+ * - Red Hat Enterprise Linux release 9.4 (Plow)
+   - podman version 4.9.4-rhel
+   - Docker Compose version v2.20.3
+   - ー
+ * - Red Hat Enterprise Linux release 8.9 (Ootpa)
+   - podman version 4.9.4-rhel
+   - Docker Compose version v2.20.3
+   - ー
+ * - AlmaLinux release 8.9 (Midnight Oncilla)
+   - ー
+   - ー
+   - Docker version 26.1.3, build b72abbb
+ * - AlmaLinux release 9.6 (Sage Margay)
+   - ー
+   - ー
+   - Docker version 28.3.0, build 38b7060
 
-コンテナプラットフォーム
-------------------------
-
-| 以下は、動作確認済のバージョンとなります。
-
-.. list-table:: コンテナプラットフォーム
- :widths: 20, 10
- :header-rows: 1
-
- * - ソフトウェア
-   - バージョン
- * - Podman Engine ※Podman 利用時
-   - バージョン	4.4
- * - Docker Compose ※Podman 利用時
-   - バージョン	2.20
- * - Docker Engine ※Docker 利用時
-   - バージョン	24
-
-
-通信要件
---------
-
-| OASE Agentから収集対象サーバ および Exastro IT Automation にアクセスできる必要があります。
+.. tip::
+   | RHEL 8.2 もしくは podman 4.x の初期バージョンでは、ルートレスモードで正常に名前解決ができない事象が報告されています。RHEL 8.3 以降のバージョンをご使用ください。
+   |
+   | https://github.com/containers/podman/issues/10672
+   | https://github.com/containers/podman/issues/12565
 
