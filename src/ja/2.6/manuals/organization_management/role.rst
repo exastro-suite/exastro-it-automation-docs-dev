@@ -47,6 +47,14 @@
    * - | ワークスペース管理者
        | (_{ワークスペースID}-admin)
      - ワークスペースの管理が可能です。
+   * - | Ansible実行エージェント用
+       | (_{ワークスペースID}-ansible-execution-agent)
+     - | Ansible実行エージェントが動作するのに必要な権限を持ちます。
+       | :doc:`サービスアカウントユーザー<../../../manuals/organization_management/service_account_users>` と紐づけられます。
+   * - | OASEエージェント用
+       | (_{ワークスペースID}-oase-agent)
+     - | OASEエージェントが動作するのに必要な権限を持ちます。
+       | :doc:`サービスアカウントユーザー<../../../manuals/organization_management/service_account_users>` と紐づけられます。
    * - カスタムロール
      - | ユーザーが作成したロールで使用可能なワークスペースを指定および、Exastro IT Automationの使用可能なメニューを指定出来ます。
        | （Exastro IT Automationの使用可能なメニューの設定は :ref:`コチラ<management_console_introduction>` を参照）
