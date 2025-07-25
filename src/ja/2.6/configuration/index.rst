@@ -2,10 +2,10 @@
 構成・構築ガイド
 ================
 
-.. raw:: html
+.. .. raw:: html
 
-   </div>
-   <div id="multiColumnIndex">
+..    </div>
+..    <div id="multiColumnIndex">
 
 .. toctree::
    :maxdepth: 2
@@ -19,6 +19,6 @@
    security/index
 .. best_practices/index
 
-.. raw:: html
+.. .. raw:: html
 
-   </div>
+..    </div>
