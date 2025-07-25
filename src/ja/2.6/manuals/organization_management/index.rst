@@ -11,6 +11,7 @@
    user
    role
    notification  
+   service_account_users
    mailserver_settings 
    organization_settings 
    idp_settings

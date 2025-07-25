@@ -16,3 +16,4 @@
    file_autoclean
    operation_autoclean
    gitlab_token
+   physical_deletion
