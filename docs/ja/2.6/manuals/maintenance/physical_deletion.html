@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <title>10. データの物理削除 &#8212; Documentation  ドキュメント</title>
+    <title>11. データの物理削除 &#8212; Documentation  ドキュメント</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -40,7 +40,7 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="テンプレート" href="../../templates/index.html" />
-    <link rel="prev" title="9. オペレーション削除管理" href="operation_autoclean.html" /> 
+    <link rel="prev" title="10. Gitlab認証トークンの更新手順" href="gitlab_token.html" /> 
   </head>
 <body id="page" class="ja">
 
@@ -102,7 +102,7 @@
     </div>
     <div id="toolbarNavigation">
       <ul>
-        <li class="prev"><a href="operation_autoclean.html" title="前のトピックへ"><span class="section-number">9. </span>オペレーション削除管理</a></li>
+        <li class="prev"><a href="gitlab_token.html" title="前のトピックへ"><span class="section-number">10. </span>Gitlab認証トークンの更新手順</a></li>
         <li class="next"><a href="../../templates/index.html" title="次のトピックへ">テンプレート</a></li>
       </ul>
     </div>
@@ -141,15 +141,16 @@
 <li class="toctree-l3"><a class="reference internal" href="backup_and_restore.html">7. データバックアップ・リストア</a></li>
 <li class="toctree-l3"><a class="reference internal" href="file_autoclean.html">8. ファイル削除機能</a></li>
 <li class="toctree-l3"><a class="reference internal" href="operation_autoclean.html">9. オペレーション削除管理</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">10. データの物理削除</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">10.1. 目的</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">10.2. 前提条件</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">10.3. 概要</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">10.4. 詳細</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id6">10.4.1. メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id7">10.4.2. 該当メニューの紐付設定</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id9">10.4.3. 該当メニューの削除許可フラグ有効化</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id10">10.4.4. 情報の削除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gitlab_token.html">10. Gitlab認証トークンの更新手順</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">11. データの物理削除</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">11.1. 目的</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">11.2. 前提条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">11.3. 概要</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">11.4. 詳細</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id6">11.4.1. メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id7">11.4.2. 該当メニューの紐付設定</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">11.4.3. 該当メニューの削除許可フラグ有効化</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id10">11.4.4. 情報の削除</a></li>
 </ul>
 </li>
 </ul>
@@ -175,18 +176,18 @@
 <div id="tableOfContents">
   <div id="tocButton"></div>
   <ul>
-<li><a class="reference internal" href="#">10. データの物理削除</a><ul>
-<li><a class="reference internal" href="#id2">10.1. 目的</a></li>
-<li><a class="reference internal" href="#id3">10.2. 前提条件</a></li>
-<li><a class="reference internal" href="#id4">10.3. 概要</a></li>
-<li><a class="reference internal" href="#id5">10.4. 詳細</a><ul>
-<li><a class="reference internal" href="#id6">10.4.1. メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定</a></li>
-<li><a class="reference internal" href="#id7">10.4.2. 該当メニューの紐付設定</a><ul>
+<li><a class="reference internal" href="#">11. データの物理削除</a><ul>
+<li><a class="reference internal" href="#id2">11.1. 目的</a></li>
+<li><a class="reference internal" href="#id3">11.2. 前提条件</a></li>
+<li><a class="reference internal" href="#id4">11.3. 概要</a></li>
+<li><a class="reference internal" href="#id5">11.4. 詳細</a><ul>
+<li><a class="reference internal" href="#id6">11.4.1. メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定</a></li>
+<li><a class="reference internal" href="#id7">11.4.2. 該当メニューの紐付設定</a><ul>
 <li><a class="reference internal" href="#id8">削除非推奨のメニュー</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9">10.4.3. 該当メニューの削除許可フラグ有効化</a></li>
-<li><a class="reference internal" href="#id10">10.4.4. 情報の削除</a><ul>
+<li><a class="reference internal" href="#id9">11.4.3. 該当メニューの削除許可フラグ有効化</a></li>
+<li><a class="reference internal" href="#id10">11.4.4. 情報の削除</a><ul>
 <li><a class="reference internal" href="#id11">該当情報の選択</a></li>
 <li><a class="reference internal" href="#id12">削除対象確認</a></li>
 </ul>
@@ -209,7 +210,7 @@
     <li><a href="../index.html">マニュアル</a></li>
     <li><a href="index.html">メンテナンス</a></li>
     
-    <li><span class="section-number">10. </span>データの物理削除</li>
+    <li><span class="section-number">11. </span>データの物理削除</li>
   </ul>
 </div>
 
@@ -218,16 +219,16 @@
 <div class="body" role="main">
 
   <section id="id1">
-<h1><span class="section-number">10. </span>データの物理削除<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">11. </span>データの物理削除<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2><span class="section-number">10.1. </span>目的<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.1. </span>目的<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">不要となったデータを削除することによるリソースの削減、およびパフォーマンスの向上が挙げられます。</div>
 <div class="line">また、削除対象のリソースによっては、機密情報の完全削除を通じてセキュリティを強化することも可能です。</div>
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">10.2. </span>前提条件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.2. </span>前提条件<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">削除できるユーザーは、<span class="menuselection">管理コンソール▶ロール-メニュー紐付管理</span> で設定したメニューの紐付 <strong class="program">メンテナンス＋削除可</strong> となっているロールのユーザーとなります。</div>
 <div class="line">また、削除対象となるメニューについては、<span class="menuselection">基本コンソール▶メニュー-テーブル紐付管理</span> から削除許可フラグを <strong class="program">有効（True）</strong> にする必要があります。</div>
@@ -235,7 +236,7 @@
 </div>
 </section>
 <section id="id4">
-<h2><span class="section-number">10.3. </span>概要<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3. </span>概要<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Exastro IT Automation におけるデータの物理削除とは、データベースからのデータ物理削除、ならびに、ファイルの削除となります。</div>
 <div class="line">削除されたデータやファイルは復元することができません。</div>
@@ -249,9 +250,9 @@
 </div>
 </section>
 <section id="id5">
-<h2><span class="section-number">10.4. </span>詳細<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.4. </span>詳細<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <section id="id6">
-<h3><span class="section-number">10.4.1. </span>メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.4.1. </span>メニュー「基本コンソール:メニュー-テーブル紐付管理」の復活・設定<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">該当メニューの物理削除を実行するためには、メニュー <span class="menuselection">基本コンソール▶メニュー-テーブル紐付管理</span> を使用できることが前提となります。</div>
 <div class="line">初期状態では、メニュー <span class="menuselection">基本コンソール▶メニュー-テーブル紐付管理</span> は表示されず、該当メニューの情報を削除することができません。</div>
@@ -288,7 +289,7 @@
 </ol>
 </section>
 <section id="id7">
-<h3><span class="section-number">10.4.2. </span>該当メニューの紐付設定<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.4.2. </span>該当メニューの紐付設定<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">続いて、削除したい情報が存在するメニューのロールを変更する必要があります。</div>
 <div class="line">すでに、紐付 <strong class="program">メンテナンス＋削除可</strong> となっている場合は、設定不要です。</div>
@@ -317,7 +318,7 @@
 <section id="id8">
 <h4>削除非推奨のメニュー<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
 <table class="filter-table docutils align-left" id="id13">
-<caption><span class="caption-number">表 10.2 </span><span class="caption-text">削除非推奨のメニュー</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
+<caption><span class="caption-number">表 11.1 </span><span class="caption-text">削除非推奨のメニュー</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22.2%" />
 <col style="width: 44.4%" />
@@ -682,7 +683,7 @@
 </section>
 </section>
 <section id="id9">
-<h3><span class="section-number">10.4.3. </span>該当メニューの削除許可フラグ有効化<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.4.3. </span>該当メニューの削除許可フラグ有効化<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">続いて、削除したい情報が存在するメニューの削除許可フラグを有効化する必要があります。</div>
 <div class="line">削除許可フラグの有効化は、メニュー <span class="menuselection">基本コンソール▶メニュー-テーブル紐付管理</span> より行います。</div>
@@ -704,7 +705,7 @@
 </ol>
 </section>
 <section id="id10">
-<h3><span class="section-number">10.4.4. </span>情報の削除<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.4.4. </span>情報の削除<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">上述した、設定を行うことで、該当情報の削除が行えるようになります。</div>
 <div class="line">該当情報の削除は、該当メニューを選択して、フィルタやデフォルト表示された一覧から、削除対象となる情報を選択して削除します。</div>
@@ -762,7 +763,7 @@
 
 <div id="articleNavigation">
   <ul>
-    <li class="prev"><a href="operation_autoclean.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">9. </span>オペレーション削除管理</a></li>
+    <li class="prev"><a href="gitlab_token.html" title="前のトピックへ"><span>前のトピックへ</span><span class="section-number">10. </span>Gitlab認証トークンの更新手順</a></li>
     <li class="next"><a href="../../templates/index.html" title="次のトピックへ"><span>次のトピックへ</span>テンプレート</a></li>
   </ul>
 </div>
