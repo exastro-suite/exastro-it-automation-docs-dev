@@ -22,7 +22,7 @@ MenuSelection.BULLET_CHARACTER = '▶'
 # -- Project information -----------------------------------------------------
 
 project = 'Documentation'
-copyright = '2019-2023 NEC Corporation'
+copyright = '2019-2025 NEC Corporation'
 author = 'NEC'
 
 # The full version, including alpha/beta/rc tags
@@ -41,7 +41,8 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_toolbox.collapse',
     'sphinx.ext.todo',
-    'sphinxcontrib.googleanalytics'
+    'sphinxcontrib.googleanalytics',
+    'myst_parser'
 ]
 
 # Fontpath for blockdiag (truetype font)
@@ -127,6 +128,11 @@ html_context = {
         '2.1': '2.1',
         '2.0': '2.0'
     }
+}
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
 }
 
 [extensions]

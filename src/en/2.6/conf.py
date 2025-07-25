@@ -21,7 +21,7 @@ MenuSelection.BULLET_CHARACTER = '▶'
 # -- Project information -----------------------------------------------------
 
 project = 'Documentation'
-copyright = '2019-2023 NEC Corporation'
+copyright = '2019-2025 NEC Corporation'
 author = 'NEC'
 
 # The full version, including alpha/beta/rc tags
@@ -117,8 +117,9 @@ html_context = {
         'en': 'English'
     },
     'versions': {
-        'current': '2.5',
-        '2.5(current)': '2.5',
+        'current': '2.6',
+        '2.6(current)': '2.6',
+        '2.5': '2.5',
         '2.4': '2.4',
         '2.3': '2.3',
         '2.2': '2.2',

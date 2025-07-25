@@ -24,12 +24,6 @@ OASE Agent on Kubernetes - Online
 ====
 
 | 本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。
-
-特徴
-====
-
-| OASEを利用するための絶対条件である、Exastro OASE Agentの高い可用性やサービスレベルを必要とされる際の、Exastro IT Automation の導入方法となります。
-| 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版 OASE Agent<docker_compose>` の利用を推奨します。
 | Exastro OASE Agentの設定や運用については、:ref:`エージェント概要<agent_about>` をご参照ください。
 
 前提条件
@@ -56,31 +50,11 @@ OASE Agent on Kubernetes - Online
 
 - デプロイ環境
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
-
-  .. list-table:: ハードウェア要件(最小構成)
-   :widths: 1, 1
-   :header-rows: 1
-  
-   * - リソース種別
-     - 要求リソース
-   * - CPU
-     - 2 Cores (3.0 GHz, x86_64)
-   * - Memory
-     - 4GB
-   * - Storage (Container image size)
-     - 10GB
-   * - Kubernetes (Container image size)
-     - 1.23 以上
+  | デプロイ環境のシステム要件については :doc:`構成・構築ガイド<../../../configuration/OASE_agent/kubernetes>` を参照してください。
 
 - 通信要件
 
-  - OASE Agentから収集対象サーバにアクセスできる必要があります。
   - コンテナ環境からコンテナイメージの取得のために、Docker Hub に接続できる必要があります。
-
-.. warning::
-    | :doc:`Helm chart (Kubernetes) 版<../exastro/kubernetes>` で構築した環境にデプロイする場合、
-    | OASE Agentに対応する最小要件を追加で容易する必要があります。
 
 
 .. include:: ../../../include/oase_agent_recommendations.rst
@@ -327,7 +301,7 @@ OASE Agentのパラメータ設定例
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # OASE管理 イベント収集 で作成した イベント収集設定名
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
+           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # サービスアカウントユーザー管理機能から取得したリフレッシュトークン
                    # EXASTRO_USERNAME: "admin"          
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
@@ -708,97 +682,97 @@ OASE Agentのパラメータ設定例
 
    .. group-tab:: シンプル構成 & 複数エージェント（同一Pod）
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      | 1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
 
-         .. code-block:: bash
-            :caption: コマンド
+      .. code-block:: bash
+         :caption: コマンド
 
-            helm install exastro-agent exastro/exastro-agent \
-              --namespace exastro --create-namespace \
-              --values exastro-agent.yaml
+         helm install exastro-agent exastro/exastro-agent \
+           --namespace exastro --create-namespace \
+           --values exastro-agent.yaml
 
-         .. code-block:: bash
-            :caption: 出力結果
+      .. code-block:: bash
+         :caption: 出力結果
 
-            NAME: exastro-agent
-            LAST DEPLOYED: Wed Feb 14 14:36:27 2024
-            NAMESPACE: exastro
-            STATUS: deployed
-            REVISION: 1
-            TEST SUITE: None
+         NAME: exastro-agent
+         LAST DEPLOYED: Wed Feb 14 14:36:27 2024
+         NAMESPACE: exastro
+         STATUS: deployed
+         REVISION: 1
+         TEST SUITE: None
 
-      2. インストール状況確認
+      | 2. インストール状況確認
 
-         .. code-block:: bash
-             :caption: コマンド
-             
-             # Pod の一覧を取得
-             kubectl get po --namespace exastro
-             
-             | 正常に起動している場合は、“Running” となります。
-             | ※正常に起動するまで数分かかる場合があります。
+      .. code-block:: bash
+         :caption: コマンド
+         
+         # Pod の一覧を取得
+         kubectl get po --namespace exastro
+         
+         | 正常に起動している場合は、“Running” となります。
+         | ※正常に起動するまで数分かかる場合があります。
 
-         .. code-block:: bash
-             :caption: 出力結果
-             
-              NAME                             READY   STATUS    RESTARTS   AGE
-              ita-ag-oase-66cb7669c6-m2q8c     1/1     Running   0          16m
+      .. code-block:: bash
+         :caption: 出力結果
+         
+         NAME                             READY   STATUS    RESTARTS   AGE
+         ita-ag-oase-66cb7669c6-m2q8c     1/1     Running   0          16m
 
    .. group-tab:: 複数エージェント（別Pod）
 
-      1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
+      | 1. Helm コマンドを使い Kubernetes 環境にインストールを行います。
 
-         .. code-block:: bash
-            :caption: コマンド
+      .. code-block:: bash
+         :caption: コマンド
 
-            helm install exastro-agent-1 exastro/exastro-agent \
-              --namespace exastro --create-namespace \
-              --values exastro-agent-1.yaml
+         helm install exastro-agent-1 exastro/exastro-agent \
+           --namespace exastro --create-namespace \
+           --values exastro-agent-1.yaml
 
-         .. code-block:: bash
-            :caption: 出力結果
+      .. code-block:: bash
+         :caption: 出力結果
 
-            NAME: exastro-agent-1
-            LAST DEPLOYED: Wed Feb 14 14:36:27 2024
-            NAMESPACE: exastro
-            STATUS: deployed
-            REVISION: 1
-            TEST SUITE: None
+         NAME: exastro-agent-1
+         LAST DEPLOYED: Wed Feb 14 14:36:27 2024
+         NAMESPACE: exastro
+         STATUS: deployed
+         REVISION: 1
+         TEST SUITE: None 
 
-         .. code-block:: bash
-            :caption: コマンド
+      .. code-block:: bash
+         :caption: コマンド
 
-            helm install exastro-agent-2 exastro/exastro-agent \
-              --namespace exastro --create-namespace \
-              --values exastro-agent-2.yaml
-         
-         .. code-block:: bash
-            :caption: 出力結果
+         helm install exastro-agent-2 exastro/exastro-agent \
+           --namespace exastro --create-namespace \
+           --values exastro-agent-2.yaml
+     
+      .. code-block:: bash
+         :caption: 出力結果
 
-            NAME: exastro-agent-2
-            LAST DEPLOYED: Wed Feb 14 14:36:27 2024
-            NAMESPACE: exastro
-            STATUS: deployed
-            REVISION: 1
-            TEST SUITE: None
+         NAME: exastro-agent-2
+         LAST DEPLOYED: Wed Feb 14 14:36:27 2024
+         NAMESPACE: exastro
+         STATUS: deployed
+         REVISION: 1
+         TEST SUITE: None
 
-      2. インストール状況確認
+      | 2. インストール状況確認
            
-         .. code-block:: bash
-             :caption: コマンド
-             
-             # Pod の一覧を取得
-             kubectl get po --namespace exastro
-             
-             | 正常に起動している場合は、“Running” となります。
-             | ※正常に起動するまで数分かかる場合があります。
+      .. code-block:: bash
+         :caption: コマンド
+         
+         # Pod の一覧を取得
+         kubectl get po --namespace exastro
+         
+         | 正常に起動している場合は、“Running” となります。
+         | ※正常に起動するまで数分かかる場合があります。
 
-         .. code-block:: bash
-             :caption: 出力結果
-             
-              NAME                             READY   STATUS    RESTARTS   AGE
-              ita-ag-oase-1-66cb7669c6-m2q8c   1/1     Running   0          16m
-              ita-ag-oase-2-787fb97f75-9s7xj   1/1     Running   0          13m
+      .. code-block:: bash
+         :caption: 出力結果
+         
+         NAME                             READY   STATUS    RESTARTS   AGE
+         ita-ag-oase-1-66cb7669c6-m2q8c   1/1     Running   0          16m
+         ita-ag-oase-2-787fb97f75-9s7xj   1/1     Running   0          13m
 
 
 アップグレード

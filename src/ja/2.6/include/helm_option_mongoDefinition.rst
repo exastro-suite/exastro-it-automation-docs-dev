@@ -28,7 +28,7 @@
      - OASE用データベースで利用する管理権限を持つDBユーザ名
      - 必須
      - 管理権限を持つDBユーザ名
-   * - global.mongoDefinition.secret.DB_ADMIN_PASSWORD
+   * - global.mongoDefinition.secret.MONGO_ADMIN_PASSWORD
      - OASE用データベースで利用する管理権限を持つDBユーザのパスワード(エンコードなし)
      - 必須
      - 管理権限を持つDBユーザ名のパスワード
