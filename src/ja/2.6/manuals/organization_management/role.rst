@@ -21,7 +21,7 @@
    :widths: 20 30
    :header-rows: 1
    :align: left
-      
+
    * - **ロール**
      - **説明**
    * - | オーガナイゼーション管理者
@@ -33,7 +33,7 @@
    * - | ユーザー管理者
        | （_organization-user-manager)
      - ユーザーの管理が可能です。
-  
+
 
 - | ワークスペースロール
 
@@ -41,7 +41,7 @@
    :widths: 20 30
    :header-rows: 1
    :align: left
-      
+
    * - **ロール**
      - **説明**
    * - | ワークスペース管理者
@@ -58,7 +58,7 @@
 | ロールの新規作成方法とユーザへの紐づけ方法について下記の流れで説明します。
 
 #. | :ref:`role_workspace`
-   | ロールごとにワークスペースへのアクセス権限をメンテナンスできます。 
+   | ロールごとにワークスペースへのアクセス権限をメンテナンスできます。
 #. | :ref:`role_user`
    | ユーザ毎にアクセスを許可するロールを付与することで、ユーザごとにワークスペースへのアクセスを制御することができます。
 
@@ -75,7 +75,7 @@
    .. image:: /images/ja/manuals/platform/platform_menu.png
       :width: 200px
       :align: left
-      
+
    .. note:: | オーガナイゼーション管理者（ロール管理・ロール付与権限を有するユーザー）またはワークスペース管理者のユーザーでログインしている時のみ、メニューに :menuselection:`ロール管理` が表示されます。
 
 #. | :menuselection:`ロール一覧` 画面が表示されるので、:guilabel:`作成` ボタンをクリックします。
@@ -94,7 +94,7 @@
       :widths: 40 200
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - ロール名
@@ -107,7 +107,7 @@
         - | 使用するワークスペースを指定します。
 
 | :menuselection:`使用ワークスペース` にワークスペースの一覧が表示されるので、当該ロールに紐づけるワークスペースを選択します。
-    
+
 .. figure:: /images/ja/manuals/platform/role/platform_role_workspace_used.png
    :width: 600px
    :align: left
@@ -170,7 +170,7 @@
       :widths: 40 200
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - ロール名

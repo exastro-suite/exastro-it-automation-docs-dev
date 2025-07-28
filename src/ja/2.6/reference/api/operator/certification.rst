@@ -14,7 +14,7 @@ APIのアクセス（認証）について
 | Exastro Suite (IT Automation 2.0系)のAPIの呼び出し方法として、次の２つがあります。
 
 - APIの呼び出し方法
-  
+
   - :kbd:`Basic認証`
 
   - :kbd:`Bearer認証`
@@ -46,7 +46,7 @@ Basic認証
 
 .. _operator_certification_bearer:
 
-Bearer認証  
+Bearer認証
 ----------
 
 | アクセストークンを指定してAPIを呼び出す認証方式です。
@@ -56,10 +56,10 @@ Bearer認証
     :widths: 20, 40
     :header-rows: 1
     :align: left
-    
+
     * - トークン
       - 役割・特徴
-    * - refresh_token	
+    * - refresh_token
       - | 事前に準備するトークンで、access_tokenを発行するために必要です。
         | トークンの有効期限が長い（デフォルト：1年）
     * -  access_token
@@ -78,7 +78,7 @@ Bearer認証
 
 
 .. code-block:: bash
-    
+
     BASEURL="https://severname"
     ORGANAIZATION_ID="オーガナイゼーションID"
     USERNAME="ユーザー名"
@@ -94,9 +94,9 @@ Bearer認証
     "${BASEURL}/auth/realms/${ORGANAIZATION_ID}/protocol/openid-connect/token"
 
 - | 二要素認証を設定しているユーザの場合
-  
+
 .. code-block:: bash
-  
+
   BASEURL="https://severname"
   USERNAME="ユーザー名"
   PASSWORD="パスワード"
@@ -113,7 +113,7 @@ Bearer認証
   "${BASEURL}/auth/realms/master/protocol/openid-connect/token"
 
 - | 実行結果
-   
+
 | 以下の応答の中のrefresh_tokenを保存します（API呼出の際に使用します）。
 | ※この実行結果以外で後からrefresh_tokenを再度表示することは出来ないので、発行したrefresh_tokenは大切に保管してください。
 
@@ -131,7 +131,7 @@ Bearer認証
     "scope": "openid email profile offline_access"
   }
 
-実行手順（サンプル） 
+実行手順（サンプル）
 ^^^^^^^^^^^^^^^^^^^^
 
 | 以下のサンプルはBearer認証を使用して、オペレーションの一覧取得APIを呼出しています。

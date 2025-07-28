@@ -837,10 +837,10 @@ Movement-対話種別紐付
 #. | **ドライラン**
    | :guilabel:`ドライラン` ボタンをクリックすると、実際に作業対象に対して構築作業をせず、ドライランを行うことができます。
    | ドライランを行った場合の動作は、Ansible-Playbookコマンドの--checkパラメータを指定した実行となります。
-   
+
 #. | **パラメータ確認**
    | :guilabel:`パラメータ確認` ボタンをクリックすると、実際に作業対象に対して構築作業をせず、 :menuselection:`Ansible-Pioneer --> 代入値自動登録設定` に登録してある情報から作業対象のオペレーションとMovementに紐付く情報を :menuselection:`Ansible-Pioneer --> 代入値管理` と :menuselection:`Ansible-Pioneer --> 作業対象ホスト` に反映し、確認することが出来ます。
-   
+
 .. tip:: |  **予約日時の指定**
    | 「予約日時」を入力することで、実行を予約することがきます。
    | 「予約日時」には、未来の日時のみ入力可能です。
@@ -1196,11 +1196,11 @@ Movement-対話種別紐付
 expectモジュール
 ~~~~~~~~~~~~~~~~
 
-概要 
+概要
 ****
 | 作業対象ホストからのコマンドプロンプトを待受け後、コマンドを投入します。
 | expectモジュールの動作概要は以下の図のとおりです。
-   
+
 .. figure:: /images/ja/diagram/ansible-pioneer-expect-exec.png
    :alt: expectモジュールの動作概要
 
@@ -1256,11 +1256,11 @@ expectモジュール
 stateモジュール
 ~~~~~~~~~~~~~~~~
 
-概要 
+概要
 ****
 | 作業対象ホストにコマンドを投入しコマンドプロンプトを待受け後、標準出力の内容を外部Shellで解析し結果判定を行います。
 | stateモジュールの動作概要は以下の図のとおりです。
-   
+
 .. figure:: /images/ja/diagram/ansible-pioneer-state.png
    :alt: stateモジュールの動作概要
 
@@ -1449,30 +1449,30 @@ stateモジュール
         exec: exit
 
 
-- | e.g.) ユーザshell（/tmp/grep.sh）の例                                             
+- | e.g.) ユーザshell（/tmp/grep.sh）の例
 
-  .. code-block:: shell                                        
-                                                            
-     #!/bin/bash                                               
-     STDOUT=/tmp/STDOUT.tmp                                    
-     STDERR=/tmp/STDERR.tmp                                    
-     cat $1 | grep $2 | grep $3 | wc -l >${STDOUT} 2>${STDERR} 
-     RET=$?                                                    
-     if [ $RET -ne 0 ]; then                                   
-        EXIT_CODE=$RET                                        
-     else                                                      
-        if [ -s ${STDERR} ]; then                             
-            EXIT_CODE=1                                       
-        else                                                  
-            CNT=`cat ${STDOUT}`                               
-            if [ ${CNT} -eq 0 ]; then                         
-                EXIT_CODE=1                                   
-            else                                              
-                EXIT_CODE=0                                   
-            fi                                                
-        fi                                                    
-     fi                                                        
-     /bin/rm -rf ${STDOUT} ${STDERR} >/dev/null 2&>1           
+  .. code-block:: shell
+
+     #!/bin/bash
+     STDOUT=/tmp/STDOUT.tmp
+     STDERR=/tmp/STDERR.tmp
+     cat $1 | grep $2 | grep $3 | wc -l >${STDOUT} 2>${STDERR}
+     RET=$?
+     if [ $RET -ne 0 ]; then
+        EXIT_CODE=$RET
+     else
+        if [ -s ${STDERR} ]; then
+            EXIT_CODE=1
+        else
+            CNT=`cat ${STDOUT}`
+            if [ ${CNT} -eq 0 ]; then
+                EXIT_CODE=1
+            else
+                EXIT_CODE=0
+            fi
+        fi
+     fi
+     /bin/rm -rf ${STDOUT} ${STDERR} >/dev/null 2&>1
 
 
 - | e.g.）stateモジュールで作業対象ホストのファイルを、「結果データ」に保存する例
@@ -1493,11 +1493,11 @@ stateモジュール
 commandモジュール
 ~~~~~~~~~~~~~~~~~
 
-概要 
+概要
 ****
 | 作業対象ホストにコマンドの連続投入が可能で、投入前後に条件分岐を行うことができます。
 | commandモジュールの動作概要は以下の図のとおりです。
-   
+
 .. figure:: /images/ja/diagram/ansible_pioneer_command.png
    :alt: commandモジュールの動作概要
 
@@ -1511,7 +1511,7 @@ commandモジュール
 | ⑦registerで指定されているregister変数名に標準出力の内容を保存する。
 | ⑧直後の処理でコマンドプロンプトの待ち受けが出来るようにリターンを投入する。
 
-書式   
+書式
 ****
 | commandモジュールの書式は以下のとおりです。
 
@@ -1681,7 +1681,7 @@ commandモジュール
 
 .. _ansible_pioneer_coomand_example:
 
-記述例   
+記述例
 ******
 | commandモジュールの記述例を以下に記述します。
 
@@ -1853,7 +1853,7 @@ commandモジュール
        - command: systemctl stop my_service
          prompt: '{{ __loginuser__ }}@{{ __inventory_hostname__ }}'
          when:
-           - '{{ VAR_status }} == 10 OR {{ VAR_status }} == 11' 
+           - '{{ VAR_status }} == 10 OR {{ VAR_status }} == 11'
            - '{{ VAR_sub_status }} == 20 OR {{ VAR_sub_status }} == 21'
 
        - expect: '{{ __loginuser__ }}@{{ __inventory_hostname__ }}'
@@ -1909,7 +1909,7 @@ localactionモジュール
      exec_list:
        - expect: 'password:'
          exec:   '{{ __loginpassword__ }}'
-       # Movementで共有するディレクトリ（{{ __workflowdir__ }}）にホスト毎のディレクトリを作成する。   
+       # Movementで共有するディレクトリ（{{ __workflowdir__ }}）にホスト毎のディレクトリを作成する。
        - localaction: mkdir -p 0755 {{ __workflowdir__ }}/{{ __inventory_hostname__ }}
          ignore_errors: yes
        # hostsファイルの内容をlocalactionモジュールで作成したディレクトリに退避する。
@@ -1938,17 +1938,17 @@ localactionモジュール
    * - 対象文字
      - エスケープ後
    * - \\
-     - | \\\\ 
+     - | \\\\
    * - \*
-     - \\* 
+     - \\*
    * - \.
-     - \\. 
+     - \\.
    * - \+
-     - \\+ 
+     - \\+
    * - ?
-     - \\? 
+     - \\?
    * - \|
-     - \\| 
+     - \\|
    * - { }
      - \\{ \\}
    * - ( )
@@ -1971,7 +1971,7 @@ localactionモジュール
   .. code-block:: yaml
 
      expect: 'XAMPP Developer Files [Y/n] exec_list:'
- 
+
 
 注意事項
 --------
@@ -1983,18 +1983,18 @@ stateモジュールとcommandモジュールの使用時の注意事項
    | stateモジュールとcommandモジュールは、コマンドを投入後、promptパラメータで指定されたコマンドプロンプトより前のデータを標準出力として扱います。
    | 後方一致「\.\*」を記述すると、実行したコマンドの結果（標準出力）が空となります。
    | 後方一致の正規表現は使用しないでください。
-   
+
    - | e.g.）正規表現で後方一致の使用例
 
    .. code-block:: yaml
-   
+
        - state: echo 'saple data'
          prompt: '\.\*{{ __loginuser__ }}@{{ __inventory_hostname__ }}'
          stdout_file: '{{ __workflowdir__ }}/{{ __inventory_hostname__ }}/hosts'
 
 #. | 対話コマンドを処理する場合
    | commandとstateモジュールでは処理できません。expectモジュールで対話ファイルを作成してください。
-   
+
    - | e.g.）対話コマンド「ssh-keygen」を処理する例
 
    .. code-block:: yaml
@@ -2080,7 +2080,7 @@ stateモジュールとcommandモジュールの使用時の注意事項
 
 | 各モジュールのパラメータは、パラメータ全体をクォーテーションで囲んでください。
 
-.. figure:: /images/ja/diagram/ansible_pioneer_yaml_syntax.png       
+.. figure:: /images/ja/diagram/ansible_pioneer_yaml_syntax.png
    :width: 800px
    :alt: 対話ファイルをyaml形式で記載する際の注意事項
 
@@ -2154,27 +2154,27 @@ Ansible-Pioneer投入データ
      - 対話ファイル素材集
      - 対話ファイル
      - /child_playbooks
-     - 
+     -
    * - Ansible 共通
      - テンプレート管理
      - テンプレート素材
      - /template_files
-     - 
+     -
    * - Ansible 共通
      - ファイル管理
      - ファイル素材
      - /copy_files
-     - 
+     -
    * - Ansible-Pioneer
      - 代入値管理
      - 具体値（ファイル）
      - /upload_files
-     - 
+     -
    * - Ansible 共通
      - グローバル変数管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible 共通
      - グローバル変数（センシティブ）管理
      - 変数名/具体値
@@ -2184,17 +2184,17 @@ Ansible-Pioneer投入データ
      - 代入値管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible-Pioneer
      - template 管理
      - テンプレート埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible-Pioneer
      - ファイル管理
      - ファイル埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - | ログインユーザ ID
@@ -2204,28 +2204,28 @@ Ansible-Pioneer投入データ
        | DNSホスト名
        | IPアドレス
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - ssh 認証鍵ファイル
      - /ssh_key_files
-     - 
+     -
    * - Ansible共通
      - インターフェース情報
      - オプションパラメータ
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible-Pioneer
      - Movement一覧
      - 並列実行数
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible共通
      - 機器一覧
      - | ホスト名
@@ -2233,20 +2233,20 @@ Ansible-Pioneer投入データ
        | IP アドレス
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /hosts
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /inventory/hosts 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /inventory/hosts
+     -
    * - Ansible共通
      - 機器一覧
      - 接続オプション
      - /host_vars
-     - 
+     -
    * - Ansible-Pioneer
      - Movement-対話種別紐付
      - | 対話ファイル
        | インクルード順序
      - /playbook.yml
-     - 
+     -
    * - Ansible共通
      - 実行環境定義テンプレート管理
      - テンプレートファイル
@@ -2347,7 +2347,7 @@ Ansible-Pioneer結果データに保存されるファイル一覧
    * - | child_exec.log
        | child_error.log
      - ansible-builderの実行ログ
-     - 
-     - 
+     -
+     -
      - 〇
 

@@ -179,7 +179,7 @@ Ansible-Legacy作業フロー
       | 詳細は「 :ref:`ansible_legacy_execution` 」を参照してください。
 
    #. | **作業状態確認**
-      | :menuselection:`Ansible-Legacy --> 作業状態確認` から、実行した作業の状態をリアルタイムで閲覧できます。また、作業の緊急停止や、実行ログ、エラーログを監視することができます。      
+      | :menuselection:`Ansible-Legacy --> 作業状態確認` から、実行した作業の状態をリアルタイムで閲覧できます。また、作業の緊急停止や、実行ログ、エラーログを監視することができます。
       | 詳細は「 :ref:`ansible_legacy_check_operation_status` 」を参照してください。
 
    #. | **作業履歴確認**
@@ -348,7 +348,7 @@ Movement一覧
    .. tip:: | ※1 ヘッダーセクションで「become: yes」を設定した場合
        | 作業対象に以下の設定が必要です。
        | ログインユーザの sudo権限を NOPASSWD付で :file:`/etc/sudoers` に設定します。
-       | 
+       |
        | 　　　**Demo_user ALL=(ALL) NOPASSWD:ALL**
 
    .. tip:: | ※2 「 :ref:`ansible_common_aac_sync` 」により取得したデータから選択します。
@@ -460,9 +460,9 @@ Movement-Playbook紐付
         - 制約事項
       * - 項番
         - | 登録時に自動採番した36桁の文字列が表示されます。
-        - ー 
+        - ー
         - 自動入力
-        - ー 
+        - ー
       * - Movement
         - | :menuselection:`Ansible-Legacy --> Movement一覧` で 登録した :menuselection:`Movement名` が表示されます。
           | Movementを選択します。
@@ -779,10 +779,10 @@ Movement-Playbook紐付
 #. | **ドライラン**
    | :guilabel:`ドライラン` ボタンをクリックすると、実際に作業対象に対して構築作業をせず、ドライランを行うことができます。
    | ドライランを行った場合の動作は、Ansible-Playbookコマンドの--checkパラメータを指定した実行となります。
-   
+
 #. | **パラメータ確認**
    | :guilabel:`パラメータ確認` ボタンをクリックすると、実際に作業対象に対して構築作業をせず、 :menuselection:`Ansible-Legacy --> 代入値自動登録設定` に登録してある情報から作業対象のオペレーションとMovementに紐付く情報を :menuselection:`Ansible-Legacy --> 代入値管理` と :menuselection:`Ansible-Legacy --> 作業対象ホスト` に反映し、確認することが出来ます。
-   
+
 .. tip:: |  **予約日時の指定**
    | 「予約日時」を入力することで、実行を予約することがきます。
    | 「予約日時」には、未来の日時のみ入力可能です。
@@ -1119,27 +1119,27 @@ Ansible-Legacy投入データ
      - Playbook素材集
      - Playbook
      - /child_playbooks
-     - 
+     -
    * - Ansible 共通
      - テンプレート管理
      - テンプレート素材
      - /template_files
-     - 
+     -
    * - Ansible 共通
      - ファイル管理
      - ファイル素材
      - /copy_files
-     - 
+     -
    * - Ansible-Legacy
      - 代入値管理
      - 具体値（ファイル）
      - /upload_files
-     - 
+     -
    * - Ansible 共通
      - グローバル変数管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible 共通
      - グローバル変数（センシティブ）管理
      - 変数名/具体値
@@ -1149,17 +1149,17 @@ Ansible-Legacy投入データ
      - 代入値管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible-Legacy
      - template 管理
      - テンプレート埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible-Legacy
      - ファイル管理
      - ファイル埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - | ログインユーザ ID
@@ -1168,39 +1168,39 @@ Ansible-Legacy投入データ
        | DNSホスト名
        | IPアドレス
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - ssh 認証鍵ファイル
      - /ssh_key_files
-     - 
+     -
    * - Ansible共通
      - 機器一覧
-     - | winrm公開鍵ファイル	
+     - | winrm公開鍵ファイル
        | winrm秘密鍵ファイル
      - /winrm_key_files
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - サーバ証明書
      - /winrm_ca_files
-     - 
+     -
    * - Ansible共通
      - インターフェース情報
      - オプションパラメータ
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible-Legacy
      - Movement 一覧
      - オプションパラメータ
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible共通
      - 機器一覧
      - | ログインユーザ ID
@@ -1213,14 +1213,14 @@ Ansible-Legacy投入データ
        | 接続オプション
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /hosts
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /inventory/hosts 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /inventory/hosts
+     -
    * - Ansible-Legacy
      - Movement-Playbook紐付
      - Playbook名・インクルード順序
      - /playbook.yml
-     - 
+     -
    * - Ansible共通
      - 実行環境定義テンプレート管理
      - テンプレートファイル
@@ -1302,7 +1302,7 @@ Legacy結果データに保存されるファイル一覧
    * - | child_exec.log
        | child_error.log
      - ansible-builderの実行ログ
-     - 
-     - 
+     -
+     -
      - 〇
 

@@ -37,7 +37,7 @@
    .. image:: /images/ja/manuals/platform/notification/通知先ワークスペース一覧画面.png
       :width: 600px
       :align: left
-      
+
    .. note:: | アクセス権限のあるワークスペースのみ表示されます。
 
 
@@ -46,7 +46,7 @@
    .. image:: /images/ja/manuals/platform/notification/通知先設定一覧画面.png
       :width: 600px
       :align: left
-      
+
 #. | :menuselection:`新規通知先設定` 画面が表示されるので、通知先の情報を入力し、 :guilabel:`登録` をクリックします。
 
    - 通知方法がMailの時の画面
@@ -59,7 +59,7 @@
         :widths: 40 200
         :header-rows: 1
         :align: left
-     
+
         * - 項目名
           - 説明
         * - 通知先ID
@@ -83,7 +83,7 @@
         :widths: 40 200
         :header-rows: 1
         :align: left
-     
+
         * - 項目名
           - 説明
         * - 通知先ID
@@ -107,7 +107,7 @@
         :widths: 40 200
         :header-rows: 1
         :align: left
-     
+
         * - 項目名
           - 説明
         * - 通知先ID
@@ -141,7 +141,7 @@
    .. image:: /images/ja/manuals/platform/notification/通知先ワークスペース一覧画面.png
       :width: 600px
       :align: left
-      
+
    .. tip:: | アクセス権限のあるワークスペースのみ表示されます。
 
 #. | :menuselection:`通知先設定一覧` 画面が表示されるので、詳細確認を行いたい通知先設定をクリックします。
@@ -157,7 +157,7 @@
       :width: 600px
       :align: left
 
-   .. tip:: 
+   .. tip::
       | 通知テストについて
       | 登録されている通知先設定の内容で、メッセージの通知テストを行う場合は、:guilabel:`通知テスト` ボタンを押下して、メッセージ通知を確認できます。
       | :guilabel:`通知テスト` ボタン押下後、確認画面が表示され、応答後、メッセージが指定された通知先に送信されます。
@@ -200,7 +200,7 @@
       :widths: 40 200
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - 通知先ID
