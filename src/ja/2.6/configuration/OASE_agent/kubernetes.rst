@@ -5,7 +5,7 @@ OASE Agent on Kubernetes
 はじめに
 ========
 
-| OASEを利用するための絶対条件である Exastro OASE Agent を、高い可用性やサービスレベルでの運用を行う場合の構成方法となります。
+| OASEを利用する際に、外部との連携に必要となる Exastro OASE Agent を、高い可用性やサービスレベルでの運用を行う場合の構成方法となります。
 | 評価や一時的な利用など、簡単に利用を開始したい場合には、:doc:`Docker Compose 版 OASE Agent<docker_compose>` の利用を推奨します。
 
 
@@ -38,7 +38,3 @@ OASE Agent on Kubernetes
 .. warning::
     | Exastro IT Automation と同じ Kubernetes クラスター に構築する場合、OASE Agentに対応する最小要件を追加で用意する必要があります。
 
-通信要件
---------
-
-| OASE Agentから収集対象サーバ および Exastro IT Automation にアクセスできる必要があります。

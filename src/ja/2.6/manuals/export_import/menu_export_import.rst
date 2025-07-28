@@ -66,7 +66,7 @@
      .. figure:: /images/ja/export_import/overview/jnl_2_diagram.drawio.png
        :width: 720px
        :align: center
- 
+
 使用例
 ^^^^^^
 
@@ -115,10 +115,10 @@
 | 設定、適用方法については、 :ref:`plan`  を参照してください。
 
 .. tip:: | メニューエクスポート・インポート中の処理でのリソース制御について
- 
+
  リソースプラン値に従い、メニューエクスポート・インポートのバックヤード処理の入出力時に分割して処理を行いリソースを制御します。
  以下、リソースプランの設定値を上げると処理時間は短くなりますが、使用するリソース量は増加します。
- 
+
  - ita.organization.menu_export_import.buffer_size
 
 
@@ -158,97 +158,97 @@
      - 備考
    * - A
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 環境差分なし
      - 〇
-     - 
+     -
    * - B
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - ドライバ差分あり
      - 〇
-     - 
+     -
    * - C
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.Y
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - バージョン差分あり
      - 〇
-     - 
+     -
    * - D
      - 2.5.X
-     - | CI/CD for IaC 
-       | 
+     - | CI/CD for IaC
+       |
      - 2.5.Y
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - | バージョン差分あり(A:2.5.X < B:2.5.Y)
        | ドライバ差分あり
      - 〇
-     - 
+     -
    * - E
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.X
-     - | CI/CD for IaC 
-       | 
+     - | CI/CD for IaC
+       |
      - ドライバ差分あり
      - △※
-     - 
+     -
    * - F
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.Y
-     - | CI/CD for IaC 
-       | 
+     - | CI/CD for IaC
+       |
      - | バージョン差分あり(A:2.5.X < B:2.5.Y)
        | ドライバ差分あり
      - △※
-     - 
+     -
    * - G
      - 2.5.Y
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - | バージョン差分あり(A:2.5.Y > B:2.5.X)
      - ×
-     - 
+     -
    * - H
      - 2.5.Y
-     - | CI/CD for IaC 
-       | 
+     - | CI/CD for IaC
+       |
      - 2.5.X
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - | バージョン差分あり(A:2.5.Y > B:2.5.X)
        | ドライバ差分あり
      - ×
-     - 
+     -
    * - I
      - 2.5.Y
-     - | CI/CD for IaC 
+     - | CI/CD for IaC
        | OASE
      - 2.5.X
-     - | CI/CD for IaC 
-       | 
+     - | CI/CD for IaC
+       |
      - | バージョン差分あり(A:2.5.Y > B:2.5.X)
        | ドライバ差分あり
      - ×
-     - 
+     -
 
 .. tabs::
 
@@ -272,7 +272,7 @@
          :alt: エクスポート・インポート(ケースC)
          :align: center
          :width: 800px
-      
+
    .. tab:: ケースD（インポート可）
 
       .. figure:: /images/ja/export_import/export_import_ptn_D.drawio.png
@@ -294,32 +294,32 @@
       .. figure:: /images/ja/export_import/export_import_ptn_F.drawio.png
          :alt: エクスポート・インポート(ケースF)
          :align: center
-         :width: 800px    
+         :width: 800px
 
       .. warning:: | ドライバのインストール・アンインストール機能（ :ref:`organization_edit` ）を使用して、
-         | ドライバのインストール状態を揃え、「ケースC」や「ケースD」の状態にすることで、インポートの実施が可能です。      
-         
+         | ドライバのインストール状態を揃え、「ケースC」や「ケースD」の状態にすることで、インポートの実施が可能です。
+
 
    .. tab:: ケースG（インポート不可）
 
       .. figure:: /images/ja/export_import/export_import_ptn_G.drawio.png
          :alt: エクスポート・インポート(ケースG)
          :align: center
-         :width: 800px    
+         :width: 800px
 
    .. tab:: ケースH（インポート不可）
 
       .. figure:: /images/ja/export_import/export_import_ptn_H.drawio.png
          :alt: エクスポート・インポート(ケースH)
          :align: center
-         :width: 800px    
-         
+         :width: 800px
+
    .. tab:: ケースI（インポート不可）
 
       .. figure:: /images/ja/export_import/export_import_ptn_I.drawio.png
          :alt: エクスポート・インポート(ケースI)
          :align: center
-         :width: 800px    
+         :width: 800px
 
 
 メニューエクスポート・インポートのメニュー、画面構成
@@ -647,7 +647,7 @@
    +------------+--------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: 
+.. note::
    | :menuselection:`メニューエクスポート・インポート管理` で、:menuselection:`ステータス` が「完了 (異常)」となった場合、:menuselection:`実行ログ` にファイルのリンクが表示されます。
 
    .. figure:: /images/ja/export_import/overview/menu_export_import_2_v2-4.drawio.png

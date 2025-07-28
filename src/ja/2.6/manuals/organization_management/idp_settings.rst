@@ -19,7 +19,7 @@ IdP設定
 | Exastro システムのアプリケーションバージョンは、以下の通りです。
 
 
-.. list-table:: 
+.. list-table::
    :widths: 20 15
    :header-rows: 1
    :align: left
@@ -96,7 +96,7 @@ IdP設定
    .. figure:: /images/ja/manuals/platform/idp_settings/idp_settings_providers_list.png
       :width: 600px
       :align: left
-   
+
 アイデンティティー・プロバイダー設定追加
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -117,7 +117,7 @@ IdP設定
    .. figure:: /images/ja/manuals/platform/idp_settings/idp_settings_select_add_provider.png
       :width: 600px
       :align: left
-   
+
 アイデンティティー・プロバイダー設定編集
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -1392,7 +1392,7 @@ Movement-ロール紐付
 | ロールパッケージの基本書式については、Ansible公式マニュアルのAnsibleベストプラクティスを参照してください。
 | 「 :ref:`ansible_legacyrole_role_package_list` 」でアップロードするロールパッケージファイルのZipに含めるべきディレクトリと、ITAでの扱いについて記述します。
 
-.. code-block:: none
+.. code-block:: text
 
    （上位ディレクトリ）
    │
@@ -1500,7 +1500,7 @@ Movement-ロール紐付
    * - \（11）\　roles/[role 名①]/templates
      - △
      - | templatesディレクトリの有無は関知しません。
-       | ファイルは、文字コードがUTF-8のBOMなしで作成してください。 
+       | ファイルは、文字コードがUTF-8のBOMなしで作成してください。
        | サブディレクトリにファイルを配置できます。
    * - \（12）\　roles/[role 名①]/files
      - △
@@ -1560,7 +1560,7 @@ Movement-ロール紐付
 
 | 下記のようなディレクトリ階層のロールパッケージを例に説明します。
 
-.. code-block:: none
+.. code-block:: text
 
    └── roles
           ├── parent
@@ -1807,27 +1807,27 @@ Ansible-LegacyRole投入データ
      - ロールパッケージ管理
      - ロールパッケージ
      - /roles
-     - 
+     -
    * - Ansible 共通
      - テンプレート管理
      - テンプレート素材
      - /template_files
-     - 
+     -
    * - Ansible 共通
      - ファイル管理
      - ファイル素材
      - /copy_files
-     - 
+     -
    * - Ansible-LegacyRole
      - 代入値管理
      - 具体値（ファイル）
      - /upload_files
-     - 
+     -
    * - Ansible 共通
      - グローバル変数管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible 共通
      - グローバル変数（センシティブ）管理
      - 変数名/具体値
@@ -1837,17 +1837,17 @@ Ansible-LegacyRole投入データ
      - 代入値管理
      - 変数名/具体値
      - /host_vars
-     - 
+     -
    * - Ansible-LegacyRole
      - template 管理
      - テンプレート埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible-LegacyRole
      - ファイル管理
      - ファイル埋込変数
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - | ログインユーザ ID
@@ -1856,39 +1856,39 @@ Ansible-LegacyRole投入データ
        | DNSホスト名
        | IPアドレス
      - /host_vars
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - ssh 認証鍵ファイル
      - /ssh_key_files
-     - 
+     -
    * - Ansible共通
      - 機器一覧
-     - | winrm公開鍵ファイル	
+     - | winrm公開鍵ファイル
        | winrm秘密鍵ファイル
      - /winrm_key_files
-     - 
+     -
    * - Ansible共通
      - 機器一覧
      - サーバ証明書
      - /winrm_ca_files
-     - 
+     -
    * - Ansible共通
      - インターフェース情報
      - オプションパラメータ
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible-LegacyRole
      - Movement一覧
      - オプションパラメータ
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /AnsibleExecOption.txt
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /env/cmdline 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /env/cmdline
+     -
    * - Ansible共通
      - 機器一覧
      - | ログインユーザ ID
@@ -1901,14 +1901,14 @@ Ansible-LegacyRole投入データ
        | 接続オプション
      - | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Core」「Ansible Automation Controller」の場合
        | /hosts
-       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合 
-       | /inventory/hosts 
-     - 
+       | :menuselection:`Ansible共通 --> インターフェース情報` の :menuselection:`実行エンジン` が「Ansible Execution Agent」の場合
+       | /inventory/hosts
+     -
    * - Ansible-LegacyRole
      - Movement-ロール紐付
      - ロール名・インクルード順序
      - /site.yml
-     - 
+     -
    * - Ansible共通
      - 実行環境定義テンプレート管理
      - テンプレートファイル
@@ -1990,7 +1990,7 @@ Ansible-LegacyRole 結果データに保存されるファイル一覧
    * - | child_exec.log
        | child_error.log
      - ansible-builderの実行ログ
-     - 
-     - 
+     -
+     -
      - 〇
 

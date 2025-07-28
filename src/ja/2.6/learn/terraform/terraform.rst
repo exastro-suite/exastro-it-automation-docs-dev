@@ -72,7 +72,7 @@ Workspace管理
    * - Workspace名
      - 備考
    * - :kbd:`tfe_ws001`
-     - 
+     -
 
 作業項目の設定
 --------------
@@ -92,7 +92,7 @@ Workspace管理
 
    * - Movement名
      - Terraform利用情報
-   * - 
+   * -
      - Workspace
    * - :kbd:`tfe_mov001`
      - :kbd:`tfe_ws001`
@@ -109,7 +109,7 @@ Module素材集
 | 利用する Moduleファイル は下記になります。
 | 本シナリオでは、main.tf と variables.tf を使用します。
 
-.. code-block:: bash
+.. code-block:: hcl
    :caption: main.tf
 
    provider "azurerm" {
@@ -281,7 +281,7 @@ Module素材集
    * - :kbd:`variables`
      - :kbd:`variables.tf`
    * - :kbd:`main`
-     - :kbd:`main.tf`  
+     - :kbd:`main.tf`
 
 Movement-Module紐付
 -------------------
@@ -343,7 +343,7 @@ Movement-Module紐付
      - :kbd:`クライアントシークレット`
      - :kbd:`リソースグループ名`
      - :kbd:`ロケーション`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`subscription_id`
      - :kbd:`tenant_id`
      - :kbd:`client_id`
@@ -365,19 +365,19 @@ Movement-Module紐付
      - :kbd:`128`
      - :kbd:`128`
    * - 正規表現
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
+     -
+     -
+     -
+     -
+     -
+     -
    * - 初期値
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
+     -
+     -
+     -
+     -
+     -
+     -
    * - 必須
      - ✓
      - ✓
@@ -386,26 +386,26 @@ Movement-Module紐付
      - ✓
      - ✓
    * - 一意制約
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
+     -
+     -
+     -
+     -
+     -
+     -
    * - 説明
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
+     -
+     -
+     -
+     -
+     -
+     -
    * - 備考
-     - 
-     - 
-     - 
-     - 
-     - 
-     - 
+     -
+     -
+     -
+     -
+     -
+     -
 
 .. list-table:: パラメータシート作成(Azureパラメータ)のパラメータシート作成情報の設定値
    :widths: 5 10
@@ -510,12 +510,12 @@ Movement-Module紐付
 
   * - オペレーション
     - パラメータ
-    - 
-    - 
-    - 
-    - 
-    - 
-  * - 
+    -
+    -
+    -
+    -
+    -
+  * -
     - Azure認証情報
     - Azure認証情報
     - Azure認証情報
