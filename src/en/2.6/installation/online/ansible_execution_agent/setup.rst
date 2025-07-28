@@ -12,45 +12,46 @@ Goal
 | This document aims to explain how to install the Ansible Execution Agent, which is required in order to execute Ansible in PULL-form.
 
 
-.. tip:: 
+.. tip::
     | For more information regarding using the  Ansible Execution Agent, see the following manuals.
-    
-    - :ref:`ansible_execution_environment_definition_template_list` 
-    - :ref:`ansible_execution_environment_list` 
-    - :ref:`ansible_agent_list` 
+
+    - :ref:`ansible_execution_environment_definition_template_list`
+    - :ref:`ansible_execution_environment_list`
+    - :ref:`ansible_agent_list`
     - :ref:`ansible_common_environment_definition_make`
 
 
 .. _ansible_execution_agent_feature:
 
 Features
-====
+========
 
 | The Ansible Execution Agent comes with an agent function that allows users to execute Ansible-Legacy, Anslbie-Pioneer and Ansible-LegacyRole in PULL form in ITA.
-- The connection between the ITA system only accepts outbound http/https from closed environments (PULL-form) 
+
+- The connection between the ITA system only accepts outbound http/https from closed environments (PULL-form)
 - Can generate Ansible execution environment by using Ansible Builder and Ansible Runner(Use any environment/module)
 - Allows for redundant systems（exclusive control）
 - Can confirm the version of the agent
 
- 
+
 .. _ansible_execution_agent_precondition:
 
 Pre-requisites
-========
+==============
 
 | The following must be finished.
 
-- :ref:`ansible_exrcution_agent_hardware_requirements` 
-- :ref:`ansible_exrcution_agent_os_requirements` 
-- :ref:`ansible_exrcution_agent_oftware_requirements` 
-- :ref:`ansible_exrcution_agent_communication_requirements` 
-- :ref:`ansible_exrcution_agent_other_requirements` 
+- :ref:`ansible_exrcution_agent_hardware_requirements`
+- :ref:`ansible_exrcution_agent_os_requirements`
+- :ref:`ansible_exrcution_agent_oftware_requirements`
+- :ref:`ansible_exrcution_agent_communication_requirements`
+- :ref:`ansible_exrcution_agent_other_requirements`
 
 
 .. _ansible_exrcution_agent_hardware_requirements:
 
 Hardware requirements
-----------------
+---------------------
 
 - Confirmed working specifications
 
@@ -80,14 +81,14 @@ Hardware requirements
    * - Storage
      - 80GB
 
-.. warning:: 
+.. warning::
   | ※The required disk space depends on the amount of Agent services, the Operation execution result deletion settings and the size of the image built.
   | Make sure to maintain and size the disk space to fit the user's needs.
-    
+
 .. _ansible_exrcution_agent_communication_requirements:
 
 Connection requirements
---------
+-----------------------
 
 | エージェントサーバから、外部NWへの通信が可能である必要があります。
 
@@ -103,7 +104,7 @@ Connection requirements
 .. _ansible_exrcution_agent_os_requirements:
 
 OS requirements
-------
+---------------
 
 | The confirmed compatible operation systems are as following.
 
@@ -119,9 +120,9 @@ OS requirements
      - AlmaLinux release 8.9 (Midnight Oncilla)
 
 
-.. tip:: 
+.. tip::
     | SELinux must be set to Permissive
-    
+
     .. code-block:: bash
 
         $ sudo vi /etc/selinux/config
@@ -131,15 +132,15 @@ OS requirements
 
         $ getenforce
         Permissive
-            
+
 .. _ansible_exrcution_agent_oftware_requirements:
 
 Software requirements
-----------------
+---------------------
 
 - Python 3.9 must be installed and have an alias for python 3 commands and pip3 commands
 - The user must be able to run the following commands
-    
+
 .. code-block:: bash
 
     $ sudo
@@ -155,7 +156,7 @@ Software requirements
 .. _ansible_exrcution_agent_other_requirements:
 
 Other requirements
-------------
+------------------
 
 .. _ansible_exrcution_agent_rhel_support_requirements:
 
@@ -167,13 +168,13 @@ If the user is using the paid version of Ansible-builder or Ansible-runner, make
 - Red Hat container registry confirmation
 
   .. code-block:: bash
-   
+
       podman login registry.redhat.io
 
 - Repository used
 
   .. code-block:: bash
-   
+
       rhel-9-for-x86_64-baseos-rpms
       rhel-9-for-x86_64-appstream-rpms
       ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
@@ -181,13 +182,13 @@ If the user is using the paid version of Ansible-builder or Ansible-runner, make
 - Confirming activated repository/activating repository
 
   .. code-block:: bash
-  
+
       sudo subscription-manager repos --list-enabled
       sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms
       sudo subscription-manager repos --enable=rhel-9-for-x86_64-appstream-rpms
       sudo subscription-manager repos --enable=ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
-      
-        
+
+
 .. _ansible_exrcution_agent_base_images:
 
 Base images confirmed compatible with Ansible builder
@@ -203,7 +204,7 @@ Base images confirmed compatible with Ansible builder
      - Remarks
    * - ubi9
      - registry.access.redhat.com/ubi9/ubi-init:latest
-     - 
+     -
    * - rhel9
      - registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9:latest
      - For license with support
@@ -231,13 +232,13 @@ Parameter list
      - 1
      - No
      - 2.5.1
-     - 
+     -
    * - LOG_LEVEL
      - Level of information for the output log[INFO/DEBUG]
      - INFO
      - Yes
      - 2.5.1
-     - 
+     -
    * - LOGGING_MAX_SIZE
      - Log rotation file size
      - 10485760
@@ -255,67 +256,67 @@ Parameter list
      - en
      - Yes
      - 2.5.1
-     - 
+     -
    * - TZ
      - Time zone
      - Asia/Tokyo
      - Yes
      - 2.5.1
-     - 
+     -
    * - PYTHON_CMD
      - python execution command of the executing virtual environment
      - <PATH of the installed environment>/poetry run python3
      - No
      - 2.5.1
-     - 
+     -
    * - PYTHONPATH
      - python execution command of the executing virtual environment
      - <Installation path input in the interactive item>/ita_ag_ansible_execution/
      - Yes
      - 2.5.1
-     - 
+     -
    * - APP_PATH
      - Install destination PATH
      - <Installation path input in the interactive item>
      - Yes
      - 2.5.1
-     - 
+     -
    * - STORAGEPATH
      - Data storage destination PATH
      - <Save location input in the interactive item>/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/storage
      - Yes
      - 2.5.1
-     - 
+     -
    * - LOGPATH
      - Log storage destination PATH
      - <Save location input in the interactive item>/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/log
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXASTRO_ORGANIZATION_ID
      - Connection destination ORGANIZATION_ID
      - <ORGANIZATION_ID input in the interactive item>
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXASTRO_WORKSPACE_ID
      - Connection destination WORKSPACE_ID
      - <WORKSPACE_ID input in the interactive item>
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXASTRO_URL
      - Connection destination ITA URL
      - <URL input in the interactive item>
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXASTRO_REFRESH_TOKEN
      - Connection destination ITAのEXASTRO_REFRESH_TOKEN
      - <input in the interactive item EXASTRO_REFRESH_TOKEN>
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXECUTION_ENVIRONMENT_NAMES
      - | Users can specify the execution environment.
        | If blank, all execution environments will be target.
@@ -323,42 +324,42 @@ Parameter list
      - Blank
      - Yes
      - 2.5.1
-     - 
+     -
    * - AGENT_NAME
      - Agent identifier registered to the service.
      - ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
      - No
      - 2.5.1
-     - 
+     -
    * - USER_ID
      - Agent identifier.
      - <Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
      - No
      - 2.5.1
-     - 
+     -
    * - ITERATION
      - Number of process iterations before the settings initialize
      - 10
      - Yes
      - 2.5.1
-     - 
+     -
    * - EXECUTE_INTERVAL
      - Interval after main processes
      - 5
      - Yes
      - 2.5.1
-     - 
+     -
 
 
-.. tip:: 
+.. tip::
   | EXECUTION_ENVIRONMENT_NAMES: Specify if dividing the target execution environments.
   | Divide with "," if specifying multiple.
 
 
   .. code-block:: bash
- 
+
          EXECUTION_ENVIRONMENT_NAMES=<Execution environment name 1>,<Execution environment name 2>
-         
+
   | For more information regarding execution environment names, see :ref:`ansible_execution_environment_list`.
 
 .. _ansible_execution_agent_install:
@@ -367,12 +368,12 @@ Install
 ============
 
 Preparation
-----
+-----------
 
 | Fetch the newest setup.sh and add execution permissions.
 
 .. code-block:: bash
-   
+
     $ wget https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/refs/heads/main/ita_root/ita_ag_ansible_execution/setup.sh
 
     $ chmod 755 ./setup.sh
@@ -387,8 +388,8 @@ Interactive items
 - Data storage destination
 - Ansible-builder and Ansible-runner
 - Connection destination ITA's connection information（URL、ORGANIZATION_ID、WORKSPACE_ID、REFRESH_TOKEN）
-    
-    
+
+
 Install Ansible Execution Agent
 -------------------------------------
 
@@ -421,11 +422,11 @@ Install Ansible Execution Agent
 .. tabs::
 
    .. tab:: 1.Boot agent service from installer
-    
+
       | ① Press Enter to start inputing data in an interactive format.
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -494,7 +495,7 @@ Install Ansible Execution Agent
          Input Value :
 
       | ⑪ Specify the connection destination ITA's refresh token（See :ref:`exastro_refresh_token`  for information regarding fetching tokens.）
-      |   
+      |
       |   Press Enter if the user wants to specify the refresh token later.
       |   Rewrite the .env's EXASTRO_REFRESH_TOKEN.
 
@@ -520,11 +521,11 @@ Install Ansible Execution Agent
              Env Path:           /home/<Login user>/exastro/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/.env
 
    .. tab:: 2.Add and/or boot agent service
-    
+
       | ① Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -579,7 +580,7 @@ Install Ansible Execution Agent
          Input Value :
 
       | ⑨ Specify the connection destination ITA's refresh token（See :ref:`exastro_refresh_token`  for information regarding fetching tokens.）
-      |   
+      |
       |   Press Enter if the user wants to specify the refresh token later.
       |   Rewrite the .env's EXASTRO_REFRESH_TOKEN.
 
@@ -606,26 +607,26 @@ Install Ansible Execution Agent
 
 
    .. tab:: 3.Boot service
-    
+
 
       | ① Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
       | ② Specify the .env file that will be used. The service registration/boot process will use the .env information.
 
       .. code-block:: bash
-       
+
          Input the full path for the .env file.:
          Input Value :
 
       | ③ Select y in order to boot the service. If the service is not booted now, make sure to boot it later.
 
       .. code-block:: bash
-       
+
         Do you want to start the Agent service? (y/n)y
 
       | ④ Displays the information of the installed service.
@@ -637,8 +638,8 @@ Install Ansible Execution Agent
              Agent Service Name: ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
              Storage Path:       /home/<Login user>/exastro/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/storage
              Env Path:           /home/<Login user>/exastro/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/.env
-   
-         
+
+
 .. _ansible_execution_agent_uninstall:
 
 Uninstall
@@ -678,13 +679,13 @@ Uninstall
       | ① Specify the name of the service name of the agent that will be uninstalled（ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>）.
 
       .. code-block:: bash
-       
+
         Input a SERVICE_NAME.(e.g. ita-ag-ansible-execution-xxxxxxxxxxxxx):
 
       | ② Specify the storage path of the data of the service name specified in step ①.
 
       .. code-block:: bash
-       
+
         Input a STORAGE_PATH.(e.g. /home/cloud-user/exastro/<SERVICE_ID>):
 
    .. tab:: 2.Delete Agent service
@@ -692,31 +693,31 @@ Uninstall
       | ① Specify the name of the service name of the agent that will be uninstalled（ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>）.
 
       .. code-block:: bash
-       
+
         Input a SERVICE_NAME.(e.g. ita-ag-ansible-execution-xxxxxxxxxxxxx):
-        
+
    .. tab:: 3.Delete data
 
       | ① Specify the service's data storage path.
-       
+
       .. code-block:: bash
-       
+
         Input a STORAGE_PATH.(e.g. /home/cloud-user/exastro/<SERVICE_ID>):
 
 
 .. _ansible_execution_agent_service_cmd:
 
 Manually operating/confirming service.
-================================
+======================================
 
 | The user can use the following commands to check the service state.
 
 .. tabs::
 
    .. tab:: AlmaLinux8
-    
+
      .. code-block:: bash
-        
+
         # Displaying changes in the setting file
         $ sudo systemctl daemon-reload
         # Check service status
@@ -729,7 +730,7 @@ Manually operating/confirming service.
         $ sudo systemctl restart  ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
 
    .. tab:: RHEL9
-    
+
      .. code-block:: bash
 
         # Displaying changes in the setting file
@@ -742,13 +743,13 @@ Manually operating/confirming service.
         $ systemctl --user stop  ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
         # Restart service
         $ systemctl --user restart  ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>
-      
+
 
 .. _ansible_execution_agent_service_log:
 
 Confirming service log
 ======================
-  
+
 - | Application log
 
 .. code-block:: bash
@@ -756,13 +757,13 @@ Confirming service log
    /home/<Login user>/exastro/<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>/log/
         ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>.log
         ita-ag-ansible-execution-<Service unique identifier:yyyyMMddHHmmssfff or String specified in the interactive item>.log.xx
-  
+
   ※Log rotated files have numeric values added to the end. Use it to find log rotation size and storage period.
-  
+
 - | System and components logs
- 
+
 .. code-block:: bash
 
    /var/log/message
-  
+
   ※For information regarding Ansible-builder, Ansible-runner, podman and other related components, see the different component's log output destination.
