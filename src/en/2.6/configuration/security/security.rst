@@ -3,7 +3,7 @@ Security
 ============
 
 Introduction
---------
+------------
 
 | We recommend implementing seperate measures for system risks that the Exastro system cannot deal with alone.
 | This document contains information regarding the different security measure that the system administrator should consider.
