@@ -436,12 +436,12 @@ VAR_RH_sshd_config:
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
 <div class="code-block-caption"><span class="caption-number">リスト 5.30 </span><span class="caption-text">収集対象ディレクトリパス</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="p">|</span>-<span class="w">  </span>_parameters<span class="w">           </span>※1
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost<span class="w">         </span>※2
-<span class="p">|</span><span class="w">       </span><span class="p">|</span>-<span class="w">  </span>SAMPLE.yml<span class="w">    </span>※3
-<span class="p">|</span>-<span class="w">  </span>_parameters_file<span class="w">      </span>※4
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost<span class="w">         </span>※2
-<span class="w">        </span><span class="p">|</span>-<span class="w">  </span>test.txt<span class="w">      </span>※5
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|-  _parameters           ※1
+|   |-  localhost         ※2
+|       |-  SAMPLE.yml    ※3
+|-  _parameters_file      ※4
+|   |-  localhost         ※2
+        |-  test.txt      ※5
 </pre></div>
 </div>
 </div>
@@ -566,21 +566,21 @@ VAR_RH_sshd_config:
 </div>
 <div class="literal-block-wrapper docutils container" id="id37">
 <div class="code-block-caption"><span class="caption-number">リスト 5.32 </span><span class="caption-text">通常変数の構造の変数の場合のディレクトリ構造とソースファイルの内容</span><a class="headerlink" href="#id37" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>■構造
-<span class="w"> </span>【上位ディレクトリ】
-<span class="w">    </span><span class="p">|</span>-<span class="w">  </span>_parameters
-<span class="w">    </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
-<span class="w">    </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>-<span class="w">  </span>SAMPLE.yml<span class="w">             </span>※ソースファイル
-<span class="w">    </span><span class="p">|</span>-<span class="w">  </span>_parameters_file
-<span class="w">    </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
-<span class="w">    </span><span class="p">|</span><span class="w">      </span><span class="p">|</span>-<span class="w">  </span>test.txt<span class="w">                </span>※アップロード対象ファイル
-<span class="w">    </span><span class="p">|</span><span class="w">      </span><span class="p">|</span>-<span class="w">  </span>APP001
-<span class="w">              </span><span class="p">|</span>-<span class="w">  </span>config<span class="w">               </span>※アップロード対象ファイル
-<span class="w"> </span>■収集対象ファイル名：SAMPLE.yml
-<span class="w"> </span>■ファイルの内容
-<span class="w"> </span>VAR_upload_file:<span class="w"> </span>test.txt
-<span class="w"> </span>VAR_upload_fileX:<span class="w"> </span>config
-<span class="w"> </span>VAR_upload_fileZ:<span class="w"> </span><span class="s1">&#39;/APP001/config&#39;</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> ■構造
+ 【上位ディレクトリ】
+    |-  _parameters
+    |   |-  localhost
+    |       |-  SAMPLE.yml             ※ソースファイル
+    |-  _parameters_file
+    |   |-  localhost
+    |      |-  test.txt                ※アップロード対象ファイル
+    |      |-  APP001
+              |-  config               ※アップロード対象ファイル
+ ■収集対象ファイル名：SAMPLE.yml
+ ■ファイルの内容
+ VAR_upload_file: test.txt
+ VAR_upload_fileX: config
+ VAR_upload_fileZ: &#39;/APP001/config&#39;
 </pre></div>
 </div>
 </div>
@@ -909,17 +909,17 @@ VAR_RH_sshd_config:
 </div>
 <div class="literal-block-wrapper docutils container" id="id49">
 <div class="code-block-caption"><span class="caption-number">リスト 5.36 </span><span class="caption-text">通常変数の構造の変数の場合</span><a class="headerlink" href="#id49" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■ファイル名:<span class="w"> </span>SAMPLE.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>■ファイル名: SAMPLE.yml
 ■ファイルの内容
 
-VAR_sample_config_1:<span class="w"> </span>yes
-VAR_sample_config_2:<span class="w"> </span>test_parameter
+VAR_sample_config_1: yes
+VAR_sample_config_2: test_parameter
 
-■収集値項目管理の収集項目<span class="o">(</span>FROM<span class="o">)</span>の入力可能な値
+■収集値項目管理の収集項目(FROM)の入力可能な値
 
-PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span class="w"> </span>SAMPLE
-変数名：<span class="w"> </span>VAR_sample_config_1
-<span class="w">         </span>VAR_sample_config_2
+PREFIX(ファイル名): SAMPLE
+変数名： VAR_sample_config_1
+         VAR_sample_config_2
 </pre></div>
 </div>
 </div>
@@ -928,20 +928,20 @@ PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span clas
 </div>
 <div class="literal-block-wrapper docutils container" id="id50">
 <div class="code-block-caption"><span class="caption-number">リスト 5.37 </span><span class="caption-text">複数具体値の構造の変数の場合1</span><a class="headerlink" href="#id50" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■ファイル名:<span class="w"> </span>SAMPLE_2.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>■ファイル名: SAMPLE_2.yml
 ■ファイルの内容
 
 VAR_sample2_conf:
-<span class="w">  </span>-<span class="w"> </span>SAMPLE1
-<span class="w">  </span>-<span class="w"> </span>SAMPLE2
-<span class="w">  </span>-<span class="w"> </span>SAMPLE3
+  - SAMPLE1
+  - SAMPLE2
+  - SAMPLE3
 
-■収集値項目管理の収集項目<span class="o">(</span>FROM<span class="o">)</span>の入力可能な値
-PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span class="w"> </span>SAMPLE_2
-変数名：<span class="w"> </span>VAR_sample2_conf
-メンバ変数：<span class="w">  </span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
-<span class="w">             </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>
-<span class="w">             </span><span class="o">[</span><span class="m">2</span><span class="o">]</span>
+■収集値項目管理の収集項目(FROM)の入力可能な値
+PREFIX(ファイル名): SAMPLE_2
+変数名： VAR_sample2_conf
+メンバ変数：  [0]
+             [1]
+             [2]
 </pre></div>
 </div>
 </div>
@@ -950,22 +950,22 @@ PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span clas
 </div>
 <div class="literal-block-wrapper docutils container" id="id51">
 <div class="code-block-caption"><span class="caption-number">リスト 5.38 </span><span class="caption-text">複数具体値の構造の変数の場合2</span><a class="headerlink" href="#id51" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■ファイル名:<span class="w"> </span>RH_sshd.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>■ファイル名: RH_sshd.yml
 ■ファイルの内容
 
 VAR_RH_sshd_config:
-<span class="w">  </span>-<span class="w"> </span>key:<span class="w"> </span>PermitRootLogin
-<span class="w">    </span>value:<span class="w"> </span>yes
-<span class="w">  </span>-<span class="w"> </span>key:<span class="w"> </span>PasswordAuthentication
-<span class="w">    </span>value:<span class="w"> </span>no
+  - key: PermitRootLogin
+    value: yes
+  - key: PasswordAuthentication
+    value: no
 
-<span class="w"> </span>■収集値項目管理の収集項目<span class="o">(</span>FROM<span class="o">)</span>の入力可能な値
-<span class="w"> </span>PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span class="w"> </span>RH_sshd
-<span class="w"> </span>変数名：<span class="w"> </span>VAR_RH_sshd_config:
-<span class="w"> </span>メンバ変数：<span class="w">  </span><span class="o">[</span><span class="m">0</span><span class="o">]</span>.key
-<span class="w">              </span><span class="o">[</span><span class="m">0</span><span class="o">]</span>.value
-<span class="w">              </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>.key
-<span class="w">              </span><span class="o">[</span><span class="m">1</span><span class="o">]</span>.value
+ ■収集値項目管理の収集項目(FROM)の入力可能な値
+ PREFIX(ファイル名): RH_sshd
+ 変数名： VAR_RH_sshd_config:
+ メンバ変数：  [0].key
+              [0].value
+              [1].key
+              [1].value
 </pre></div>
 </div>
 </div>
@@ -974,27 +974,27 @@ VAR_RH_sshd_config:
 </div>
 <div class="literal-block-wrapper docutils container" id="id52">
 <div class="code-block-caption"><span class="caption-number">リスト 5.39 </span><span class="caption-text">複数具体値の構造の変数の場合3</span><a class="headerlink" href="#id52" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>■ファイル名:<span class="w"> </span>RH_snmp.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>■ファイル名: RH_snmp.yml
 ■ファイルの内容
 
 VAR_RH_snmpd_info:
-<span class="w">  </span>com2sec:
-<span class="w">    </span>-<span class="w"> </span>sec_name:<span class="w"> </span><span class="s2">&quot;testsec&quot;</span>
-<span class="w">      </span>source:<span class="w"> </span><span class="s2">&quot;192.168.1.0/24&quot;</span>
-<span class="w">      </span>community:<span class="w"> </span><span class="s2">&quot;public&quot;</span>
-<span class="w">    </span>-<span class="w"> </span>sec_name:<span class="w"> </span><span class="s2">&quot;local&quot;</span>
-<span class="w">      </span>source:<span class="w"> </span><span class="s2">&quot;localhost&quot;</span>
-<span class="w">      </span>community:<span class="w"> </span><span class="s2">&quot;private&quot;</span>
+  com2sec:
+    - sec_name: &quot;testsec&quot;
+      source: &quot;192.168.1.0/24&quot;
+      community: &quot;public&quot;
+    - sec_name: &quot;local&quot;
+      source: &quot;localhost&quot;
+      community: &quot;private&quot;
 
-■収集値項目管理の収集項目<span class="o">(</span>FROM<span class="o">)</span>の入力可能な値
-PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span class="w"> </span>RH_snmp
-変数名：<span class="w"> </span>VAR_RH_snmp_config:
-メンバ変数：<span class="w">  </span>com2sec<span class="o">[</span><span class="m">0</span><span class="o">]</span>.sec_name
-<span class="w">             </span>com2sec<span class="o">[</span><span class="m">0</span><span class="o">]</span>.source
-<span class="w">             </span>com2sec<span class="o">[</span><span class="m">0</span><span class="o">]</span>.community
-<span class="w">             </span>com2sec<span class="o">[</span><span class="m">1</span><span class="o">]</span>.sec_name
-<span class="w">             </span>com2sec<span class="o">[</span><span class="m">1</span><span class="o">]</span>.source
-<span class="w">             </span>com2sec<span class="o">[</span><span class="m">1</span><span class="o">]</span>.community
+■収集値項目管理の収集項目(FROM)の入力可能な値
+PREFIX(ファイル名): RH_snmp
+変数名： VAR_RH_snmp_config:
+メンバ変数：  com2sec[0].sec_name
+             com2sec[0].source
+             com2sec[0].community
+             com2sec[1].sec_name
+             com2sec[1].source
+             com2sec[1].community
 </pre></div>
 </div>
 </div>
@@ -1121,52 +1121,52 @@ PREFIX<span class="o">(</span>ファイル名<span class="o">)</span>:<span clas
 </div>
 <div class="literal-block-wrapper docutils container" id="id56">
 <div class="code-block-caption"><span class="caption-number">リスト 5.40 </span><span class="caption-text">ログファイル出力例 - 収集済み</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="w"> </span>REST<span class="w"> </span>DATA<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>menu<span class="w"> </span>ID:<span class="w"> </span>collect_001<span class="w"> </span>operation<span class="w"> </span>NO:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
-<span class="w"> </span>Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="w"> </span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="w"> </span>REST<span class="w"> </span>DATA<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="w"> </span>menu<span class="w"> </span>ID:<span class="w"> </span>collect_001<span class="w"> </span>operation<span class="w"> </span>NO:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
-<span class="w"> </span>Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="w"> </span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="w"> </span>REST<span class="w"> </span>DATA<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="w"> </span>menu<span class="w"> </span>ID:<span class="w"> </span>collect_001<span class="w"> </span>operation<span class="w"> </span>NO:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
-<span class="w"> </span>Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> Collect START (host name: exastro-test-1 file name: [&#39;Ansible_conf&#39;])
+ REST DATA (host name: exastro-test-1 menu ID: collect_001 operation NO: 4001e182-51d2-4918-96e0-5981c4dc6d5f)
+ Collect END (host name: exastro-test-1 file name: [&#39;Ansible_conf&#39;])
+ Collect START (host name: exastro-test-2 file name: [&#39;Ansible_conf&#39;])
+ REST DATA (host name: exastro-test-2 menu ID: collect_001 operation NO: 4001e182-51d2-4918-96e0-5981c4dc6d5f)
+ Collect END (host name: exastro-test-2 file name: [&#39;Ansible_conf&#39;])
+ Collect START (host name: exastro-test-3 file name: [&#39;Ansible_conf&#39;])
+ REST DATA (host name: exastro-test-3 menu ID: collect_001 operation NO: 4001e182-51d2-4918-96e0-5981c4dc6d5f)
+ Collect END (host name: exastro-test-3 file name: [&#39;Ansible_conf&#39;])
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id57">
 <div class="code-block-caption"><span class="caption-number">リスト 5.41 </span><span class="caption-text">ログファイル出力例 - 収集済み(通知あり)</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="o">{</span><span class="s1">&#39;item_1&#39;</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">&#39;status_code&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg_args&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg&#39;</span>:<span class="w"> </span><span class="s1">&#39;Regular expression error (1,Value:sample_value)&#39;</span><span class="o">}]}</span>
-<span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>register<span class="w"> </span>or<span class="w"> </span>update<span class="w"> </span>data<span class="w"> </span><span class="k">in</span><span class="w"> </span>CMDB.<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>
-Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="o">{</span><span class="s1">&#39;item_1&#39;</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">&#39;status_code&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg_args&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg&#39;</span>:<span class="w"> </span><span class="s1">&#39;Regular expression error (1,Value:sample_value)&#39;</span><span class="o">}]}</span>
-<span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>register<span class="w"> </span>or<span class="w"> </span>update<span class="w"> </span>data<span class="w"> </span><span class="k">in</span><span class="w"> </span>CMDB.<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>
-Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-Collect<span class="w"> </span>START<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
-<span class="o">{</span><span class="s1">&#39;item_1&#39;</span>:<span class="w"> </span><span class="o">[{</span><span class="s1">&#39;status_code&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg_args&#39;</span>:<span class="w"> </span><span class="s1">&#39;&#39;</span>,<span class="w"> </span><span class="s1">&#39;msg&#39;</span>:<span class="w"> </span><span class="s1">&#39;Regular expression error (1,Value:sample_value)&#39;</span><span class="o">}]}</span>
-<span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Failed<span class="w"> </span>to<span class="w"> </span>register<span class="w"> </span>or<span class="w"> </span>update<span class="w"> </span>data<span class="w"> </span><span class="k">in</span><span class="w"> </span>CMDB.<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>
-Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Ansible_conf&#39;</span><span class="o">])</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Collect START (host name: exastro-test-1 file name: [&#39;Ansible_conf&#39;])
+{&#39;item_1&#39;: [{&#39;status_code&#39;: &#39;&#39;, &#39;msg_args&#39;: &#39;&#39;, &#39;msg&#39;: &#39;Regular expression error (1,Value:sample_value)&#39;}]}
+[Process] Failed to register or update data in CMDB. (1/1)
+Collect END (host name: exastro-test-1 file name: [&#39;Ansible_conf&#39;])
+Collect START (host name: exastro-test-2 file name: [&#39;Ansible_conf&#39;])
+{&#39;item_1&#39;: [{&#39;status_code&#39;: &#39;&#39;, &#39;msg_args&#39;: &#39;&#39;, &#39;msg&#39;: &#39;Regular expression error (1,Value:sample_value)&#39;}]}
+[Process] Failed to register or update data in CMDB. (1/1)
+Collect END (host name: exastro-test-2 file name: [&#39;Ansible_conf&#39;])
+Collect START (host name: exastro-test-3 file name: [&#39;Ansible_conf&#39;])
+{&#39;item_1&#39;: [{&#39;status_code&#39;: &#39;&#39;, &#39;msg_args&#39;: &#39;&#39;, &#39;msg&#39;: &#39;Regular expression error (1,Value:sample_value)&#39;}]}
+[Process] Failed to register or update data in CMDB. (1/1)
+Collect END (host name: exastro-test-3 file name: [&#39;Ansible_conf&#39;])
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id58">
 <div class="code-block-caption"><span class="caption-number">リスト 5.42 </span><span class="caption-text">ログファイル出力例 - 収集エラー[Operation]</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>Operation<span class="w"> </span>is<span class="w"> </span>abolished,<span class="w"> </span>so<span class="w"> </span>registration<span class="w"> </span>and<span class="w"> </span>update<span class="w"> </span>processing<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span><span class="o">(</span>Operation<span class="w"> </span>No:<span class="w"> </span>4001e182-51d2-4918-96e0-5981c4dc6d5f<span class="o">)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Process] Operation is abolished, so registration and update processing is skipped (Operation No: 4001e182-51d2-4918-96e0-5981c4dc6d5f)
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id59">
 <div class="code-block-caption"><span class="caption-number">リスト 5.43 </span><span class="caption-text">ログファイル出力例 - 収集エラー[host]</span><a class="headerlink" href="#id59" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-1<span class="o">)</span>.
-<span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-2<span class="o">)</span>.
-<span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>The<span class="w"> </span>registration<span class="w"> </span>/<span class="w"> </span>update<span class="w"> </span>process<span class="w"> </span>is<span class="w"> </span>skipped<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>device<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>registered<span class="w"> </span>or<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>abolished<span class="w"> </span><span class="o">(</span>host<span class="w"> </span>name:<span class="w"> </span>exastro-test-3<span class="o">)</span>.
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Process] The registration / update process is skipped because the target device has not been registered or has been abolished (host name: exastro-test-1).
+[Process] The registration / update process is skipped because the target device has not been registered or has been abolished (host name: exastro-test-2).
+[Process] The registration / update process is skipped because the target device has not been registered or has been abolished (host name: exastro-test-3).
 </pre></div>
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id60">
 <div class="code-block-caption"><span class="caption-number">リスト 5.44 </span><span class="caption-text">ログファイル出力例 - 対象外</span><a class="headerlink" href="#id60" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Process<span class="o">]</span><span class="w"> </span>There<span class="w"> </span>is<span class="w"> </span>no<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>collection<span class="w"> </span>target<span class="w"> </span>directory.
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Process] There is no file in the collection target directory.
 </pre></div>
 </div>
 </div>
@@ -1325,11 +1325,11 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 <div class="literal-block-wrapper docutils container" id="id24">
 <div class="code-block-caption"><span class="caption-number">リスト 5.47 </span><span class="caption-text">収集対象ファイル</span><a class="headerlink" href="#id24" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
-<span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
-<span class="w">       </span><span class="p">|</span>-<span class="w">  </span>ita-sample01
-<span class="w">           </span><span class="p">|</span>-<span class="w">  </span>SAMPLE_01.yml
-<span class="w">           </span><span class="p">|</span>-<span class="w">  </span>SAMPLE_02.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
+   |-  _parameters
+       |-  ita-sample01
+           |-  SAMPLE_01.yml
+           |-  SAMPLE_02.yml
 </pre></div>
 </div>
 </div>
@@ -1790,27 +1790,27 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 <div class="literal-block-wrapper docutils container" id="id69">
 <div class="code-block-caption"><span class="caption-number">リスト 5.50 </span><span class="caption-text">収集対象ファイルのファイルパス、ディレクトリ構造(複数の同一ファイル名)</span><a class="headerlink" href="#id69" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
-<span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
-<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
-<span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>-<span class="w">  </span>SAMPLE.yml
-<span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters_file
-<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
-<span class="w">             </span><span class="p">|</span>-<span class="w">  </span>APP001
-<span class="w">                 </span><span class="p">|</span>-<span class="w">  </span>config<span class="w">                   </span><span class="c1">#①</span>
-<span class="w">             </span><span class="p">|</span>-<span class="w">  </span>APP002
-<span class="w">                 </span><span class="p">|</span>-<span class="w">  </span>config<span class="w">                   </span><span class="c1">#②</span>
-<span class="w">             </span><span class="p">|</span>-<span class="w">  </span>APP003
-<span class="w">                 </span><span class="p">|</span>-<span class="w">  </span>config<span class="w">                   </span><span class="c1">#③</span>
-<span class="w">             </span><span class="p">|</span>-<span class="w">  </span>APP002
-<span class="w">                 </span><span class="p">|</span>-<span class="w">  </span>config<span class="w">                   </span><span class="c1">#④</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
+   |-  _parameters
+   |   |-  localhost
+   |       |-  SAMPLE.yml
+   |-  _parameters_file
+   |   |-  localhost
+             |-  APP001
+                 |-  config                   #①
+             |-  APP002
+                 |-  config                   #②
+             |-  APP003
+                 |-  config                   #③
+             |-  APP002
+                 |-  config                   #④
 
-<span class="w">  </span>■収集対象ファイル名：SAMPLE.yml
-<span class="w">  </span>■ファイルの内容
-<span class="w">  </span>VAR_upload_file_1:<span class="w"> </span>config
-<span class="w">  </span>VAR_upload_file_2:<span class="w"> </span>‘/APP002/config’
-<span class="w">  </span>VAR_upload_file_3:<span class="w"> </span>‘/APP001/config’
-<span class="w">  </span>VAR_upload_file_4:<span class="w"> </span>‘/APP003/APP002/config’
+  ■収集対象ファイル名：SAMPLE.yml
+  ■ファイルの内容
+  VAR_upload_file_1: config
+  VAR_upload_file_2: ‘/APP002/config’
+  VAR_upload_file_3: ‘/APP001/config’
+  VAR_upload_file_4: ‘/APP003/APP002/config’
 </pre></div>
 </div>
 </div>
@@ -1859,16 +1859,16 @@ Collect<span class="w"> </span>END<span class="w"> </span><span class="o">(</spa
 </div>
 <div class="literal-block-wrapper docutils container" id="id71">
 <div class="code-block-caption"><span class="caption-number">リスト 5.51 </span><span class="caption-text">ファイルアップロード項目の削除収集対象ファイルのファイルパス、ディレクトリ構造</span><a class="headerlink" href="#id71" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
-<span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters
-<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
-<span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>-<span class="w">  </span>SAMPLE.yml<span class="w">   </span>※ソースファイル
-<span class="w">   </span><span class="p">|</span>-<span class="w">  </span>_parameters_file
-<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w">  </span>localhost
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>【上位ディレクトリ】
+   |-  _parameters
+   |   |-  localhost
+   |       |-  SAMPLE.yml   ※ソースファイル
+   |-  _parameters_file
+   |   |-  localhost
 
-<span class="w"> </span>■収集対象ファイル名:<span class="w"> </span>SAMPLE.yml
-<span class="w"> </span>■ファイルの内容
-<span class="w"> </span>VAR_upload_file:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">         </span>※アップロード対象ファイル
+ ■収集対象ファイル名: SAMPLE.yml
+ ■ファイルの内容
+ VAR_upload_file: &quot;&quot;         ※アップロード対象ファイル
 </pre></div>
 </div>
 </div>

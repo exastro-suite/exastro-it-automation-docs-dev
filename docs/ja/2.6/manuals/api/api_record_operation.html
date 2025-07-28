@@ -602,10 +602,10 @@
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">[</span>
 <span class="w">     </span><span class="p">{</span>
 <span class="w">         </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;対象のキー&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ファイルデータをbase64エンコードした文字列&quot;</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;対象のキー&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ファイルデータをbase64エンコードした文字列&quot;</span>
 <span class="w">         </span><span class="p">},</span>
 <span class="w">         </span><span class="nt">&quot;parameter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nt">&quot;対象のキー&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;値&quot;</span><span class="p">,</span>
+<span class="w">             </span><span class="nt">&quot;対象のキー&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;値&quot;</span>
 <span class="w">         </span><span class="p">},</span>
 <span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;Register&quot;</span>
 <span class="w">     </span><span class="p">}</span>
@@ -914,32 +914,32 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 </div>
 <div class="literal-block-wrapper docutils container" id="id32">
 <div class="code-block-caption"><span class="caption-number">リスト 2.69 </span><span class="caption-text">メニューの構成情報について</span><a class="headerlink" href="#id32" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;data&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="s2">&quot;column_group_info&quot;</span>:<span class="w"> </span><span class="o">{}</span>,
-<span class="w">        </span><span class="s2">&quot;column_info&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">            </span><span class="s2">&quot;cX&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">                </span><span class="s2">&quot;column_name&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">     </span><span class="c1"># 画面で表示される項目名</span>
-<span class="w">                </span><span class="s2">&quot;column_name_rest&quot;</span>:<span class="s2">&quot;&quot;</span>,<span class="w"> </span><span class="c1"># APIのパラメータで指定する項目名</span>
-<span class="w">                </span><span class="s2">&quot;auto_input&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">      </span><span class="c1"># 自動入力フラグ</span>
-<span class="w">                </span><span class="s2">&quot;input_item&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">      </span><span class="c1"># 入力対象フラグ</span>
-<span class="w">                </span><span class="s2">&quot;view_item&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">        </span><span class="c1"># 出力対象フラグ</span>
-<span class="w">                </span><span class="s2">&quot;required_item&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">   </span><span class="c1"># 必須入力フラグ</span>
-<span class="w">                </span><span class="s2">&quot;unique_item&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">     </span><span class="c1"># 一意制約フラグ</span>
-<span class="w">                </span><span class="s2">&quot;...省略...&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,<span class="w">      </span><span class="c1">#</span>
-<span class="w">            </span><span class="o">}</span>,
-<span class="w">        </span><span class="o">}</span>,
-<span class="w">        </span><span class="s2">&quot;custom_menu&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">            </span><span class="s2">&quot;...省略...&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">        </span><span class="o">}</span>,
-<span class="w">        </span><span class="s2">&quot;menu_info&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">            </span><span class="s2">&quot;...省略...&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">        </span><span class="o">}</span>
-<span class="w">    </span><span class="o">}</span>,
-<span class="w">    </span><span class="s2">&quot;message&quot;</span>:<span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;result&quot;</span>:<span class="w"> </span><span class="s2">&quot;000-00000&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;ts&quot;</span>:<span class="w"> </span><span class="s2">&quot;2023-10-11T05:41:27.678Z&quot;</span>
-<span class="o">}</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+    &quot;data&quot;: {
+        &quot;column_group_info&quot;: {},
+        &quot;column_info&quot;: {
+            &quot;cX&quot;: {
+                &quot;column_name&quot;: &quot;&quot;,     # 画面で表示される項目名
+                &quot;column_name_rest&quot;: &quot;&quot;, # APIのパラメータで指定する項目名
+                &quot;auto_input&quot;: &quot;&quot;,      # 自動入力フラグ
+                &quot;input_item&quot;: &quot;&quot;,      # 入力対象フラグ
+                &quot;view_item&quot;: &quot;&quot;,       # 出力対象フラグ
+                &quot;required_item&quot;: &quot;&quot;,   # 必須入力フラグ
+                &quot;unique_item&quot;: &quot;&quot;,     # 一意制約フラグ
+                &quot;...省略...&quot;: &quot;&quot;      #
+            },
+        },
+        &quot;custom_menu&quot;: {
+            &quot;...省略...&quot;: &quot;&quot;,
+        },
+        &quot;menu_info&quot;: {
+            &quot;...省略...&quot;: &quot;&quot;,
+        }
+    },
+    &quot;message&quot;: &quot;SUCCESS&quot;,
+    &quot;result&quot;: &quot;000-00000&quot;,
+    &quot;ts&quot;: &quot;2023-10-11T05:41:27.678Z&quot;
+}
 </pre></div>
 </div>
 </div>
@@ -1653,7 +1653,6 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;000-00000&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;ts&quot;</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;処理日時&quot;</span>
-<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1661,8 +1660,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span
 <div class="literal-block-wrapper docutils container" id="id41">
 <div class="code-block-caption"><span class="caption-number">リスト 3.17 </span><span class="caption-text">異常時</span><a class="headerlink" href="#id41" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;エラーメッセージ&quot;</span>
-<span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;エラーコード&quot;</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;エラーメッセージ&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;エラーコード&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;ts&quot;</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;処理日時&quot;</span>
 <span class="p">}</span>
 </pre></div>

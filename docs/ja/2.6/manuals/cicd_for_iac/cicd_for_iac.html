@@ -943,7 +943,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <div class="line">※1 オペレーションやMovementが廃止されている場合など。</div>
 <div class="line">※2 紐付先資材に誤りがあった場合や、作業実行に必要な情報が不足している場合など。</div>
 </div>
-<ol class="arabic" id="cicd-for-iac-link-file-upload-flow" start="4">
+<ol class="arabic" id="cicd-for-iac-link-file-upload-flow">
 <li><div class="line-block">
 <div class="line">紐付先資材の更新処理の流れ</div>
 </div>
@@ -993,7 +993,7 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 <p><span class="caption-number">図 1.124 </span><span class="caption-text">サブメニュー画面（リモートリポジトリ資材）</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><div class="line-block">
 <div class="line">リモートリポジトリ資材画面の表示項目は以下の通りです。</div>
 </div>
@@ -1072,22 +1072,22 @@ Git サーバまでの疎通のために設定が必要な場合があります�
 </div>
 <div class="literal-block-wrapper docutils container" id="id28">
 <div class="code-block-caption"><span class="caption-number">リスト 1.25 </span><span class="caption-text">Gitリポジトリのルートディレクトリ</span><a class="headerlink" href="#id28" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="p">|</span>-<span class="w">  </span>roles<span class="w">          </span>・・・・・・・roles<span class="w"> </span>ディレクトリとして認識しません。
-<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">  </span>ita_readme_test_role.yml
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>-<span class="w"> </span>test_role
-<span class="p">|</span><span class="w">      </span><span class="p">|</span>-<span class="w">  </span>defaults
-<span class="p">|</span><span class="w">      </span><span class="p">|</span><span class="w">     </span>main.yml
-<span class="p">|</span><span class="w">      </span><span class="p">|</span>-<span class="w">  </span>tasks
-<span class="p">|</span><span class="w">            </span>main.yml
-<span class="p">|</span>
-<span class="p">|</span>-<span class="w"> </span>sample
-<span class="w">    </span><span class="p">|</span><span class="w"> </span>ita_readme_test_role.yml
-<span class="w">    </span><span class="p">|</span>-<span class="w"> </span>roles<span class="w">       </span>・・・・・・・roles<span class="w"> </span>ディレクトリとして認識します。
-<span class="w">        </span><span class="p">|</span>-<span class="w"> </span>test_role
-<span class="w">           </span><span class="p">|</span>-<span class="w"> </span>defaults
-<span class="w">           </span><span class="p">|</span><span class="w">     </span>main.yml
-<span class="w">           </span><span class="p">|</span>-<span class="w"> </span>tasks
-<span class="w">                 </span>main.yml
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|-  roles          ・・・・・・・roles ディレクトリとして認識しません。
+|   |  ita_readme_test_role.yml
+|   |- test_role
+|      |-  defaults
+|      |     main.yml
+|      |-  tasks
+|            main.yml
+|
+|- sample
+    | ita_readme_test_role.yml
+    |- roles       ・・・・・・・roles ディレクトリとして認識します。
+        |- test_role
+           |- defaults
+           |     main.yml
+           |- tasks
+                 main.yml
 </pre></div>
 </div>
 </div>

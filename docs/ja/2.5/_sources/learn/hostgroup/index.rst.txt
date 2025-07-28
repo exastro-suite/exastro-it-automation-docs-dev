@@ -17,7 +17,7 @@
 3. 作業用ワークスペース
 
 .. glossary:: 作業対象サーバ
-   Exastro IT Automation が Ansible を利用して、行う操作対象のサーバのことです。 
+   Exastro IT Automation が Ansible を利用して、行う操作対象のサーバのことです。
 
 .. glossary:: ワークスペース
    システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。

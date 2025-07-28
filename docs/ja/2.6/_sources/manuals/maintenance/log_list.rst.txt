@@ -10,7 +10,7 @@
 | 以下の一覧の「ログフォーマット」列には使用するログフォーマット名が記載されています。
 | 各サービスのログのフォーマットの詳細はログフォーマット名をもとに次項を参照してください。
 
-.. list-table:: 
+.. list-table::
    :widths: 20 25 20
    :header-rows: 1
    :align: left
@@ -20,103 +20,103 @@
      - | 備考
    * - | ita-ag-oase
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-api-admin
      - | IT Automation APIログフォーマット
-     - | 
+     - |
    * - | ita-api-oase-receiver
      - | IT Automation APIログフォーマット
-     - | 
+     - |
    * - | ita-api-organization
      - | IT Automation APIログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-agent
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-execute
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-legacy-role-vars-listup
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-legacy-vars-listup
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-pioneer-vars-listup
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-ansible-towermaster-sync
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-cicd-for-iac
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-collector
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-conductor-regularly
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-conductor-synchronize
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-excel-export-import
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-execinstance-dataautoclean
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-file-autoclean
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-hostgroup-split
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-menu-create
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-menu-export-import
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-oase-conclusion
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-terraform-cli-execute
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-terraform-cli-vars-listup
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-terraform-cloud-ep-execute
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-by-terraform-cloud-ep-vars-listup
      - | IT Automation標準ログフォーマット
-     - | 
-   * - | ita-migration 
+     - |
+   * - | ita-migration
      - | IT Automation標準ログフォーマット
-     - | 
+     - |
    * - | ita-web-server
      - | Web標準ログフォーマット
-     - | 
+     - |
    * - | platform-api
      - | Platform APIログフォーマット
-     - | 
+     - |
    * - | platform-auth
      - | Platform Authログフォーマット
-     - | 
+     - |
    * - | platform-job
      - | Platform Jobログフォーマット
-     - | 
+     - |
    * - | platform-migration
      - | Platform標準ログフォーマット
-     - | 
+     - |
    * - | platform-web
      - | Web標準ログフォーマット
-     - | 
+     - |
    * - | keycloak
      - | keycloakログフォーマット
-     - | 
+     - |
    * - | mariadb
      - | https://mariadb.com/kb/en/error-log/
      - | ログの詳細は左記URLをご参照ください。
@@ -143,7 +143,7 @@ IT Automation標準ログフォーマット
 
    [2023-02-06 14:18:05,212][INFO] AppLog instance(stdAppLogger) is created
 
-.. list-table:: 
+.. list-table::
    :widths: 15 15 20 20
    :header-rows: 1
    :align: left
@@ -163,23 +163,23 @@ IT Automation標準ログフォーマット
    * - | %(message)s
      - | メッセージ
      - | AppLog instance(stdAppLogger) is created
-     - | 
+     - |
 
 Platform標準ログフォーマット
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: 
+.. code-block::
    :caption: 形式
-    
+
     %(asctime)s %(levelname)s (%(userid)s) %(pathname)s(%(lineno)d) %(message)s
-    
-.. code-block:: 
+
+.. code-block::
    :caption: 例
 
    2023/01/11 11:27:05.976995 INFO (None) /app/platform_init.py(88) platform initialize setting start
 
 
-.. list-table:: 
+.. list-table::
    :widths: 15 15 20 20
    :header-rows: 1
    :align: left
@@ -191,7 +191,7 @@ Platform標準ログフォーマット
    * -  %\(asctime\)s
      -  ログ出力日時
      -  2023/01/11 11:27:05.976995
-     -    
+     -
    * -  %\(levelname\)s
      -  ログレベル
      -  INFO
@@ -199,19 +199,19 @@ Platform標準ログフォーマット
    * -  \(%\(userid\)s\)
      -  アクセスユーザー（Noneは指定なし）
      -  （None）
-     -    
+     -
    * -  %\(pathname\)s
      -  ログ出力元のソース
      -  /app/platform_init.py
-     -    
+     -
    * -  \(%\(lineno\)d\)
      -  ログ出力元の行
      -  \(88\)
-     -   
+     -
    * -  %\(message\)s
      -  メッセージ
      -  platform initialize setting start
-     -  
+     -
 
 Web標準ログフォーマット
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -223,7 +223,7 @@ Web標準ログフォーマット
    :caption: 形式
 
     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined \
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common \ 
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common \
     <IfModule logio_module> \
       # You need to enable mod_logio.c to use %I and %O \
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio \
@@ -260,7 +260,7 @@ Web標準ログフォーマット
      - |
    * - | &u
      - | 認証ユーザ名
-     - | - 
+     - | -
      - |
    * - | %t
      - | リクエストを受け付けた時刻
@@ -312,11 +312,11 @@ Web標準ログフォーマット
      - | 備考
    * - | &I
      - | 受け取ったバイト数
-     - | - 
+     - | -
      - |
    * - | %O
      - | 送信したバイト
-     - | - 
+     - | -
      - |
 
 IT Automation APIログフォーマット
@@ -352,17 +352,17 @@ Platform Authログフォーマット
 Platform Jobログフォーマット
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: 
+.. code-block::
   :caption: 形式
 
   [%(asctime)s] [%(process)06d:%(threadName)s] [%(levelname)-5s] %(message)s
 
-.. code-block:: 
+.. code-block::
   :caption: 例
-  
+
   [2023-01-05 18:05:22,875] [000000:MainThread] [INFO] Get keycloak service account token. realm_name=master
 
-.. list-table:: 
+.. list-table::
    :widths: 15 15 20 20
    :header-rows: 1
    :align: left
@@ -378,7 +378,7 @@ Platform Jobログフォーマット
    * - | [%(process)06d:%(threadName)s]
      - | プロセスID:スレッド名
      - | [000000:MainThread]
-     - | 
+     - |
    * - | [%(levelname)s]
      - | ログレベル
      - | [INFO]
@@ -391,19 +391,19 @@ Platform Jobログフォーマット
 Keycloakログフォーマット
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: 
+.. code-block::
    :caption: 形式
 
    %d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n
 
 
-.. code-block:: 
+.. code-block::
    :caption: 例
 
    2023-01-12 09:21:49,040 INFO  [org.keycloak.events] (default task-13) type=INTROSPECT_TOKEN, realmId=org3, clientId=system-org3-auth, userId=null, ipAddress=XXX.XXX.XXX.X, client_auth_method=client-secret
 
 
-.. list-table:: 
+.. list-table::
    :widths: 15 15 20 20
    :header-rows: 1
    :align: left
@@ -413,7 +413,7 @@ Keycloakログフォーマット
      - | ログの例
      - | 備考
    * - | %d{yyyy-MM-dd HH:mm:ss,SSS}
-     - | ログ出力日時 
+     - | ログ出力日時
      - | 2023-01-12 09:21:49,040
      - |
    * - | %-5p
@@ -423,23 +423,23 @@ Keycloakログフォーマット
    * - | \[%c\]
      - | ログ　カテゴリ名
      - | \[org.keycloak.events\]
-     - | 
+     - |
    * - | \(%t\)
      - | スレッド名
      - | \(default task-13\)
-     - | 
+     - |
    * - | %s
      - | 簡単なメッセージ
-     - | - 
-     - | 
+     - | -
+     - |
    * - | %e
      - | 例外
      - | -
-     - | 
+     - |
    * - | %n
      - | 改行
      - | -
-     - | 
+     - |
 
 | Keycloakのログの詳細は下記URLをご参照ください。
 | https://www.keycloak.org/server/logging

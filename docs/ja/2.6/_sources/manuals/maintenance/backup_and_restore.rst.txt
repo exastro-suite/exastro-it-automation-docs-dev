@@ -305,6 +305,7 @@
       kubectl delete pod exastro-maintenance --namespace exastro
 
    | ※MongoDBを利用している場合
+
    .. code-block:: bash
 
       kubectl delete pod exastro-oase-maintenance --namespace exastro
@@ -544,7 +545,7 @@
              :caption: Exastro IT Automation アプリケーション用データベースリストアコマンド
 
              gzip -dc exastro_mysqldump_ita_db_YYYYMMDD-HHmmss.sql.gz | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/'| kubectl exec -i exastro-maintenance --namespace exastro -- sh -c 'mysql -h ${ITA_DB_HOST} -P ${ITA_DB_PORT} -u ${ITA_DB_ADMIN_USER} -p${ITA_DB_ADMIN_PASSWORD}'
-             
+
           .. code-block:: bash
              :caption: Exastro IT Automation データベース権限更新コマンド
 
@@ -586,6 +587,7 @@
       kubectl delete pod exastro-maintenance --namespace exastro
 
    | ※MongoDBを利用している場合
+
    .. code-block:: bash
 
       kubectl delete pod exastro-oase-maintenance --namespace exastro
