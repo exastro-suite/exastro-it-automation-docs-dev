@@ -3,26 +3,26 @@ Kubernetes cluster
 =====================
 
 Introduction
-========
+============
 
 | This document aims to explain how to construct the Exastro IT Automation's deploy destination, the Kubernetes cluster, using Kubespray.
 
 
 Pre-requisites
-========
+==============
 
 - The user must have an Ansible execution environment that can use Kubespray.
 - The user must have somewhere to install the Kubernetes cluster (This guide uses the following OS: :kbd:`Red Hat Enterprise Linux 8`).
 
 Kubernetes cluster structure
-========================
+============================
 
 This guide follows steps noted on the official website. The steps might change depending on the Kubernetes version.
 
 Official site: https://kubernetes.io/ja/docs/setup/production-environment/tools/kubespray/
 
 Preparing the Ansible environment
------------------------
+---------------------------------
 
 Install tools
 ~~~~~~~~~~~~~~~~~~~~
@@ -35,33 +35,33 @@ Install tools
       :caption: Command
 
       sudo su -
- 
+
 #. | Install Python3.9
 
    .. code-block:: bash
       :caption: Command
 
       yum -y install python39
- 
+
 #. | Install pip3.9
 
    .. code-block:: bash
       :caption: Command
 
       pip3.9 install ruamel-yaml
- 
+
 #. | Install git
 
    .. code-block:: bash
       :caption: Command
 
-      yum -y install git  
+      yum -y install git
 
-.. note:: 
+.. note::
    | The steps can be skipped if the different softwares are already installed.
 
 Configure HOST
-~~~~~~~~
+~~~~~~~~~~~~~~
 
 | Next, we will register the destination inforamtion to the HOSTS.
 | ※In this guide, we will use 3 Kubernetes clusters.
@@ -80,7 +80,7 @@ Configure HOST
    192.168.1.2 ha-conf-k8s-02.cluster.local ha-conf-k8s-02
    192.168.1.3 ha-conf-k8s-03.cluster.local ha-conf-k8s-03
 
-.. note:: 
+.. note::
    | Chabnge the Cluster names and IP addresses accordingly.
 
 Create SSH key
@@ -126,7 +126,7 @@ Activating IPv4 forwarding
       :caption: Command
 
       sudo su -
- 
+
 #. | Rewrite :file:`/etc/sysctl.conf`
 
    | Add the following line; net.ipv4.ip_forward=1
@@ -164,7 +164,7 @@ Activating IPv4 forwarding
       stop firewalld
 
       status firewalld
- 
+
 #. | Deactivate SELinux
 
    | Confirm current status
@@ -197,7 +197,7 @@ Activating IPv4 forwarding
       #       mls - Multi Level Security protection.
       SELINUXTYPE=targeted
 
-   |Reboot the system after finishing configuring the settings.
+   | Reboot the system after finishing configuring the settings.
 
    .. code-block:: bash
       :caption: Command
@@ -217,7 +217,7 @@ Install Kubernetes
 | In the Ansible execution environment, follow the following steps  to install Kubernetes to the Kubernetes cluster environments.
 
 Create hosts.yml
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 | The Kubernetes clusters are created based on the contents of the :file:`hosts.yml` file.
 | First, follow the steps below to create the :file:`hosts.yml` file.
@@ -228,7 +228,7 @@ Create hosts.yml
       :caption: Command
 
       sudo su -
- 
+
 #. | Change the directory to the :kbd:`git cloned` Kubespray folder.
 
    .. code-block:: bash
@@ -265,7 +265,7 @@ Create hosts.yml
       cat inventory/k8s_cluster/hosts.yml
 
 Edit the hosts.yml file
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 | Replace the contents of the :file:`hosts.yml` with the information that will create the Kubernetes clusters.
 | In this guide, we will configure the Kubernetes clustesr to work as Controle planes and work nodes.
 
@@ -275,13 +275,13 @@ Edit the hosts.yml file
    :linenos:
 
 Configure proxy
-~~~~~~~~~
+~~~~~~~~~~~~~~~
 | If the user needs to use a proxy, they must edit the file below.
 
 - :file:`inventory/k8s_cluster/group_vars/all/all.yml`
 
 Install Kubernetes
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 | Execute Kubesparay and install Kubernetes to the Kubernetes cluster environments.
 
@@ -293,7 +293,7 @@ Install Kubernetes
 | This step may take 20-30 minutes depending on the environment and the number of clusters.
 
 Confirm Kubernetes environment
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 | After the previous step has finished, connect to the created Kubernetes cluster environment and run the following command to check the control planes and worker nodes.
 
 .. code-block:: bash
@@ -310,4 +310,3 @@ Confirm Kubernetes environment
    v2ha-k8s-node1   Ready    control-plane   8m48s   v1.27.7
    v2ha-k8s-node2   Ready    control-plane   7m28s   v1.27.7
    v2ha-k8s-node3   Ready    control-plane   7m17s   v1.27.7
-   

@@ -239,7 +239,8 @@
 <div class="line">This guide will also explain system configurations and environments for using Ansible Automation Platform as an execution engine.</div>
 <div class="line"><br /></div>
 <div class="line">For Ansible Core configurations, please see <a class="reference internal" href="ansible_core.html"><span class="doc">Ansible Core</span></a>.</div>
-<div class="line"><br /></div>
+</div>
+<div class="line-block">
 <div class="line">Exastro IT Automation must be installed in order to use the ITA Ansible driver.</div>
 <div class="line">For instructions on how to install Exastro IT Automation, please see <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Helm chart (Kubernetes) - Online</span></a>.</div>
 </div>
@@ -311,27 +312,101 @@
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Ansible Automation Platform (Hybrid pattern)</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ansible Automation Platform (Seperate Execution node pattern)</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>The following diagram illustrates the configuration for Ansible Automation Platform (Hybrid pattern).</p>
 <figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="images/en/diagram/aap_hybrid.png"><img alt="Ansible Automation Platform (Hybrid pattern)" src="images/en/diagram/aap_hybrid.png" style="width: 900px;" />
+<a class="reference internal image-reference" href="../../_images/aap_hybrid.png"><img alt="Ansible Automation Platform (Hybrid pattern)" src="../../_images/aap_hybrid.png" style="width: 900px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 2.1 </span><span class="caption-text">Ansible Automation Platform (Hybrid pattern)</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
+<table class="docutils align-left" id="id3">
+<caption><span class="caption-number">表 2.2 </span><span class="caption-text">System communication requirements</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 5.3%" />
+<col style="width: 10.5%" />
+<col style="width: 10.5%" />
+<col style="width: 21.1%" />
+<col style="width: 52.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Communication number</div>
+<div class="line">※1</div>
+</div>
+</th>
+<th class="head"><p>FROM</p></th>
+<th class="head"><p>TO</p></th>
+<th class="head"><div class="line-block">
+<div class="line">Protocol</div>
+<div class="line">[Port number　※2]</div>
+</div>
+</th>
+<th class="head"><p>Main application</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>①</p></td>
+<td><p>ITA system</p></td>
+<td><p>Hybrid node</p></td>
+<td><div class="line-block">
+<div class="line">http(s)</div>
+<div class="line">[80(443)/tcp]</div>
+</div>
+</td>
+<td><p>Ansible Automation Platform control communication</p></td>
+</tr>
+<tr class="row-odd"><td><p>②</p></td>
+<td><p>ITA system</p></td>
+<td><p>Hybrid node</p></td>
+<td><p>ssh [22/tcp]</p></td>
+<td><p>Ansible Automation Platform execution communication</p></td>
+</tr>
+<tr class="row-even"><td><p>③</p></td>
+<td><p>ITA system</p></td>
+<td><p>Git</p></td>
+<td><div class="line-block">
+<div class="line">http(s)</div>
+<div class="line">[80(443)/tcp]</div>
+</div>
+</td>
+<td><p>File link</p></td>
+</tr>
+<tr class="row-odd"><td><p>④</p></td>
+<td><p>Hybrid node</p></td>
+<td><p>Target device</p></td>
+<td><div class="line-block">
+<div class="line">Any</div>
+<div class="line">(ssh [22/tcp] telnet [23/tcp] etc. ※3）</div>
+</div>
+</td>
+<td><p>Run commands to aumtomatic configuration devices</p></td>
+</tr>
+<tr class="row-even"><td><p>⑤</p></td>
+<td><p>Hybrid node</p></td>
+<td><p>Git</p></td>
+<td><div class="line-block">
+<div class="line">http(s)</div>
+<div class="line">[80(443)/tcp]</div>
+</div>
+</td>
+<td><p>File link</p></td>
+</tr>
+</tbody>
+</table>
 <div class="line-block">
 <div class="line">※1 The communication numbers corresponds to the numbers illustrated in the Ansible Automation Platform (Hybrid pattern) diagram.</div>
 <div class="line">※2 The port numbers written are standard port numbers.</div>
 <div class="line">※3 These are examples. The protocols depends on the Ansible module.</div>
 </div>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>The following diagram illustrates the configuration for Ansible Automation Platform (Seperate Execution node pattern).</p>
-<figure class="align-default" id="id3">
-<a class="reference internal image-reference" href="images/en/diagram/aap_divide.png"><img alt="Ansible Automation Platform (Seperate Execution node pattern)" src="images/en/diagram/aap_divide.png" style="width: 1200px;" />
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/aap_divide.png"><img alt="Ansible Automation Platform (Seperate Execution node pattern)" src="../../_images/aap_divide.png" style="width: 1200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 2.2 </span><span class="caption-text">Ansible Automation Platform (Seperate Execution node pattern)</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 2.2 </span><span class="caption-text">Ansible Automation Platform (Seperate Execution node pattern)</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<table class="docutils align-left" id="id4">
-<caption><span class="caption-number">表 2.2 </span><span class="caption-text">System communication requirements</span><a class="headerlink" href="#id4" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id5">
+<caption><span class="caption-number">表 2.3 </span><span class="caption-text">System communication requirements</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 5.3%" />
 <col style="width: 10.5%" />
@@ -418,8 +493,8 @@
 <div class="line">The system requirements for Ansible driver are based on the ITA System requirements. See <a class="reference internal" href="../../installation/online/exastro/kubernetes.html"><span class="doc">Helm chart (Kubernetes) - Online</span></a> for more information.</div>
 <div class="line">The following are the system requirements for Ansible Automation Platform.</div>
 </div>
-<table class="docutils align-center" id="id5">
-<caption><span class="caption-number">表 2.3 </span><span class="caption-text">Ansible Automation Platform の動作確認済みバージョン</span><a class="headerlink" href="#id5" title="Link to this table">¶</a></caption>
+<table class="docutils align-center" id="id6">
+<caption><span class="caption-number">表 2.4 </span><span class="caption-text">Ansible Automation Platform の動作確認済みバージョン</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head" rowspan="2"><div class="line-block">
 <div class="line"><br /></div>
@@ -471,11 +546,11 @@
 <div class="line-block">
 <div class="line">The following diagram illustrates The Playbook links between ITA and Ansible Automation Platform.</div>
 </div>
-<figure class="align-default" id="id6">
-<a class="reference internal image-reference" href="images/en/diagram/playbook_link_between_aap_and_container.png"><img alt="ITA and Ansible Automation Platform 2.x Playbook link Diagram" src="images/en/diagram/playbook_link_between_aap_and_container.png" style="width: 600px;" />
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/playbook_link_between_aap_and_container.png"><img alt="ITA and Ansible Automation Platform 2.x Playbook link Diagram" src="../../_images/playbook_link_between_aap_and_container.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 2.3 </span><span class="caption-text">ITA and Ansible Automation Platform 2.x Playbook link Diagram</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 2.3 </span><span class="caption-text">ITA and Ansible Automation Platform 2.x Playbook link Diagram</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -484,8 +559,8 @@
 <div class="line-block">
 <div class="line">After installing Ansible Automation Platform, configure the following settings depending on the Execution engine.</div>
 </div>
-<table class="docutils align-center" id="id7">
-<caption><span class="caption-number">表 2.4 </span><span class="caption-text">Ansible Core system requirements</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
+<table class="docutils align-center" id="id8">
+<caption><span class="caption-number">表 2.5 </span><span class="caption-text">Ansible Core system requirements</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 45.0%" />
 <col style="width: 55.0%" />
@@ -524,8 +599,8 @@
 <div class="line">The Ansible Automation Platform's Hon node does not need a directory.</div>
 <div class="line"><br /></div>
 </div>
-<table class="docutils align-left" id="id8">
-<caption><span class="caption-number">表 2.5 </span><span class="caption-text">ITA Operation directory information</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id9">
+<caption><span class="caption-number">表 2.6 </span><span class="caption-text">ITA Operation directory information</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 22.6%" />
 <col style="width: 77.4%" />
@@ -554,7 +629,7 @@
 <div class="line">Log in to the Ansible Automation Platform through your browser and set:menuselection:<cite>Settings --&gt; Job --&gt; Path for publishing seperated jobs</cite> to <code class="file docutils literal notranslate"><span class="pre">/var/lib/exastro/</span></code>.</div>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="images/en/diagram/publish_ita_operation_directory.png"><img alt="images/en/diagram/publish_ita_operation_directory.png" src="images/en/diagram/publish_ita_operation_directory.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="../../_images/publish_ita_operation_director.png"><img alt="../../_images/publish_ita_operation_director.png" src="../../_images/publish_ita_operation_director.png" style="width: 600px;" />
 </a>
 </figure>
 </section>
@@ -591,8 +666,8 @@
 <div class="line-block">
 <div class="line">The user will need a access token that allows them to create and operate.For more information, see <a class="reference internal" href="../../installation/online/exastro/kubernetes.html#installation-kubernetes-gitlablinkage"><span class="std std-ref">GitLab link settings</span></a>.</div>
 </div>
-<table class="docutils align-left" id="id9">
-<caption><span class="caption-number">表 2.6 </span><span class="caption-text">ITA Generated Linux user information for SSH authentication</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id10">
+<caption><span class="caption-number">表 2.7 </span><span class="caption-text">ITA Generated Linux user information for SSH authentication</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 14.9%" />
 <col style="width: 85.1%" />
@@ -633,7 +708,7 @@
 <li><p>NO_PROXY</p></li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="images/en/diagram/proxy_settings.png"><img alt="images/en/diagram/proxy_settings.png" src="images/en/diagram/proxy_settings.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="../../_images/proxy_settings.png"><img alt="../../_images/proxy_settings.png" src="../../_images/proxy_settings.png" style="width: 600px;" />
 </a>
 </figure>
 <div class="admonition warning">
