@@ -37,24 +37,24 @@
      - 項目1設定値
    * - 項目の名前
      - :kbd:`ホスト名`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`hostname`
    * - 入力方式
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - :kbd:`64`
    * - 正規表現
-     - 
+     -
    * - 初期値
-     - 
+     -
    * - 必須
      - ✓
    * - 一意制約
-     - 
+     -
    * - 説明
-     - 
+     -
    * - 備考
-     - 
+     -
 
 .. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
    :widths: 5 10
@@ -108,8 +108,8 @@
 
    * - Movement名
      - Ansible利用情報
-     - 
-   * - 
+     -
+   * -
      - ホスト指定形式
      - ヘッダーセクション
    * - :kbd:`ホスト名設定`
@@ -131,7 +131,7 @@ Ansible Role 登録
 | 手作業で Ansible Role を作成することも可能ですが、Ansible-Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
 | 本シナリオでは、 `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用します。
 
-| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ 
+| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_
 
 | :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` から、ダウンロードした `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ を登録します。
 
@@ -198,7 +198,7 @@ Movement と Ansible Role の紐付け
     - :kbd:`Value型`
     - :kbd:`ホスト名設定`
     - :kbd:`ホスト名設定:VAR_RH_hostname`
-    - 
+    -
 
 作業対象の登録
 ==============
@@ -226,17 +226,17 @@ Movement と Ansible Role の紐付け
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - ssh秘密鍵ファイル
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
@@ -313,7 +313,7 @@ Movement と Ansible Role の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - server01
@@ -394,9 +394,6 @@ Movement と Ansible Role の紐付け
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
-
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
 .. figure:: /images/learn/quickstart/scenario1/更新用オペレーション登録.png
@@ -438,7 +435,7 @@ Movement と Ansible Role の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - :kbd:`server01`
@@ -465,19 +462,19 @@ Movement と Ansible Role の紐付け
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     -
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - パスワード
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`db01`

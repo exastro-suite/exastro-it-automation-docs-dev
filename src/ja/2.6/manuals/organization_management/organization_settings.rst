@@ -48,19 +48,19 @@
 - 設定確認
 
   - コマンド
-     
+
     .. code-block:: bash
 
        BASEURL="https://severname"
        ORGANAIZATION_ID="オーガナイゼーションID"
        USERNAME="ユーザー名"
        PASSWORD="パスワード"
-   
+
        curl -u "${USERNAME}:${PASSWORD}" \
        "${BASEURL}/api/${ORGANAIZATION_ID}/platform/setting" \
        | jq ".data.token"
 
-       
+
   - 実行結果
 
     .. code-block:: bash
@@ -72,15 +72,15 @@
        }
 
 - 設定変更
-  
+
   - コマンド
-     
+
     .. code-block:: bash
 
        BASEURL="https://severname"
        ORGANAIZATION_ID="オーガナイゼーションID"
        USERNAME="ユーザー名"
-       PASSWORD="パスワード" 
+       PASSWORD="パスワード"
 
        cat <<EOS | curl -u "${USERNAME}:${PASSWORD}" -H "Content-type: application/json" \
        -X PATCH -d @- "${BASEURL}/api/${ORGANAIZATION_ID}/platform/setting"
@@ -92,8 +92,8 @@
            }
        }
        EOS
-       
-  - 実行結果（成功時） 
+
+  - 実行結果（成功時）
 
     .. code-block:: bash
 
