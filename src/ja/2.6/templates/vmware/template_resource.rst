@@ -12,7 +12,7 @@ https://github.com/exastro-suite/templates/releases
 
 ファイル名
 ----------
-template-createVM-1.0.0-ita-2.4.0.kym
+template-createVM-1.0.0-ita-2.6.0.kym
 
 インポート方法は「 :ref:`menu_import` 」を参照してください。
 
@@ -30,7 +30,7 @@ template-createVM-1.0.0-ita-2.4.0.kym
    :caption: 形式
 
    sudo su -
-   git clone https://github.com/exastro-suite/exastro-it-automation.git -b 2.4.0
+   git clone https://github.com/exastro-suite/exastro-it-automation.git -b 2.6.0
 
 3.クローン作成後、以下のコマンドを入力しDockerファイルを開きます。
 
@@ -58,14 +58,14 @@ template-createVM-1.0.0-ita-2.4.0.kym
 .. code-block::
    :caption: 形式
 
-   podman build --format=docker -f ita_root/ita_by_ansible_execute/ita_ansible_agent/Dockerfile -t exastro/ita-ansible-agent:2.4.0 .
+   podman build --format=docker -f ita_root/ita_by_ansible_execute/ita_ansible_agent/Dockerfile -t exastro/ita-ansible-agent:2.6.0 .
 
 7.以下のコマンドを入力し、tarファイルに圧縮します。
 
 .. code-block::
    :caption: 形式
 
-   podman save localhost/exastro/ita-ansible-agent:2.4.0 > /var/ita-agent-24.tar
+   podman save localhost/exastro/ita-ansible-agent:2.6.0 > /var/ita-agent-26.tar
 
 
 8.7で作成したtarファイルをITAインストール環境に移動
@@ -75,7 +75,7 @@ template-createVM-1.0.0-ita-2.4.0.kym
 .. code-block::
    :caption: 形式
 
-   docker load < ita-agent-24.tar
+   docker load < ita-agent-26.tar
 
 10..envファイルの更新をします。
 設定ファイル :file:`~/exastro-docker-compose/.env`
@@ -94,7 +94,7 @@ template-createVM-1.0.0-ita-2.4.0.kym
    #### Ansible エージェントのコンテナイメージのリポジトリ
    ANSIBLE_AGENT_IMAGE=localhost/exastro/ita-ansible-agent
    #### Ansible エージェントのコンテナイメージのタグ
-   ANSIBLE_AGENT_IMAGE_TAG=2.4.0
+   ANSIBLE_AGENT_IMAGE_TAG=2.6.0
 
 11.以下のコマンドをdocker環境で入力し、環境変数の反映をします。
 
