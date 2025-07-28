@@ -12,7 +12,7 @@ APIのアクセス（認証）について
 | Exastro Suite (IT Automation 2.0系)のAPIの呼び出し方法として、次の２つがあります。
 
 - APIの呼び出し方法
-  
+
   - :kbd:`Basic認証`
 
   - :kbd:`Bearer認証`
@@ -40,7 +40,7 @@ Basic認証
     curl -u "${USERNAME}:${PASSWORD}" "${BASEURL}/api/platform/organizations"
 
 
-Bearer認証  
+Bearer認証
 ----------
 
 | アクセストークンを指定してAPIを呼び出す認証方式です。
@@ -50,10 +50,10 @@ Bearer認証
     :widths: 20, 40
     :header-rows: 1
     :align: left
-    
+
     * - トークン
       - 役割・特徴
-    * - refresh_token	
+    * - refresh_token
       - | 事前に準備するトークンで、access_tokenを発行するために必要です。
         | トークンの有効期限が長い（デフォルト：1年）
     * -  access_token
@@ -68,9 +68,9 @@ Bearer認証
 | ※二要素認証の設定の有無によって、パラメータに違いがあります。
 
 - | 二要素認証を設定していないユーザの場合
-  
+
 .. code-block:: bash
-    
+
     BASEURL="https://severname"
     USERNAME="ユーザー名"
     PASSWORD="パスワード"
@@ -85,9 +85,9 @@ Bearer認証
     "${BASEURL}/auth/realms/master/protocol/openid-connect/token"
 
 - | 二要素認証を設定しているユーザの場合
-  
+
 .. code-block:: bash
-  
+
   BASEURL="https://severname"
   USERNAME="ユーザー名"
   PASSWORD="パスワード"
@@ -104,7 +104,7 @@ Bearer認証
   "${BASEURL}/auth/realms/master/protocol/openid-connect/token"
 
 - | 実行結果
-   
+
 | 以下の応答の中のrefresh_tokenを保存します（API呼出の際に使用します）。
 | ※この実行結果以外で後からrefresh_tokenを再度表示することは出来ないので、発行したrefresh_tokenは大切に保管してください。
 
@@ -122,7 +122,7 @@ Bearer認証
     "scope": "openid email profile offline_access"
   }
 
-実行手順（サンプル） 
+実行手順（サンプル）
 ^^^^^^^^^^^^^^^^^^^^
 
 | 以下のサンプルはBearer認証を使用して、オーガナイゼーション一覧取得APIを呼出しています。
@@ -145,10 +145,10 @@ Bearer認証
   # オーガナイゼーション一覧取得APIの呼び出し
   curl -H "Authorization: Bearer ${ACCESS_TOKEN}" "${BASEURL}/api/platform/organizations"
 
-付録  
+付録
 ----
 
-発行済みのrefresh_tokenの有効期限の確認  
+発行済みのrefresh_tokenの有効期限の確認
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - | Basic認証
@@ -174,7 +174,7 @@ Bearer認証
 
 - | 実行結果
 
-.. code-block:: bash
+.. code-block:: json
 
   {
     "data": [
@@ -201,10 +201,10 @@ Bearer認証
     :widths: 20, 40
     :header-rows: 1
     :align: left
-    
+
     * - 項目
       - 内容
-    * - .data[*].expire_timestamp	
+    * - .data[*].expire_timestamp
       - 有効期限(UTC時間)
     * - .date[*].lastaccess_timestamp
       - 最終アクセス日時(UTC時間)
@@ -213,7 +213,7 @@ Bearer認証
     * - .data[*].id
       - セッションID
 
-発行済みのrefresh_tokenの無効化  
+発行済みのrefresh_tokenの無効化
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | 発行者本人分の全てのrefresh_tokenを無効化し、使用できないようにするには以下のAPIを実行します。
@@ -261,12 +261,12 @@ Bearer認証
 | ※設定はシステム管理者のtokenにのみに反映されます
 
 1. | 以下のURLよりkeycloakにアクセスします。
-  
+
 .. code-block:: bash
-  
+
   {システム管理者サイトアドレス}/auth/admin/master/console/#/realms/master
 
-2. | 未ログインの際は、ログイン画面が表示されますのでログインしてください
+1. | 未ログインの際は、ログイン画面が表示されますのでログインしてください
 
 .. figure:: /images/ja/manuals/platform/login/exastro-login.png
    :width: 400px
@@ -274,14 +274,14 @@ Bearer認証
 
 
 - | refresh tokenの有効期限設定
-  
+
   1. | 「Realm Settings」の「Tokens」を選択します。
-   
+
   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_tokens.png
      :width: 500px
      :alt: Tokens
 
-  2. | 「Offline Session Max Limited」をONに設定し、「Offline Session Idle」と「Offline Session Max」にrefresh tokenの有効期限に設定したい値を入力します。
+  1. | 「Offline Session Max Limited」をONに設定し、「Offline Session Idle」と「Offline Session Max」にrefresh tokenの有効期限に設定したい値を入力します。
      | 各項目についての詳細は Keycloakのドキュメント <https://www.keycloak.org/docs/latest/server_admin/index.html> をご確認ください。
 
      | 例)refresh tokenの有効期限を365日に設定したい場合
@@ -294,7 +294,7 @@ Bearer認証
      :alt: Offline Session Max Limited
 
 - | access tokenの有効期限設定
-  
+
   1. | 「Clients」を選択します。
 
   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_clients.png
@@ -306,8 +306,8 @@ Bearer認証
   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_platform-api.png
      :width: 500px
      :alt: platform-api
-   
-  3. | 「Advanced Settings」の中の「Access Token Lifespan」と「Client Session Idle」と「Client Session Max」にaccess tokenの有効期限に設定したい値を入力します。
+
+  1. | 「Advanced Settings」の中の「Access Token Lifespan」と「Client Session Idle」と「Client Session Max」にaccess tokenの有効期限に設定したい値を入力します。
      | 各項目についての詳細は Keycloakのドキュメント <https://www.keycloak.org/docs/latest/server_admin/index.html> をご確認ください。
 
      | 例)access tokenの有効期限を1日に設定したい場合
@@ -319,4 +319,4 @@ Bearer認証
   .. figure:: /images/ja/manuals/platform/keycloak/keycloak_advanced_settings.png
      :width: 500px
      :alt: Advanced Settings
-   
+

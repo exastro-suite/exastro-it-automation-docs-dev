@@ -43,7 +43,7 @@
    .. image:: /images/ja/manuals/platform/service_account_users/ワークスペース選択.png
       :width: 600px
       :align: left
-      
+
    .. note:: | ワークスペース管理者権限のあるワークスペースのみ表示されます。
 
 #. | :menuselection:`サービスアカウントユーザー一覧` 画面が表示されるので、 :guilabel:`作成` をクリックします。
@@ -62,7 +62,7 @@
       :widths: 150 400
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - サービスアカウントユーザー名

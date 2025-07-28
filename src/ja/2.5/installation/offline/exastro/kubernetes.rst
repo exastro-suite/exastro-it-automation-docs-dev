@@ -44,7 +44,7 @@ Exastro on Kubernetes - Offline
 - クライアント要件
 
   | 動作確認が取れているクライアントアプリケーションのバージョンは下記のとおりです。
-  
+
   .. list-table:: クライアント要件
    :widths: 20, 20
    :header-rows: 1
@@ -128,7 +128,7 @@ Exastro on Kubernetes - Offline
 ==========
 | オンライン環境での作業完了後に、オフライン環境にてインストールを実施します。
 | ※本説明では、資材収集サーバー1台、Ansible実行サーバ1台、Exastroインストールサーバ1台の計3台で実施しています。
-											
+
 .. figure:: /images/ja/installation/kubernetes/k8s_flow.png
    :width: 900px
    :alt: フローイメージ
@@ -136,7 +136,7 @@ Exastro on Kubernetes - Offline
 
 オンライン環境での手順
 ^^^^^^^^^^^^^^^^^^^^^^
-													
+
 | ①事前準備
 | ②helmリポジトリ及び設定ファイルの取得
 | ③kubespray及びkubernetesのコンテナイメージの取得
@@ -205,7 +205,7 @@ Exastro on Kubernetes - Offline
 .. code-block:: shell
    :caption: コマンド
 
-   cd  /etc/systemd/system/docker.service.d   
+   cd  /etc/systemd/system/docker.service.d
 
    #docker.service.dディレクトリが存在しない場合は新しく作成する
    cd  /etc/systemd/system/
@@ -218,7 +218,7 @@ Exastro on Kubernetes - Offline
    :caption: コマンド
 
    vi http-proxy.conf
-   
+
    [Service]
    Environment="DOCKER_ENABLE_DEPRECATED_PULL_SCHEMA_1_IMAGE=1"
 
@@ -242,7 +242,7 @@ Exastro on Kubernetes - Offline
 .. code-block:: shell
    :caption: コマンド
 
-   dnf install -y git python39 
+   dnf install -y git python39
 
    pip3.9 install ruamel-yaml
 
@@ -269,9 +269,9 @@ Exastro on Kubernetes - Offline
    curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 
    chmod 700 get_helm.sh
-   
+
    ./get_helm.sh
-   
+
    helm version
 
 | Exastro システムの Helm リポジトリを登録後、リポジトリを取得します。
@@ -282,7 +282,7 @@ Exastro on Kubernetes - Offline
    helm repo add exastro https://exastro-suite.github.io/exastro-helm/ --namespace exastro
 
    helm repo update
-   
+
    helm pull exastro/exastro
 
    rm -f get_helm.sh
@@ -399,7 +399,7 @@ Exastro on Kubernetes - Offline
        :diff: ../../literal_includes/exastro.yaml
        :caption: exastro.yaml
        :language: yaml
-       
+
 5.  MongoDBコンテナの設定
 
     | データベースのデータを永続化するために利用するストレージを指定します
@@ -610,9 +610,9 @@ GitLab 連携設定
    :caption: コマンド
 
    cd kubespray/contrib/offline
-   
+
    ./generate_list.sh
-   
+
    cp -ip /tmp/kubespray/contrib/offline/temp/images.list /tmp/work/k8s-images.list
 
 | kubernetesのコンテナイメージを取得するシェルスクリプト作成します。
@@ -666,10 +666,10 @@ GitLab 連携設定
 
    cd /tmp/kubespray
 
-   dnf install -y --downloadonly --downloaddir=/tmp/pkg-repo --installroot=/tmp/pkg-installroot --releasever=x.x docker-ce python39 nginx gcc httpd systemd-devel keepalived 
- 
+   dnf install -y --downloadonly --downloaddir=/tmp/pkg-repo --installroot=/tmp/pkg-installroot --releasever=x.x docker-ce python39 nginx gcc httpd systemd-devel keepalived
+
    dnf install -y createrepo
-   
+
    createrepo /tmp/pkg-repo
 
    pip3.9 download -d /tmp/pip_whl -r requirements.txt
@@ -686,7 +686,7 @@ GitLab 連携設定
 .. code-block:: shell
    :caption: コマンド
 
-   createrepo /tmp/k8s-repo   
+   createrepo /tmp/k8s-repo
 
 | manage-offline-files.shは「 NGINX_PORT=8080 」 及び ファイル最下部の「 sudo "${runtime}" container inspect nginx >/dev/null 2>&1 」以降の記載を削除します。
 
@@ -719,7 +719,7 @@ GitLab 連携設定
    -         --volume "${OFFLINE_FILES_DIR}:/usr/share/nginx/html/download" \
    -         --volume "${CURRENT_DIR}"/nginx.conf:/etc/nginx/nginx.conf \
    -         --name nginx nginx:alpine
-   - fi 
+   - fi
 
 | manage-offline-files.shを実行します。
 
@@ -734,7 +734,7 @@ GitLab 連携設定
     | 取得したファイルはoffline-files.tar.gzとして圧縮されます。
     | offline-files.tar.gzが存在しない場合は以下のメッセージが表示されますが問題ありません。
     | rm: cannot remove '/tmp/kubespray/contrib/offline/offline-files.tar.gz': No such file or directory
-   
+
 
 ⑤Exastroのコンテナイメージを取得
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -748,7 +748,7 @@ GitLab 連携設定
 
    cd /tmp/work
 
-   vi exastro-images.list 
+   vi exastro-images.list
 
 .. code-block:: shell
    :caption: 下記のコードをコピー＆ペーストします
@@ -830,14 +830,14 @@ GitLab 連携設定
 
 
 | シェルスクリプトを実行し、コンテナイメージを取得します。x.x.x にはITAのバージョンを指定します。
-| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)  
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)
 
 .. code-block:: shell
    :caption: コマンド
 
    chmod a+x exastro-image-save.sh
-   
-   sh exastro-image-save.sh x.x.x 
+
+   sh exastro-image-save.sh x.x.x
 
 ⑥オフライン環境で使用するシェルスクリプト等を作成
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -899,7 +899,7 @@ GitLab 連携設定
    #!/bin/bash
 
    IPaddress=xx.xx.xx.xx:6000
-    
+
    readarray -t image_list < k8s-images.list
    for image in ${image_list[@]}
    do
@@ -928,7 +928,7 @@ GitLab 連携設定
    [ControlMachine]
    Ansible実行サーバのホスト名
 
-   [k8s-node1] 
+   [k8s-node1]
    Exastroインストールサーバのホスト名
 
    [K8S:children]
@@ -986,7 +986,7 @@ GitLab 連携設定
    :caption: コマンド
 
    vi apply-pv.sh
-   
+
 .. code-block:: shell
    :caption: 下記のコードをコピー＆ペーストします
 
@@ -994,8 +994,8 @@ GitLab 連携設定
    /usr/local/bin/kubectl apply -f /tmp/work/pv-database.yaml
    /usr/local/bin/kubectl apply -f /tmp/work/pv-ita-common.yaml
    /usr/local/bin/kubectl apply -f /tmp/work/pv-mongo.yaml
-   /usr/local/bin/kubectl apply -f /tmp/work/pv-gitlab.yaml 
-   /usr/local/bin/kubectl apply -f /tmp/work/pv-pf-auditlog.yaml 
+   /usr/local/bin/kubectl apply -f /tmp/work/pv-gitlab.yaml
+   /usr/local/bin/kubectl apply -f /tmp/work/pv-pf-auditlog.yaml
 
 | パッケージファイルをインストールするシェルスクリプトを作成します。
 
@@ -1023,7 +1023,7 @@ GitLab 連携設定
    rpm -ivh --force curl*.rpm libcurl*.rpm
 
    # e2fsprogs のインストール
-   rpm -ivh --force e2fsprogs*.rpm e2fsprogs-libs*.rpm libcom_err*.rpm libss*.rpm 
+   rpm -ivh --force e2fsprogs*.rpm e2fsprogs-libs*.rpm libcom_err*.rpm libss*.rpm
 
    # device-mapper-libs のインストール
    rpm -ivh --force device-mapper*.rpm device-mapper-event*.rpm device-mapper-event-libs*.rpm device-mapper-libs*.rpm lvm2*.rpm lvm2-libs*.rpm ipset-libs*.rpm
@@ -1058,10 +1058,10 @@ GitLab 連携設定
    # xfsprogs のインストール
    rpm -ivh --force xfsprogs*.rpm
 
-   # container-selinux のインストール 
+   # container-selinux のインストール
    rpm -ivh --force container-selinux*.rpm selinux-policy*.rpm selinux-policy-targeted*.rpm
 
-   # nfs-utils のインストール 
+   # nfs-utils のインストール
    rpm -ivh --force  nfs-utils*.rpm
 
    #iproutes のインストール
@@ -1069,7 +1069,7 @@ GitLab 連携設定
 
 
 
-資材の転送	
+資材の転送
 ^^^^^^^^^^
 | 取得した資材を圧縮します。
 | ExastroのコンテナイメージはITA_VERSIONで指定したバージョンがディレクトリ名になっているため、x.x.xはバージョンを指定します。
@@ -1080,7 +1080,7 @@ GitLab 連携設定
    cd /tmp/work
 
    tar -zcvf exastro-image.tar.gz x.x.x
-   
+
    tar -zcvf k8s-images.tar.gz k8s-images
 
 
@@ -1099,9 +1099,9 @@ GitLab 連携設定
    cd /tmp
 
    tar -zcvf k8s-repo.tar.gz k8s-repo
-   
+
    tar -zcvf pkg-repo.tar.gz pkg-repo
-   
+
    tar -zcvf pip-whl.tar.gz pip_whl
 
    tar -zcvf kubespray.tar.gz kubespray
@@ -1111,18 +1111,18 @@ GitLab 連携設定
 | Ansible実行サーバの/tmpに/workディレクトリを作成し、以下の資材を配置します。
 
 - exastro-image.tar.gz
-- k8s-images.tar.gz 
-- resource.tar.gz 
+- k8s-images.tar.gz
+- resource.tar.gz
 - exastro-x.x.x.tgz
 - offline-files.tar.gz
 - k8s-repo.tar.gz
-  
+
 
 | オフライン環境の/tmpに以下の資材を配置します。
 
 
-- pkg-repo.tar.gz 
-- pip-whl.tar.gz 
+- pkg-repo.tar.gz
+- pip-whl.tar.gz
 - kubespray.tar.gz
 
 
@@ -1133,7 +1133,7 @@ GitLab 連携設定
 | 以下は、Ansible実行サーバ1台、Exastroインストールサーバ1台で構成した例です。
 
 
-⑦資材受け取り	
+⑦資材受け取り
 ^^^^^^^^^^^^^^
 | Ansible実行サーバで、取得した資材を展開します。
 
@@ -1142,21 +1142,21 @@ GitLab 連携設定
 
    cd /tmp
 
-   tar xzvf kubespray.tar.gz 
+   tar xzvf kubespray.tar.gz
 
-   tar xzvf pip-whl.tar.gz 
+   tar xzvf pip-whl.tar.gz
 
-   tar xzvf pkg-repo.tar.gz 
+   tar xzvf pkg-repo.tar.gz
 
-   cd /tmp/work 
+   cd /tmp/work
 
    tar xzvf offline-files.tar.gz
 
-   tar xzvf k8s-images.tar.gz  
+   tar xzvf k8s-images.tar.gz
 
    tar xzvf /tmp/work/resource.tar.gz -C /tmp/work
 
- 
+
 
 ⑧Ansible実行サーバでの準備
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1166,7 +1166,7 @@ GitLab 連携設定
 
    cd /tmp
 
-   vi pkg-install.sh 
+   vi pkg-install.sh
 
 
 
@@ -1189,11 +1189,11 @@ GitLab 連携設定
 
    #docker-ceのインストール
    cd /tmp/pkg-repo
-    
+
    docker_ce=$(ls | grep -E "docker-ce|docker-ce-cli|docker-ce-rootless-extras|docker-compose-plugin|fuse3|fuse3-libs|fuse-common|fuse-overlayfs|libcgroup|libslirp|slirp4netns|container-selinux|perl-IO-Socket-SSL|perl-Mozilla-CA|perl-Net-SSLeay")
 
    dnf install -y --disablerepo=\* --enablerepo=pkg-repo ${docker_ce}
-    
+
    #pythonのインストール
    python=$(ls | grep "python39")
 
@@ -1203,7 +1203,7 @@ GitLab 連携設定
    nginx=$(ls | grep "nginx")
 
    dnf install -y --disablerepo=\* --enablerepo=pkg-repo ${nginx}
-   
+
    #ansible関連のインストール
    cd /tmp/pip_whl
    pip3.9 install --no-index --find-links=./ ansible cryptography jinja2 jmespath MarkupSafe netaddr pbr ruamel.yaml ruamel.yaml.clib
@@ -1219,7 +1219,7 @@ GitLab 連携設定
    ./pkg-install.sh
 
 
-| エラーメッセージが表示された場合は、表示されているmoduleを検索し全てインストールします。				
+| エラーメッセージが表示された場合は、表示されているmoduleを検索し全てインストールします。
 
 
 .. code-block:: shell
@@ -1235,8 +1235,8 @@ GitLab 連携設定
 
    #対象がperl-Mozilla-CA 及び perl-Net-SSLeayだった場合
    cd /tmp/pkg-repo
-   ls -l | grep -E "perl-Mozilla-CA|perl-Net-SSLeay" 
-   dnf -y --disablerepo=\* --enablerepo=pkg-repo perl-Mozilla-CA-20160104-7.module_el8.5.0+2812+ed912d05.noarch.rmp perl-Net-SSLeay-1.88-2.module_el8.6.0+2811+fe6c84b0.x86_64.rpm        
+   ls -l | grep -E "perl-Mozilla-CA|perl-Net-SSLeay"
+   dnf -y --disablerepo=\* --enablerepo=pkg-repo perl-Mozilla-CA-20160104-7.module_el8.5.0+2812+ed912d05.noarch.rmp perl-Net-SSLeay-1.88-2.module_el8.6.0+2811+fe6c84b0.x86_64.rpm
 
 
 | dockerグループにユーザを追加します。
@@ -1282,27 +1282,27 @@ GitLab 連携設定
 
    #.sshディレクトリが存在する場合は作成不要
    mkdir .ssh
-   
+
    cd .ssh
-   
+
    #指定がない場合は全てEnterを押す
    ssh-keygen -t rsa
 
 | 実行しているサーバー自身 及び HOSTSに登録したサーバに対して鍵交換を実施します。
 | 実行後はssh接続ができることを確認します。
-   
+
 .. code-block:: shell
    :caption: コマンド
 
    ssh-copy-id -i ~/.ssh/id_rsa.pub root@HOSTSに登録したサーバのホスト名
 
    ssh-copy-id -i ~/.ssh/id_rsa.pub root@実行しているサーバのホスト名
-   
+
    ssh root@HOSTSに登録したサーバのホスト名
 
    exit
 
-⑨Exastroインストールサーバでの準備	
+⑨Exastroインストールサーバでの準備
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Exastroをインストールするサーバすべてで以下の手順を実施します。
@@ -1318,7 +1318,7 @@ GitLab 連携設定
 .. code-block:: shell
    :caption: 追記する1行
 
-   net.ipv4.ip_forward=1  
+   net.ipv4.ip_forward=1
 
 
 .. code-block:: diff
@@ -1388,9 +1388,9 @@ GitLab 連携設定
 .. code-block:: bash
    :caption: コマンド
 
-   getenforce   
+   getenforce
 
-⑩kubernetesのコンテナイメージの設定	
+⑩kubernetesのコンテナイメージの設定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 | Ansible実行サーバとして使用するサーバでdockerの例外レジストリを定義します。
 | /etc/dockerディレクトリにdaemon.jsonが存在しない場合は新しく作成します。
@@ -1413,13 +1413,13 @@ GitLab 連携設定
 .. code-block:: shell
    :caption: コマンド
 
-   systemctl daemon-reload 
+   systemctl daemon-reload
 
    systemctl start docker
 
 
 | シェルスクリプトを実行し、kubernetesのコンテナイメージを読み込みます。
-| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)
 
 .. code-block:: shell
    :caption: コマンド
@@ -1445,7 +1445,7 @@ GitLab 連携設定
 
    #以下は記載例です
    docker run -d -p 6000:5000 --restart=always --name registry xx.xx.xx.xx:6000/docker.io/library/registry:2.8.1
-   
+
    #docker registryが起動していることを確認します
    docker ps
 
@@ -1457,7 +1457,7 @@ GitLab 連携設定
    ls k8s-image-push.sh
 
    chmod a+x k8s-image-push.sh
-   
+
    ./k8s-image-push.sh
 
 .. note::
@@ -1465,7 +1465,7 @@ GitLab 連携設定
 
 
 
-⑪自己署名証明書及びNginxの設定		
+⑪自己署名証明書及びNginxの設定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 | 自己署名証明書用のディレクトリを作成します。
 | 以下の手順をAnsible実行サーバで実施します。
@@ -1515,13 +1515,13 @@ GitLab 連携設定
 
    cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bk
 
-   vi /etc/nginx/nginx.conf 
+   vi /etc/nginx/nginx.conf
 
 | バックアップを取得した後、nginx.confに以下のブロックを追記します。
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。
 
 .. code-block:: shell
-   :caption: nginx.conf 
+   :caption: nginx.conf
 
    server {
        listen       81 ssl ;
@@ -1547,7 +1547,7 @@ GitLab 連携設定
 
 
 | ブラウザでコンテナイメージが表示されることを確認します(イメージ名にはIPアドレスやタグは表示されません)。
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。
 | 接続がプライベートではありませんと表示されるため、詳細設定をクリックして先に進みます。
 
 .. code-block:: shell
@@ -1566,9 +1566,9 @@ GitLab 連携設定
 
    scp /etc/nginx/ssl/server.crt root@xx.xx.xx.xx:/usr/share/pki/ca-trust-source/anchors
 
-⑫パッケージのインストール	
+⑫パッケージのインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
- 
+
 | Ansibleを実行してパッケージファイルをインストールするため、hosts.ymlを以下の手順で作成します。
 | 以下の手順をAnsible実行サーバで実施します。
 
@@ -1639,20 +1639,20 @@ GitLab 連携設定
        calico_rr:
          hosts: {}
 
-| Exastroをインストールするサーバにパッケージファイルをインストールします。 
+| Exastroをインストールするサーバにパッケージファイルをインストールします。
 
 .. code-block:: shell
    :caption: コマンド
-   
+
    cd /tmp/work
 
-   ls inventory.yaml 
+   ls inventory.yaml
 
    ls preparation.yaml
 
    ansible-playbook -i inventory.yaml preparation.yaml -become --become-user=root  --private-key=~/.ssh/id_rsa
 
-⑬kubesprayのインストール	
+⑬kubesprayのインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 | kubenetesクラスタの構築で使用するファイルはNginxコンテナを介して提供します。
 | /tmp/workに展開するoffline-filesとnginxコンテナの/usr/share/nginx/html/downloadをマウントします。
@@ -1696,7 +1696,7 @@ GitLab 連携設定
    - # https_proxy_cert_file: ""
    + https_proxy_cert_file: "/usr/share/pki/ca-trust-source/anchors/server.crt"
 
-| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。 
+| xx.xx.xx.xxには現在作業しているサーバ(Ansible実行サーバ)のIPアドレスを指定します。
 
 .. code-block:: shell
    :caption: コマンド
@@ -1732,7 +1732,7 @@ GitLab 連携設定
 
 
 | Kubesparayを実行して、ExastroをインストールするサーバへKubernetesをインストールします。
-| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)
 
 .. code-block:: shell
    :caption: コマンド
@@ -1758,11 +1758,11 @@ GitLab 連携設定
 
 
 
-⑭Exastroのインストール	
+⑭Exastroのインストール
 ^^^^^^^^^^^^^^^^^^^^^^^
-| ExastroをインストールするサーバにExastroのコンテナイメージを転送します。 
+| ExastroをインストールするサーバにExastroのコンテナイメージを転送します。
 | xx.xx.xx.xxにはExastroをインストールするサーバ(Kubernetesクラスター環境)のIPアドレスを指定します。
-| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)
 | 以下の手順をAnsible実行サーバで実行します。
 
 .. code-block:: shell
@@ -1771,7 +1771,7 @@ GitLab 連携設定
    cd /tmp/work
 
    ls exastro-image.tar.gz
-   
+
    scp /tmp/work/exastro-image.tar.gz root@xx.xx.xx.xx:/tmp/work
 
 
@@ -1783,7 +1783,7 @@ GitLab 連携設定
    ls inventory.yaml
 
    ls install-exastro.yaml
-   
+
    ansible-playbook -i inventory.yaml install-exastro.yaml -become --become-user=root  --private-key=~/.ssh/id_rsa
 
 
@@ -1808,7 +1808,7 @@ GitLab 連携設定
 .. include:: ../../../include/check_installation_status.rst
 
 
-⑮Exastroインストール後の設定	
+⑮Exastroインストール後の設定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Exastroをインストールしたサーバにて、暗号化キーのバックアップを取得します。
@@ -1914,7 +1914,7 @@ kubespray及びExastroのインストール時にエラーが発生した場合�
 
    #削除が完了するまでに数分かかることがあります
    helm uninstall exastro --namespace exastro
-   
+
    #以下は5つの永続ボリュームを作成している場合の例です
    kubectl delete pv pv-auditlog pv-gitlab  pv-mongo  pv-database pv-ita-common
 
@@ -1926,7 +1926,7 @@ kubespray及びExastroのインストール時にエラーが発生した場合�
 
 
 | kubenetesの削除を行います。kubespyayのインストール時にエラーが発生した場合は以下の手順のみ実行します。
-| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。) 
+| 完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)
 | 使用するreset.ymlはgit cloneで取得したkubesprayに含まれているため、作成する必要はありません。
 | 完了後、Kubesparayを実行してKubernetesクラスター環境へKubernetesをインストールする手順から再実行します。
 
@@ -1936,8 +1936,8 @@ kubespray及びExastroのインストール時にエラーが発生した場合�
    cd /tmp/kubespray
 
    ls reset.yml
-   
-   ansible-playbook -i inventory/k8s_cluster/hosts.yml reset.yml -b -v   
+
+   ansible-playbook -i inventory/k8s_cluster/hosts.yml reset.yml -b -v
 
    #以下のメッセージが表示されるため、yesを手入力します
-   Are you sure you want to reset cluster state? Type 'yes' to reset your cluster.:  
+   Are you sure you want to reset cluster state? Type 'yes' to reset your cluster.:

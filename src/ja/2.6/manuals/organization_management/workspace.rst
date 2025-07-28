@@ -55,7 +55,7 @@ Workspace (ワークスペース)
       :widths: 40 200
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - ワークスペースID
@@ -106,7 +106,7 @@ Workspace (ワークスペース)
       :widths: 40 200
       :header-rows: 1
       :align: left
-   
+
       * - 項目名
         - 説明
       * - ワークスペースID

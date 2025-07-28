@@ -17,7 +17,7 @@ OASE管理
 | OASE管理のメニュー一覧を以下に記述します。
 
 .. table:: OASE管理 メニュー/画面一覧
-   :widths: 1 2 2 5 
+   :widths: 1 2 2 5
    :align: left
 
    +--------+----------------------+--------------------------+----------------------------------------+
@@ -106,7 +106,7 @@ OASE管理
    #. | **通知テンプレート（共通）のメンテナンス（閲覧/更新）**
       | OASE管理の通知テンプレート（共通）メニュー画面から、OASEの通知で使用するテンプレートをメンテナンス（閲覧/更新）できます。
       | 詳細は :ref:`notification_template_common` を参照してください。
-      
+
    #. | **通知先設定の登録**
       | Exastro システムにオーガナイゼーション管理者でログインし、メニューより :menuselection:`通知管理` から登録します。
       | 詳細は :ref:`notification_management` を参照してください。
@@ -316,7 +316,7 @@ OASE管理
      - 説明
      - 入力必須
      - 入力方法
-     - 制約事項 
+     - 制約事項
    * - テンプレート
      - | 通知で使用するテンプレートを編集できます。下記4種類が存在します。
        | ・New.j2
@@ -456,7 +456,7 @@ OASE Agentの処理フローと.envの設定値
 
    OASE Agent処理フロー図
 
-.. list-table:: 
+.. list-table::
  :widths: 5, 7
  :header-rows: 1
 
@@ -494,15 +494,15 @@ OASE Agentの処理フローと.envの設定値
 | 本項では、イベント収集設定を変更した際に、OASE Agentに即時反映させる方法について説明します。
 
 1. | OASE Agentのbashシェルを開始します。
-   
+
    .. code-block:: shell
-   
+
       docker exec -it <OASE Agentのコンテナ名> bash
 
 2. | 設定ファイル「event_collection_settings.json」を削除します。
 
    .. code-block:: shell
-   
+
       rm /tmp/<EXASTRO_ORGANIZATION_ID>/<EXASTRO_WORKSPACE_ID>/<AGENT_NAME>/event_collection_settings.json
 
 .. tip::
@@ -565,16 +565,16 @@ ITAの画面で見た場合
  :alt: デコードできない文字を省いて収集イベントを行う例・結果（イベントフロー）
 
  デコードできない文字を省いて収集イベントを行う例・結果（イベントフロー）
- 
+
  .. _oase_agent_respons_key_enevnt_id_key:
 
 レスポンスキーとイベントIDキー
 ------------------------------
 | 本項では、 下記について説明します。
 
-| ・ :dfn:`レスポンスキー` 
+| ・ :dfn:`レスポンスキー`
 | ・ :dfn:`JMESPath`
-| ・ :dfn:`レスポンスリストフラグ` 
+| ・ :dfn:`レスポンスリストフラグ`
 | ・ :dfn:`イベントIDキー`
 
 
@@ -613,7 +613,7 @@ JMESPath
 | Azure RESET-API `Get Metric for data <https://learn.microsoft.com/ja-jp/rest/api/monitor/metrics/list?view=rest-monitor-2023-10-01&tabs=HTTP>`_ のSample Responseの一部を利用して説明します。
 
 .. code-block:: json
-   :linenos: 
+   :linenos:
    :lineno-start: 1
 
    {
@@ -677,7 +677,7 @@ JMESPath
   | また、上記JSONを、 :dfn:`JMESPath` を試すことのできる、JMESPath Try it Out! https://JMESPath.org/ で試してください。
 
 1. | 配列の値を取得するJMESPath
- 
+
 | 上記JSONで、5行目の :program:`value` の値（配列）を取得する :dfn:`JMESPath` を、
 
 .. code-block::
@@ -703,8 +703,8 @@ JMESPath
      }
    ]
 
-2. | オブジェクトを取得するJMESPath
- 
+1. | オブジェクトを取得するJMESPath
+
 | 上記JSONで、9行目の :program:`value` (配列) の :program:`name` の値を取得する :dfn:`JMESPath` を、
 
 .. code-block::
@@ -722,11 +722,11 @@ JMESPath
     }
   ]
 
-3. | 深い階層で、複数の値を取得するJMESPath
+1. | 深い階層で、複数の値を取得するJMESPath
 
 | :program:`value` (配列)の :program:`timeseries` (配列)の :program:`metadatavalues` (配列)の :program:`name` を取得する :dfn:`JMESPath` を、
 
-.. code-block:: 
+.. code-block::
 
    value[].timeseries[].metadatavalues[].name
 
@@ -771,7 +771,7 @@ JMESPath
 | :dfn:`イベントIDキー` も、 :dfn:`JMESPath形式` で指定します。
 | 上記Azure RESET-APIのJSONで、 :dfn:`レスポンスキー` と :dfn:`レスポンスリストフラグ` を、下記の通り指定した場合、
 
-.. list-table:: 
+.. list-table::
  :widths: 1, 1
  :header-rows: 1
 
@@ -785,7 +785,7 @@ JMESPath
 | :dfn:`レスポンスキー` で抽出した値は、
 
 .. code-block:: json
-   :linenos: 
+   :linenos:
    :lineno-start: 1
 
    [
@@ -819,7 +819,7 @@ JMESPath
 | となり、この結果から、イベントとして識別する値は、:program:`id` の値が適しているため、
 |  :menuselection:`OASE管理 --> イベント収集` での設定値は、下記の設定が適切です。
 
-.. list-table:: 
+.. list-table::
  :widths: 10, 20
  :header-rows: 1
 
@@ -857,7 +857,7 @@ JMESPath
 
 | また、本項では、まず、各監視ソフトのアラートを、cURLコマンドで取得する例を示し、
 | 次に、cURLのパラメータを、 :menuselection:`OASE管理 --> イベント収集` に設定する順番で説明します。
- 
+
 .. warning::
    | 監視ソフトののバージョンによって、HTTP APIの仕様が異なる場合があります。
    | 利用するバージョンのHTTP APIの仕様を確認し、 :menuselection:`OASE管理 --> イベント収集` の設定を行ってください。
@@ -868,14 +868,14 @@ Zabbix
 | :dfn:`Zabbix` から、イベントを取得する、 :menuselection:`OASE管理 --> イベント収集` での設定例について説明します。
 
 | 以下の説明で使用した、:dfn:`Zabbix` は、
-| ・zabbix 6.4.12 
+| ・zabbix 6.4.12
 
 1. | cURLコマンドで、 :dfn:`Zabbix` から、イベント取得
 
 | 下記は、 :dfn:`Zabbix` から、障害（problem）を取得するcURLコマンドの例です。
 
 .. code-block:: shell
-   
+
    curl --request POST \
    --url http://<ZabbixのIP Address か Domain>/zabbix/api_jsonrpc.php \
    --header 'content-type: application/json-rpc' \
@@ -888,7 +888,7 @@ Zabbix
 .. _oase_agent_zabbix_responss:
 
 .. code-block:: json
-   :linenos: 
+   :linenos:
    :lineno-start: 1
 
    {
@@ -921,8 +921,8 @@ Zabbix
   | :dfn:`Zabbix` の、障害（problem）に関する詳細は下記URLをご参照ください。
   |  https://www.zabbix.com/documentation/current/jp/manual/api/reference/problem/get
 
-2. | :dfn:`Zabbix` からイベントを取得する、イベント収集の設定例
-  
+1. | :dfn:`Zabbix` からイベントを取得する、イベント収集の設定例
+
 | 上記のcURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> イベント収集` の設定値は、下記の様に設定します。
 
 .. list-table:: Zabbixの設定例
@@ -942,7 +942,7 @@ Zabbix
      - | http://<ZabbixのIP Address か Domain>/zabbix/api_jsonrpc.php
    * - リクエストヘッダー
      - .. code-block:: json
-      
+
          { "content-type" : "application/json-rpc" }
 
    * - パラメータ
@@ -974,7 +974,7 @@ Zabbix
   1. | ブラウザで、:dfn:`Zabbix` に管理者でサイイン
      | 　初期状態の管理者のログイン情報は、
      | 　　・ユーザー名： Admin
-     | 　　・パスワード： zabbix 
+     | 　　・パスワード： zabbix
   2. | サイドメニュー  > ユーザー > ユーザー を選択
   3. | ユーザーの右端上の :guilabel:`ユーザーの作成` をクリック
   4. | ユーザー名、パスワードなどを入力
@@ -990,26 +990,26 @@ Zabbix
   | :dfn:`Zabbix` へのログイン情報が、下記の場合の例です。
   | 　・ユーザー名 : 上記の操作で作成したユーザーの <ユーザー名>
   | 　・パスワード : 上記の操作で作成したユーザーの <パスワード>
-  
+
   .. code-block:: shell
-      
+
      curl --request POST \
      --url http://<ZabbixのIP Address か Domain>/zabbix/api_jsonrpc.php \
      --header "Content-Type: application/json-rpc" \
      --data "{\"auth\":null,\"method\":\"user.login\",\"id\":1,\"params\":{\"user\":\"<ユーザー名>\",\"password\":\"<パスワード>\"},\"jsonrpc\":\"2.0\"}" \
-  
+
   | 上記cURLコマンドで、下記の様なレスポンスが返却されます。
-  
+
   .. code-block:: json
      :linenos:
      :lineno-start: 1
-  
+
      {
          "jsonrpc": "2.0",
           "result": "<Zabbix APIトークン>",
           "id": 1
      }
-  
+
   | <Zabbix APIトークン>を、  :menuselection:`OASE管理 --> イベント収集` の :menuselection:`パラメータ` の <Zabbix APIトークン> の箇所に貼り付けます。
   | ※ <Zabbix APIトークン>作成は、ブラウザでもを作成できます。
   | ブラウザでログイン後、サイドメニュー > ユーザー設定 > APIトークン の :guilabel:`APIトークンの作成` で作成できます。
@@ -1027,11 +1027,11 @@ Grafana
 | 下記は、:dfn:`Grafana` から、アラート（alerts）を取得するcURLコマンドの例です。
 
 .. code-block:: shell
-   
+
    curl --request GET \
    --url 'http://<GrafanaのIP addres か Domain>:3000/api/prometheus/grafana/api/v1/alerts' \
    --header 'authorization: Bearer <認証トークン>' \
-   --header 'Content-Type: application/json' 
+   --header 'Content-Type: application/json'
 
 | （コマンド・パラメータ中の <認証トークン> の詳細は、後述します。）
 
@@ -1062,7 +1062,7 @@ Grafana
   | Grafanaの、アラート（Alert）に関する詳細は下記URLをご参照ください。
   |  https://prometheus.io/docs/prometheus/latest/querying/api/#alerts
 
-2. | :dfn:`Grafana` からイベントを取得する、イベント収集の設定例
+1. | :dfn:`Grafana` からイベントを取得する、イベント収集の設定例
 
 | 上記cURLコマンドを参考に、同等な取得を行う、 :menuselection:`OASE管理 --> イベント収集` の設定値は、下記の様に設定します。
 
@@ -1083,7 +1083,7 @@ Grafana
      - | http://<GrafanaのIP addres か Domain>:3000/api/prometheus/grafana/api/v1/rules
    * - リクエストヘッダー
      - .. code-block:: json
-      
+
          { "Content-Type": "application/json" }
 
    * - 認証トークン
@@ -1106,7 +1106,7 @@ Grafana
 
   2. | Home > Administration > Service accounts を選択
 
-  3. | :guilabel:`service account` をクリックして、サービスアカウントを作成します。  
+  3. | :guilabel:`service account` をクリックして、サービスアカウントを作成します。
 
   4. | サービス名を英数字の小文字で入力します。
 
