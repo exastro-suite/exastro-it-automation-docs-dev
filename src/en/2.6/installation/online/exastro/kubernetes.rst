@@ -14,23 +14,23 @@
    });
    </script>
 
-=======================
+=================================
 Helm chart (Kubernetes) - Online
-=======================
+=================================
 
 Introduction
-====
+============
 
 | This document aims to explain how to install Exastro Platform and/or Exastro IT Automation on Kubernetes.
 
 Features
-====
+========
 
 | This method allows the user to install Exastro IT Automation with the highest level of availability and service.
 | For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version<docker_compose>`.
 
 Prerequisites
-========
+=============
 
 - Client requirements
 
@@ -106,7 +106,7 @@ Preparation
 ==================
 
 Register Helm repository
----------------------
+------------------------
 
 | The Exastro system is constructed by the following 2 applications.
 | All the Exastro tools exists on the same Helm repository.
@@ -130,7 +130,7 @@ Register Helm repository
    helm repo update
 
 Fetch default setting values
-----------------------
+----------------------------
 
 | The following command outputs the values.yaml default values. This makes it easier to manage the input parameters.
 
@@ -158,7 +158,7 @@ Fetch default setting values
 .. _service_setting:
 
 Service publish settings
-------------------
+------------------------
 
 | There are 3 main methods to publish Exastro.
 
@@ -177,7 +177,7 @@ Parameters
 .. include:: ../../../include/helm_option_platform-auth.rst
 
 Setting example
-^^^^^^
+^^^^^^^^^^^^^^^
 
 | This sections displays examples of the settings for publishing the service.
 
@@ -205,7 +205,7 @@ Setting example
            :caption: exastro.yaml
            :language: yaml
 
-        | ※ Make sure to configure max time-out time (seconds) for processes where large amount of files might be uploaded.  
+        | ※ Make sure to configure max time-out time (seconds) for processes where large amount of files might be uploaded.
 
         .. code-block:: shell
            :caption: ingress - annotations
@@ -270,7 +270,7 @@ Setting example
       - Features
 
       | The service can be published using LoadBalancer if it is usable through a public cloud or other means.
-      | Different from using Ingress, the LoadBalancer is deployed externally from the cluster (often on the public cloud service). This means that the user don't have to operate it. 
+      | Different from using Ingress, the LoadBalancer is deployed externally from the cluster (often on the public cloud service). This means that the user don't have to operate it.
 
       - Setting example
 
@@ -544,7 +544,7 @@ App DB user settings
 | Configure DB users in for applications in Exastro.
 
 Setting example
-^^^^^^
+^^^^^^^^^^^^^^^
 
 | Configure DB users for each of the following.
 
@@ -593,7 +593,7 @@ Setting example
 .. _installation_kubernetes_gitlablinkage:
 
 GitLab link settings
----------------
+--------------------
 
 | Configure connection information in order to link with GitLab.
 
@@ -618,7 +618,7 @@ GitLab link settings
 .. _installation_kubernetes_proxy_settings:
 
 Proxy settings
----------
+--------------
 
 | Configure the following information when running Exastro under a Proxy environment.
 
@@ -640,7 +640,7 @@ Create Exastro system admin
 .. _persistent_volume:
 
 Configure Persistent volume
---------------------
+---------------------------
 
 | In order to persist databases( for container within clusters) and files, the user will have to configure a persistent volume.
 | For more information regarding persistent volumes, see `Persistent Volumes - Kubernetes <https://kubernetes.io/docs/concepts/storage/persistent-volumes/>`_.
@@ -729,7 +729,7 @@ Configure Persistent volume
 
       .. danger::
           | While persisting data is possible, data might be deleted if compute nodes are changed. We strongly recommend against using this method to persist data in production.
-          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted. 
+          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted.
 
       - Example
 
@@ -781,7 +781,7 @@ Install
    | If the installation fails, follow :ref:`ita_uninstall` and try reinstalling.
 
 Create Persistent volumes
---------------------
+-------------------------
 
 | Apply the manifest file created in :ref:`persistent_volume` and create persistent volume.
 
@@ -1151,10 +1151,10 @@ Install
               - http://172.16.20.xxx:30081/auth/
 
 Log in to Managment console
---------------------------
+---------------------------
 
 | If the page belows is displayed, select :menuselection:`Administration Console` and log in.
- 
+
 .. figure:: /images/ja/manuals/platform/keycloak/administrator-console.png
   :alt: administrator-console
   :width: 600px
@@ -1189,7 +1189,7 @@ Update preparation
   | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
 
 Update Helm repository
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 | Update the Exastro system's Helm repository.
 
@@ -1244,7 +1244,7 @@ Update Helm repository
 
 
 Check default setting values and update data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Check the updated default values.
 | Compare the :file:`exastro.yaml` file pre and post update.
@@ -1276,7 +1276,7 @@ Check default setting values and update data
              paths:
 
 Update setting values
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 .. warning::
   | Both the username and password must be the same as before updating the system.
 
@@ -1308,7 +1308,7 @@ Update setting values
 .. _change_encrypt_key:
 
 Specify Encryption key
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 | Specify the encryption key backed up in :ref:`backup_encrypt_key`.
 
@@ -1390,7 +1390,7 @@ Start Update
 
 
 Restart service
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 ※ The replicas specified in :file:`exastro.yaml` will be re-started. There is therefore no need to restart them manually.
 
@@ -1473,7 +1473,7 @@ For Files
   persistentvolume "pv-ita-common" deleted
 
 For OASE
-******
+********
 
 .. code-block:: bash
   :caption: Command
@@ -1496,7 +1496,7 @@ For OASE
   persistentvolumeclaim "volume-mongo-storage-mongo-0" deleted
 
 For GitLab
-********
+**********
 
 .. code-block:: bash
   :caption: Command
@@ -1509,7 +1509,7 @@ For GitLab
   persistentvolume "pv-gitlab" deleted
 
 For Monitoring log files
-******************
+************************
 
 .. code-block:: bash
   :caption: Command
@@ -1524,7 +1524,7 @@ For Monitoring log files
 .. _delete_data:
 
 Deleting Persistent data
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Log in to the Kubernetes Control node and delete the data.
 
@@ -1560,7 +1560,7 @@ For Files
    sudo rm -rf /var/data/exastro-suite/exastro-it-automation/ita-common
 
 For OASE
-******
+********
 
 | The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/mongo` when the Persistent Volume was created.
 
@@ -1574,7 +1574,7 @@ For OASE
    sudo rm -rf /var/data/exastro-suite/exastro-platform/mongo
 
 For GitLab
-********
+**********
 
 | The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/gitlab` when the Persistent Volume was created.
 
@@ -1589,7 +1589,7 @@ For GitLab
 
 
 For Monitoring log files
-******************
+************************
 
 | The following command is an example where the hostPath is specified to  :file:`/var/log/exastro` when the Persistent Volume was created.
 
