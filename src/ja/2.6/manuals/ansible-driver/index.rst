@@ -13,3 +13,4 @@ Ansible ドライバ
    ansible_pioneer
    ansible_legacyrole
    collect
+   ansible_ee_custom
