@@ -6,13 +6,13 @@
 
 概要
 ====
-VMWare内におけるvCenter内のEXSiを管理する機能です。
+VMWare内におけるvCenter内のESXiを管理する機能です。
 
 メニュー項目
 ============
 リソース管理
 ------------
-vCenter内のクラスター内に存在するEXSiのリソースを表示するためのメニュー項目です。
+vCenter内のクラスター内に存在するESXiのリソースを表示するためのメニュー項目です。
 
 .. figure:: /images/ja/templates/vmware/menuMR_v2-4.png
    :width: 800px
@@ -28,8 +28,8 @@ vCenter内のクラスター内に存在するEXSiのリソースを表示する
      -  入力必須
      -  入力方法
      -  制約事項
-   * -  EXSi名
-     -  vCenter内の各EXSiを管理します。
+   * -  ESXi名
+     -  vCenter内の各ESXiを管理します。
      -  〇
      -  手動入力
      -  リソース管理実行により、登録される
