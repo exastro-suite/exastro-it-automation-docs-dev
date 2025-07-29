@@ -1,1 +1,1 @@
-.. include:: /share/ja/manuals/maintenance/log_aggregation.rst
+.. include:: /workspace/src/share/ja/manuals/maintenance/log_aggregation.rst

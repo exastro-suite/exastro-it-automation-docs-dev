@@ -774,7 +774,7 @@ BackYardコンテンツ
 
 #. | Ansibleコンフィグ取得、パラメータ生成Playbook
 
-   .. code-block:: yaml
+   .. code-block:: bash
       :name: makeYml_Ansible.yml
       :caption: makeYml_Ansible.yml
 
@@ -786,35 +786,35 @@ BackYardコンテンツ
            marker: ""
            dest: "{{ __parameter_dir__  }}/{{ inventory_hostname }}/Ansible_conf.yml"
            content: |
-            ansible_architecture: {{ ansible_architecture }}
-            ansible_bios_version: {{ ansible_bios_version }}
-            ansible_default_ipv4__address: {{ ansible_default_ipv4.address }}
-            ansible_default_ipv4__interface: {{ ansible_default_ipv4.interface }}
-            ansible_default_ipv4__network: {{ ansible_default_ipv4.network }}
-            ansible_distribution: {{ ansible_distribution }}
-            ansible_distribution_file_path: {{ ansible_distribution_file_path }}
-            ansible_distribution_file_variety: {{ ansible_distribution_file_variety }}
-            ansible_distribution_major_version: {{ ansible_distribution_major_version }}
-            ansible_distribution_release: {{ ansible_distribution_release }}
-            ansible_distribution_version: {{ ansible_distribution_version }}
-            ansible_machine: {{ ansible_machine }}
-            ansible_memtotal_mb: {{ ansible_memtotal_mb }}
-            ansible_nodename: {{ ansible_nodename }}
-            ansible_os_family: {{ ansible_os_family }}
-            ansible_pkg_mgr: {{ ansible_pkg_mgr }}
-            ansible_processor_cores: {{ ansible_processor_cores }}
-            ansible_processor_count: {{ ansible_processor_count }}
-            ansible_processor_threads_per_core: {{ ansible_processor_threads_per_core }}
-            ansible_processor_vcpus: {{ ansible_processor_vcpus }}
-            ansible_product_name: {{ ansible_product_name }}
-            ansible_product_serial: {{ ansible_product_serial }}
-            ansible_product_uuid: {{ ansible_product_uuid }}
-            ansible_product_version: {{ ansible_product_version }}
-            ansible_python__executable: {{ ansible_python.executable }}
-            ansible_python_version: {{ ansible_python_version }}
-            ansible_service_mgr: {{ ansible_service_mgr }}
-            vconsole_config: vconsole.conf
-            yum_config: yum.conf
+             ansible_architecture: {{ ansible_architecture }}
+             ansible_bios_version: {{ ansible_bios_version }}
+             ansible_default_ipv4__address: {{ ansible_default_ipv4.address }}
+             ansible_default_ipv4__interface: {{ ansible_default_ipv4.interface }}
+             ansible_default_ipv4__network: {{ ansible_default_ipv4.network }}
+             ansible_distribution: {{ ansible_distribution }}
+             ansible_distribution_file_path: {{ ansible_distribution_file_path }}
+             ansible_distribution_file_variety: {{ ansible_distribution_file_variety }}
+             ansible_distribution_major_version: {{ ansible_distribution_major_version }}
+             ansible_distribution_release: {{ ansible_distribution_release }}
+             ansible_distribution_version: {{ ansible_distribution_version }}
+             ansible_machine: {{ ansible_machine }}
+             ansible_memtotal_mb: {{ ansible_memtotal_mb }}
+             ansible_nodename: {{ ansible_nodename }}
+             ansible_os_family: {{ ansible_os_family }}
+             ansible_pkg_mgr: {{ ansible_pkg_mgr }}
+             ansible_processor_cores: {{ ansible_processor_cores }}
+             ansible_processor_count: {{ ansible_processor_count }}
+             ansible_processor_threads_per_core: {{ ansible_processor_threads_per_core }}
+             ansible_processor_vcpus: {{ ansible_processor_vcpus }}
+             ansible_product_name: {{ ansible_product_name }}
+             ansible_product_serial: {{ ansible_product_serial }}
+             ansible_product_uuid: {{ ansible_product_uuid }}
+             ansible_product_version: {{ ansible_product_version }}
+             ansible_python__executable: {{ ansible_python.executable }}
+             ansible_python_version: {{ ansible_python_version }}
+             ansible_service_mgr: {{ ansible_service_mgr }}
+             vconsole_config: vconsole.conf
+             yum_config: yum.conf
 
       - name: get vconsole config
         fetch:
@@ -1028,11 +1028,11 @@ BackYardコンテンツ
      -
    * - 17
      - VAR_Quotation
-     - ''
+     - ``''``
      -
    * - 18
      - VAR_WQuotation
-     - ""
+     - ``""``
      -
    * - 19
      - VAR_INT
@@ -1154,13 +1154,13 @@ BackYardコンテンツ
    * - 17
      - VAR_Quotation: ''
      - パラメータ/VAR_Quotation
-     - ""
+     - ``""``
      - string
      -
    * - 18
      - VAR_WQuotation: ""
      - パラメータ/VAR_WQuotation
-     - ""
+     - ``""``
      - string
      -
    * - 19
