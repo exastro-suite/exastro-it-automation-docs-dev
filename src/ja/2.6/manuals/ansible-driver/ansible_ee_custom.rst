@@ -8,15 +8,15 @@ Ansible実行環境のカスタマイズ
 
 Ansible 実行環境カスタマイズの概要
 ==================================
-| Ansible-Coreでは、カスタマイズを施したベースイメージを使用する・ビルド時にカスタマイズ工程をはさむ（docker-compose版のみ）等によりAnsible実行環境のカスタマイズを実施することが可能です。
+| Ansible-Coreでは、Ansible作業時にカスタマイズを施したイメージを使用する・Ansible作業時のビルドにカスタマイズ工程をはさむ（docker-compose版のみ）等によりAnsible実行環境のカスタマイズを実施することが可能です。
 | また、Ansible Execution Agentや Ansible Automation Platformでは、ansible-builderを用いてAnsible実行環境のカスタマイズを実施することが可能です。
 
 | 本書では主に下記パターンについて説明します。
 
 - | Ansible-Coreでのカスタマイズ例
 
-  - | カスタマイズを施したベースイメージを使用する例
-  - | ビルド時にカスタマイズ工程を追加する例（docker-compose版のみ）
+  - | Ansible作業時にカスタマイズを施したイメージを使用する例
+  - | Ansible作業時のビルドにカスタマイズ工程を追加する例（docker-compose版のみ）
 
     - | コレクションを使用する例
     - | 自作モジュールを使用する例
@@ -32,13 +32,13 @@ Ansible 実行環境カスタマイズの概要
 Ansible-Coreでのカスタマイズ例
 ==============================
 
-カスタマイズを施したベースイメージを使用する例
-------------------------------------------------
+Ansible作業時にカスタマイズを施したイメージを使用する例
+-------------------------------------------------------
 
-カスタマイズを施したベースイメージの出力
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+カスタマイズを施したイメージの出力
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| カスタマイズを施したベースイメージが存在するサーバでイメージを出力します。
+| カスタマイズを施したイメージが存在するサーバでイメージを出力します。
 
 | まず対象となるイメージを確認します。
 | 例として、「exastro-ansible-agent-custom:devel」を対象となるイメージとします。
@@ -51,7 +51,7 @@ Ansible-Coreでのカスタマイズ例
  
 | なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、
 | Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。
-| https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting
+| （参考：https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting）
 
 .. code-block:: console
    :caption: コマンド例（タグ名の変更）
@@ -75,8 +75,8 @@ Ansible-Coreでのカスタマイズ例
   
  
 
-カスタマイズを施したベースイメージの投入
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+カスタマイズを施したイメージの投入
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 docker-compose版
 ~~~~~~~~~~~~~~~~
@@ -100,7 +100,7 @@ docker-compose版
    exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
  
 
-| イメージの確認後、Ansible-Coreで対象のイメージを使用するように環境変数を設定します。
+| イメージの確認後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
 | 「 :file:`~/exastro-docker-compose/.env` 」の「 ``ANSIBLE_AGENT_IMAGE`` 」「 ``ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
 
 .. code-block:: diff
@@ -145,7 +145,7 @@ Kubenetes版
    [user01@ita-node01 ~]$ ctr images -n k8s.io import /tmp/custom-docker-image.tar.gz
   
 
-| イメージの投入後、Ansible-Coreで対象のイメージを使用するように環境変数を設定します。
+| イメージの投入後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
 | values.yaml の「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE`` 」及び「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
 
 .. code-block:: diff
@@ -173,10 +173,10 @@ Kubenetes版
 
 
 
-ビルド時にカスタマイズ工程を追加する例
---------------------------------------
+Ansible作業時のビルドにカスタマイズ工程を追加する例
+---------------------------------------------------
 
-| ビルド時にカスタマイズ工程を追加するという手順の関係上、本手順は「docker-compose版のみ」となります。
+| Ansible作業時のビルドにカスタマイズ工程を追加するという手順の関係上、本手順は「docker-compose版のみ」となります。
 
 
 既存の環境変数を確認
@@ -229,13 +229,13 @@ Kubenetes版
 
 
 .. warning::
-  | ITA2.6よりデフォルトのベースイメージである「exastro/exastro-it-automation-by-ansible-agent」に搭載されているPythonが Python3.9から **Python3.11** へ変更されています。
+  | ITA2.6.0よりデフォルトのベースイメージである「exastro/exastro-it-automation-by-ansible-agent」に搭載されているPythonが Python3.9から **Python3.11** へ変更されています。
   | また、pipに関しても pip3.9から **pip3.11** へ変更されています。
 
 コレクションを使用する例
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-| 「exastro/exastro-it-automation-by-ansible-agent」には標準で下記のようなコレクションが含まれていますので、下記以外のものを追加する場合の手順となります。
+| 「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれていますので、下記以外のものを追加する場合の手順となります。
 
 .. code-block:: console
    :caption:  :command:`ansible-galaxy collection list` で確認されたコレクション
