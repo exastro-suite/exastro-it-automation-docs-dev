@@ -235,7 +235,8 @@ Ansible作業時のビルドにカスタマイズ工程を追加する例
 コレクションを使用する例
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-| 「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれていますので、下記以外のものを追加する場合の手順となります。
+| 「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれています。
+| そのため下記以外のコレクションを追加する場合、及びコレクションに必要なライブラリをインストール場合の手順となります。
 
 .. code-block:: console
    :caption:  :command:`ansible-galaxy collection list` で確認されたコレクション
@@ -259,6 +260,8 @@ Ansible作業時のビルドにカスタマイズ工程を追加する例
    vmware.vmware_rest                       4.7.0  , vultr.cloud                              1.13.0 , vyos.vyos                                5.0.0  , wti.remote                               1.0.10 
 
 | 「 :file:`~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile` 」を下記のように編集します。
+| なお、:command:`ansible-galaxy collection install` の直後に実施している :command:`pip3.11 install` については、コレクションに必要なライブラリを指定してください。
+| （コレクションに必要なライブラリは、`Ansible Galaxy - コレクション <https://galaxy.ansible.com/ui/collections/>`_ の各コレクション用のドキュメントに記載があることが多いです。）
 
 .. code-block:: diff
    :caption: ~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile
@@ -269,7 +272,7 @@ Ansible作業時のビルドにカスタマイズ工程を追加する例
    FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 
    + RUN ansible-galaxy collection install [[ここにインストールしたいコレクション名を代入]] \
-   + && pip3.11 install --upgrade boto3 botocore
+   + && pip3.11 install [[ここにコレクションに必要なライブラリを代入]] 
    
    ## Add module command bellow, if you need to use extend ansible module.
 
@@ -289,7 +292,7 @@ Ansible作業時のビルドにカスタマイズ工程を追加する例
    FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 
    + RUN ansible-galaxy collection install --ignore-certs [[ここにインストールしたいコレクション名を代入]] \
-   + && pip3.11 install --upgrade boto3 botocore
+   + && pip3.11 install [[ここにコレクションに必要なライブラリを代入]] 
    
    ## Add module command bellow, if you need to use extend ansible module.
 

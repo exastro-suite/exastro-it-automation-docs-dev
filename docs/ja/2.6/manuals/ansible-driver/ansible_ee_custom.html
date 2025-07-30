@@ -563,7 +563,8 @@
 <section id="id10">
 <h5>コレクションを使用する例<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h5>
 <div class="line-block">
-<div class="line">「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれていますので、下記以外のものを追加する場合の手順となります。</div>
+<div class="line">「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれています。</div>
+<div class="line">そのため下記以外のコレクションを追加する場合、及びコレクションに必要なライブラリをインストール場合の手順となります。</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id55">
 <div class="code-block-caption"><span class="caption-number">リスト 6.13 </span><span class="caption-text"><strong class="command">ansible-galaxy collection list</strong> で確認されたコレクション</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
@@ -589,6 +590,8 @@
 </div>
 <div class="line-block">
 <div class="line">「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span></code> 」を下記のように編集します。</div>
+<div class="line">なお、<strong class="command">ansible-galaxy collection install</strong> の直後に実施している <strong class="command">pip3.11 install</strong> については、コレクションに必要なライブラリを指定してください。</div>
+<div class="line">（コレクションに必要なライブラリは、<a class="reference external" href="https://galaxy.ansible.com/ui/collections/">Ansible Galaxy - コレクション</a> の各コレクション用のドキュメントに記載があることが多いです。）</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id56">
 <div class="code-block-caption"><span class="caption-number">リスト 6.14 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
@@ -598,7 +601,7 @@ ARG ANSIBLE_AGENT_BASE_IMAGE_TAG
 FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 
 <span class="gi">+ RUN ansible-galaxy collection install [[ここにインストールしたいコレクション名を代入]] \</span>
-<span class="gi">+ &amp;&amp; pip3.11 install --upgrade boto3 botocore</span>
+<span class="gi">+ &amp;&amp; pip3.11 install [[ここにコレクションに必要なライブラリを代入]]</span>
 
 ## Add module command bellow, if you need to use extend ansible module.
 
@@ -620,7 +623,7 @@ ARG ANSIBLE_AGENT_BASE_IMAGE_TAG
 FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 
 <span class="gi">+ RUN ansible-galaxy collection install --ignore-certs [[ここにインストールしたいコレクション名を代入]] \</span>
-<span class="gi">+ &amp;&amp; pip3.11 install --upgrade boto3 botocore</span>
+<span class="gi">+ &amp;&amp; pip3.11 install [[ここにコレクションに必要なライブラリを代入]]</span>
 
 ## Add module command bellow, if you need to use extend ansible module.
 
