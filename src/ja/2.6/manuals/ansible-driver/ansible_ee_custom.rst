@@ -8,18 +8,19 @@ Ansible実行環境のカスタマイズ
 
 Ansible 実行環境カスタマイズの概要
 ==================================
-| Ansible-Coreでは、Ansible作業時にカスタマイズを施したイメージを使用する・Ansible作業時のビルドにカスタマイズ工程をはさむ（docker-compose版のみ）等によりAnsible実行環境のカスタマイズを実施することが可能です。
+| Ansible-Coreでは、Ansible作業時のビルドにカスタマイズ工程をはさむ（docker-compose版のみ）・Ansible作業時にカスタマイズを施したイメージを使用する等によりAnsible実行環境のカスタマイズを実施することが可能です。
 | また、Ansible Execution Agentや Ansible Automation Platformでは、ansible-builderを用いてAnsible実行環境のカスタマイズを実施することが可能です。
 
 | 本書では主に下記パターンについて説明します。
 
 - | Ansible-Coreでのカスタマイズ例
 
-  - | Ansible作業時にカスタマイズを施したイメージを使用する例
   - | Ansible作業時のビルドにカスタマイズ工程を追加する例（docker-compose版のみ）
 
     - | コレクションを使用する例
     - | 自作モジュールを使用する例
+
+  - | Ansible作業時にカスタマイズを施したイメージを使用する例
 
 - | Ansible Execution AgentやAnsible Automation Platformでのカスタマイズ例
 
@@ -31,147 +32,6 @@ Ansible 実行環境カスタマイズの概要
 
 Ansible-Coreでのカスタマイズ例
 ==============================
-
-Ansible作業時にカスタマイズを施したイメージを使用する例
--------------------------------------------------------
-
-カスタマイズを施したイメージの出力
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-| カスタマイズを施したイメージが存在するサーバでイメージを出力します。
-
-| まず対象となるイメージを確認します。
-| 例として、「exastro-ansible-agent-custom:devel」を対象となるイメージとします。
-
-.. code-block:: console
-   :caption: コマンド例（対象となるイメージの確認）
-
-   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
-   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
- 
-| なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、
-| Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。
-| （参考：https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting）
-
-.. code-block:: console
-   :caption: コマンド例（タグ名の変更）
-
-   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
-   exastro-ansible-agent-custom                     <none>    18493d96333g   12 hours ago   953MB
-
-   [user01@ita-sv ~]$ docker tag 18493d96333g exastro-ansible-agent-custom:devel
-  
-   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
-   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
- 
- 
-| 下記コマンドを実行してイメージを出力します。
-| コマンドには「18493d96333g」等のイメージIDではなく、「exastro-ansible-agent-custom:devel」といったイメージ名とタグ名を使用してください。
-
-.. code-block:: console
-   :caption: コマンド例（イメージを出力）
-
-   [user01@ita-sv ~]$ docker save exastro-ansible-agent-custom:devel | gzip -c > /tmp/custom-docker-image.tar.gz
-  
- 
-
-カスタマイズを施したイメージの投入
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-docker-compose版
-~~~~~~~~~~~~~~~~
-
-| 予め、イメージを投入したいサーバへ :file:`/tmp/custom-docker-image.tar.gz` を転送しておきます。
-
-| 下記コマンドを実行してイメージを投入します。
-
-.. code-block:: console
-   :caption: コマンド例（イメージを投入）
-
-   [user01@ita-sv-02 ~]$ docker load < /tmp/custom-docker-image.tar.gz
-  
-
-| その後、イメージが正常に投入されていることを確認します。
-
-.. code-block:: console
-   :caption: コマンド例（イメージを確認）
-
-   [user01@ita-sv-02 ~]$ docker images | grep exastro-ansible-agent-custom
-   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
- 
-
-| イメージの確認後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
-| 「 :file:`~/exastro-docker-compose/.env` 」の「 ``ANSIBLE_AGENT_IMAGE`` 」「 ``ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
-
-.. code-block:: diff
-   :caption: /exastro-docker-compose/.env
-  
-   ...
-   #### Local Repository for the Ansible Agent container
-   - # ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent
-   + ANSIBLE_AGENT_IMAGE=exastro-ansible-agent-custom
-   #### Tag for the Ansible Agent container local image
-   - # ANSIBLE_AGENT_IMAGE_TAG=
-   + ANSIBLE_AGENT_IMAGE_TAG=devel
-   ...
-
-
-| 環境変数の編集後、「:file:`~/exastro-docker-compose/setup.sh` 」を実行して編集を反映します。
-
-.. code-block:: console
-   :caption: コマンド（編集を反映）
- 
-   [user01@ita-sv-02 ~]$ cd ~/exastro-docker-compose
-   [user01@ita-sv-02 ~]$ sh setup.sh install
- 
-   ...
-   Regenerate .env file? (y/n) [default: n]: n
-   ...
-   Deploy Exastro containers now? (y/n) [default: n]: y
-   ...
-
-
-
-Kubenetes版
-~~~~~~~~~~~
-
-| 予め、クラスタ内の全てのノードに対して :file:`/tmp/custom-docker-image.tar.gz` を転送します。
-
-| 下記コマンドをクラスタ内の全てのノードに対して実行し、イメージを投入します。
-
-.. code-block:: console
-   :caption: コマンド例（イメージを投入）
-
-   [user01@ita-node01 ~]$ ctr images -n k8s.io import /tmp/custom-docker-image.tar.gz
-  
-
-| イメージの投入後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
-| values.yaml の「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE`` 」及び「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
-
-.. code-block:: diff
-   :caption: values.yaml
-  
-   exastro-it-automation:
-   ...
-     ita-by-ansible-execute:
-       extraEnv:
-         ...
-   -     ANSIBLE_AGENT_IMAGE: "docker.io/exastro/exastro-it-automation-by-ansible-agent"
-   +     ANSIBLE_AGENT_IMAGE: "exastro-ansible-agent-custom"
-   -     ANSIBLE_AGENT_IMAGE_TAG: ""
-   +     ANSIBLE_AGENT_IMAGE_TAG: "devel"
-   ...
-
-| values.yaml の編集後、「 :command:`helm upgrade` 」及び「 :command:`kubectl rollout` 」を実行して編集を反映します。
-
-.. code-block:: console
-   :caption: コマンド（編集を反映）
- 
-   $ helm upgrade exastro exastro/exastro --install --namespace exastro --create-namespace --values values.yaml
-
-   $ kubectl rollout restart deploy/ita-by-ansible-execute -n exastro
-
-
 
 Ansible作業時のビルドにカスタマイズ工程を追加する例
 ---------------------------------------------------
@@ -343,6 +203,146 @@ Ansible作業時のビルドにカスタマイズ工程を追加する例
    #  &&  pip3.11 install --upgrade boto3 botocore
 
 | Dockerfileの編集後、Ansible-CoreでのAnsible作業実行を実施します。
+
+
+Ansible作業時にカスタマイズを施したイメージを使用する例
+-------------------------------------------------------
+
+カスタマイズを施したイメージの出力
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| カスタマイズを施したイメージが存在するサーバでイメージを出力します。
+
+| まず対象となるイメージを確認します。
+| 例として、「exastro-ansible-agent-custom:devel」を対象となるイメージとします。
+
+.. code-block:: console
+   :caption: コマンド例（対象となるイメージの確認）
+
+   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
+   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
+ 
+| なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、
+| Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。
+| （参考：https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting）
+
+.. code-block:: console
+   :caption: コマンド例（タグ名の変更）
+
+   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
+   exastro-ansible-agent-custom                     <none>    18493d96333g   12 hours ago   953MB
+
+   [user01@ita-sv ~]$ docker tag 18493d96333g exastro-ansible-agent-custom:devel
+  
+   [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
+   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
+ 
+ 
+| 下記コマンドを実行してイメージを出力します。
+| コマンドには「18493d96333g」等のイメージIDではなく、「exastro-ansible-agent-custom:devel」といったイメージ名とタグ名を使用してください。
+
+.. code-block:: console
+   :caption: コマンド例（イメージを出力）
+
+   [user01@ita-sv ~]$ docker save exastro-ansible-agent-custom:devel | gzip -c > /tmp/custom-docker-image.tar.gz
+  
+ 
+
+カスタマイズを施したイメージの投入
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+docker-compose版
+~~~~~~~~~~~~~~~~
+
+| 予め、イメージを投入したいサーバへ :file:`/tmp/custom-docker-image.tar.gz` を転送しておきます。
+
+| 下記コマンドを実行してイメージを投入します。
+
+.. code-block:: console
+   :caption: コマンド例（イメージを投入）
+
+   [user01@ita-sv-02 ~]$ docker load < /tmp/custom-docker-image.tar.gz
+  
+
+| その後、イメージが正常に投入されていることを確認します。
+
+.. code-block:: console
+   :caption: コマンド例（イメージを確認）
+
+   [user01@ita-sv-02 ~]$ docker images | grep exastro-ansible-agent-custom
+   exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
+ 
+
+| イメージの確認後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
+| 「 :file:`~/exastro-docker-compose/.env` 」の「 ``ANSIBLE_AGENT_IMAGE`` 」「 ``ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
+
+.. code-block:: diff
+   :caption: /exastro-docker-compose/.env
+  
+   ...
+   #### Local Repository for the Ansible Agent container
+   - # ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent
+   + ANSIBLE_AGENT_IMAGE=exastro-ansible-agent-custom
+   #### Tag for the Ansible Agent container local image
+   - # ANSIBLE_AGENT_IMAGE_TAG=
+   + ANSIBLE_AGENT_IMAGE_TAG=devel
+   ...
+
+
+| 環境変数の編集後、「:file:`~/exastro-docker-compose/setup.sh` 」を実行して編集を反映します。
+
+.. code-block:: console
+   :caption: コマンド（編集を反映）
+ 
+   [user01@ita-sv-02 ~]$ cd ~/exastro-docker-compose
+   [user01@ita-sv-02 ~]$ sh setup.sh install
+ 
+   ...
+   Regenerate .env file? (y/n) [default: n]: n
+   ...
+   Deploy Exastro containers now? (y/n) [default: n]: y
+   ...
+
+
+
+Kubenetes版
+~~~~~~~~~~~
+
+| 予め、クラスタ内の全てのノードに対して :file:`/tmp/custom-docker-image.tar.gz` を転送します。
+
+| 下記コマンドをクラスタ内の全てのノードに対して実行し、イメージを投入します。
+
+.. code-block:: console
+   :caption: コマンド例（イメージを投入）
+
+   [user01@ita-node01 ~]$ ctr images -n k8s.io import /tmp/custom-docker-image.tar.gz
+  
+
+| イメージの投入後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。
+| values.yaml の「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE`` 」及び「 ``exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE_TAG`` 」の値を編集します。
+
+.. code-block:: diff
+   :caption: values.yaml
+  
+   exastro-it-automation:
+   ...
+     ita-by-ansible-execute:
+       extraEnv:
+         ...
+   -     ANSIBLE_AGENT_IMAGE: "docker.io/exastro/exastro-it-automation-by-ansible-agent"
+   +     ANSIBLE_AGENT_IMAGE: "exastro-ansible-agent-custom"
+   -     ANSIBLE_AGENT_IMAGE_TAG: ""
+   +     ANSIBLE_AGENT_IMAGE_TAG: "devel"
+   ...
+
+| values.yaml の編集後、「 :command:`helm upgrade` 」及び「 :command:`kubectl rollout` 」を実行して編集を反映します。
+
+.. code-block:: console
+   :caption: コマンド（編集を反映）
+ 
+   $ helm upgrade exastro exastro/exastro --install --namespace exastro --create-namespace --values values.yaml
+
+   $ kubectl rollout restart deploy/ita-by-ansible-execute -n exastro
 
 
 Ansible Execution Agentでのカスタマイズ例
