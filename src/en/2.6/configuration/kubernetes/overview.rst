@@ -1,22 +1,22 @@
-====
+========
 Overview
-====
+========
 
 Introduction
-========
+============
 
 | This guide aims to explain Kubernetes, a container operation management tool usable by the Exastro system.
 
 Features
-====
+========
 
 | The Exastro system operates on multiple containers. By using Kubernetes, userse can achieve a system architecture with higher availability amd services levels.
 
 Availability
-======
+============
 
 Automatic restoring
---------
+-------------------
 
 | In the Exastro system, we can automatically restore the container by using Probe, the Kubernetes health-check function.
 | By configuring Probe, the container status will be checked. We can then automatically reboot the system when a backup occurs.
@@ -32,11 +32,12 @@ Automatic restoring
 - ita-web-server
 
 .. warning::
+
 | As Probe is a Kubernetes function, it can only be used if Exastro is  :doc:`installed using Kubernetes<../../installation/online/exastro/kubernetes>`.
 
 | There are 3 types of Probes, Startup Probe, Liveness Probe and Readiness Probe.
 | Each container runs HTTP GET request to their own endpoint every 10 seconds to health-check themselves.
-| At initial startup, the container will restart if the Startup Probe fails 30 times. After that, the container will restart if the Liveness Probe fails 3 times. 
+| At initial startup, the container will restart if the Startup Probe fails 30 times. After that, the container will restart if the Liveness Probe fails 3 times.
 
 .. list-table:: Probe types
    :widths: 20, 80
@@ -64,7 +65,7 @@ Automatic restoring
      - Specifies path with HTTP GET request.
      - (Path for health-checks)
    * - httpGet.port
-     - Specifies port with HTTP GET request. 
+     - Specifies port with HTTP GET request.
      - port-http
    * - timeoutSeconds
      - Specifies Probe timeout(seconds).
@@ -91,7 +92,7 @@ Automatic restoring
      - Specifies path with HTTP GET request.
      - (Path for health-checks)
    * - httpGet.port
-     - Specifies port with HTTP GET request. 
+     - Specifies port with HTTP GET request.
      - port-http
    * - timeoutSeconds
      - Specifies Probe timeout(seconds).
@@ -119,7 +120,7 @@ Automatic restoring
      - Specifies path with HTTP GET request.
      - (Path for health-checks)
    * - httpGet.port
-     - Specifies port with HTTP GET request. 
+     - Specifies port with HTTP GET request.
      - port-http
    * - timeoutSeconds
      - Specifies Probe timeout(seconds).

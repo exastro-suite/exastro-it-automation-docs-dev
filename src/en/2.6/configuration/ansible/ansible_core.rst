@@ -4,7 +4,7 @@ Ansible Core
 
 
 Introduction
-========
+============
 
 | This guide aims to explain the system configuration and environment needed to operate Exastro IT Automation (hereinafter referred to as ITA)'s Ansible connectivity function (referred to as Ansible Driver)
 | This guide will also explain system configurations and environments for using Ansible Core as an execution engine.
@@ -16,7 +16,7 @@ Introduction
 
 
 System configuration
-============
+====================
 
 | The Ansible driver is a standard function available when deploying Exastro IT Automation.
 |
@@ -25,7 +25,7 @@ System configuration
 | The diagram below illustrates an Ansible Core configuration pattern.
 
 System configuration pattern
---------------------
+----------------------------
 
 .. list-table:: System configuration pattern
    :widths: 50 50 50
@@ -43,7 +43,7 @@ System configuration pattern
 System configuration diagram
 --------------------------------------------------------
 
-.. figure:: /images/en/diagram/ansible_core.png
+.. figure:: /images/ja/diagram/ansible_core.png
     :alt: Ansible Core
     :width: 600px
 
@@ -55,11 +55,11 @@ System configuration diagram
    :align: left
 
    * - | Coomunication Number
-       | ※1 
+       | ※1
      - FROM
      - TO
      - | Protocol
-       | (Port number※2) 
+       | (Port number※2)
      - Main application
    * - ①
      - Ansible Core
@@ -80,18 +80,18 @@ System configuration diagram
 
 
 System requirements
-============
+===================
 
 | The system requirements for Ansible driver are based on the ITA System requirements. See :doc:`../../installation/online/exastro/kubernetes` for more information.
 
 
 Playbook link
-============
+=============
 
 | The following diagram illustrates the Playbook links between ITA and Ansible Core.
 | Exastro IT Automation relay connects with filesystems so it can work with Playbooks and Parameter values.
 
-.. figure:: /images/en/diagram/playbook_link_containers.png
+.. figure:: /images/ja/diagram/playbook_link_containers.png
    :alt: Exastro IT Automation and Ansible Core file link diagram
    :width: 750px
 
@@ -99,7 +99,7 @@ Playbook link
 
 
 Initial settings
-========
+================
 
 | After installing Ansible Core, make sure to prepare a shared directory that can be accessed by both Exastro IT Automation and Ansible Core.
 | The shared directory should be created within the volume created in this manual;:ref:`persistent_volume`.
