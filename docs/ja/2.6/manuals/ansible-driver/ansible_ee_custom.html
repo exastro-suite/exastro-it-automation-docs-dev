@@ -136,8 +136,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#id1">6.1. はじめに</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id2">6.2. Ansible 実行環境カスタマイズの概要</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ansible-core">6.3. Ansible-Coreでのカスタマイズ例</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#id3">6.3.1. Ansible作業時にカスタマイズを施したイメージを使用する例</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id6">6.3.2. Ansible作業時のビルドにカスタマイズ工程を追加する例</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id3">6.3.1. Ansible作業時のビルドにカスタマイズ工程を追加する例</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">6.3.2. Ansible作業時にカスタマイズを施したイメージを使用する例</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#ansible-execution-agent">6.4. Ansible Execution Agentでのカスタマイズ例</a><ul>
@@ -185,21 +185,21 @@
 <li><a class="reference internal" href="#id1">6.1. はじめに</a></li>
 <li><a class="reference internal" href="#id2">6.2. Ansible 実行環境カスタマイズの概要</a></li>
 <li><a class="reference internal" href="#ansible-core">6.3. Ansible-Coreでのカスタマイズ例</a><ul>
-<li><a class="reference internal" href="#id3">6.3.1. Ansible作業時にカスタマイズを施したイメージを使用する例</a><ul>
-<li><a class="reference internal" href="#id4">カスタマイズを施したイメージの出力</a></li>
-<li><a class="reference internal" href="#id5">カスタマイズを施したイメージの投入</a><ul>
+<li><a class="reference internal" href="#id3">6.3.1. Ansible作業時のビルドにカスタマイズ工程を追加する例</a><ul>
+<li><a class="reference internal" href="#id4">既存の環境変数を確認</a></li>
+<li><a class="reference internal" href="#id5">既存のイメージを削除</a></li>
+<li><a class="reference internal" href="#id6">ビルドファイルの編集</a><ul>
+<li><a class="reference internal" href="#id7">コレクションを使用する例</a></li>
+<li><a class="reference internal" href="#id8">自作モジュールを使用する例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">6.3.2. Ansible作業時にカスタマイズを施したイメージを使用する例</a><ul>
+<li><a class="reference internal" href="#id10">カスタマイズを施したイメージの出力</a></li>
+<li><a class="reference internal" href="#id11">カスタマイズを施したイメージの投入</a><ul>
 <li><a class="reference internal" href="#docker-compose">docker-compose版</a></li>
 <li><a class="reference internal" href="#kubenetes">Kubenetes版</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id6">6.3.2. Ansible作業時のビルドにカスタマイズ工程を追加する例</a><ul>
-<li><a class="reference internal" href="#id7">既存の環境変数を確認</a></li>
-<li><a class="reference internal" href="#id8">既存のイメージを削除</a></li>
-<li><a class="reference internal" href="#id9">ビルドファイルの編集</a><ul>
-<li><a class="reference internal" href="#id10">コレクションを使用する例</a></li>
-<li><a class="reference internal" href="#id11">自作モジュールを使用する例</a></li>
 </ul>
 </li>
 </ul>
@@ -292,7 +292,7 @@
 <section id="id2">
 <h2><span class="section-number">6.2. </span>Ansible 実行環境カスタマイズの概要<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="line-block">
-<div class="line">Ansible-Coreでは、Ansible作業時にカスタマイズを施したイメージを使用する・Ansible作業時のビルドにカスタマイズ工程をはさむ（docker-compose版のみ）等によりAnsible実行環境のカスタマイズを実施することが可能です。</div>
+<div class="line">Ansible-Coreでは、Ansible作業時のビルドにカスタマイズ工程をはさむ（docker-compose版のみ）・Ansible作業時にカスタマイズを施したイメージを使用する等によりAnsible実行環境のカスタマイズを実施することが可能です。</div>
 <div class="line">また、Ansible Execution Agentや Ansible Automation Platformでは、ansible-builderを用いてAnsible実行環境のカスタマイズを実施することが可能です。</div>
 </div>
 <div class="line-block">
@@ -303,10 +303,6 @@
 <div class="line">Ansible-Coreでのカスタマイズ例</div>
 </div>
 <ul>
-<li><div class="line-block">
-<div class="line">Ansible作業時にカスタマイズを施したイメージを使用する例</div>
-</div>
-</li>
 <li><div class="line-block">
 <div class="line">Ansible作業時のビルドにカスタマイズ工程を追加する例（docker-compose版のみ）</div>
 </div>
@@ -320,6 +316,10 @@
 </div>
 </li>
 </ul>
+</li>
+<li><div class="line-block">
+<div class="line">Ansible作業時にカスタマイズを施したイメージを使用する例</div>
+</div>
 </li>
 </ul>
 </li>
@@ -346,171 +346,18 @@
 <section id="ansible-core">
 <h2><span class="section-number">6.3. </span>Ansible-Coreでのカスタマイズ例<a class="headerlink" href="#ansible-core" title="Link to this heading">¶</a></h2>
 <section id="id3">
-<h3><span class="section-number">6.3.1. </span>Ansible作業時にカスタマイズを施したイメージを使用する例<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<section id="id4">
-<h4>カスタマイズを施したイメージの出力<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
-<div class="line-block">
-<div class="line">カスタマイズを施したイメージが存在するサーバでイメージを出力します。</div>
-</div>
-<div class="line-block">
-<div class="line">まず対象となるイメージを確認します。</div>
-<div class="line">例として、「exastro-ansible-agent-custom:devel」を対象となるイメージとします。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id43">
-<div class="code-block-caption"><span class="caption-number">リスト 6.1 </span><span class="caption-text">コマンド例（対象となるイメージの確認）</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
-<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、</div>
-<div class="line">Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。</div>
-<div class="line">（参考：<a class="reference external" href="https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting">https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting</a>）</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id44">
-<div class="code-block-caption"><span class="caption-number">リスト 6.2 </span><span class="caption-text">コマンド例（タグ名の変更）</span><a class="headerlink" href="#id44" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
-<span class="go">exastro-ansible-agent-custom                     &lt;none&gt;    18493d96333g   12 hours ago   953MB</span>
-
-<span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>tag<span class="w"> </span>18493d96333g<span class="w"> </span>exastro-ansible-agent-custom:devel
-
-<span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
-<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">下記コマンドを実行してイメージを出力します。</div>
-<div class="line">コマンドには「18493d96333g」等のイメージIDではなく、「exastro-ansible-agent-custom:devel」といったイメージ名とタグ名を使用してください。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-number">リスト 6.3 </span><span class="caption-text">コマンド例（イメージを出力）</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>save<span class="w"> </span>exastro-ansible-agent-custom:devel<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>-c<span class="w"> </span>&gt;<span class="w"> </span>/tmp/custom-docker-image.tar.gz
-</pre></div>
-</div>
-</div>
-</section>
-<section id="id5">
-<h4>カスタマイズを施したイメージの投入<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
-<section id="docker-compose">
-<h5>docker-compose版<a class="headerlink" href="#docker-compose" title="Link to this heading">¶</a></h5>
-<div class="line-block">
-<div class="line">予め、イメージを投入したいサーバへ <code class="file docutils literal notranslate"><span class="pre">/tmp/custom-docker-image.tar.gz</span></code> を転送しておきます。</div>
-</div>
-<div class="line-block">
-<div class="line">下記コマンドを実行してイメージを投入します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-number">リスト 6.4 </span><span class="caption-text">コマンド例（イメージを投入）</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>/tmp/custom-docker-image.tar.gz
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">その後、イメージが正常に投入されていることを確認します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-number">リスト 6.5 </span><span class="caption-text">コマンド例（イメージを確認）</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
-<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">イメージの確認後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。</div>
-<div class="line">「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> 」の「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE</span></code> 」「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE_TAG</span></code> 」の値を編集します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id48">
-<div class="code-block-caption"><span class="caption-number">リスト 6.6 </span><span class="caption-text">/exastro-docker-compose/.env</span><a class="headerlink" href="#id48" title="Link to this code">¶</a></div>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>...
-#### Local Repository for the Ansible Agent container
-<span class="gd">- # ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent</span>
-<span class="gi">+ ANSIBLE_AGENT_IMAGE=exastro-ansible-agent-custom</span>
-#### Tag for the Ansible Agent container local image
-<span class="gd">- # ANSIBLE_AGENT_IMAGE_TAG=</span>
-<span class="gi">+ ANSIBLE_AGENT_IMAGE_TAG=devel</span>
-...
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">環境変数の編集後、「<code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/setup.sh</span></code> 」を実行して編集を反映します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id49">
-<div class="code-block-caption"><span class="caption-number">リスト 6.7 </span><span class="caption-text">コマンド（編集を反映）</span><a class="headerlink" href="#id49" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
-<span class="gp">[user01@ita-sv-02 ~]$ </span>sh<span class="w"> </span>setup.sh<span class="w"> </span>install
-
-<span class="go">...</span>
-<span class="go">Regenerate .env file? (y/n) [default: n]: n</span>
-<span class="go">...</span>
-<span class="go">Deploy Exastro containers now? (y/n) [default: n]: y</span>
-<span class="go">...</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="kubenetes">
-<h5>Kubenetes版<a class="headerlink" href="#kubenetes" title="Link to this heading">¶</a></h5>
-<div class="line-block">
-<div class="line">予め、クラスタ内の全てのノードに対して <code class="file docutils literal notranslate"><span class="pre">/tmp/custom-docker-image.tar.gz</span></code> を転送します。</div>
-</div>
-<div class="line-block">
-<div class="line">下記コマンドをクラスタ内の全てのノードに対して実行し、イメージを投入します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id50">
-<div class="code-block-caption"><span class="caption-number">リスト 6.8 </span><span class="caption-text">コマンド例（イメージを投入）</span><a class="headerlink" href="#id50" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-node01 ~]$ </span>ctr<span class="w"> </span>images<span class="w"> </span>-n<span class="w"> </span>k8s.io<span class="w"> </span>import<span class="w"> </span>/tmp/custom-docker-image.tar.gz
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">イメージの投入後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。</div>
-<div class="line">values.yaml の「 <code class="docutils literal notranslate"><span class="pre">exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE</span></code> 」及び「 <code class="docutils literal notranslate"><span class="pre">exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE_TAG</span></code> 」の値を編集します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id51">
-<div class="code-block-caption"><span class="caption-number">リスト 6.9 </span><span class="caption-text">values.yaml</span><a class="headerlink" href="#id51" title="Link to this code">¶</a></div>
-<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>exastro-it-automation:
-...
-<span class="w"> </span> ita-by-ansible-execute:
-<span class="w"> </span>   extraEnv:
-<span class="w"> </span>     ...
-<span class="gd">-     ANSIBLE_AGENT_IMAGE: &quot;docker.io/exastro/exastro-it-automation-by-ansible-agent&quot;</span>
-<span class="gi">+     ANSIBLE_AGENT_IMAGE: &quot;exastro-ansible-agent-custom&quot;</span>
-<span class="gd">-     ANSIBLE_AGENT_IMAGE_TAG: &quot;&quot;</span>
-<span class="gi">+     ANSIBLE_AGENT_IMAGE_TAG: &quot;devel&quot;</span>
-...
-</pre></div>
-</div>
-</div>
-<div class="line-block">
-<div class="line">values.yaml の編集後、「 <strong class="command">helm upgrade</strong> 」及び「 <strong class="command">kubectl rollout</strong> 」を実行して編集を反映します。</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id52">
-<div class="code-block-caption"><span class="caption-number">リスト 6.10 </span><span class="caption-text">コマンド（編集を反映）</span><a class="headerlink" href="#id52" title="Link to this code">¶</a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span>--values<span class="w"> </span>values.yaml
-
-<span class="gp">$ </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>restart<span class="w"> </span>deploy/ita-by-ansible-execute<span class="w"> </span>-n<span class="w"> </span>exastro
-</pre></div>
-</div>
-</div>
-</section>
-</section>
-</section>
-<section id="id6">
-<h3><span class="section-number">6.3.2. </span>Ansible作業時のビルドにカスタマイズ工程を追加する例<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Ansible作業時のビルドにカスタマイズ工程を追加する例<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">Ansible作業時のビルドにカスタマイズ工程を追加するという手順の関係上、本手順は「docker-compose版のみ」となります。</div>
 </div>
-<section id="id7">
-<h4>既存の環境変数を確認<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
+<section id="id4">
+<h4>既存の環境変数を確認<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">既存の環境変数を確認します。</div>
 <div class="line">「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> 」の「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE</span></code> 」「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE_TAG</span></code> 」「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_BASE_IMAGE</span></code> 」「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_BASE_IMAGE_TAG</span></code> 」の値を確認します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id53">
-<div class="code-block-caption"><span class="caption-number">リスト 6.11 </span><span class="caption-text">コマンド（環境変数を確認）</span><a class="headerlink" href="#id53" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id43">
+<div class="code-block-caption"><span class="caption-number">リスト 6.1 </span><span class="caption-text">コマンド（環境変数を確認）</span><a class="headerlink" href="#id43" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>cat<span class="w"> </span>~/exastro-docker-compose/.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ANSIBLE
 <span class="go">ANSIBLE_AGENT_IMAGE=exastro-ansible-agent-custom</span>
 <span class="go">ANSIBLE_AGENT_IMAGE_TAG=devel</span>
@@ -532,13 +379,13 @@
 <div class="line">が使用されています。</div>
 </div>
 </section>
-<section id="id8">
-<h4>既存のイメージを削除<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<section id="id5">
+<h4>既存のイメージを削除<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">Ansible-CoreでのAnsible作業を一度でも実施してしている場合は、既にイメージが作成されているため予め「 <strong class="command">docker rmi</strong> 」を実施しイメージを削除します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id54">
-<div class="code-block-caption"><span class="caption-number">リスト 6.12 </span><span class="caption-text">コマンド（既存のイメージを削除）</span><a class="headerlink" href="#id54" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id44">
+<div class="code-block-caption"><span class="caption-number">リスト 6.2 </span><span class="caption-text">コマンド（既存のイメージを削除）</span><a class="headerlink" href="#id44" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="o">[[</span>ここにANSIBLE_AGENT_IMAGEを代入<span class="o">]]</span>
 <span class="go">[[ANSIBLE_AGENT_IMAGE]]                      [[ANSIBLE_AGENT_IMAGE_TAG]]    18493d96333g   12 hours ago   953MB</span>
 
@@ -547,8 +394,8 @@
 </div>
 </div>
 </section>
-<section id="id9">
-<h4>ビルドファイルの編集<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h4>
+<section id="id6">
+<h4>ビルドファイルの編集<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
 <div class="line-block">
 <div class="line">Ansible-Coreでは通常「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/ita_by_ansible_execute/templates/</span></code> 」の「 <code class="file docutils literal notranslate"><span class="pre">./docker-compose.yml</span></code> 」及び「 <code class="file docutils literal notranslate"><span class="pre">./work/Dockerfile</span></code> 」を使用してAnsible実行環境をビルドしています。</div>
 <div class="line">そのため、実施したいカスタマイズ工程は上記の2ファイルに記載します。</div>
@@ -560,14 +407,14 @@
 <div class="line">また、pipに関しても pip3.9から <strong>pip3.11</strong> へ変更されています。</div>
 </div>
 </div>
-<section id="id10">
-<h5>コレクションを使用する例<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h5>
+<section id="id7">
+<h5>コレクションを使用する例<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h5>
 <div class="line-block">
 <div class="line">「exastro/exastro-it-automation-by-ansible-agent」の2.6.0には標準で下記のようなコレクションが含まれています。</div>
 <div class="line">そのため下記以外のコレクションを追加する場合、及びコレクションに必要なライブラリをインストール場合の手順となります。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id55">
-<div class="code-block-caption"><span class="caption-number">リスト 6.13 </span><span class="caption-text"><strong class="command">ansible-galaxy collection list</strong> で確認されたコレクション</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-number">リスト 6.3 </span><span class="caption-text"><strong class="command">ansible-galaxy collection list</strong> で確認されたコレクション</span><a class="headerlink" href="#id45" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>/usr/local/lib/python3.11/site-packages/ansible_collections
 <span class="go">Collection                               Version</span>
 <span class="go">---------------------------------------- -------</span>
@@ -593,8 +440,8 @@
 <div class="line">なお、<strong class="command">ansible-galaxy collection install</strong> の直後に実施している <strong class="command">pip3.11 install</strong> については、コレクションに必要なライブラリを指定してください。</div>
 <div class="line">（コレクションに必要なライブラリは、<a class="reference external" href="https://galaxy.ansible.com/ui/collections/">Ansible Galaxy - コレクション</a> の各コレクション用のドキュメントに記載があることが多いです。）</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id56">
-<div class="code-block-caption"><span class="caption-number">リスト 6.14 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-number">リスト 6.4 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id46" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>ARG ANSIBLE_AGENT_BASE_IMAGE
 ARG ANSIBLE_AGENT_BASE_IMAGE_TAG
 
@@ -615,8 +462,8 @@ FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 <div class="line">また、透過型プロキシ等でSSL/TLSインスペクションを実施している場合は、<strong class="command">ansible-galaxy</strong> の実施時に証明書エラーが発生してしまうため、引数に「<strong class="command">--ignore-certs</strong>」を付与する必要があります。</div>
 <div class="line">※カスタムCA証明書をインストールすることで適切に証明書検証をすることも可能です。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id57">
-<div class="code-block-caption"><span class="caption-number">リスト 6.15 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-number">リスト 6.5 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id47" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>ARG ANSIBLE_AGENT_BASE_IMAGE
 ARG ANSIBLE_AGENT_BASE_IMAGE_TAG
 
@@ -643,14 +490,14 @@ FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 </pre></div>
 </div>
 </section>
-<section id="id11">
-<h5>自作モジュールを使用する例<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h5>
+<section id="id8">
+<h5>自作モジュールを使用する例<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h5>
 <div class="line-block">
 <div class="line">使用したい自作モジュールを「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/my_module.py</span></code> 」に配置します。</div>
 <div class="line">また、Ansible-Coreの実行ユーザがアクセスできるように読み取り権限を付与します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id58">
-<div class="code-block-caption"><span class="caption-number">リスト 6.16 </span><span class="caption-text">コマンド例（読み取り権限の付与）</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id48">
+<div class="code-block-caption"><span class="caption-number">リスト 6.6 </span><span class="caption-text">コマンド例（読み取り権限の付与）</span><a class="headerlink" href="#id48" title="Link to this code">¶</a></div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>chmod<span class="w"> </span>a+r<span class="w"> </span>~/exastro-docker-compose/ita_by_ansible_execute/templates/work/my_module.py
 <span class="gp">[user01@ita-sv ~]$ </span>ls<span class="w"> </span>-al<span class="w"> </span>~/exastro-docker-compose/ita_by_ansible_execute/templates/work/my_module.py
 <span class="go">-rw-r--r--. 1 user01 user01 1024 Jan 1 00:00 ~/exastro-docker-compose/ita_by_ansible_execute/templates/work/my_module.py</span>
@@ -660,8 +507,8 @@ FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 <div class="line-block">
 <div class="line">「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span></code> 」を下記編集します。</div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id59">
-<div class="code-block-caption"><span class="caption-number">リスト 6.17 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id59" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id49">
+<div class="code-block-caption"><span class="caption-number">リスト 6.7 </span><span class="caption-text">~/exastro-docker-compose/ita_by_ansible_execute/templates/work/Dockerfile</span><a class="headerlink" href="#id49" title="Link to this code">¶</a></div>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>ARG ANSIBLE_AGENT_BASE_IMAGE
 ARG ANSIBLE_AGENT_BASE_IMAGE_TAG
 
@@ -680,6 +527,159 @@ FROM ${ANSIBLE_AGENT_BASE_IMAGE}:${ANSIBLE_AGENT_BASE_IMAGE_TAG}
 </div>
 <div class="line-block">
 <div class="line">Dockerfileの編集後、Ansible-CoreでのAnsible作業実行を実施します。</div>
+</div>
+</section>
+</section>
+</section>
+<section id="id9">
+<h3><span class="section-number">6.3.2. </span>Ansible作業時にカスタマイズを施したイメージを使用する例<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<section id="id10">
+<h4>カスタマイズを施したイメージの出力<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h4>
+<div class="line-block">
+<div class="line">カスタマイズを施したイメージが存在するサーバでイメージを出力します。</div>
+</div>
+<div class="line-block">
+<div class="line">まず対象となるイメージを確認します。</div>
+<div class="line">例として、「exastro-ansible-agent-custom:devel」を対象となるイメージとします。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id50">
+<div class="code-block-caption"><span class="caption-number">リスト 6.8 </span><span class="caption-text">コマンド例（対象となるイメージの確認）</span><a class="headerlink" href="#id50" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
+<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、</div>
+<div class="line">Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。</div>
+<div class="line">（参考：<a class="reference external" href="https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting">https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting</a>）</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id51">
+<div class="code-block-caption"><span class="caption-number">リスト 6.9 </span><span class="caption-text">コマンド例（タグ名の変更）</span><a class="headerlink" href="#id51" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
+<span class="go">exastro-ansible-agent-custom                     &lt;none&gt;    18493d96333g   12 hours ago   953MB</span>
+
+<span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>tag<span class="w"> </span>18493d96333g<span class="w"> </span>exastro-ansible-agent-custom:devel
+
+<span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
+<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">下記コマンドを実行してイメージを出力します。</div>
+<div class="line">コマンドには「18493d96333g」等のイメージIDではなく、「exastro-ansible-agent-custom:devel」といったイメージ名とタグ名を使用してください。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id52">
+<div class="code-block-caption"><span class="caption-number">リスト 6.10 </span><span class="caption-text">コマンド例（イメージを出力）</span><a class="headerlink" href="#id52" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv ~]$ </span>docker<span class="w"> </span>save<span class="w"> </span>exastro-ansible-agent-custom:devel<span class="w"> </span><span class="p">|</span><span class="w"> </span>gzip<span class="w"> </span>-c<span class="w"> </span>&gt;<span class="w"> </span>/tmp/custom-docker-image.tar.gz
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h4>カスタマイズを施したイメージの投入<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h4>
+<section id="docker-compose">
+<h5>docker-compose版<a class="headerlink" href="#docker-compose" title="Link to this heading">¶</a></h5>
+<div class="line-block">
+<div class="line">予め、イメージを投入したいサーバへ <code class="file docutils literal notranslate"><span class="pre">/tmp/custom-docker-image.tar.gz</span></code> を転送しておきます。</div>
+</div>
+<div class="line-block">
+<div class="line">下記コマンドを実行してイメージを投入します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id53">
+<div class="code-block-caption"><span class="caption-number">リスト 6.11 </span><span class="caption-text">コマンド例（イメージを投入）</span><a class="headerlink" href="#id53" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span>docker<span class="w"> </span>load<span class="w"> </span>&lt;<span class="w"> </span>/tmp/custom-docker-image.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">その後、イメージが正常に投入されていることを確認します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id54">
+<div class="code-block-caption"><span class="caption-number">リスト 6.12 </span><span class="caption-text">コマンド例（イメージを確認）</span><a class="headerlink" href="#id54" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>exastro-ansible-agent-custom
+<span class="go">exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">イメージの確認後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。</div>
+<div class="line">「 <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> 」の「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE</span></code> 」「 <code class="docutils literal notranslate"><span class="pre">ANSIBLE_AGENT_IMAGE_TAG</span></code> 」の値を編集します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id55">
+<div class="code-block-caption"><span class="caption-number">リスト 6.13 </span><span class="caption-text">/exastro-docker-compose/.env</span><a class="headerlink" href="#id55" title="Link to this code">¶</a></div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>...
+#### Local Repository for the Ansible Agent container
+<span class="gd">- # ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent</span>
+<span class="gi">+ ANSIBLE_AGENT_IMAGE=exastro-ansible-agent-custom</span>
+#### Tag for the Ansible Agent container local image
+<span class="gd">- # ANSIBLE_AGENT_IMAGE_TAG=</span>
+<span class="gi">+ ANSIBLE_AGENT_IMAGE_TAG=devel</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">環境変数の編集後、「<code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/setup.sh</span></code> 」を実行して編集を反映します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id56">
+<div class="code-block-caption"><span class="caption-number">リスト 6.14 </span><span class="caption-text">コマンド（編集を反映）</span><a class="headerlink" href="#id56" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-sv-02 ~]$ </span><span class="nb">cd</span><span class="w"> </span>~/exastro-docker-compose
+<span class="gp">[user01@ita-sv-02 ~]$ </span>sh<span class="w"> </span>setup.sh<span class="w"> </span>install
+
+<span class="go">...</span>
+<span class="go">Regenerate .env file? (y/n) [default: n]: n</span>
+<span class="go">...</span>
+<span class="go">Deploy Exastro containers now? (y/n) [default: n]: y</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="kubenetes">
+<h5>Kubenetes版<a class="headerlink" href="#kubenetes" title="Link to this heading">¶</a></h5>
+<div class="line-block">
+<div class="line">予め、クラスタ内の全てのノードに対して <code class="file docutils literal notranslate"><span class="pre">/tmp/custom-docker-image.tar.gz</span></code> を転送します。</div>
+</div>
+<div class="line-block">
+<div class="line">下記コマンドをクラスタ内の全てのノードに対して実行し、イメージを投入します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id57">
+<div class="code-block-caption"><span class="caption-number">リスト 6.15 </span><span class="caption-text">コマンド例（イメージを投入）</span><a class="headerlink" href="#id57" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[user01@ita-node01 ~]$ </span>ctr<span class="w"> </span>images<span class="w"> </span>-n<span class="w"> </span>k8s.io<span class="w"> </span>import<span class="w"> </span>/tmp/custom-docker-image.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">イメージの投入後、Ansible-CoreでのAnsible作業時に対象のイメージを使用するように環境変数を設定します。</div>
+<div class="line">values.yaml の「 <code class="docutils literal notranslate"><span class="pre">exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE</span></code> 」及び「 <code class="docutils literal notranslate"><span class="pre">exastro-it-automation.ita-by-ansible-execute.extraEnv.ANSIBLE_AGENT_IMAGE_TAG</span></code> 」の値を編集します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id58">
+<div class="code-block-caption"><span class="caption-number">リスト 6.16 </span><span class="caption-text">values.yaml</span><a class="headerlink" href="#id58" title="Link to this code">¶</a></div>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span>exastro-it-automation:
+...
+<span class="w"> </span> ita-by-ansible-execute:
+<span class="w"> </span>   extraEnv:
+<span class="w"> </span>     ...
+<span class="gd">-     ANSIBLE_AGENT_IMAGE: &quot;docker.io/exastro/exastro-it-automation-by-ansible-agent&quot;</span>
+<span class="gi">+     ANSIBLE_AGENT_IMAGE: &quot;exastro-ansible-agent-custom&quot;</span>
+<span class="gd">-     ANSIBLE_AGENT_IMAGE_TAG: &quot;&quot;</span>
+<span class="gi">+     ANSIBLE_AGENT_IMAGE_TAG: &quot;devel&quot;</span>
+...
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">values.yaml の編集後、「 <strong class="command">helm upgrade</strong> 」及び「 <strong class="command">kubectl rollout</strong> 」を実行して編集を反映します。</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id59">
+<div class="code-block-caption"><span class="caption-number">リスト 6.17 </span><span class="caption-text">コマンド（編集を反映）</span><a class="headerlink" href="#id59" title="Link to this code">¶</a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>helm<span class="w"> </span>upgrade<span class="w"> </span>exastro<span class="w"> </span>exastro/exastro<span class="w"> </span>--install<span class="w"> </span>--namespace<span class="w"> </span>exastro<span class="w"> </span>--create-namespace<span class="w"> </span>--values<span class="w"> </span>values.yaml
+
+<span class="gp">$ </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>restart<span class="w"> </span>deploy/ita-by-ansible-execute<span class="w"> </span>-n<span class="w"> </span>exastro
+</pre></div>
+</div>
 </div>
 </section>
 </section>
