@@ -21,7 +21,7 @@ Azure Kubernetes Service (AKS) クラスター
  * - リソース種別
    - 要求リソース
  * - 仮想マシンサイズ
-   - Standard B4ms (4 vCPU / Memory 16 GiB) 
+   - Standard B4ms (4 vCPU / Memory 16 GiB)
  * - Storage (Container image size)
    - 10GB
  * - Kubernetes
@@ -36,7 +36,7 @@ Azure Kubernetes Service (AKS) クラスター
  * - リソース種別
    - 要求リソース
  * - 仮想マシンサイズ
-   - Standard D4as v5 (4 vCPU / Memory 16 GiB) 
+   - Standard D4as v5 (4 vCPU / Memory 16 GiB)
  * - Storage
    - 120GB
  * - Kubernetes
@@ -96,7 +96,7 @@ AKS クラスターの作成例
    .. csv-table::
     :header: 変数, 説明
     :widths: 30, 30
-   
+
       RESOURCE_GROUP, 利用するリソースグループ名
       CLUSTER_NAME, 作成する AKS クラスター名
       PUBLIC_IP_PREFIX_NAME, パブリック IP プレフィックス名

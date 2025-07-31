@@ -1112,139 +1112,140 @@ Exastro on Docker Compose - Offline
    .. group-tab:: docker
 
       | 該当するカスタム化を施したイメージが存在していることを確認します。
-      | 
+      |
       | ・ 現在の設定値を確認します。
 
       .. code-block:: shell
          :caption: 設定値確認用コマンド(オフライン環境)
-         
+
          cat ~/exastro-docker-compose/.env | grep -E "ANSIBLE_AGENT_IMAGE|ANSIBLE_AGENT_IMAGE_TAG"
-         
+
       | 　 ANSIBLE_AGENT_IMAGE：「レポジトリ名称」の指定
       | 　 ANSIBLE_AGENT_IMAGE_TAG：「タグ」の指定  となります。
       | 　 (コメントアウトされている場合は既定値が使用されます)
-         
+
       .. code-block:: shell
          :caption: 設定値確認結果出力例(オフライン環境)
-         
+
          ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent-custom
          ANSIBLE_AGENT_IMAGE_TAG=2.5.3
-            
-      | ・ 上記で指定されたイメージが存在していることを確認します。  
-      
+
+      | ・ 上記で指定されたイメージが存在していることを確認します。
+
       .. code-block:: shell
          :caption: イメージ確認用コマンド(オフライン環境)
-         
+
          docker images <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値>
-         
+
       .. code-block:: shell
          :caption: イメージ確認結果出力例(オフライン環境)
-         
-         REPOSITORY                        TAG       IMAGE ID       CREATED       SIZE
-         my-exastro-ansible-agent-custom   2.5.3     c73215585c2f   4 weeks ago   962MB
-         
-      | 
-      | 表示されない場合は、該当するカスタム化を施したイメージをビルドする必要があります。
-         
-      .. code-block:: shell
-         :caption: ビルド用コマンド例(オフライン環境)
-         
-         cd {カスタム用のdocker-compose.yamlが存在するディレクトリ}
-         docker compose build
-         
-      | 別途、オンライン環境から転送することも可能です。
-      
-      .. code-block:: shell
-         :caption: イメージエクスポート用コマンド例(オンライン環境)
-         
-         docker save <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値> | gzip -c > 2.5.3/my-exastro-ansible-agent-custom.tar.gz
-            
-      .. code-block:: shell
-         :caption: イメージインポート用コマンド例(オフライン環境)
-         
-         docker load  < 2.5.3/my-exastro-ansible-agent-custom.tar.gz
-         
-      |  
-      | 該当するカスタム化を施したイメージが表示されることを確認します。
-      .. code-block:: shell
-         :caption: イメージ確認用コマンド(オフライン環境)
-         
-         docker images <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値>
-         
-      
-      .. code-block:: shell
-         :caption: イメージ確認結果出力例(オフライン環境)
-         
+
          REPOSITORY                        TAG       IMAGE ID       CREATED       SIZE
          my-exastro-ansible-agent-custom   2.5.3     c73215585c2f   4 weeks ago   962MB
 
-      
+      |
+      | 表示されない場合は、該当するカスタム化を施したイメージをビルドする必要があります。
+
+      .. code-block:: shell
+         :caption: ビルド用コマンド例(オフライン環境)
+
+         cd {カスタム用のdocker-compose.yamlが存在するディレクトリ}
+         docker compose build
+
+      | 別途、オンライン環境から転送することも可能です。
+
+      .. code-block:: shell
+         :caption: イメージエクスポート用コマンド例(オンライン環境)
+
+         docker save <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値> | gzip -c > 2.5.3/my-exastro-ansible-agent-custom.tar.gz
+
+      .. code-block:: shell
+         :caption: イメージインポート用コマンド例(オフライン環境)
+
+         docker load  < 2.5.3/my-exastro-ansible-agent-custom.tar.gz
+
+
+      | 該当するカスタム化を施したイメージが表示されることを確認します。
+
+      .. code-block:: shell
+         :caption: イメージ確認用コマンド(オフライン環境)
+
+         docker images <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値>
+
+
+      .. code-block:: shell
+         :caption: イメージ確認結果出力例(オフライン環境)
+
+         REPOSITORY                        TAG       IMAGE ID       CREATED       SIZE
+         my-exastro-ansible-agent-custom   2.5.3     c73215585c2f   4 weeks ago   962MB
+
+
    .. group-tab:: podman
 
       | 該当するカスタム化を施したイメージが存在していることを確認します。
-      | 
+      |
       | ・ 現在の設定値を確認します。
 
       .. code-block:: shell
          :caption: 設定値確認用コマンド(オフライン環境)
-         
+
          cat ~/exastro-docker-compose/.env | grep -E "ANSIBLE_AGENT_IMAGE|ANSIBLE_AGENT_IMAGE_TAG"
-         
+
       | 　 ANSIBLE_AGENT_IMAGE：「レポジトリ名称」の指定
       | 　 ANSIBLE_AGENT_IMAGE_TAG：「タグ」の指定  となります。
       | 　 (コメントアウトされている場合は既定値が使用されます)
-         
+
       .. code-block:: shell
          :caption: 設定値確認結果出力例(オフライン環境)
-         
+
          ANSIBLE_AGENT_IMAGE=my-exastro-ansible-agent-custom
          ANSIBLE_AGENT_IMAGE_TAG=2.5.3
-         
-      | ・ 上記で指定されたイメージが存在していることを確認します。  
-          
+
+      | ・ 上記で指定されたイメージが存在していることを確認します。
+
       .. code-block:: shell
          :caption: イメージ確認用コマンド(オフライン環境)
-         
+
          podman images <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値>
-         
+
       .. code-block:: shell
          :caption: イメージ確認結果出力例(オフライン環境)
-         
+
          REPOSITORY                        TAG       IMAGE ID       CREATED       SIZE
          my-exastro-ansible-agent-custom   2.5.3     c73215585c2f   4 weeks ago   962MB
-         
-      | 
+
+      |
       | 表示されない場合は、該当するカスタム化を施したイメージをビルドする必要があります。
-         
+
       .. code-block:: shell
          :caption: ビルド用コマンド例(オフライン環境)
-         
+
          cd {カスタム用のdocker-compose.yamlが存在するディレクトリ}
          podman compose build
-         
+
       | 別途、オンライン環境から転送することも可能です。
-      
+
       .. code-block:: shell
          :caption: イメージエクスポート用コマンド例(オンライン環境)
-         
+
          podman save <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値> | gzip -c > 2.5.3/my-exastro-ansible-agent-custom.tar.gz
-            
+
       .. code-block:: shell
          :caption: イメージインポート用コマンド例(オフライン環境)
-         
+
          podman load  < 2.5.3/my-exastro-ansible-agent-custom.tar.gz
-         
-      |  
+
       | 該当するカスタム化を施したイメージが表示されることを確認します。
+
       .. code-block:: shell
          :caption: イメージ確認用コマンド(オフライン環境)
-         
+
          podman images <ANSIBLE_AGENT_IMAGEの値>:<ANSIBLE_AGENT_IMAGE_TAGの値>
-         
-      
+
+
       .. code-block:: shell
          :caption: イメージ確認結果出力例(オフライン環境)
-         
+
          REPOSITORY                        TAG       IMAGE ID       CREATED       SIZE
          my-exastro-ansible-agent-custom   2.5.3     c73215585c2f   4 weeks ago   962MB
 

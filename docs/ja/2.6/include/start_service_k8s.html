@@ -192,7 +192,14 @@
 </li>
 <li><p>Pod 起動数の確認</p>
 <div class="line-block">
-<div class="line">上記で起動した対象の Pod 数が元に戻りすべて <kbd class="kbd docutils literal notranslate">READY</kbd> になっていることを確認します。</div>
+<div class="line">上記で起動した対象の Pod 数が元に戻り、次の例外を除いてすべて <kbd class="kbd docutils literal notranslate">READY</kbd> になっていることを確認します。</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line">以下のリソースについては <kbd class="kbd docutils literal notranslate">READY</kbd> が 0/(Pod数)のままとなります。</div>
+<div class="line">- deployment.apps/ita-by-conductor-regularly</div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
@@ -203,37 +210,38 @@
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">実行結果</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NAME<span class="w">                                                     </span>READY<span class="w">   </span>UP-TO-DATE<span class="w">   </span>AVAILABLE<span class="w">   </span>AGE
-deployment.apps/ita-api-admin<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-api-oase-receiver<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-api-organization<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-ansible-execute<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-cicd-for-iac<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-collector<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-conductor-regularly<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-conductor-synchronize<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-excel-export-import<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-hostgroup-split<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-menu-create<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-menu-export-import<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-oase-conclusion<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-terraform-cli-execute<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/ita-web-server<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/mariadb<span class="w">                                  </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/platform-api<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/platform-auth<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/platform-job<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
-deployment.apps/platform-web<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>26h
+deployment.apps/ita-api-admin<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-api-ansible-execution-receiver<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-api-oase-receiver<span class="w">                    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-api-organization<span class="w">                     </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-ansible-execute<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-ansible-legacy-role-vars-listup<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-ansible-legacy-vars-listup<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-ansible-pioneer-vars-listup<span class="w">       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-ansible-towermaster-sync<span class="w">          </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-cicd-for-iac<span class="w">                      </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-collector<span class="w">                         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-conductor-regularly<span class="w">               </span><span class="m">0</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">0</span><span class="w">           </span>22m
+deployment.apps/ita-by-conductor-synchronize<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-excel-export-import<span class="w">               </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-hostgroup-split<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-menu-create<span class="w">                       </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-menu-export-import<span class="w">                </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-oase-conclusion<span class="w">                   </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-terraform-cli-execute<span class="w">             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-terraform-cli-vars-listup<span class="w">         </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-terraform-cloud-ep-execute<span class="w">        </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-by-terraform-cloud-ep-vars-listup<span class="w">    </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/ita-web-server<span class="w">                           </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/mariadb<span class="w">                                  </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/platform-api<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/platform-auth<span class="w">                            </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/platform-job<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
+deployment.apps/platform-web<span class="w">                             </span><span class="m">1</span>/1<span class="w">     </span><span class="m">1</span><span class="w">            </span><span class="m">1</span><span class="w">           </span>22m
 
 NAME<span class="w">                        </span>READY<span class="w">   </span>AGE
-statefulset.apps/keycloak<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>26h
-statefulset.apps/mongo<span class="w">      </span><span class="m">1</span>/1<span class="w">     </span>26h
+statefulset.apps/keycloak<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>22m
+statefulset.apps/mongo<span class="w">      </span><span class="m">1</span>/1<span class="w">     </span>22m
 </pre></div>
 </div>
 </div>

@@ -153,7 +153,7 @@ Helm リポジトリの登録
            :caption: exastro.yaml
            :language: yaml
 
-        | ※ 大容量ファイルのアップロードなどで処理に時間が掛かる場合は、想定する最大時間(秒数)の設定が必要となります。  
+        | ※ 大容量ファイルのアップロードなどで処理に時間が掛かる場合は、想定する最大時間(秒数)の設定が必要となります。
 
         .. code-block:: shell
            :caption: ingress - annotations
@@ -458,15 +458,18 @@ Helm リポジトリの登録
 
           | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeはデフォルトで以下の設定値が適用されています。
 
-          .. include:: ../../../include/helm_option_database_probe.rst
-
           .. tabs::
 
-          .. include:: ../../../include/helm_option_mongodb_probe.rst
+            .. tab:: データベースコンテナ
 
-          .. tabs::
+                .. include:: ../../../include/helm_option_database_probe.rst
+
+            .. tab:: MongoDBコンテナ
+
+                .. include:: ../../../include/helm_option_mongodb_probe.rst
 
           | データベースコンテナおよびMongoDBコンテナのLivenessProbe, ReadinessProbeの設定値を変更したい場合は、以下のようにパラメータを追記します。
+
           .. literalinclude:: ../../literal_includes/exastro_database_probe_setting.yaml
              :diff: ../../literal_includes/exastro.yaml
              :caption: exastro.yaml
@@ -1365,14 +1368,15 @@ Helm リポジトリの更新
 :ref:`helm_on_kubernetes_upgrade_status` にお進みください。
 
 
-.. include:: ../../../include/start_service_k8s-v2_6_0.rst
+.. include:: ../../../include/start_service_k8s.rst
 
 .. _helm_on_kubernetes_upgrade_status:
 
 アップグレード状況確認
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../../../include/check_installation_status-v2_6_0.rst
+
+.. include:: ../../../include/check_installation_status.rst
 
 
 メンテナンスモードの解除
