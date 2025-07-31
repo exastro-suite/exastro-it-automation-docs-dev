@@ -267,7 +267,7 @@ OASE Agentのパラメータ設定例
       - 設定例
 
       1.  OASE Agentの設定
-  
+
           | OASE Agentの設定します。
 
           .. code-block:: diff
@@ -293,7 +293,7 @@ OASE Agentのパラメータ設定例
            -       EXASTRO_URL: "http://platform-auth:8000"
            +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID
            -       EXASTRO_WORKSPACE_ID: "ws01"
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
@@ -302,7 +302,7 @@ OASE Agentのパラメータ設定例
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # サービスアカウントユーザー管理機能から取得したリフレッシュトークン
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
@@ -318,7 +318,7 @@ OASE Agentのパラメータ設定例
       - 設定例
 
       1.  OASE Agentの設定
-  
+
           | OASE Agentの設定します。
 
           .. code-block:: diff
@@ -345,7 +345,7 @@ OASE Agentのパラメータ設定例
            -       EXASTRO_URL: "http://platform-auth:8000"
            +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID
            -       EXASTRO_WORKSPACE_ID: "ws01"
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
@@ -354,7 +354,7 @@ OASE Agentのパラメータ設定例
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
@@ -372,7 +372,7 @@ OASE Agentのパラメータ設定例
            +       LOG_LEVEL: INFO
            +       AGENT_NAME: "oase-agent-2"                                               # 起動する OASEエージェントの名前
            +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
            +       # ROLES: "_ws_admin"
            +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names-2"   # OASE管理 イベント収集 で作成した イベント収集設定名
@@ -422,7 +422,7 @@ OASE Agentのパラメータ設定例
            -       EXASTRO_URL: "http://platform-auth:8000"
            +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation の Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Exastro IT Automation で作成した OrganizationID
            -       EXASTRO_WORKSPACE_ID: "ws01"
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-1"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
@@ -431,7 +431,7 @@ OASE Agentのパラメータ設定例
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
@@ -492,7 +492,7 @@ OASE Agentのパラメータ設定例
            -       EXASTRO_URL: "http://platform-auth:8000"
            +       EXASTRO_URL: "http://your-exastro-url"                                     # Exastro IT Automation の Service URL
            -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                            # Exastro IT Automation で作成した OrganizationID 
+           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                            # Exastro IT Automation で作成した OrganizationID
            -       EXASTRO_WORKSPACE_ID: "ws01"
            +       EXASTRO_WORKSPACE_ID: "your-workspace-id-2"                                # Exastro IT Automation で作成した WorkspaceID
                    # ROLES: "_ws_admin"
@@ -501,7 +501,7 @@ OASE Agentのパラメータ設定例
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Exastro システム管理画面から取得したリフレッシュトークン
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Exastro IT Automation で作成した ユーザー名（こちらを使用する場合はアンコメントしてください）
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Exastro IT Automation で作成した パスワード（こちらを使用する場合はアンコメントしてください）
@@ -650,7 +650,7 @@ OASE Agentのパラメータ設定例
     kubectl apply -f pv-ita-ag-oase.yaml
 
     # 複数エージェント（別Pod）の場合は下記を実施
-    # pv-ita-ag-oase-1.yaml 
+    # pv-ita-ag-oase-1.yaml
     kubectl apply -f pv-ita-ag-oase-1.yaml
 
     # pv-ita-ag-oase-2.yaml
@@ -705,16 +705,16 @@ OASE Agentのパラメータ設定例
 
       .. code-block:: bash
          :caption: コマンド
-         
+
          # Pod の一覧を取得
          kubectl get po --namespace exastro
-         
+
          | 正常に起動している場合は、“Running” となります。
          | ※正常に起動するまで数分かかる場合があります。
 
       .. code-block:: bash
          :caption: 出力結果
-         
+
          NAME                             READY   STATUS    RESTARTS   AGE
          ita-ag-oase-66cb7669c6-m2q8c     1/1     Running   0          16m
 
@@ -737,7 +737,7 @@ OASE Agentのパラメータ設定例
          NAMESPACE: exastro
          STATUS: deployed
          REVISION: 1
-         TEST SUITE: None 
+         TEST SUITE: None
 
       .. code-block:: bash
          :caption: コマンド
@@ -745,7 +745,7 @@ OASE Agentのパラメータ設定例
          helm install exastro-agent-2 exastro/exastro-agent \
            --namespace exastro --create-namespace \
            --values exastro-agent-2.yaml
-     
+
       .. code-block:: bash
          :caption: 出力結果
 
@@ -757,19 +757,19 @@ OASE Agentのパラメータ設定例
          TEST SUITE: None
 
       | 2. インストール状況確認
-           
+
       .. code-block:: bash
          :caption: コマンド
-         
+
          # Pod の一覧を取得
          kubectl get po --namespace exastro
-         
+
          | 正常に起動している場合は、“Running” となります。
          | ※正常に起動するまで数分かかる場合があります。
 
       .. code-block:: bash
          :caption: 出力結果
-         
+
          NAME                             READY   STATUS    RESTARTS   AGE
          ita-ag-oase-1-66cb7669c6-m2q8c   1/1     Running   0          16m
          ita-ag-oase-2-787fb97f75-9s7xj   1/1     Running   0          13m
@@ -783,7 +783,7 @@ OASE Agentのパラメータ設定例
 アップグレードの準備
 --------------------
 
-.. warning:: 
+.. warning::
   | アップグレード実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
 
 | 更新前のバージョンを確認します。
@@ -801,7 +801,7 @@ OASE Agentのパラメータ設定例
    :emphasize-lines: 4
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                         1.3.24          2.3.0           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-agent                   1.0.3           2.3.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-it-automation           1.4.22          2.3.0           A Helm chart for Exastro IT Automation. Exastro...
@@ -831,7 +831,7 @@ OASE Agentのパラメータ設定例
    :emphasize-lines: 4
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                    1.4.3           2.4.0           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-agent              2.4.0           2.4.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-it-automation      2.4.1           2.4.0           A Helm chart for Exastro IT Automation. Exastro...
@@ -902,7 +902,7 @@ OASE Agentのパラメータ設定例
 アンインストールの準備
 ----------------------
 
-.. warning:: 
+.. warning::
   | アンインストール実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
 
 アンインストール
@@ -932,7 +932,7 @@ OASE Agentのパラメータ設定例
 エージェント用
 **************
 
-.. warning:: 
+.. warning::
   | エージェント用のPVが複数存在する場合はそれらすべての削除を実施してください。
 
 .. code-block:: bash

@@ -29,7 +29,11 @@
 
 2. Pod 起動数の確認
 
-   | 上記で起動した対象の Pod 数が元に戻りすべて :kbd:`READY` になっていることを確認します。
+   | 上記で起動した対象の Pod 数が元に戻り、次の例外を除いてすべて :kbd:`READY` になっていることを確認します。
+
+   .. note::
+      | 以下のリソースについては :kbd:`READY` が 0/(Pod数)のままとなります。
+      | - deployment.apps/ita-by-conductor-regularly
 
    .. code-block:: bash
       :caption: コマンド
@@ -40,37 +44,38 @@
       :caption: 実行結果
 
       NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
-      deployment.apps/ita-api-admin                            1/1     1            1           26h
-      deployment.apps/ita-api-oase-receiver                    1/1     1            1           26h
-      deployment.apps/ita-api-organization                     1/1     1            1           26h
-      deployment.apps/ita-by-ansible-execute                   1/1     1            1           26h
-      deployment.apps/ita-by-ansible-legacy-role-vars-listup   1/1     1            1           26h
-      deployment.apps/ita-by-ansible-legacy-vars-listup        1/1     1            1           26h
-      deployment.apps/ita-by-ansible-pioneer-vars-listup       1/1     1            1           26h
-      deployment.apps/ita-by-ansible-towermaster-sync          1/1     1            1           26h
-      deployment.apps/ita-by-cicd-for-iac                      1/1     1            1           26h
-      deployment.apps/ita-by-collector                         1/1     1            1           26h
-      deployment.apps/ita-by-conductor-regularly               1/1     1            1           26h
-      deployment.apps/ita-by-conductor-synchronize             1/1     1            1           26h
-      deployment.apps/ita-by-excel-export-import               1/1     1            1           26h
-      deployment.apps/ita-by-hostgroup-split                   1/1     1            1           26h
-      deployment.apps/ita-by-menu-create                       1/1     1            1           26h
-      deployment.apps/ita-by-menu-export-import                1/1     1            1           26h
-      deployment.apps/ita-by-oase-conclusion                   1/1     1            1           26h
-      deployment.apps/ita-by-terraform-cli-execute             1/1     1            1           26h
-      deployment.apps/ita-by-terraform-cli-vars-listup         1/1     1            1           26h
-      deployment.apps/ita-by-terraform-cloud-ep-execute        1/1     1            1           26h
-      deployment.apps/ita-by-terraform-cloud-ep-vars-listup    1/1     1            1           26h
-      deployment.apps/ita-web-server                           1/1     1            1           26h
-      deployment.apps/mariadb                                  1/1     1            1           26h
-      deployment.apps/platform-api                             1/1     1            1           26h
-      deployment.apps/platform-auth                            1/1     1            1           26h
-      deployment.apps/platform-job                             1/1     1            1           26h
-      deployment.apps/platform-web                             1/1     1            1           26h
+      deployment.apps/ita-api-admin                            1/1     1            1           22m
+      deployment.apps/ita-api-ansible-execution-receiver       1/1     1            1           22m
+      deployment.apps/ita-api-oase-receiver                    1/1     1            1           22m
+      deployment.apps/ita-api-organization                     1/1     1            1           22m
+      deployment.apps/ita-by-ansible-execute                   1/1     1            1           22m
+      deployment.apps/ita-by-ansible-legacy-role-vars-listup   1/1     1            1           22m
+      deployment.apps/ita-by-ansible-legacy-vars-listup        1/1     1            1           22m
+      deployment.apps/ita-by-ansible-pioneer-vars-listup       1/1     1            1           22m
+      deployment.apps/ita-by-ansible-towermaster-sync          1/1     1            1           22m
+      deployment.apps/ita-by-cicd-for-iac                      1/1     1            1           22m
+      deployment.apps/ita-by-collector                         1/1     1            1           22m
+      deployment.apps/ita-by-conductor-regularly               0/1     1            0           22m
+      deployment.apps/ita-by-conductor-synchronize             1/1     1            1           22m
+      deployment.apps/ita-by-excel-export-import               1/1     1            1           22m
+      deployment.apps/ita-by-hostgroup-split                   1/1     1            1           22m
+      deployment.apps/ita-by-menu-create                       1/1     1            1           22m
+      deployment.apps/ita-by-menu-export-import                1/1     1            1           22m
+      deployment.apps/ita-by-oase-conclusion                   1/1     1            1           22m
+      deployment.apps/ita-by-terraform-cli-execute             1/1     1            1           22m
+      deployment.apps/ita-by-terraform-cli-vars-listup         1/1     1            1           22m
+      deployment.apps/ita-by-terraform-cloud-ep-execute        1/1     1            1           22m
+      deployment.apps/ita-by-terraform-cloud-ep-vars-listup    1/1     1            1           22m
+      deployment.apps/ita-web-server                           1/1     1            1           22m
+      deployment.apps/mariadb                                  1/1     1            1           22m
+      deployment.apps/platform-api                             1/1     1            1           22m
+      deployment.apps/platform-auth                            1/1     1            1           22m
+      deployment.apps/platform-job                             1/1     1            1           22m
+      deployment.apps/platform-web                             1/1     1            1           22m
 
       NAME                        READY   AGE
-      statefulset.apps/keycloak   1/1     26h
-      statefulset.apps/mongo      1/1     26h
+      statefulset.apps/keycloak   1/1     22m
+      statefulset.apps/mongo      1/1     22m
 
    .. warning::
       | バージョンによって、表示されるサービスが異なります。
