@@ -63,6 +63,10 @@ languages = ["ja", "en"]
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_*"]
 
 
+# Previous versions hide all warnings
+# Reference: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-suppress_warnings
+suppress_warnings = ['docutils','ref','index','toc','i18n','duplicate_declaration','image','epub','app','config','misc','autodoc','autosummary','intersphinx']
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
