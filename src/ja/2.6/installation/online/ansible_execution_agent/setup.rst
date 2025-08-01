@@ -13,12 +13,12 @@ Ansible Execution Agent - Online
 | Ansible Execution Agentを導入する手順について説明します。
 
 
-.. tip:: 
+.. tip::
     | Ansible Execution Agentを使用した作業実行、及び設定方法については、マニュアルの以下を参照してください。
-    
-    - :ref:`ansible_execution_environment_definition_template_list` 
-    - :ref:`ansible_execution_environment_list` 
-    - :ref:`ansible_agent_list` 
+
+    - :ref:`ansible_execution_environment_definition_template_list`
+    - :ref:`ansible_execution_environment_list`
+    - :ref:`ansible_agent_list`
     - :ref:`ansible_common_environment_definition_make`
 
 .. _ansible_execution_agent_precondition:
@@ -61,13 +61,13 @@ Ansible Execution Agent - Online
      - 1
      - 不可
      - 2.5.1
-     - 
+     -
    * - LOG_LEVEL
      - ログを出力レベルの設定値[INFO/DEBUG]
      - INFO
      - 可
      - 2.5.1
-     - 
+     -
    * - LOGGING_MAX_SIZE
      - ログローテーションのファイルサイズ
      - 10485760
@@ -85,67 +85,67 @@ Ansible Execution Agent - Online
      - en
      - 可
      - 2.5.1
-     - 
+     -
    * - TZ
      - タイムゾーン
      - Asia/Tokyo
      - 可
      - 2.5.1
-     - 
+     -
    * - PYTHON_CMD
      - 実行する仮想環境のpythonの実行コマンド
      - <インストールした環境のPATH>/poetry run python3
      - 不可
      - 2.5.1
-     - 
+     -
    * - PYTHONPATH
      - 実行する仮想環境のpythonの実行コマンド
      - <対話事項で入力したインストール先>/ita_ag_ansible_execution/
      - 可
      - 2.5.1
-     - 
+     -
    * - APP_PATH
      - インストール先のPATH
      - <対話事項で入力したインストール先>
      - 可
      - 2.5.1
-     - 
+     -
    * - STORAGEPATH
      - データの保存先のPATH
      - <対話事項で入力した保存先>/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/storage
      - 可
      - 2.5.1
-     - 
+     -
    * - LOGPATH
      - ログの保存先のPATH
      - <対話事項で入力した保存先>/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/log
      - 可
      - 2.5.1
-     - 
+     -
    * - EXASTRO_ORGANIZATION_ID
      - 接続先のORGANIZATION_ID
      - <対話事項で入力したORGANIZATION_ID>
      - 可
      - 2.5.1
-     - 
+     -
    * - EXASTRO_WORKSPACE_ID
      - 接続先のWORKSPACE_ID
      - <対話事項で入力したWORKSPACE_ID>
      - 可
      - 2.5.1
-     - 
+     -
    * - EXASTRO_URL
      - 接続先のITAのURL
      - <対話事項で入力したURL>
      - 可
      - 2.5.1
-     - 
+     -
    * - EXASTRO_REFRESH_TOKEN
      - 接続先のITAのEXASTRO_REFRESH_TOKEN
      - <対話事項で入力したEXASTRO_REFRESH_TOKEN>
      - 可
      - 2.5.1
-     - 
+     -
    * - EXECUTION_ENVIRONMENT_NAMES
      - | 実行する環実行環境指定できます。
        | 空の場合、全実行環境を作業対象とします。
@@ -153,42 +153,42 @@ Ansible Execution Agent - Online
      - 空
      - 可
      - 2.5.1
-     - 
+     -
    * - AGENT_NAME
      - サービスに登録する、エージェントの識別子です。
      - ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
      - 不可
      - 2.5.1
-     - 
+     -
    * - USER_ID
      - エージェントの識別子です。
      - <サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
      - 不可
      - 2.5.1
-     - 
+     -
    * - ITERATION
      - 設定を初期化するまでの、処理の繰り返し数
      - 10
      - 可
      - 2.5.1
-     - 
+     -
    * - EXECUTE_INTERVAL
      - メインプロセス終了後のインターバル
      - 5
      - 可
      - 2.5.1
-     - 
+     -
 
 
-.. tip:: 
+.. tip::
   | EXECUTION_ENVIRONMENT_NAMES: エージェントで作業対象とする実行環境を分けたい場合等に指定してください。
   | 複数指定する際には、「,」区切りで指定してください。
 
 
   .. code-block:: bash
- 
+
          EXECUTION_ENVIRONMENT_NAMES=<実行環境名1>,<実行環境名2>
-         
+
   | 実行環境名については、 :ref:`ansible_execution_environment_list` を参照してください。
 
 .. _ansible_execution_agent_install:
@@ -202,7 +202,7 @@ Ansible Execution Agent - Online
 | 以下より、最新のsetup.shを取得し、実行権限を付与してください。
 
 .. code-block:: bash
-   
+
     $ wget https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/refs/heads/main/ita_root/ita_ag_ansible_execution/setup.sh
 
     $ chmod 755 ./setup.sh
@@ -217,8 +217,8 @@ Ansible Execution Agent - Online
 - データの保存先
 - 使用するAnsible-builder、Ansible-runnerについて
 - 接続先のITAの接続情報（URL、ORGANIZATION_ID、WORKSPACE_ID、REFRESH_TOKEN）
-    
-    
+
+
 Ansible Execution Agentのインストール
 -------------------------------------
 
@@ -235,14 +235,14 @@ Ansible Execution Agentのインストール
    | 3: envファイルを指定して、サービスの登録・起動を行います。
    | ※ 2.3については、1が実行されている前提になります。
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Create ENV, Install, Register service
         2: Create ENV, Register service
         3: Register service
         q: Quit installer
-    select value: (1, 2, 3, q)  :
+    select value: (1, 2, 3, q) :
 
 .. tip:: | 以下、「default: xxxxxx」がある項目については、Enterを押下すると、defaultの値が適用されます。
 
@@ -251,11 +251,11 @@ Ansible Execution Agentのインストール
 .. tabs::
 
    .. tab:: 1.インストールから、エージェントサービス起動
-    
+
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -324,7 +324,7 @@ Ansible Execution Agentのインストール
          Input Value :
 
       | ⑪ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
-      |   
+      |
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
 
@@ -350,11 +350,11 @@ Ansible Execution Agentのインストール
              Env Path:           /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/.env
 
    .. tab:: 2.エージェントサービスの追加、起動
-    
+
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -409,7 +409,7 @@ Ansible Execution Agentのインストール
          Input Value :
 
       | ⑨ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
-      |   
+      |
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
 
@@ -436,26 +436,26 @@ Ansible Execution Agentのインストール
 
 
    .. tab:: 3.サービス起動
-    
+
 
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
       | ② 使用する.envのパスを指定してください。envの情報をもとに、サービスの登録・起動を行います。
 
       .. code-block:: bash
-       
+
          Input the full path for the .env file.:
          Input Value :
 
       | ③ サービスの起動を行う場合は、を選択してください。起動しない場合は、後ほど手動で起動してください。
 
       .. code-block:: bash
-       
+
         Do you want to start the Agent service? (y/n)y
 
       | ④ インストールしたサービスの情報が表示されます。
@@ -467,8 +467,8 @@ Ansible Execution Agentのインストール
              Agent Service Name: ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
              Storage Path:       /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/storage
              Env Path:           /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/.env
-   
-         
+
+
 .. _ansible_execution_agent_uninstall:
 
 アンインストール
@@ -489,14 +489,14 @@ Ansible Execution Agentのインストール
    | 3: データの削除
    | ※ 3については、2が実行されている前提になります。
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Delete service, Delete Data
         2: Delete service
         3: Delete Data
         q: Quit uninstaller
-    select value: (1, 2, 3, q)  :
+    select value: (1, 2, 3, q):
 
 
 1.  以下、Enterを押下すると、必要な設定値を対話形式で、入力が開始されます。
@@ -508,13 +508,13 @@ Ansible Execution Agentのインストール
       | ①アンインストールするエージェントのサービス名（ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>）を指定してください。
 
       .. code-block:: bash
-       
+
         Input a SERVICE_NAME.(e.g. ita-ag-ansible-execution-xxxxxxxxxxxxx):
 
       | ②①で指定した、サービス名のデータの保存先を指定してください。
 
       .. code-block:: bash
-       
+
         Input a STORAGE_PATH.(e.g. /home/cloud-user/exastro/<SERVICE_ID>):
 
    .. tab:: 2.エージェントサービス削除
@@ -522,15 +522,15 @@ Ansible Execution Agentのインストール
       | ①アンインストールするエージェントのサービス名（ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>）を指定してください。
 
       .. code-block:: bash
-       
+
         Input a SERVICE_NAME.(e.g. ita-ag-ansible-execution-xxxxxxxxxxxxx):
-        
+
    .. tab:: 3.データ削除
 
       | ① サービスのデータの保存先を指定してください。
-       
+
       .. code-block:: bash
-       
+
         Input a STORAGE_PATH.(e.g. /home/cloud-user/exastro/<SERVICE_ID>):
 
 
@@ -544,9 +544,9 @@ Ansible Execution Agentのインストール
 .. tabs::
 
    .. tab:: AlmaLinux8
-    
+
      .. code-block:: bash
-        
+
         # 設定ファイルの変更を反映
         $ sudo systemctl daemon-reload
         # サービスの状況確認
@@ -559,7 +559,7 @@ Ansible Execution Agentのインストール
         $ sudo systemctl restart  ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
 
    .. tab:: RHEL9
-    
+
      .. code-block:: bash
 
         # 設定ファイルの変更を反映
@@ -572,13 +572,13 @@ Ansible Execution Agentのインストール
         $ systemctl --user stop  ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
         # サービスの再起動
         $ systemctl --user restart  ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>
-      
+
 
 .. _ansible_execution_agent_service_log:
 
 サービスのログ確認方法
 ======================
-  
+
 - | アプリケーションログ
 
 .. code-block:: bash
@@ -586,13 +586,13 @@ Ansible Execution Agentのインストール
    /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/log/
         ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log
         ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log.xx
-  
+
   ※ログローテーションされたファイルは、末尾に数値が付与されます。ログのローテートのサイズ、保存期間は、を参照してください。
-  
+
 - | システムログ、各コンポーネントのログ
- 
+
 .. code-block:: bash
 
    /var/log/message
-  
+
   ※podman、Ansible-builder、Ansible-runner他の関連コンポーネントについては、各コンポーネントのログ出力先について参照してください。
