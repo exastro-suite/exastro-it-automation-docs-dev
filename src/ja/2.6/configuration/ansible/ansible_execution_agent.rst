@@ -20,19 +20,20 @@ Ansible Execution Agent
 - 冗長可能な仕組み（排他制御）
 - エージェントのバージョン確認
 
+.. _ansible_execution_agent_system_requirements:
 
 システム要件
 ============
 
 | 後述する以下の各種要件を満たしていること
 
-- :ref:`ansible_exrcution_agent_hardware_requirements` 
-- :ref:`ansible_exrcution_agent_os_requirements` 
-- :ref:`ansible_exrcution_agent_oftware_requirements` 
-- :ref:`ansible_exrcution_agent_communication_requirements` 
-- :ref:`ansible_exrcution_agent_other_requirements` 
+- :ref:`ansible_execution_agent_hardware_requirements`
+- :ref:`ansible_execution_agent_os_requirements`
+- :ref:`ansible_execution_agent_oftware_requirements`
+- :ref:`ansible_execution_agent_communication_requirements`
+- :ref:`ansible_execution_agent_other_requirements`
 
-.. _ansible_exrcution_agent_hardware_requirements:
+.. _ansible_execution_agent_hardware_requirements:
 
 ハードウェア要件
 ----------------
@@ -65,11 +66,11 @@ Ansible Execution Agent
    * - Storage
      - 80GB
 
-.. warning:: 
+.. warning::
   | ※ディスク容量は、エージェントサービスの件数や、作業実行結果の削除設定、ビルドするimageサイズに依存するため、
   | 必要に応じて、サイジング、及びメンテナンス（Docker Image や Build Cache等について）を実行してください。
-    
-.. _ansible_exrcution_agent_communication_requirements:
+
+.. _ansible_execution_agent_communication_requirements:
 
 通信要件
 --------
@@ -80,12 +81,12 @@ Ansible Execution Agent
 - 各種インストール、及びモジュール、BaseImage取得先等（インターネットへの接続を含む）
 - 作業対象サーバ
 
-.. figure:: /images/ja/installation/agent_service/ae_agent_nw.drawio.png
-   :alt: エージェントサーバの通信要件
-   :align: center
-   :width: 600px
 
-.. _ansible_exrcution_agent_os_requirements:
+.. figure:: /images/ja/configuration/ansible/ansible_execution_agent_communication_requirements.drawio.png
+   :alt: Ansible Execution Agent 通信要件
+   :align: center
+
+.. _ansible_execution_agent_os_requirements:
 
 OS要件
 ------
@@ -103,33 +104,33 @@ OS要件
    * - Almalinux8
      - AlmaLinux release 8.9 (Midnight Oncilla)
 
+| なお、動作確認済みのOSにおいても以下の設定が必要となります。
 
-.. tip:: 
-    | SELinuxがPermissiveに変更されていること。
-    
-    .. code-block:: bash
+- | SELinuxがPermissiveに変更されていること。
 
-        $ sudo vi /etc/selinux/config
-        SELINUX=Permissive
+.. code-block:: bash
 
-    .. code-block:: bash
+    $ sudo vi /etc/selinux/config
+    SELINUX=Permissive
 
-        $ getenforce
-        Permissive
-            
-.. _ansible_exrcution_agent_oftware_requirements:
+.. code-block:: bash
+
+    $ getenforce
+    Permissive
+
+.. _ansible_execution_agent_oftware_requirements:
 
 ソフトウェア要件
 ----------------
 
 - Python3.9以上がインストールされており、python3コマンドとpip3コマンドにエイリアスが紐づいていること
 - インストールを実行するユーザで、以下のコマンドが実行できること
-    
+
 .. code-block:: bash
 
     $ sudo
 
-.. code-block:: bash
+.. code-block::
 
     $ python3 -V
     Python 3.9.18
@@ -137,12 +138,12 @@ OS要件
     $ pip3 -V
     pip 21.2.3 from /usr/lib/python3.9/site-packages/pip (python 3.9)
 
-.. _ansible_exrcution_agent_other_requirements:
+.. _ansible_execution_agent_other_requirements:
 
 その他の要件
 ------------
 
-.. _ansible_exrcution_agent_rhel_support_requirements:
+.. _ansible_execution_agent_rhel_support_requirements:
 
 RHEL(サポート付きライセンス利用の場合)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,13 +153,13 @@ RHEL(サポート付きライセンス利用の場合)
 - Red Hat コンテナーレジストリーの認証
 
   .. code-block:: bash
-   
+
       podman login registry.redhat.io
 
 - 利用するリポジトリ
 
   .. code-block:: bash
-   
+
       rhel-9-for-x86_64-baseos-rpms
       rhel-9-for-x86_64-appstream-rpms
       ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
@@ -166,14 +167,14 @@ RHEL(サポート付きライセンス利用の場合)
 - 有効化されているリポジトリの確認、リポジトリの有効化
 
   .. code-block:: bash
-  
+
       sudo subscription-manager repos --list-enabled
       sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-rpms
       sudo subscription-manager repos --enable=rhel-9-for-x86_64-appstream-rpms
       sudo subscription-manager repos --enable=ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
-      
-        
-.. _ansible_exrcution_agent_base_images:
+
+
+.. _ansible_execution_agent_base_images:
 
 Ansible builderで使用する動作確認済みのベースイメージ
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -188,7 +189,7 @@ Ansible builderで使用する動作確認済みのベースイメージ
      - 備考
    * - ubi9
      - registry.access.redhat.com/ubi9/ubi-init:latest
-     - 
+     -
    * - rhel9
      - registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9:latest
      - サポート付きライセンス利用の場合
