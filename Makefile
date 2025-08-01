@@ -61,7 +61,7 @@ html-%: $(addprefix html-, $(NAMES))
 
 html-%:
 	@for lang in $(LANGUAGES) ; do \
-	if [ -d "$(SOURCEDIR)/$$lang/${@:html-%=%}" ] ; then \
+	if [ -d "$(SOURCEDIR)/$$lang/${@:html-%=%}" ] && [ -e "$(SOURCEDIR)/$$lang/${@:html-%=%}/conf.py" ] ; then \
 	$(SPHINXBUILD) -b html "$(SOURCEDIR)/$$lang/${@:html-%=%}" "$(DOCSDIR)/$$lang/${@:html-%=%}" $(SPHINXOPTS) $(O) ; \
 	fi \
 	done
@@ -72,7 +72,7 @@ html-%:
 html-all:
 	@for version in `ls -1 $(SOURCEDIR)/ja` ; do \
 	for lang in $(LANGUAGES) ; do \
-	if [ -d "$(SOURCEDIR)/$$lang/$$version" ] ; then \
+	if [ -d "$(SOURCEDIR)/$$lang/$$version" ] && [ -e "$(SOURCEDIR)/$$lang/$$version/conf.py" ] ; then \
 	$(SPHINXBUILD) -b html "$(SOURCEDIR)/$$lang/$$version" "$(DOCSDIR)/$$lang/$$version" $(SPHINXOPTS) $(O) ; \
 	fi \
 	done ; \

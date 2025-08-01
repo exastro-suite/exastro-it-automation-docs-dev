@@ -26,8 +26,8 @@ Ansible Execution Agent - Online
 前提条件
 ========
 
-| システム要件については :doc:`構成・構築ガイド<../../../configuration/ansible/ansible_execution_agent>` を参照してください。
-| 有償版のAnsible-builder、Ansible-runnerを利用する場合の、サブスクリプションの登録、リポジトリ有効化については :doc:`構成・構築ガイド<../../../configuration/ansible/ansible_execution_agent>` を参照してください。
+| システム要件については :ref:`構成・構築ガイド <ansible_execution_agent_system_requirements>` を参照してください。
+| 有償版のAnsible-builder、Ansible-runnerを利用する場合の、サブスクリプションの登録、リポジトリ有効化については :ref:`構成・構築ガイド <ansible_execution_agent_rhel_support_requirements>` を参照してください。
 
 推奨事項
 ========
@@ -581,18 +581,28 @@ Ansible Execution Agentのインストール
 
 - | アプリケーションログ
 
-.. code-block:: bash
+  | 以下のフォルダ・ファイル名に格納されます。
+
+.. code-block::
+   :caption: フォルダ
 
    /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/log/
-        ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log
-        ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log.xx
 
-  ※ログローテーションされたファイルは、末尾に数値が付与されます。ログのローテートのサイズ、保存期間は、を参照してください。
+.. code-block::
+   :caption: ファイル名
+
+   ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log
+   ita-ag-ansible-execution-<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>.log.xx
+
+.. tip::
+  | ログローテーションされたファイルは、末尾に数値が付与されます。ログのローテートのサイズ、保存期間は、を参照してください。
 
 - | システムログ、各コンポーネントのログ
 
-.. code-block:: bash
+.. code-block::
+   :caption: フォルダ
 
    /var/log/message
 
-  ※podman、Ansible-builder、Ansible-runner他の関連コンポーネントについては、各コンポーネントのログ出力先について参照してください。
+.. tip::
+  | podman、Ansible-builder、Ansible-runner他の関連コンポーネントについては、各コンポーネントのログ出力先について参照してください。
