@@ -9,7 +9,7 @@
    service_list
    log_list
    log_level
-   log_aggregation
+   /share/ja/manuals/maintenance/log_aggregation.rst
    monitoring
    maintenance_mode
    backup_and_restore
