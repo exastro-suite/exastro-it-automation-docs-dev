@@ -33,7 +33,7 @@ jobs:
     - name: Merge ${{ github.ref_name }} to main
       run: |
           cd workspace
-          git merge -m "auto merge" origin/${{ github.ref_name }}
+          git merge -s ours -m "auto merge" origin/${{ github.ref_name }}
 
     - name: Set up Python
       uses: actions/setup-python@v1
