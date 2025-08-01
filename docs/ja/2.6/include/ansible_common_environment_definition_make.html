@@ -154,14 +154,25 @@
 <div class="body" role="main">
 
   <div class="line-block">
+<div class="line">Ansible Execution Agentで実際に使用する例については、「 <a class="reference external" href="ansible_ee_custom.html">Ansible実行環境のカスタマイズ</a> 」を参照してください。</div>
+</div>
+<div class="line-block">
 <div class="line">ITAをインストールすると、<span class="menuselection">実行環境定義テンプレート管理</span> と <span class="menuselection">パラメータシート「実行環境パラメータ定義」</span> にpythonモジュールやansible galaxyコレクションが追加できるテンプレートファイルとパラメータ値が登録されます。</div>
 </div>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> に登録するテンプレートファイルの仕様</div>
-<div class="line">ファイルの形式は「Jinjer2型式」です。</div>
-<div class="line">ファイルの書式は、ansible-biulderで使用する定義ファイル「execution-environment.yml」に準じます。詳細は、ansible-biulderのマニュアルを参照して下さい。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> に登録するテンプレートファイルの仕様は以下のとおりです。</div>
 </div>
+<ul>
+<li><div class="line-block">
+<div class="line">ファイルの形式は「Jinja2」です。</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">ファイルの書式は、ansible-builderで使用する定義ファイル「execution-environment.yml」に準じます。詳細は、 <a class="reference external" href="https://ansible.readthedocs.io/projects/builder/en/latest/usage/">ansible-builder</a> のマニュアルを参照してください。</div>
+</div>
+</li>
+</ul>
 </li>
 <li><div class="line-block">
 <div class="line">ITAインストール時に登録される <span class="menuselection">パラメータシート「実行環境パラメータ定義」</span> の項目一覧は以下のとおりです。</div>
@@ -215,40 +226,13 @@
 <td><p>最大長255バイト</p></td>
 </tr>
 <tr class="row-odd"><td><p>image</p></td>
-<td><p>実行環境（コンテナ）のベースイメージを入力します。
-ITA Ver2.5.1では、以下の2個のベースイメージについて動作確認がとれています。</p>
-<ul>
-<li><div class="line-block">
-<div class="line">Redhat有償版のベースイメージの場合</div>
-<div class="line">registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9:latest</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Redhat無償版のベースイメージの場合</div>
-<div class="line">registry.access.redhat.com/ubi9/ubi-init:latest</div>
-</div>
-</li>
-</ul>
-</td>
+<td><p>実行環境（コンテナ）のベースイメージを入力します。</p></td>
 <td><p>〇</p></td>
 <td><p>手動入力</p></td>
 <td><p>最大長255バイト</p></td>
 </tr>
 <tr class="row-even"><td><p>package_manager_path</p></td>
-<td><p>パッケージ管理コマンドのパスを入力します。</p>
-<ul>
-<li><div class="line-block">
-<div class="line">Redhat有償版のベースイメージの場合</div>
-<div class="line">/usr/bin/microdnf</div>
-</div>
-</li>
-<li><div class="line-block">
-<div class="line">Redhat無償版のベースイメージの場合</div>
-<div class="line">/usr/bin/dnf</div>
-</div>
-</li>
-</ul>
-</td>
+<td><p>パッケージ管理コマンドのパスを入力します。</p></td>
 <td><p>〇</p></td>
 <td><p>手動入力</p></td>
 <td><p>最大長255バイト</p></td>
@@ -307,7 +291,7 @@ ITA Ver2.5.1では、以下の2個のベースイメージについて動作確�
 </div>
 </li>
 <li><div class="line-block">
-<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> に登録したテンプレートファイル内の変数と同名の項目を容易して下さい。</div>
+<div class="line"><span class="menuselection">Ansible共通 ▶ 実行環境定義テンプレート管理</span> に登録したテンプレートファイル内の変数と同名の項目を用意してください。</div>
 <div class="line">パラメータシートの項目名を変数名、設定値を変数値として、テンプレートファイルに埋め込みます。</div>
 </div>
 <a class="reference internal image-reference" href="../_images/ansible_common_environment_definition_make.png"><img alt="実行環境定義テンプレート管理で使用するテンプレートファイルと実行環境パラメータ定義で使用するパラメータシートの関連図" class="align-center" src="../_images/ansible_common_environment_definition_make.png" style="width: 800px;" />
