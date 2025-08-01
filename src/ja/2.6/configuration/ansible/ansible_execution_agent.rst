@@ -130,13 +130,13 @@ OS要件
 
     $ sudo
 
-.. code-block::
+.. code-block:: text
 
     $ python3 -V
     Python 3.9.18
 
     $ pip3 -V
-    pip 21.2.3 from /usr/lib/python3.9/site-packages/pip (python 3.9)
+    pip 21.2.3 from /usr/lib/python3.9/site-packages/pip  (python 3.9)
 
 .. _ansible_execution_agent_other_requirements:
 

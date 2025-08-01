@@ -14,23 +14,23 @@
    });
    </script>
 
-==============
+=======================
 Docker Compose - Online
-==============
+=======================
 
 Introduction
-====
+============
 
 | This document aims to explain how to install Exastro Platform or Exastro IT Automation on Docker or Podman.
 
 Features
-====
+========
 
 | This is the easiest and simplest way of installing Exastro IT Automation
 | For higher availability and service level, we recommend :doc:`Kubernetes version<kubernetes>`
 
 Pre-requisites
-========
+==============
 
 - Deploy environment
 
@@ -39,7 +39,7 @@ Pre-requisites
   .. list-table:: Hardware requirements(Minimum)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - Resource type
      - Required resource
    * - CPU
@@ -52,7 +52,7 @@ Pre-requisites
   .. list-table:: Hardware requirements(Recommended)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - Resource type
      - Required resource
    * - CPU
@@ -69,7 +69,7 @@ Pre-requisites
 | ・Exastro data
 | /home/Username/exastro-docker-compose 10GB(rough estimate. May change depending on usecases).
 |
-| ▼Other than RHEL 
+| ▼Other than RHEL
 | ・Container image
 | /var/lib/ 25GB
 | ・Exastro data
@@ -80,14 +80,14 @@ Pre-requisites
     | The required resources for the minimum configuration are for when both Gitlab Container and OASE container are not deployed. Additional resources will be required if you are planning to deploy them.
     | Users will have to prepare an additional storage area if they wish to persist databases or files.
     | The storage space is only an estimate and varies based on the user's needs. Make sure to take that into account when securing storage space.
-    
+
 
 - Communication Protocols
 
   .. list-table:: Communication Protocols
-   :widths: 15, 20, 10, 10, 5 
+   :widths: 15, 20, 10, 10, 5
    :header-rows: 1
-  
+
    * - Use
      - Description
      - Source
@@ -179,7 +179,7 @@ Pre-requisites
 .. _docker_prep:
 
 Preparation
-========
+===========
 
 | The user must prepare an URL for releasing the service.
 
@@ -229,7 +229,7 @@ Preparation
 .. _install_docker_compose:
 
 Installation (Automatic)
-===================
+========================
 
 .. note::
    | The installer selects either Docker or Podman depending on the user OS.
@@ -258,13 +258,13 @@ Installation (Automatic)
 .. code-block:: shell
    :caption: Confirm GitLab container deployment
 
-   Deploy GitLab container? (y/n) [default: n]: 
+   Deploy GitLab container? (y/n) [default: n]:
 
 .. code-block:: shell
    :caption: Confirm automatic password generation?
 
    # Asks to automatically generate Maria DB and System admin password.
-   Generate all password and token automatically? (y/n) [default: y]: 
+   Generate all password and token automatically? (y/n) [default: y]:
 .. tabs::
 
   .. group-tab:: https encrypted connection
@@ -381,7 +381,7 @@ Installation (Automatic)
    GitLab service is has completely started!
 
    Run creation organization command:
-      bash /home/test_user/exastro-docker-compose/create-organization.sh 
+      bash /home/test_user/exastro-docker-compose/create-organization.sh
 
 
    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
@@ -401,10 +401,10 @@ Installation (Automatic)
 Create Organization
 ==========================
 
-| After rebooting and logging in to the system, create an organization. 
+| After rebooting and logging in to the system, create an organization.
 | For more information regarding organizations, see :doc:`../../../manuals/platform_management/organization`.
 
-.. tip:: 
+.. tip::
    | When linked to GitLab, the GitLab must be running in order to create Organizations.
 
 
@@ -415,7 +415,7 @@ Create Workspace
 | For more information regarding creating workspaces, see :doc:`../../../manuals/organization_management/workspace`
 
 Let's give it a Try!!
-===========
+=====================
 
 | We recommend users go through :doc:`../../../learn/quickstart/index` in order to learn how to use the software.
 | The Quickstart guide guides the user through scenarios where they learn how to use Exastro IT Automation, how the parameter sheets works, etc.
@@ -429,7 +429,7 @@ Update
 Update preparation
 --------------------
 
-.. warning:: 
+.. warning::
   | We recommend that the back up their data before updating.
   | The backup target is :file:`~/exastro-docker-compose/.volumes`.
 
@@ -449,7 +449,7 @@ Update repository
 
 
 Check default setting values and update data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Check the updated default values.
 | Compare the :file:`exastro.yaml` file pre and post update.
@@ -465,7 +465,7 @@ Check default setting values and update data
    diff .env .env.podman.sample
 
 Update setting values
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 | After comparing the default setting values, add any desired items and setting values before updating.
 | If no setting value update is needed, skip this step.
@@ -495,7 +495,7 @@ Uninstall
 Uninstall preparation
 ----------------------
 
-.. warning:: 
+.. warning::
   | We recommend that the user follow :doc:`../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
   | The backup target is :file:`~/exastro-docker-compose/.volumes`.
 
@@ -522,10 +522,10 @@ Deleting Container and Data
 .. _docker_compose_uninstall_container:
 
 Leaving the Container image
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Delete Container
-************
+****************
 
 .. code-block:: bash
    :caption: Command
@@ -533,7 +533,7 @@ Delete Container
    sh <(curl -sf https://ita.exastro.org/setup) remove
 
 Delete Volume
-************
+*************
 
 .. code-block:: bash
    :caption: Command
@@ -554,7 +554,7 @@ Delete .volumes
    sudo rm -rf .volumes
 
 Recreate .volumes
-****************
+*****************
 
 .. note::
    | Make sure to run the command below if re-installing.

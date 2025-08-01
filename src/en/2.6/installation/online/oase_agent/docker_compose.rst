@@ -21,19 +21,19 @@ OASE Agent on Docker Compose - Online
 =====================================
 
 Introduction
-====
+============
 
 | This document aims to explain how to install the Exastro OASE Agent, which is used to link with external services when using OASE.
 
 Features
-====
+========
 
 | This document contains information on how to install the Exastro OASE Agent, which is required in order to use Exastro OASE.
 | Users can easily boot the Exastro OASE Agent by using Docker Compose.
 | For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
 Pre-requisites
-========
+==============
 
 - Exastro IT Automation
 
@@ -46,7 +46,7 @@ Pre-requisites
   .. list-table:: Hardware requirements(Minimum)
    :widths: 1, 1
    :header-rows: 1
-  
+
    * - Resource type
      - Required resource
    * - CPU
@@ -104,7 +104,7 @@ Install
 ============
 
 Preparation
-----
+-----------
 
 | First, the user must fetch the different structure files. In this section, we will fetch the file groups required to boot the agent, such as docker-compose.yml.
 
@@ -118,7 +118,7 @@ Preparation
 
    cd exastro-docker-compose/ita_ag_oase
 
-| Make a environment setting file（.env） from the sample. 
+| Make a environment setting file（.env） from the sample.
 
 .. code-block:: shell
    :caption: Copied from sample （When using Docker）
@@ -130,7 +130,7 @@ Preparation
 
    cp .env.podman.sample .env
 
-| Refer to the parameter list and register an .env file. 
+| Refer to the parameter list and register an .env file.
 
 .. code-block:: shell
 
@@ -144,19 +144,19 @@ Boot
 .. code-block:: shell
    :caption: Using docker command(Docke environment)
 
-   docker compose up -d --wait  
+   docker compose up -d --wait 
 
 .. code-block:: shell
    :caption: using docker-compose command(Podman environment)
 
-   docker-compose up -d --wait  
+   docker-compose up -d --wait
 
 Parameter list
 ==============
 
 | For more information regarding Exastro OASE Agent and how some of the parameter works, see :ref:`oase_agent_flow`.
 
-.. list-table:: 
+.. list-table::
  :widths: 5, 7, 1, 5
  :header-rows: 1
 
@@ -196,7 +196,7 @@ Parameter list
    - OASE Agent execution user
    - Not required
    - 1000 (Default): Using Docker
-  
+
      0: When using Podman
  * - HOST_DOCKER_GID
    - Docker group ID on the host
@@ -215,16 +215,16 @@ Parameter list
  * - EXASTRO_ORGANIZATION_ID
    - OrganizationID created in Exastro IT Automation
    - Required
-   - None 
+   - None
  * - EXASTRO_WORKSPACE_ID
    - WorkspaceID created in Exastro IT Automation
    - Required
-   - None 
+   - None
  * - EXASTRO_REFRESH_TOKEN
    - | Refresh token fetched from the Exastro System management page※
      | ※The user's role must have edit permission for the OASE - Event - Event history menu.
    - Yes
-   - None 
+   - None
  * - EXASTRO_USERNAME
    - | Username created in Exastro IT Automation
      | ※Refresh token fetched from the Exastro System management page.
@@ -264,12 +264,12 @@ Update
 Update preparation
 --------------------
 
-.. warning:: 
+.. warning::
   | We highly recommend taking a backup before updating the system.
   | Backup target is :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/`.
 
 Update repository
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 | Update the exastro-docker-compose repository.
 
@@ -282,7 +282,7 @@ Update repository
    git pull
 
 Check the updated default setting values.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Check the updated default values.
 | Compare the settings filed created when installing the system :file:`~/exastro-docker-compose/.env` and the settings file after the update.
@@ -298,7 +298,7 @@ Check the updated default setting values.
    diff .env .env.podman.sample
 
 Update setting values
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 | Use the comparison results to check if there are any added items that needs setting values added to. If there are none or the user does not need to change any values, proceed to the next step.
 
@@ -318,12 +318,12 @@ Update the system
 .. code-block:: shell
    :caption: For using docker command(Docker environment)
 
-   docker compose up -d --wait  
+   docker compose up -d --wait
 
 .. code-block:: shell
    :caption: For using docker-compose command(Podman environment)
 
-   docker-compose up -d --wait  
+   docker-compose up -d --wait
 
 
 Uninstall
@@ -332,9 +332,9 @@ Uninstall
 | This sections explains how to uninstall the Exastro OASE agent
 
 Uninstallment preparation
-----------------------
+-------------------------
 
-.. warning:: 
+.. warning::
   | We highly recommend taking a backup before uninstalling the system.
   | The backup target is :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/`.
 
@@ -342,7 +342,7 @@ Uninstall
 ----------------
 
 Start Uninstallment process
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Start uninstalling
 

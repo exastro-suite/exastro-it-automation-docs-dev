@@ -32,6 +32,8 @@ Ansible Execution Agent - Online
 推奨事項
 ========
 
+.. _ansible_execution_user_recommendation:
+
 専用ユーザーの払い出し
 ----------------------
 
@@ -233,14 +235,14 @@ Ansible Execution Agentのインストール
    | 3: envファイルを指定して、サービスの登録・起動を行います。
    | ※ 2.3については、1が実行されている前提になります。
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Create ENV, Install, Register service
         2: Create ENV, Register service
         3: Register service
         q: Quit installer
-    select value: (1, 2, 3, q)  :
+    select value: (1, 2, 3, q) :
 
 .. tip:: | 以下、「default: xxxxxx」がある項目については、Enterを押下すると、defaultの値が適用されます。
 
@@ -249,11 +251,11 @@ Ansible Execution Agentのインストール
 .. tabs::
 
    .. tab:: 1.インストールから、エージェントサービス起動
-    
+
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -321,8 +323,8 @@ Ansible Execution Agentのインストール
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑪ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 :ref:`exastro_refresh_token`  を参照。）
-      |   
+      | ⑪ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
+      |
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
 
@@ -348,11 +350,11 @@ Ansible Execution Agentのインストール
              Env Path:           /home/<ログインユーザー>/exastro/<サービスの一意な識別子:yyyyMMddHHmmssfff or 対話で指定した文字列>/.env
 
    .. tab:: 2.エージェントサービスの追加、起動
-    
+
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
@@ -406,8 +408,8 @@ Ansible Execution Agentのインストール
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑨ 接続先のITAのリフレッシュトークンを指定してください。（トークンの取得方法は、 :ref:`exastro_refresh_token`  を参照。）
-      |   
+      | ⑨ 接続先のITAのリフレッシュトークンを指定してください。（:ref:`サービスアカウントユーザー<ansible_execution_user_recommendation>` のトークンを利用することを推奨します。）
+      |
       |   後で設定する場合は、Enter押して次に進んでください。
       |   .envのEXASTRO_REFRESH_TOKENを書き換えてください。
 
@@ -434,26 +436,26 @@ Ansible Execution Agentのインストール
 
 
    .. tab:: 3.サービス起動
-    
+
 
       | ① 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
 
       .. code-block:: bash
-       
+
          'No value + Enter' is input while default value exists, the default value will be used.
          ->  Enter
 
       | ② 使用する.envのパスを指定してください。envの情報をもとに、サービスの登録・起動を行います。
 
       .. code-block:: bash
-       
+
          Input the full path for the .env file.:
          Input Value :
 
       | ③ サービスの起動を行う場合は、を選択してください。起動しない場合は、後ほど手動で起動してください。
 
       .. code-block:: bash
-       
+
         Do you want to start the Agent service? (y/n)y
 
       | ④ インストールしたサービスの情報が表示されます。
@@ -487,14 +489,14 @@ Ansible Execution Agentのインストール
    | 3: データの削除
    | ※ 3については、2が実行されている前提になります。
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Delete service, Delete Data
         2: Delete service
         3: Delete Data
         q: Quit uninstaller
-    select value: (1, 2, 3, q)  :
+    select value: (1, 2, 3, q):
 
 
 1.  以下、Enterを押下すると、必要な設定値を対話形式で、入力が開始されます。

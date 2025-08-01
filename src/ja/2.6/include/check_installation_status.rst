@@ -2,45 +2,50 @@
 
 .. code-block:: bash
     :caption: コマンド
-    
+
     # Pod の一覧を取得
     kubectl get po --namespace exastro
-    
+
 | 正常に起動している場合は、:kbd:`ita-migration-xxx` と :kbd:`platform-migration-xxx` が :kbd:`Completed` 、その他すべてが :kbd:`Running` となります。
 | ※正常に起動するまで数分かかる場合があります。
 
+.. note::
+   | 以下のPODについては :kbd:`READY` が 0/1のままで、メンテナンスモードを解除後に :kbd:`READY` は 1/1となります。
+   | ita-by-conductor-regularly-xxxxxxxxxx-xxxxx
+
 .. code-block:: bash
    :caption: 出力結果
-    
+
    NAME                                                      READY   STATUS      RESTARTS   AGE
-   ita-api-admin-6b8567596d-rgjms                            1/1     Running     0          7h40m
-   ita-api-oase-receiver-6b74bdff6-zmcrw                     1/1     Running     0          7h40m
-   ita-api-organization-559d7d8f89-ptphh                     1/1     Running     0          7h40m
-   ita-by-ansible-execute-5dc444c999-w6gmr                   1/1     Running     0          7h40m
-   ita-by-ansible-legacy-role-vars-listup-6d8f98895f-bvjgn   1/1     Running     0          7h40m
-   ita-by-ansible-legacy-vars-listup-6ccd997cf-hvkzq         1/1     Running     0          7h40m
-   ita-by-ansible-pioneer-vars-listup-6cfcfd4479-8bqst       1/1     Running     0          7h40m
-   ita-by-ansible-towermaster-sync-6759486f8f-wrbbp          1/1     Running     0          7h40m
-   ita-by-cicd-for-iac-7b75cc56f5-rrrvg                      1/1     Running     0          7h40m
-   ita-by-collector-7748d54f59-8j5r2                         1/1     Running     0          7h40m
-   ita-by-conductor-regularly-779ff79775-xnt29               1/1     Running     0          7h40m
-   ita-by-conductor-synchronize-5d5485479-5df54              1/1     Running     0          7h40m
-   ita-by-excel-export-import-6f84f97dcf-hlm4h               1/1     Running     0          7h40m
-   ita-by-hostgroup-split-59b698f479-cxggd                   1/1     Running     0          7h40m
-   ita-by-menu-create-796bdc9c75-l79zq                       1/1     Running     0          7h40m
-   ita-by-menu-export-import-849d796bb5-5mpw2                1/1     Running     0          7h40m
-   ita-by-oase-conclusion-b484595d7-kssv4                    1/1     Running     0          7h40m
-   ita-by-terraform-cli-execute-769d874d7-sknn6              1/1     Running     0          7h40m
-   ita-by-terraform-cli-vars-listup-7f589cdddc-g5xz6         1/1     Running     0          7h40m
-   ita-by-terraform-cloud-ep-execute-7f8b6d87cc-kfmfv        1/1     Running     0          7h40m
-   ita-by-terraform-cloud-ep-vars-listup-6cccbd4899-6frcn    1/1     Running     0          7h40m
-   ita-migration-1-3-6-lydz                                  0/1     Completed   0          7h40m
-   ita-web-server-b4cd4cdf8-wkx78                            1/1     Running     0          7h40m
-   keycloak-0                                                1/1     Running     0          7h40m
-   mariadb-778786f7d-ss4cq                                   1/1     Running     0          7h40m
-   mongo-0                                                   1/1     Running     0          7h40m
-   platform-api-ffb78f578-svd5t                              1/1     Running     0          7h40m
-   platform-auth-75895d784-9hhxw                             1/1     Running     0          7h40m
-   platform-job-864c47d4f-8vvvq                              1/1     Running     0          7h40m
-   platform-migration-1-8-0-rjwr                             0/1     Completed   0          7h40m
-   platform-web-6644884657-dmwp6                             1/1     Running     0          7h40m
+   ita-api-admin-dcf7c8768-wkwtx                             1/1     Running     0          3m34s
+   ita-api-ansible-execution-receiver-7776748868-kt7b2       1/1     Running     0          3m34s
+   ita-api-oase-receiver-75588c6cff-jbmqr                    1/1     Running     0          3m34s
+   ita-api-organization-645954959f-lpskv                     1/1     Running     0          3m34s
+   ita-by-ansible-execute-dbd8d7dbc-8jk76                    1/1     Running     0          3m34s
+   ita-by-ansible-legacy-role-vars-listup-6df9c5dfbf-qhqdd   1/1     Running     0          3m34s
+   ita-by-ansible-legacy-vars-listup-6565dcd75f-ngz92        1/1     Running     0          3m34s
+   ita-by-ansible-pioneer-vars-listup-56bcbd8fd5-6dqst       1/1     Running     0          3m34s
+   ita-by-ansible-towermaster-sync-765fbc4b67-td9cr          1/1     Running     0          3m34s
+   ita-by-cicd-for-iac-67f9f6bcb7-fdfk2                      1/1     Running     0          3m34s
+   ita-by-collector-bf8bddcf-9pl9g                           1/1     Running     0          3m33s
+   ita-by-conductor-regularly-5c7689985f-7rl4n               0/1     Running     0          3m33s
+   ita-by-conductor-synchronize-857d7cb585-cnpmq             1/1     Running     0          3m33s
+   ita-by-excel-export-import-6975d6d965-sdlhw               1/1     Running     0          3m33s
+   ita-by-hostgroup-split-7cbfcc6ff7-lvtxq                   1/1     Running     0          3m33s
+   ita-by-menu-create-785769547c-9jr4f                       1/1     Running     0          3m32s
+   ita-by-menu-export-import-bccfcbd67-t5zpz                 1/1     Running     0          3m32s
+   ita-by-oase-conclusion-6cb7897cb8-hnsrm                   1/1     Running     0          3m32s
+   ita-by-terraform-cli-execute-7dc5db9f75-646mf             1/1     Running     0          3m32s
+   ita-by-terraform-cli-vars-listup-85498994df-qv6dj         1/1     Running     0          3m31s
+   ita-by-terraform-cloud-ep-execute-bcc864cf9-4qqhx         1/1     Running     0          3m31s
+   ita-by-terraform-cloud-ep-vars-listup-c4fcd48dc-g55rl     1/1     Running     0          3m31s
+   ita-migration-2-6-1-suhp                                  0/1     Completed   0          24m
+   ita-web-server-5fcccd684f-lfxmm                           1/1     Running     0          3m31s
+   keycloak-0                                                1/1     Running     0          3m30s
+   mariadb-5945c44d44-djxkl                                  1/1     Running     0          3m31s
+   mongo-0                                                   1/1     Running     0          3m30s
+   platform-api-7fd9c9fb6d-njt7j                             1/1     Running     0          3m30s
+   platform-auth-84c55fbc64-tkb4f                            1/1     Running     0          3m30s
+   platform-job-555d7c76d5-skmzr                             1/1     Running     0          3m30s
+   platform-migration-1-10-0-oquu                            0/1     Completed   0          24m
+   platform-web-5594fcfb5d-kzgs6                             1/1     Running     0          3m30s

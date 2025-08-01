@@ -11,8 +11,8 @@ hostsファイルをファイル埋込変数に指定して、VMに配布する�
 メニュー項目
 ============
 
-hosts配布
----------
+hosts配布メニュー
+-----------------
 hosts配布を行うためのメニュー項目です。
 
 .. figure:: /images/ja/templates/vmware/menuCF_v2-4.png

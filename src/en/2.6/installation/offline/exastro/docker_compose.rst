@@ -14,23 +14,23 @@
    });
    </script>
 
-==============
+===================================
 Exastro on Docker Compose - Offline
-==============
+===================================
 
 Introduction
-====
+============
 
 | This document aims to explain how to install Exastro Platform or Exastro IT Automation on Docker or Podman.
 
 Features
-====
+========
 
 | This is the easiest and simplest way of installing Exastro IT Automation
 | For higher availability and service level, we recommend :doc:`Kubernetes version<kubernetes>`
 
 Pre-requisites
-========
+==============
 
 | The server that is collecting files must be able to run :command:`docker`. (When using Podman, the podman-docker must be installed.)
 | The construction status (OS version and installed pakcages) for both the file collecting environment and the installing environment must be the same.
@@ -42,7 +42,7 @@ Pre-requisites
   .. list-table:: Hardware requirements(Minimum)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - Resource type
      - Required resource
    * - CPU
@@ -55,7 +55,7 @@ Pre-requisites
   .. list-table:: Hardware requirements(Recommended)
    :widths: 20, 20
    :header-rows: 1
-  
+
    * - Resource type
      - Required resource
    * - CPU
@@ -69,13 +69,13 @@ Pre-requisites
     | The required resources for the minimum configuration are for Exastro IT Automation's core functions. Additional resources will be required if you are planning to deploy external systems, such as GitLab and Ansible Automation Platform.
     | Users will have to prepare an additional storage area if they wish to persist databases or files.
     | The storage space is only an estimate and varies based on the user's needs. Make sure to take that into account when securing storage space.
-    
+
 - Communication Protocols
 
   .. list-table:: Communication Protocols
-   :widths: 15, 20, 10, 10, 5 
+   :widths: 15, 20, 10, 10, 5
    :header-rows: 1
-  
+
    * - Use
      - Description
      - Source
@@ -144,7 +144,7 @@ Pre-requisites
 .. _docker_prep_offline:
 
 Preparation
-========
+===========
 
 | The user must prepare an URL for releasing the service.
 
@@ -195,14 +195,14 @@ Preparation
 
 
 General flow
-==========
+============
 | After preparing the online environment, the user can now install on to the offline system.
 
 .. figure:: /images/ja/installation/docker_compose/flowimage.png
    :width: 800px
    :alt: Flow image
 
-Online environment 
+Online environment
 ^^^^^^^^^^^^^^^^^^^^^^
 
 | ①Download Container image
@@ -221,7 +221,7 @@ Offline environment
 
 
 Guide for Online environment(Environment that can connect to the internet)
-======================================================
+==========================================================================
 
 | First, fetch the files.
 | In the following example, the user is "test_user" and the home directory is /home/test_user.
@@ -338,7 +338,7 @@ Guide for Online environment(Environment that can connect to the internet)
 
 
       After connecting to an online environment, run the following shell script and download the container image.
-      The parameter specifies the version of ITA. This command can take several minutes before finishing(Depends on the server specs and the connection speeds). 
+      The parameter specifies the version of ITA. This command can take several minutes before finishing(Depends on the server specs and the connection speeds).
 
 
       .. code-block:: shell
@@ -352,7 +352,7 @@ Guide for Online environment(Environment that can connect to the internet)
    .. group-tab:: podman
 
       Run the following shell script and download the container image.The parameter specifies the version of ITA
-      The parameter specifies the version of ITA. This command can take several minutes before finishing(Depends on the server specs and the connection speeds). 
+      The parameter specifies the version of ITA. This command can take several minutes before finishing(Depends on the server specs and the connection speeds).
 
       .. code-block:: shell
          :caption: Command
@@ -460,7 +460,7 @@ Guide for Online environment(Environment that can connect to the internet)
 
 
 Transfer files
-^^^^^^^^^^
+^^^^^^^^^^^^^^
 | Transfer the files fetched in the online environment and to the offline environment with storage mediums such as FPT, SCP and SFTP.
 | Feel free to zip the files if they are too big.
 | The transfer files and their destinations are as following.
@@ -473,7 +473,7 @@ Transfer files
 
 
 Offline environment(Environment unable to connect to the internet)
-========================================================
+==================================================================
 
 | After the steps for the online environment is finished, follow the steps below to install to the offline environment.
 
@@ -1123,10 +1123,10 @@ Login
 Create Organization
 ==========================
 
-| After rebooting and logging in to the system, create an organization. 
+| After rebooting and logging in to the system, create an organization.
 | For more information regarding organizations, see :doc:`../../../manuals/platform_management/organization`.
 
-.. tip:: 
+.. tip::
    | When linked to GitLab, the GitLab must be running in order to create Organizations.
 
 

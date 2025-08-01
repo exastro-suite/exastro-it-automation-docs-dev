@@ -10,8 +10,8 @@ VMWare内におけるvCenter内のEXSiを管理する機能です。
 
 メニュー項目
 ============
-リソース管理
-------------
+リソース管理メニュー
+--------------------
 vCenter内のクラスター内に存在するEXSiのリソースを表示するためのメニュー項目です。
 
 .. figure:: /images/ja/templates/vmware/menuMR_v2-4.png
