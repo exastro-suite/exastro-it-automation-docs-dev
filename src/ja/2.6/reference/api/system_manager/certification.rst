@@ -25,8 +25,8 @@ Basic認証
 | ユーザー名、パスワードを指定してAPIを呼出す、簡易的な認証方式として利用することが出来ます。
 | 使用するユーザーが二要素認証を設定している場合は、この認証方式は使用出来ません。
 
-実行手順（サンプル）
-^^^^^^^^^^^^^^^^^^^^
+実行手順（サンプル・Basic認証）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | 以下のサンプルはBasic認証を使用して、オーガナイゼーション一覧取得APIを呼出しています。
 
@@ -122,8 +122,8 @@ Bearer認証
     "scope": "openid email profile offline_access"
   }
 
-実行手順（サンプル）
-^^^^^^^^^^^^^^^^^^^^
+実行手順（サンプル・Bearer認証）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | 以下のサンプルはBearer認証を使用して、オーガナイゼーション一覧取得APIを呼出しています。
 
@@ -266,7 +266,7 @@ Bearer認証
 
   {システム管理者サイトアドレス}/auth/admin/master/console/#/realms/master
 
-1. | 未ログインの際は、ログイン画面が表示されますのでログインしてください
+2. | 未ログインの際は、ログイン画面が表示されますのでログインしてください
 
 .. figure:: /images/ja/manuals/platform/login/exastro-login.png
    :width: 400px
@@ -281,7 +281,7 @@ Bearer認証
      :width: 500px
      :alt: Tokens
 
-  1. | 「Offline Session Max Limited」をONに設定し、「Offline Session Idle」と「Offline Session Max」にrefresh tokenの有効期限に設定したい値を入力します。
+  2. | 「Offline Session Max Limited」をONに設定し、「Offline Session Idle」と「Offline Session Max」にrefresh tokenの有効期限に設定したい値を入力します。
      | 各項目についての詳細は Keycloakのドキュメント <https://www.keycloak.org/docs/latest/server_admin/index.html> をご確認ください。
 
      | 例)refresh tokenの有効期限を365日に設定したい場合
@@ -307,7 +307,7 @@ Bearer認証
      :width: 500px
      :alt: platform-api
 
-  1. | 「Advanced Settings」の中の「Access Token Lifespan」と「Client Session Idle」と「Client Session Max」にaccess tokenの有効期限に設定したい値を入力します。
+  3. | 「Advanced Settings」の中の「Access Token Lifespan」と「Client Session Idle」と「Client Session Max」にaccess tokenの有効期限に設定したい値を入力します。
      | 各項目についての詳細は Keycloakのドキュメント <https://www.keycloak.org/docs/latest/server_admin/index.html> をご確認ください。
 
      | 例)access tokenの有効期限を1日に設定したい場合
