@@ -203,7 +203,6 @@ IPv4 フォワーディングの有効化
       vi /etc/sysctl.conf
 
    .. code-block:: diff
-      :name: /etc/sysctl.conf
       :caption: sysctl.conf
 
       # sysctl settings are defined through files in

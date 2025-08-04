@@ -1186,7 +1186,6 @@ GitLab 連携設定
 
 
 .. code-block:: diff
-   :name: /etc/sysctl.conf
    :caption: sysctl.conf
 
      # sysctl settings are defined through files in
