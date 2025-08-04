@@ -326,7 +326,7 @@ Ansible Role Templateの組み込み手順は<a class="reference external" href=
 <li><p>収集設定の初期値の管理</p></li>
 </ol>
 <p>SimpleModeの概要図を以下に示します。
-<img alt="topology.png" src="../../../_images/topology_v2-2.png" />{width=100%}
+<img alt="topology.png" src="../../../_images/topology_v2-2.png" />
 SimpleModeを構成するコンポーネントは3つです。</p>
 <ol class="arabic simple">
 <li><p>SimpleMode（Webアプリケーション）</p></li>
@@ -398,7 +398,7 @@ https://raw.githubusercontent.com/ansible/ansible-documentation/devel/examples/s
 <h3>2-2-1. 機器情報の変更<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <p>「設定」から「機器一覧」を選択します。
 ホスト名が「--------」のマシンの「編集」ボタンを押します。</p>
-<p><img alt="2-2-1-A.png" src="../../../_images/2-2-1-A_v2-2.png" />{width=90%}</p>
+<p><img alt="2-2-1-A.png" src="../../../_images/2-2-1-A_v2-2.png" /></p>
 <p>以下の項目をターゲットマシンに合わせて変更し、「保存」ボタンを押します。</p>
 <table class="docutils align-default">
 <thead>
@@ -427,9 +427,9 @@ https://raw.githubusercontent.com/ansible/ansible-documentation/devel/examples/s
 <div style="page-break-before:always"></div>
 <p>※その他の項目は必要に応じて変更してください。<br />
 Windows Server 2022の場合
-<img alt="2-2-1-B.png" src="../../../_images/2-2-1-B_v2-2.png" />{width=90%}</p>
+<img alt="2-2-1-B.png" src="../../../_images/2-2-1-B_v2-2.png" /></p>
 <p>RHEL9の場合
-<img alt="2-2-1-C.png" src="../../../_images/2-2-1-C_v2-2.png" />{width=90%}</p>
+<img alt="2-2-1-C.png" src="../../../_images/2-2-1-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 </section>
@@ -447,7 +447,7 @@ Windows Server 2022の場合
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022収集_20241001_01）
-<img alt="3-1-1-A.png" src="../../../_images/3-1-1-A_v2-2.png" />{width=90%}</p>
+<img alt="3-1-1-A.png" src="../../../_images/3-1-1-A_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] オペレーション名の自動入力
 オペレーション名の入力欄を選択状態にすると、日時情報に基づく一意なオペレーション名の候補が表示されます。
 これを選択すると、そのオペレーション名を自動入力することができます。
@@ -459,12 +459,12 @@ Windows Server 2022の場合
 <h3>3-1-2. 収集ジョブの指定<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <p>Conductorに「＜OS名＞-gather」が選択されていること、
 実行したいMovementにチェックを入れて「つぎへ」を押します。
-<img alt="3-1-2-A.png" src="../../../_images/3-1-2-A_v2-2.png" />{width=90%}</p>
+<img alt="3-1-2-A.png" src="../../../_images/3-1-2-A_v2-2.png" /></p>
 </section>
 <section id="id13">
 <h3>3-1-3. ホストの指定<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <p>&quot;ジョブ実行前の準備&quot;で設定したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-<img alt="3-1-3-A.png" src="../../../_images/3-1-3-A_v2-2.png" />{width=90%}</p>
+<img alt="3-1-3-A.png" src="../../../_images/3-1-3-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id14">
@@ -472,10 +472,10 @@ Windows Server 2022の場合
 <p>ここでは収集のためのパラメータを入力します。
 「コピー元オペレーション名」に予め登録した収集初期値管理用オペレーション（ここでは、「WS2022-gather-default」）を選択して、
 すべてのMovementをチェックして一括コピーを押します。表示されたメッセージで「OK」を選択します。
-<img alt="3-1-4-A.png" src="../../../_images/3-1-4-A_v2-2.png" />{width=90%}
-<img alt="3-1-4-A-1.png" src="../../../_images/3-1-4-A-1_v2-2.png" />{width=90%}</p>
+<img alt="3-1-4-A.png" src="../../../_images/3-1-4-A_v2-2.png" />
+<img alt="3-1-4-A-1.png" src="../../../_images/3-1-4-A-1_v2-2.png" /></p>
 <p>すべてのパラメータシートのステータスが&quot;登録済&quot;となっていることを確認し、「つぎへ」を押します。
-<img alt="3-1-4-A-2.png" src="../../../_images/3-1-4-A-2_v2-2.png" />{width=90%}</p>
+<img alt="3-1-4-A-2.png" src="../../../_images/3-1-4-A-2_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  収集結果のフィルタリング設定
 一部のパラメータシートでは、収集データを絞り込むためのキーワードが登録されています。
 フィルタするキーワードを変更する場合、「詳細設定」ボタンを押して、フィルタ用パラメータを変更します。
@@ -484,7 +484,7 @@ Windows Server 2022の場合
 　また、件数が一定値を超えるとジョブが異常終了します。
 </pre></div>
 </div>
-<p><img alt="3-1-4-B.png" src="../../../_images/3-1-4-B_v2-2.png" />{width=90%}</p>
+<p><img alt="3-1-4-B.png" src="../../../_images/3-1-4-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  複数ホストのパラメータ登録
 「コピー元オペレーション名」に収集初期値管理用オペレーションを選択する場合、
@@ -499,15 +499,15 @@ Windows Server 2022の場合
 <h3>3-1-5. ジョブ実行<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <p>ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-<img alt="3-1-5-A.png" src="../../../_images/3-1-5-A_v2-2.png" />{width=90%}</p>
+<img alt="3-1-5-A.png" src="../../../_images/3-1-5-A_v2-2.png" /></p>
 <p>実行後は、「実行状況確認」画面に自動遷移します。
 ここでは、ジョブの実行状況とログを確認できます。
 「詳細」ボタンを押すと、そのオペレーションの実行状況をMovement単位で確認できます。
-<img alt="3-1-5-B.png" src="../../../_images/3-1-5-B_v2-2.png" />{width=90%}</p>
+<img alt="3-1-5-B.png" src="../../../_images/3-1-5-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>Movement名をクリックすると、ジョブ実行時のログを参照することができます。
-<img alt="3-1-5-C.png" src="../../../_images/3-1-5-C_v2-2.png" />{width=60%}</p>
-<p><img alt="3-1-5-D.png" src="../../../_images/3-1-5-D_v2-2.png" />{width=60%}</p>
+<img alt="3-1-5-C.png" src="../../../_images/3-1-5-C_v2-2.png" /></p>
+<p><img alt="3-1-5-D.png" src="../../../_images/3-1-5-D_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] ジョブ実行中の操作
 ジョブはバックグラウンドで実行されるため、実行中にWebブラウザを閉じても構いません。
 ジョブが実行している間、仮想マシンは終了しないでください。
@@ -524,12 +524,12 @@ Windows Server 2022の場合
 <h3>3-1-6. 収集結果の確認<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
 <p>実行状況確認画面で”正常終了&quot;となったMovementの収集結果は、「パラメータシート」メニューから参照できます。
 オペレーションの一覧で「＜OS名＞-gather-default」の「詳細」ボタンを押します。
-<img alt="3-1-6-A.png" src="../../../_images/3-1-6-A_v2-2.png" />{width=90%}</p>
+<img alt="3-1-6-A.png" src="../../../_images/3-1-6-A_v2-2.png" /></p>
 <p>Conductor「＜OS名＞-build」を選択します。
 参照したいパラメータシートの「パラメータ参照」ボタンを押すと、パラメータ参照画面が開きます。
 また、「ダウンロード」ボタンを押すと、Excel／JSON形式でダウンロードができます。
-<img alt="3-1-6-B.png" src="../../../_images/3-1-6-B_v2-2.png" />{width=90%}</p>
-<p><img alt="3-1-6-C.png" src="../../../_images/3-1-6-C_v2-2.png" />{width=90%}</p>
+<img alt="3-1-6-B.png" src="../../../_images/3-1-6-B_v2-2.png" /></p>
+<p><img alt="3-1-6-C.png" src="../../../_images/3-1-6-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] 収集結果とConductorの関係
 ジョブ実行では収集ジョブである「＜OS名＞-gather」を選択しましたが、収集結果は構築ジョブ「＜OS名＞-build」を選択します。
@@ -546,23 +546,23 @@ Windows Server 2022の場合
 <h3>3-2-1. ジョブウィザードの開始<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
 <p>メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。</p>
-<p><img alt="3-2-1-A.png" src="../../../_images/3-2-1-A_v2-2.png" />{width=90%}</p>
+<p><img alt="3-2-1-A.png" src="../../../_images/3-2-1-A_v2-2.png" /></p>
 <p>「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022構築_20241001_01）
-<img alt="3-2-1-B.png" src="../../../_images/3-2-1-B_v2-2.png" />{width=90%}</p>
+<img alt="3-2-1-B.png" src="../../../_images/3-2-1-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id19">
 <h3>3-2-2. 構築ジョブの指定<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
 <p>Conductorに「＜OS名＞-build」を選択します。
 実行したい（設定を変更したい）Movementにチェックを入れて「つぎへ」を押します。
-<img alt="3-2-2-A.png" src="../../../_images/3-2-2-A_v2-2.png" />{width=90%}</p>
+<img alt="3-2-2-A.png" src="../../../_images/3-2-2-A_v2-2.png" /></p>
 </section>
 <section id="id20">
 <h3>3-2-3. ホストの指定<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
 <p>&quot;3-1. 実機からパラメータを収集する（初回）&quot;で設定値を収集したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-<img alt="3-2-3-A.png" src="../../../_images/3-2-3-A_v2-2.png" />{width=90%}</p>
+<img alt="3-2-3-A.png" src="../../../_images/3-2-3-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id21">
@@ -575,7 +575,7 @@ Windows Server 2022の場合
 ②「コピー元オペレーション名」に収集ジョブ実行時に選択したジョブを選択します。ここでは例として「WS2022収集_20241001_01」を選択します。<br />
 ③変更対象のMovement（パラメータシート）にチェックを入れます。<br />
 ④「一括コピー」ボタンを押すと、収集結果が現在のウィザード（オペレーション）にコピーされます。<br />
-<img alt="3-2-4-1-A.png" src="../../../_images/3-2-4-1-A_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-1-A.png" src="../../../_images/3-2-4-1-A_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  コピー元オペレーション名の選択
 コピー元オペレーション選択において、実行済み以外の未実行および実行エラーのオペレーションを選択できます。
 </pre></div>
@@ -585,7 +585,7 @@ Windows Server 2022の場合
 <section id="id23">
 <h3>3-2-4-2. パラメータの編集<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
 <p>パラメータを編集するには、&quot;詳細設定&quot;アイコンを押します。
-<img alt="3-2-4-2-A.png" src="../../../_images/3-2-4-2-A_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-2-A.png" src="../../../_images/3-2-4-2-A_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  変更対象選択の操作
 パラメータシート一覧に戻って&quot;詳細設定&quot;を選択、または編集画面にて変更対象が選択できます。
 </pre></div>
@@ -595,7 +595,7 @@ Windows Server 2022の場合
 変更したい設定項目の値を変更、または追加し、「保存」を押します。
 ここでは例として、Description（コンピュータの説明）の値を変更しています。
 パラメータが問題なく保存されたら、「閉じる」ボタンを押します。
-<img alt="3-2-4-2-C.png" src="../../../_images/3-2-4-2-C_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-2-C.png" src="../../../_images/3-2-4-2-C_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  スプレッドシートの操作
 最下部のレコードを選択した状態でEnterキーを押すと行が追加されます。
 Microsoft Excelと同様に行コピーや複数セルのコピー・ペーストも可能です。
@@ -607,13 +607,13 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 一度ダウンロードしたファイルを修正し、再度アップロードする形となります。
 ここでは例として、ファイルアップロード型パラメータの変更手順を説明します。
 <p>ファイルアップロード型パラメータのファイル名リンクをクリックし、ファイルをダウンロードします。
-<img alt="3-2-4-2-C-1.png" src="../../../_images/3-2-4-2-C-1_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-2-C-1.png" src="../../../_images/3-2-4-2-C-1_v2-2.png" /></p>
 <p>ファイル名を右クリックし、「Upload」をクリックすると、修正したファイルをアップロードして「保存」を押します。
-<img alt="3-2-4-2-C-2.png" src="../../../_images/3-2-4-2-C-2_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-2-C-2.png" src="../../../_images/3-2-4-2-C-2_v2-2.png" /></p>
 <p>ここまでの操作を、変更対象のパラメータシート毎に実施します。</p>
 <div style="page-break-before:always"></div>
 <p>すべてのパラメータシートのステータスが&quot;登録済&quot;となっていることを確認し、「つぎへ」を押します。
-<img alt="3-2-4-2-E.png" src="../../../_images/3-2-4-2-E_v2-2.png" />{width=90%}</p>
+<img alt="3-2-4-2-E.png" src="../../../_images/3-2-4-2-E_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]
 「パラメータ編集」ボタンからスプレッドシートでパラメータを変更する以外にも、ExcelファイルやJSONファイルのダウンロード・アップデートを行うことが可能です。
 「ダウンロード」ボタンを押して形式を選択すると、ファイルがダウンロードされます。
@@ -631,7 +631,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <h3>3-2-5. ジョブ実行<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
 <p>ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機へのパラメータ反映処理（構築）が始まります。
-<img alt="3-2-5-A.png" src="../../../_images/3-2-5-A_v2-2.png" />{width=90%}</p>
+<img alt="3-2-5-A.png" src="../../../_images/3-2-5-A_v2-2.png" /></p>
 <p>実行後は、「実行状況確認」画面に自動遷移します。
 以降の手順は「3-1. 実機からパラメータを収集する（初回）」と同様です。</p>
 <div style="page-break-before:always"></div>
@@ -648,24 +648,24 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <h3>4-1-1. 収集ジョブの開始<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
 <p>メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。</p>
-<p><img alt="3-2-1-A.png" src="../../../_images/3-2-1-A_v2-2.png" />{width=90%}</p>
+<p><img alt="3-2-1-A.png" src="../../../_images/3-2-1-A_v2-2.png" /></p>
 <p>「オペレーションを新規登録する」を選択します。
 任意のオペレーション名し、「つぎへ」を押します。
 （例：WS2022収集_20241001_02）
-<img alt="4-1-1-B.png" src="../../../_images/4-1-1-B_v2-2.png" />{width=90%}</p>
+<img alt="4-1-1-B.png" src="../../../_images/4-1-1-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id28">
 <h3>4-1-2. 収集ジョブの指定<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
 <p>Conductorに「＜OS名＞-gather」を選択します。
 実行したいMovement（収集したいパラメータ）にチェックを入れて「つぎへ」を押します。
-<img alt="4-1-2-A.png" src="../../../_images/4-1-2-A_v2-2.png" />{width=90%}</p>
+<img alt="4-1-2-A.png" src="../../../_images/4-1-2-A_v2-2.png" /></p>
 </section>
 <section id="id29">
 <h3>4-1-3. ホストの指定<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
 <p>対象のホストにチェックが入っていることを確認し、「つぎへ」を押します。
 ※次の画面で過去の設定値を流用できるのは、以前に収集を実行済のホストのみです。
-<img alt="4-1-3-A.png" src="../../../_images/4-1-3-A_v2-2.png" />{width=90%}</p>
+<img alt="4-1-3-A.png" src="../../../_images/4-1-3-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id30">
@@ -676,9 +676,9 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 　ここでは例として「WS2022収集_20241001_01」という以前のオペレーションを選択します。<br/>
 ②すべてのMovement（パラメータシート）にチェックを⼊れます。<br/>
 ③「⼀括コピー」ボタンを押すと、収集設定が現在のウィザード（オペレーション）にコピーされます。<br/>
-<img alt="4-1-4-B.png" src="../../../_images/4-1-4-B_v2-2.png" />{width=90%}</p>
+<img alt="4-1-4-B.png" src="../../../_images/4-1-4-B_v2-2.png" /></p>
 <p>すべてのパラメータシートのステータスが&quot;登録済&quot;となっていることを確認し、「つぎへ」を押します。
-<img alt="4-1-4-C.png" src="../../../_images/4-1-4-C_v2-2.png" />{width=90%}</p>
+<img alt="4-1-4-C.png" src="../../../_images/4-1-4-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]  収集結果のフィルタリング設定
 一部のパラメータシートでは、収集データを絞り込むためのキーワードが登録されています。
@@ -688,14 +688,14 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 　また、件数が一定値を超えるとジョブが異常終了します。
 </pre></div>
 </div>
-<p><img alt="3-1-4-B.png" src="../../../_images/3-1-4-B_v2-2.png" />{width=90%}</p>
+<p><img alt="3-1-4-B.png" src="../../../_images/3-1-4-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id31">
 <h3>4-1-5. ジョブ実行<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
 <p>ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-<img alt="4-1-5-A.png" src="../../../_images/4-1-5-A_v2-2.png" />{width=90%}</p>
+<img alt="4-1-5-A.png" src="../../../_images/4-1-5-A_v2-2.png" /></p>
 <p>実行後は、「実行状況確認」画面に自動遷移します。
 以降の手順は「3-1. 実機からパラメータを収集する（初回）」と同様です。</p>
 <div style="page-break-before:always"></div>
@@ -733,11 +733,11 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <h3>5-1-1. 機器一覧でホストを追加する<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h3>
 <p>「設定」から「機器一覧」を選択します。
 「登録ボタン」を押します。
-<img alt="5-1-1-A.png" src="../../../_images/5-1-1-A_v2-2.png" />{width=90%}</p>
+<img alt="5-1-1-A.png" src="../../../_images/5-1-1-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>各項目をターゲットホストに合わせて入力し、「登録」ボタンを押します。
 以下、Windows Serverがターゲットの場合の入力例を示します。
-<img alt="5-1-1-B.png" src="../../../_images/5-1-1-B_v2-2.png" />{width=90%}</p>
+<img alt="5-1-1-B.png" src="../../../_images/5-1-1-B_v2-2.png" /></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>項目</p></th>
@@ -775,7 +775,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 </tbody>
 </table>
 <p>ホストが追加されたことを確認します。
-<img alt="5-1-1-C.png" src="../../../_images/5-1-1-C_v2-2.png" />{width=90%}</p>
+<img alt="5-1-1-C.png" src="../../../_images/5-1-1-C_v2-2.png" /></p>
 <p>※追加したホストにジョブを実行するためには、WinRMやssh等、Ansibleからの接続を受け付ける設定を実施しておく必要があります。</p>
 <div style="page-break-before:always"></div>
 </section>
@@ -783,14 +783,14 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <h3>5-1-2. ウィザードで対象ホストに指定<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h3>
 <p>他の手順で説明した内容と同様に、ジョブ実行ウィザードを開始します。
 [対象ホスト指定]で、初回収集で対象としたホストと追加したホストにチェックを入れて「次へ」を押します。
-<img alt="5-1-2-A.png" src="../../../_images/5-1-2-A_v2-2.png" />{width=90%}</p>
+<img alt="5-1-2-A.png" src="../../../_images/5-1-2-A_v2-2.png" /></p>
 </section>
 <section id="id36">
 <h3>5-1-3. ウィザードでパラメータを登録<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h3>
 <p>ここでは構築ジョブを実行する場合を例に説明します。
 最初に以前に実行したオペレーションの収集結果からパラメータをコピーします。</p>
 <p>「詳細設定」ボタンを押します。
-<img alt="5-1-3-A.png" src="../../../_images/5-1-3-A_v2-2.png" />{width=90%}</p>
+<img alt="5-1-3-A.png" src="../../../_images/5-1-3-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>以下の手順に沿って、収集結果をコピーします。<br />
 ①「既存パラメータからコピー」をクリックする。<br />
@@ -800,9 +800,9 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 ④ホストに初回収集で対象にしたホストを選択する。<br />
 ⑤パラメータ参照をクリックして、コピー元の対象パラメータを確認する。<br />
 ⑥「コピー」ボタンを押す。<br />
-<img alt="5-1-3-B.png" src="../../../_images/5-1-3-B_v2-2.png" />{width=90%}</p>
+<img alt="5-1-3-B.png" src="../../../_images/5-1-3-B_v2-2.png" /></p>
 <p>コピー元と同じパラメータがコピーされることを確認します。
-<img alt="5-1-3-C.png" src="../../../_images/5-1-3-C_v2-2.png" />{width=90%}</p>
+<img alt="5-1-3-C.png" src="../../../_images/5-1-3-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>既に入力済の内容を参考に、追加したホストのパラメータを入力します。
 ※スプレッドシートの行は、次のいずれかの方法で追加できます。</p>
@@ -811,7 +811,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <li><p>行番号を右クリックし、「Insert a new row」をクリックする</p></li>
 </ul>
 <p>パラメータを入力後、「保存」ボタンを押します。
-<img alt="5-1-3-D.png" src="../../../_images/5-1-3-D_v2-2.png" />{width=90%}</p>
+<img alt="5-1-3-D.png" src="../../../_images/5-1-3-D_v2-2.png" /></p>
 <p>すべてのパラメータシートに対してこの手順を繰り返します。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips]
 今後のバージョンで収集設定の初期値入力を効率化する機能の実装を予定しています。
@@ -854,13 +854,13 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <section id="id39">
 <h2>6-2. 比較の開始<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h2>
 <p>メニューから[比較実行]を選択します。
-<img alt="6-2-A.png" src="../../../_images/6-2-A_v2-2.png" />{width=90%}</p>
+<img alt="6-2-A.png" src="../../../_images/6-2-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>左側の[対象ホスト]欄で、対象とするホストにチェックを入れます。
 右側の[対象ジョブ]欄で、比較ジョブを選択します。
 今回のシナリオでは、事前に取得していた「Windowsタイムゾーンの設定」のパラメータ収集結果を比較します。
 「[収集：収集比較]Windowsタイムゾーンの設定」にチェックを入れて「次へ」を押します。</p>
-<p><img alt="6-2-B.png" src="../../../_images/6-2-B_v2-2.png" />{width=90%}</p>
+<p><img alt="6-2-B.png" src="../../../_images/6-2-B_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] 比較の種類
 比較の種類は以下の３種をバンドルしています。
 　収集：収集比較　実機から収集したパラメータ（収集結果）同士を比較します。
@@ -875,10 +875,10 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <p>前ページで選択した条件に沿って比較を行う画面です。
 ここでは、比較対象のオペレーションを2件選択します。
 対象のオペレーションは、ダブルクリックすることでプルダウンから選択できます。
-<img alt="6-3-A.png" src="../../../_images/6-3-A_v2-2.png" />{width=90%}</p>
+<img alt="6-3-A.png" src="../../../_images/6-3-A_v2-2.png" /></p>
 <p>ここでは、前述した条件に記載したオペレーションを指定します。
 [ダウンロード]ボタンを押すと、比較結果をExcelファイルでダウンロードすることができます。
-<img alt="6-3-B.png" src="../../../_images/6-3-B_v2-2.png" />{width=90%}</p>
+<img alt="6-3-B.png" src="../../../_images/6-3-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id41">
@@ -889,7 +889,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 <img alt="6-4-B.png" src="../../../_images/6-4-B_v2-2.png" />{width=80%}</p>
 <p>ホスト名シートには、比較結果の詳細が記載されています。
 差分があるパラメータは[差分]列に&quot;●&quot;が表示され、該当行の値は赤字で表示されます。
-<img alt="6-4-C.png" src="../../../_images/6-4-C_v2-2.png" />{width=90%}</p>
+<img alt="6-4-C.png" src="../../../_images/6-4-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 <section id="id42">
@@ -898,11 +898,11 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 ファイルアップロード型パラメータのファイルの中身に差分がない場合は、6-4. 比較結果の確認 と同様に、比較結果のダウンロードはExcelファイルとなります。<br/>
 <img alt="6-5-1.png" src="../../../_images/6-5-1_v2-2.png" />{width=70%}</p>
 <p>[比較条件_結果一覧]シートには、比較結果のサマリが記載されています。
-<img alt="6-5-2.png" src="../../../_images/6-5-2_v2-2.png" />{width=90%}</p>
+<img alt="6-5-2.png" src="../../../_images/6-5-2_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>ファイルアップロード型パラメータのファイルの中身に差分がある場合は、比較結果のダウンロードはZIPファイルとなります。
 ZIPファイルには、下記のファイルが含まれています。
-<img alt="6-5-3.png" src="../../../_images/6-5-3_v2-2.png" />{width=90%}</p>
+<img alt="6-5-3.png" src="../../../_images/6-5-3_v2-2.png" /></p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>ファイル名</p></th>
@@ -919,7 +919,7 @@ ZIPファイルには、下記のファイルが含まれています。
 </tbody>
 </table>
 <p>htmlファイルは、差分のある箇所の周辺のみ表示します。
-<img alt="6-5-4.png" src="../../../_images/6-5-4_v2-2.png" />{width=90%}</p>
+<img alt="6-5-4.png" src="../../../_images/6-5-4_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] ファイルアップロード型のファイル内容差分の有無について
 ダウンロードされたファイルがZIPファイルの場合は、ファイル内容に差分があると判断できます。ただし、制限事項のNo.6にも記載の通り、ZIP内のExcelファイルには「差分なし」と誤って表示される点に注意してください。個々のhtmlファイルを参照することで差分が確認できます。
 </pre></div>
@@ -933,22 +933,22 @@ ZIPファイルには、下記のファイルが含まれています。
 <section id="id44">
 <h2>7-1. 収集設定の初期値の新規作成<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h2>
 <p>メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」で「オペレーション登録」ボタンを押します。
-<img alt="7-1-A.png" src="../../../_images/7-1-A_v2-2.png" />{width=90%}</p>
+<img alt="7-1-A.png" src="../../../_images/7-1-A_v2-2.png" /></p>
 <p>オペレーション名を入力して、「登録」ボタンを押します。
-<img alt="7-1-B.png" src="../../../_images/7-1-B_v2-2.png" />{width=90%}</p>
+<img alt="7-1-B.png" src="../../../_images/7-1-B_v2-2.png" /></p>
 <p>「パラメータシート選択」ボタンを押して、パラメータシートを選択します。
-<img alt="7-1-C.png" src="../../../_images/7-1-C_v2-2.png" />{width=90%}</p>
+<img alt="7-1-C.png" src="../../../_images/7-1-C_v2-2.png" /></p>
 <p>左側の一覧からパラメータシートをチェックして、「&gt;」ボタンを押してから「保存」ボタンを押します。
-<img alt="7-1-D.png" src="../../../_images/7-1-D_v2-2.png" />{width=90%}
-<img alt="7-1-E.png" src="../../../_images/7-1-E_v2-2.png" />{width=90%}</p>
+<img alt="7-1-D.png" src="../../../_images/7-1-D_v2-2.png" />
+<img alt="7-1-E.png" src="../../../_images/7-1-E_v2-2.png" /></p>
 <p>「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。<br/>
 下記の手順に沿って他のオペレーションから初期値がコピーできます。手動でパラメータを入力することも可能です。<br/>
 ①「既存パラメータからコピー」をクリックする。<br />
 ②オペレーション名にコピー元のオペレーションを選択する。<br />
 ③「コピー」ボタンを押す。<br/>
-<img alt="7-1-F.png" src="../../../_images/7-1-F_v2-2.png" />{width=90%}
-<img alt="7-1-G.png" src="../../../_images/7-1-G_v2-2.png" />{width=90%}
-<img alt="7-1-H.png" src="../../../_images/7-1-H_v2-2.png" />{width=90%}</p>
+<img alt="7-1-F.png" src="../../../_images/7-1-F_v2-2.png" />
+<img alt="7-1-G.png" src="../../../_images/7-1-G_v2-2.png" />
+<img alt="7-1-H.png" src="../../../_images/7-1-H_v2-2.png" /></p>
 <p>手動でパラメータを編集した後、「保存」ボタンを押します。</p>
 <div style="page-break-before:always"></div>
 </section>
@@ -956,11 +956,11 @@ ZIPファイルには、下記のファイルが含まれています。
 <h2>7-2. 収集設定の初期値の更新<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h2>
 <p>メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」に登録した収集初期値管理用オペレーションを選択します。<br/>
 ここでは例として予めに登録した「WS2022-gather-default」を選択します。
-<img alt="7-2-A.png" src="../../../_images/7-2-A_v2-2.png" />{width=90%}</p>
+<img alt="7-2-A.png" src="../../../_images/7-2-A_v2-2.png" /></p>
 <p>登録したパラメータシートが表示されますので、「ステータス」でパラメータを登録済みであるか、「登録件数」で登録済みパラメータ件数が確認できます。
-<img alt="7-2-B.png" src="../../../_images/7-2-B_v2-2.png" />{width=90%}</p>
+<img alt="7-2-B.png" src="../../../_images/7-2-B_v2-2.png" /></p>
 <p>「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。
-<img alt="7-2-C.png" src="../../../_images/7-2-C_v2-2.png" />{width=90%}</p>
+<img alt="7-2-C.png" src="../../../_images/7-2-C_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 </section>
@@ -971,13 +971,13 @@ ZIPファイルには、下記のファイルが含まれています。
 <section id="exastro-it-automation">
 <h2>8-1. Exastro IT Automation へのログイン<a class="headerlink" href="#exastro-it-automation" title="Link to this heading">¶</a></h2>
 <p>メニューから[ITA Link]を選択します。
-<img alt="8-1-A.png" src="../../../_images/8-1-A_v2-2.png" />{width=90%}</p>
+<img alt="8-1-A.png" src="../../../_images/8-1-A_v2-2.png" /></p>
 <p>[Link to ITA]ボタンを押します。
-<img alt="8-1-B.png" src="../../../_images/8-1-B_v2-2.png" />{width=90%}</p>
+<img alt="8-1-B.png" src="../../../_images/8-1-B_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 <p>Exastro IT Automation のログイン画面が新しいタブで開きます。
 UsernameとPasswordを入力して[Sign In]ボタンを押します。
-<img alt="8-1-C.png" src="../../../_images/8-1-C_v2-2.png" />{width=90%}</p>
+<img alt="8-1-C.png" src="../../../_images/8-1-C_v2-2.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Tips] Exastro IT Automationへのログイン情報
 ここで入力するユーザー名とパスワードは、SimpleModeへのログイン時に入力した情報を入力します。
 ログイン情報は「SimpleMode利⽤情報.pdf」の「Exastro IT Automation（接続確認⽤）」の項を参照してください。
@@ -985,7 +985,7 @@ UsernameとPasswordを入力して[Sign In]ボタンを押します。
 </div>
 <p>Exastro IT Automation の画面が開きます。
 以降の操作手順は、<a class="reference external" href="https://ita-docs.exastro.org/ja/2.2/manuals/index.html">Exastro IT Automationのマニュアル</a>をご覧ください。</p>
-<p><img alt="8-2-A.png" src="../../../_images/8-2-A_v2-2.png" />{width=90%}</p>
+<p><img alt="8-2-A.png" src="../../../_images/8-2-A_v2-2.png" /></p>
 <div style="page-break-before:always"></div>
 </section>
 </section>
