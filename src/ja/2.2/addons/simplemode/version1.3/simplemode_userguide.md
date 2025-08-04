@@ -33,7 +33,7 @@ SimpleModeの機能を以下に示します。
 6. 収集設定の初期値の管理
 
 SimpleModeの概要図を以下に示します。
-![topology.png](/images/ja/simplemode/topology_v2-2.png){width=100%}
+![topology.png](/images/ja/simplemode/topology_v2-2.png)
 SimpleModeを構成するコンポーネントは3つです。
 
 1. SimpleMode（Webアプリケーション）
@@ -105,7 +105,7 @@ SimpleModeが収集、構築を実行するターゲットマシン(Linux)の前
 「設定」から「機器一覧」を選択します。
 ホスト名が「--------」のマシンの「編集」ボタンを押します。
 
-![2-2-1-A.png](/images/ja/simplemode/2-2-1-A_v2-2.png){width=90%}
+![2-2-1-A.png](/images/ja/simplemode/2-2-1-A_v2-2.png)
 
 以下の項目をターゲットマシンに合わせて変更し、「保存」ボタンを押します。
 
@@ -121,10 +121,10 @@ SimpleModeが収集、構築を実行するターゲットマシン(Linux)の前
 
 ※その他の項目は必要に応じて変更してください。<br />
 Windows Server 2022の場合
-![2-2-1-B.png](/images/ja/simplemode/2-2-1-B_v2-2.png){width=90%}
+![2-2-1-B.png](/images/ja/simplemode/2-2-1-B_v2-2.png)
 
 RHEL9の場合
-![2-2-1-C.png](/images/ja/simplemode/2-2-1-C_v2-2.png){width=90%}
+![2-2-1-C.png](/images/ja/simplemode/2-2-1-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -144,7 +144,7 @@ RHEL9の場合
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022収集_20241001_01）
-![3-1-1-A.png](/images/ja/simplemode/3-1-1-A_v2-2.png){width=90%}
+![3-1-1-A.png](/images/ja/simplemode/3-1-1-A_v2-2.png)
 
 ```
 [Tips] オペレーション名の自動入力
@@ -158,12 +158,12 @@ RHEL9の場合
 
 Conductorに「＜OS名＞-gather」が選択されていること、
 実行したいMovementにチェックを入れて「つぎへ」を押します。
-![3-1-2-A.png](/images/ja/simplemode/3-1-2-A_v2-2.png){width=90%}
+![3-1-2-A.png](/images/ja/simplemode/3-1-2-A_v2-2.png)
 
 ### 3-1-3. ホストの指定
 
 "ジョブ実行前の準備"で設定したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-![3-1-3-A.png](/images/ja/simplemode/3-1-3-A_v2-2.png){width=90%}
+![3-1-3-A.png](/images/ja/simplemode/3-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -172,11 +172,11 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 ここでは収集のためのパラメータを入力します。
 「コピー元オペレーション名」に予め登録した収集初期値管理用オペレーション（ここでは、「WS2022-gather-default」）を選択して、
 すべてのMovementをチェックして一括コピーを押します。表示されたメッセージで「OK」を選択します。
-![3-1-4-A.png](/images/ja/simplemode/3-1-4-A_v2-2.png){width=90%}
-![3-1-4-A-1.png](/images/ja/simplemode/3-1-4-A-1_v2-2.png){width=90%}
+![3-1-4-A.png](/images/ja/simplemode/3-1-4-A_v2-2.png)
+![3-1-4-A-1.png](/images/ja/simplemode/3-1-4-A-1_v2-2.png)
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![3-1-4-A-2.png](/images/ja/simplemode/3-1-4-A-2_v2-2.png){width=90%}
+![3-1-4-A-2.png](/images/ja/simplemode/3-1-4-A-2_v2-2.png)
 
 ```
 [Tips]  収集結果のフィルタリング設定
@@ -187,7 +187,7 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 　また、件数が一定値を超えるとジョブが異常終了します。
 ```
 
-![3-1-4-B.png](/images/ja/simplemode/3-1-4-B_v2-2.png){width=90%}
+![3-1-4-B.png](/images/ja/simplemode/3-1-4-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -206,19 +206,19 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-![3-1-5-A.png](/images/ja/simplemode/3-1-5-A_v2-2.png){width=90%}
+![3-1-5-A.png](/images/ja/simplemode/3-1-5-A_v2-2.png)
 
 実行後は、「実行状況確認」画面に自動遷移します。
 ここでは、ジョブの実行状況とログを確認できます。
 「詳細」ボタンを押すと、そのオペレーションの実行状況をMovement単位で確認できます。
-![3-1-5-B.png](/images/ja/simplemode/3-1-5-B_v2-2.png){width=90%}
+![3-1-5-B.png](/images/ja/simplemode/3-1-5-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 Movement名をクリックすると、ジョブ実行時のログを参照することができます。
-![3-1-5-C.png](/images/ja/simplemode/3-1-5-C_v2-2.png){width=60%}
+![3-1-5-C.png](/images/ja/simplemode/3-1-5-C_v2-2.png)
 
-![3-1-5-D.png](/images/ja/simplemode/3-1-5-D_v2-2.png){width=60%}
+![3-1-5-D.png](/images/ja/simplemode/3-1-5-D_v2-2.png)
 
 
 ```
@@ -239,14 +239,14 @@ Movement名をクリックすると、ジョブ実行時のログを参照する
 
 実行状況確認画面で”正常終了"となったMovementの収集結果は、「パラメータシート」メニューから参照できます。
 オペレーションの一覧で「＜OS名＞-gather-default」の「詳細」ボタンを押します。
-![3-1-6-A.png](/images/ja/simplemode/3-1-6-A_v2-2.png){width=90%}
+![3-1-6-A.png](/images/ja/simplemode/3-1-6-A_v2-2.png)
 
 Conductor「＜OS名＞-build」を選択します。
 参照したいパラメータシートの「パラメータ参照」ボタンを押すと、パラメータ参照画面が開きます。
 また、「ダウンロード」ボタンを押すと、Excel／JSON形式でダウンロードができます。
-![3-1-6-B.png](/images/ja/simplemode/3-1-6-B_v2-2.png){width=90%}
+![3-1-6-B.png](/images/ja/simplemode/3-1-6-B_v2-2.png)
 
-![3-1-6-C.png](/images/ja/simplemode/3-1-6-C_v2-2.png){width=90%}
+![3-1-6-C.png](/images/ja/simplemode/3-1-6-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -267,12 +267,12 @@ Conductor「＜OS名＞-build」を選択します。
 メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。
 
-![3-2-1-A.png](/images/ja/simplemode/3-2-1-A_v2-2.png){width=90%}
+![3-2-1-A.png](/images/ja/simplemode/3-2-1-A_v2-2.png)
 
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022構築_20241001_01）
-![3-2-1-B.png](/images/ja/simplemode/3-2-1-B_v2-2.png){width=90%}
+![3-2-1-B.png](/images/ja/simplemode/3-2-1-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -280,12 +280,12 @@ Conductor「＜OS名＞-build」を選択します。
 
 Conductorに「＜OS名＞-build」を選択します。
 実行したい（設定を変更したい）Movementにチェックを入れて「つぎへ」を押します。
-![3-2-2-A.png](/images/ja/simplemode/3-2-2-A_v2-2.png){width=90%}
+![3-2-2-A.png](/images/ja/simplemode/3-2-2-A_v2-2.png)
 
 ### 3-2-3. ホストの指定
 
 "3-1. 実機からパラメータを収集する（初回）"で設定値を収集したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-![3-2-3-A.png](/images/ja/simplemode/3-2-3-A_v2-2.png){width=90%}
+![3-2-3-A.png](/images/ja/simplemode/3-2-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -299,7 +299,7 @@ Conductorに「＜OS名＞-build」を選択します。
 ②「コピー元オペレーション名」に収集ジョブ実行時に選択したジョブを選択します。ここでは例として「WS2022収集_20241001_01」を選択します。<br />
 ③変更対象のMovement（パラメータシート）にチェックを入れます。<br />
 ④「一括コピー」ボタンを押すと、収集結果が現在のウィザード（オペレーション）にコピーされます。<br />
-![3-2-4-1-A.png](/images/ja/simplemode/3-2-4-1-A_v2-2.png){width=90%}
+![3-2-4-1-A.png](/images/ja/simplemode/3-2-4-1-A_v2-2.png)
 
 ```
 [Tips]  コピー元オペレーション名の選択
@@ -311,7 +311,7 @@ Conductorに「＜OS名＞-build」を選択します。
 ### 3-2-4-2. パラメータの編集
 
 パラメータを編集するには、"詳細設定"アイコンを押します。
-![3-2-4-2-A.png](/images/ja/simplemode/3-2-4-2-A_v2-2.png){width=90%}
+![3-2-4-2-A.png](/images/ja/simplemode/3-2-4-2-A_v2-2.png)
 
 ```
 [Tips]  変更対象選択の操作
@@ -324,7 +324,7 @@ Conductorに「＜OS名＞-build」を選択します。
 変更したい設定項目の値を変更、または追加し、「保存」を押します。
 ここでは例として、Description（コンピュータの説明）の値を変更しています。
 パラメータが問題なく保存されたら、「閉じる」ボタンを押します。
-![3-2-4-2-C.png](/images/ja/simplemode/3-2-4-2-C_v2-2.png){width=90%}
+![3-2-4-2-C.png](/images/ja/simplemode/3-2-4-2-C_v2-2.png)
 
 ```
 [Tips]  スプレッドシートの操作
@@ -338,18 +338,18 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 ここでは例として、ファイルアップロード型パラメータの変更手順を説明します。
 
 ファイルアップロード型パラメータのファイル名リンクをクリックし、ファイルをダウンロードします。
-![3-2-4-2-C-1.png](/images/ja/simplemode/3-2-4-2-C-1_v2-2.png){width=90%}
+![3-2-4-2-C-1.png](/images/ja/simplemode/3-2-4-2-C-1_v2-2.png)
 
 
 ファイル名を右クリックし、「Upload」をクリックすると、修正したファイルをアップロードして「保存」を押します。
-![3-2-4-2-C-2.png](/images/ja/simplemode/3-2-4-2-C-2_v2-2.png){width=90%}
+![3-2-4-2-C-2.png](/images/ja/simplemode/3-2-4-2-C-2_v2-2.png)
 
 ここまでの操作を、変更対象のパラメータシート毎に実施します。
 
 <div style="page-break-before:always"></div>
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![3-2-4-2-E.png](/images/ja/simplemode/3-2-4-2-E_v2-2.png){width=90%}
+![3-2-4-2-E.png](/images/ja/simplemode/3-2-4-2-E_v2-2.png)
 
 ```
 [Tips]
@@ -369,7 +369,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機へのパラメータ反映処理（構築）が始まります。
-![3-2-5-A.png](/images/ja/simplemode/3-2-5-A_v2-2.png){width=90%}
+![3-2-5-A.png](/images/ja/simplemode/3-2-5-A_v2-2.png)
 
 実行後は、「実行状況確認」画面に自動遷移します。
 以降の手順は「3-1. 実機からパラメータを収集する（初回）」と同様です。
@@ -390,12 +390,12 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。
 
-![3-2-1-A.png](/images/ja/simplemode/3-2-1-A_v2-2.png){width=90%}
+![3-2-1-A.png](/images/ja/simplemode/3-2-1-A_v2-2.png)
 
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名し、「つぎへ」を押します。
 （例：WS2022収集_20241001_02）
-![4-1-1-B.png](/images/ja/simplemode/4-1-1-B_v2-2.png){width=90%}
+![4-1-1-B.png](/images/ja/simplemode/4-1-1-B_v2-2.png)
 
 
 <div style="page-break-before:always"></div>
@@ -404,14 +404,14 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 
 Conductorに「＜OS名＞-gather」を選択します。
 実行したいMovement（収集したいパラメータ）にチェックを入れて「つぎへ」を押します。
-![4-1-2-A.png](/images/ja/simplemode/4-1-2-A_v2-2.png){width=90%}
+![4-1-2-A.png](/images/ja/simplemode/4-1-2-A_v2-2.png)
 
 
 ### 4-1-3. ホストの指定
 
 対象のホストにチェックが入っていることを確認し、「つぎへ」を押します。
 ※次の画面で過去の設定値を流用できるのは、以前に収集を実行済のホストのみです。
-![4-1-3-A.png](/images/ja/simplemode/4-1-3-A_v2-2.png){width=90%}
+![4-1-3-A.png](/images/ja/simplemode/4-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -423,10 +423,10 @@ Conductorに「＜OS名＞-gather」を選択します。
 　ここでは例として「WS2022収集_20241001_01」という以前のオペレーションを選択します。<br/>
 ②すべてのMovement（パラメータシート）にチェックを⼊れます。<br/>
 ③「⼀括コピー」ボタンを押すと、収集設定が現在のウィザード（オペレーション）にコピーされます。<br/>
-![4-1-4-B.png](/images/ja/simplemode/4-1-4-B_v2-2.png){width=90%}
+![4-1-4-B.png](/images/ja/simplemode/4-1-4-B_v2-2.png)
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![4-1-4-C.png](/images/ja/simplemode/4-1-4-C_v2-2.png){width=90%}
+![4-1-4-C.png](/images/ja/simplemode/4-1-4-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -439,7 +439,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 　データの件数が多すぎると、性能面で問題が出る可能性があります。
 　また、件数が一定値を超えるとジョブが異常終了します。
 ```
-![3-1-4-B.png](/images/ja/simplemode/3-1-4-B_v2-2.png){width=90%}
+![3-1-4-B.png](/images/ja/simplemode/3-1-4-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -448,7 +448,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-![4-1-5-A.png](/images/ja/simplemode/4-1-5-A_v2-2.png){width=90%}
+![4-1-5-A.png](/images/ja/simplemode/4-1-5-A_v2-2.png)
 
 
 
@@ -472,13 +472,13 @@ Conductorに「＜OS名＞-gather」を選択します。
 ### 5-1-1. 機器一覧でホストを追加する
 「設定」から「機器一覧」を選択します。
 「登録ボタン」を押します。
-![5-1-1-A.png](/images/ja/simplemode/5-1-1-A_v2-2.png){width=90%}
+![5-1-1-A.png](/images/ja/simplemode/5-1-1-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 各項目をターゲットホストに合わせて入力し、「登録」ボタンを押します。
 以下、Windows Serverがターゲットの場合の入力例を示します。
-![5-1-1-B.png](/images/ja/simplemode/5-1-1-B_v2-2.png){width=90%}
+![5-1-1-B.png](/images/ja/simplemode/5-1-1-B_v2-2.png)
 
 
 | 項目              | 設定例                                             |
@@ -494,7 +494,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 | 接続タイプ        | （例）machine                                      |
 
 ホストが追加されたことを確認します。
-![5-1-1-C.png](/images/ja/simplemode/5-1-1-C_v2-2.png){width=90%}
+![5-1-1-C.png](/images/ja/simplemode/5-1-1-C_v2-2.png)
 
 
 ※追加したホストにジョブを実行するためには、WinRMやssh等、Ansibleからの接続を受け付ける設定を実施しておく必要があります。
@@ -505,7 +505,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 ### 5-1-2. ウィザードで対象ホストに指定
 他の手順で説明した内容と同様に、ジョブ実行ウィザードを開始します。
 [対象ホスト指定]で、初回収集で対象としたホストと追加したホストにチェックを入れて「次へ」を押します。
-![5-1-2-A.png](/images/ja/simplemode/5-1-2-A_v2-2.png){width=90%}
+![5-1-2-A.png](/images/ja/simplemode/5-1-2-A_v2-2.png)
 
 
 ### 5-1-3. ウィザードでパラメータを登録
@@ -513,7 +513,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 最初に以前に実行したオペレーションの収集結果からパラメータをコピーします。
 
 「詳細設定」ボタンを押します。
-![5-1-3-A.png](/images/ja/simplemode/5-1-3-A_v2-2.png){width=90%}
+![5-1-3-A.png](/images/ja/simplemode/5-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -525,11 +525,11 @@ Conductorに「＜OS名＞-gather」を選択します。
 ④ホストに初回収集で対象にしたホストを選択する。<br />
 ⑤パラメータ参照をクリックして、コピー元の対象パラメータを確認する。<br />
 ⑥「コピー」ボタンを押す。<br />
-![5-1-3-B.png](/images/ja/simplemode/5-1-3-B_v2-2.png){width=90%}
+![5-1-3-B.png](/images/ja/simplemode/5-1-3-B_v2-2.png)
 
 
 コピー元と同じパラメータがコピーされることを確認します。
-![5-1-3-C.png](/images/ja/simplemode/5-1-3-C_v2-2.png){width=90%}
+![5-1-3-C.png](/images/ja/simplemode/5-1-3-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -539,7 +539,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 - 行番号を右クリックし、「Insert a new row」をクリックする
 
 パラメータを入力後、「保存」ボタンを押します。
-![5-1-3-D.png](/images/ja/simplemode/5-1-3-D_v2-2.png){width=90%}
+![5-1-3-D.png](/images/ja/simplemode/5-1-3-D_v2-2.png)
 
 すべてのパラメータシートに対してこの手順を繰り返します。
 ```
@@ -576,7 +576,7 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 ## 6-2. 比較の開始
 
 メニューから[比較実行]を選択します。
-![6-2-A.png](/images/ja/simplemode/6-2-A_v2-2.png){width=90%}
+![6-2-A.png](/images/ja/simplemode/6-2-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -585,7 +585,7 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 今回のシナリオでは、事前に取得していた「Windowsタイムゾーンの設定」のパラメータ収集結果を比較します。
 「[収集：収集比較]Windowsタイムゾーンの設定」にチェックを入れて「次へ」を押します。
 
-![6-2-B.png](/images/ja/simplemode/6-2-B_v2-2.png){width=90%}
+![6-2-B.png](/images/ja/simplemode/6-2-B_v2-2.png)
 
 ```
 [Tips] 比較の種類
@@ -602,11 +602,11 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 前ページで選択した条件に沿って比較を行う画面です。
 ここでは、比較対象のオペレーションを2件選択します。
 対象のオペレーションは、ダブルクリックすることでプルダウンから選択できます。
-![6-3-A.png](/images/ja/simplemode/6-3-A_v2-2.png){width=90%}
+![6-3-A.png](/images/ja/simplemode/6-3-A_v2-2.png)
 
 ここでは、前述した条件に記載したオペレーションを指定します。
 [ダウンロード]ボタンを押すと、比較結果をExcelファイルでダウンロードすることができます。
-![6-3-B.png](/images/ja/simplemode/6-3-B_v2-2.png){width=90%}
+![6-3-B.png](/images/ja/simplemode/6-3-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -619,7 +619,7 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 
 ホスト名シートには、比較結果の詳細が記載されています。
 差分があるパラメータは[差分]列に"●"が表示され、該当行の値は赤字で表示されます。
-![6-4-C.png](/images/ja/simplemode/6-4-C_v2-2.png){width=90%}
+![6-4-C.png](/images/ja/simplemode/6-4-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -629,13 +629,13 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 ![6-5-1.png](/images/ja/simplemode/6-5-1_v2-2.png){width=70%}
 
 [比較条件_結果一覧]シートには、比較結果のサマリが記載されています。
-![6-5-2.png](/images/ja/simplemode/6-5-2_v2-2.png){width=90%}
+![6-5-2.png](/images/ja/simplemode/6-5-2_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ファイルアップロード型パラメータのファイルの中身に差分がある場合は、比較結果のダウンロードはZIPファイルとなります。
 ZIPファイルには、下記のファイルが含まれています。
-![6-5-3.png](/images/ja/simplemode/6-5-3_v2-2.png){width=90%}
+![6-5-3.png](/images/ja/simplemode/6-5-3_v2-2.png)
 
 | ファイル名                                       | 説明                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------ |
@@ -643,7 +643,7 @@ ZIPファイルには、下記のファイルが含まれています。
 | ホスト名_パラメータ名[代入順].html               | ファイルアップロード型の内容比較結果ファイル<br>ファイル内容に差分があるパラメータのみ比較ファイルを作成。<br/>例：OS-RHEL9-1_file[1].html<br/>ホスト名：OS-RHEL9-1<br/>パラメータ名：file<br/>代入順：1 |
 
 htmlファイルは、差分のある箇所の周辺のみ表示します。
-![6-5-4.png](/images/ja/simplemode/6-5-4_v2-2.png){width=90%}
+![6-5-4.png](/images/ja/simplemode/6-5-4_v2-2.png)
 
 ```
 [Tips] ファイルアップロード型のファイル内容差分の有無について
@@ -658,26 +658,26 @@ SimpleModeは、収集設定の初期値の管理機能を利用して、収集�
 
 ## 7-1. 収集設定の初期値の新規作成
 メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」で「オペレーション登録」ボタンを押します。
-![7-1-A.png](/images/ja/simplemode/7-1-A_v2-2.png){width=90%}
+![7-1-A.png](/images/ja/simplemode/7-1-A_v2-2.png)
 
 オペレーション名を入力して、「登録」ボタンを押します。
-![7-1-B.png](/images/ja/simplemode/7-1-B_v2-2.png){width=90%}
+![7-1-B.png](/images/ja/simplemode/7-1-B_v2-2.png)
 
 「パラメータシート選択」ボタンを押して、パラメータシートを選択します。
-![7-1-C.png](/images/ja/simplemode/7-1-C_v2-2.png){width=90%}
+![7-1-C.png](/images/ja/simplemode/7-1-C_v2-2.png)
 
 左側の一覧からパラメータシートをチェックして、「>」ボタンを押してから「保存」ボタンを押します。
-![7-1-D.png](/images/ja/simplemode/7-1-D_v2-2.png){width=90%}
-![7-1-E.png](/images/ja/simplemode/7-1-E_v2-2.png){width=90%}
+![7-1-D.png](/images/ja/simplemode/7-1-D_v2-2.png)
+![7-1-E.png](/images/ja/simplemode/7-1-E_v2-2.png)
 
 「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。<br/>
 下記の手順に沿って他のオペレーションから初期値がコピーできます。手動でパラメータを入力することも可能です。<br/>
 ①「既存パラメータからコピー」をクリックする。<br />
 ②オペレーション名にコピー元のオペレーションを選択する。<br />
 ③「コピー」ボタンを押す。<br/>
-![7-1-F.png](/images/ja/simplemode/7-1-F_v2-2.png){width=90%}
-![7-1-G.png](/images/ja/simplemode/7-1-G_v2-2.png){width=90%}
-![7-1-H.png](/images/ja/simplemode/7-1-H_v2-2.png){width=90%}
+![7-1-F.png](/images/ja/simplemode/7-1-F_v2-2.png)
+![7-1-G.png](/images/ja/simplemode/7-1-G_v2-2.png)
+![7-1-H.png](/images/ja/simplemode/7-1-H_v2-2.png)
 
 手動でパラメータを編集した後、「保存」ボタンを押します。
 
@@ -687,13 +687,13 @@ SimpleModeは、収集設定の初期値の管理機能を利用して、収集�
 
 メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」に登録した収集初期値管理用オペレーションを選択します。<br/>
 ここでは例として予めに登録した「WS2022-gather-default」を選択します。
-![7-2-A.png](/images/ja/simplemode/7-2-A_v2-2.png){width=90%}
+![7-2-A.png](/images/ja/simplemode/7-2-A_v2-2.png)
 
 登録したパラメータシートが表示されますので、「ステータス」でパラメータを登録済みであるか、「登録件数」で登録済みパラメータ件数が確認できます。
-![7-2-B.png](/images/ja/simplemode/7-2-B_v2-2.png){width=90%}
+![7-2-B.png](/images/ja/simplemode/7-2-B_v2-2.png)
 
 「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。
-![7-2-C.png](/images/ja/simplemode/7-2-C_v2-2.png){width=90%}
+![7-2-C.png](/images/ja/simplemode/7-2-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -711,16 +711,16 @@ SimpleModeは、Exastro IT Automationのパラメータ構成管理機能やジ�
 ## 8-1. Exastro IT Automation へのログイン
 
 メニューから[ITA Link]を選択します。
-![8-1-A.png](/images/ja/simplemode/8-1-A_v2-2.png){width=90%}
+![8-1-A.png](/images/ja/simplemode/8-1-A_v2-2.png)
 
 [Link to ITA]ボタンを押します。
-![8-1-B.png](/images/ja/simplemode/8-1-B_v2-2.png){width=90%}
+![8-1-B.png](/images/ja/simplemode/8-1-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 Exastro IT Automation のログイン画面が新しいタブで開きます。
 UsernameとPasswordを入力して[Sign In]ボタンを押します。
-![8-1-C.png](/images/ja/simplemode/8-1-C_v2-2.png){width=90%}
+![8-1-C.png](/images/ja/simplemode/8-1-C_v2-2.png)
 ```
 [Tips] Exastro IT Automationへのログイン情報
 ここで入力するユーザー名とパスワードは、SimpleModeへのログイン時に入力した情報を入力します。
@@ -730,7 +730,7 @@ UsernameとPasswordを入力して[Sign In]ボタンを押します。
 Exastro IT Automation の画面が開きます。
 以降の操作手順は、[Exastro IT Automationのマニュアル](https://ita-docs.exastro.org/ja/2.2/manuals/index.html)をご覧ください。
 
-![8-2-A.png](/images/ja/simplemode/8-2-A_v2-2.png){width=90%}
+![8-2-A.png](/images/ja/simplemode/8-2-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
