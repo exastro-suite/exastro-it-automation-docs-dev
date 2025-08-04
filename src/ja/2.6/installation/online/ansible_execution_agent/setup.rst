@@ -534,6 +534,194 @@ Ansible Execution Agentのインストール
         Input a STORAGE_PATH.(e.g. /home/cloud-user/exastro/<SERVICE_ID>):
 
 
+アップグレード
+==============
+アップグレードの準備
+--------------------
+
+ソフトウェア要件の確認
+^^^^^^^^^^^^^^^^^^^^^^
+| アップグレード対象バージョンのソフトウェア要件を満たしているか確認します。
+| 詳細は :ref:`こちら<ansible_exrcution_agent_oftware_requirements>` をご参照ください。
+
+対象サービス情報の取得
+^^^^^^^^^^^^^^^^^^^^^^
+| アップグレード対象のサービス情報を事前に取得します。
+
+.. list-table:: 必要サービス情報
+   :header-rows: 1
+   :align: left
+
+   * - 項目
+     - .envの変数名
+     - 値の例
+     - 備考
+   * - サービス名
+     - AGENT_NAME
+     - ita-ag-ansible-execution-20250723015915991
+     -
+   * - サービス識別子
+     - AGENT_NAME
+     - 20250723015915991
+     - サービス名の「ita-ag-ansible-execution-」より後ろの部分
+   * - インストールディレクトリ
+     - PYTHONPATH
+     - /home/almalinux/exastro
+     - パスの「/ita_ag_ansible_execution」より前の部分
+   * - ストレージディレクトリ
+     - STORAGEPATH
+     - /home/almalinux/exastro
+     - パスの「/<サービス識別子>/storage」より前の部分
+
+| ※20250723015915991の部分には、インストール時に設定した一意のサービス識別子が入ります
+
+
+データバックアップ
+^^^^^^^^^^^^^^^^^^
+| 必要に応じて下記データのバックアップを取得することを推奨します。
+
+.. list-table:: バックアップ推奨データ
+   :header-rows: 1
+   :align: left
+
+   * - 項目
+     - パス
+     - 備考
+   * - エージェントのアプリログ
+     - /<インストールディレクトリ>/<サービス識別子>/log/ita-ag-ansible-execution-<サービス識別子>.log
+     -
+   * - 過去の作業実行データ
+     - /<ストレージディレクトリ>/<サービス識別子>/storage
+     - ※Ansible共通 - インターフェース情報で実行時データ削除をFalseにしている場合
+   * - .envファイル
+     - /<インストールディレクトリ>/<サービス識別子>/.env
+     -
+
+注意事項
+^^^^^^^^
+
+| 下記条件の両方に当てはまる場合、アップグレードによる影響が発生します。
+
+- 1つのサーバーで複数のエージェントのサービスを運用している
+- 上記サービスのインストールディレクトリが同一である
+
+| 具体例：
+
+- 同一ワークスペースに対して複数サービスを運用しているケース
+- 同一オーガナイゼーションの複数ワークスペースそれぞれに対してエージェントを運用しているケース
+
+
+アンインストール
+----------------
+
+| アップグレード対象サービスのアンインストールを行います。
+| アンインストールのモードは2を指定します。
+| アンインストール対象サービスは、準備で控えたサービス名を指定します。
+|  手順は :ref:`こちら<ansible_execution_agent_uninstall>` をご参照ください。
+
+
+アップグレード（再インストール）
+---------------------------------
+
+1. 任意のディレクトリに最新のsetup.shを取得し、実行権限を付与します。
+
+.. code-block:: bash
+
+    $ wget https://raw.githubusercontent.com/exastro-suite/exastro-it-automation/refs/heads/main/ita_root/ita_ag_ansible_execution/setup.sh
+
+.. code-block:: bash
+
+    $ chmod 755 ./setup.sh
+
+2. setup.shを実行し、後述する対話事項に沿って進めてください。
+
+.. code-block:: bash
+
+    $ ./setup.sh install
+
+3. エージェントのインストールモードは1を選択します。
+
+.. code-block:: bash
+
+    Please select which process to execute.
+        1: Create ENV, Install, Register service
+        2: Create ENV, Register service
+        3: Register service
+        q: Quit installer
+    select value: (1, 2, 3, q)  : 1
+
+4. 以下、Enterを押下すると、必要な設定値を対話形式での入力が開始されます。
+
+.. code-block:: bash
+ 
+   'No value + Enter' is input while default value exists, the default value will be used.
+   ->  Enter
+
+5. インストールするエージェントのバージョンを指定します。最新バージョンへアップグレードする場合は、未入力でEnterを押下します。
+
+.. code-block:: bash
+
+   Input the version of the Agent. Tag specification: X.Y.Z, Branch specification: X.Y [default: No Input+Enter(Latest release version)]:
+   Input Value [default: main ]: 2.6.0
+
+
+6. エージェントサービス名称の設定では、nを入力します。
+
+.. code-block:: bash
+
+   The Agent service name is in the following format: ita-ag-ansible-execution-20241112115209622. Select n to specify individual names. (y/n):
+   Input Value [default: y ]:
+
+7. 準備で控えたサービス識別子を入力します。
+
+.. code-block:: bash
+
+   Input the Agent service name . The string ita-ag-ansible-execution- is added to the start of the name.:
+   Input Value : <サービス識別子>
+
+8. 準備で控えたインストールディレクトリを指定します。
+
+.. code-block:: bash
+
+   Specify full path for the install location.:
+   Input Value [default: /home/<ログインユーザー>/exastro ]: <インストールディレクトリ>
+
+9. 準備で控えたストレージディレクトリを指定します。
+
+.. code-block:: bash
+
+   Specify full path for the data storage location.:
+   Input Value [default: /home/<ログインユーザー>/exastro ]: <ストレージディレクトリ>
+
+10. 以降、初回インストール時と同じ情報を入力します。
+
+.. code-block:: bash
+
+   Select which Ansible-builder and/or Ansible-runner to use(1, 2) [1=Ansible 2=Red Hat Ansible Automation Platform] :
+   Input Value [default: 1 ]: 1
+
+   Input the ITA connection URL.:
+   Input Value : http://xx.xx.xx.xx
+
+   Input ORGANIZATION_ID.:
+   Input Value : your_org_id
+
+   Input WORKSPACE_ID.:
+   Input Value : your_ws_id
+
+   Input a REFRESH_TOKEN for a user that can log in to ITA. If the token cannot be input here, change the EXASTRO_REFRESH_TOKEN in the generated .env file.:
+   Input Value [default:  ]: your_token (invisible)
+
+.. tip::
+   | 残りの有効期限に応じてリフレッシュトークンを更新することを推奨します。
+
+11. yを入力し、既存ソースを削除・再インストールします。
+
+.. code-block:: bash
+
+   A source already exists in the installation destination. Do you want to delete it and re-install?  (y:Re-install/n:Move to the next process without installing) (y/n)
+   ※If a registered service already exists with a different version, the existing service might be affected.(y/n): y
+
 .. _ansible_execution_agent_service_cmd:
 
 サービスの手動での操作、確認方法
