@@ -1,6 +1,6 @@
 # Exastro IT Automation SimpleMode 利用マニュアル（操作編）
 
-2025/03/24 NEC Corporation
+2025/06/24 NEC Corporation
 <div style="page-break-before:always" />
 
 
@@ -12,12 +12,14 @@
  - 実機からのパラメータ収集作業
  - 収集結果を流用した設定変更作業（構築作業）
  - 収集結果や構築用パラメータの比較作業
+ - 収集結果の一括ダウンロード
 
 SimpleModeのセットアップ手順は[SimpleMode公開サイト](https://github.com/exastro-suite/exastro-it-automation-simplemode)をご覧ください。
 SimpleModeには、Ansible Role Templateを導入するとWS2022とRHEL9に関する情報を組み込みますので、WS2022とRHEL9の収集/設定/比較を直接実行することが可能になります。
 Ansible Role Templateの組み込み手順は[資材公開サイト](https://github.com/exastro-suite/playbook-collection-docs/tree/master/ansible_role_templates)をご覧ください。
 
 本手順は、Ansible Role Template組み込み済みの環境を例に操作を説明します。
+
 
 
 ## 1-2. 機能概要
@@ -31,9 +33,13 @@ SimpleModeの機能を以下に示します。
 4. 収集したパラメータによる時系列間での差分比較
 5. Exastro IT Automationの構成管理データベースによるパラメータの履歴管理
 6. 収集設定の初期値の管理
+7. パラメータシートの一括ダウンロード
 
 SimpleModeの概要図を以下に示します。
-![topology.png](/images/ja/simplemode/sm1-3_topology_v2-2.png)
+![topology.png](/images/ja/simplemode/sm1-4_topology_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
 SimpleModeを構成するコンポーネントは3つです。
 
 1. SimpleMode（Webアプリケーション）
@@ -105,7 +111,7 @@ SimpleModeが収集、構築を実行するターゲットマシン(Linux)の前
 「設定」から「機器一覧」を選択します。
 ホスト名が「--------」のマシンの「編集」ボタンを押します。
 
-![2-2-1-A.png](/images/ja/simplemode/sm1-3_2-2-1-A_v2-2.png)
+![2-2-1-A.png](/images/ja/simplemode/sm1-4_2-2-1-A_v2-2.png)
 
 以下の項目をターゲットマシンに合わせて変更し、「保存」ボタンを押します。
 
@@ -121,10 +127,10 @@ SimpleModeが収集、構築を実行するターゲットマシン(Linux)の前
 
 ※その他の項目は必要に応じて変更してください。<br />
 Windows Server 2022の場合
-![2-2-1-B.png](/images/ja/simplemode/sm1-3_2-2-1-B_v2-2.png)
+![2-2-1-B.png](/images/ja/simplemode/sm1-4_2-2-1-B_v2-2.png)
 
 RHEL9の場合
-![2-2-1-C.png](/images/ja/simplemode/sm1-3_2-2-1-C_v2-2.png)
+![2-2-1-C.png](/images/ja/simplemode/sm1-4_2-2-1-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -144,7 +150,7 @@ RHEL9の場合
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022収集_20241001_01）
-![3-1-1-A.png](/images/ja/simplemode/sm1-3_3-1-1-A_v2-2.png)
+![3-1-1-A.png](/images/ja/simplemode/sm1-4_3-1-1-A_v2-2.png)
 
 ```
 [Tips] オペレーション名の自動入力
@@ -156,27 +162,27 @@ RHEL9の場合
 
 ### 3-1-2. 収集ジョブの指定
 
-Conductorに「＜OS名＞-gather」が選択されていること、
+Conductorに「＜OS名＞-収集」が選択されていること、
 実行したいMovementにチェックを入れて「つぎへ」を押します。
-![3-1-2-A.png](/images/ja/simplemode/sm1-3_3-1-2-A_v2-2.png)
+![3-1-2-A.png](/images/ja/simplemode/sm1-4_3-1-2-A_v2-2.png)
 
 ### 3-1-3. ホストの指定
 
 "ジョブ実行前の準備"で設定したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-![3-1-3-A.png](/images/ja/simplemode/sm1-3_3-1-3-A_v2-2.png)
+![3-1-3-A.png](/images/ja/simplemode/sm1-4_3-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ### 3-1-4. パラメータ登録
 
 ここでは収集のためのパラメータを入力します。
-「コピー元オペレーション名」に予め登録した収集初期値管理用オペレーション（ここでは、「WS2022-gather-default」）を選択して、
+「コピー元オペレーション名」に予め登録した収集初期値管理用オペレーション（ここでは、「WS2022-収集-ディフォルト」）を選択して、
 すべてのMovementをチェックして一括コピーを押します。表示されたメッセージで「OK」を選択します。
-![3-1-4-A.png](/images/ja/simplemode/sm1-3_3-1-4-A_v2-2.png)
-![3-1-4-A-1.png](/images/ja/simplemode/sm1-3_3-1-4-A-1_v2-2.png)
+![3-1-4-A.png](/images/ja/simplemode/sm1-4_3-1-4-A_v2-2.png)
+![3-1-4-A-1.png](/images/ja/simplemode/sm1-4_3-1-4-A-1_v2-2.png)
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![3-1-4-A-2.png](/images/ja/simplemode/sm1-3_3-1-4-A-2_v2-2.png)
+![3-1-4-A-2.png](/images/ja/simplemode/sm1-4_3-1-4-A-2_v2-2.png)
 
 ```
 [Tips]  収集結果のフィルタリング設定
@@ -187,7 +193,7 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 　また、件数が一定値を超えるとジョブが異常終了します。
 ```
 
-![3-1-4-B.png](/images/ja/simplemode/sm1-3_3-1-4-B_v2-2.png)
+![3-1-4-B.png](/images/ja/simplemode/sm1-4_3-1-4-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -198,7 +204,7 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 収集初期値管理用オペレーション以外を選択する場合、コピー元に登録したホストだけコピーします。
 ```
 
-収集初期値管理機能については、7. 収集初期値管理機能を参照してください。
+収集初期値管理機能については、 7. 収集初期値管理機能 を参照してください。
 
 <div style="page-break-before:always"></div>
 
@@ -206,19 +212,19 @@ Conductorに「＜OS名＞-gather」が選択されていること、
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-![3-1-5-A.png](/images/ja/simplemode/sm1-3_3-1-5-A_v2-2.png)
+![3-1-5-A.png](/images/ja/simplemode/sm1-4_3-1-5-A_v2-2.png)
 
 実行後は、「実行状況確認」画面に自動遷移します。
 ここでは、ジョブの実行状況とログを確認できます。
 「詳細」ボタンを押すと、そのオペレーションの実行状況をMovement単位で確認できます。
-![3-1-5-B.png](/images/ja/simplemode/sm1-3_3-1-5-B_v2-2.png)
+![3-1-5-B.png](/images/ja/simplemode/sm1-4_3-1-5-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 Movement名をクリックすると、ジョブ実行時のログを参照することができます。
-![3-1-5-C.png](/images/ja/simplemode/sm1-3_3-1-5-C_v2-2.png)
+![3-1-5-C.png](/images/ja/simplemode/sm1-4_3-1-5-C_v2-2.png)
 
-![3-1-5-D.png](/images/ja/simplemode/sm1-3_3-1-5-D_v2-2.png)
+![3-1-5-D.png](/images/ja/simplemode/sm1-4_3-1-5-D_v2-2.png)
 
 
 ```
@@ -238,24 +244,22 @@ Movement名をクリックすると、ジョブ実行時のログを参照する
 ### 3-1-6. 収集結果の確認
 
 実行状況確認画面で”正常終了"となったMovementの収集結果は、「パラメータシート」メニューから参照できます。
-オペレーションの一覧で「＜OS名＞-gather-default」の「詳細」ボタンを押します。
-![3-1-6-A.png](/images/ja/simplemode/sm1-3_3-1-6-A_v2-2.png)
-
-Conductor「＜OS名＞-build」を選択します。
-参照したいパラメータシートの「パラメータ参照」ボタンを押すと、パラメータ参照画面が開きます。
-また、「ダウンロード」ボタンを押すと、Excel／JSON形式でダウンロードができます。
-![3-1-6-B.png](/images/ja/simplemode/sm1-3_3-1-6-B_v2-2.png)
-
-![3-1-6-C.png](/images/ja/simplemode/sm1-3_3-1-6-C_v2-2.png)
+「Conductorから選ぶ」の「＜OS名＞-収集」を選択して「つぎへ」を押します。
+![3-1-6-A.png](/images/ja/simplemode/sm1-4_3-1-6-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
-```
-[Tips] 収集結果とConductorの関係
-ジョブ実行では収集ジョブである「＜OS名＞-gather」を選択しましたが、収集結果は構築ジョブ「＜OS名＞-build」を選択します。
-実機からの収集結果は、構築用に使えるパラメータとして、構築ジョブに紐づけられるためです。
-```
+対象とするパラメータシートにチェックを⼊れて「次へ」を押します。
+![3-1-6-B.png](/images/ja/simplemode/sm1-4_3-1-6-B_v2-2.png)
 
+対象のオペレーションは、プルダウンから選択できます。
+オペレーションを選択すると、パラメータシート毎の登録件数が表示されます。
+![3-1-6-C.png](/images/ja/simplemode/sm1-4_3-1-6-C_v2-2.png)
+
+参照したいパラメータシートの「パラメータ参照」ボタンを押すと、パラメータ参照画面が開きます。
+![3-1-6-D.png](/images/ja/simplemode/sm1-4_3-1-6-D_v2-2.png)
+
+詳しくは、 8.パラメータシート参照機能 を参照してください。
 <div style="page-break-before:always"></div>
 
 ## 3-2. 収集したパラメータを変更して実機に反映する
@@ -267,25 +271,26 @@ Conductor「＜OS名＞-build」を選択します。
 メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。
 
-![3-2-1-A.png](/images/ja/simplemode/sm1-3_3-2-1-A_v2-2.png)
+![3-2-1-A.png](/images/ja/simplemode/sm1-4_3-2-1-A_v2-2.png)
 
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名を入力し、「つぎへ」を押します。
 （例：WS2022構築_20241001_01）
-![3-2-1-B.png](/images/ja/simplemode/sm1-3_3-2-1-B_v2-2.png)
+![3-2-1-B.png](/images/ja/simplemode/sm1-4_3-2-1-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ### 3-2-2. 構築ジョブの指定
 
-Conductorに「＜OS名＞-build」を選択します。
+Conductorに「＜OS名＞-構築」を選択します。
 実行したい（設定を変更したい）Movementにチェックを入れて「つぎへ」を押します。
-![3-2-2-A.png](/images/ja/simplemode/sm1-3_3-2-2-A_v2-2.png)
+![3-2-2-A.png](/images/ja/simplemode/sm1-4_3-2-2-A_v2-2.png)
+![3-2-2-A-1.png](/images/ja/simplemode/sm1-4_3-2-2-A-1_v2-2.png)
 
 ### 3-2-3. ホストの指定
 
 "3-1. 実機からパラメータを収集する（初回）"で設定値を収集したホストにチェックが入っていることを確認し、「つぎへ」を押します。
-![3-2-3-A.png](/images/ja/simplemode/sm1-3_3-2-3-A_v2-2.png)
+![3-2-3-A.png](/images/ja/simplemode/sm1-4_3-2-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -299,7 +304,7 @@ Conductorに「＜OS名＞-build」を選択します。
 ②「コピー元オペレーション名」に収集ジョブ実行時に選択したジョブを選択します。ここでは例として「WS2022収集_20241001_01」を選択します。<br />
 ③変更対象のMovement（パラメータシート）にチェックを入れます。<br />
 ④「一括コピー」ボタンを押すと、収集結果が現在のウィザード（オペレーション）にコピーされます。<br />
-![3-2-4-1-A.png](/images/ja/simplemode/sm1-3_3-2-4-1-A_v2-2.png)
+![3-2-4-1-A.png](/images/ja/simplemode/sm1-4_3-2-4-1-A_v2-2.png)
 
 ```
 [Tips]  コピー元オペレーション名の選択
@@ -311,7 +316,7 @@ Conductorに「＜OS名＞-build」を選択します。
 ### 3-2-4-2. パラメータの編集
 
 パラメータを編集するには、"詳細設定"アイコンを押します。
-![3-2-4-2-A.png](/images/ja/simplemode/sm1-3_3-2-4-2-A_v2-2.png)
+![3-2-4-2-A.png](/images/ja/simplemode/sm1-4_3-2-4-2-A_v2-2.png)
 
 ```
 [Tips]  変更対象選択の操作
@@ -324,7 +329,7 @@ Conductorに「＜OS名＞-build」を選択します。
 変更したい設定項目の値を変更、または追加し、「保存」を押します。
 ここでは例として、Description（コンピュータの説明）の値を変更しています。
 パラメータが問題なく保存されたら、「閉じる」ボタンを押します。
-![3-2-4-2-C.png](/images/ja/simplemode/sm1-3_3-2-4-2-C_v2-2.png)
+![3-2-4-2-C.png](/images/ja/simplemode/sm1-4_3-2-4-2-C_v2-2.png)
 
 ```
 [Tips]  スプレッドシートの操作
@@ -338,18 +343,19 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 ここでは例として、ファイルアップロード型パラメータの変更手順を説明します。
 
 ファイルアップロード型パラメータのファイル名リンクをクリックし、ファイルをダウンロードします。
-![3-2-4-2-C-1.png](/images/ja/simplemode/sm1-3_3-2-4-2-C-1_v2-2.png)
+
+![3-2-4-2-C-1.png](/images/ja/simplemode/sm1-4_3-2-4-2-C-1_v2-2.png)
 
 
 ファイル名を右クリックし、「Upload」をクリックすると、修正したファイルをアップロードして「保存」を押します。
-![3-2-4-2-C-2.png](/images/ja/simplemode/sm1-3_3-2-4-2-C-2_v2-2.png)
+![3-2-4-2-C-2.png](/images/ja/simplemode/sm1-4_3-2-4-2-C-2_v2-2.png)
 
 ここまでの操作を、変更対象のパラメータシート毎に実施します。
 
 <div style="page-break-before:always"></div>
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![3-2-4-2-E.png](/images/ja/simplemode/sm1-3_3-2-4-2-E_v2-2.png)
+![3-2-4-2-E.png](/images/ja/simplemode/sm1-4_3-2-4-2-E_v2-2.png)
 
 ```
 [Tips]
@@ -369,7 +375,7 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機へのパラメータ反映処理（構築）が始まります。
-![3-2-5-A.png](/images/ja/simplemode/sm1-3_3-2-5-A_v2-2.png)
+![3-2-5-A.png](/images/ja/simplemode/sm1-4_3-2-5-A_v2-2.png)
 
 実行後は、「実行状況確認」画面に自動遷移します。
 以降の手順は「3-1. 実機からパラメータを収集する（初回）」と同様です。
@@ -390,28 +396,28 @@ Microsoft Excelと同様に行コピーや複数セルのコピー・ペース�
 メニューから[ジョブ実行]を選択します。
 この画面が表示された場合、「新しいウィザードの開始」を押します。
 
-![3-2-1-A.png](/images/ja/simplemode/sm1-3_3-2-1-A_v2-2.png)
+![3-2-1-A.png](/images/ja/simplemode/sm1-4_3-2-1-A_v2-2.png)
 
 「オペレーションを新規登録する」を選択します。
 任意のオペレーション名し、「つぎへ」を押します。
 （例：WS2022収集_20241001_02）
-![4-1-1-B.png](/images/ja/simplemode/sm1-3_4-1-1-B_v2-2.png)
+![4-1-1-B.png](/images/ja/simplemode/sm1-4_4-1-1-B_v2-2.png)
 
 
 <div style="page-break-before:always"></div>
 
 ### 4-1-2. 収集ジョブの指定
 
-Conductorに「＜OS名＞-gather」を選択します。
+Conductorに「＜OS名＞-収集」を選択します。
 実行したいMovement（収集したいパラメータ）にチェックを入れて「つぎへ」を押します。
-![4-1-2-A.png](/images/ja/simplemode/sm1-3_4-1-2-A_v2-2.png)
-
+![4-1-2-A.png](/images/ja/simplemode/sm1-4_4-1-2-A_v2-2.png)
+![4-1-2-A-1.png](/images/ja/simplemode/sm1-4_4-1-2-A-1_v2-2.png)
 
 ### 4-1-3. ホストの指定
 
 対象のホストにチェックが入っていることを確認し、「つぎへ」を押します。
 ※次の画面で過去の設定値を流用できるのは、以前に収集を実行済のホストのみです。
-![4-1-3-A.png](/images/ja/simplemode/sm1-3_4-1-3-A_v2-2.png)
+![4-1-3-A.png](/images/ja/simplemode/sm1-4_4-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -423,10 +429,10 @@ Conductorに「＜OS名＞-gather」を選択します。
 　ここでは例として「WS2022収集_20241001_01」という以前のオペレーションを選択します。<br/>
 ②すべてのMovement（パラメータシート）にチェックを⼊れます。<br/>
 ③「⼀括コピー」ボタンを押すと、収集設定が現在のウィザード（オペレーション）にコピーされます。<br/>
-![4-1-4-B.png](/images/ja/simplemode/sm1-3_4-1-4-B_v2-2.png)
+![4-1-4-B.png](/images/ja/simplemode/sm1-4_4-1-4-B_v2-2.png)
 
 すべてのパラメータシートのステータスが"登録済"となっていることを確認し、「つぎへ」を押します。
-![4-1-4-C.png](/images/ja/simplemode/sm1-3_4-1-4-C_v2-2.png)
+![4-1-4-C.png](/images/ja/simplemode/sm1-4_4-1-4-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -439,7 +445,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 　データの件数が多すぎると、性能面で問題が出る可能性があります。
 　また、件数が一定値を超えるとジョブが異常終了します。
 ```
-![3-1-4-B.png](/images/ja/simplemode/sm1-3_3-1-4-B_v2-2.png)
+![3-1-4-B.png](/images/ja/simplemode/sm1-4_3-1-4-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -448,7 +454,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 
 ここまでに設定した内容を確認して、「実行」を押します。
 「実行」を押し、表示されたポップアップで「OK」を押すと実機からのパラメータ収集処理が始まります。
-![4-1-5-A.png](/images/ja/simplemode/sm1-3_4-1-5-A_v2-2.png)
+![4-1-5-A.png](/images/ja/simplemode/sm1-4_4-1-5-A_v2-2.png)
 
 
 
@@ -472,14 +478,13 @@ Conductorに「＜OS名＞-gather」を選択します。
 ### 5-1-1. 機器一覧でホストを追加する
 「設定」から「機器一覧」を選択します。
 「登録ボタン」を押します。
-![5-1-1-A.png](/images/ja/simplemode/sm1-3_5-1-1-A_v2-2.png)
+![5-1-1-A.png](/images/ja/simplemode/sm1-4_5-1-1-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 各項目をターゲットホストに合わせて入力し、「登録」ボタンを押します。
 以下、Windows Serverがターゲットの場合の入力例を示します。
-![5-1-1-B.png](/images/ja/simplemode/sm1-3_5-1-1-B_v2-2.png)
-
+![5-1-1-B.png](/images/ja/simplemode/sm1-4_5-1-1-B_v2-2.png)
 
 | 項目              | 設定例                                             |
 | ----------------- | -------------------------------------------------- |
@@ -494,7 +499,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 | 接続タイプ        | （例）machine                                      |
 
 ホストが追加されたことを確認します。
-![5-1-1-C.png](/images/ja/simplemode/sm1-3_5-1-1-C_v2-2.png)
+![5-1-1-C.png](/images/ja/simplemode/sm1-4_5-1-1-C_v2-2.png)
 
 
 ※追加したホストにジョブを実行するためには、WinRMやssh等、Ansibleからの接続を受け付ける設定を実施しておく必要があります。
@@ -505,7 +510,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 ### 5-1-2. ウィザードで対象ホストに指定
 他の手順で説明した内容と同様に、ジョブ実行ウィザードを開始します。
 [対象ホスト指定]で、初回収集で対象としたホストと追加したホストにチェックを入れて「次へ」を押します。
-![5-1-2-A.png](/images/ja/simplemode/sm1-3_5-1-2-A_v2-2.png)
+![5-1-2-A.png](/images/ja/simplemode/sm1-4_5-1-2-A_v2-2.png)
 
 
 ### 5-1-3. ウィザードでパラメータを登録
@@ -513,7 +518,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 最初に以前に実行したオペレーションの収集結果からパラメータをコピーします。
 
 「詳細設定」ボタンを押します。
-![5-1-3-A.png](/images/ja/simplemode/sm1-3_5-1-3-A_v2-2.png)
+![5-1-3-A.png](/images/ja/simplemode/sm1-4_5-1-3-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -525,11 +530,11 @@ Conductorに「＜OS名＞-gather」を選択します。
 ④ホストに初回収集で対象にしたホストを選択する。<br />
 ⑤パラメータ参照をクリックして、コピー元の対象パラメータを確認する。<br />
 ⑥「コピー」ボタンを押す。<br />
-![5-1-3-B.png](/images/ja/simplemode/sm1-3_5-1-3-B_v2-2.png)
+![5-1-3-B.png](/images/ja/simplemode/sm1-4_5-1-3-B_v2-2.png)
 
 
 コピー元と同じパラメータがコピーされることを確認します。
-![5-1-3-C.png](/images/ja/simplemode/sm1-3_5-1-3-C_v2-2.png)
+![5-1-3-C.png](/images/ja/simplemode/sm1-4_5-1-3-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -539,7 +544,7 @@ Conductorに「＜OS名＞-gather」を選択します。
 - 行番号を右クリックし、「Insert a new row」をクリックする
 
 パラメータを入力後、「保存」ボタンを押します。
-![5-1-3-D.png](/images/ja/simplemode/sm1-3_5-1-3-D_v2-2.png)
+![5-1-3-D.png](/images/ja/simplemode/sm1-4_5-1-3-D_v2-2.png)
 
 すべてのパラメータシートに対してこの手順を繰り返します。
 ```
@@ -576,7 +581,7 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 ## 6-2. 比較の開始
 
 メニューから[比較実行]を選択します。
-![6-2-A.png](/images/ja/simplemode/sm1-3_6-2-A_v2-2.png)
+![6-2-A.png](/images/ja/simplemode/sm1-4_6-2-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -585,7 +590,7 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 今回のシナリオでは、事前に取得していた「Windowsタイムゾーンの設定」のパラメータ収集結果を比較します。
 「[収集：収集比較]Windowsタイムゾーンの設定」にチェックを入れて「次へ」を押します。
 
-![6-2-B.png](/images/ja/simplemode/sm1-3_6-2-B_v2-2.png)
+![6-2-B.png](/images/ja/simplemode/sm1-4_6-2-B_v2-2.png)
 
 ```
 [Tips] 比較の種類
@@ -602,40 +607,40 @@ SimpleModeでは、収集結果や構築用パラメータの比較を行うこ�
 前ページで選択した条件に沿って比較を行う画面です。
 ここでは、比較対象のオペレーションを2件選択します。
 対象のオペレーションは、ダブルクリックすることでプルダウンから選択できます。
-![6-3-A.png](/images/ja/simplemode/sm1-3_6-3-A_v2-2.png)
+![6-3-A.png](/images/ja/simplemode/sm1-4_6-3-A_v2-2.png)
 
 ここでは、前述した条件に記載したオペレーションを指定します。
 [ダウンロード]ボタンを押すと、比較結果をExcelファイルでダウンロードすることができます。
-![6-3-B.png](/images/ja/simplemode/sm1-3_6-3-B_v2-2.png)
+![6-3-B.png](/images/ja/simplemode/sm1-4_6-3-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ## 6-4. 比較結果の確認
 ダウンロードされたExcelファイルを開きます。
-![6-4-A.png](/images/ja/simplemode/sm1-3_6-4-A_v2-2.png)
+![6-4-A.png](/images/ja/simplemode/sm1-4_6-4-A_v2-2.png)
 
 [比較条件_結果一覧]シートには、比較結果のサマリが記載されています。比較結果に差分がある場合、比較結果には「差分あり」と表示されます。
-![6-4-B.png](/images/ja/simplemode/sm1-3_6-4-B_v2-2.png)
+![6-4-B.png](/images/ja/simplemode/sm1-4_6-4-B_v2-2.png)
 
 ホスト名シートには、比較結果の詳細が記載されています。
 差分があるパラメータは[差分]列に"●"が表示され、該当行の値は赤字で表示されます。
-![6-4-C.png](/images/ja/simplemode/sm1-3_6-4-C_v2-2.png)
+![6-4-C.png](/images/ja/simplemode/sm1-4_6-4-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ## 6-5. ファイルアップロード型パラメータの比較結果の確認
 ファイルアップロード型パラメータを含むジョブを比較すると、
 ファイルアップロード型パラメータのファイルの中身に差分がない場合は、6-4. 比較結果の確認 と同様に、比較結果のダウンロードはExcelファイルとなります。<br/>
-![6-5-1.png](/images/ja/simplemode/sm1-3_6-5-1_v2-2.png)
+![6-5-1.png](/images/ja/simplemode/sm1-4_6-5-1_v2-2.png)
 
 [比較条件_結果一覧]シートには、比較結果のサマリが記載されています。
-![6-5-2.png](/images/ja/simplemode/sm1-3_6-5-2_v2-2.png)
+![6-5-2.png](/images/ja/simplemode/sm1-4_6-5-2_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 ファイルアップロード型パラメータのファイルの中身に差分がある場合は、比較結果のダウンロードはZIPファイルとなります。
 ZIPファイルには、下記のファイルが含まれています。
-![6-5-3.png](/images/ja/simplemode/sm1-3_6-5-3_v2-2.png)
+![6-5-3.png](/images/ja/simplemode/sm1-4_6-5-3_v2-2.png)
 
 | ファイル名                                       | 説明                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------ |
@@ -643,7 +648,7 @@ ZIPファイルには、下記のファイルが含まれています。
 | ホスト名_パラメータ名[代入順].html               | ファイルアップロード型の内容比較結果ファイル<br>ファイル内容に差分があるパラメータのみ比較ファイルを作成。<br/>例：OS-RHEL9-1_file[1].html<br/>ホスト名：OS-RHEL9-1<br/>パラメータ名：file<br/>代入順：1 |
 
 htmlファイルは、差分のある箇所の周辺のみ表示します。
-![6-5-4.png](/images/ja/simplemode/sm1-3_6-5-4_v2-2.png)
+![6-5-4.png](/images/ja/simplemode/sm1-4_6-5-4_v2-2.png)
 
 ```
 [Tips] ファイルアップロード型のファイル内容差分の有無について
@@ -658,26 +663,27 @@ SimpleModeは、収集設定の初期値の管理機能を利用して、収集�
 
 ## 7-1. 収集設定の初期値の新規作成
 メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」で「オペレーション登録」ボタンを押します。
-![7-1-A.png](/images/ja/simplemode/sm1-3_7-1-A_v2-2.png)
+![7-1-A.png](/images/ja/simplemode/sm1-4_7-1-A_v2-2.png)
 
 オペレーション名を入力して、「登録」ボタンを押します。
-![7-1-B.png](/images/ja/simplemode/sm1-3_7-1-B_v2-2.png)
+![7-1-B.png](/images/ja/simplemode/sm1-4_7-1-B_v2-2.png)
 
 「パラメータシート選択」ボタンを押して、パラメータシートを選択します。
-![7-1-C.png](/images/ja/simplemode/sm1-3_7-1-C_v2-2.png)
+![7-1-C.png](/images/ja/simplemode/sm1-4_7-1-C_v2-2.png)
 
 左側の一覧からパラメータシートをチェックして、「>」ボタンを押してから「保存」ボタンを押します。
-![7-1-D.png](/images/ja/simplemode/sm1-3_7-1-D_v2-2.png)
-![7-1-E.png](/images/ja/simplemode/sm1-3_7-1-E_v2-2.png)
+
+![7-1-D.png](/images/ja/simplemode/sm1-4_7-1-D_v2-2.png)
+![7-1-E.png](/images/ja/simplemode/sm1-4_7-1-E_v2-2.png)
 
 「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。<br/>
 下記の手順に沿って他のオペレーションから初期値がコピーできます。手動でパラメータを入力することも可能です。<br/>
 ①「既存パラメータからコピー」をクリックする。<br />
 ②オペレーション名にコピー元のオペレーションを選択する。<br />
 ③「コピー」ボタンを押す。<br/>
-![7-1-F.png](/images/ja/simplemode/sm1-3_7-1-F_v2-2.png)
-![7-1-G.png](/images/ja/simplemode/sm1-3_7-1-G_v2-2.png)
-![7-1-H.png](/images/ja/simplemode/sm1-3_7-1-H_v2-2.png)
+![7-1-F.png](/images/ja/simplemode/sm1-4_7-1-F_v2-2.png)
+![7-1-G.png](/images/ja/simplemode/sm1-4_7-1-G_v2-2.png)
+![7-1-H.png](/images/ja/simplemode/sm1-4_7-1-H_v2-2.png)
 
 手動でパラメータを編集した後、「保存」ボタンを押します。
 
@@ -686,14 +692,14 @@ SimpleModeは、収集設定の初期値の管理機能を利用して、収集�
 ## 7-2. 収集設定の初期値の更新
 
 メニューから「設定」「収集初期値管理」を選択します。「オペレーション名」に登録した収集初期値管理用オペレーションを選択します。<br/>
-ここでは例として予めに登録した「WS2022-gather-default」を選択します。
-![7-2-A.png](/images/ja/simplemode/sm1-3_7-2-A_v2-2.png)
+ここでは例として予め登録した「WS2022-収集-ディフォルト」を選択します。
+![7-2-A.png](/images/ja/simplemode/sm1-4_7-2-A_v2-2.png)
 
 登録したパラメータシートが表示されますので、「ステータス」でパラメータを登録済みであるか、「登録件数」で登録済みパラメータ件数が確認できます。
-![7-2-B.png](/images/ja/simplemode/sm1-3_7-2-B_v2-2.png)
+![7-2-B.png](/images/ja/simplemode/sm1-4_7-2-B_v2-2.png)
 
 「詳細設定」ボタンを押して、パラメータシートの設定値を更新します。
-![7-2-C.png](/images/ja/simplemode/sm1-3_7-2-C_v2-2.png)
+![7-2-C.png](/images/ja/simplemode/sm1-4_7-2-C_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -704,23 +710,170 @@ SimpleModeは、収集設定の初期値の管理機能を利用して、収集�
 
 
 
-# 8. ITA Link機能
+# 8. パラメータシート参照機能
+SimpleModeは、構築／収集／収集結果パラメータシートの参照機能を提供します。
+
+## 8-1. パラメータシート参照
+メニューから「パラメータシート」を選択します。
+
+### 8-1-1. パラメータシート種別選択
+「メニューグループから選ぶ」あるいは「Conductorから選ぶ」が選択できます。
+「メニューグループから選ぶ」の場合、収集/構築/収集結果のいずれかが選択できます。対象パラメータシートについては、下記の表に記載します。
+
+| メニューグループ | 対象パラメータシート                              |
+| ---------------- | ------------------------------------------------- |
+| 収集             | 「入力用/収集」配下の収集パラメータシート         |
+| 構築             | 「入力用/構築」配下の構築パラメータシート         |
+| 収集結果         | 「入力用/収集結果」配下の収集結果パラメータシート |
+　
+![8-1-1-A.png](/images/ja/simplemode/sm1-4_8-1-1-A_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
+「Conductorから選ぶ」の場合、登録したConductorが選択できます。対象パラメータシートについては、下記の表に記載します。
+
+| Conductor     | 対象パラメータシート                       |
+| ------------- | ------------------------------------------ |
+| 収集Conductor | 収集結果を格納する収集結果パラメータシート |
+| 構築Conductor | 構築パラメータシート                       |
+　
+![8-1-1-B.png](/images/ja/simplemode/sm1-4_8-1-1-B_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
+### 8-1-2. パラメータシート対象選択
+対象とするパラメータシートにチェックを⼊れて「次へ」を押します。
+![8-1-2-A.png](/images/ja/simplemode/sm1-4_8-1-2-A_v2-2.png)
+
+### 8-1-3. パラメータシート参照
+対象のオペレーションは、プルダウンから選択できます。
+![8-1-3-A.png](/images/ja/simplemode/sm1-4_8-1-3-A_v2-2.png)
+
+オペレーションを選択すると、パラメータシート毎の登録件数が表示されます。
+![8-1-3-B.png](/images/ja/simplemode/sm1-4_8-1-3-B_v2-2.png)
+
+「パラメータシート参照」ボタンを押すと、個別パラメータ参照画⾯が開きます。
+![8-1-3-C.png](/images/ja/simplemode/sm1-4_8-1-3-C_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
+## 8-2. パラメータシートダウンロード
+パラメータシートは3種のファイル形式でダウンロードできます。
+1. ITAフォーマット（Excel）：Exastro IT Automationがデフォルトで提供するExcel形式のファイル。<br>
+2. ITAフォーマット（JSON）：Exastro IT Automationがデフォルトで提供するJSON形式のファイル。<br>
+3. 階層型Excel：パラメータ項目を階層型で行表示し、ホストを横並びで列表示するSimpleMode独自の形式のExcelファイルです。一括ダウンロード機能により、複数のパラメータシートを1つのブックで出力できます。<br>
+
+### 8-2-1. パラメータシート一括ダウンロード
+対象とするパラメータシートにチェックを⼊れて「階層型Excel出力実行」ボタンを押すと、階層型Excelをダウンロードします。
+![8-2-1-A.png](/images/ja/simplemode/sm1-4_8-2-1-A_v2-2.png)
+
+階層型Excelファイルについては、下記の仕様になります。<br>
+- 各シートのサブシステム名、日付、作成者は、表紙シートの特定のセルに入力することで各シートに連動します。（Excelのセル参照機能）
+- 目次シートには、各パラメータシートをカテゴリーで分けてリストします。
+- パラメータシートごとにシートを作成します。<br>
+　①パラメータを階層型でA列から表示します。<br>
+　②複数ホストの値を横並びで表示します。<br>
+　③ファイルアップロード型パラメータシートについては、アップロードファイルの内容もセルに展開して表示します。<br>
+
+下記は、階層型Excelの目次シートの例です。
+![8-2-1-B.png](/images/ja/simplemode/sm1-4_8-2-1-B_v2-2.png)
+
+下記は、階層型Excelのパラメータシートの例です。
+![8-2-1-C.png](/images/ja/simplemode/sm1-4_8-2-1-C_v2-2.png)
+
+下記は、階層型Excelのファイルアップロード型パラメータシートの例です。
+![8-2-1-D.png](/images/ja/simplemode/sm1-4_8-2-1-D_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
+### 8-2-2. パラメータシート個別ダウンロード
+パラメータシート画面の「ダウンロード」ボタンを押すと、サブメニューを表示します。
+![8-2-2-A.png](/images/ja/simplemode/sm1-4_8-2-2-A_v2-2.png)
+
+- 階層型フォーマット(Excel)を選択すると、選択したパラメータシートだけ階層型Excelのファイルに出力します。
+- ITAフォーマット(Excel)を選択すると、選択したパラメータシートだけExastro IT Automationから提供したExcel形式のファイルに出力します。
+- Jsonフォーマット(Excel)を選択すると、選択したパラメータシートだけExastro IT Automationから提供したJson形式のファイルに出力します。
+
+<div style="page-break-before:always"></div>
+
+
+
+
+
+
+
+# 9. 任意コマンド実行およびファイルアップロード機能
+任意コマンドの実行およびファイルを指定場所にアップロードする機能を提供します。これにより、ビルトインのジョブでは設定ができないパラメータ項目をコマンドで設定したり、設定ファイルやアップデートパッチを転送するなど、柔軟な構築に対応できます。<br>
+以下の3つのConductorから選択して、複数のコマンド実行やファイルアップロードを⼀連の流れで実行できます。それぞれ個別に実行することも可能です。
+- ＜OS名＞_コマンド実行
+- ＜OS名＞_ファイルアップロード
+- ＜OS名＞_コマンド実行&ファイルアップロード
+
+![9-1-A.png](/images/ja/simplemode/sm1-4_9-1-A_v2-2.png)
+
+<div style="page-break-before:always"></div>
+
+## 9-1. 任意コマンド実行機能
+ジョブ実行の場合、＜OS名＞_コマンド実行を選択して、パラメータシート編集画面にコマンドのパラメータを設定します。
+![9-2-A.png](/images/ja/simplemode/sm1-4_9-2-A_v2-2.png)
+
+各パラメータシート説明を以下に記載します。
+| パラメータ名                    | 説明                                                         |
+| -------- | ----------- |
+| type | 以下のいずれかのタイプを指定する。<br>command：コマンドを実行。コマンドを安全に使用する場合に最適。<br>shell：シェルを使用してコマンドを実行。リダイレクト、コマンドチェーン等使用可能で高い利便性。 |
+| cmd | 実行したいコマンドを指定する。<br>例：Get-WindowsUpdate -Install -AcceptEula |
+| chdir | 移動先のディレクトリパスを指定する。<br>指定したディレクトリに移動してからcmdに指定したコマンドが実行される。<br>例：C:\\somedir |
+| executable　　 | コマンドを実行するときに使われるシェルを指定する。<br>typeがshellの場合に有効。<br>例１：powershell<br>例２：cmd<br>例３：/bin/sh |
+
+<div style="page-break-before:always"></div>
+
+## 9-2. ファイルアップロード機能
+ジョブ実行の場合、＜OS名＞_ファイルアップロードを選択して、パラメータシート編集画面にコマンドとファイルアップロードのパラメータを設定します。
+![9-3-A.png](/images/ja/simplemode/sm1-4_9-3-A_v2-2.png)
+
+各パラメータシート説明を以下に記載します。
+| パラメータ名                    | 説明                                                         |
+| -------- | ----------- |
+| type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 以下のタイプを指定する。<br>upload：ファイルをアップロードして指定のパスに配置する。 |
+| path　　　 | アップロードするファイルの配置先パスを指定する。<br>例：C:\\Temp\\renamed-foo.conf |
+| file　　　　　　　　 | アップロードするファイルを登録する。<br>セルを右クリックし、「upload」からローカルのファイルを選択・登録する。exeファイルなど、一部の拡張子のファイルはパラメータシートの保存時にエラーになります。回避策は、制限事項 のNo.5を参照してください。 |
+
+<div style="page-break-before:always"></div>
+
+## 9-3. 任意コマンド実行&ファイルアップロード機能
+ジョブ実行の場合、＜OS名＞_コマンド実行&ファイルアップロードを選択して、パラメータシート編集画面にコマンドとファイルアップロードのパラメータを設定します。
+![9-1-B.png](/images/ja/simplemode/sm1-4_9-1-B_v2-2.png)
+
+各パラメータシート説明を以下に記載します。
+| パラメータ名                    | 説明                                                         |
+| -------- | ----------- |
+| type | 以下のいずれかのタイプを指定する。<br>command：コマンドを実行。コマンドを安全に使用する場合に最適。<br>shell：シェルを使用してコマンドを実行。リダイレクト、コマンドチェーン等使用可能で高い利便性。<br>upload：ファイルをアップロードして指定のパスに配置する。 |
+| cmd | 9-1-任意コマンド実行機能を参照してください。 |
+| chdir |  9-1-任意コマンド実行機能を参照してください。 |
+| executable　　 |  9-1-任意コマンド実行機能を参照してください。 |
+| path | 9-2-ファイルアップロード機能を参照してください。 |
+| file | 9-2-ファイルアップロード機能を参照してください。 |
+
+<div style="page-break-before:always"></div>
+
+
+# 10. ITA Link機能
 SimpleModeは、Exastro IT Automationのパラメータ構成管理機能やジョブ実行機能をバックエンドとして呼び出しています。呼び出しているパラメータやジョブは、Exastro IT Automation本体から直接確認することもできます。
 本手順では、バックエンドとして使っているExastro IT Automationへの接続方法を説明します。
 
-## 8-1. Exastro IT Automation へのログイン
+## 10-1. Exastro IT Automation へのログイン
 
 メニューから[ITA Link]を選択します。
-![8-1-A.png](/images/ja/simplemode/sm1-3_8-1-A_v2-2.png)
+![10-1-A.png](/images/ja/simplemode/sm1-4_10-1-A_v2-2.png)
 
 [Link to ITA]ボタンを押します。
-![8-1-B.png](/images/ja/simplemode/sm1-3_8-1-B_v2-2.png)
+![10-1-B.png](/images/ja/simplemode/sm1-4_10-1-B_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
 Exastro IT Automation のログイン画面が新しいタブで開きます。
 UsernameとPasswordを入力して[Sign In]ボタンを押します。
-![8-1-C.png](/images/ja/simplemode/sm1-3_8-1-C_v2-2.png)
+![10-1-C.png](/images/ja/simplemode/sm1-4_10-1-C_v2-2.png)
 ```
 [Tips] Exastro IT Automationへのログイン情報
 ここで入力するユーザー名とパスワードは、SimpleModeへのログイン時に入力した情報を入力します。
@@ -730,7 +883,7 @@ UsernameとPasswordを入力して[Sign In]ボタンを押します。
 Exastro IT Automation の画面が開きます。
 以降の操作手順は、[Exastro IT Automationのマニュアル](https://ita-docs.exastro.org/ja/2.2/manuals/index.html)をご覧ください。
 
-![8-2-A.png](/images/ja/simplemode/sm1-3_8-2-A_v2-2.png)
+![10-2-A.png](/images/ja/simplemode/sm1-4_10-2-A_v2-2.png)
 
 <div style="page-break-before:always"></div>
 
@@ -742,7 +895,7 @@ Exastro IT Automation の画面が開きます。
    以下の収集ロール（Movement）を実行する際は、収集結果の上限値を超えることが予想されるため、収集パラメータの「VAR_filtering_condition」にキーワードを設定し、収集結果の絞り込みを行うことを推奨します。キーワードによっては上限数を超える可能性があり、その場合は収集ロール実行が失敗します。設定例と上限件数を参考に設定してください。
 
    以下に設定例を示します。
-   デフォルトで用意しているオペレーション「＜OS名＞-gather-default」では、この設定例の値をフィルタ条件として設定しています。
+   デフォルトで設定している収集初期値では、この設定例の値をフィルタ条件として設定しています。
 
    | ロール（Movement名）                        | 設定例                        | 上限件数 | 説明                                           |
    | ------------------------------------------- | ----------------------------- | -------- | ---------------------------------------------- |
@@ -764,42 +917,65 @@ Exastro IT Automation の画面が開きます。
     - マッピング詳細_構築ロール
     - マッピング詳細_収集ロール
 
-2. 一部のRHEL9の収集ロール（Movement）は、デフォルトで用意しているオペレーション「RHEL9-gather-default」に収集対象が設定されています。
+2. 一部のRHEL9の収集ロール（Movement）は、デフォルトで用意しているオペレーション「RHEL9-収集-ディフォルト」に収集対象が設定されています。
 
    | ロール（Movement名）                        | パラメータシート名                        | 収集対象 |
    | ------------------------------------------ | --------------------------------------- | --------------- |
    | ディレクトリ設定 RHEL9_収集         | VAR_OS_gathering_dir_path                        | /var/\*<br>/home/\*<br>/usr/\*<br>/opt/\*      |
    | ファイル設定 RHEL9_収集         | VAR_OS_gathering_file_path                        | /etc/cron.allow<br>/etc/cron.deny<br>/etc/cron.daily<br>/etc/cron.hourly<br>/etc/cron.weekly<br>/etc/cron.monthly<br>/etc/rc.d<br>/etc/security/console.apps<br>/etc/security/opasswd<br>/usr/local/bin  |
 
-3. [パラメータシート]メニューで参照できないパラメータシートがあります。
-   現在のバージョンで参照できないパラメータシートは以下です。
-   | パラメータシート名                      |
-   | --------------------------------------- |
-   | デバイスマネージャ WS2022_収集結果 |
-   | SNMPサービス WS2022_収集結果 |
-   | スタートアップのプログラム WS2022_収集結果 |
-   | パーティション構成 WS2022_収集結果 |
-   | プリンター情報 WS2022_収集結果 |
-   | プログラム WS2022_収集結果 |
-   | ボリューム構成 WS2022_収集結果 |
-   | 共有フォルダ WS2022_収集結果 |
-   | 更新プログラム2 WS2022_収集結果 |
+3. 任意コマンド実行およびファイルアップロード機能は、構築可能な件数に上限があります。上限数を超える設定値は、スキップします。
+   | ロール（Movement名）                    | 上限件数                     |
+   | --------------------------- | ------------------------ |
+   | WS2022_構築 コマンド実行&ファイルアップロード    | 16       |
+   | WS2022_構築 ファイルアップロード              | 16                 |
+   | WS2022_構築 コマンド実行        | 16         |
+   | RHEL9_構築 コマンド実行&ファイルアップロード    | 16       |
+   | RHEL9_構築 ファイルアップロード              | 16                 |
+   | RHEL9_構築 コマンド実行        | 16         |
 
-   これらのパラメータシートに設定された値は、以下のいずれかの手段で参照することができます。
-   - [ジョブ実行]ウィザードのパラメータ登録のフェーズで確認する。
-   - [ITA Link]メニューからExastro IT Automationへログインし、「入力用」メニューまたは「パラメータ集」メニューから参照する。
-
-4. パラメータシートには、ファイルアップロード型のパラメータを含む場合、下記２点制限があります。
+4. パラメータシートには、ファイルアップロード型のパラメータを含む場合、下記４点制限があります。
    - ファイルダウンロードする際、ファイル名に拡張子が付いていない場合においても、ダウンロード後に拡張子(.txt)が付与されます。
+
    - ファイル内容用パラメータ(text、value、properties)は、利用できません。
 
-5. ファイルアップロード型パラメータは差分がある場合、HTMLファイルが出力されるが、ダウンロードされるExcelファイルには「差分なし」と表示されます。
+   - 拡張子が「'.exe', '.com', '.php', '.cgi', '.sh', '.sql', '.vbs', '.js', '.pl', '.ini', '.htaccess'」のいずれかであるファイルをアップロードする場合、拡張子を付けてアップロードができません。この拡張子のファイルをアップロードする場合、以下の手順を踏むことで制限を回避できます。<br>
+①. fileパラメータにファイルを登録後、設定値で拡張⼦(.exe等)を削除する（例：sample.exe→sample）<br>
+②. pathパラメータの設定値に拡張子付きのファイル名を含むアップロード先のパスを指定する（例：/tmp/sample.exe）
+
+   - ファイルアップロード型の最大ファイルサイズはジョブ毎に異なります。
+
+     | ジョブ                            | 最大ファイルサイズ |
+     | --------------------------------- | ------------------ |
+     | コマンド実行&ファイルアップロード | 100MB              |
+     | ファイルアップロード              | 100MB              |
+     | 上記以外                          | 1MB                |
+
+5. ファイルアップロード型のパラメータシートを比較機能で比較したとき、ファイルの内容に差分がある場合には差分内容を記載したHTMLファイルが出力されます。ただし、ダウンロードされるExcelファイルには「差分なし」と表示されます。
 
 6. ホスト名に「*?/:\」の特殊文字を含む場合、ファイルアップロード型の比較結果のHTMLファイルが作成できません。
 
 7. RHEL9_構築 パッケージインストールがインターネット接続不可の環境ではエラーになります。
 
-8. 役割と機能  WS2022_構築は、cabファイル指定で実質的に使用できないので、本バージョンには対象外です。
+8. 役割と機能  WS2022_構築は、ファイルアップロード容量に制限があり、使用できない場合があるため、本バージョンでは対象外としています。
+
+<div style="page-break-before:always"></div>
+
+
+# (参考)用語の説明
+
+Exastro IT Automation独自の用語について説明します。Exastro IT Automationでは、「Operation」と呼ぶ作業と「Conductor（コンダクター）」と呼ぶワークフローを紐付けて作業の実行を行います。 各機器に対して行う構築、設定作業を、「Movement（ムーブメント）」と呼ぶ作業パターンで作成し、ワークフローはこれらの作業パターンを組み合わせて実行を指示します。
+
+各用語の定義を以下に記載します。
+
+| 名前      | 内容                                                         |
+| --------- | ------------------------------------------------------------ |
+| Operation | Exastro IT Automationで作成できる自動作業一式を指します。Operationを登録し、その作業で使用するConductorや作業対象機器など、関連するすべての情報を紐づけて管理します。 |
+| Conductor | Exastro IT Automationでの一連の作業の単位です。（ジョブフローのイメージ）オペレーションと関連付けて実行します。Movement と呼ぶパーツを組み合わせて、ワークフローを作成し、複数の機器に対して、一連の構築・設定などの作業を行います。Movement の並列実行、別のワークフローの呼び出し、Movement の実行結果による条件分岐によって、より複雑なワークフローの作成を可能にします。 |
+| Movement  | 各機器に対する構築ツールを使った構築、設定などの作業の最小単位です。（Conductorのジョブフローに対して、Movementはジョブのイメージ）Movement は他の作業などでも再利用できるように、機能単位で作成することを推奨します。 |
+
+各用語の関係は以下のようなイメージです。
+![Explanation-1.jpg](/images/ja/simplemode/sm1-4_Explanation-1_v2-2.jpg)
 
 <div style="page-break-before:always"></div>
 
@@ -812,5 +988,6 @@ Exastro IT Automation の画面が開きます。
 | 1.1  | 2024/09/27 | v1.1機能拡張 |
 | 1.2  | 2024/12/13 | v1.2機能拡張 |
 | 1.3  | 2025/03/24 | v1.3機能拡張 |
+| 1.4  | 2025/06/24 | v1.4機能拡張 |
 
 
