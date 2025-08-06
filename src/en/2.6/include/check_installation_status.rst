@@ -1,17 +1,17 @@
-| コマンドラインから以下のコマンドを入力して、インストール（サービス起動）が完了していることを確認します。
+| Use the command below to check whether the installation and service startup have finished.
 
 .. code-block:: bash
-    :caption: コマンド
-    
-    # Pod の一覧を取得
+    :caption: Command
+
+    # Retrieve the list of Pods
     kubectl get po --namespace exastro
-    
-| 正常に起動している場合は、:kbd:`ita-migration-xxx` と :kbd:`platform-migration-xxx` が :kbd:`Completed` 、その他すべてが :kbd:`Running` となります。
-| ※正常に起動するまで数分かかる場合があります。
+
+| If the system has started successfully, :kbd:`ita-migration-xxx` and :kbd:`platform-migration-xxx` will show as :kbd:`Completed`, and all other pods will be in the :kbd:`Running` state.
+| Note: It may take a few minutes for the system to start up completely.
 
 .. code-block:: bash
-   :caption: 出力結果
-    
+   :caption: Output
+
    NAME                                                      READY   STATUS      RESTARTS   AGE
    ita-api-admin-6b8567596d-rgjms                            1/1     Running     0          7h40m
    ita-api-oase-receiver-6b74bdff6-zmcrw                     1/1     Running     0          7h40m

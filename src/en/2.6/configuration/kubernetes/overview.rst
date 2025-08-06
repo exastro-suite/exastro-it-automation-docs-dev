@@ -33,11 +33,11 @@ Automatic restoring
 
 .. warning::
 
-| As Probe is a Kubernetes function, it can only be used if Exastro is  :doc:`installed using Kubernetes<../../installation/online/exastro/kubernetes>`.
+   | As Probe is a Kubernetes function, it can only be used if Exastro is  :doc:`installed using Kubernetes<../../installation/online/exastro/kubernetes>`.
 
-| There are 3 types of Probes, Startup Probe, Liveness Probe and Readiness Probe.
-| Each container runs HTTP GET request to their own endpoint every 10 seconds to health-check themselves.
-| At initial startup, the container will restart if the Startup Probe fails 30 times. After that, the container will restart if the Liveness Probe fails 3 times.
+   | There are 3 types of Probes, Startup Probe, Liveness Probe and Readiness Probe.
+   | Each container runs HTTP GET request to their own endpoint every 10 seconds to health-check themselves.
+   | At initial startup, the container will restart if the Startup Probe fails 30 times. After that, the container will restart if the Liveness Probe fails 3 times.
 
 .. list-table:: Probe types
    :widths: 20, 80

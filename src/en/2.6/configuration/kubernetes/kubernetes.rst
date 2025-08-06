@@ -280,8 +280,8 @@ Configure proxy
 
 - :file:`inventory/k8s_cluster/group_vars/all/all.yml`
 
-Install Kubernetes
-~~~~~~~~~~~~~~~~~~
+Installing Kubernetes
+~~~~~~~~~~~~~~~~~~~~~
 
 | Execute Kubesparay and install Kubernetes to the Kubernetes cluster environments.
 

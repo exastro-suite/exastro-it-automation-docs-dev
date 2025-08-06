@@ -1,15 +1,15 @@
 
-1. Pod 起動数の確認
+1. Checking the number of running Pods
 
-   | 作業前の Pod 起動数の確認をし、状態を記録します。
+   | Check the number of running Pods before starting the operation and record their status.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       kubectl get deploy,statefulset -o jsonpath='{range .items[*]}{@.metadata.name}:{@.spec.replicas}{"\n"}' -n exastro
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Execution result
 
       ita-api-admin:1
       ita-api-oase-receiver:1
@@ -42,22 +42,22 @@
       mongo:1
       :
 
-   | 各Deployment, StatefulSetのサービス名、replicas数が表示されます。
+   | The service names and replica counts of each Deployment and StatefulSet are displayed.
 
    .. warning::
-      | バージョンによって、表示されるサービスが異なります。
+      | The displayed services vary depending on the version.
 
-2. アプリケーションの停止
+2. Application shutdown
 
-   | アプリケーション (platform-auth) の Pod 起動数を 0 に変更し、アクセスを制限します。
+   | Scale the Pods of the application (platform-auth) down to zero to restrict access.
 
    .. code-block:: bash
-     :caption: コマンド
+     :caption: Command
 
      kubectl scale deploy,statefulset -n exastro --replicas=0 --all=true
 
    .. code-block:: bash
-     :caption: 実行結果
+     :caption: Execution result
 
      deployment.apps/ita-api-admin scaled
      deployment.apps/ita-api-oase-receiver scaled
@@ -90,19 +90,19 @@
      statefulset.apps/mongo scaled
 
    .. warning::
-      | バージョンによって、表示されるサービスが異なります。
+      | The displayed services vary depending on the version.
 
-3. Pod 起動数の確認
+3. Checking the number of running Pods
 
-   | 上記で停止した対象の Pod 数が 0 になっていることを確認します。
+   | Check that all targeted Pods have been scaled down to zero.
 
    .. code-block:: bash
-     :caption: コマンド
+     :caption: Command
 
      kubectl get deploy,statefulset -n exastro
 
    .. code-block:: bash
-     :caption: 実行結果
+     :caption: Execution result
 
      NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
      deployment.apps/ita-api-admin                            0/0     0            0           26h
@@ -138,4 +138,4 @@
      statefulset.apps/mongo      0/0     26h
 
    .. warning::
-      | バージョンによって、表示されるサービスが異なります。
+      | The displayed services vary depending on the version.

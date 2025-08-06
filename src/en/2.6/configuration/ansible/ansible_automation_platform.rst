@@ -270,7 +270,7 @@ Ansible Automation Platform file transfer user preparation
 .. warning::
  | Preparing and using users other than the awx user to change SCM management path (/var/lib/awx/projects) permissions is not within the scope of Red Hat support.
 
-| The Linux user needs to be registered to the ITA System. See :ref:`ansible_common_ansible_automation_controller_hosts` for more information.
+| The Linux user needs to be registered to the ITA System.
 
 
 Ansible Automation Platform Git user preparation
@@ -545,11 +545,9 @@ Link Organization and Instance group
 Register Authentication token and Organization to ITA
 -----------------------------------------------------
 
-| Refer to :ref:`ansible_common_interface_information` and Register the Authentication token created in :ref:`platform_output_token` and the Organization created in :ref:`platform_make_organization` to :menuselection:`Ansible common --> Interface information`
+| Register the Authentication token created in :ref:`platform_output_token` and the Organization created in :ref:`platform_make_organization` to :menuselection:`Ansible common --> Interface information`
 
-|
-
-.. warning:: | When registering Organization names, make sure to open ":ref:`ansible_common_interface_information`" and select the name of the Organization created in ":ref:`platform_make_organization`" approximately 1 minute after registering the Authentication token.
+.. warning:: | When registering Organization names, make sure to open interface information,  and select the name of the Organization created in ":ref:`platform_make_organization`" approximately 1 minute after registering the Authentication token.
 
   ※The Backyard collects the organizations associated with the users corresponding to each authentication token and displays them in the pull-down.
 
