@@ -542,7 +542,7 @@ Ansible Execution Agentのインストール
 ソフトウェア要件の確認
 ^^^^^^^^^^^^^^^^^^^^^^
 | アップグレード対象バージョンのソフトウェア要件を満たしているか確認します。
-| 詳細は :ref:`こちら<ansible_exrcution_agent_oftware_requirements>` をご参照ください。
+| 詳細は :ref:`ansible_execution_agent_oftware_requirements` をご参照ください。
 
 対象サービス情報の取得
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -617,7 +617,7 @@ Ansible Execution Agentのインストール
 | アップグレード対象サービスのアンインストールを行います。
 | アンインストールのモードは2を指定します。
 | アンインストール対象サービスは、準備で控えたサービス名を指定します。
-|  手順は :ref:`こちら<ansible_execution_agent_uninstall>` をご参照ください。
+|  手順は :ref:`ansible_execution_agent_uninstall` をご参照ください。
 
 
 アップグレード（再インストール）
