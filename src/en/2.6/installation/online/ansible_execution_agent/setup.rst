@@ -12,15 +12,6 @@ Goal
 | This document aims to explain how to install the Ansible Execution Agent, which is required in order to execute Ansible in PULL-form.
 
 
-.. tip::
-    | For more information regarding using the  Ansible Execution Agent, see the following manuals.
-
-    - :ref:`ansible_execution_environment_definition_template_list`
-    - :ref:`ansible_execution_environment_list`
-    - :ref:`ansible_agent_list`
-    - :ref:`ansible_common_environment_definition_make`
-
-
 .. _ansible_execution_agent_feature:
 
 Features
@@ -151,7 +142,7 @@ Software requirements
     Python 3.9.18
 
     $ pip3 -V
-    pip 21.2.3 from /usr/lib/python3.9/site-packages/pip (python 3.9)
+    pip 21.2.3 from /usr/lib/python3.9/site-packages/pip  *python 3.9
 
 .. _ansible_exrcution_agent_other_requirements:
 
@@ -360,7 +351,6 @@ Parameter list
 
          EXECUTION_ENVIRONMENT_NAMES=<Execution environment name 1>,<Execution environment name 2>
 
-  | For more information regarding execution environment names, see :ref:`ansible_execution_environment_list`.
 
 .. _ansible_execution_agent_install:
 
@@ -400,13 +390,13 @@ Install Ansible Execution Agent
     $ ./setup.sh install
 
 
-1. | The user will be asked about the agent's installation mode. Specify which mode to use.
+#. | The user will be asked about the agent's installation mode. Specify which mode to use.
    | 1: Installs required modules and source code for the service(s), and register and executes service
    | 2: Registers and executes additional services.
    | 3: Specify env file and registers/executes servicse.
    | ※ Mode 2 and 3 requires that 1 is already executed.
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Create ENV, Install, Register service
@@ -417,7 +407,7 @@ Install Ansible Execution Agent
 
 .. tip:: | In the following section, items with "default: xxxxxx" set will have the default value applied if the Enter key is pressed.
 
-2.  Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
+#.  Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
 
 .. tabs::
 
@@ -494,7 +484,7 @@ Install Ansible Execution Agent
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑪ Specify the connection destination ITA's refresh token（See :ref:`exastro_refresh_token`  for information regarding fetching tokens.）
+      | ⑪ Specify the connection destination ITA's refresh token.
       |
       |   Press Enter if the user wants to specify the refresh token later.
       |   Rewrite the .env's EXASTRO_REFRESH_TOKEN.
@@ -579,7 +569,7 @@ Install Ansible Execution Agent
          Input WORKSPACE_ID.:
          Input Value :
 
-      | ⑨ Specify the connection destination ITA's refresh token（See :ref:`exastro_refresh_token`  for information regarding fetching tokens.）
+      | ⑨ Specify the connection destination ITA's refresh token.
       |
       |   Press Enter if the user wants to specify the refresh token later.
       |   Rewrite the .env's EXASTRO_REFRESH_TOKEN.
@@ -654,13 +644,13 @@ Uninstall
 .. tip:: | The uninstaller allows users to delete the service and the data. However, the source code for the application will not be deleted.
          | If the user wants to delete the source code, do so manually.
 
-1. | The user will be asked about the agent's uninstallation mode. Specify which mode to use.
+#. | The user will be asked about the agent's uninstallation mode. Specify which mode to use.
    | 1: Deletes service and data.
    | 2: Deletes service. The data will not be deleted.
    | 3: Deletes data only.
    | ※ 3 requires that 2 has been executed.
 
-.. code-block:: bash
+.. code-block:: text
 
     Please select which process to execute.
         1: Delete service, Delete Data
@@ -670,7 +660,7 @@ Uninstall
     select value: (1, 2, 3, q)  :
 
 
-1.  Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
+#.  Pressing the Enter key in the following step starts an interactive installation process where the user can input the data for the required items.
 
 .. tabs::
 
@@ -766,4 +756,4 @@ Confirming service log
 
    /var/log/message
 
-  ※For information regarding Ansible-builder, Ansible-runner, podman and other related components, see the different component's log output destination.
+※For information regarding Ansible-builder, Ansible-runner, podman and other related components, see the different component's log output destination.

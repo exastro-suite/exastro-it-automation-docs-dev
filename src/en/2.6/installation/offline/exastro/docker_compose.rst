@@ -191,8 +191,6 @@ Preparation
    | If the user is using HTTPS, they must use either LoadBalancer or Reverse proxy.
    | If the user plans to use LoadBalancer or Reverse proxy, they will have to prepare that themselves.
 
-.. _install_docker_compose:
-
 
 General flow
 ============
@@ -1091,7 +1089,9 @@ Offline environment(Environment unable to connect to the internet)
 
 
       | Check that the Container STATUS says UP.
+
 .. code-block:: shell
+
       .. code-block:: shell
          :caption: Command
 
@@ -1124,7 +1124,6 @@ Create Organization
 ==========================
 
 | After rebooting and logging in to the system, create an organization.
-| For more information regarding organizations, see :doc:`../../../manuals/platform_management/organization`.
 
 .. tip::
    | When linked to GitLab, the GitLab must be running in order to create Organizations.
@@ -1134,4 +1133,3 @@ Create Workspace
 ====================
 
 | After creating an organization, log in to it and create a workspace.
-| For more information regarding creating workspaces, see :doc:`../../../manuals/organization_management/workspace`.

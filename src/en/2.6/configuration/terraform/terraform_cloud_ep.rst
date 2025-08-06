@@ -129,4 +129,3 @@ Initial settings
     Issue User token
 
 | The user token must be registered to the Exastro IT Automation system.
-| Follow the :ref:`terraform_cloud_ep_interface_information` section in the  :doc:`../../manuals/terraform_driver/terraform_cloud_ep` manual for information on how to register tokens.

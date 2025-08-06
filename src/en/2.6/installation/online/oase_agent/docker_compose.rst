@@ -30,7 +30,6 @@ Features
 
 | This document contains information on how to install the Exastro OASE Agent, which is required in order to use Exastro OASE.
 | Users can easily boot the Exastro OASE Agent by using Docker Compose.
-| For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
 Pre-requisites
 ==============
@@ -144,7 +143,7 @@ Boot
 .. code-block:: shell
    :caption: Using docker command(Docke environment)
 
-   docker compose up -d --wait 
+   docker compose up -d --wait
 
 .. code-block:: shell
    :caption: using docker-compose command(Podman environment)
@@ -153,8 +152,6 @@ Boot
 
 Parameter list
 ==============
-
-| For more information regarding Exastro OASE Agent and how some of the parameter works, see :ref:`oase_agent_flow`.
 
 .. list-table::
  :widths: 5, 7, 1, 5
@@ -253,7 +250,6 @@ Parameter list
    - Yes
    - INFO
 
-| ※For more information regarding fetching Refresh tokens, see :ref:`exastro_refresh_token`.
 
 Update
 ==============
@@ -302,7 +298,7 @@ Update setting values
 
 | Use the comparison results to check if there are any added items that needs setting values added to. If there are none or the user does not need to change any values, proceed to the next step.
 
-Update
+Update Execute
 --------------
 
 Update the system
@@ -338,8 +334,8 @@ Uninstallment preparation
   | We highly recommend taking a backup before uninstalling the system.
   | The backup target is :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/`.
 
-Uninstall
-----------------
+Uninstall Execute
+-----------------
 
 Start Uninstallment process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -26,8 +26,8 @@ Security measures
    |                     | tacks, etc.                            |                                        | Identify Unauthorized access with :ref:`security_audit_log_get`.     |
    +---------------------+----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
    | Impersonation       | Social engineering, replay attacks, e\ | Usage of personal information          | Apply for all organizations \                                        |
-   |                     | call                                   |                                        | :doc:`two-factor authentication <../../manuals/platform_managemen\   |
-   |                     +----------------------------------------+----------------------------------------+ t/general>`.                                                         |
+   |                     | call                                   |                                        | `two-factor authentication`.                                         |
+   |                     +----------------------------------------+----------------------------------------+                                                                      |
    |                     | IP spoofing, MAC address spoofing, etc.| Device impersonation                   |                                                                      |
    |                     |                                        |                                        |                                                                      |
    |                     +----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
@@ -38,7 +38,7 @@ Security measures
    +---------------------+----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
    | Denial of Service   | DDoS attacks, Reflector attacks \      | Network measure                        | Implement IDS/IPS.                                                   |
    |                     | HTTP Flood attacks, Volumetric attack\ |                                        |                                                                      |
-   |                     | s, etc.                                 |                                        |                                                                      |
+   |                     | s, etc.                                |                                        |                                                                      |
    +---------------------+----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
    | Attacks aimed at v\ | SQL injection, cross-site scripting \  | Web measure                            | Implement Web Application Firewall(WAF).                             |
    | ulnerabilities      | (XSS), cross-site request forgery \    |                                        |                                                                      |
@@ -52,7 +52,7 @@ Security measures
    |                     | ame hijack attacks, etc.               |                                        |                                                                      |
    |                     |                                        |                                        |                                                                      |
    |                     +----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
-   |                     | Route kit attacks, etc.                 | Virus measure                          | Implement Anti-virus software.                                       |
+   |                     | Route kit attacks, etc.                | Virus measure                          | Implement Anti-virus software.                                       |
    +---------------------+----------------------------------------+----------------------------------------+----------------------------------------------------------------------+
 
 .. warning::

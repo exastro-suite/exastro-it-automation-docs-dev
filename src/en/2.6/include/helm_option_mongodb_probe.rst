@@ -1,43 +1,43 @@
 
-.. list-table:: MongodbコンテナのProbeオプションパラメータ
+.. list-table:: MongoDB Container Probe Configuration Options
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - exastro-platform.mariadb.livenessProbe.tcpSocket.port
-     - MongoDBへアクセスするためのport番号
-     - 不可
+     - Port number to access MongoDB
+     - Disabled
      - port-mongo
    * - exastro-platform.mariadb.livenessProbe.initialDelaySeconds
-     - 最初のlivenessProbeを実行するまでの待機時間(秒)
-     - 可
+     - Time to wait (in seconds) before executing the first liveness probe
+     - Enabled
      - 5
    * - exastro-platform.mariadb.livenessProbe.periodSeconds
-     - livenessProbeを実行する間隔(秒)
-     - 可
+     - Probe interval for liveness checks (seconds)
+     - Enabled
      - 10
    * - exastro-platform.mariadb.livenessProbe.timeoutSeconds
-     - livenessProbeがタイムアウトになるまでの時間(秒)
-     - 可
+     - TimeoutSeconds for the liveness probe (seconds)
+     - Enabled
      - 3
    * - exastro-platform.mariadb.readinessProbe.tcpSocket.port
-     - MongoDBへアクセスするためのport番号
-     - 不可
+     - Port number to access MongoDB
+     - Disabled
      - port-mongo
    * - exastro-platform.mariadb.readinessProbe.initialDelaySeconds
-     - 最初のreadinessProbeを実行するまでの待機時間(秒)
-     - 可
+     - Time (in seconds) to wait before executing the first readiness probe
+     - Enabled
      - 5
    * - exastro-platform.mariadb.readinessProbe.periodSeconds
-     - readinessProbeを実行する間隔(秒)
-     - 可
+     - Readiness probe interval (seconds)
+     - Enabled
      - 10
    * - exastro-platform.mariadb.readinessProbe.timeoutSeconds
-     - readinessProbeがタイムアウトになるまでの時間(秒)
-     - 可
+     - Timeout for readiness probe (seconds)
+     - Enabled
      - 3

@@ -368,9 +368,9 @@ Database link
           | Configure OASE database's connection information (Not required if not using OASE).
 
           .. warning::
-             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | If using MongoDB user and databases through "Automatic payout, make sure to specify :command:`MONGO_HOST`.
              | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
-             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user doesnt have said permissions, the user must soecify "Python connection string".
              | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
@@ -425,7 +425,7 @@ Database link
           | Configure password for the Database container's root.
           | Then specify the using storage so the data can be persisted.
 
-          .. include:: .. include:: ../../../include/helm_option_databaseDefinition.rst
+          .. include:: ../../../include/helm_option_databaseDefinition.rst
 
           .. tabs::
 
@@ -471,9 +471,9 @@ Database link
           | Configure connection information to the OASE database.
 
           .. warning::
-             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | If using MongoDB user and databases through "Automatic payout, make sure to specify :command:`MONGO_HOST`.
              | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
-             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user doesnt have said permissions, the user must soecify "Python connection string".
              | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
@@ -488,7 +488,7 @@ Database link
           | Specify storage for persisting database data.
 
           .. warning::
-             |If the user is not using MongoDB container, make sure to set :command:`exastro-platform.mongo.enabled` to false.
+             | If the user is not using MongoDB container, make sure to set :command:`exastro-platform.mongo.enabled` to false.
 
           .. include:: ../../../include/helm_option_mongo.rst
 
@@ -505,15 +505,18 @@ Database link
 
           | The database container or MongoDB container's LivenessProbe and ReadinessProbe has the following values applied by default.
 
-          .. include:: ../../../include/helm_option_database_probe.rst
-
           .. tabs::
 
-          .. include:: ../../../include/helm_option_mongodb_probe.rst
+            .. tab:: Database container
 
-          .. tabs::
+                .. include:: ../../../include/helm_option_database_probe.rst
+
+            .. tab:: MongoDB container
+
+                .. include:: ../../../include/helm_option_mongodb_probe.rst
 
           | In order to change setting values for the database container or MongoDB container's LivenessProbe and ReadinessProbe, add the parameters as seen below.
+
           .. literalinclude:: ../../literal_includes/exastro_database_probe_setting.yaml
              :diff: ../../literal_includes/exastro.yaml
              :caption: exastro.yaml
@@ -602,13 +605,15 @@ GitLab link settings
 
 .. include:: ../../../include/helm_option_gitlabDefinition.rst
 
-      .. warning::
-        | The GITLAB_ROOT_TOKEN needs a token that contains permissions for the following:
-        | ・api
-        | ・write_repository
-        | ・sudo
 
-      | The following is an example of GitLab link configurations.
+.. warning::
+
+  | The GITLAB_ROOT_TOKEN needs a token that contains permissions for the following:
+  | ・api
+  | ・write_repository
+  | ・sudo
+
+| The following is an example of GitLab link configurations.
 
 .. literalinclude:: ../../literal_includes/exastro_gitlab_setting.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -623,7 +628,8 @@ Proxy settings
 | Configure the following information when running Exastro under a Proxy environment.
 
 .. include:: ../../../include/helm_option_proxyDefinition.rst
-   .. _create_system_manager:
+
+.. _create_system_manager:
 
 Create Exastro system admin
 ----------------------------
@@ -670,6 +676,7 @@ Configure Persistent volume
       | For more information, see  `Storage options for applications in Azure Kubernetes Service (AKS) <https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes>`_.
 
         .. literalinclude:: ../../literal_includes/storage-class-exastro-suite.yaml
+
         :caption: storage-class-exastro-suite.yaml
         :linenos:
 
@@ -740,16 +747,16 @@ Configure Persistent volume
            :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-ita-common.yaml
-        :caption: pv-ita-common.yaml (File volume)
-        :linenos:
+           :caption: pv-ita-common.yaml (File volume)
+           :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-mongo.yaml
-        :caption: pv-mongo.yaml (OASE volume) ※Not required if not using OASE
-        :linenos:
+           :caption: pv-mongo.yaml (OASE volume) ※Not required if not using OASE
+           :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-gitlab.yaml
-        :caption: pv-gitlab.yaml (GitLab volume) ※Not required if using external GitLab
-        :linenos:
+            :caption: pv-gitlab.yaml (GitLab volume) ※Not required if using external GitLab
+            :linenos:
 
         | ※ Configure the following for outputting the monitoring log to persistent volumes.
 
@@ -1174,7 +1181,6 @@ Log in to Managment console
   :width: 600px
   :name: Keycloak management page
 
-| Once logged in, create a :doc:`../../../manuals/platform_management/organization`.
 
 Update
 ==============
@@ -1186,7 +1192,7 @@ Update preparation
 --------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
+  | We recommend that back up the data before updating.
 
 Update Helm repository
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1310,7 +1316,7 @@ Update setting values
 Specify Encryption key
 ^^^^^^^^^^^^^^^^^^^^^^
 
-| Specify the encryption key backed up in :ref:`backup_encrypt_key`.
+| Specify the encryption key backed up.
 
 .. literalinclude:: ../../literal_includes/update_exastro.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -1418,7 +1424,7 @@ Uninstall preparation
 ----------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
+  | We recommend that back up the data before uninstalling.
 
 Uninstall
 ----------------

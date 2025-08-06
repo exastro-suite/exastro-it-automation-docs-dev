@@ -1,51 +1,51 @@
 
-.. list-table:: 共通設定 (Exastro 共用データベース) のオプションパラメータ
+.. list-table:: Optional Parameters for Common Settings (Exastro Shared Database)
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - global.databaseDefinition.name
-     - Exastro 共用データベースの定義名
-     - 不可
+     - Definition Name of the Exastro Shared Database
+     - Disabled
      - "mariadb"
    * - global.databaseDefinition.enabled
-     - Exastro 共用データベースの定義の利用有無
-     - 不可
+     - Enablement of the Exastro Shared Database Definition
+     - Disabled
      - true
    * - global.databaseDefinition.secret.MARIADB_ROOT_PASSWORD
-     - Exastro 共用データベースの root アカウントに設定するパスワード(エンコードなし)
-     - 必須
-     - 任意の文字列
+     - Password to set for the root account of the Exastro Shared Database (plain text)
+     - Required
+     - Arbitrary string
    * - global.databaseDefinition.persistence.enabled
-     - Exastro 共用データベースのデータ永続化の有効フラグ
-     - 可
-     - | :program:`"true"` (デフォルト): データを永続化する
-       | :program:`"false"`: データを永続化しない
+     - Enable flag for data persistence of the Exastro Shared Database
+     - Enabled
+     - | :program:`"true"` (Default): Persist the data
+       | :program:`"false"`: Do not persist the data
    * - global.databaseDefinition.persistence.reinstall
-     - 再インストール時にデータ領域の初期化の要否
-     - 可 (データ永続化時)
-     - | :program:`"true"` (デフォルト): データを初期化(削除)する
-       | :program:`"false"`: データを初期化(削除)しない
+     - Whether to initialize the data area during reinstallation
+     - Enabled (When data is persisted)
+     - | :program:`"true"` (Default): Initialize (delete) the data
+       | :program:`"false"`: Do not initialize (delete) the data
    * - global.databaseDefinition.persistence.accessMode
-     - 永続ボリュームのアクセスモードの指定。
-     - 不可
+     - Specify the access mode for the persistent volume
+     - Disabled
      - "ReadWriteOnce"
    * - global.databaseDefinition.persistence.size
-     - 永続ボリュームのディスク容量
-     - 可 (データ永続化時)
+     - Disk size of the persistent volume
+     - Enabled (When data persistence is enabled)
      - "20Gi"
    * - global.databaseDefinition.persistence.volumeType
-     - 永続ボリュームのボリュームタイプ
-     - 可 (現在無効)
-     - | :program:`"hostPath"` (デフォルト): Kubernetes クラスタのノード上にデータを保存(非推奨)
-       | :program:`"AKS"`: AKS のストレージクラスを利用
+     - Volume type of the persistent volume
+     - Enabled (Currently disabled)
+     - | :program:`"hostPath"` (Default): Store data on Kubernetes cluster nodes (not recommended)
+       | :program:`"AKS"`: Use the storage class provided by AKS
    * - global.databaseDefinition.persistence.storageClass
-     - 永続ボリュームにストレージクラスを利用する場合のクラスを指定
-     - 可 (データ永続化時)
-     - | :program:`"-"` (デフォルト): ストレージクラスを指定しない。
-       | :program:`ストレージクラス名`: クラウドプロバイダなどから提供されるストレージクラス名を指定。
+     - Specify the storage class to use for the persistent volume
+     - Enabled (When data persistence is enabled)
+     - | :program:`"-"` (Default): Do not specify a storage class.
+       | :program:`Storage Class Name`: Specify the name of the storage class provided by the cloud provider.
