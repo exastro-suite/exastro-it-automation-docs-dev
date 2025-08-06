@@ -226,7 +226,6 @@ Preparation
    | If the user is using HTTPS, they must use either LoadBalancer or Reverse proxy.
    | If the user plans to use LoadBalancer or Reverse proxy, they will have to prepare that themselves.
 
-.. _install_docker_compose:
 
 Installation (Automatic)
 ========================
@@ -402,7 +401,6 @@ Create Organization
 ==========================
 
 | After rebooting and logging in to the system, create an organization.
-| For more information regarding organizations, see :doc:`../../../manuals/platform_management/organization`.
 
 .. tip::
    | When linked to GitLab, the GitLab must be running in order to create Organizations.
@@ -412,7 +410,6 @@ Create Workspace
 ====================
 
 | After creating an organization, log in to it and create a workspace.
-| For more information regarding creating workspaces, see :doc:`../../../manuals/organization_management/workspace`
 
 Let's give it a Try!!
 =====================
@@ -470,7 +467,7 @@ Update setting values
 | After comparing the default setting values, add any desired items and setting values before updating.
 | If no setting value update is needed, skip this step.
 
-Update
+Update Execute
 --------------
 
 Start update
@@ -496,12 +493,12 @@ Uninstall preparation
 ----------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
+  | We recommend that back up the data before uninstalling.
   | The backup target is :file:`~/exastro-docker-compose/.volumes`.
 
 
-Uninstall
-----------------
+Uninstall Execute
+-----------------
 
 Start uninstall
 ^^^^^^^^^^^^^^^^^^^^

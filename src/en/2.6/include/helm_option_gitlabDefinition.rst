@@ -1,39 +1,39 @@
 
-.. list-table:: 共通設定 (GitLab) のオプションパラメータ
+.. list-table:: Optional Parameters for Common Settings (GitLab)
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - global.gitlabDefinition.name
-     - GitLab の定義名
-     - 不可
+     - GitLab Definition Name
+     - Disabled
      - gitlab
    * - global.gitlabDefinition.enabled
-     - GitLab の定義の利用有無
-     - 不可
+     - Enable or Disable GitLab Definition
+     - Disabled
      - true
    * - global.gitlabDefinition.config.GITLAB_PROTOCOL
-     - GitLab エンドポイントのプロトコル
-     - 可
+     - Protocol for GitLab Endpoint
+     - Enabled
      - http
    * - global.gitlabDefinition.config.GITLAB_HOST
-     - GitLab エンドポイントへのホスト名、もしくは、FQDN
-     - 可
+     - Hostname or FQDN for GitLab Endpoint
+     - Enabled
      - gitlab
    * - global.gitlabDefinition.config.GITLAB_PORT
-     - GitLab エンドポイントのポート番号
-     - 可
+     - Port Number of GitLab Endpoint
+     - Enabled
      - 80
    * - global.gitlabDefinition.secret.GITLAB_ROOT_PASSWORD
-     - GitLab の root 権限アカウントのユーザーパスワード
-     - 必須
-     - 任意の文字列（8文字以上で予測可能な単語等は利用不可）
+     - User Password for GitLab Root Privileged Account
+     - Required
+     - Any string (8 characters or more; predictable words are not allowed)
    * - global.gitlabDefinition.secret.GITLAB_ROOT_TOKEN
-     - GitLab の root 権限アカウントのアクセストークン
-     - 必須
-     - アクセエストークン(平文)
+     - Access Token for GitLab Root Privileged Account
+     - Required
+     - Access Token (Plain Text)

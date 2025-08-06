@@ -29,7 +29,6 @@ Features
 
 | This document contains information on how to install Exastro OASE Agent with high availability and service level.
 | For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version of the OASE Agent <docker_compose>`.
-| For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
 Prerequisites
 =============
@@ -268,7 +267,6 @@ Parameter
 
 .. include:: ../../../include/helm_option_ita-ag-oase.rst
 
-| ※For more information regarding fetching refresh tokens, see :ref:`exastro_refresh_token`.
 
 OASE Agent parameter setting example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -417,23 +415,7 @@ OASE Agent parameter setting example
           | Copy exastro-agent.yaml and prepare exastro-agent-1.yaml
           | Copy exastro-agent.yaml and prepare exastro-agent-2.yaml
 
-      2.  First OASE Agent           +       AGENT_NAME: "oase-agent-1"                                               # Name of the OASE Agent
-           -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
-           -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
-           -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
-                   # ROLES: "_ws_admin"
-           -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
-                 secret:
-           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"
-                   # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
+      2.  First OASE Agent
 
           .. code-block:: diff
            :caption: exastro-agent-1.yaml
@@ -824,7 +806,7 @@ Update preparation
 --------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
+  | We recommend that back up the data before updating.
 
 | Check the version before updating.
 
@@ -943,7 +925,7 @@ Uninstall preparation
 ----------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
+  | We recommend that back up the data before uninstalling.
 
 Uninstall
 ----------------
@@ -962,8 +944,6 @@ Start Uninstall
   :caption: Output results
 
   release "exastro-agent" uninstalled
-
-.. _delete_pv:
 
 Delete persistent volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

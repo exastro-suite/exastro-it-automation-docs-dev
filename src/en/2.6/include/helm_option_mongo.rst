@@ -1,73 +1,73 @@
 
-.. list-table:: MongoDB コンテナのオプションパラメータ
+.. list-table:: MongoDB container options parameters
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - exastro-platform.mongo.enabled
-     - MongoDB コンテナのデプロイの有無
-     - 可
-     - | :program:`true` (デフォルト): MongoDB コンテナをデプロイします。
-       | :program:`false` : MongoDB コンテナをデプロイしません。
+     - MongoDB Whether to deploy the container
+     - Enabled
+     - | :program:`true` (Default): Deploy the MongoDB container.
+       | :program:`false` : Do not deploy the MongoDB container.
    * - exastro-platform.mongo.image.repository
-     - コンテナイメージのリポジトリ名
-     - 不可
+     - Container image repository name
+     - Disabled
      - "mongo"
    * - exastro-platform.mongo.image.pullPolicy
-     - イメージプルポリシー
-     - 可
-     - | :program:`IfNotPresent` (デフォルト): コンテナイメージが存在しない場合のみプル
-       | :program:`Always`: 毎回必ずプル
-       | :program:`None`: プルしない
+     -  Image Pull Policy
+     - Enabled
+     - | :program:`IfNotPresent` (Default): Pull the container image only if it is not already present (imagePullPolicy: IfNotPresent)
+       | :program:`Always`: Always pull the container image
+       | :program:`None`: Do not pull the container image
    * - exastro-platform.mongo.image.tag
-     - コンテナイメージのタグ
-     - 不可
+     - Container image tag
+     - Disabled
      - "6.0"
    * - exastro-platform.mongo.persistence.enabled
-     - Exastro 共用データベースのデータ永続化の有効フラグ
-     - 可
-     - | :program:`true` (デフォルト): データを永続化する
-       | :program:`false`: データを永続化しない
+     - Flag to enable data persistence for the shared Exastro database
+     - Enabled
+     - | :program:`true` (Default): Persist data
+       | :program:`false`: Do not persist data
    * - exastro-platform.mongo.persistence.reinstall
-     - 再インストール時にデータ領域の初期化の要否
-     - 不可
-     - | :program:`true` : データを初期化(削除)する
-       | :program:`false` (デフォルト): データを初期化(削除)しない
+     - Whether to initialize the data volume upon reinstallation
+     - Disabled
+     - | :program:`true` : Initialize (the data volume)
+       | :program:`false` (Default): Do not initialize (delete) data
    * - exastro-platform.mongo.persistence.accessMode
-     - 永続ボリュームのアクセスモードの指定。
-     - 不可
+     - Specify the access mode for the persistent volume
+     - Disabled
      - "ReadWriteOnce"
    * - exastro-platform.mongo.persistence.size
-     - 永続ボリュームのディスク容量
-     - 可 (データ永続化時)
+     - Disk capacity of the persistent volume
+     - Enabled (During data persistence)
      - "20Gi"
    * - exastro-platform.mongo.persistence.storageClass
-     - 永続ボリュームにストレージクラスを利用する場合のクラスを指定
-     - 可 (データ永続化時)
-     - | :program:`-` (デフォルト): ストレージクラスを指定しない。
-       | :program:`ストレージクラス名`: クラウドプロバイダなどから提供されるストレージクラス名を指定。
+     - Specify the storage class to use for the persistent volume
+     - Enabled (During data persistence)
+     - | :program:`-` (Default): Do not specify a storage class
+       | :program:`Storage class name`: Specify the storage class name provided by the cloud provider (or other infrastructure)
    * - exastro-platform.mongo.persistence.matchLabels.name
-     - 利用する永続ボリューム名を指定
-     - 不可
-     - "コメントアウト"
+     - Specify the name of the persistent volume to use
+     - Disabled
+     - "comment out"
    * - exastro-platform.mongo.resources.requests.memory
-     - メモリ要求
-     - 可
+     - Memory request
+     - Enabled
      - "256Mi"
    * - exastro-platform.mongo.resources.requests.cpu
-     - CPU要求
-     - 可
+     - CPU request
+     - Enabled
      - "1m"
    * - exastro-platform.mongo.resources.limits.memory
-     - メモリ上限
-     - 可
+     - Memory upper limit
+     - Enabled
      - "2Gi"
    * - exastro-platform.mongo.resources.limits.cpu
-     - CPU上限
-     - 可
+     - CPU upper limit
+     - Enabled
      - "4"
