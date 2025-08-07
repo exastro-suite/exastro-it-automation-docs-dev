@@ -15,6 +15,7 @@
    ansible/index
    OASE_agent/index
    terraform/index
+   client_requirements/index
    logging/index
    security/index
 .. best_practices/index

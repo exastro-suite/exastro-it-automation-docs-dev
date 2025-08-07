@@ -158,7 +158,7 @@ Ansible Playbook 登録
 Movement と Ansible Playbook の紐付け
 -------------------------------------
 
-| :menuselection:`Ansible-Legacy --> Movement-ロール紐付` から、Movement と Ansible Playbook の紐付けを行います。
+| :menuselection:`Ansible-Legacy --> Movement-Playbook紐付` から、Movement と Ansible Playbook の紐付けを行います。
 | 本シナリオでは、 hostname.ymlを利用します。
 
 .. figure:: /images/learn/quickstart/Legacy_scenario1/Movement-Playbook紐付.png

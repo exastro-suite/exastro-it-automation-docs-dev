@@ -542,7 +542,7 @@ Ansible Execution Agentのインストール
 ソフトウェア要件の確認
 ^^^^^^^^^^^^^^^^^^^^^^
 | アップグレード対象バージョンのソフトウェア要件を満たしているか確認します。
-| 詳細は :ref:`ansible_execution_agent_oftware_requirements` をご参照ください。
+| 詳細は :ref:`ansible_execution_agent_software_requirements` をご参照ください。
 
 対象サービス情報の取得
 ^^^^^^^^^^^^^^^^^^^^^^

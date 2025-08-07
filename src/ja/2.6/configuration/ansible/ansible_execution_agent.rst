@@ -6,30 +6,58 @@ Ansible Execution Agent
 はじめに
 ========
 
-| 本書は、Ansible Execution Agentを構築するにあたっての要件などについて説明します。
-| Ansible Execution Agentとは、Exastro IT Automation （以下、ITAとも記載する）で実行する、「Ansible-Legacy」、「Ansible-Pioneer」、「Ansible-LegacyRole」の作業実行を、PULL型で行うためのエージェント機能を提供します。
+| Exastro IT Automation（以下、ITAとも記載する）のAnsible連携機能（以下、Ansible driver）を運用するためのシステム構成とシステム要件について説明します。
+| 本書では、実行エンジンに Ansible Execution Agent を使用した際のシステム構成とシステム要件について解説します。
+
+| Ansible Execution Agentは、Exastro IT Automationで実行される **「Ansible-Legacy」、「Ansible-Pioneer」、「Ansible-LegacyRole」** といった作業を、PULL型で実行するためのエージェント機能です。
 
 
-特徴
-====
+システム構成
+============
 
-| Ansible Execution Agentの特徴として以下のものがあります。
+| Ansible driver は、Exastro IT Automation をインストールすることにより、標準機能としてご利用できます。
+| Exastro IT Automation のインストール方法に関しては、 :doc:`../../installation/index` を参照してください。
+|
+| クローズド環境下での Ansible 実行を行いたい場合は、Ansible Execution Agent による構成により可能となります。
+|
+| 以下に Ansible Execution Agent における構成パターンと構成イメージを記載します。
 
-- ITA本体との通信は、http/httpsの、クローズド環境からアウトバウンドのみ（PULL型）
-- Ansible BuilderとAnsible Runnerを使った動的なAnsible作業実行環境の生成 ​（任意の環境・モジュールを利用可能）
-- 冗長可能な仕組み（排他制御）
-- エージェントのバージョン確認
+構成パターン
+------------
+
+.. list-table:: システム構成パターン
+   :widths: 50 50 50
+   :header-rows: 1
+   :align: left
+
+   * - | 構成
+     - | 説明
+     - | Ansibleスケールアウト可否
+   * - | Ansible Execution Agent
+     - | Exastro IT Automation システムと Ansible Execution Agent を別環境(クローズド環境)に構成可能
+       | Ansible BuilderとAnsible Runnerを使った動的なAnsible作業実行環境の生成 ​（任意の環境・モジュールを利用可能）
+     - | ○ (Kubernetes環境に限る)
+
+システム構成イメージ
+--------------------
+
+.. figure:: /images/ja/configuration/ansible/ansible_overview_ansible_execution_agent_diagram.drawio.png
+   :alt: Ansible Execution Agent システム構成イメージ
+   :align: center
 
 .. _ansible_execution_agent_system_requirements:
 
 システム要件
 ============
 
-| 後述する以下の各種要件を満たしていること
+| Ansible driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`Kubernetes クラスターのシステム要件<../kubernetes/kubernetes>` を参照してください。
+
+| ここでは Ansible Execution Agent に関するシステム要件を記載します。
+| Ansible Execution Agent を利用するには以下の要件を満たしていることが前提となります。
 
 - :ref:`ansible_execution_agent_hardware_requirements`
 - :ref:`ansible_execution_agent_os_requirements`
-- :ref:`ansible_execution_agent_oftware_requirements`
+- :ref:`ansible_execution_agent_node_to_work_on`
 - :ref:`ansible_execution_agent_communication_requirements`
 - :ref:`ansible_execution_agent_other_requirements`
 
@@ -70,22 +98,6 @@ Ansible Execution Agent
   | ※ディスク容量は、エージェントサービスの件数や、作業実行結果の削除設定、ビルドするimageサイズに依存するため、
   | 必要に応じて、サイジング、及びメンテナンス（Docker Image や Build Cache等について）を実行してください。
 
-.. _ansible_execution_agent_communication_requirements:
-
-通信要件
---------
-
-| エージェントサーバから、外部NWへの通信が可能である必要があります。
-
-- 接続先のITA
-- 各種インストール、及びモジュール、BaseImage取得先等（インターネットへの接続を含む）
-- 作業対象サーバ
-
-
-.. figure:: /images/ja/configuration/ansible/ansible_execution_agent_communication_requirements.drawio.png
-   :alt: Ansible Execution Agent 通信要件
-   :align: center
-
 .. _ansible_execution_agent_os_requirements:
 
 OS要件
@@ -103,6 +115,8 @@ OS要件
      - Red Hat Enterprise Linux release 9.4 (Plow)
    * - Almalinux8
      - AlmaLinux release 8.9 (Midnight Oncilla)
+   * - Almalinux9
+     - AlmaLinux release 9.6 (Sage Margay)
 
 | なお、動作確認済みのOSにおいても以下の設定が必要となります。
 
@@ -118,25 +132,62 @@ OS要件
     $ getenforce
     Permissive
 
-.. _ansible_execution_agent_oftware_requirements:
+.. _ansible_execution_agent_node_to_work_on:
+
+作業対象機器
+------------
+
+| Ansible Coreで接続する作業対象機器には下記のソフトウェアのいずれかが必要となります。
+
+.. _ansible_execution_agent_software_requirements:
 
 ソフトウェア要件
-----------------
+^^^^^^^^^^^^^^^^
 
-- Python3.9以上がインストールされており、python3コマンドとpip3コマンドにエイリアスが紐づいていること
-- インストールを実行するユーザで、以下のコマンドが実行できること
+.. list-table:: ソフトウェア要件
+   :widths: 50 50
+   :header-rows: 1
+   :align: left
 
-.. code-block:: bash
+   * - | ソフトウェア
+     - | バージョン
+   * - | ansible-builder
+     - | 3.1.0
+   * - | ansible-runner
+     - | 2.4.1
+   * - | Python
+     - | 3.9 - 3.13
+   * - | PowerShell
+     - | 5.1
 
-    $ sudo
+.. tip::
+   | →Python3.11以上がインストールされている必要があります。また、AlmaLinuxの場合、python3コマンドとpip3コマンドに、上記バージョンのpythonのエイリアスが紐づいていること。
+   | RHELの場合、python3コマンドとpip3コマンドに、python3.9以上のエイリアスが紐づいていること。
 
-.. code-block:: text
+.. note::
+   | Exastro IT Automation 2.6 で使用する Ansible Core のバージョンは 2.18 です。
 
-    $ python3 -V
-    Python 3.9.18
+.. danger::
+   | 作業対象機器のソフトウェア要件 は Exastro IT Automation のバージョン（Ansible Coreのバージョン）によって変更される可能性があります。
+   | Exastro IT Automationのバージョンを変更する際は、必ず作業対象機器のソフトウェア要件を確認してください。
 
-    $ pip3 -V
-    pip 21.2.3 from /usr/lib/python3.9/site-packages/pip  (python 3.9)
+
+.. _ansible_execution_agent_communication_requirements:
+
+通信要件
+--------
+
+| エージェントサーバから、外部NWへの通信が可能である必要があります。
+
+- 接続先のITA
+- 各種インストール、及びモジュール、BaseImage取得先等（インターネットへの接続を含む）
+- 作業対象サーバ
+
+
+.. figure:: /images/ja/configuration/ansible/ansible_execution_agent_communication_requirements.drawio.png
+   :alt: Ansible Execution Agent 通信要件
+   :align: center
+
 
 .. _ansible_execution_agent_other_requirements:
 
@@ -148,7 +199,7 @@ OS要件
 RHEL(サポート付きライセンス利用の場合)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| 有償版のAnsible-builder、Ansible-runnerを利用する場合、サブスクリプションの登録、リポジトリ有効化は、インストーラ実行前に実施しておいてください。
+| Ansible-builder および Ansible-runner の有償版をご利用いただく際は、インストーラを実行する前に、必ずサブスクリプションの登録とリポジトリの有効化を完了させてください。
 
 - Red Hat コンテナーレジストリーの認証
 
