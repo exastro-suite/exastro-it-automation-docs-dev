@@ -6,19 +6,15 @@ Ansible Core
 はじめに
 ========
 
-| Exastro IT Automation（以下、ITAとも記載する）で Ansible 連携機能 (以下、Ansible driver) として運用する為のシステム構成と環境構築について説明します。
-| 本書ではそのうち Ansible Core を実行エンジンとしたシステム構成と環境構築について説明します。
-|
-| Ansible Automation Platform による構成を行う場合は、 :doc:`./ansible_automation_platform` を参照してください。
-|
-| ITA Ansible driver を利用するにあたっては、Exastro IT Automation がインストール済みであることが前提です。
-| Exastro IT Automation のインストール方法に関しては、 :doc:`../../installation/online/exastro/kubernetes` を参照してください。
+| Exastro IT Automation（以下、ITAとも記載する）のAnsible連携機能（以下、Ansible driver）を運用するためのシステム構成とシステム要件について説明します。
+| 本書では、実行エンジンに Ansible Core を使用した際のシステム構成とシステム要件について解説します。
 
 
 システム構成
 ============
 
-| Ansible driver は Exastro IT Automation のデプロイ時に標準機能として提供されます。
+| Ansible driver は、Exastro IT Automation をインストールすることにより、標準機能としてご利用できます。
+| Exastro IT Automation のインストール方法に関しては、 :doc:`../../installation/index` を参照してください。
 |
 | 簡易的な Ansible 実行の場合は、Ansible Core による構成が可能です。
 |
@@ -38,7 +34,6 @@ Ansible Core
    * - Ansible Core
      - Exastro IT Automation システムと Ansible Core を同一環境に構成
      - ○ (Kubernetes環境に限る)
-
 
 システム構成イメージ
 --------------------------------------------------------
@@ -82,10 +77,9 @@ Ansible Core
 システム要件
 ============
 
-Ansible driver
---------------
+| Ansible driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`Kubernetes クラスターのシステム要件<../kubernetes/kubernetes>` を参照してください。
 
-| Ansible driver は Exastro IT Automation システムのシステム要件に準拠するため、:doc:`../../installation/online/exastro/kubernetes` を参照してください。
+| ここでは Ansible Core に関するシステム要件を記載します。
 
 作業対象機器
 ------------
