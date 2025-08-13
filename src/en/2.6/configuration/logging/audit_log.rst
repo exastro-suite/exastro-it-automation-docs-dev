@@ -1,9 +1,9 @@
-========
+==============
 Monitoring log
-========
+==============
 
 Introduction
---------
+------------
 
 | The Exastro system operates on API base, the monitoring log outputs When Who did What.
 | This document contains description regarding the different setting values for the Monitoring log.
@@ -11,7 +11,7 @@ Introduction
 .. _security_audit_log:
 
 Monitoring log output destination
-----------------
+---------------------------------
 
 | The monitoring log is output to the playform-auth container's "/var/log/exastro" directory with the file name "exastro-audio.log"(default).
 |
@@ -19,14 +19,14 @@ Monitoring log output destination
 | ※For more information regarding Persistent volumes, see the Installation documents:doc:`../../installation/online/exastro/kubernetes`.
 
 Monitoring log setting items.
-------------------
+-----------------------------
 
 | The items that can be configured are the :kbd:`AUDIT_LOG` items of the Exastro Platform authentication function's Option Parameters.
 
 .. include:: ../../include/helm_option_platform-auth.rst
 
 Monitoring log contents
---------------
+-----------------------
 
 | The monitoring log is output in :kbd:`Json format`.
 | 1 event(API call) starts a detailed section and contains the following:
@@ -150,9 +150,9 @@ Monitoring log contents
 .. _security_audit_log_get:
 
 Fetching Monitoring log
---------------
+-----------------------
 
-| The Monitoring logs can be downloaded from the Organization management page. 
+| The Monitoring logs can be downloaded from the Organization management page.
 
 .. figure:: /images/ja/log/audit_log/audit_log_top.png
     :alt: Top monitoring log
@@ -191,11 +191,11 @@ Fetching Monitoring log
      - Displays when the Monitoring log was downloaded.
    * - Status
      - | Displays the process status of the Archived monitoring log. The Status codes are as following.
-       | NotExecuted 
-       | Executing 
-       | Completion 
-       | Failed 
-       | NoData 
+       | NotExecuted
+       | Executing
+       | Completion
+       | Failed
+       | NoData
    * - Target period
      - Displays the target period in the following format: [To] ～ [From]
    * - Number of output targets

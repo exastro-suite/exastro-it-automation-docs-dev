@@ -32,7 +32,7 @@
    * - exastro-it-automation.ita-by-terraform-cloud-ep-vars-listup.image.tag
      - コンテナイメージのタグ
      - 不可
-     - ""
+     - " "
    * - exastro-it-automation.ita-by-terraform-cloud-ep-vars-listup.image.pullPolicy
      - イメージプルポリシー
      - 可

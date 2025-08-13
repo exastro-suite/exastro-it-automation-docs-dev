@@ -1,43 +1,43 @@
 
-1. サービス再開
+1. Service resumption
 
-   | サービス停止時に取得した各 Deployment の Pod 起動数を元に戻します。
+   | Restore the number of Pods for each Deployment to the values recorded at the time of service shutdown.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       kubectl scale deploy,statefulset -n exastro --replicas=1 --all=true
 
-   | 個別にreplicas数を設定する場合は以下のコマンドで再開します。
-   | サービス名は、停止時に確認した内容を入力してください。
+   | To resume with individually specified replica counts, use the following command.
+   | Enter the service name that was confirmed when the service was stopped.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      kubectl scale deployment [サービス名] -n exastro --replicas=[replicas数]
+      kubectl scale deployment [Service Name] -n exastro --replicas=[replicas数]
 
-   | Ver.2.4.0以降、サービス名：keycloak、mongodbについては以下のコマンドで再開します。
+   | For version 2.4.0 and later, use the following commands to resume the services 'keycloak' and 'mongodb'.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
-      kubectl scale statefulset [サービス名] -n exastro --replicas=[replicas数]
+      kubectl scale statefulset [Service Name] -n exastro --replicas=[replicas数]
 
    .. tip::
-      | サービス名を複数指定する場合は、カンマ区切りで複数のサービス名を指定することができます。
+      | To specify multiple service names, separate them using commas.
 
 
-2. Pod 起動数の確認
+2. Check the number of running Pods
 
-   | 上記で起動した対象の Pod 数が元に戻りすべて :kbd:`READY` になっていることを確認します。
+   | Verify that the number of target Pods started above has been restored and all are in the READY state.
 
    .. code-block:: bash
-      :caption: コマンド
+      :caption: Command
 
       kubectl get deploy,statefulset -n exastro
 
    .. code-block:: bash
-      :caption: 実行結果
+      :caption: Execution result
 
       NAME                                                     READY   UP-TO-DATE   AVAILABLE   AGE
       deployment.apps/ita-api-admin                            1/1     1            1           26h
@@ -73,4 +73,4 @@
       statefulset.apps/mongo      1/1     26h
 
    .. warning::
-      | バージョンによって、表示されるサービスが異なります。
+      | The displayed services vary depending on the version.

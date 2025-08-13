@@ -24,12 +24,6 @@ OASE Agent on Docker Compose - Online
 ====
 
 | 本書では、Exastro IT AutomationにおいてOASEを利用する際に、外部との連携に必要となる、Exastro OASE Agentを導入する手順について説明します。
-
-特徴
-====
-
-| OASEを利用するための絶対条件である、Exastro OASE Agentの導入方法となります。
-| Docker Compose を利用することで、Exastro OASE Agentを簡単に起動することが可能です。
 | Exastro OASE Agentの設定や運用については、:ref:`エージェント概要<agent_about>` をご参照ください。
 
 前提条件
@@ -41,56 +35,7 @@ OASE Agent on Docker Compose - Online
 
 - デプロイ環境
 
-  | 動作確認が取れているコンテナ環境の最小要求リソースとバージョンは下記のとおりです。
-
-  .. list-table:: ハードウェア要件(最小構成)
-   :widths: 1, 1
-   :header-rows: 1
-  
-   * - リソース種別
-     - 要求リソース
-   * - CPU
-     - 2 Cores (3.0 GHz, x86_64)
-   * - Memory
-     - 4GB
-   * - Storage (Container image size)
-     - 10GB
-
-- 動作確認済みオペレーティングシステム
-
-  以下は、動作確認済のバージョンとなります。
-
-  .. list-table:: オペレーティングシステム
-   :widths: 20, 20
-   :header-rows: 1
-
-   * - 種別
-     - バージョン
-   * - Red Hat Enterprise Linux
-     - バージョン	8
-   * - AlmaLinux
-     - バージョン	8
-   * - Ubuntu
-     - バージョン	22.04
-
-- 動作確認済みコンテナプラットフォーム
-
-  手動でインストールする際には、下記のコンテナプラットフォームを準備してください。
-  以下は、動作確認済のバージョンとなります。
-
-  .. list-table:: コンテナプラットフォーム
-   :widths: 20, 10
-   :header-rows: 1
-
-   * - ソフトウェア
-     - バージョン
-   * - Podman Engine ※Podman 利用時
-     - バージョン	4.4
-   * - Docker Compose ※Podman 利用時
-     - バージョン	2.20
-   * - Docker Engine ※Docker 利用時
-     - バージョン	24
-
+  | デプロイ環境のシステム要件については :doc:`構成・構築ガイド<../../../configuration/OASE_agent/docker_compose>` を参照してください。
 
 - アプリケーション
 
@@ -121,7 +66,7 @@ OASE Agent on Docker Compose - Online
 
    cd exastro-docker-compose/ita_ag_oase
 
-| 環境変数の設定ファイル（.env）を、サンプルから作成します。 
+| 環境変数の設定ファイル（.env）を、サンプルから作成します。
 
 .. code-block:: shell
    :caption: （Docker利用時）サンプルからコピー
@@ -133,7 +78,7 @@ OASE Agent on Docker Compose - Online
 
    cp .env.podman.sample .env
 
-| 末尾のパラメータ一覧を参考に、起動に必要な情報を .env に登録します。 
+| 末尾のパラメータ一覧を参考に、起動に必要な情報を .env に登録します。
 
 .. code-block:: shell
 
@@ -147,19 +92,19 @@ OASE Agent on Docker Compose - Online
 .. code-block:: shell
    :caption: docker コマンドを利用する場合(Docker環境)
 
-   docker compose up -d --wait  
+   docker compose up -d --wait
 
 .. code-block:: shell
    :caption: docker-compose コマンドを利用する場合(Podman環境)
 
-   docker-compose up -d --wait  
+   docker-compose up -d --wait
 
 パラメータ一覧
 ==============
 
 | Exastro OASE Agentの仕様と一部のパラメータの関連については、:ref:`oase_agent_flow` にて説明しています。
 
-.. list-table:: 
+.. list-table::
  :widths: 5, 7, 1, 5
  :header-rows: 1
 
@@ -199,7 +144,7 @@ OASE Agent on Docker Compose - Online
    - OASE エージェント の実行ユーザ
    - 不要
    - 1000 (デフォルト): Docker 利用の場合
-  
+
      0: Podman 利用の場合
  * - HOST_DOCKER_GID
    - ホスト上の Docker のグループID
@@ -266,7 +211,7 @@ OASE Agent on Docker Compose - Online
 アップグレードの準備
 --------------------
 
-.. warning:: 
+.. warning::
   | アップグレード実施前に、バックアップを取得しておくことを推奨します。
   | バックアップ対象は :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/` です。
 
@@ -321,12 +266,12 @@ OASE Agent on Docker Compose - Online
 .. code-block:: shell
    :caption: docker コマンドを利用する場合(Docker環境)
 
-   docker compose up -d --wait  
+   docker compose up -d --wait
 
 .. code-block:: shell
    :caption: docker-compose コマンドを利用する場合(Podman環境)
 
-   docker-compose up -d --wait  
+   docker-compose up -d --wait
 
 
 アンインストール
@@ -337,7 +282,7 @@ OASE Agent on Docker Compose - Online
 アンインストールの準備
 ----------------------
 
-.. warning:: 
+.. warning::
   | アンインストール実施前に、バックアップを取得しておくことを推奨します。
   | バックアップ対象は :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/` です。
 

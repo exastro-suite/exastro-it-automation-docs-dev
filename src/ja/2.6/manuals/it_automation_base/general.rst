@@ -34,7 +34,7 @@
       * - | パスワード
         - | 管理者から指定したパスワード
           | e.g. password ※
-          
+
    .. tip::
       |  ※初回ログイン時は、:ref:`organization_creation` で指定した管理者のログインID(ユーザー名、E-mailアドレス)、初期パスワードを使用してください。
 
@@ -74,4 +74,6 @@
       :align: left
       :class: with-border-thin
 
-.. include:: ../it_automation_base/setting_profile.rst
+.. include:: ../it_automation_base/setting_profile_account_management.rst
+
+.. include:: ../it_automation_base/setting_profile_refresh_token.rst

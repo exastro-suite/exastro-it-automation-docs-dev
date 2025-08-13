@@ -281,16 +281,16 @@
    :alt: 新規メニュー登録
    :width: 800px
    :align: center
-   
+
    新規メニュー登録
-   
+
 | (2) :menuselection:`ロール・メニュー紐付管理` メニューで登録したメニューに対して、「メンテナンス可」または「閲覧のみ」の権限を付与します。
 
 .. figure:: /images/ja/management_console/custom_menu/sample1_role_regist.png
    :alt: ロール・メニュー紐付管理登録
    :width: 800px
    :align: center
-   
+
    ロール・メニュー紐付管理登録
 
 | (3) 登録したメニューを表示します。
@@ -308,7 +308,7 @@
    :alt: サンプル①
    :width: 800px
    :align: center
-   
+
    サンプル①
 
 | サンプル②
@@ -319,7 +319,7 @@
    :alt: サンプル②
    :width: 800px
    :align: center
-   
+
    サンプル②
 
 | サンプル③
@@ -329,7 +329,7 @@
    :alt: サンプル③
    :width: 800px
    :align: center
-   
+
    サンプル③
 
 JavaScriptライブラリ情報
@@ -342,13 +342,13 @@ jQuery
 JavaScriptコードをより容易に記述できるようにしたライブラリ。
 
 +---------------+-----------------------------------+
-| URL           | https://jquery.com/               | 
+| URL           | https://jquery.com/               |
 +---------------+-----------------------------------+
-| GitHub        | https://github.com/jquery/jquery  | 
+| GitHub        | https://github.com/jquery/jquery  |
 +---------------+-----------------------------------+
-| ライセンス    | MIT license                       | 
+| ライセンス    | MIT license                       |
 +---------------+-----------------------------------+
-| 使用バージョン| 3.5.1                             | 
+| 使用バージョン| 3.5.1                             |
 +---------------+-----------------------------------+
 
 .. code-block::
@@ -360,13 +360,13 @@ select2
 選択ボックスを便利にするjQueryライブラリ。別途jQueryの読み込みが必要です。
 
 +---------------+-----------------------------------+
-| URL           | https://select2.org/              | 
+| URL           | https://select2.org/              |
 +---------------+-----------------------------------+
-| GitHub        | https://github.com/jquery/jquery  | 
+| GitHub        | https://github.com/jquery/jquery  |
 +---------------+-----------------------------------+
-| ライセンス    | MIT license                       | 
+| ライセンス    | MIT license                       |
 +---------------+-----------------------------------+
-| 使用バージョン| 4.0.13                            | 
+| 使用バージョン| 4.0.13                            |
 +---------------+-----------------------------------+
 
 .. code-block::
@@ -379,17 +379,17 @@ Ace
 Web用の高機能テキストエディタ―。
 
 +---------------+----------------------------------------+
-| URL           | https://ace.c9.io/                     | 
+| URL           | https://ace.c9.io/                     |
 +---------------+----------------------------------------+
-| GitHub        | https://github.com/ajaxorg/ace-builds/ | 
+| GitHub        | https://github.com/ajaxorg/ace-builds/ |
 +---------------+----------------------------------------+
-| ライセンス    | BSD license                            | 
+| ライセンス    | BSD license                            |
 +---------------+----------------------------------------+
-| 使用バージョン| v1.5.0                                 | 
+| 使用バージョン| v1.5.0                                 |
 +---------------+----------------------------------------+
-| モード        | json,python,terraform,text,yaml        | 
+| モード        | json,python,terraform,text,yaml        |
 +---------------+----------------------------------------+
-| テーマ        | chrome,monokai                         | 
+| テーマ        | chrome,monokai                         |
 +---------------+----------------------------------------+
 
 .. code-block::
@@ -401,14 +401,14 @@ ExcelJS
 スプレッドシートのデータとスタイルを読み取り・操作、XLSXおよびJSONへの書き出し。
 
 +---------------+----------------------------------------+
-| GitHub        | https://github.com/exceljs/exceljs     | 
+| GitHub        | https://github.com/exceljs/exceljs     |
 +---------------+----------------------------------------+
-| ライセンス    | MIT license                            | 
+| ライセンス    | MIT license                            |
 +---------------+----------------------------------------+
-| 使用バージョン| 4.3.0                                  | 
+| 使用バージョン| 4.3.0                                  |
 +---------------+----------------------------------------+
 
-.. code-block:: 
+.. code-block::
 
  <script src="/_/ita/lib/exceljs/exceljs.js"></script>
 
@@ -417,14 +417,15 @@ diff2html
 git diffまたはunified diffからHTML差分を生成。
 
 +---------------+----------------------------------------+
-| URL           | https://diff2html.xyz/                 | 
+| URL           | https://diff2html.xyz/                 |
 +---------------+----------------------------------------+
-| GitHub        | https://github.com/rtfpessoa/diff2html | 
+| GitHub        | https://github.com/rtfpessoa/diff2html |
 +---------------+----------------------------------------+
-| ライセンス    | MIT license                            | 
+| ライセンス    | MIT license                            |
 +---------------+----------------------------------------+
-| 使用バージョン| v2.11.3                                | 
+| 使用バージョン| v2.11.3                                |
 +---------------+----------------------------------------+
+
 .. code-block::
 
  <script src="/_/ita/lib/diff2html/diff2html.min.js"></script>
@@ -450,9 +451,9 @@ common.js
 変数fnに基本的な各種関数をまとめたものです。他のITA JavaScriptを使用する際に必須になります。
 
 .. code-block::
- 
+
  <script src="/_/ita/js/common.js"></script>
- 
+
 主な関数は下記の通りです。
 
 fn.fetch
@@ -465,13 +466,13 @@ ITA APIにリクエストを送信します。
  const result = await fn.fetch( URL, TOKEN, METHOD, BODY );
 
 +--------+-------------------------------------------------------------------------------------------------------+
-| URL    | APIエンドポイント。「/api/{organization_id}/workspaces/{workspace_id}/ita」は省略してください。       | 
+| URL    | APIエンドポイント。「/api/{organization_id}/workspaces/{workspace_id}/ita」は省略してください。       |
 +--------+-------------------------------------------------------------------------------------------------------+
-| TOKEN  | 基本的にnullを指定。Worker内などで使用する場合はTokenを別途取得して渡してください。                   | 
+| TOKEN  | 基本的にnullを指定。Worker内などで使用する場合はTokenを別途取得して渡してください。                   |
 +--------+-------------------------------------------------------------------------------------------------------+
-| METHOD | POST,GETなどメソッド。省略した場合はGETになります。                                                   | 
+| METHOD | POST,GETなどメソッド。省略した場合はGETになります。                                                   |
 +--------+-------------------------------------------------------------------------------------------------------+
-| BODY   | POSTの場合のbodyデータ。省略可。                                                                      | 
+| BODY   | POSTの場合のbodyデータ。省略可。                                                                      |
 +--------+-------------------------------------------------------------------------------------------------------+
 
 **使用例**
@@ -497,9 +498,9 @@ fn.xhr
  const result = await fn.xhr( URL, FORMDATA );
 
 +----------+----------------------------------------------------------------------+
-| URL      | APIエンドポイント。「/menu/{menu_name_rest}/maintenance/all/」       | 
+| URL      | APIエンドポイント。「/menu/{menu_name_rest}/maintenance/all/」       |
 +----------+----------------------------------------------------------------------+
-| FORMDATA | 登録用データをフォームデータに変換して渡してください。               | 
+| FORMDATA | 登録用データをフォームデータに変換して渡してください。               |
 +----------+----------------------------------------------------------------------+
 
 **使用例**
@@ -543,7 +544,7 @@ common.css
 ITAの基本的な画面のスタイルです。ITA JavaScriptを使用する場合は読み込み必須です。
 
 .. code-block::
- 
+
  <link rel="stylesheet" href="/_/ita/css/common.css">
 
 ui.js
@@ -551,7 +552,7 @@ ui.js
 ITAの基本的な画面を生成します。
 
 .. code-block::
- 
+
  <script defer src="/_/ita/js/ui.js"></script>
 
 **使用例**
@@ -559,7 +560,7 @@ ITAの基本的な画面を生成します。
 タブが３つある画面を作成します。
 
 .. code-block:: html
- 
+
  <div id="content"></div>
 
 .. code-block:: javascript
@@ -567,7 +568,7 @@ ITAの基本的な画面を生成します。
  window.addEventListener('DOMContentLoaded', () => {
      // 対象
      const $content = $('#content');
-     
+
      // ui.js
      const ui = new CommonUi();
 
@@ -582,7 +583,7 @@ ITAの基本的な画面を生成します。
      // タブ内部のHTML
      ui.tab1 = function(){ return 'Tab1 Contents'};
      ui.tab2 = function(){ return 'Tab2 Contents'};
-     
+
      // タブ定義
      // nameで上記で設定した関数が呼ばれます。タブのIDにもなります。
      // titleがタブに表示されます。
@@ -598,7 +599,7 @@ ITAの基本的な画面を生成します。
 
      // メニュータイトル・説明欄
      const menuHtml = ui.commonContainer( ui.info.menu_info.menu_name, ui.info.menu_info.menu_info, tabHtml );
-     
+
      // 対象にtabContentクラスをセットしHTMLをセット
      $content.addClass('tabContent').html( menuHtml );
 
@@ -617,11 +618,11 @@ table.js
 指定したパラメータシートのTable表示・編集ができます。
 
 .. code-block::
- 
+
  <script defer src="/_/ita/js/table.js"></script>
 
 .. code-block:: javascript
- 
+
  const table = new DataTable( ID, MODE, INFO, PARAMS );
  const $table = table.setup();
 
@@ -640,7 +641,7 @@ table.js
 オペレーション一覧を表示します。
 
 .. code-block:: html
- 
+
  <div id="content"></div>
 
 .. code-block:: javascript
@@ -670,12 +671,12 @@ dialog.js
 ダイアログを表示します。
 
 .. code-block::
- 
+
  <script defer src="/_/ita/js/dialog.js"></script>
  <link rel="stylesheet" href="/_/ita/css/dialog.css">
 
 .. code-block:: javascript
- 
+
  const dialog = new Dialog( CONFIG, FUNCTIONS );
  dialog.open( CONTENTS );
 

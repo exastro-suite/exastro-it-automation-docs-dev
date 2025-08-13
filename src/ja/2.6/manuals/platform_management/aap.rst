@@ -24,7 +24,7 @@ Ansible Automation Controller の登録
   - :kbd:`curl`
   - :kbd:`git`
   - :kbd:`jq`
- 
+
 登録方法
 --------
 
@@ -35,7 +35,7 @@ Ansible Automation Controller の登録
    .. group-tab:: 設定ファイルとスクリプト利用
 
       - 特徴
-       
+
       | Rest API を使った登録方法に比べ、利用するパラメータ情報の事前準備が不要なためユーザの操作に向いています。
 
       - 登録方法
@@ -62,15 +62,15 @@ Ansible Automation Controller の登録
 
          .. code-block:: diff
             :caption: api-auth.conf
-     
+
             - CONF_BASE_URL=http://platform-auth:8001
             + CONF_BASE_URL=http://exastro-suite-mng.example.local
               CURL_OPT=-sv
-        
+
          .. tip::
             | 自己証明書を利用している場合、証明書エラーが発生します。
             | 設定ファイル内の :kbd:`CURL_OPT=-sv` を :kbd:`CURL_OPT=-svk` に変更することで証明書エラーを回避できますが、認証機関から発行された正しい証明書をインストールすることを推奨します。
-            
+
       #. Ansible Automation Controller 情報の設定
 
          | 設定ファイルの作成は、:file:`./exastro-platform/tools/initial-settings-ansible.sample.json` を基に、作成する Ansible Automation Controller の情報を指定した JSON ファイルを基に作成します。
@@ -85,14 +85,14 @@ Ansible Automation Controller の登録
 
          .. raw:: html
 
-            <details> 
+            <details>
               <summary>initial-settings-ansible.sample.json</summary>
 
          .. code-block:: json
 
             {
               "input_limit_setting": true,
-              "execution_engine_list": [  
+              "execution_engine_list": [
                 "Ansible Automation Controller", "Ansible Execution Agent"
               ],
               "initial_data": {
@@ -146,7 +146,7 @@ Ansible Automation Controller の登録
 
          .. raw:: html
 
-           <details> 
+           <details>
              <summary>Ansible Automation Controller 登録時のパラメータ(表示・非表示)</summary>
 
          .. include:: ../../include/api_option_initial_settings_ansible.rst
@@ -163,9 +163,9 @@ Ansible Automation Controller の登録
 
          .. raw:: html
 
-           </details> 
+           </details>
 
-        
+
       #. Ansible Automation Controller 作成実行
 
          .. code-block:: bash
@@ -184,7 +184,7 @@ Ansible Automation Controller の登録
          -  成功時の結果表示
 
             resultが”000-00000”が、 Ansible Automation Controller の作成に成功したことを示しています。
-            
+
             .. code-block:: bash
                :caption: 実行結果(成功時)
 
@@ -194,11 +194,11 @@ Ansible Automation Controller の登録
                < Server: Apache/2.4.37 (Red Hat Enterprise Linux) mod_wsgi/4.7.1 Python/3.9
                < Content-Length: 107
                < Content-Type: application/json
-               < 
+               <
                {
-                 "data": null, 
-                 "message": "SUCCESS", 
-                 "result": "000-00000", 
+                 "data": null,
+                 "message": "SUCCESS",
+                 "result": "000-00000",
                  "ts": "2022-08-18T01:49:17.251Z"
                }
                * Connection #0 to host platform-auth left intact
@@ -208,7 +208,7 @@ Ansible Automation Controller の登録
 
             .. code-block:: bash
                :caption: 実行結果(失敗時)
- 
+
                ...
                < HTTP/1.1 400 BAD REQUEST
                < Date: Thu, 18 Aug 2022 05:29:35 GMT
@@ -240,7 +240,7 @@ Ansible Automation Controller の登録
 
          .. code-block::
            :caption: コマンド
-   
+
            MY_KEY=`base64 -w 0 my-aac-key.pem`
 
       2. コマンド
@@ -254,15 +254,15 @@ Ansible Automation Controller の登録
          | 各パラメータについては下記を参照してください。
 
          .. raw:: html
-          
-            <details> 
+
+            <details>
               <summary>Ansible Automation Controller 登録時のパラメータ</summary>
 
          .. include:: ../../include/api_option_initial_settings_ansible.rst
-          
+
          .. raw:: html
-          
-            </details> 
+
+            </details>
 
          .. code-block:: bash
             :caption: コマンド
@@ -323,7 +323,7 @@ Ansible Automation Controller の登録
                   | ・Ansible Execution Agent
                   | 記載した実行エンジンが利用可能となります。
                   | 上記コマンドの例では、Ansible Automation ControllerとAnsible Execution Agentが利用可能になります。
-                  
+
 
 Ansible Automation Contoller 連携の確認
 ---------------------------------------
@@ -336,18 +336,18 @@ Ansible Automation Contoller 連携の確認
 
       .. code-block:: bash
          :caption: コマンド
-    
+
          ./exastro-platform/tools/get-initial-settings-ansible.sh
-          
+
          organization id : INPUT-ORGANIZATION-ID-TO-SET # 設定先のオーガナイゼーションID
-    
+
          your username : INPUT-YOUR-USERNAME # システム管理者のユーザ名を入力します
          your password : INPUT-USER-PASSWORD # システム管理者のパスワードを入力します
 
       -  結果表示
 
          resultが”000-00000”が、 Ansible Automation Controller の作成に成功したことを示しています。
-          
+
          .. code-block:: json
             :caption: 実行結果(成功例)
 
@@ -394,7 +394,7 @@ Ansible Automation Contoller 連携の確認
               "message": "SUCCESS",
               "result": "000-00000",
               "ts": "2023-02-03T14:47:10.185Z"
-            }     
+            }
 
 
       -  失敗時の結果表示イメージ
@@ -423,7 +423,7 @@ Ansible Automation Contoller 連携の確認
 
       .. code-block:: bash
          :caption: コマンド
-    
+
          curl -X 'GET' \
            'http://exastro-suite-mng.example.local/api/ita/org001/initial-settings/ansible/' \
             -H 'accept: application/json'
@@ -431,7 +431,7 @@ Ansible Automation Contoller 連携の確認
       -  結果表示
 
          resultが”000-00000”が、 Ansible Automation Controller の作成に成功したことを示しています。
-          
+
          .. code-block:: json
             :caption: 実行結果(成功例)
 

@@ -180,7 +180,7 @@ Terrform driverについて
      - typeを記載しなかった場合、ITA上では string型と同じ扱いになります。
      - ×
      - ×
-     - 
+     -
      - あいう
 
 .. _terraform_common_member_vars_description:
@@ -193,11 +193,11 @@ Terrform driverについて
    | 変数のタイプが変数ネスト管理メニューの登録対象の場合、最大繰返数をもとに[0],[1],[2]…と採番してメンバー変数となります。
    | 変数ネストに関しては「:doc:`./terraform_cloud_ep` -> :ref:`terraform_cloud_ep_nested_variable`」「:doc:`./terraform_cli` -> :ref:`terraform_cli_nested_variable`」を参照してください。
 
-      -  | **例: 変数タイプがobjectの場合**
-   
+      - | **例: 変数タイプがobjectの場合**
+
       #. | tfファイルと登録値
 
-         .. code-block:: bash 
+         .. code-block:: hcl
 
            variable "VAR_hoge" {
                type = object({
@@ -205,18 +205,18 @@ Terrform driverについて
                  IP = string
                })
                default = {
-                 “NAME” = “machine_01”,
-                 “IP” = “127.0.0.1”
+                 "NAME" = "machine_01",
+                 "IP" = "127.0.0.1"
               }
            }
 
-      #. | 代入値例(代入値自動登録設定) 
+      #. | 代入値例(代入値自動登録設定)
 
          .. list-table::
             :widths: 5 10 10 5 10
             :header-rows: 1
             :align: left
-         
+
             * - 項番
               - 変数名
               - メンバー変数
@@ -235,7 +235,7 @@ Terrform driverについて
 
       #. | Terraformに送信される値
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
             {
                 NAME = "my_machine"
@@ -245,23 +245,23 @@ Terrform driverについて
    |
 
       -  | **例: 変数のタイプがtupleの場合**
-   
+
       #. | tfファイルと登録値
 
-         .. code-block:: bash 
+         .. code-block:: hcl
 
            variable "VAR_hoge" {
                type = tuple([string,number])
                default = ["abc",2023]
            }
 
-      #. | 代入値例(代入値自動登録設定) 
+      #. | 代入値例(代入値自動登録設定)
 
          .. list-table::
             :widths: 5 10 10 5 10
             :header-rows: 1
             :align: left
-         
+
             * - 項番
               - 変数名
               - メンバー変数
@@ -280,19 +280,19 @@ Terrform driverについて
 
       #. | Terraformに送信される値
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
             ["def", 2024]
 
    |
 
       -  | **例: 変数のタイプがネスト管理対象の場合**
-   
+
       #. | tfファイルと登録値
 
-         .. code-block:: bash 
+         .. code-block:: hcl
 
-           variable "VAR_hoge"{
+           variable "VAR_hoge" {
                type = list(set(string))
                default = [
                  ["aaa","bbb"]
@@ -300,13 +300,13 @@ Terrform driverについて
                ]
            }
 
-      #. | 代入値例(代入値自動登録設定) 
+      #. | 代入値例(代入値自動登録設定)
 
          .. list-table::
             :widths: 5 10 10 5 10
             :header-rows: 1
             :align: left
-         
+
             * - 項番
               - 変数名
               - メンバー変数
@@ -335,7 +335,7 @@ Terrform driverについて
 
       #. | Terraformに送信される値
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
             [
                ["あああ", "いいい"],
@@ -352,7 +352,7 @@ Terrform driverについて
 
       #. | tfファイルと登録値
 
-         .. code-block:: bash 
+         .. code-block:: hcl
 
             variable "VAR_hoge" {
                type = list(string)
@@ -364,7 +364,7 @@ Terrform driverについて
             :widths: 5 10 10 5 10
             :header-rows: 1
             :align: left
-         
+
             * - 項番
               - 変数名
               - メンバー変数
@@ -380,34 +380,34 @@ Terrform driverについて
               - 入力不要
               - 2
               - かきく
-    
+
       #. | Terraformに送信される値
 
-         .. code-block:: bash 
-        
-            ["あいう","かきく"] 
+         .. code-block:: bash
+
+            ["あいう","かきく"]
 
    |
 
       -  | **例: 階層構造の変数の最下層の変数タイプがsetの場合**
-   
+
       #. | tfファイルと登録値
 
-         .. code-block:: bash 
-        
+         .. code-block:: hcl
+
             variable "VAR_hoge" {
                type = object({
                   key = set(number)
                })
             }
 
-      #. | 代入値例(代入値自動登録設定) 
+      #. | 代入値例(代入値自動登録設定)
 
          .. list-table::
             :widths: 5 10 10 5 10
             :header-rows: 1
             :align: left
-         
+
             * - 項番
               - 変数名
               - メンバー変数
@@ -426,7 +426,7 @@ Terrform driverについて
 
       #. | Terraformに送信される値
 
-         .. code-block:: bash 
+         .. code-block:: bash
 
             {
                 key = [1,2]
@@ -469,70 +469,70 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
 #. | **シンプルなパターン**
 
    #. | string型
-    
+
       .. figure:: /images/ja/terraform_common/variable_string.png
          :alt: string型
          :align: left
          :width: 600px
-               
+
    #. | number型
-   
+
       .. figure:: /images/ja/terraform_common/variable_number.png
          :alt: number型
          :align: left
          :width: 600px
-   
+
    #. | bool型
-   
+
       .. figure:: /images/ja/terraform_common/variable_bool.png
          :alt: bool型
          :align: left
          :width: 600px
 
    #. | list型
-  
+
       .. figure:: /images/ja/terraform_common/variable_list.png
          :alt: list型
          :align: left
          :width: 600px
-  
+
    #. | set型
-   
+
       .. figure:: /images/ja/terraform_common/variable_set.png
          :alt: set型
          :align: left
          :width: 600px
-      
+
 
    #. | tuple型
- 
+
       .. figure:: /images/ja/terraform_common/variable_tuple.png
          :alt: tuple型
          :align: left
          :width: 600px
 
    #. | map型
-   
+
       .. figure:: /images/ja/terraform_common/variable_map.png
          :alt: map型
          :align: left
          :width: 600px
-                 
+
 
    #. | object型
-   
+
       .. figure:: /images/ja/terraform_common/variable_object.png
          :alt: object型
          :align: left
          :width: 600px
 
    #. | any型
- 
+
       .. figure:: /images/ja/terraform_common/variable_any.png
          :alt: map型
          :align: left
          :width: 600px
- 
+
 
    #. | typeの記載がない
 
@@ -551,12 +551,12 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
          :width: 600px
 
    #. | list型の中にobject型
-   
+
       .. figure:: /images/ja/terraform_common/variable_list_object.png
          :alt: list型の中にobject型
          :align: left
          :width: 600px
- 
+
 
    #. | object型の中のlist型の中にobject型
 
@@ -573,7 +573,7 @@ Module素材の「Variableブロック」の記入例と、代入値自動登録
          :alt: list型の中にmap型
          :align: left
          :width: 600px
-           
+
 .. _terraform_nested_example:
 
 変数ネスト管理フロー例

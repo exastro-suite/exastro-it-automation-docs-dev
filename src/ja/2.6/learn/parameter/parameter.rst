@@ -14,7 +14,7 @@
 
 | システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
 
-.. _quickstart_server_information_parmeter:
+.. _quickstart_server_information_parmeter_parameter:
 
 データシートの作成
 ------------------
@@ -37,24 +37,24 @@
      - 項目1設定値
    * - 項目の名前
      - :kbd:`present-absent`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`present-absent`
    * - 入力方式
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - :kbd:`16`
    * - 正規表現
-     - 
+     -
    * - 初期値
-     - 
+     -
    * - 必須
      - ✓
    * - 一意制約
      - ✓
    * - 説明
-     - 
+     -
    * - 備考
-     - 
+     -
 
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
@@ -94,7 +94,7 @@
    * - パラメータ
      - 備考
    * - present-absent
-     - 
+     -
    * - :kbd:`present`
      - 作成
    * - :kbd:`absent`
@@ -129,14 +129,14 @@
      user:
        name: "{{ item.0 }}"
        group: "{{ item.1 }}"
-       state: present 
+       state: present
      with_together:
        - "{{ ITA_DFLT_User_Names }}"
        - "{{ ITA_DFLT_User_Group_Names }}"
 
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、グループとユーザーを作成するために、「グループ作成情報」と「ユーザー作成情報」を管理するパラメータシートを作成します。
 
-.. tip:: 
+.. tip::
    | パラメータシート作成情報で :menuselection:`バンドル利用` を「利用する」にチェックを入れることで、1つの設定項目に対して複数のパラメータを設定することが可能になります。
 
 グループのパラメータシート作成
@@ -156,7 +156,7 @@
    * - 項目の名前
      - :kbd:`グループ名`
      - :kbd:`状態`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`ITA_DFLT_Groups`
      - :kbd:`state`
    * - 入力方式
@@ -166,23 +166,23 @@
      - :kbd:`32`
      - :kbd:`入力用:状態:パラメータ/present-absent`
    * - 正規表現
-     - 
-     - 
+     -
+     -
    * - 初期値
-     - 
-     - 
+     -
+     -
    * - 必須
      - ✓
      - ✓
    * - 一意制約
      - ✓
-     - 
+     -
    * - 説明
-     - 
-     - 
+     -
+     -
    * - 備考
-     - 
-     - 
+     -
+     -
 
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
@@ -226,7 +226,7 @@
      - :kbd:`ユーザー名`
      - :kbd:`グループ`
      - :kbd:`状態`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`ITA_DFLT_User_Names`
      - :kbd:`ITA_DFLT_User_Group_Names`
      - :kbd:`state`
@@ -239,29 +239,29 @@
      - :kbd:`入力用:新規グループ:パラメータ/グループ名`
      - :kbd:`入力用:状態:パラメータ/present-absent`
    * - 正規表現
-     - 
-     - 
-     - 
+     -
+     -
+     -
    * - 初期値
-     - 
-     - 
-     - 
+     -
+     -
+     -
    * - 必須
      - ✓
      - ✓
      - ✓
    * - 一意制約
-     - 
-     - 
-     - 
+     -
+     -
+     -
    * - 説明
-     - 
-     - 
-     - 
+     -
+     -
+     -
    * - 備考
-     - 
-     - 
-     - 
+     -
+     -
+     -
 
 .. list-table:: パラメータシート作成情報の設定値
    :widths: 5 10
@@ -292,7 +292,7 @@
 --------------
 
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
-| 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と :ref:`quickstart_server_information_parmeter` で登録したパラメータシートの項目の紐付けを行います。
+| 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と :ref:`quickstart_server_information_parmeter_parameter` で登録したパラメータシートの項目の紐付けを行います。
 
 .. glossary:: Movement
    Exastro IT Automation における、最小の作業単位のことを指します。
@@ -316,8 +316,8 @@
 
    * - Movement名
      - Ansible利用情報
-     - 
-   * - 
+     -
+   * -
      - ホスト指定形式
      - ヘッダーセクション
    * - :kbd:`新規ユーザー登録`
@@ -360,7 +360,7 @@ Ansible Playbook 登録
      user:
        name: "{{ item.0 }}"
        group: "{{ item.1 }}"
-       state: present 
+       state: present
      with_together:
        - "{{ ITA_DFLT_User_Names }}"
        - "{{ ITA_DFLT_User_Group_Names }}"
@@ -558,17 +558,17 @@ Movement と Ansible Playbook の紐付け
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - ssh秘密鍵ファイル
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
@@ -646,9 +646,9 @@ Movement と Ansible Playbook の紐付け
     - 代入順序
     - パラメータ
     -
-  * - 
+  * -
     - オペレーション名
-    - 
+    -
     - グループ名
     - 状態
   * - :kbd:`server01`
@@ -676,11 +676,11 @@ Movement と Ansible Playbook の紐付け
     - オペレーション
     - 代入順序
     - パラメータ
-    - 
-    - 
-  * - 
+    -
+    -
+  * -
     - オペレーション名
-    - 
+    -
     - ユーザー名
     - グループ
     - 状態
@@ -806,8 +806,8 @@ Movement と Ansible Playbook の紐付け
      - ユーザー更新
 
 
-作業概要登録
-------------
+作業概要登録(ユーザー更新)
+--------------------------
 
 | オペレーション登録では、作業を実施する際の作業概要を定義します。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
@@ -857,9 +857,9 @@ Movement と Ansible Playbook の紐付け
     - 代入順序
     - パラメータ
     -
-  * - 
+  * -
     - オペレーション名
-    - 
+    -
     - グループ名
     - 状態
   * - :kbd:`server01`
@@ -888,11 +888,11 @@ Movement と Ansible Playbook の紐付け
     - オペレーション
     - 代入順序
     - パラメータ
-    - 
     -
-  * - 
+    -
+  * -
     - オペレーション名
-    - 
+    -
     - ユーザー名
     - グループ
     - 状態
@@ -945,24 +945,24 @@ Movement と Ansible Playbook の紐付け
      - 項目1設定値
    * - 項目の名前
      - :kbd:`ホスト`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`host`
    * - 入力方式
      - :kbd:`プルダウン選択`
    * - 選択項目
      - :kbd:`Ansible共通:機器一覧:ホスト名`
    * - 参照項目
-     - 
+     -
    * - 初期値
-     - 
+     -
    * - 必須
-     - 
+     -
    * - 一意制約
-     - 
+     -
    * - 説明
-     - 
+     -
    * - 備考
-     - 
+     -
 
 .. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
    :widths: 5 10
@@ -1000,7 +1000,7 @@ Movement と Ansible Playbook の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト
   * - :kbd:`server01`
@@ -1011,8 +1011,8 @@ Movement と Ansible Playbook の紐付け
     - :kbd:`server01`
 
 
-パラメータ集
-------------
+パラメータ集の表示
+------------------
 
 | それでは今まで登録してきた内容をもとにパラメータ集を表示させてみましょう。
 | :menuselection:`メインメニュー --> パラメータ集` を選択して、パラメータシートの情報を取得してみましょう。
@@ -1051,7 +1051,7 @@ Movement と Ansible Playbook の紐付け
   :header-rows: 1
 
   * - 対象パラメータ
-    - 
+    -
   * - :kbd:`新規グループ`
     - :kbd:`新規ユーザー`
 

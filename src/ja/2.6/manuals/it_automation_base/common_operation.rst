@@ -242,7 +242,7 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
   - | 共通設定：全メニューのサブメニューの共通部分に対して適用されます。
   - | 個別設定：設定したメニューでのみ適用されます。各項目で共通設定が選択されている場合、共通設定で選択されているものが適用されます。
 
-.. figure:: /images/ja/management_console/common_operation/table_setting_individual.png
+.. figure:: /images/ja/management_console/common_operation/table_setting_individual_v2-6.png
    :alt: テーブル設定_個別設定
    :width: 300px
    :align: center
@@ -286,8 +286,9 @@ ITAが提供するメニューの共通部分の画面説明、および操作�
        | ・省略
        | ・表示
      - |
-   * - | 項目表示・非表示
+   * - | 項目表示・非表示、左側固定・右側固定
      - | 項目ごとに表示・非表示を設定します。
+       | 横スクロールで左右に固定したい項目を設定します。
      - | 対象項目を選択してください。
      - |
 

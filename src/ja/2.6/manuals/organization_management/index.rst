@@ -10,9 +10,9 @@
    workspace
    user
    role
-   notification  
+   notification
    service_account_users
-   mailserver_settings 
-   organization_settings 
+   mailserver_settings
+   organization_settings
    idp_settings
    password_policy

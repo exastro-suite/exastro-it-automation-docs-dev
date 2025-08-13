@@ -1,24 +1,24 @@
 
-1. サービス再開
+1. Service Resumption
 
-   | サービス停止時に取得した各 Deployment の Pod 起動数を元に戻します。
+   | Restore the number of running Pods for each Deployment to the values recorded at the time of service shutdown.
 
    .. code-block:: bash
-     :caption: コマンド
+     :caption: Command
 
      kubectl scale deployment ita-ag-oase --namespace exastro --replicas=${RS_AG}
 
-2. Pod 起動数の確認
+2. Check the number of running Pods
 
-   | 上記で起動した対象の Pod 数が元に戻りすべて :kbd:`READY` になっていることを確認
+   | Verify that the number of target Pods started above has been restored and all are in the READY state.
 
    .. code-block:: bash
-     :caption: コマンド
+     :caption: Command
 
      kubectl get deployment --namespace exastro
 
    .. code-block:: bash
-     :caption: 実行結果
+     :caption: Execution result
 
      NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
      ita-ag-oase                              1/1     1            1           29m

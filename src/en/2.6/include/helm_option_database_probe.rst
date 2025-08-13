@@ -1,43 +1,43 @@
 
-.. list-table:: データベースコンテナのProbeオプションパラメータ
+.. list-table:: Probe Option Parameters for the Database Container
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - exastro-platform.mariadb.livenessProbe.exec.command
-     - livenessProbee実行時に行うコマンド
-     - 不可
+     - Command executed during livenessProbe
+     - Disabled
      - healthcheck.sh --su-mysql --connect --innodb_initialized
    * - exastro-platform.mariadb.livenessProbe.initialDelaySeconds
-     - 最初のlivenessProbeを実行するまでの待機時間(秒)
-     - 可
+     - Number of seconds to wait before the first livenessProbe is executed
+     - Enabled
      - 30
    * - exastro-platform.mariadb.livenessProbe.periodSeconds
-     - livenessProbeを実行する間隔(秒)
-     - 可
+     - Interval (in seconds) between livenessProbe executions
+     - Enabled
      - 10
    * - exastro-platform.mariadb.livenessProbe.timeoutSeconds
-     - livenessProbeがタイムアウトになるまでの時間(秒)
-     - 可
+     - Number of seconds after which the liveness probe times out
+     - Enabled
      - 3
    * - exastro-platform.mariadb.readinessProbe.exec.command
-     - readinessProbe実行時に行うコマンド
-     - 不可
+     - Command executed during readinessProbe
+     - Disabled
      - healthcheck.sh --su-mysql --connect --innodb_initialized
    * - exastro-platform.mariadb.readinessProbe.initialDelaySeconds
-     - 最初のreadinessProbeを実行するまでの待機時間(秒)
-     - 可
+     - Number of seconds to wait before the first readinessProbe is executed
+     - Enabled
      - 30
    * - exastro-platform.mariadb.readinessProbe.periodSeconds
-     - readinessProbeを実行する間隔(秒)
-     - 可
+     - How often (in seconds) to perform the readiness probe
+     - Enabled
      - 10
    * - exastro-platform.mariadb.readinessProbe.timeoutSeconds
-     - readinessProbeがタイムアウトになるまでの時間(秒)
-     - 可
+     - Number of seconds after which the readiness probe times out
+     - Enabled
      - 3

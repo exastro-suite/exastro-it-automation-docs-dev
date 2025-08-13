@@ -20,7 +20,7 @@
 | 事前準備を終えた後は、作業概要の登録やパラメータの設定といった必要最低限の操作を行い、繰り返し作業を実施します。
 
 - :ref:`繰り返し作業(1回目) <quickstart_1st>`
-  
+
   #. :ref:`作業概要登録 <quickstart_1st_regist_operation>`
   #. :ref:`パラメータ設定 <quickstart_1st_regist_parameter>`
   #. :ref:`作業実行 <quickstart_1st_run>`
@@ -43,7 +43,7 @@
 3. 作業用ワークスペース
 
 .. glossary:: 作業対象サーバ
-   Exastro IT Automation が Ansible を利用して、行う操作対象のサーバのことです。 
+   Exastro IT Automation が Ansible を利用して、行う操作対象のサーバのことです。
 
 .. glossary:: ワークスペース
    システムの構成情報や自動化タスクのための設計情報を中央管理するための作業領域のことです。
@@ -82,24 +82,24 @@
      - 項目1設定値
    * - 項目の名前
      - :kbd:`ホスト名`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`hostname`
    * - 入力方式
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - :kbd:`64`
    * - 正規表現
-     - 
+     -
    * - 初期値
-     - 
+     -
    * - 必須
      - ✓
    * - 一意制約
-     - 
+     -
    * - 説明
-     - 
+     -
    * - 備考
-     - 
+     -
 
 .. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
    :widths: 5 10
@@ -150,8 +150,8 @@
 
    * - Movement名
      - Ansible利用情報
-     - 
-   * - 
+     -
+   * -
      - ホスト指定形式
      - ヘッダーセクション
    * - :kbd:`ホスト名設定`
@@ -278,17 +278,17 @@ Movement と Ansible Playbook の紐付け
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - ssh秘密鍵ファイル
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
@@ -372,7 +372,7 @@ Movement と Ansible Playbook の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - :kbd:`server01`
@@ -500,7 +500,7 @@ Movement と Ansible Playbook の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - :kbd:`server01`
@@ -526,17 +526,17 @@ Movement と Ansible Playbook の紐付け
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - ssh秘密鍵ファイル
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`db01`

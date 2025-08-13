@@ -3,19 +3,19 @@ Azure Kubernetes Service
 ========================
 
 Introduction
-========
+============
 
 | This guide aims to explain how to set up Azure Kubernetes Service (AKS) cluster where Exastro IT Automation will be deployed.
 
 
 Prerequisites
-========
+=============
 
 - Azure CLI must be available.
 - The user must have permission to do the actions written in this manual.
 
 AKS cluster configuration
-================
+=========================
 
 
 AKS cluster example
@@ -26,7 +26,7 @@ AKS cluster example
 
 #. Start
 
-   | This section explains how to configure External IP and register DNS to the Exastro Platform service so it access through the internet. 
+   | This section explains how to configure External IP and register DNS to the Exastro Platform service so it access through the internet.
    | This guide will also contain steps on how to create a Public IP prefix, as it is required in order to confiure External IPs.
    | While there are way to create Public IP Prefixes using GUI, this guide will show you how to do it using Azure CLI.
 
@@ -37,7 +37,7 @@ AKS cluster example
    .. csv-table::
     :header: Variable, Description
     :widths: 30, 30
-   
+
       RESOURCE_GROUP, Name of the resource group
       CLUSTER_NAME, Name of AKS cluster
       PUBLIC_IP_PREFIX_NAME, Public IP Prefix name
@@ -96,7 +96,7 @@ AKS cluster example
 .. _aks-dns:
 
 Confirm Domain name
-----------------
+-------------------
 
 | Check the domain name in order to connect to the AKS cluster from the internet.
 

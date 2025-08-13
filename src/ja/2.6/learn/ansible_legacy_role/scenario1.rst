@@ -12,7 +12,7 @@
 
 | システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
 
-.. _quickstart_server_information_parmeter:
+.. _quickstart_server_information_parmeter_ansible_legacy_role:
 
 パラメータシートの作成
 ----------------------
@@ -37,24 +37,24 @@
      - 項目1設定値
    * - 項目の名前
      - :kbd:`ホスト名`
-   * - 項目の名前(Rest API用) 
+   * - 項目の名前(Rest API用)
      - :kbd:`hostname`
    * - 入力方式
      - :kbd:`文字列(単一行)`
    * - 最大バイト数
      - :kbd:`64`
    * - 正規表現
-     - 
+     -
    * - 初期値
-     - 
+     -
    * - 必須
      - ✓
    * - 一意制約
-     - 
+     -
    * - 説明
-     - 
+     -
    * - 備考
-     - 
+     -
 
 .. list-table:: パラメータシート作成(サーバー基本情報)のパラメータシート作成情報の設定値
    :widths: 5 10
@@ -84,7 +84,7 @@
 ==============
 
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
-| 定義した Movement に対して、Ansible Role パッケージを紐付け、更に Ansible Role パッケージ内の変数と :ref:`quickstart_server_information_parmeter` で登録したパラメータシートの項目の紐付けを行います。
+| 定義した Movement に対して、Ansible Role パッケージを紐付け、更に Ansible Role パッケージ内の変数と :ref:`quickstart_server_information_parmeter_ansible_legacy_role` で登録したパラメータシートの項目の紐付けを行います。
 
 .. glossary:: Movement
    Exastro IT Automation における、最小の作業単位のことを指します。
@@ -108,8 +108,8 @@
 
    * - Movement名
      - Ansible利用情報
-     - 
-   * - 
+     -
+   * -
      - ホスト指定形式
      - ヘッダーセクション
    * - :kbd:`ホスト名設定`
@@ -131,7 +131,7 @@ Ansible Role 登録
 | 手作業で Ansible Role を作成することも可能ですが、Ansible-Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
 | 本シナリオでは、 `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用します。
 
-| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ 
+| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_
 
 | :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` から、ダウンロードした `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ を登録します。
 
@@ -198,7 +198,7 @@ Movement と Ansible Role の紐付け
     - :kbd:`Value型`
     - :kbd:`ホスト名設定`
     - :kbd:`ホスト名設定:VAR_RH_hostname`
-    - 
+    -
 
 作業対象の登録
 ==============
@@ -226,17 +226,17 @@ Movement と Ansible Role の紐付け
      - ログインパスワード
      - ssh鍵認証情報
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - ssh秘密鍵ファイル
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`server01`
@@ -253,8 +253,8 @@ Movement と Ansible Role の紐付け
 ホスト名変更作業実施(1回目)
 ===========================
 
-作業概要の作成
---------------
+作業概要の作成(1回目)
+---------------------
 
 | 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
@@ -270,8 +270,8 @@ Movement と Ansible Role の紐付け
    * - 作業内容
      - ホスト名の変更
 
-作業概要登録
-------------
+作業概要登録(1回目)
+-------------------
 
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
@@ -294,8 +294,8 @@ Movement と Ansible Role の紐付け
    * - :kbd:`RHEL8のホスト名変更作業`
      - :kbd:`2023/04/01 12:00:00`
 
-パラメータ設定
---------------
+パラメータ設定(1回目)
+---------------------
 
 | パラメータシートには、設定したい値を機器ごとにパラメータを登録します。
 | 本シナリオでは、:kbd:`server01` というホスト名、RHEL8 サーバに設定します。
@@ -313,15 +313,15 @@ Movement と Ansible Role の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - server01
     - :kbd:`2023/04/01 12:00:00_RHEL8のホスト名変更作業`
     - :kbd:`server01`
 
-作業実行
---------
+作業実行(1回目)
+---------------
 
 1. 事前確認
 
@@ -371,8 +371,8 @@ Movement と Ansible Role の紐付け
 ホスト名変更作業実施(2回目)
 ===========================
 
-作業概要の作成
---------------
+作業概要の作成(2回目)
+---------------------
 
 | 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
@@ -388,14 +388,11 @@ Movement と Ansible Role の紐付け
    * - 作業内容
      - ホスト名の更新
 
-作業概要登録
-------------
+作業概要登録(2回目)
+-------------------
 
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
-
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
 
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
@@ -417,8 +414,8 @@ Movement と Ansible Role の紐付け
    | 定期作業などの繰り返し行われる作業のように、作業日が定まっていない場合は現在の日時を登録しても問題ありません。
 
 
-パラメータ設定
---------------
+パラメータ設定(2回目)
+---------------------
 
 | 本シナリオでは、:kbd:`server01` というホスト名をパラメータ値として設定しました。
 | しかし、:menuselection:`機器一覧` でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。
@@ -438,7 +435,7 @@ Movement と Ansible Role の紐付け
   * - ホスト名
     - オペレーション
     - パラメータ
-  * - 
+  * -
     - オペレーション名
     - ホスト名
   * - :kbd:`server01`
@@ -465,19 +462,19 @@ Movement と Ansible Role の紐付け
      - ホスト名
      - IPアドレス
      - ログインパスワード
-     - 
+     -
      - Ansible利用情報
-   * - 
-     - 
-     - 
+   * -
+     -
+     -
      - ユーザ
      - パスワード
      - Legacy/Role利用情報
-   * - 
-     - 
-     - 
-     - 
-     - 
+   * -
+     -
+     -
+     -
+     -
      - 認証方式
    * - :kbd:`SV`
      - :kbd:`db01`
@@ -487,8 +484,8 @@ Movement と Ansible Role の紐付け
      - :kbd:`パスワード認証`
 
 
-作業実行
---------
+作業実行(2回目)
+---------------
 
 1. 作業実行
 

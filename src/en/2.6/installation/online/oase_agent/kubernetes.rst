@@ -16,23 +16,22 @@
 
 .. _oase_agent_kubernetes_install:
 
-=======================
+=================================
 OASE Agent on Kubernetes - Online
-=======================
+=================================
 
 Introduction
-====
+============
 | This document aims to explain how to install the Exastro OASE Agent, which is used to link with external services when using OASE, on Kubernetes.
 
 Features
-====
+========
 
 | This document contains information on how to install Exastro OASE Agent with high availability and service level.
 | For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version of the OASE Agent <docker_compose>`.
-| For more information regarding configuring and using the Exastro OASE Agent, see the :ref:`Agent overview<agent_about>`.
 
 Prerequisites
-========
+=============
 
 - Exastro IT Automation
 
@@ -84,7 +83,7 @@ Preparation
 ==================
 
 Register Helm repository
----------------------
+------------------------
 
 | The Exastro OASE Agent exists on the same helm repository as the Exastro system.
 
@@ -106,7 +105,7 @@ Register Helm repository
    helm repo update
 
 Fetch default setting values
-----------------------
+----------------------------
 
 | The following command outputs the values.yaml default values. This makes it easier to manage the input parameters.
 
@@ -252,14 +251,14 @@ Fetch default setting values
 | The following steps will configure required parameters to :file:`exastro-agent.yaml`.
 
 OASE Agent settings
-----------------
+-------------------
 
 | OASE Agentを立ち上げる際の代表的な設定方法について紹介します。
 | In the following example, the persistent volume is configured to hostPath.
 
 - Simple architecture
-- Multiple agents (Same Pod) 
-- Multiple agents (Different Pod) 
+- Multiple agents (Same Pod)
+- Multiple agents (Different Pod)
 
 Parameter
 ^^^^^^^^^^
@@ -268,10 +267,9 @@ Parameter
 
 .. include:: ../../../include/helm_option_ita-ag-oase.rst
 
-| ※For more information regarding fetching refresh tokens, see :ref:`exastro_refresh_token`.
 
 OASE Agent parameter setting example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | The following is a sample of Agent settings.
 
@@ -287,7 +285,7 @@ OASE Agent parameter setting example
       - Setting example
 
       1.  OASE Agent settings
-  
+
           | Configure the OASE Agent.
 
           .. code-block:: diff
@@ -322,12 +320,12 @@ OASE Agent parameter setting example
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
-   .. group-tab:: Multiple Agents (Same pod) 
+   .. group-tab:: Multiple Agents (Same pod)
 
       - Features
 
@@ -338,7 +336,7 @@ OASE Agent parameter setting example
       - Setting example
 
       1.  OASE Agent settings
-  
+
           | Configure OASE Agent
 
           .. code-block:: diff
@@ -374,7 +372,7 @@ OASE Agent parameter setting example
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
@@ -402,12 +400,12 @@ OASE Agent parameter setting example
            +       EXASTRO_PASSWORD: "your-ita-user-password"                               # Password created in Exastro IT Automation.(Remember to uncomment if using this)
 
 
-   .. group-tab:: Multiple Agents (Different Pod) 
+   .. group-tab:: Multiple Agents (Different Pod)
 
       - Features
 
       | Architecture built on multiple Pods.
-      | While there are merits to being able to stop single agents, 
+      | While there are merits to being able to stop single agents,
       | The user must prepare persistent volumes for each Pod.
 
       - Setting example
@@ -417,23 +415,7 @@ OASE Agent parameter setting example
           | Copy exastro-agent.yaml and prepare exastro-agent-1.yaml
           | Copy exastro-agent.yaml and prepare exastro-agent-2.yaml
 
-      2.  First OASE Agent           +       AGENT_NAME: "oase-agent-1"                                               # Name of the OASE Agent
-           -       EXASTRO_URL: "http://platform-auth:8000"
-           +       EXASTRO_URL: "http://your-exastro-url"                                   # Exastro IT Automation Service URL
-           -       EXASTRO_ORGANIZATION_ID: "org001"
-           +       EXASTRO_ORGANIZATION_ID: "your-organization-id"                          # Organization created in Exastro IT Automation
-           -       EXASTRO_WORKSPACE_ID: "ws01"
-           +       EXASTRO_WORKSPACE_ID: "your-workspace-id"                                # WorkspaceID created in Exastro IT Automation
-                   # ROLES: "_ws_admin"
-           -       EVENT_COLLECTION_SETTINGS_NAMES: "id0001"
-           +       EVENT_COLLECTION_SETTINGS_NAMES: "your-event-collection-settigs-names"   # The Event collection setting name created in Exastro IT Automation's OASE Management event collection.
-                 secret:
-           -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
-           +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"          
-                   # EXASTRO_PASSWORD: "sample-password"
-           +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
-           +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
+      2.  First OASE Agent
 
           .. code-block:: diff
            :caption: exastro-agent-1.yaml
@@ -467,7 +449,7 @@ OASE Agent parameter setting example
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
@@ -537,7 +519,7 @@ OASE Agent parameter setting example
                  secret:
            -       EXASTRO_REFRESH_TOKEN: "exastro_refresh_token"
            +       EXASTRO_REFRESH_TOKEN: "your_exastro_refresh_token"                      # Refresh token fetched from the Exastro System management page.
-                   # EXASTRO_USERNAME: "admin"          
+                   # EXASTRO_USERNAME: "admin"
                    # EXASTRO_PASSWORD: "sample-password"
            +       # EXASTRO_USERNAME: "your-ita-user-name"                # Username created in Exastro IT Automation.(Remember to uncomment if using this)
            +       # EXASTRO_PASSWORD: "your-ita-user-password"            # Password created in Exastro IT Automation.(Remember to uncomment if using this)
@@ -576,9 +558,9 @@ OASE Agent parameter setting example
 .. _agent_persistent_volume:
 
 Persistent volume settings
---------------------
+--------------------------
 
-| In order to persist data in a database(if the container is within a cluster), or files, the user will need to configure a persistent volume. 
+| In order to persist data in a database(if the container is within a cluster), or files, the user will need to configure a persistent volume.
 | For more information regarding persistent volumes, see `Persistent volumes - Kubernetes <https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/#%E6%B0%B8%E7%B6%9A%E3%83%9C%E3%83%AA%E3%83%A5%E3%83%BC%E3%83%A0>`_ を参照してください。
 
 .. tabs::
@@ -591,7 +573,7 @@ Persistent volume settings
 
       .. danger::
           | While persisting data is possible, data might be deleted if compute nodes are changed. We strongly recommend against using this method to persist data in production.
-          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted. 
+          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted.
 
       - Example
 
@@ -599,7 +581,7 @@ Persistent volume settings
 
       .. tabs::
 
-         .. group-tab:: Simple architecture and Multiple Agents (Same Pod) 
+         .. group-tab:: Simple architecture and Multiple Agents (Same Pod)
 
             .. code-block:: diff
               :caption: pv-ita-ag-oase.yaml
@@ -624,7 +606,7 @@ Persistent volume settings
                   type: DirectoryOrCreate
 
 
-         .. group-tab:: Multiple Agents (Different Pod) 
+         .. group-tab:: Multiple Agents (Different Pod)
 
             .. code-block:: diff
               :caption: pv-ita-ag-oase-1.yaml
@@ -679,7 +661,7 @@ Install
    | If the installation fails, follow :ref:`ita_uninstall` and try reinstalling.
 
 Create Persistent volumes
---------------------
+-------------------------
 
 | Apply the manifest file created in :ref:`agent_persistent_volume` and create persistent volume.
 
@@ -689,7 +671,7 @@ Create Persistent volumes
     kubectl apply -f pv-ita-ag-oase.yaml
 
     # Run the following for Multiple Agents (Different Pod)
-    # pv-ita-ag-oase-1.yaml 
+    # pv-ita-ag-oase-1.yaml
     kubectl apply -f pv-ita-ag-oase-1.yaml
 
     # pv-ita-ag-oase-2.yaml
@@ -719,7 +701,7 @@ Install
 
 .. tabs::
 
-   .. group-tab:: Simple architecture & Multiple Agent (Same Pod) 
+   .. group-tab:: Simple architecture & Multiple Agent (Same Pod)
 
       1. Use Helm command to install on Kubernetes environment.
 
@@ -744,20 +726,20 @@ Install
 
          .. code-block:: bash
              :caption: Command
-             
+
              # Fetch Pod  list
              kubectl get po --namespace exastro
-             
+
              | If running normally, the status will say "Running".
              | ※The user might have to wait a couple of minutes before the status changes to "Running".
 
          .. code-block:: bash
              :caption: Output results
-             
+
               NAME                             READY   STATUS    RESTARTS   AGE
               ita-ag-oase-66cb7669c6-m2q8c     1/1     Running   0          16m
 
-   .. group-tab:: Multiple Agents (Different Pod) 
+   .. group-tab:: Multiple Agents (Different Pod)
 
       1. Use Helm command to install on Kubernetes environment.
 
@@ -784,7 +766,7 @@ Install
             helm install exastro-agent-2 exastro/exastro-agent \
               --namespace exastro --create-namespace \
               --values exastro-agent-2.yaml
-         
+
          .. code-block:: bash
             :caption: Output results
 
@@ -796,19 +778,19 @@ Install
             TEST SUITE: None
 
       2. | Check install status
-           
+
          .. code-block:: bash
              :caption: Command
-             
+
              # Pod の一覧を取得
              kubectl get po --namespace exastro
-             
+
              | If running normally, the status will say "Running".
              | ※The user might have to wait a couple of minutes before the status changes to "Running".
 
          .. code-block:: bash
              :caption: Output results
-             
+
               NAME                             READY   STATUS    RESTARTS   AGE
               ita-ag-oase-1-66cb7669c6-m2q8c   1/1     Running   0          16m
               ita-ag-oase-2-787fb97f75-9s7xj   1/1     Running   0          13m
@@ -824,7 +806,7 @@ Update preparation
 --------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
+  | We recommend that back up the data before updating.
 
 | Check the version before updating.
 
@@ -871,7 +853,7 @@ Update preparation
    :emphasize-lines: 4
 
    helm search repo exastro
-   NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+   NAME                            CHART VERSION   APP VERSION     DESCRIPTION
    exastro/exastro                    1.4.3           2.4.0           A Helm chart for Exastro. Exastro is an Open So...
    exastro/exastro-agent              2.4.0           2.4.0           A Helm chart for Exastro IT Automation. Exastro...
    exastro/exastro-it-automation      2.4.1           2.4.0           A Helm chart for Exastro IT Automation. Exastro...
@@ -909,7 +891,7 @@ Start Update
   TEST SUITE: None
 
 Restart service
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 .. include:: ../../../include/start_service_k8s_agent.rst
 
@@ -943,7 +925,7 @@ Uninstall preparation
 ----------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
+  | We recommend that back up the data before uninstalling.
 
 Uninstall
 ----------------
@@ -963,8 +945,6 @@ Start Uninstall
 
   release "exastro-agent" uninstalled
 
-.. _delete_pv:
-
 Delete persistent volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 | This section describes how to delete data if a persistent volume(PV) has been created on Kubernetes using hostPath.
@@ -973,7 +953,7 @@ Delete persistent volumes
 For Agents
 **************
 
-.. warning:: 
+.. warning::
   | If there are multiple persistent volumes for Agents, make sure to delete them all.
 
 .. code-block:: bash
@@ -987,7 +967,7 @@ For Agents
   persistentvolume "pv-ita-ag-oase" deleted
 
 Deleting Persistent data
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Log in to the Kubernetes Control node and delete the data.
 

@@ -25,7 +25,7 @@
       :width: 600px
       :align: left
       :class: with-border-thin
-          
+
    | ワークスペース詳細の アイコンをクリックすることで、メインメニューが表示されます
 
    .. figure:: /images/ja/manuals/platform/to_mainmenu/to_mainmenu_workspace_detail.png

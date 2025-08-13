@@ -80,7 +80,7 @@ Zabbixエージェント: helm charts values.yamlの準備
 Zabbixエージェント: インストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| helmによるインストール手順は公式の手順に従ってインストールします。  
+| helmによるインストール手順は公式の手順に従ってインストールします。
 
 .. note::
    | 公式の手順のまま実施しているため、namespaceはmonitoringを指定しております。
@@ -145,13 +145,13 @@ zabbix-service-accountのtoken取得
    - 備考
  * - ホスト名
    - 任意の値
-   - 
+   -
  * - テンプレート
    - Kubernetes nodes by HTTP
    - Templates/Applicationsの中から選択します
  * - グループ
    - Templates/Applications
-   - 
+   -
 
 .. list-table:: マクロタブ指定
  :widths: 20, 20, 20
@@ -162,7 +162,7 @@ zabbix-service-accountのtoken取得
    - 備考
  * - {$KUBE.API.TOKEN}
    - 取得したtokenの値
-   - 
+   -
  * - {$KUBE.API.URL}
    - Kubernetes API serverのURL
    - ZABBIX serverがKubernetesクラスター外の場合のみ必要
@@ -195,13 +195,13 @@ zabbix-service-accountのtoken取得
    - 備考
  * - ホスト名
    - 任意の値
-   - 
+   -
  * - テンプレート
    - Kubernetes cluster state by HTTP
    - Templates/Applicationsの中から選択します
  * - グループ
    - Templates/Applications
-   - 
+   -
 
 .. list-table:: マクロタブ指定
  :widths: 20, 20, 20
@@ -212,10 +212,10 @@ zabbix-service-accountのtoken取得
    - 備考
  * - {$KUBE.API.TOKEN}
    - 取得したtokenの値
-   - 
+   -
  * - {$KUBE.STATE.ENDPOINT.NAME}
    - zabbix-agent-kube-state-metrics
-   - 
+   -
  * - {$KUBE.API.URL}
    - Kubernetes API serverのURL
    - ZABBIX serverがKubernetesクラスター外の場合のみ必要
@@ -243,16 +243,16 @@ Exastroシステムのリソース障害発生時の通知設定
    - 備考
  * - 名前
    - 任意の値
-   - 
+   -
  * - 実行条件 タイプ
    - タグの値
-   - 
+   -
  * - 実行条件 タグ
    - namespace
-   - 
+   -
  * - 実行条件 オペレータ
    - 等しい
-   - 
+   -
  * - 実行条件 値
    - exastro
    - Exastroシステムのインストール先のnamespace
@@ -283,7 +283,7 @@ Exastroシステムのリソース障害発生時の通知設定
 | ログ収集先サーバーへのZabbixエージェントのインストールは、公式の手順を利用してインストールします。
 | 公式サイト: `Download and install Zabbix <https://www.zabbix.com/jp/download?zabbix=6.4&components=agent>`_
 
-.. list-table:: 
+.. list-table::
  :widths: 20, 20, 20
  :header-rows: 1
 
@@ -292,16 +292,16 @@ Exastroシステムのリソース障害発生時の通知設定
    - 備考
  * - ZABBIXバージョン
    - 6.4
-   - 
+   -
  * - OSディストリビューション
    - ログ収集先のサーバーで該当するものを選択
-   - 
+   -
  * - OSバージョン
    - ログ収集先のサーバーで該当するものを選択
-   - 
+   -
  * - ZABBIX COMPONENT
    - Agent
-   - 
+   -
 
 
 Zabbixエージェントの設定
@@ -320,7 +320,7 @@ Zabbixエージェントの設定
 
 | ZabbixのWebコンソール画面で、ホストを追加します
 
-.. list-table:: 
+.. list-table::
  :widths: 20, 20, 20
  :header-rows: 1
 
@@ -329,13 +329,13 @@ Zabbixエージェントの設定
    - 備考
  * - ホスト名
    - ログ収集先サーバーのホスト名を指定
-   - 
+   -
  * - テンプレート
    - Linux by Zabbix agent active
    - Templates/Operating systemsの中から選択します
  * - グループ
    - Linux servers
-   - 
+   -
 
 アイテムの追加
 ^^^^^^^^^^^^^^
@@ -368,9 +368,9 @@ Zabbixエージェントの設定
       ^exastro-suite\.exastro\.ita-api-admin\..*\.log$
       ^exastro-suite\.exastro\.ita-api-oase-receiver\..*\.log$
       ^exastro-suite\.exastro\.ita-api-organization\..*\.log$
-      ^exastro-suite\.exastro\.ita-by-ansible-execute\..*\.log$      
+      ^exastro-suite\.exastro\.ita-by-ansible-execute\..*\.log$
 
-.. list-table:: 
+.. list-table::
  :widths: 20, 20, 20
  :header-rows: 1
 
@@ -382,7 +382,7 @@ Zabbixエージェントの設定
    - 例) exastro-suite.exastro.ita-api-admin.log
  * - タイプ
    - Zabbixエージェント(アクティブ)
-   - 
+   -
  * - キー
    - logrt
    - logrtのパラメータを指定後の設定値の例) logrt[/var/PersistentVolume/ha-conf-k8s/exastro-logs/^exastro-suite\.exastro\.ita-api-admin\..*\.log$,"[ []ERROR[ \]]","UTF-8",,skip]
@@ -391,28 +391,29 @@ Zabbixエージェントの設定
    - 例) /var/PersistentVolume/ha-conf-k8s/exastro-logs/^exastro-suite\.exastro\.ita-api-admin\..*\.log$
  * - logrt <regexp> パラメータ
    - ログファイル毎のログ抽出条件の指定の表参照
-   - 例1) "[ []ERROR[ \\]]" / 例2) "[ [](FATAL|ERROR)[ \\]]"
+   - | 例1) "[ []ERROR[ \\]]"
+       例2) "[ [](FATAL|ERROR)[ \\]]"
  * - logrt <encoding> パラメータ
    - "UTF-8"
-   - 
+   -
  * - logrt <maxproclines> パラメータ
    - 指定なし
-   - 
+   -
  * - logrt <mode> パラメータ
    - skip
-   - 
+   -
  * - logrt <maxdelay> パラメータ
    - 指定なし
-   - 
+   -
  * - logrt <options> パラメータ
    - 指定なし
-   - 
+   -
  * - logrt <persistent_dir> パラメータ
    - 指定なし
-   - 
+   -
  * - データ型
    - ログ
-   - 
+   -
  * - 監視間隔
    - 任意の時間
    - 問題なければデフォルト値の1mとする
@@ -422,7 +423,7 @@ Zabbixエージェントの設定
 
 - | ログファイル毎のログ抽出条件の指定
 
-  .. list-table:: 
+  .. list-table::
    :widths: 20, 20, 20
    :header-rows: 1
 
@@ -431,22 +432,22 @@ Zabbixエージェントの設定
      - 備考
    * - exastro-suite.exastro.ita-*
      - "[ []ERROR[ \\]]"
-     - 
+     -
    * - exastro-suite.exastro.platform-*
      - "[ []ERROR[ \\]]"
-     - 
+     -
    * - exastro-suite.exastro.keycloak
      - "[ [](FATAL|ERROR)[ \\]]"
-     - 
+     -
    * - exastro-suite.exastro.mariadb
      - "[ []ERROR[ \\]]"
-     - 
+     -
    * - exastro-suite.exastro.mongodb
      - "\\"s\\": \\"(E|F)\\""
-     - 
+     -
    * - exastro-suite.exastro.gitlab
      - "[ [](FATAL|ERROR)[ \\]]"
-     - 
+     -
 
 
 トリガーの追加
@@ -455,7 +456,7 @@ Zabbixエージェントの設定
 | ZabbixのWebコンソール画面で、追加したホストにログファイルのトリガーを追加します
 | トリガーはアイテム毎に設定する必要があります
 
-.. list-table:: 
+.. list-table::
  :widths: 20, 20, 20
  :header-rows: 1
 
@@ -473,31 +474,31 @@ Zabbixエージェントの設定
    - 例) exastro-suite.exastro.ita-api-admin.log
  * - 条件式 - 関数
    - find() を選択
-   - 
+   -
  * - 条件式 - 最新の
    - 指定なし
-   - 
+   -
  * - 条件式 - タイムシフト
    - 指定なし
-   - 
+   -
  * - 条件式 - O
    - regexp
-   - 
+   -
  * - 条件式 - V
    - .*
-   - 
+   -
  * - 条件式 - 結果
    - = 1
-   - 
+   -
  * - 正常イベントの生成
    - なし
-   - 
+   -
  * - 障害イベント生成モード
    - 複数
-   - 
+   -
  * - 手動クローズを許可
    - チェックON
-   - 
+   -
 
 Exastroシステムのエラーログ検出時の通知設定
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -522,7 +523,7 @@ Exastroシステムのエラーログ検出時の通知設定
    - 備考
  * - 名前
    - 任意の値
-   - 
+   -
  * - 計算のタイプ
    - Or
    - ２つ目の実行条件を入力後に表示されます
@@ -531,7 +532,7 @@ Exastroシステムのエラーログ検出時の通知設定
    - ※実行条件は作成したトリガー全て追加します
  * - 実行条件 - オペレータ
    - 等しい
-   - 
+   -
  * - 実行条件 - トリガー
    - 作成したトリガーを選択
    - 例) exastro-suite.exastro.ita-api-admin.log

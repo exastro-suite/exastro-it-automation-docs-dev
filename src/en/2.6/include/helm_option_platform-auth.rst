@@ -1,128 +1,128 @@
 
-.. list-table:: Exastro Platform 認証機能のオプションパラメータ
+.. list-table:: Exastro Platform authentication optional settings
    :widths: 25 25 10 20
    :header-rows: 1
    :align: left
    :class: filter-table
 
-   * - パラメータ
-     - 説明
-     - 変更
-     - デフォルト値・選択可能な設定値
+   * - Parameters
+     - Description
+     - Change
+     - Default Value / Available Options
    * - exastro-platform.platform-auth.extraEnv.EXTERNAL_URL
-     - | Exastro Platform エンドポイントの公開URL。
-       | リバースプロキシや PAT(Port Address Transport) などにより、Exastro のエンドポイントと公開時の URL に齟齬が発生することで、サービス接続に失敗する場合に設定をする必要があります。
-     - 可
-     - | 公開用エンドポイントのURL
+     - | Exastro Platform Endpoint's public URL
+       | This setting must be configured when service connection failures occur due to discrepancies between the Exastro endpoint and the public URL caused by reverse proxies or PAT (Port Address Translation).
+     - Enabled
+     - | Public endpoint URL
        | (http[s]://your-exastro.domain:port)
    * - exastro-platform.platform-auth.extraEnv.EXTERNAL_URL_MNG
-     - | Exastro Platform 管理コンソールのエンドポイントの公開URL。
-       | リバースプロキシや PAT(Port Address Transport) などにより、Exastro のエンドポイントと公開時の URL に齟齬が発生することで、サービス接続に失敗する場合に設定をする必要があります。
-     - 可
-     - | 公開用エンドポイントのURL
+     - | Public URL of the Exastro Platform Management Console endpoint
+       | This setting is required when a mismatch occurs between the Exastro endpoint and the public URL due to reverse proxies or PAT (Port Address Translation), which can lead to service connection failures.
+     - Enabled
+     - | Public endpoint URL
        | (http[s]://your-exastro.domain:port)
    * - exastro-platform.platform-auth.extraEnv.AUDIT_LOG_ENABLED
-     - | 監査ログの出力有無。
-     - 可
-     - | :program:`True` (デフォルト): 出力する
-       | :program:`False`: 出力しない
+     - | Enable audit log output
+     - Enabled
+     - | :program:`True` (Default): Output
+       | :program:`False`: Do not output
    * - exastro-platform.platform-auth.extraEnv.AUDIT_LOG_PATH
-     - | 監査ログのファイル名（ファイルパス）。
-     - 可
-     - | :program:`exastro-audit.log` (デフォルト)
+     - | Audit log file name (file path)
+     - Enabled
+     - | :program:`exastro-audit.log` (Default)
    * - exastro-platform.platform-auth.extraEnv.AUDIT_LOG_FILE_MAX_BYTE
-     - | 監査ログファイルの最大サイズ(Byte)を指定できます。
-     - 可
-     - | :program:`100000000` (デフォルト)
+     - | You can specify the maximum size (in bytes) of the audit log file.
+     - Enabled
+     - | :program:`100000000` (Default)
    * - exastro-platform.platform-auth.extraEnv.AUDIT_LOG_BACKUP_COUNT
-     - | 監査ログファイルのバックアップカウント数。
-       | 監査ログファイルの最大サイズ(Byte)を超えた際、ファイル名に"."＋数値で指定された値の分、バックアップされます。
-     - 可
-     - | :program:`30` (デフォルト)
+     - | Number of backup audit log files
+       | When the audit log file exceeds the specified maximum size (in bytes), backup files are created with the original file name appended by a '.' and a number, up to the specified backup count.
+     - Enabled
+     - | :program:`30` (Default)
    * - exastro-platform.platform-auth.ingress.enabled
-     - Exastro Platform における Ingress 利用の要否
-     - 可
-     - | :program:`true` (デフォルト): Exastro Platform にアクセスするための Ingress Controller をデプロイします。
-       | :program:`false` : Ingress Controller をデプロイしません。
+     - Whether to use Ingress in the Exastro Platform
+     - Enabled
+     - | :program:`true` (Default): Deploy an Ingress Controller to enable access to the Exastro Platform.
+       | :program:`false` : Do not deploy the Ingress Controller.
    * - exastro-platform.platform-auth.ingress.hosts[0].host
-     - | Exastro Platform 管理コンソールエンドポイントのホスト名、もしくは、FQDN
-       | 別途、DNSへのレコード登録が必要です。
-     - 可 (Ingress利用時)
+     - | Hostname or FQDN of the Exastro Platform Management Console endpoint
+       | DNS record registration is required separately
+     - Enabled (When using Ingress)
      - "exastro-suite.example.local"
    * - exastro-platform.platform-auth.ingress.hosts[0].paths[0].path
-     - Exastro Platform 管理コンソールエンドポイントのパスのルール
-     - 不可
+     - Rules for the Management Console endpoint path in Exastro Platform
+     - Disabled
      - "/"
    * - exastro-platform.platform-auth.ingress.hosts[0].paths[0].pathType
-     - Exastro Platform 管理コンソールエンドポイントのパスの一致条件
-     - 不可
+     - Path match condition for the Exastro Platform Management Console endpoint
+     - Disabled
      - "Prefix"
    * - exastro-platform.platform-auth.ingress.hosts[0].paths[0].backend
-     - Exastro Platform 管理コンソールのサービス名
-     - 不可
+     - Exastro Platform Management Console service name
+     - Disabled
      - "http"
    * - exastro-platform.platform-auth.ingress.hosts[1].host
-     - | Exastro Platform エンドポイントのホスト名、もしくは、FQDN
-       | 別途、DNSへのレコード登録が必要です。
-     - 可 (Ingress利用時)
+     - | Exastro Platform endpoint hostname or FQDN
+       | A DNS record must be registered separately
+     - Enabled (When using Ingress)
      - "exastro-suite-mng.example.local"
    * - exastro-platform.platform-auth.ingress.hosts[1].paths[0].path
-     - Exastro Platform エンドポイントのパスのルール
-     - 不可
+     - Endpoint path rules for Exastro Platform
+     - Disabled
      - "/"
    * - exastro-platform.platform-auth.ingress.hosts[1].paths[0].pathType
-     - Exastro Platform エンドポイントのパスの一致条件
-     - 不可
+     - Exastro Platform endpoint path match condition
+     - Disabled
      - "Prefix"
    * - exastro-platform.platform-auth.ingress.hosts[1].paths[0].backend
-     - Exastro Platform エンドポイントのエンドポイントのサービス名
-     - 不可
+     - Exastro Platform endpoint service name
+     - Disabled
      - "httpMng"
    * - exastro-platform.platform-auth.ingress.tls[0].secretName
-     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管している Kubernetes シークレット名
-     - 可 (Ingress利用時)
-     - 任意の文字列
+     - Name of the Kubernetes secret storing the SSL/TLS certificate for the public Exastro Platform endpoint
+     - Enabled (When using Ingress)
+     - Any string
    * - exastro-platform.platform-auth.ingress.tls[0].hosts
-     - Exastro Platform 公開用エンドポイントのSSL/TLSを使用するホスト名、もしくは、FQDN
-     - 可 (Ingress利用時)
-     - 任意の文字列
+     - Hostname or FQDN for the Exastro Platform public endpoint using SSL/TLS
+     - Enabled (When using Ingress)
+     - Any string
    * - exastro-platform.platform-auth.ingress.secrets[0].name
-     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書を保管する Kubernetes シークレット名
-     - 可 (Ingress利用時)
-     - 任意の文字列
+     - Name of the Kubernetes secret that stores the SSL/TLS certificate for the Exastro Platform public endpoint
+     - Enabled (When using Ingress)
+     - Any string
    * - exastro-platform.platform-auth.ingress.secrets[0].certificate
-     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する証明書ファイルの値
-     - 可 (Ingress利用時)
-     - | 証明書ファイルの値の例
+     - Value of the certificate file used for the SSL/TLS certificate of the Exastro Platform public endpoint
+     - Enabled (When using Ingress)
+     - | Example of a certificate file value
        | -----BEGIN CERTIFICATE-----
        | ...
        | -----END CERTIFICATE-----
    * - exastro-platform.platform-auth.ingress.secrets[0].key
-     - Exastro Platform 公開用エンドポイントのSSL/TLS 証明書に使用する鍵ファイルの値
-     - 可 (Ingress利用時)
-     - | 鍵ファイルの値の例
+     - Value of the key file used for the SSL/TLS certificate of the Exastro Platform public endpoint
+     - Enabled (When using Ingress)
+     - | Example of a key file value
        | -----BEGIN PRIVATE KEY-----
        | ...
        | -----END PRIVATE KEY-----
    * - exastro-platform.platform-auth.service.type
-     - Exastro Platform のサービスタイプ
-     - 可
-     - | :program:`ClusterIP` (デフォルト): Ingress Controller を利用する場合などに選択
-       | :program:`LoadBalancer` : LoadBalancer を利用する場合に選択
-       | :program:`NodePort` : NodePort を利用する場合に選択
+     - Exastro Platform service type
+     - Enabled
+     - | :program:`ClusterIP` (Default): Select when using an Ingress Controller
+       | :program:`LoadBalancer` : Select when using a LoadBalancer
+       | :program:`NodePort` : Select when using NodePort
    * - exastro-platform.platform-auth.service.http.nodePort
-     - | Exastro Platform のサービス用公開ポート番号
-     - 可 (NodePort利用時)
+     - | Service public port number for Exastro Platform
+     - Enabled (When using  NodePort)
      - "30080"
    * - exastro-platform.platform-auth.service.httpMng.nodePort
-     - | Exastro Platform のシステム管理用公開ポート番号
-     - 可 (NodePort利用時)
+     - | Exastro Platform system administration public port number
+     - Enabled (When using NodePort)
      - "30081"
    * - exastro-platform.platform-auth.image.repository
-     - コンテナイメージのリポジトリ名
-     - 不可
+     - "Container image repository name
+     - Disabled
      - "docker.io/exastro/exastro-platform-auth"
    * - exastro-platform.platform-auth.image.tag
-     - コンテナイメージのタグ
-     - 不可
-     - ""
+     - Container image tag
+     - Disabled
+     - `""`

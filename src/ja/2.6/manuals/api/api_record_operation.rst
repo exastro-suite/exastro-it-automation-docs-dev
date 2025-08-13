@@ -8,7 +8,7 @@ APIのアクセス（認証）について
 
 .. warning::
    | API実行時の言語について
-   
+
    - 最終ログイン時の言語情報が参照されます。
 
 .. tip::
@@ -16,7 +16,7 @@ APIのアクセス（認証）について
 
    - 初回ログイン後の設定が行われていない為、認証エラーとなります。
      「:ref:`first_login`」参照して、必要な対応を実施してください。
-     
+
    .. code-block:: bash
 
       {
@@ -25,11 +25,11 @@ APIのアクセス（認証）について
           "result": "401-00002",
           "ts": "2023-10-13T08:19:22.913Z"
       }
-    
+
 
 .. _api_execution_example:
 
-登録、編集のAPI、関連APIの実行例  
+登録、編集のAPI、関連APIの実行例
 ================================
 
 | 以下、登録、編集のAPI、及び関連APIの実行の例について記載します。
@@ -41,16 +41,16 @@ APIのアクセス（認証）について
 | 以下のAPI実行の説明において、認証方式は、Basic認証を使用しています。
 | Bearer認証を使用したAPIの実行を行う場合、「:ref:`operator_certification_bearer`」を参照してください。
 
-.. tip:: 
+.. tip::
    | APIのエンドポイントで使用するメニュー名の確認方法ついて
- 
+
    - 「:menuselection:`管理コンソール --> メニュー管理`」から該当するメニューのレコードを確認し、「:menuselection:`メニュー名(rest)` 」の値を使用してください。
- 
+
 
 .. tip:: | パラメータで使用する、JSONデータ、FOEMデータに関する補足
     | パラメータ指定時の形式、指定方法について
     | コンテンツタイプ、パラメータ指定の方法や、curlの実行環境等により、適切なもので対応してください。
-    
+
     - JSONデータをJSONファイルで保存し、パラメータにJSONファイルを指定して使用する
     - JSONデータのシングルクォーテーション「'」が使用できない場合、ダブルクォーテーション「 "」 を用いて、かつ内部で使用されたダブルクォーテーションをエスケープした書き方に変更する
     - 末尾の「\\」、「^」については、ご利用環境で適切なものに変更する
@@ -69,7 +69,7 @@ APIのアクセス（認証）について
 
     .. code-block:: bash
        :caption: JSONファイルを使用する場合
-       
+
        curl -X POST \
        "http://servername/api/organization_1/workspaces/workspace_1/ita/menu/playbook_files/maintenance/all/" \
        -H "Authorization: Basic dXNlcl9pZDpwYXNzd29yZA==" \
@@ -79,7 +79,7 @@ APIのアクセス（認証）について
 
     .. code-block:: json
        :caption: playbook_files_sampleの内容
-       
+
        [
            {
                "file": {
@@ -141,14 +141,14 @@ APIのアクセス（認証）について
       -H "Content-Type: application/json" \
       --data-raw "{\"discard\":{\"LIST\":[\"0\"]}}"
 
-.. tip:: 
+.. tip::
   | 一覧取得時の条件指定について
   | 条件指定で利用可能な検索方法を以下に記載します。
 
   .. list-table:: 一覧取得で指定可能な検索のオプション
      :header-rows: 1
      :align: left
-     
+
      * - **オプション**
        - **説明**
        - **設定例**
@@ -157,19 +157,19 @@ APIのアクセス（認証）について
        - | あいまい検索を実施します。
          | 指定した語句を含むレコードを検索します。
        - {"対象のキー":{"NORMAL":"検索条件"}}
-       - 
+       -
      * - LIST
        - | 完全一致検索を実施します。
          | 指定した語句に一致するレコードを検索します。
        - {"対象のキー":{"LIST":["検索条件"]}}
-       - 
+       -
      * - RANGE
        - | 範囲指定による検索を実施します。
          | 指定した範囲内に一致するレコードを検索します。
          | STARTのみ指定時には、指定条件以上のレコードを検索します。
          | ENDのみ指定時には、指定条件以下のレコードを検索します。
        - {"対象のキー":{"RANGE":{"START":"検索条件","END":"検索条件"}}}
-       -  
+       -
   .. code-block:: json
      :caption: 一覧取得時の条件のパラメータ構成について
 
@@ -192,11 +192,11 @@ APIのアクセス（認証）について
       }
 
   | 機器一覧の条件指定した検索のパラメータ:
-  
+
   - 廃止含まず
   - ホスト名に「host」を含む
   - 最終更新日時が「2023/01/01 00:00:00」～「2023/12/31 00:00:00」の間
- 
+
   .. code-block:: json
      :caption: 機器一覧の条件指定した検索例
 
@@ -217,7 +217,7 @@ APIのアクセス（認証）について
           }
       }
 
-.. tip:: 
+.. tip::
    | レコードの廃止(論理削除)について
 
    - | 論理削除状態のレコードのことを指します。
@@ -226,7 +226,7 @@ APIのアクセス（認証）について
      | - "1"：廃止されたレコード
 
    - 廃止状態のレコードは、バリデーションの対象には含まれません。
- 
+
 
 .. tip::
    | ファイルの出力について
@@ -267,7 +267,7 @@ APIのアクセス（認証）について
 
 .. tip::
    | 登録、編集時のバリデーションについて
-   
+
    - APIによる登録、編集時も画面側からの操作で、登録、編集実施した際と同じバリデーションがかかります。
    - 各項目のバリデーションについては、各メニューのマニュアルを参照してください。
 
@@ -288,10 +288,10 @@ Content-Typeによるパラメータの構造の違いについて
     [
         {
             "file": {
-                "対象のキー": "ファイルデータをbase64エンコードした文字列",                 
+                "対象のキー": "ファイルデータをbase64エンコードした文字列"
             },
             "parameter": {
-                "対象のキー": "値",
+                "対象のキー": "値"
             },
             "type":"Register"
         }
@@ -302,7 +302,7 @@ Content-Typeによるパラメータの構造の違いについて
 .. code-block:: bash
    :caption: パラメータの構成について(multipart/form-data)
 
-    json_parameters=' 
+    json_parameters='
         [
             {
                 "parameter": {
@@ -320,8 +320,8 @@ Content-Typeによるパラメータの構造の違いについて
 - 「:menuselection:`Ansible-Legacy --> Playbook素材集`」の登録のサンプル
 
 .. code-block:: json
-   :caption: Content-Type: application/jsonの場合の curlの --data-raw のパラメータ 
-   
+   :caption: Content-Type: application/jsonの場合の curlの --data-raw のパラメータ
+
     [
         {
             "file": {
@@ -366,8 +366,8 @@ Content-Typeによるパラメータの構造の違いについて
 - 「:menuselection:`Ansible-Legacy --> Playbook素材集`」の更新のサンプル
 
 .. code-block:: json
-    :caption: Content-Type: application/jsonの場合の curlの --data-raw のパラメータ 
-    
+    :caption: Content-Type: application/jsonの場合の curlの --data-raw のパラメータ
+
     [
         {
             "file": {
@@ -411,14 +411,14 @@ Content-Typeによるパラメータの構造の違いについて
 
 .. tip::
    | レコード更新時のlast_update_date_timeの値について
-   
+
    - last_update_date_timeには、FILTERで取得した最新の該当レコードの値を使用してください。
    - 最新の値と一致しない場合、レコードの更新は行われません。
 
-.. tip:: 
+.. tip::
    | application/jsonを利用したファイル操作について
 
-   - | ファイルの登録、更新方法 
+   - | ファイルの登録、更新方法
      | parameter、file配下の指定のキーに、登録、更新する値を指定してください。
      | ファイル名は、parameter配下の対象のキーに指定し、file配下の対象のキーに、ファイルをbase64エンコードした文字列を指定してください。
 
@@ -430,10 +430,10 @@ Content-Typeによるパラメータの構造の違いについて
    - | ファイルの削除方法
      | parameter配下の対象のキーを""又は、nullで指定してください。"null"とするとファイル名として認識します。
 
-.. tip:: 
+.. tip::
    | multipart/form-dataを利用したファイル操作について
 
-   - | ファイルの登録、更新方法 
+   - | ファイルの登録、更新方法
      | parameter配下の指定のキーに、登録、更新する値を指定してください。
      | ファイル名は、parameter配下の対象のキーに指定してください。
      | ファイルデータは、JSONデータのインデックス+対象のキーを「.」で接続したものを、-F のキー指定しに、ファイルのパスを指定してください。
@@ -447,11 +447,11 @@ Content-Typeによるパラメータの構造の違いについて
      | parameter配下の対象のキーを""又は、nullで指定してください。"null"とするとファイル名として認識します。
 
 
-.. tip:: 
+.. tip::
    | ファイルのデータ、ファイル名を変更しないで、他の項目の値のみを更新する場合について
 
    - parameter配下の変更する対象の項目の値のみ変更して、file配下、もしくは、-F でファイル指定せずに、対象項目のキーを含めずに更新してください。
-     
+
 .. tip::
    | プルダウン項目の値について
 
@@ -488,16 +488,16 @@ Ansible共通 - 機器一覧
      -F 'json_parameters="[ { "parameter": { "discard": "0", "managed_system_item_number": null, "hw_device_type": null, "host_name": "exastro-test", "host_dns_name": null, "ip_address": "127.0.0.1", "login_user": "root", "login_password": "asdfghjkl", "ssh_private_key_file": "ssh_key_file.pem", "authentication_method": "パスワード認証","port_no": null, "server_certificate": "certificate_file.crt", "protocol": "ssh", "os_type": null, "lang": "utf-8", "connection_options": null, "inventory_file_additional_option": null, "instance_group_name": null,"connection_type": "machine", "remarks": null,"last_update_date_time": null, "last_updated_user": null}, "type": "Register" }]"' \
      -F '0.ssh_private_key_file=@/ssh_key_file.pem' \
      -F '0.server_certificate=@/certificate_file.crt' \
-   
+
 
 .. _api_execution_example_maintenance_playbook_files:
 
 Ansible-Legacy - Playbook素材集
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  
+
 .. code-block:: bash
    :caption: 実行手順(サンプル)：Playbook素材集
-    
+
    BASEURL="https://servername"
    ORGANAIZATION_ID="オーガナイゼーションID"
    WORKSPACE_ID="ワークスペースID"
@@ -512,15 +512,15 @@ Ansible-Legacy - Playbook素材集
      -H "Authorization: Basic ${BASE64_BASIC}" \
      -H "Content-Type: application/json" \
      --data-raw "[{\"file\":{\"playbook_file\":\"LSBuYW1lOiBydW4gImVjaG8iCiAgY29tbWFuZDogZWNobyB7eyBWQVJfU1RSXzEgfX0=\"},\"parameter\":{\"discard\":\"0\",\"item_no\":null,\"playbook_name\":\"echo\",\"playbook_file\":\"echo.yml\",\"remarks\":null,\"last_update_date_time\":null,\"last_updated_user\":null},\"type\":\"Register\"}]"
-   
+
    # Content-Type: Multipart/form-data
-   curl -X POST 
+   curl -X POST
     "${BASEURL}/api/${ORGANAIZATION_ID}/workspaces/${WORKSPACE_ID}/ita/menu/${MENU}/maintenance/all/" \
     -H "Authorization: Basic ${BASE64_BASIC}" \
     -F "json_parameters=[{\"parameter\":{\"discard\":\"0\",\"item_no\":null,\"playbook_name\":\"echo\",\"playbook_file\":\"echo.yml\",\"remarks\":null,\"last_update_date_time\":null,\"last_updated_user\":null},\"type\":\"Register\"}] " \
     -F "0.playbook_file=@echo.yml"
 
-   
+
 .. _parameter_information:
 
 APIのパラメータ関連情報（Menu Info メニュー情報の取得）
@@ -529,7 +529,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
 | レコードの一括操作パラメータの作成について
 | レコードの一括操作のパラメータ、項目の構成については、以下を参照してください。
 
--  :ref:`parameter_information_menu_info`  
+-  :ref:`parameter_information_menu_info`
 -  :ref:`parameter_information_column_info`
 -  :ref:`parameter_information_pulldown_info`
 
@@ -558,22 +558,22 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
        "${BASEURL}/api/${ORGANAIZATION_ID}/workspaces/${WORKSPACE_ID}/ita/menu/${MENU}/info/" \
        -H "Authorization: Basic ${BASE64_BASIC}" \
 
-  .. code-block:: bash
+  .. code-block:: text
      :caption: メニューの構成情報について
-     
+
      {
          "data": {
              "column_group_info": {},
              "column_info": {
                  "cX": {
                      "column_name": "",     # 画面で表示される項目名
-                     "column_name_rest":"", # APIのパラメータで指定する項目名
+                     "column_name_rest": "", # APIのパラメータで指定する項目名
                      "auto_input": "",      # 自動入力フラグ
                      "input_item": "",      # 入力対象フラグ
-                     "view_item": ""        # 出力対象フラグ
+                     "view_item": "",       # 出力対象フラグ
                      "required_item": "",   # 必須入力フラグ
                      "unique_item": "",     # 一意制約フラグ
-                     "...省略...": "",      # 
+                     "...省略...": ""      #
                  },
              },
              "custom_menu": {
@@ -594,7 +594,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
     .. list-table:: メニューの項目情報のキーと設定値
        :header-rows: 1
        :align: left
-       
+
        * - **キー**
          - **説明**
          - **設定値**
@@ -607,32 +607,32 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
        * - auto_input
          - | 自動入力フラグ
            | システムで自動入力される項目
-         - | "0":非対象 
+         - | "0":非対象
            | "1":対象
        * - input_item
          - | 入力対象フラグ
            | 登録、編集のAPI実行時の入力対象項目
-         - | "0": 非対象 
+         - | "0": 非対象
            | "1": 対象
            | "2": 非表示
        * - view_item
          - | 出力対象フラグ
            | filterのAPI実行時の出力対象項目
-         - | "0": 非対象 
+         - | "0": 非対象
            | "1": 対象
        * - required_item
          - | 必須入力フラグ
            | 登録、編集のAPI実行時の必須対象項目
-         - | "0": 非対象 
+         - | "0": 非対象
            | "1": 対象
        * - unique_item
          - | 一意制約フラグ
            | 登録、編集のAPI実行時の一意制約対象項目
-         - | "0": 非対象 
+         - | "0": 非対象
            | "1": 対象
 
     | ※バリデーションについては、各メニューのマニュアルを参照してください。
-      
+
 .. _parameter_information_column_info:
 
 パラメータの項目情報
@@ -659,7 +659,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
 
 
   - | 例: 「:menuselection:`Playbook素材集`」のレスポンス
- 
+
   .. code-block:: bash
      :caption: メニューのカラム情報について：Playbook素材集
 
@@ -703,7 +703,7 @@ APIのパラメータ関連情報（Menu Info メニュー情報の取得）
        -H "Authorization: Basic ${BASE64_BASIC}" \
 
   - | 例: 「:menuselection:`機器一覧`」のレスポンス
- 
+
   .. code-block:: json
      :caption: プルダウン項目の一覧について：機器一覧
 
@@ -769,9 +769,9 @@ request形式
    * - API名
      - パラメータ適用
    * - URL
-     - /api/{organizaiton_id}/workspaces/{workspace_id}/ita/apply/ 
+     - /api/{organizaiton_id}/workspaces/{workspace_id}/ita/apply/
    * - method
-     - POST 
+     - POST
    * - headers
      - | content-type: application/json
        | Authorization: Basic認証またはBearer認証
@@ -870,7 +870,7 @@ Request bodyの具体例
      {
        "conductor_class_name"  : "sample_conductor",
        "operation_name"        : "sample_operation",
-       "schedule_date"         : "2024/12/31 23:59"	
+       "schedule_date"         : "2024/12/31 23:59"
      }
 
 
@@ -886,21 +886,21 @@ Request bodyの具体例
          "conductor_class_name": "sample_conductor",
          "operation_name" : "sample_operation",
          "schedule_date" : "",
-         "parameter_info" : [ 
+         "parameter_info" : [
              {
-                 "sample_menu_001" : [ 
+                 "sample_menu_001" : [
                      {
                          "type" : "Register",
                          "parameter" : {
                              "host_name"             : "sample_host1",
-                             "operation_name_select" : "2024/01/01 00:00_sample_operation",                                                                                                   
+                             "operation_name_select" : "2024/01/01 00:00_sample_operation",
                              "column_1"              : "value",
                              "column_2"              : "value.txt"
                          },
                          "file" : {
                              "column_2"              : "c2FtcGxlIGZpbGU="
                          }
-                      } 
+                      }
                   ]
               }
          ]
@@ -909,7 +909,7 @@ Request bodyの具体例
   .. tip::
       | オペレーション「operation_name_select」の指定について
       | 既存オベーションの場合、オペレーション「operation_name_select」に設定する値は、該当オペレーションの「実施予定日」(YYYY/MM/DD hh:mm)_「オペレーション名」で指定します。
-   
+
 
 新規オペレーションでパラメータ適用をしたConductorの作業実行
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -923,9 +923,9 @@ Request bodyの具体例
          "conductor_class_name": "sample_conductor",
          "operation_name" : "new_operation",
          "schedule_date" : "",
-         "parameter_info" : [ 
+         "parameter_info" : [
              {
-                 "sample_menu_001" : [ 
+                 "sample_menu_001" : [
                      {
                          "type" : "Register",
                          "parameter" : {
@@ -936,7 +936,7 @@ Request bodyの具体例
                          "file" : {
                              "column_2"              : "c2FtcGxlIGZpbGU="
                          }
-                     } 
+                     }
                  ]
              }
          ]
@@ -958,9 +958,9 @@ Request bodyの具体例
      {
          "conductor_class_name": "sample_conductor",
          "schedule_date" : "",
-         "parameter_info" : [ 
+         "parameter_info" : [
              {
-                 "sample_menu_001" : [ 
+                 "sample_menu_001" : [
                      {
                          "type" : "Register",
                          "parameter" : {
@@ -971,7 +971,7 @@ Request bodyの具体例
                          "file" : {
                              "column_2"              : "c2FtcGxlIGZpbGU="
                          }
-                     } 
+                     }
                  ]
              }
          ]
@@ -1090,7 +1090,7 @@ Request bodyの具体例
                          "type" : "Register",
                          "parameter" : {
                              "host_name"             : "sample_host1",
-                             "operation_name_select" : "2024/01/01 00:00_sample_operation",                                                                                                   
+                             "operation_name_select" : "2024/01/01 00:00_sample_operation",
                              "column_1"              : "value",
                              "column_2"              : "value.txt"
                          },
@@ -1101,7 +1101,7 @@ Request bodyの具体例
                          "type" : "Register",
                          "parameter" : {
                              "host_name"             : "sample_host2",
-                             "operation_name_select" : "2024/01/01 00:00_sample_operation",                                                                                                   
+                             "operation_name_select" : "2024/01/01 00:00_sample_operation",
                              "column_1"              : "value",
                              "column_2"              : "value.txt"
                          },
@@ -1131,15 +1131,14 @@ response body
          "message" : "SUCCESS",
          "result"  : "000-00000",
          "ts"      : "処理日時"
-         }
      }
 
   .. code-block:: json
      :caption: 異常時
 
      {
-         "message" : "エラーメッセージ"
-         "result"  : "エラーコード"
+         "message" : "エラーメッセージ",
+         "result"  : "エラーコード",
          "ts"      : "処理日時"
      }
 
@@ -1147,8 +1146,8 @@ response body
      :caption: エラーメッセージの例
 
      Request bodyで指定しているメニュー名(REST):sample_menu_001 の 1レコード目(0オリジン) の キー:column_1 に指定した値の文字数の不備でエラーが発生した場合の例
-     { 
-         "message": {                                                               
+     {
+         "message": {
              "1": {                                                                                    メニュー名(REST)のレコード番号が0オリジンで表示されます。
                 "column_1": [ "文字長エラー (閾値 : 値<=8byte, 値 : 30byte), menu : sample_menu_001"]  キー：エラーとなった項目のREST名、値：エラー内容、menu : エラーとなったメニュー名（REST)
                   }
@@ -1185,4 +1184,4 @@ response body
 ^^^^^^^^^^^^^^^^^^^^^^^
    | 本APIは、トランザクション処理でデータベースの更新を行っています。
    | Request bodyの指定不備などで、データベースの更新に失敗した場合は、トランザクション処理内で更新した情報はロールバックされます。
-   
+

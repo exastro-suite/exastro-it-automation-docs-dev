@@ -126,7 +126,7 @@
 
 | 収集対象のディレクトリ（_parameters）の上位ディレクトリのパスについて、Ansible-Driverの実行モード、実施した作業Noに依存します。
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 収集対象ディレクトリパス
 
    |-  _parameters           ※1
@@ -225,7 +225,7 @@
 
 | ■　e.g.) 通常変数の構造の変数の場合のディレクトリ構造とソースファイルの内容
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 通常変数の構造の変数の場合のディレクトリ構造とソースファイルの内容
 
     ■構造
@@ -486,7 +486,7 @@ Ansible 共通
 
 | ■e.g.) 通常変数の構造の変数の場合
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 通常変数の構造の変数の場合
 
    ■ファイル名: SAMPLE.yml
@@ -505,7 +505,7 @@ Ansible 共通
 | ■ e.g.) 複数具体値の構造の変数の場合1
 
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 複数具体値の構造の変数の場合1
 
    ■ファイル名: SAMPLE_2.yml
@@ -526,7 +526,7 @@ Ansible 共通
 
 | ■ e.g.) 複数具体値の構造の変数の場合2
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 複数具体値の構造の変数の場合2
 
    ■ファイル名: RH_sshd.yml
@@ -549,7 +549,7 @@ Ansible 共通
 
 | ■e.g.)複数具体値の構造の変数の場合3
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 複数具体値の構造の変数の場合3
 
    ■ファイル名: RH_snmp.yml
@@ -672,7 +672,7 @@ Ansible-Legacy、Ansible-Pioneer、Ansible-LegacyRole
 
 | ■ e.g.) ログファイル出力内容例
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ログファイル出力例 - 収集済み
 
     Collect START (host name: exastro-test-1 file name: ['Ansible_conf'])
@@ -686,7 +686,7 @@ Ansible-Legacy、Ansible-Pioneer、Ansible-LegacyRole
     Collect END (host name: exastro-test-3 file name: ['Ansible_conf'])
 
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ログファイル出力例 - 収集済み(通知あり)
 
    Collect START (host name: exastro-test-1 file name: ['Ansible_conf'])
@@ -703,13 +703,13 @@ Ansible-Legacy、Ansible-Pioneer、Ansible-LegacyRole
    Collect END (host name: exastro-test-3 file name: ['Ansible_conf'])
 
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ログファイル出力例 - 収集エラー[Operation]
 
    [Process] Operation is abolished, so registration and update processing is skipped (Operation No: 4001e182-51d2-4918-96e0-5981c4dc6d5f)
 
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ログファイル出力例 - 収集エラー[host]
 
    [Process] The registration / update process is skipped because the target device has not been registered or has been abolished (host name: exastro-test-1).
@@ -717,7 +717,7 @@ Ansible-Legacy、Ansible-Pioneer、Ansible-LegacyRole
    [Process] The registration / update process is skipped because the target device has not been registered or has been abolished (host name: exastro-test-3).
 
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ログファイル出力例 - 対象外
 
    [Process] There is no file in the collection target directory.
@@ -774,7 +774,7 @@ BackYardコンテンツ
 
 #. | Ansibleコンフィグ取得、パラメータ生成Playbook
 
-   .. code-block:: yaml
+   .. code-block:: bash
       :name: makeYml_Ansible.yml
       :caption: makeYml_Ansible.yml
 
@@ -786,35 +786,35 @@ BackYardコンテンツ
            marker: ""
            dest: "{{ __parameter_dir__  }}/{{ inventory_hostname }}/Ansible_conf.yml"
            content: |
-            ansible_architecture: {{ ansible_architecture }}
-            ansible_bios_version: {{ ansible_bios_version }}
-            ansible_default_ipv4__address: {{ ansible_default_ipv4.address }}
-            ansible_default_ipv4__interface: {{ ansible_default_ipv4.interface }}
-            ansible_default_ipv4__network: {{ ansible_default_ipv4.network }}
-            ansible_distribution: {{ ansible_distribution }}
-            ansible_distribution_file_path: {{ ansible_distribution_file_path }}
-            ansible_distribution_file_variety: {{ ansible_distribution_file_variety }}
-            ansible_distribution_major_version: {{ ansible_distribution_major_version }}
-            ansible_distribution_release: {{ ansible_distribution_release }}
-            ansible_distribution_version: {{ ansible_distribution_version }}
-            ansible_machine: {{ ansible_machine }}
-            ansible_memtotal_mb: {{ ansible_memtotal_mb }}
-            ansible_nodename: {{ ansible_nodename }}
-            ansible_os_family: {{ ansible_os_family }}
-            ansible_pkg_mgr: {{ ansible_pkg_mgr }}
-            ansible_processor_cores: {{ ansible_processor_cores }}
-            ansible_processor_count: {{ ansible_processor_count }}
-            ansible_processor_threads_per_core: {{ ansible_processor_threads_per_core }}
-            ansible_processor_vcpus: {{ ansible_processor_vcpus }}
-            ansible_product_name: {{ ansible_product_name }}
-            ansible_product_serial: {{ ansible_product_serial }}
-            ansible_product_uuid: {{ ansible_product_uuid }}
-            ansible_product_version: {{ ansible_product_version }}
-            ansible_python__executable: {{ ansible_python.executable }}
-            ansible_python_version: {{ ansible_python_version }}
-            ansible_service_mgr: {{ ansible_service_mgr }}
-            vconsole_config: vconsole.conf
-            yum_config: yum.conf
+             ansible_architecture: {{ ansible_architecture }}
+             ansible_bios_version: {{ ansible_bios_version }}
+             ansible_default_ipv4__address: {{ ansible_default_ipv4.address }}
+             ansible_default_ipv4__interface: {{ ansible_default_ipv4.interface }}
+             ansible_default_ipv4__network: {{ ansible_default_ipv4.network }}
+             ansible_distribution: {{ ansible_distribution }}
+             ansible_distribution_file_path: {{ ansible_distribution_file_path }}
+             ansible_distribution_file_variety: {{ ansible_distribution_file_variety }}
+             ansible_distribution_major_version: {{ ansible_distribution_major_version }}
+             ansible_distribution_release: {{ ansible_distribution_release }}
+             ansible_distribution_version: {{ ansible_distribution_version }}
+             ansible_machine: {{ ansible_machine }}
+             ansible_memtotal_mb: {{ ansible_memtotal_mb }}
+             ansible_nodename: {{ ansible_nodename }}
+             ansible_os_family: {{ ansible_os_family }}
+             ansible_pkg_mgr: {{ ansible_pkg_mgr }}
+             ansible_processor_cores: {{ ansible_processor_cores }}
+             ansible_processor_count: {{ ansible_processor_count }}
+             ansible_processor_threads_per_core: {{ ansible_processor_threads_per_core }}
+             ansible_processor_vcpus: {{ ansible_processor_vcpus }}
+             ansible_product_name: {{ ansible_product_name }}
+             ansible_product_serial: {{ ansible_product_serial }}
+             ansible_product_uuid: {{ ansible_product_uuid }}
+             ansible_product_version: {{ ansible_product_version }}
+             ansible_python__executable: {{ ansible_python.executable }}
+             ansible_python_version: {{ ansible_python_version }}
+             ansible_service_mgr: {{ ansible_service_mgr }}
+             vconsole_config: vconsole.conf
+             yum_config: yum.conf
 
       - name: get vconsole config
         fetch:
@@ -853,7 +853,7 @@ BackYardコンテンツ
 | 収集項目値管理にて、一つの「メニュー-項目」に対して、複数の「PREFIX(ファイル名)-変数名」の設定をしている場合、対象ホストの収集対象ディレクトリ内に、該当する複数のソースファイルがある場合の収集処理の例について記載します。
 
 
-.. code-block:: bash
+.. code-block:: text
    :name: 収集対象ファイル
    :caption: 収集対象ファイル
 
@@ -1028,12 +1028,12 @@ BackYardコンテンツ
      -
    * - 17
      - VAR_Quotation
-     - ''
+     - ``''``
      -
    * - 18
      - VAR_WQuotation
-     - ""
-     - 
+     - ``""``
+     -
    * - 19
      - VAR_INT
      - 100
@@ -1154,13 +1154,13 @@ BackYardコンテンツ
    * - 17
      - VAR_Quotation: ''
      - パラメータ/VAR_Quotation
-     - ""
+     - ``""``
      - string
      -
    * - 18
      - VAR_WQuotation: ""
      - パラメータ/VAR_WQuotation
-     - ""
+     - ``""``
      - string
      -
    * - 19
@@ -1244,7 +1244,7 @@ BackYardコンテンツ
 
 | Yaml形式で出力された収集対象ファイルについて、同一ホストで、階層別で同一ファイル名を取り扱う必要がある場合に、アップロード対象ファイルの指定例について記載します。
 
-.. code-block:: bash
+.. code-block:: text
    :caption: 収集対象ファイルのファイルパス、ディレクトリ構造(複数の同一ファイル名)
 
    【上位ディレクトリ】
@@ -1304,7 +1304,7 @@ BackYardコンテンツ
 | ファイルアップロード項目のファイル削除する場合の収集対象ファイルの指定例について記載します。
 | 削除するファイルについて対象の変数名の値を空文字として設定することで削除可能です。
 
-.. code-block:: bash
+.. code-block:: text
    :caption: ファイルアップロード項目の削除収集対象ファイルのファイルパス、ディレクトリ構造
 
    【上位ディレクトリ】

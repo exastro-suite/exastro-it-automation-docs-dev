@@ -357,7 +357,7 @@ VM作成作業フロー
    #. | **作業対象のIPアドレスを登録**
       | :menuselection:`VM作成 --> IPアドレス` から、作業対象のIPアドレスを登録します。
       | 詳細は「 :ref:`ip_address` 」を参照してください。
-      
+
    #. | **作業対象のフォルダ名を登録**
       | :menuselection:`VM作成 --> フォルダ名` から、作業対象のフォルダ名を登録します。
       | 詳細は「 :ref:`foldername` 」を参照してください。
@@ -387,6 +387,6 @@ VM作成作業フロー
       | :menuselection:`Condutor --> Conductor作業履歴` から、サーバー作成の作業状態を確認できます。
       | 詳細は「 :ref:`conductor_conductor_job_list` 」を参照してください。
 
-.. warning:: 
+.. warning::
   | Conductor作業履歴で「想定外エラー」や「異常終了」になっている場合は :menuselection:`VM作成` の各メニューや :menuselection:`Ansible共通 --> グローバル変数管理` に入力した情報に誤りが無いか確認してみてください。
 

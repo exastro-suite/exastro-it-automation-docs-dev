@@ -14,23 +14,23 @@
    });
    </script>
 
-=======================
+=================================
 Helm chart (Kubernetes) - Online
-=======================
+=================================
 
 Introduction
-====
+============
 
 | This document aims to explain how to install Exastro Platform and/or Exastro IT Automation on Kubernetes.
 
 Features
-====
+========
 
 | This method allows the user to install Exastro IT Automation with the highest level of availability and service.
 | For a more simple installation for testing and temporary usage, we recommend the :doc:`Docker Compose version<docker_compose>`.
 
 Prerequisites
-========
+=============
 
 - Client requirements
 
@@ -106,7 +106,7 @@ Preparation
 ==================
 
 Register Helm repository
----------------------
+------------------------
 
 | The Exastro system is constructed by the following 2 applications.
 | All the Exastro tools exists on the same Helm repository.
@@ -130,7 +130,7 @@ Register Helm repository
    helm repo update
 
 Fetch default setting values
-----------------------
+----------------------------
 
 | The following command outputs the values.yaml default values. This makes it easier to manage the input parameters.
 
@@ -158,7 +158,7 @@ Fetch default setting values
 .. _service_setting:
 
 Service publish settings
-------------------
+------------------------
 
 | There are 3 main methods to publish Exastro.
 
@@ -177,7 +177,7 @@ Parameters
 .. include:: ../../../include/helm_option_platform-auth.rst
 
 Setting example
-^^^^^^
+^^^^^^^^^^^^^^^
 
 | This sections displays examples of the settings for publishing the service.
 
@@ -205,7 +205,7 @@ Setting example
            :caption: exastro.yaml
            :language: yaml
 
-        | ※ Make sure to configure max time-out time (seconds) for processes where large amount of files might be uploaded.  
+        | ※ Make sure to configure max time-out time (seconds) for processes where large amount of files might be uploaded.
 
         .. code-block:: shell
            :caption: ingress - annotations
@@ -270,7 +270,7 @@ Setting example
       - Features
 
       | The service can be published using LoadBalancer if it is usable through a public cloud or other means.
-      | Different from using Ingress, the LoadBalancer is deployed externally from the cluster (often on the public cloud service). This means that the user don't have to operate it. 
+      | Different from using Ingress, the LoadBalancer is deployed externally from the cluster (often on the public cloud service). This means that the user don't have to operate it.
 
       - Setting example
 
@@ -368,9 +368,9 @@ Database link
           | Configure OASE database's connection information (Not required if not using OASE).
 
           .. warning::
-             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | If using MongoDB user and databases through "Automatic payout, make sure to specify :command:`MONGO_HOST`.
              | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
-             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user doesnt have said permissions, the user must soecify "Python connection string".
              | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
@@ -425,7 +425,7 @@ Database link
           | Configure password for the Database container's root.
           | Then specify the using storage so the data can be persisted.
 
-          .. include:: .. include:: ../../../include/helm_option_databaseDefinition.rst
+          .. include:: ../../../include/helm_option_databaseDefinition.rst
 
           .. tabs::
 
@@ -471,9 +471,9 @@ Database link
           | Configure connection information to the OASE database.
 
           .. warning::
-             | If using MongoDB user and databases through "Automatic payout( :ref:`organization_creation` ), make sure to specify :command:`MONGO_HOST`.
+             | If using MongoDB user and databases through "Automatic payout, make sure to specify :command:`MONGO_HOST`.
              | The :command:`MONGO_ADMIN_USER` must have permission to create and delete users and databases (root or role with same permissions).
-             | If the user doesnt have said permissions, the user must soecify "Python connection string( :ref:`organization_creation` )".
+             | If the user doesnt have said permissions, the user must soecify "Python connection string".
              | If the user is not using Automatic payout, :command:`MONGO_HOST` does not need to be specified.
 
           .. include:: ../../../include/helm_option_mongoDefinition.rst
@@ -488,7 +488,7 @@ Database link
           | Specify storage for persisting database data.
 
           .. warning::
-             |If the user is not using MongoDB container, make sure to set :command:`exastro-platform.mongo.enabled` to false.
+             | If the user is not using MongoDB container, make sure to set :command:`exastro-platform.mongo.enabled` to false.
 
           .. include:: ../../../include/helm_option_mongo.rst
 
@@ -505,15 +505,18 @@ Database link
 
           | The database container or MongoDB container's LivenessProbe and ReadinessProbe has the following values applied by default.
 
-          .. include:: ../../../include/helm_option_database_probe.rst
-
           .. tabs::
 
-          .. include:: ../../../include/helm_option_mongodb_probe.rst
+            .. tab:: Database container
 
-          .. tabs::
+                .. include:: ../../../include/helm_option_database_probe.rst
+
+            .. tab:: MongoDB container
+
+                .. include:: ../../../include/helm_option_mongodb_probe.rst
 
           | In order to change setting values for the database container or MongoDB container's LivenessProbe and ReadinessProbe, add the parameters as seen below.
+
           .. literalinclude:: ../../literal_includes/exastro_database_probe_setting.yaml
              :diff: ../../literal_includes/exastro.yaml
              :caption: exastro.yaml
@@ -544,7 +547,7 @@ App DB user settings
 | Configure DB users in for applications in Exastro.
 
 Setting example
-^^^^^^
+^^^^^^^^^^^^^^^
 
 | Configure DB users for each of the following.
 
@@ -593,7 +596,7 @@ Setting example
 .. _installation_kubernetes_gitlablinkage:
 
 GitLab link settings
----------------
+--------------------
 
 | Configure connection information in order to link with GitLab.
 
@@ -602,13 +605,15 @@ GitLab link settings
 
 .. include:: ../../../include/helm_option_gitlabDefinition.rst
 
-      .. warning::
-        | The GITLAB_ROOT_TOKEN needs a token that contains permissions for the following:
-        | ・api
-        | ・write_repository
-        | ・sudo
 
-      | The following is an example of GitLab link configurations.
+.. warning::
+
+  | The GITLAB_ROOT_TOKEN needs a token that contains permissions for the following:
+  | ・api
+  | ・write_repository
+  | ・sudo
+
+| The following is an example of GitLab link configurations.
 
 .. literalinclude:: ../../literal_includes/exastro_gitlab_setting.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -618,12 +623,13 @@ GitLab link settings
 .. _installation_kubernetes_proxy_settings:
 
 Proxy settings
----------
+--------------
 
 | Configure the following information when running Exastro under a Proxy environment.
 
 .. include:: ../../../include/helm_option_proxyDefinition.rst
-   .. _create_system_manager:
+
+.. _create_system_manager:
 
 Create Exastro system admin
 ----------------------------
@@ -640,7 +646,7 @@ Create Exastro system admin
 .. _persistent_volume:
 
 Configure Persistent volume
---------------------
+---------------------------
 
 | In order to persist databases( for container within clusters) and files, the user will have to configure a persistent volume.
 | For more information regarding persistent volumes, see `Persistent Volumes - Kubernetes <https://kubernetes.io/docs/concepts/storage/persistent-volumes/>`_.
@@ -670,6 +676,7 @@ Configure Persistent volume
       | For more information, see  `Storage options for applications in Azure Kubernetes Service (AKS) <https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes>`_.
 
         .. literalinclude:: ../../literal_includes/storage-class-exastro-suite.yaml
+
         :caption: storage-class-exastro-suite.yaml
         :linenos:
 
@@ -729,7 +736,7 @@ Configure Persistent volume
 
       .. danger::
           | While persisting data is possible, data might be deleted if compute nodes are changed. We strongly recommend against using this method to persist data in production.
-          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted. 
+          | Note that if AKS clusters created with Azure are stopped, the AKS cluster's node will be released. This means that all saved information will be deleted.
 
       - Example
 
@@ -740,16 +747,16 @@ Configure Persistent volume
            :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-ita-common.yaml
-        :caption: pv-ita-common.yaml (File volume)
-        :linenos:
+           :caption: pv-ita-common.yaml (File volume)
+           :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-mongo.yaml
-        :caption: pv-mongo.yaml (OASE volume) ※Not required if not using OASE
-        :linenos:
+           :caption: pv-mongo.yaml (OASE volume) ※Not required if not using OASE
+           :linenos:
 
         .. literalinclude:: ../../literal_includes/pv-gitlab.yaml
-        :caption: pv-gitlab.yaml (GitLab volume) ※Not required if using external GitLab
-        :linenos:
+            :caption: pv-gitlab.yaml (GitLab volume) ※Not required if using external GitLab
+            :linenos:
 
         | ※ Configure the following for outputting the monitoring log to persistent volumes.
 
@@ -781,7 +788,7 @@ Install
    | If the installation fails, follow :ref:`ita_uninstall` and try reinstalling.
 
 Create Persistent volumes
---------------------
+-------------------------
 
 | Apply the manifest file created in :ref:`persistent_volume` and create persistent volume.
 
@@ -1151,10 +1158,10 @@ Install
               - http://172.16.20.xxx:30081/auth/
 
 Log in to Managment console
---------------------------
+---------------------------
 
 | If the page belows is displayed, select :menuselection:`Administration Console` and log in.
- 
+
 .. figure:: /images/ja/manuals/platform/keycloak/administrator-console.png
   :alt: administrator-console
   :width: 600px
@@ -1174,7 +1181,6 @@ Log in to Managment console
   :width: 600px
   :name: Keycloak management page
 
-| Once logged in, create a :doc:`../../../manuals/platform_management/organization`.
 
 Update
 ==============
@@ -1186,10 +1192,10 @@ Update preparation
 --------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before updating.
+  | We recommend that back up the data before updating.
 
 Update Helm repository
-^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 | Update the Exastro system's Helm repository.
 
@@ -1244,7 +1250,7 @@ Update Helm repository
 
 
 Check default setting values and update data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Check the updated default values.
 | Compare the :file:`exastro.yaml` file pre and post update.
@@ -1276,7 +1282,7 @@ Check default setting values and update data
              paths:
 
 Update setting values
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 .. warning::
   | Both the username and password must be the same as before updating the system.
 
@@ -1308,9 +1314,9 @@ Update setting values
 .. _change_encrypt_key:
 
 Specify Encryption key
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
-| Specify the encryption key backed up in :ref:`backup_encrypt_key`.
+| Specify the encryption key backed up.
 
 .. literalinclude:: ../../literal_includes/update_exastro.yaml
    :diff: ../../literal_includes/exastro.yaml
@@ -1390,7 +1396,7 @@ Start Update
 
 
 Restart service
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 ※ The replicas specified in :file:`exastro.yaml` will be re-started. There is therefore no need to restart them manually.
 
@@ -1418,7 +1424,7 @@ Uninstall preparation
 ----------------------
 
 .. warning::
-  | We recommend that the user follow :doc:`../../../manuals/maintenance/backup_and_restore` and back up the data before uninstalling.
+  | We recommend that back up the data before uninstalling.
 
 Uninstall
 ----------------
@@ -1473,7 +1479,7 @@ For Files
   persistentvolume "pv-ita-common" deleted
 
 For OASE
-******
+********
 
 .. code-block:: bash
   :caption: Command
@@ -1496,7 +1502,7 @@ For OASE
   persistentvolumeclaim "volume-mongo-storage-mongo-0" deleted
 
 For GitLab
-********
+**********
 
 .. code-block:: bash
   :caption: Command
@@ -1509,7 +1515,7 @@ For GitLab
   persistentvolume "pv-gitlab" deleted
 
 For Monitoring log files
-******************
+************************
 
 .. code-block:: bash
   :caption: Command
@@ -1524,7 +1530,7 @@ For Monitoring log files
 .. _delete_data:
 
 Deleting Persistent data
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 | Log in to the Kubernetes Control node and delete the data.
 
@@ -1560,7 +1566,7 @@ For Files
    sudo rm -rf /var/data/exastro-suite/exastro-it-automation/ita-common
 
 For OASE
-******
+********
 
 | The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/mongo` when the Persistent Volume was created.
 
@@ -1574,7 +1580,7 @@ For OASE
    sudo rm -rf /var/data/exastro-suite/exastro-platform/mongo
 
 For GitLab
-********
+**********
 
 | The following command is an example where the hostPath is specified to  :file:`/var/data/exastro-suite/exastro-platform/gitlab` when the Persistent Volume was created.
 
@@ -1589,7 +1595,7 @@ For GitLab
 
 
 For Monitoring log files
-******************
+************************
 
 | The following command is an example where the hostPath is specified to  :file:`/var/log/exastro` when the Persistent Volume was created.
 

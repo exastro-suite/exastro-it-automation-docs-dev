@@ -41,7 +41,8 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_toolbox.collapse',
     'sphinx.ext.todo',
-    'sphinxcontrib.googleanalytics'
+    'sphinxcontrib.googleanalytics',
+    'myst_parser'
 ]
 
 # Fontpath for blockdiag (truetype font)
@@ -56,13 +57,17 @@ templates_path = ['_templates']
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = 'ja'
-languages = ["ja", "en"]
+languages = ["ja"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "**/_*"]
 
+
+# Previous versions hide all warnings
+# Reference: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-suppress_warnings
+suppress_warnings = ['docutils','ref','index','toc','i18n','duplicate_declaration','image','epub','app','config','misc','autodoc','autosummary','intersphinx']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -127,6 +132,11 @@ html_context = {
         '2.1': '2.1',
         '2.0': '2.0'
     }
+}
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
 }
 
 [extensions]

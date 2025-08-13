@@ -28,7 +28,7 @@
       - ユーザー数
       - ロール数
     * - org1
-      - スタンダードプラン 
+      - スタンダードプラン
       - 上限20
       - 上限30
       - 上限30
@@ -37,6 +37,71 @@
       - 上限50
       - 上限100
       - 上限100
+
+リソースプラン設定可能項目一覧
+------------------------------
+
+| リソースプランで設定できる項目は以下の通りとなります。
+
+.. list-table:: リソースプラン設定可能項目一覧
+   :widths: 70 30 30 120
+   :header-rows: 1
+
+   * - 項目名
+     - 既定値
+     - 最大値
+     - 説明
+   * - | platform.roles
+     - | 1000
+     - | 1000
+     - | ロールの最大数
+       | 登録可能なロールの最大数を調整したい場合に設定してください。
+   * - | platform.users
+     - | 1000
+     - | 1000
+     - | ユーザーの最大数
+       | 登録可能なユーザーの最大数を調整したい場合に設定してください。
+   * - | platform.workspaces
+     - | 100
+     - | 1000
+     - | ワークスペースの最大数
+       | 登録可能なワークスペースの最大数を調整したい場合に設定してください。
+   * - | ita.organization.ansible.execution_limit
+     - | 25
+     - | 1000
+     - | Ansible driver の Movement同時実行数の上限値
+       | 最大数を増やすことにより、パフォーマンスを向上させることが可能ですが、使用するリソースが増大しますので、リソースに見合った値を設定してください。
+   * - | ita.organization.common.maintenance_records_limit
+     - | 10000
+     - | 100000
+     - | ITAにおけるレコード一括更新時の最大処理件数
+       | API `/api/{organization_id}/workspaces/{workspace_id}/ita/menu/{menu}/maintenance/all/`
+       | レコードの一括更新時のパフォーマンス(応答エラーになるなど)によって、値を調整してください。
+   * - | ita.organization.common.upload_file_size_limit
+     - | 104857600
+     - | 107374182400
+     - | ITAにおけるファイルアップロード、Ansible処理におけるファイルサイズの最大サイズ(Byte)
+       | お使いの環境に合わせてファイルのアップロード最大サイズを調整してください。
+   * - | ita.organization.menu_export_import.buffer_size
+     - | 1000
+     - | 10000
+     - | ITAにおけるメニュー一括エクスポート・インポート時の非同期処理中に、データベースから一度に取得するデータ量の上限値
+       | 最大数を増やすことにより、パフォーマンスを向上させることが可能ですが、使用するリソースが増大しますので、リソースに見合った値を設定してください。
+
+.. note:: ita.organization.ansible.execution_limitについて
+
+   | オーガナイゼーションごとの同時実行数上限は、設定した内容となりますが、Exastro システム全体での最大同時実行数があるため、システム設定値で設定されている値が同時実行数上限となります。
+   | システム全体の最大同時実行数を超えるMovement実行は、実行待ちとなります。
+
+.. note:: ita.organization.common.maintenance_records_limitについて
+
+   | Coudのファイルストレージを利用した環境下では、ファイルの扱いで処理件数が多い更新(削除)応答エラーになる場合があります。その際は最大処理件数を小さくすることで応答エラーを回避することも可能となります。
+
+.. tip::
+
+   | システムの上限値は、APIを利用して取得することができます。
+   | APIの利用方法については :doc:`../../reference/api/system_manager/certification` を参照してください。
+   | 取得するAPIについては :doc:`../../reference/api/system_manager/platform-api` を参照してください。
 
 リソースプラン設定手順
 ----------------------
@@ -53,20 +118,18 @@
     :alt: 運用とシステムの動き
 
 1. | ユーザーから「最大ワークスペース数＝３」へのリソースプラン変更申し込みがあった場合、登録済みデータが「ワークスペース数＝４」であるため、2月からリミット値が超過することをシステム管理者から警告します。
-  
+
 2. | 登録済みデータが「ワークスペース数＝４」であるため、リミット値であるリソースプランの「最大ワークスペース数＝５」を超過せずユーザーはワークスペースの追加が出来ます。
-  
+
 3. | 登録済みデータが「ワークスペース数＝５」であるため、リミット値であるリソースプランの「最大ワークスペース数＝５」を超過したワークスペースの追加が出来ません（エラーになります）。
 
 4. | 「最大ワークスペース数＝３」を超過しているが、利用停止等のシステム的な規制はありません。
 
 5. | 登録済みデータが「ワークスペース数＝５」であるため、リミット値であるリソースプランの「最大ワークスペース数＝３」を超過したワークスペースの追加が出来ません（エラーになります）。
-  
+
 6. | 登録済みデータを「ワークスペース数＝５」から「ワークスペース数＝２」に削除することが出来ます。
-  
+
 7. | 登録済みデータが「ワークスペース数＝２」であるため、リミット値であるリソースプランの「最大ワークスペース数＝３」を超過せずユーザーはワークスペースの追加が出来ます。
-
-
 
 リソースプラン設定
 ==================
@@ -130,9 +193,10 @@
       - | リソースプラン設定項目の確認
 
         | 新たなリソースプランを作成するにあたって、指定可能なリソースの種類(ID)を確認します。
+        | 表示される内容は、バージョンによって異なります。
 
         - | コマンド
-          
+
           .. code-block:: bash
 
              ./get-plan-item-list.sh
@@ -146,7 +210,7 @@
              your password : システム管理者自身のパスワードを入力します
 
         - | 成功時の結果表示
-        
+
           | `"result": "000-00000"` が、成功したことを示しています。
 
           .. code-block:: bash
@@ -156,7 +220,7 @@
             < Server: Apache/2.4.37 (Red Hat Enterprise Linux) mod_wsgi/4.7.1 Python/3.9
             < Content-Length: 451
             < Content-Type: application/json
-            < 
+            <
             { [451 bytes data]
             * Connection #0 to host platform-auth left intact
             {
@@ -252,7 +316,7 @@
       - | リソースプラン登録
 
         - | 登録するリソースプランのjsonファイルを設定
-              
+
           | 取得した toolsフォルダ配下にある、 `add-plan.sample.json` を コピーして使用してください。
 
         .. figure:: /images/ja/manuals/platform/plan/plan_create_v1_9.png
@@ -264,7 +328,7 @@
            :widths: 40 200
            :header-rows: 1
            :align: left
-        
+
            * - 項目名
              - 説明
            * - リソースプランID
@@ -277,11 +341,11 @@
            * - リソースプラン制限値設定
              - | オーガナイゼーションにおける、リソースの制限を指定します。
                | 各項目の最大値、既定値は以下の通り
-               | ita.organization.ansible.execution_limit:【最大:1000】【既定:25】 
-               | ita.organization.common.upload_file_size_limit:【最大:107374182400】【既定:104857600】 
-               | platform.roles:【最大:1000】【既定:1000】 
-               | platform.users:【最大:10000】【既定:10000】 
-               | platform.workspaces:【最大:1000】【既定:100】 
+               | ita.organization.ansible.execution_limit:【最大:1000】【既定:25】
+               | ita.organization.common.upload_file_size_limit:【最大:107374182400】【既定:104857600】
+               | platform.roles:【最大:1000】【既定:1000】
+               | platform.users:【最大:10000】【既定:10000】
+               | platform.workspaces:【最大:1000】【既定:100】
 
    .. group-tab:: 設定ファイルとスクリプトによる実行
 
@@ -290,12 +354,12 @@
       - | リソースプラン登録
 
         - | 登録するリソースプランのjsonファイルを設定
-              
+
           | 取得した toolsフォルダ配下にある、 `add-plan.sample.json` を コピーして使用してください。
 
 
       - | 登録するリソースプランの設定
-          
+
         | add-plan.jsonにコピーした例
 
         .. code-block:: bash
@@ -318,7 +382,7 @@
                     "platform.users": 1000,
                     "platform.roles": 500
                 }
-            } 
+            }
 
         .. tip::
 
@@ -334,39 +398,39 @@
            * - 項目
              - 項目の内容
              - 形式
-           * - id 
-             - リソースプランID 
+           * - id
+             - リソースプランID
              - | 英小文字、数字、ハイフン、アンダースコア(最大３６文字)
                | ※先頭文字は英小文字であること
                | ※予約語(後述)に合致しないこと
-           * - name 
+           * - name
              - リソースプラン名
              - 最大２５５文字
-           * - informations.description 
+           * - informations.description
              - 説明
              - 最大２５５文字
            * - limits.xxxxxx.xxxxx
              - 取得したリソースプラン項目の内容を設定
              - 数値
-       
+
       - | コマンド
-         
+
         .. code-block:: bash
 
             ./add-plan.sh add-plan.json
 
 
       - | コマンド実行後に入力（入力例）
-         
+
         .. code-block:: bash
 
             your username : システム管理者自身のユーザー名を入力します
             your password : システム管理者自身のパスワードを入力します
 
       - | 成功時の結果表示
-        
+
         | `"result": "000-00000"` が、成功したことを示しています。
-         
+
         .. code-block:: bash
 
             < HTTP/1.1 200 OK
@@ -374,7 +438,7 @@
             < Server: Apache/2.4.37 (Red Hat Enterprise Linux) mod_wsgi/4.7.1 Python/3.9
             < Content-Length: 104
             < Content-Type: application/json
-            < 
+            <
             { [104 bytes data]
             * Connection #0 to host platform-auth left intact
             {
@@ -385,7 +449,7 @@
             }
 
       - | 失敗時の結果表示イメージ
-        
+
         .. code-block:: bash
 
             < HTTP/1.1 400 BAD REQUEST
@@ -394,7 +458,7 @@
             < Content-Length: 265
             < Connection: close
             < Content-Type: application/json
-            < 
+            <
             { [265 bytes data]
             * Closing connection 0
             {
@@ -433,26 +497,8 @@
               "platform.users": 1000,
               "platform.roles": 500
             }
-          }     
+          }
           EOF
-
-.. note:: ita.organization.ansible.execution_limitについて
- 
-   | ita.organization.ansible.execution_limitは、IT AutomationのAnsibleドライバのMovement同時実行数（オーガナイゼーション毎）の上限となります。
-   | オーガナイゼーションごとの同時実行数上限は、設定した内容となりますが、Exastro システム全体での最大同時実行数があるため、システム設定値で設定されている値が同時実行数上限となります。
-   | よって、システム全体の最大同時実行数を超えるMovement同時実行は、実行されず、実行待ちとなります。
-
-.. note:: ita.organization.common.upload_file_size_limitについて
- 
-   | ita.organization.common.upload_file_size_limitは、IT Automationにアップロード可能なファイルサイズの上限（byte）となります。
-
-.. .. todo:: システムの上限値の説明は、別途記載
-
-.. .. note:: 各項目の設定値について
- 
-..    | システムの上限は、上述の通りですが、リソースを大きくすることによってパフォーマンスに影響します。
-..    | 基本的には、既定値の値が、最小構成で実行できる最大値となります。
-..    | ※最小構成は、 :doc:`../../installation/index` の前提条件を確認してください。
 
 .. _plan_check:
 
@@ -478,22 +524,22 @@
          :width: 600px
          :align: left
          :class: with-border-thin
-      
+
    .. group-tab:: 設定ファイルとスクリプトによる実行
 
       以下の手順で実行
 
-      - | 設定済みリソースプランの確認 
+      - | 設定済みリソースプランの確認
 
         - | コマンド
-           
+
           .. code-block:: bash
 
               ./get-plan-list.sh
 
 
         - | コマンド実行後に入力（入力例）
-           
+
           .. code-block:: bash
 
              your username : システム管理者自身のユーザー名を入力します
@@ -501,9 +547,9 @@
 
 
         - | 成功時の結果表示
-          
+
           | `"result": "000-00000"` が、成功したことを示しています。
-           
+
           .. code-block:: bash
 
               < HTTP/1.1 200 OK
@@ -511,7 +557,7 @@
               < Server: Apache/2.4.37 (Red Hat Enterprise Linux) mod_wsgi/4.7.1 Python/3.9
               < Content-Length: 4274
               < Content-Type: application/json
-              < 
+              <
               { [4274 bytes data]
               * Connection #0 to host platform-auth left intact
               {
@@ -574,11 +620,11 @@
               "${BASE_URL}/api/platform/plans"
 
 .. tip::
- 
+
    | 現在リソースプランの変更や削除は未対応となっております。
 
 .. note::
- 
+
    | 作成したリソースプランの適用は、 :doc:`オーガナイゼーション作成 または 変更<./organization>` を参照してください。
 
 
@@ -604,24 +650,24 @@
       - | オーガナイゼーション毎の使用状況確認
 
         - | コマンド
-         
+
           .. code-block:: bash
 
             ./get-usage-list.sh
 
         - | コマンド実行後に入力（入力例）
-         
+
           .. code-block:: bash
 
             organization id : 取得するorganization idを入力します（省略時は全オーガナイゼーション）
-            
+
             your username : システム管理者自身のユーザー名を入力します
             your password : システム管理者自身のパスワードを入力します
 
         - | 成功時の結果表示
-          
+
           | `"result": "000-00000"` が、成功したことを示しています。
-           
+
           .. code-block:: bash
 
             < HTTP/1.1 200 OK
@@ -629,7 +675,7 @@
             < Server: Apache/2.4.37 (Red Hat Enterprise Linux) mod_wsgi/4.7.1 Python/3.9
             < Content-Length: 432
             < Content-Type: application/json
-            < 
+            <
             { [432 bytes data]
             * Connection #0 to host platform-auth left intact
             {
@@ -665,7 +711,7 @@
       - | RestAPIを直接呼び出す場合は以下の内容で呼び出すことができます。
 
         .. code-block:: bash
-          
+
           BASE64_BASIC=$(echo -n "システム管理者のユーザー名を設定してください:システム管理者のパスワードを設定してください" | base64)
           BASE_URL=システム管理者用サイトアドレスを設定してください
           ORG_ID=取得するorganization idを設定してください
@@ -676,5 +722,5 @@
               "${BASE_URL}/api/platform/usages?organization_id=${ORG_ID}"
 
         .. note::
-       
+
            | すべてのオーガナイゼーションの使用状況を取得する場合は、"?organization_id=${ORG_ID}" の条件を指定せずに実行してください
