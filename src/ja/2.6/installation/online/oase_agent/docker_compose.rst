@@ -213,7 +213,7 @@ OASE Agent on Docker Compose - Online
 
 .. warning::
   | アップグレード実施前に、バックアップを取得しておくことを推奨します。
-  | バックアップ対象は :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/` です。
+  | バックアップ対象は、 :file:`~/exastro-docker-compose/ita_ag_oase/.volumes/storage/<{OrganizationID}>/<{WorkspaceID}>/sqlite` です。
 
 リポジトリの更新
 ^^^^^^^^^^^^^^^^

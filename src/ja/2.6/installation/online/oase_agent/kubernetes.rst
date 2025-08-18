@@ -785,6 +785,7 @@ OASE Agentのパラメータ設定例
 
 .. warning::
   | アップグレード実施前に :doc:`../../../manuals/maintenance/backup_and_restore` の手順に従い、バックアップを取得しておくことを推奨します。
+  | バックアップ対象は、ファイル（`name: ITA_STORAGEPATH`）に含まれます。
 
 | 更新前のバージョンを確認します。
 
