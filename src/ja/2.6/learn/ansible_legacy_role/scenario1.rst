@@ -19,9 +19,6 @@
 
 | :menuselection:`パラメータシート作成` では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。
 
-.. glossary:: パラメータシート
-   システムのパラメータ情報を管理するデータ構造のことです。
-
 | ホスト名を管理するためのパラメータシートを作成します。
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。
 
@@ -86,9 +83,6 @@
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
 | 定義した Movement に対して、Ansible Role パッケージを紐付け、更に Ansible Role パッケージ内の変数と :ref:`quickstart_server_information_parmeter_ansible_legacy_role` で登録したパラメータシートの項目の紐付けを行います。
 
-.. glossary:: Movement
-   Exastro IT Automation における、最小の作業単位のことを指します。
-   1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。
 
 作業項目の設定
 --------------
@@ -276,9 +270,6 @@ Movement と Ansible Role の紐付け
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
-
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
 .. figure:: ../../../../images/learn/quickstart/scenario1/オペレーション登録.gif
@@ -323,7 +314,7 @@ Movement と Ansible Role の紐付け
 作業実行(1回目)
 ---------------
 
-1. 事前確認
+#. 事前確認
 
    | まずは、現在のサーバーの状態を確認しましょう。
    | サーバに SSH ログインし、現在のホスト名を確認します。
@@ -340,7 +331,7 @@ Movement と Ansible Role の紐付け
       # 結果は環境ごとに異なります
       localhost
 
-2. 作業実行
+#. 作業実行
 
    | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名変更作業` を選択し :guilabel:`選択決定` を押下します。
@@ -352,7 +343,7 @@ Movement と Ansible Role の紐付け
    :width: 1200px
    :alt: 作業実行
 
-3. 事後確認
+#. 事後確認
 
    | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
 
@@ -487,7 +478,7 @@ Movement と Ansible Role の紐付け
 作業実行(2回目)
 ---------------
 
-1. 作業実行
+#. 作業実行
 
    | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名更新作業` を選択し :guilabel:`選択決定` を押下します。
@@ -499,7 +490,7 @@ Movement と Ansible Role の紐付け
    :width: 1200px
    :alt: 作業実行
 
-2. 事後確認
+#. 事後確認
 
    | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
 

@@ -105,9 +105,6 @@
 
 | :menuselection:`パラメータシート作成` では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。
 
-.. glossary:: パラメータシート
-   システムのパラメータ情報を管理するデータ構造のことです。
-
 | グループとユーザーを作成するためのパラメータシートを作成します。
 | 利用する Ansible Playbook は以下のPlaybookになります、下記のパラメータが管理できるようにパラメータシートを作成しましょう。
 | 以下の System_group_add.yml と System_user_add.yml は、Playbook素材集にデフォルトで登録されています。
@@ -294,9 +291,6 @@
 | 作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。
 | 定義した Movement に対して、Ansible Playbook を紐付け、更に Ansible Playbook 内の変数と :ref:`quickstart_server_information_parmeter_parameter` で登録したパラメータシートの項目の紐付けを行います。
 
-.. glossary:: Movement
-   Exastro IT Automation における、最小の作業単位のことを指します。
-   1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。
 
 作業項目の設定
 --------------
@@ -605,9 +599,6 @@ Movement と Ansible Playbook の紐付け
 | オペレーション登録では、作業を実施する際の作業概要を定義します。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
-
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
 .. figure:: /images/learn/quickstart/parameter/オペレーション登録.png
@@ -813,9 +804,6 @@ Movement と Ansible Playbook の紐付け
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
 | ユーザーの更新作業を実施するために、新規オペレーションを作成します。
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
-
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
 .. figure:: /images/learn/quickstart/parameter/更新用オペレーション登録.png
@@ -1016,9 +1004,6 @@ Movement と Ansible Playbook の紐付け
 
 | それでは今まで登録してきた内容をもとにパラメータ集を表示させてみましょう。
 | :menuselection:`メインメニュー --> パラメータ集` を選択して、パラメータシートの情報を取得してみましょう。
-
-.. glossary:: パラメータ集
-   作成済みの複数のパラメータシートを検索条件に基づいて取得、またはパラメータシートへのデータの登録が行えます。
 
 パラメータモード選択
 --------------------

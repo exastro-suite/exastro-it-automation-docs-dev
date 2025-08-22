@@ -13,6 +13,7 @@ Exastro IT Automation Documentation 2.6
    configuration/index
    installation/index
    learn/index
+   glossary/index
 ..   manuals/index
 ..   templates/index
 ..   reference/index
