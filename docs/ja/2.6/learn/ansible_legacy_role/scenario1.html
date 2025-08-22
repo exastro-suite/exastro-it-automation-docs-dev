@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=2eb2a90a" />
     <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
     <script src="../../_static/documentation_options.js?v=c033477b"></script>
@@ -152,8 +152,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">マニュアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">テンプレート</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">リファレンス</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../kb/index.html">ナレッジベース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">用語集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute/index.html">貢献</a></li>
 </ul>
 
     <!-- <ul>
@@ -241,9 +242,6 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">パラメータシート作成</span> では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-0">パラメータシート<a class="headerlink" href="#term-0" title="Link to this term">¶</a></dt><dt id="term-1">システムのパラメータ情報を管理するデータ構造のことです。<a class="headerlink" href="#term-1" title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line">ホスト名を管理するためのパラメータシートを作成します。</div>
 <div class="line"><span class="menuselection">パラメータシート作成 ▶ パラメータシート定義・作成</span> から、ホスト名を管理するために、「サーバー基本情報」というパラメータシートを作成します。</div>
@@ -342,9 +340,6 @@
 <div class="line">作業手順を登録するために、Exastro IT Automation で扱う作業単位である Movement (ジョブ)を定義します。</div>
 <div class="line">定義した Movement に対して、Ansible Role パッケージを紐付け、更に Ansible Role パッケージ内の変数と <a class="reference internal" href="#quickstart-server-information-parmeter-ansible-legacy-role"><span class="std std-ref">パラメータシートの作成</span></a> で登録したパラメータシートの項目の紐付けを行います。</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-Movement">Movement<a class="headerlink" href="#term-Movement" title="Link to this term">¶</a></dt><dt id="term-Exastro-IT-Automation">Exastro IT Automation における、最小の作業単位のことを指します。<a class="headerlink" href="#term-Exastro-IT-Automation" title="Link to this term">¶</a></dt><dt id="term-1-Movement-1-ansible-playbook">1回の Movement 実行は、1回の ansible-playbook コマンドの実行と同じです。<a class="headerlink" href="#term-1-Movement-1-ansible-playbook" title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <section id="id5">
 <h3><span class="section-number">1.2.1. </span>作業項目の設定<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <div class="line-block">
@@ -606,9 +601,6 @@
 <div class="line">オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。</div>
 <div class="line">先に決めた作業の方針を元にオペレーション情報を記入しましょう。</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-2">オペレーション<a class="headerlink" href="#term-2" title="Link to this term">¶</a></dt><dt id="term-3">実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。<a class="headerlink" href="#term-3" title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line"><span class="menuselection">基本コンソール ▶ オペレーション一覧</span> から、作業実施日時や作業名を登録します。</div>
 </div>
@@ -710,7 +702,7 @@ localhost
 <a class="reference internal image-reference" href="../../_images/作業実行2.gif"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2.gif" style="width: 1200px;" />
 </a>
 </figure>
-<ol class="arabic" start="3">
+<ol class="arabic">
 <li><p>事後確認</p>
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
@@ -912,7 +904,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <a class="reference internal image-reference" href="../../_images/作業実行2.gif"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C2.gif" style="width: 1200px;" />
 </a>
 </figure>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><p>事後確認</p>
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>

@@ -40,12 +40,6 @@ Prerequisites
  2. The user must be able to log in via SSH and have full sudoer privileges.
  3. A workspace for the task.
 
-.. glossary:: Target Server
-   The server on which Exastro IT Automation performs operations using Ansible.
-
-.. glossary:: Workspace
-   A work area for centralizing system configuration information and design information for automation tasks.
-
 .. _quickstart_prepared:
 
 Preparation
@@ -61,9 +55,6 @@ Create a Parameter Sheet
 ------------------------
 
 | :menuselection:`Parameter Sheet Creation`, you manage parameter sheets for registering configuration values (parameters) used during operations.
-
-.. glossary:: Parameter Sheet
-   A data structure for managing system parameter information.
 
 | Create a parameter sheet to manage hostnames.
 | :menuselection:`Parameter Sheet Creation --> Parameter Sheet Definition/Creation`, Create a parameter sheet named "Server Basic Information" to manage hostnames.
@@ -128,10 +119,6 @@ Configure Work Items
 ---------------------
 
 | To register a work procedure, you define a Movement (Job), which is the work unit handled in Exastro IT Automation.
-
-.. glossary:: Movement
-   It refers to the smallest work unit in Exastro IT Automation.
-   A single Movement execution is equivalent to a single ansible-playbook command execution.
 
 | In Exastro IT Automation, work is managed in units called Movements. A Movement corresponds to a work item in a work procedure manual.
 | A Movement is used to associate IaC (Infrastructure as Code) like an Ansible Playbook, or to link variables within the IaC to setting values in a parameter sheet.
@@ -326,9 +313,6 @@ Register Operation Overview (1st time)
 | When you register an operation, you define the work summary for carrying out the task. You must create one operation for each task, and you should not reuse operations.
 | Based on the work policy you've already decided on, let's fill in the operation details.
 
-.. glossary:: operation
-   The operation is associated with a target and parameters for the task to be performed.
-
 | :menuselection:`Basic Console --> Operation List`, register the task execution date and time, as well as the task name.
 
 .. figure:: /images/learn/quickstart/Legacy_scenario1/オペレーション登録.png
@@ -452,9 +436,6 @@ Register Operation Overview (2nd time)
 
 | During operation registration, the task overview for performing the work is defined. Create one operation per task. Operations should not be reused.
 | Enter the operation details based on the previously established work policy.
-
-.. glossary:: Operation
-   An operation defines the task to be performed and links it to the target servers and relevant parameters.
 
 | :menuselection:`Basic Console --> Operation List`, register the task execution date and time, as well as the task name.
 

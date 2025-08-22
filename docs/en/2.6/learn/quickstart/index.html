@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=57fb2187" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=2eb2a90a" />
     <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
     <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
@@ -38,6 +38,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Glossary" href="../../glossary/index.html" />
     <link rel="prev" title="Learn" href="../index.html" /> 
   </head>
 <body id="page" class="en">
@@ -101,6 +102,7 @@
     <div id="toolbarNavigation">
       <ul>
         <li class="prev"><a href="../index.html" title="Previous topic">Learn</a></li>
+        <li class="next"><a href="../../glossary/index.html" title="Next topic">Glossary</a></li>
       </ul>
     </div>
   </div>
@@ -141,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
 </ul>
 
     <!-- <ul>
@@ -224,12 +227,6 @@
 <li><p>A workspace for the task.</p></li>
 </ol>
 </div></blockquote>
-<dl class="simple glossary">
-<dt id="term-Target-Server">Target Server<a class="headerlink" href="#term-Target-Server" title="Link to this term">¶</a></dt><dt id="term-The-server-on-which-Exastro-IT-Automation-performs-operations-using-Ansible.">The server on which Exastro IT Automation performs operations using Ansible.<a class="headerlink" href="#term-The-server-on-which-Exastro-IT-Automation-performs-operations-using-Ansible." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
-<dl class="simple glossary">
-<dt id="term-Workspace">Workspace<a class="headerlink" href="#term-Workspace" title="Link to this term">¶</a></dt><dt id="term-A-work-area-for-centralizing-system-configuration-information-and-design-information-for-automation-tasks.">A work area for centralizing system configuration information and design information for automation tasks.<a class="headerlink" href="#term-A-work-area-for-centralizing-system-configuration-information-and-design-information-for-automation-tasks." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 </section>
 <section id="preparation">
 <span id="quickstart-prepared"></span><h1>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h1>
@@ -246,9 +243,6 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">Parameter Sheet Creation</span>, you manage parameter sheets for registering configuration values (parameters) used during operations.</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-Parameter-Sheet">Parameter Sheet<a class="headerlink" href="#term-Parameter-Sheet" title="Link to this term">¶</a></dt><dt id="term-A-data-structure-for-managing-system-parameter-information.">A data structure for managing system parameter information.<a class="headerlink" href="#term-A-data-structure-for-managing-system-parameter-information." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line">Create a parameter sheet to manage hostnames.</div>
 <div class="line"><span class="menuselection">Parameter Sheet Creation ▶ Parameter Sheet Definition/Creation</span>, Create a parameter sheet named “Server Basic Information” to manage hostnames.</div>
@@ -345,9 +339,6 @@
 <div class="line-block">
 <div class="line">To register a work procedure, you define a Movement (Job), which is the work unit handled in Exastro IT Automation.</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-Movement">Movement<a class="headerlink" href="#term-Movement" title="Link to this term">¶</a></dt><dt id="term-It-refers-to-the-smallest-work-unit-in-Exastro-IT-Automation.">It refers to the smallest work unit in Exastro IT Automation.<a class="headerlink" href="#term-It-refers-to-the-smallest-work-unit-in-Exastro-IT-Automation." title="Link to this term">¶</a></dt><dt id="term-A-single-Movement-execution-is-equivalent-to-a-single-ansible-playbook-command-execution.">A single Movement execution is equivalent to a single ansible-playbook command execution.<a class="headerlink" href="#term-A-single-Movement-execution-is-equivalent-to-a-single-ansible-playbook-command-execution." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line">In Exastro IT Automation, work is managed in units called Movements. A Movement corresponds to a work item in a work procedure manual.</div>
 <div class="line">A Movement is used to associate IaC (Infrastructure as Code) like an Ansible Playbook, or to link variables within the IaC to setting values in a parameter sheet.</div>
@@ -602,9 +593,6 @@ First, let’s briefly organize the key information: what to do, how to do it, w
 <div class="line">When you register an operation, you define the work summary for carrying out the task. You must create one operation for each task, and you should not reuse operations.</div>
 <div class="line">Based on the work policy you’ve already decided on, let’s fill in the operation details.</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-operation">operation<a class="headerlink" href="#term-operation" title="Link to this term">¶</a></dt><dt id="term-The-operation-is-associated-with-a-target-and-parameters-for-the-task-to-be-performed.">The operation is associated with a target and parameters for the task to be performed.<a class="headerlink" href="#term-The-operation-is-associated-with-a-target-and-parameters-for-the-task-to-be-performed." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line"><span class="menuselection">Basic Console ▶ Operation List</span>, register the task execution date and time, as well as the task name.</div>
 </div>
@@ -764,9 +752,6 @@ First, let’s briefly organize the information: when, on which device, what wil
 <div class="line">During operation registration, the task overview for performing the work is defined. Create one operation per task. Operations should not be reused.</div>
 <div class="line">Enter the operation details based on the previously established work policy.</div>
 </div>
-<dl class="simple glossary">
-<dt id="term-Operation">Operation<a class="headerlink" href="#term-Operation" title="Link to this term">¶</a></dt><dt id="term-An-operation-defines-the-task-to-be-performed-and-links-it-to-the-target-servers-and-relevant-parameters.">An operation defines the task to be performed and links it to the target servers and relevant parameters.<a class="headerlink" href="#term-An-operation-defines-the-task-to-be-performed-and-links-it-to-the-target-servers-and-relevant-parameters." title="Link to this term">¶</a></dt><dd></dd>
-</dl>
 <div class="line-block">
 <div class="line"><span class="menuselection">Basic Console ▶ Operation List</span>, register the task execution date and time, as well as the task name.</div>
 </div>
