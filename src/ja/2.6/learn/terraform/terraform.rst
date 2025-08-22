@@ -28,9 +28,6 @@ IaaSの払い出し
 | オペレーション登録では、作業を実施する際の作業概要を定義します。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
 
-.. glossary:: オペレーション
-   実施する作業のことで、オペレーションに対して作業対象とパラメータが紐づきます。
-
 | :menuselection:`基本コンソール --> オペレーション一覧` から、作業実施日時や作業名を登録します。
 
 .. figure:: /images/learn/quickstart/Terraform_scenario1/オペレーション登録.png
@@ -54,9 +51,6 @@ Workspace管理
 =============
 
 | Workspace管理では、Terraformで利用するWorkspaceについてのメンテナンス（閲覧/登録/更新／/廃止リソース削除）を行います。
-
-.. glossary:: Workspace
-   WorkspaceはTerraformコマンドを実行するためのディレクトリとして利用します。
 
 | Terraformコマンドを実行するためにWorkspaceを作成します。
 | :menuselection:`Terraform CLI --> Workspace管理` から、Terraformコマンドを実行するために、「tfe_ws001」というWorkspaceを作成します。
@@ -101,9 +95,6 @@ Module素材集
 -----------------
 
 | Module素材集では、ユーザーが作成したModuleのメンテナンス（閲覧/登録/更新/廃止）を行います。
-
-.. glossary:: Moduleの記述
-   Moduleファイルは、HCL（HashiCorp ConfigurationLanguage）というHashiCorp社独自の言語により記述します。
 
 | 使用するModuleファイルをModule素材集から登録します。
 | 利用する Moduleファイル は下記になります。
@@ -307,9 +298,6 @@ Movement-Module紐付
 ----------------------
 
 | :menuselection:`パラメータシート作成` では、作業時に利用する設定値(パラメータ)を登録するためのパラメータシートを管理します。
-
-.. glossary:: パラメータシート
-   システムのパラメータ情報を管理するデータ構造のことです。
 
 | Azure認証情報として、パラメータシートを作成します。
 | :menuselection:`パラメータシート作成 --> パラメータシート定義・作成` から、Azure認証情報を管理するために、「Azureパラメータ」というパラメータシートを作成します。
@@ -540,7 +528,7 @@ Movement-Module紐付
 作業実行
 --------------
 
-1. 作業実行
+#. 作業実行
 
    | :menuselection:`Terraform --> 作業実行` から、:kbd:`tfe_mov001` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`TF-AzureVM構築` を選択し :guilabel:`選択決定` を押下します。
@@ -551,7 +539,7 @@ Movement-Module紐付
    :width: 1200px
    :alt: 作業実行
 
-2. 実行後作業
+#. 実行後作業
 
    | :menuselection:`Terraform CLI--> Workspace` から、:kbd:`tfe_ws001` Workspace を選択し、:kbd:`リソース削除` を押下します。
 
