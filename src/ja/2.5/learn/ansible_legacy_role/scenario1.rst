@@ -12,7 +12,7 @@
 
 | システムにある全ての情報をパラメータとして管理する必要はありません。今後管理が必要になったタイミングで適宜追加や見直しをしましょう。
 
-.. _quickstart_server_information_parmeter:
+.. _quickstart_server_information_parmeter_ansible_legacy_role:
 
 パラメータシートの作成
 ----------------------
@@ -126,7 +126,7 @@ Ansible Role 登録
 | 手作業で Ansible Role を作成することも可能ですが、Ansible-Legacy-Role モードは、作成済みの Ansible Role を利用することを想定しています。
 | 本シナリオでは、 `Exastro Playbook Collection <https://github.com/exastro-suite/playbook-collection-docs/blob/master/ansible_role_packages/README.md>`_ を利用します。
 
-| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_
+| `ここをクリックして Ansible Role Package の OS-RHEL8 をダウンロードしてください。 <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`
 
 | :menuselection:`Ansible-LegacyRole --> ロールパッケージ管理` から、ダウンロードした `OS-RHEL8.zip <https://github.com/exastro-playbook-collection/OS-RHEL8/releases/download/v23.03/OS-RHEL8.zip>`_ を登録します。
 
@@ -248,8 +248,8 @@ Movement と Ansible Role の紐付け
 ホスト名変更作業実施(1回目)
 ===========================
 
-作業概要の作成
---------------
+作業概要の作成(1回目)
+---------------------
 
 | 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
@@ -265,8 +265,8 @@ Movement と Ansible Role の紐付け
    * - 作業内容
      - ホスト名の変更
 
-作業概要登録
-------------
+作業概要登録(1回目)
+-------------------
 
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
@@ -287,8 +287,8 @@ Movement と Ansible Role の紐付け
    * - :kbd:`RHEL8のホスト名変更作業`
      - :kbd:`2023/04/01 12:00:00`
 
-パラメータ設定
---------------
+パラメータ設定(1回目)
+---------------------
 
 | パラメータシートには、設定したい値を機器ごとにパラメータを登録します。
 | 本シナリオでは、:kbd:`server01` というホスト名、RHEL8 サーバに設定します。
@@ -313,10 +313,10 @@ Movement と Ansible Role の紐付け
     - :kbd:`2023/04/01 12:00:00_RHEL8のホスト名変更作業`
     - :kbd:`server01`
 
-作業実行
---------
+作業実行(1回目)
+---------------
 
-1. 事前確認
+#. 事前確認
 
    | まずは、現在のサーバーの状態を確認しましょう。
    | サーバに SSH ログインし、現在のホスト名を確認します。
@@ -333,7 +333,7 @@ Movement と Ansible Role の紐付け
       # 結果は環境ごとに異なります
       localhost
 
-2. 作業実行
+#. 作業実行
 
    | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名変更作業` を選択し :guilabel:`選択決定` を押下します。
@@ -345,7 +345,7 @@ Movement と Ansible Role の紐付け
    :width: 1200px
    :alt: 作業実行
 
-3. 事後確認
+#. 事後確認
 
    | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
 
@@ -364,8 +364,8 @@ Movement と Ansible Role の紐付け
 ホスト名変更作業実施(2回目)
 ===========================
 
-作業概要の作成
---------------
+作業概要の作成(2回目)
+---------------------
 
 | 具体的なパラメータの設定や作業手順を考える前に、作業計画を立てるところから初めます。
 | まずは、いつ、どこの機器に対して、何を、どうするかといった情報を簡単に整理しておきましょう。
@@ -381,8 +381,8 @@ Movement と Ansible Role の紐付け
    * - 作業内容
      - ホスト名の更新
 
-作業概要登録
-------------
+作業概要登録(2回目)
+-------------------
 
 | オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。
 | 先に決めた作業の方針を元にオペレーション情報を記入しましょう。
@@ -408,8 +408,8 @@ Movement と Ansible Role の紐付け
    | 定期作業などの繰り返し行われる作業のように、作業日が定まっていない場合は現在の日時を登録しても問題ありません。
 
 
-パラメータ設定
---------------
+パラメータ設定(2回目)
+---------------------
 
 | 本シナリオでは、:kbd:`server01` というホスト名をパラメータ値として設定しました。
 | しかし、:menuselection:`機器一覧` でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。
@@ -478,10 +478,10 @@ Movement と Ansible Role の紐付け
      - :kbd:`パスワード認証`
 
 
-作業実行
---------
+作業実行(2回目)
+---------------
 
-1. 作業実行
+#. 作業実行
 
    | :menuselection:`Ansible-LegacyRole --> 作業実行` から、:kbd:`ホスト名設定` Movement を選択し、:guilabel:` 作業実行` を押下します。
    | 次に、:menuselection:`作業実行設定` で、オペレーションに :kbd:`RHEL8のホスト名更新作業` を選択し :guilabel:`選択決定` を押下します。
@@ -493,7 +493,7 @@ Movement と Ansible Role の紐付け
    :width: 1200px
    :alt: 作業実行
 
-2. 事後確認
+#. 事後確認
 
    | 再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。
 
