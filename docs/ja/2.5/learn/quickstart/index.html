@@ -130,15 +130,15 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#quickstart-1st">繰り返し作業(1回目)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-regist-operation">作業概要登録</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-regist-parameter">パラメータ設定</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-run">作業実行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-regist-operation">作業概要登録(1回目)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-regist-parameter">パラメータ設定(1回目)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-1st-run">作業実行(1回目)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#quickstart-2nd">繰り返し作業(2回目)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-operation">作業概要登録</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-parameter">パラメータ設定</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-run">作業実行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-operation">作業概要登録(2回目)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-regist-parameter">パラメータ設定(2回目)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quickstart-2nd-run">作業実行(2回目)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id16">まとめ</a></li>
@@ -601,7 +601,7 @@
 </tbody>
 </table>
 <section id="quickstart-1st-regist-operation">
-<span id="id9"></span><h3>作業概要登録<a class="headerlink" href="#quickstart-1st-regist-operation" title="Link to this heading">¶</a></h3>
+<span id="id9"></span><h3>作業概要登録(1回目)<a class="headerlink" href="#quickstart-1st-regist-operation" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。</div>
 <div class="line">先に決めた作業の方針を元にオペレーション情報を記入しましょう。</div>
@@ -639,7 +639,7 @@
 </div>
 </section>
 <section id="quickstart-1st-regist-parameter">
-<span id="id10"></span><h3>パラメータ設定<a class="headerlink" href="#quickstart-1st-regist-parameter" title="Link to this heading">¶</a></h3>
+<span id="id10"></span><h3>パラメータ設定(1回目)<a class="headerlink" href="#quickstart-1st-regist-parameter" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">パラメータシートには、設定したいパラメータを機器ごとに登録します。</div>
 <div class="line">オペレーションには、作業概要登録で作成した <kbd class="kbd docutils literal notranslate">RHEL8のホスト名変更作業</kbd> を選択します。オペレーションを選択することでオペレーションに対して、作業対象サーバとパラメータが紐付けされます。</div>
@@ -678,7 +678,7 @@
 </table>
 </section>
 <section id="quickstart-1st-run">
-<span id="id11"></span><h3>作業実行<a class="headerlink" href="#quickstart-1st-run" title="Link to this heading">¶</a></h3>
+<span id="id11"></span><h3>作業実行(1回目)<a class="headerlink" href="#quickstart-1st-run" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>事前確認</p>
 <div class="line-block">
@@ -715,7 +715,7 @@ localhost
 <a class="reference internal image-reference" href="../../_images/作業実行.gif"><img alt="作業実行" src="../../_images/%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.gif" style="width: 1200px;" />
 </a>
 </figure>
-<ol class="arabic" start="3">
+<ol class="arabic">
 <li><p>事後確認</p>
 <div class="line-block">
 <div class="line">再度作業対象サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
@@ -762,7 +762,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </tbody>
 </table>
 <section id="quickstart-2nd-regist-operation">
-<span id="id13"></span><h3>作業概要登録<a class="headerlink" href="#quickstart-2nd-regist-operation" title="Link to this heading">¶</a></h3>
+<span id="id13"></span><h3>作業概要登録(2回目)<a class="headerlink" href="#quickstart-2nd-regist-operation" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">オペレーション登録では、作業を実施する際の作業概要を定義します。オペレーションは各作業ごとに1つ作成します。オペレーションは使いまわさないようにしましょう。</div>
 <div class="line">先に決めた作業の方針を元にオペレーション情報を記入しましょう。</div>
@@ -800,7 +800,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </div>
 </section>
 <section id="quickstart-2nd-regist-parameter">
-<span id="id14"></span><h3>パラメータ設定<a class="headerlink" href="#quickstart-2nd-regist-parameter" title="Link to this heading">¶</a></h3>
+<span id="id14"></span><h3>パラメータ設定(2回目)<a class="headerlink" href="#quickstart-2nd-regist-parameter" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">本シナリオでは、<kbd class="kbd docutils literal notranslate">server01</kbd> というホスト名をパラメータ値として設定しました。</div>
 <div class="line">しかし、<span class="menuselection">機器一覧</span> でもホスト名を管理しており、ホスト名の管理が多重管理状態となっています。</div>
@@ -895,7 +895,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 </table>
 </section>
 <section id="quickstart-2nd-run">
-<span id="id15"></span><h3>作業実行<a class="headerlink" href="#quickstart-2nd-run" title="Link to this heading">¶</a></h3>
+<span id="id15"></span><h3>作業実行(2回目)<a class="headerlink" href="#quickstart-2nd-run" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>作業実行</p>
 <div class="line-block">
@@ -912,7 +912,7 @@ hostnamectl<span class="w"> </span>status<span class="w"> </span>--static
 <a class="reference internal image-reference" href="../../_images/更新作業実行.gif"><img alt="作業実行" src="../../_images/%E6%9B%B4%E6%96%B0%E4%BD%9C%E6%A5%AD%E5%AE%9F%E8%A1%8C.gif" style="width: 1200px;" />
 </a>
 </figure>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><p>事後確認</p>
 <div class="line-block">
 <div class="line">再度サーバに SSH ログインし、ホスト名が変更されていることを確認します。</div>
