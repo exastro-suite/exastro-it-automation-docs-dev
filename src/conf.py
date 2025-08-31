@@ -46,6 +46,11 @@ extensions = [
     'myst_parser'
 ]
 
+myst_enable_extensions = [
+    "attrs_block",
+    "attrs_inline"
+]
+
 # Fontpath for blockdiag (truetype font)
 blockdiag_fontpath = '/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf'
 

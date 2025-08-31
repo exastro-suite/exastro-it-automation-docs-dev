@@ -1232,8 +1232,34 @@ span.highlighted {
  max-width: 1200px;
  padding: 16px;
  background-color: #FFF;
+ position: relative;
 }
 
+#article .body .version-range {
+ position: absolute;
+ top: 0;
+ right: 16px;
+ z-index: 1;
+ padding: 4px 24px;
+ margin: 1px;
+ font-weight: bold;
+ border-radius: 25px 25px 25px 25px;
+ border: solid 1px #002B62;
+ color: #002B62;
+ display: table;
+ font-size: 1.2rem;
+}
+
+#article .body .version-range h2,
+#article .body .version-range p {
+ margin: inherit;
+ padding: 0px;
+ border: none;
+ line-height: inherit;
+ font-size: inherit;
+ color: inherit;
+ display: table-cell;
+}
 
 #article #homeIndex,
 #article #multiColumnIndex {
