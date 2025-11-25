@@ -979,6 +979,17 @@
 </pre></div>
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Jinja2テンプレート利用の注意点</p>
+<p>Jinja2テンプレートを用いて通知設定を行う際は、以下の点にご注意ください。</p>
+<ul class="simple">
+<li><p>必須要素の定義: テンプレートには、通知のタイトルと本文を定義する <strong>[TITLE]</strong> および <strong>[BODY]</strong> 要素が <strong>必須</strong> です。</p></li>
+<li><p>構文不足による通知失敗: 必須要素（[TITLE]または[BODY]）が不足している場合や、要素の記述に誤りがある場合、通知の実行は <strong>失敗します</strong>。</p></li>
+<li><p>編集箇所: 出力内容を変更する場合は、 <strong>[TITLE] および [BODY] の要素内部のみ</strong> を編集してください。これらの要素自体を削除したり変更したりしないでください。</p></li>
+<li><p>Jinja2構文の参照: テンプレート内で使用する変数や制御構文の詳細については、Jinja2の公式ドキュメントを参照してください。</p></li>
+</ul>
+</div>
 </section>
 </section>
 <section id="id14">
@@ -2205,20 +2216,20 @@
 <ul>
 <li><p>ServiceNowのインシデントテーブルにレコード登録を行う設定例</p>
 <div class="line-block">
-<div class="line">ここでは、デフォルトのテンプレートの内容から、TITLE の内容をServiceNowの short_description に、BODY に、labels, exastro_agents の内容をServiceNowの description に設定する例を示します。</div>
-<div class="line">labels, exastro_agents の内容は、Jinjaテンプレートのループ処理を使用して、動的に設定しています。</div>
+<div class="line">ここでは、デフォルトのテンプレートの内容から、TITLE の内容をServiceNowの short_description に、BODY に、イベントRAWデータ, エージェント の内容をServiceNowの description に設定する例を示します。</div>
+<div class="line">イベントRAWデータ(event), エージェント(exastro_agents) の内容は、Jinjaテンプレートのループ処理を使用して、動的に設定しています。</div>
 </div>
 <ul>
 <li><div class="line-block">
 <div class="line">1.新規イベント（受信時）のテンプレート例: New(received).j2</div>
 </div>
 <div class="highlight-jinja notranslate"><div class="highlight"><pre><span></span><span class="x">[TITLE]</span>
-<span class="x">Event Received.</span>
+<span class="x">Event Received. </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">exastro_edit_count</span> <span class="o">==</span> <span class="m">1</span> <span class="cp">%}</span><span class="x">Primary Event</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x">Consolidated Event</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> (</span><span class="cp">{{</span> <span class="nv">exastro_edit_count</span> <span class="cp">}}</span><span class="x">)</span>
 
 <span class="x">[BODY]</span>
 <span class="x">{</span>
-<span class="x">    &quot;short_description&quot;: &quot;Event Received.&quot;,</span>
-<span class="x">    &quot;description&quot;: &quot;</span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">labels.items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n</span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">&quot;,</span>
+<span class="x">    &quot;short_description&quot;: &quot;Event Received. </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">exastro_edit_count</span> <span class="o">==</span> <span class="m">1</span> <span class="cp">%}</span><span class="x">Primary Event</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x">Consolidated Event</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"> (</span><span class="cp">{{</span> <span class="nv">exastro_edit_count</span> <span class="cp">}}</span><span class="x">) &quot;,</span>
+<span class="x">    &quot;description&quot;: &quot;RAW Event Data: </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">event</span> <span class="o">|</span> <span class="nf">default</span><span class="o">({})</span> <span class="o">|</span> <span class="nf">items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n  </span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">,\n Agent: </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">exastro_agents</span> <span class="o">|</span> <span class="nf">default</span><span class="o">({})</span> <span class="o">|</span> <span class="nf">items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n  </span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">&quot;,</span>
 <span class="x">    &quot;caller_id&quot;: &quot;&quot;,</span>
 <span class="x">    &quot;impact&quot;: &quot;2&quot;,</span>
 <span class="x">    &quot;urgency&quot;: &quot;2&quot;,</span>
@@ -2249,7 +2260,7 @@
 <span class="x">[BODY]</span>
 <span class="x">{</span>
 <span class="x">    &quot;short_description&quot;: &quot;Event Consolidated by Deduplication </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">labels._exastro_timeout</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="cp">%}</span><span class="x">(ttl expired)</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"> </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">&quot;,</span>
-<span class="x">    &quot;description&quot;: &quot;</span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">labels.items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n</span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"> , </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">exastro_agents.items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n</span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">&quot;,</span>
+<span class="x">    &quot;description&quot;: &quot;RAW Event Data: </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">event</span> <span class="o">|</span> <span class="nf">default</span><span class="o">({})</span> <span class="o">|</span> <span class="nf">items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n  </span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">,\n Agent: </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">key</span><span class="o">,</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">exastro_agents</span> <span class="o">|</span> <span class="nf">default</span><span class="o">({})</span> <span class="o">|</span> <span class="nf">items</span><span class="o">()</span> <span class="cp">%}</span><span class="x">\n  </span><span class="cp">{{</span> <span class="nv">key</span> <span class="cp">}}</span><span class="x">:</span><span class="cp">{{</span> <span class="nv">value</span> <span class="cp">}}{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="cp">%}</span><span class="x">,</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x">&quot;,</span>
 <span class="x">    &quot;caller_id&quot;: &quot;&quot;,</span>
 <span class="x">    &quot;impact&quot;: &quot;2&quot;,</span>
 <span class="x">    &quot;urgency&quot;: &quot;2&quot;,</span>
