@@ -318,7 +318,7 @@
 <h3><span class="section-number">3.2.1. </span>イベント処理イメージ<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <div class="line-block">
 <div class="line">OASEでは、まず監視システムが検知したシステムの状態変化をイベントとして収集し、評価を行います。</div>
-<div class="line">評価では、フィルターでイベントを絞り込み、ルールで条件に一致するかを判定し、一致した場合に次のアクションを決定、実行します。</div>
+<div class="line">評価では、フィルターでイベントを絞り込み、ルールで条件にマッチするかを判定し、マッチした場合に次のアクションを決定、実行します。</div>
 <div class="line">イベント処理の全体像をわかりやすく示すため、本節では実際に発生するイベントを想定した例を用いて、イベントの発生からアクション実行までの流れを説明します。</div>
 </div>
 <section id="id4">
@@ -329,92 +329,7 @@
 <figure class="align-default">
 <img alt="Webサーバー停止時の自動再起動処理フロー" src="../../_images/oase_eventflow_example.png" />
 </figure>
-<table class="docutils align-left" id="id53">
-<caption><span class="caption-number">表 3.88 </span><span class="caption-text">用語説明</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
-<colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>用語名</p></th>
-<th class="head"><p>内容</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>監視システム</p></td>
-<td><div class="line-block">
-<div class="line">システムの状態変化を収集するために利用されるソフトウェアやサービスの総称です。</div>
-<div class="line">システムの状態変化を検知し、Exastro OASEにイベントを作成・送信します。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>OASE</p></td>
-<td><div class="line-block">
-<div class="line">Exastro OASEは、システムの監視・運用自動化を支援するソフトウェアです。</div>
-<div class="line">監視システムで作成されたイベントを収集し、定義された条件に基づいて適切なアクションを実行します。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>イベント</p></td>
-<td><div class="line-block">
-<div class="line">監視システムが検知した監視対象の状態変化を、Exastroに通知するための情報のことです。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>ラベル</p></td>
-<td><div class="line-block">
-<div class="line">取得したイベントに対して付与するタグや分類情報のことです。</div>
-<div class="line">イベントを整理・分類し、後続のフィルターやルール判定で使いやすくするために使用します。</div>
-<div class="line">ラベルによって、異なるシステムからのイベントを均質化した情報として扱うことが可能です。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>フィルター</p></td>
-<td><div class="line-block">
-<div class="line">ラベル付与されたイベントの中から特定の条件に合致するイベントだけを抽出する仕組みです。</div>
-<div class="line">ルール判定の前段階で、どのイベントをルール判定の対象にするかを絞り込む役割を果たします。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>ルール</p></td>
-<td><div class="line-block">
-<div class="line">フィルターで絞り込まれたイベントに対して、どのような条件でどのアクションを実行するかを定義するものです。</div>
-<div class="line">本定義は、フィルターとアクションを紐づける役割を持ちます。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>評価</p></td>
-<td><div class="line-block">
-<div class="line">収集したイベントがフィルターによって抽出され、ルールの条件に一致するかどうかを判定し、</div>
-<div class="line">一致した場合に次の動作（アクション、結論イベント）を決定するまでの一連のプロセスのことです。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>アクション</p></td>
-<td><div class="line-block">
-<div class="line">定義されたルールにマッチした場合に、イベントに対して実行する具体的な対応処理です。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>結論イベント</p></td>
-<td><div class="line-block">
-<div class="line">ルールにマッチしたイベントの結果として生成される新しいイベントです。</div>
-<div class="line">元のイベントから情報を引き継ぎ、処理結果や判定結果を含むことができます。</div>
-<div class="line">結論イベント自体を別のルールで評価することができるため、連鎖的な自動化が可能です。</div>
-<div class="line"><br /></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>登場する用語については、<a class="reference internal" href="oase_common.html#oase-definition"><span class="std std-ref">用語説明</span></a> を参照してください。</p>
 </section>
 </section>
 </section>
@@ -439,7 +354,8 @@
 <li><div class="line-block">
 <div class="line"><strong>ラベルの登録</strong></div>
 <div class="line">メニューグループ「ラベル」のラベル作成、ラベル付与の画面から、イベントで使用するラベルを定義し、イベントに対してラベルを付与する設定を登録します。</div>
-<div class="line">詳細は <a class="reference internal" href="#label-creation"><span class="std std-ref">ラベル作成</span></a> 、<a class="reference internal" href="#labeling"><span class="std std-ref">ラベル付与</span></a> を参照してください。</div>
+<div class="line">冗長化構成の場合は、重複排除を行うことも可能です。</div>
+<div class="line">詳細は <a class="reference internal" href="#label-creation"><span class="std std-ref">ラベル作成</span></a> 、<a class="reference internal" href="#labeling"><span class="std std-ref">ラベル付与</span></a> 、<a class="reference internal" href="#deduplication"><span class="std std-ref">重複排除</span></a> を参照してください。</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -477,8 +393,8 @@
 <div class="line"><strong>OASEのメニュー</strong></div>
 <div class="line">OASEのメニュー一覧を以下に記述します。</div>
 </div>
-<table class="docutils align-left" id="id54">
-<caption><span class="caption-number">表 3.89 </span><span class="caption-text">OASE メニュー/画面一覧</span><a class="headerlink" href="#id54" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id53">
+<caption><span class="caption-number">表 3.88 </span><span class="caption-text">OASE メニュー/画面一覧</span><a class="headerlink" href="#id53" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 11.1%" />
 <col style="width: 11.1%" />
@@ -561,7 +477,7 @@
 <div class="line">監視対象システムで状態変化（サービス停止、CPU高負荷など）が発生すると、監視システムがそれを検知してイベントを作成します。</div>
 <div class="line">監視システム（Zabbix、Prometheus、Datadogなど）が作成したイベントを、ExastroのOASEが取得して評価自動対応を行います。</div>
 <div class="line"><br /></div>
-<div class="line">イベントは複数のラベル（キーと値のペア）形式で情報を保持します。</div>
+<div class="line">OASEに取り込まれると、イベントは複数のラベル（キーと値のペア）形式で情報を保持します。</div>
 <div class="line">例えば、「process:  httpd」「status:  down」「timestamp: 2025-12-25T10:00:00Z」のようなラベルでイベントの内容を表現します。</div>
 <div class="line">これは、<span class="menuselection">OASE ▶ ラベル付与</span> 画面で定義された内容に基づいて設定されます。</div>
 <div class="line">また、イベントには、システムラベル（_exastro_で始まる予約ラベル）が自動的に付与されます。</div>
@@ -570,7 +486,7 @@
 <div class="line"><br /></div>
 <div class="line">イベントには「通常イベント」と「結論イベント」の2種類があり、_exastro_typeラベルで区別されます。</div>
 <div class="line">通常イベントは監視システムが監視対象システムから収集した状態変化を表すデータを、イベントとしてOASEが取得したものです。</div>
-<div class="line">結論イベントはルールマッチ後にOASEが生成する対応結果を含むイベントです。</div>
+<div class="line">結論イベントは、ルールマッチ後に、ユーザの設定を元にOASEが生成するイベントです。</div>
 <div class="line">イベントはラベル付与、フィルター、ルール評価の順に処理され、ルールマッチ時にアクションが実行されます。</div>
 <div class="line"><br /></div>
 <div class="line">結論イベントも通常イベントと同様に評価フローの対象となるため、連鎖的な自動対応や多段階の処理が可能です。</div>
@@ -583,18 +499,18 @@
 <div class="line">イベントの取得からイベントの状態変化、ルール評価、アクション実行、結論イベント生成の各段階での処理状況と結果を時系列で確認できます。</div>
 <div class="line">また、この画面からフィルター、アクション、ルールの設定を直接メンテナンスすることも可能です。</div>
 </div>
-<figure class="align-default" id="id55">
+<figure class="align-default" id="id54">
 <a class="reference internal image-reference" href="../../_images/event_flow_menu.png"><img alt="イベントフロー画面" src="../../_images/event_flow_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.78 </span><span class="caption-text">イベントフロー画面</span><a class="headerlink" href="#id55" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.78 </span><span class="caption-text">イベントフロー画面</span><a class="headerlink" href="#id54" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id56">
+<figure class="align-default" id="id55">
 <a class="reference internal image-reference" href="../../_images/event_flow_screen_v2-4.png"><img alt="使用イメージ（イベントフロー）" src="../../_images/event_flow_screen_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.79 </span><span class="caption-text">使用イメージ（イベントフロー）</span><a class="headerlink" href="#id56" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.79 </span><span class="caption-text">使用イメージ（イベントフロー）</span><a class="headerlink" href="#id55" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -609,11 +525,11 @@
 <div class="line-block">
 <div class="line">収集したイベントの元データを確認できます。</div>
 </div>
-<figure class="align-default" id="id57">
+<figure class="align-default" id="id56">
 <a class="reference internal image-reference" href="../../_images/event_flow_event_raw_data.png"><img alt="イベントRAWデータ（イベントフロー）" src="../../_images/event_flow_event_raw_data.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.80 </span><span class="caption-text">イベントRAWデータ（イベントフロー）</span><a class="headerlink" href="#id57" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.80 </span><span class="caption-text">イベントRAWデータ（イベントフロー）</span><a class="headerlink" href="#id56" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -622,11 +538,11 @@
 <div class="line-block">
 <div class="line"><span class="guilabel">表示パターン選択</span> を押下することで、表示するイベントを選択することができます。（複数選択可能）</div>
 </div>
-<figure class="align-default" id="id58">
+<figure class="align-default" id="id57">
 <a class="reference internal image-reference" href="../../_images/event_flow_display_pattern_v2-4.png"><img alt="表示パターン選択（イベントフロー）" src="../../_images/event_flow_display_pattern_v2-4.png" style="width: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.81 </span><span class="caption-text">表示パターン選択（イベントフロー）</span><a class="headerlink" href="#id58" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.81 </span><span class="caption-text">表示パターン選択（イベントフロー）</span><a class="headerlink" href="#id57" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <style type="text/css">
@@ -635,8 +551,8 @@
    }
 </style>
 
-<div id="eventflowDisplayTable"><table class="docutils align-default" id="id59">
-<caption><span class="caption-number">表 3.90 </span><span class="caption-text">イベントフロー画面 表示パターン選択</span><a class="headerlink" href="#id59" title="Link to this table">¶</a></caption>
+<div id="eventflowDisplayTable"><table class="docutils align-default" id="id58">
+<caption><span class="caption-number">表 3.89 </span><span class="caption-text">イベントフロー画面 表示パターン選択</span><a class="headerlink" href="#id58" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 15.4%" />
 <col style="width: 76.9%" />
@@ -715,8 +631,8 @@
 <div class="line">イベントRAWデータと見比べて型を確認し、 <span class="menuselection">OASE管理 ▶ イベント収集</span> での設定を見直してください。</div>
 <div class="line">レスポンスキーとイベントIDキー に関しては、 <a class="reference internal" href="oase_management.html#oase-agent-respons-key-enevnt-id-key"><span class="std std-ref">こちら</span></a> を参照してください。</div>
 </div>
-<table class="docutils align-left" id="id60">
-<caption><span class="caption-number">表 3.91 </span><span class="caption-text">設定間違い（_exastro_not_available）の見方</span><a class="headerlink" href="#id60" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id59">
+<caption><span class="caption-number">表 3.90 </span><span class="caption-text">設定間違い（_exastro_not_available）の見方</span><a class="headerlink" href="#id59" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30.0%" />
 <col style="width: 20.0%" />
@@ -757,22 +673,22 @@
 <div class="line-block">
 <div class="line"><span class="guilabel">範囲指定</span> を押下することで、表示する日時の範囲を指定することができます。</div>
 </div>
-<figure class="align-default" id="id61">
+<figure class="align-default" id="id60">
 <a class="reference internal image-reference" href="../../_images/event_flow_time.png"><img alt="範囲指定（イベントフロー）" src="../../_images/event_flow_time.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.82 </span><span class="caption-text">範囲指定（イベントフロー）</span><a class="headerlink" href="#id61" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.82 </span><span class="caption-text">範囲指定（イベントフロー）</span><a class="headerlink" href="#id60" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
 <div class="line"><span class="guilabel">〇時間</span> を押すことで、表示する時間を指定することができます。</div>
 <div class="line">デフォルトは1時間、指定できる範囲は最小5分間、最大5年間です。</div>
 </div>
-<figure class="align-default" id="id62">
+<figure class="align-default" id="id61">
 <a class="reference internal image-reference" href="../../_images/event_flow_time_select.png"><img alt="時間指定（イベントフロー）" src="../../_images/event_flow_time_select.png" style="width: 100px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.83 </span><span class="caption-text">時間指定（イベントフロー）</span><a class="headerlink" href="#id62" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.83 </span><span class="caption-text">時間指定（イベントフロー）</span><a class="headerlink" href="#id61" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -781,20 +697,20 @@
 <div class="line-block">
 <div class="line"><span class="menuselection">フィルター</span>・<span class="menuselection">アクション</span>・<span class="menuselection">ルール</span> について、各画面でも、イベントフロー内でもメンテナンス（閲覧/登録/更新/廃止）できます。ドラッグ&amp;ドロップも使用できます。</div>
 </div>
-<figure class="align-default" id="id63">
+<figure class="align-default" id="id62">
 <a class="reference internal image-reference" href="../../_images/event_flow_drag_drop_v2-4.gif"><img alt="ドラッグ&amp;ドロップで入力（イベントフロー）" src="../../_images/event_flow_drag_drop_v2-4.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.84 </span><span class="caption-text">ドラッグ&amp;ドロップで入力（イベントフロー）</span><a class="headerlink" href="#id63" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.84 </span><span class="caption-text">ドラッグ&amp;ドロップで入力（イベントフロー）</span><a class="headerlink" href="#id62" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="id17">
 <h5>フィルター<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id64">
+<figure class="align-default" id="id63">
 <a class="reference internal image-reference" href="../../_images/event_flow_filter_v2-4.png"><img alt="フィルター入力画面（イベントフロー）" src="../../_images/event_flow_filter_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.85 </span><span class="caption-text">フィルター入力画面（イベントフロー）</span><a class="headerlink" href="#id64" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.85 </span><span class="caption-text">フィルター入力画面（イベントフロー）</span><a class="headerlink" href="#id63" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -803,11 +719,11 @@
 </section>
 <section id="id18">
 <h5>アクション<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id65">
+<figure class="align-default" id="id64">
 <a class="reference internal image-reference" href="../../_images/event_flow_action_v2-4.png"><img alt="アクション入力画面（イベントフロー）" src="../../_images/event_flow_action_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.86 </span><span class="caption-text">アクション入力画面（イベントフロー）</span><a class="headerlink" href="#id65" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.86 </span><span class="caption-text">アクション入力画面（イベントフロー）</span><a class="headerlink" href="#id64" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -816,11 +732,11 @@
 </section>
 <section id="id19">
 <h5>ルール<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h5>
-<figure class="align-default" id="id66">
+<figure class="align-default" id="id65">
 <a class="reference internal image-reference" href="../../_images/event_flow_rule_v2-4.png"><img alt="ルール入力画面（イベントフロー）" src="../../_images/event_flow_rule_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.87 </span><span class="caption-text">ルール入力画面（イベントフロー）</span><a class="headerlink" href="#id66" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.87 </span><span class="caption-text">ルール入力画面（イベントフロー）</span><a class="headerlink" href="#id65" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -839,11 +755,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id67">
+<figure class="align-default" id="id66">
 <a class="reference internal image-reference" href="../../_images/event_history_menu.png"><img alt="イベント履歴画面" src="../../_images/event_history_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.88 </span><span class="caption-text">イベント履歴画面</span><a class="headerlink" href="#id67" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.88 </span><span class="caption-text">イベント履歴画面</span><a class="headerlink" href="#id66" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -852,8 +768,8 @@
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id68">
-<caption><span class="caption-number">表 3.92 </span><span class="caption-text">イベント履歴画面 項目一覧</span><a class="headerlink" href="#id68" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id67">
+<caption><span class="caption-number">表 3.91 </span><span class="caption-text">イベント履歴画面 項目一覧</span><a class="headerlink" href="#id67" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 66.7%" />
@@ -922,8 +838,8 @@
 <div class="line">ラベルには、Exastroが自動付与する「システムラベル」と、ユーザーが設定する「ユーザーラベル」の2種類があります。</div>
 <div class="line">システムラベルには、イベント種別（_exastro_type）や評価済みフラグ（_exastro_evaluated）などがあり、イベントの状態管理に使用されます。</div>
 </div>
-<span id="label-creation-systemlabel"></span><table class="docutils align-default" id="id69">
-<caption><span class="caption-number">表 3.93 </span><span class="caption-text">システムラベル一覧</span><a class="headerlink" href="#id69" title="Link to this table">¶</a></caption>
+<span id="label-creation-systemlabel"></span><table class="docutils align-default" id="id68">
+<caption><span class="caption-number">表 3.92 </span><span class="caption-text">システムラベル一覧</span><a class="headerlink" href="#id68" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -982,11 +898,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id70">
+<figure class="align-default" id="id69">
 <a class="reference internal image-reference" href="../../_images/label_creation_menu.png"><img alt="ラベル作成画面" src="../../_images/label_creation_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.89 </span><span class="caption-text">ラベル作成画面</span><a class="headerlink" href="#id70" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.89 </span><span class="caption-text">ラベル作成画面</span><a class="headerlink" href="#id69" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -995,8 +911,8 @@
 </div>
 </li>
 </ol>
-<table class="docutils align-left" id="id71">
-<caption><span class="caption-number">表 3.94 </span><span class="caption-text">ラベル作成画面 入力項目一覧</span><a class="headerlink" href="#id71" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id70">
+<caption><span class="caption-number">表 3.93 </span><span class="caption-text">ラベル作成画面 入力項目一覧</span><a class="headerlink" href="#id70" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20.8%" />
 <col style="width: 41.7%" />
@@ -1053,19 +969,19 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id72">
+<figure class="align-default" id="id71">
 <a class="reference internal image-reference" href="../../_images/labeling_menu.png"><img alt="ラベル付与画面" src="../../_images/labeling_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.90 </span><span class="caption-text">ラベル付与画面</span><a class="headerlink" href="#id72" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.90 </span><span class="caption-text">ラベル付与画面</span><a class="headerlink" href="#id71" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
 <li><div class="line-block">
 <div class="line">ラベル付与画面の入力項目は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id73">
-<caption><span class="caption-number">表 3.95 </span><span class="caption-text">ラベル付与画面 入力項目一覧</span><a class="headerlink" href="#id73" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id72">
+<caption><span class="caption-number">表 3.94 </span><span class="caption-text">ラベル付与画面 入力項目一覧</span><a class="headerlink" href="#id72" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 7.7%" />
 <col style="width: 7.7%" />
@@ -1187,8 +1103,8 @@
 <div class="line-block">
 <div class="line">※1 ラベル付与における各ユースケースについて、必須項目は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id74">
-<caption><span class="caption-number">表 3.96 </span><span class="caption-text">ラベル付与におけるユースケースについて</span><a class="headerlink" href="#id74" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id73">
+<caption><span class="caption-number">表 3.95 </span><span class="caption-text">ラベル付与におけるユースケースについて</span><a class="headerlink" href="#id73" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 47.4%" />
 <col style="width: 5.3%" />
@@ -1275,8 +1191,8 @@
 <div class="line-block">
 <div class="line">※2 値の各データ型の説明は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id75">
-<caption><span class="caption-number">表 3.97 </span><span class="caption-text">ラベル付与における値のデータ型について</span><a class="headerlink" href="#id75" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id74">
+<caption><span class="caption-number">表 3.96 </span><span class="caption-text">ラベル付与における値のデータ型について</span><a class="headerlink" href="#id74" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 16.7%" />
 <col style="width: 33.3%" />
@@ -1366,8 +1282,8 @@
 <div class="line-block">
 <div class="line">※3 ラベル付与における正規表現に関しては、以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id76">
-<caption><span class="caption-number">表 3.98 </span><span class="caption-text">ラベル付与における正規表現の種類について</span><a class="headerlink" href="#id76" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id75">
+<caption><span class="caption-number">表 3.97 </span><span class="caption-text">ラベル付与における正規表現の種類について</span><a class="headerlink" href="#id75" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 75.0%" />
@@ -1400,23 +1316,22 @@
 <section id="id26">
 <h4>重複排除について<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h4>
 <div class="line-block">
-<div class="line">重複排除機能は、同じ内容のイベントが重複して発生した場合に、重複するイベントを除外して処理負荷を軽減する機能です。</div>
+<div class="line">イベント収集システムもしくはOASEエージェントが冗長化されている場合を想定し、本質的に同一内容のイベント情報を複数取得しても、先頭のイベントしか取りこまないようにして、重複した処理を行わないようにする機能です。</div>
 <div class="line">イベント収集設定で重複排除を有効にすると、重複排除で指定したラベルキーの値が一致するイベントを重複とみなします。</div>
-<div class="line">例えば、「host」と「status」をキーに指定した場合、同じホストで同じ状態のイベントが複数回発生しても、最初の1件のみが処理対象となります。</div>
+<div class="line">例えば、「host」と「status」をキーに指定した場合、同じホストで同じ状態のイベントが、複数の収集先や複数のエージェントから発生しても、最初の1件のみが処理対象となります。</div>
 <div class="line"><br /></div>
-<div class="line">エージェントを冗長化している環境では、複数のエージェントが同じイベントを送信することがあり、重複排除機能でそれらを1件にまとめることができます。</div>
 <div class="line">重複排除されたイベントは評価フローにも投入されないため、不要なアクション実行を防げます。</div>
 </div>
-<figure class="align-default" id="id77">
+<figure class="align-default" id="id76">
 <a class="reference internal image-reference" href="../../_images/oase_deduplication_example.png"><img alt="重複排除の例" src="../../_images/oase_deduplication_example.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.91 </span><span class="caption-text">重複排除の例</span><a class="headerlink" href="#id77" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.91 </span><span class="caption-text">重複排除の例</span><a class="headerlink" href="#id76" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
 <div class="line">重複排除のキーとなるラベルは複数指定でき、すべてのキーの値が一致した場合にのみ重複とみなされます。</div>
-<div class="line">重複排除機能を適切に設定することで、イベント数を削減し、システムリソースの消費を抑えながら、必要な対応は確実に実行できます。</div>
+<div class="line">重複排除機能を適切に設定することで、イベント数を削減し、システムリソースの消費を抑えます。</div>
 </div>
 </section>
 <section id="id27">
@@ -1427,19 +1342,19 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id78">
+<figure class="align-default" id="id77">
 <a class="reference internal image-reference" href="../../_images/oase_deduplication_menu.png"><img alt="重複排除画面" src="../../_images/oase_deduplication_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.92 </span><span class="caption-text">重複排除画面</span><a class="headerlink" href="#id78" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.92 </span><span class="caption-text">重複排除画面</span><a class="headerlink" href="#id77" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
 <li><div class="line-block">
 <div class="line">重複排除画面の入力項目は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id79">
-<caption><span class="caption-number">表 3.99 </span><span class="caption-text">重複排除画面 入力項目一覧</span><a class="headerlink" href="#id79" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id78">
+<caption><span class="caption-number">表 3.98 </span><span class="caption-text">重複排除画面 入力項目一覧</span><a class="headerlink" href="#id78" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 7.7%" />
 <col style="width: 7.7%" />
@@ -1541,46 +1456,46 @@
 <section id="id31">
 <h5>ユニーク<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h5>
 <div class="line-block">
-<div class="line">フィルター条件に一致する一意のイベントの抽出を行います。</div>
-<div class="line">複数イベントがヒットした場合、ヒットしたすべてのイベントは未知のイベントとして処理されます。</div>
+<div class="line">フィルター条件に一致する一意のイベントに対して評価を行います。</div>
+<div class="line">複数イベントが条件に一致した場合、一致したすべてのイベントは未知のイベントとして処理されます。</div>
 </div>
-<figure class="align-default" id="id80">
+<figure class="align-default" id="id79">
 <img alt="../../_images/filter_unique.png" src="../../_images/filter_unique.png" />
 <figcaption>
-<p><span class="caption-number">図 3.93 </span><span class="caption-text">検索方法（ユニーク）</span><a class="headerlink" href="#id80" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.93 </span><span class="caption-text">検索方法（ユニーク）</span><a class="headerlink" href="#id79" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id32">
 <h5>キューイング<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h5>
 <div class="line-block">
-<div class="line">フィルター条件に一致するイベントを保持し、TTL時間内に収集された複数のイベントをまとめて評価します。</div>
+<div class="line">フィルター条件に一致するイベントを複数検知し、古いものから順番に評価を行います。</div>
 </div>
-<figure class="align-default" id="id81">
+<figure class="align-default" id="id80">
 <img alt="../../_images/filter_queing.png" src="../../_images/filter_queing.png" />
 <figcaption>
-<p><span class="caption-number">図 3.94 </span><span class="caption-text">検索方法（キューイング）</span><a class="headerlink" href="#id81" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.94 </span><span class="caption-text">検索方法（キューイング）</span><a class="headerlink" href="#id80" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id33">
 <h5>グルーピング<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h5>
 <div class="line-block">
-<div class="line">対象のラベルの値がすべて一致するイベントを１グループとしてグルーピングします。</div>
+<div class="line">同一属性（ラベルのキーと値の組み合わせが同じ）をもち、連続的に発生しているイベントを同一グループとみなし、グループ単位で評価を行います。</div>
 <div class="line">複数のイベントが同じグループにグルーピングされた場合、先頭のイベントを使用し、その他のイベントは無視されます。</div>
 <div class="line">イベントフロー画面には、先頭イベントのみ表示されます。</div>
 </div>
-<figure class="align-default" id="id82">
+<figure class="align-default" id="id81">
 <img alt="../../_images/filter_grouping.png" src="../../_images/filter_grouping.png" />
 <figcaption>
-<p><span class="caption-number">図 3.95 </span><span class="caption-text">検索方法（グルーピング）</span><a class="headerlink" href="#id82" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.95 </span><span class="caption-text">検索方法（グルーピング）</span><a class="headerlink" href="#id81" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id83">
+<figure class="align-default" id="id82">
 <a class="reference internal image-reference" href="../../_images/filter_grouping_eventflow.png"><img alt="../../_images/filter_grouping_eventflow.png" src="../../_images/filter_grouping_eventflow.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.96 </span><span class="caption-text">イベントフロー画面（グルーピングの表示）</span><a class="headerlink" href="#id83" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.96 </span><span class="caption-text">イベントフロー画面（グルーピングの表示）</span><a class="headerlink" href="#id82" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="line-block">
@@ -1589,11 +1504,11 @@
 <div class="line-block">
 <div class="line">グルーピングのイメージは以下です。</div>
 </div>
-<figure class="align-default" id="id84">
+<figure class="align-default" id="id83">
 <a class="reference internal image-reference" href="../../_images/filter_grouping_image.png"><img alt="../../_images/filter_grouping_image.png" src="../../_images/filter_grouping_image.png" style="width: 900px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.97 </span><span class="caption-text">グルーピングイメージ</span><a class="headerlink" href="#id84" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.97 </span><span class="caption-text">グルーピングイメージ</span><a class="headerlink" href="#id83" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1606,11 +1521,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id85">
+<figure class="align-default" id="id84">
 <a class="reference internal image-reference" href="../../_images/filter_create_menu_v2-4.png"><img alt="フィルター画面" src="../../_images/filter_create_menu_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.98 </span><span class="caption-text">フィルター画面</span><a class="headerlink" href="#id85" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.98 </span><span class="caption-text">フィルター画面</span><a class="headerlink" href="#id84" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -1661,10 +1576,10 @@
 </tr>
 <tr class="row-odd"><td><p>検索方法</p></td>
 <td><div class="line-block">
-<div class="line">ラベルの検索方法を選択します。</div>
-<div class="line">・ユニーク：条件に一致する一意のイベントを抽出します。複数イベントが同時にヒットした場合、ヒットしたイベントはすべて評価対象外（未知イベント）となります。</div>
-<div class="line">・キューイング：条件に一致するイベントを保持し、TTL時間内に収集された複数のイベントをまとめて管理します。複数イベントがヒットした場合、先頭のイベントをルール評価の対象として使用します。</div>
-<div class="line">・グルーピング：対象のラベルの値がすべて一致するイベントを１グループとしてグルーピングします。複数イベントがグルーピングされた場合、先頭のイベントを使用し、その他のイベントは無視（集約）されます。</div>
+<div class="line">検索方法を選択します。</div>
+<div class="line">ユニーク：一意のイベントの抽出しか許可しません。複数イベントがフィルター条件に一致した場合、一致したイベントすべてを未知のイベントとして処理します。</div>
+<div class="line">キューイング：一意のイベントを抽出しますが、複数イベントがフィルター条件に一致した場合、一番古いイベントを使用します。ルールに複数回マッチする可能性があるため、ご注意ください。</div>
+<div class="line">グルーピング：グルーピング条件で指定したラベルと条件に該当するイベントをグルーピングします。フィルター条件を指定することも可能です。</div>
 </div>
 </td>
 <td><p>〇</p></td>
@@ -1701,14 +1616,14 @@
 </tbody>
 </table>
 <p>フィルターの条件については <span class="guilabel">フィルター条件</span> 欄をクリックすることで表示されるウインドウから設定できます。</p>
-<figure class="align-default" id="id86">
+<figure class="align-default" id="id85">
 <a class="reference internal image-reference" href="../../_images/filter_condition_v2-4.png"><img alt="フィルター条件設定" src="../../_images/filter_condition_v2-4.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.99 </span><span class="caption-text">フィルター条件設定</span><a class="headerlink" href="#id86" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.99 </span><span class="caption-text">フィルター条件設定</span><a class="headerlink" href="#id85" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
-<ol class="arabic" start="3">
+<ol class="arabic">
 <li><div class="line-block">
 <div class="line">フィルター条件の入力項目は以下の通りです。</div>
 </div>
@@ -1792,11 +1707,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id87">
+<figure class="align-default" id="id86">
 <a class="reference internal image-reference" href="../../_images/action_create_menu_v2-4.png"><img alt="アクション画面" src="../../_images/action_create_menu_v2-4.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.100 </span><span class="caption-text">アクション画面</span><a class="headerlink" href="#id87" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.100 </span><span class="caption-text">アクション画面</span><a class="headerlink" href="#id86" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -1918,11 +1833,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id88">
+<figure class="align-default" id="id87">
 <a class="reference internal image-reference" href="../../_images/rule_create_menu.png"><img alt="ルール画面" src="../../_images/rule_create_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.101 </span><span class="caption-text">ルール画面</span><a class="headerlink" href="#id88" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.101 </span><span class="caption-text">ルール画面</span><a class="headerlink" href="#id87" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -2119,11 +2034,11 @@
 <div class="line">※1 事前・事後通知に使用できるテンプレートに関しては、 <a class="reference internal" href="#variables-available-templates"><span class="std std-ref">事前・事後通知のテンプレート</span></a> を参照してください。</div>
 </div>
 <p>結論ラベルについては <span class="guilabel">結論ラベル設定</span> 欄をクリックすることで表示されるウインドウから設定できます。</p>
-<figure class="align-default" id="id89">
+<figure class="align-default" id="id88">
 <a class="reference internal image-reference" href="../../_images/conclusion_label_settings_v2-4.png"><img alt="結論ラベル設定" src="../../_images/conclusion_label_settings_v2-4.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.102 </span><span class="caption-text">結論ラベル設定</span><a class="headerlink" href="#id89" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.102 </span><span class="caption-text">結論ラベル設定</span><a class="headerlink" href="#id88" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -2177,11 +2092,11 @@
 </div>
 </li>
 </ol>
-<figure class="align-default" id="id90">
+<figure class="align-default" id="id89">
 <a class="reference internal image-reference" href="../../_images/evaluation_results_menu.png"><img alt="評価結果画面" src="../../_images/evaluation_results_menu.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.103 </span><span class="caption-text">評価結果画面</span><a class="headerlink" href="#id90" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.103 </span><span class="caption-text">評価結果画面</span><a class="headerlink" href="#id89" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <ol class="arabic" start="2">
@@ -2340,11 +2255,11 @@
 <div class="line-block">
 <div class="line">ラベル付与での設定例は以下の通りです。</div>
 </div>
-<figure class="align-default" id="id91">
+<figure class="align-default" id="id90">
 <a class="reference internal image-reference" href="../../_images/labeling_sample.png"><img alt="ラベル付与での記入例（ラベル付与）" src="../../_images/labeling_sample.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.104 </span><span class="caption-text">ラベル付与での記入例（ラベル付与）</span><a class="headerlink" href="#id91" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.104 </span><span class="caption-text">ラベル付与での記入例（ラベル付与）</span><a class="headerlink" href="#id90" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2353,8 +2268,8 @@
 <div class="line-block">
 <div class="line">正規表現を使用したラベル付与での使用例は以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id92">
-<caption><span class="caption-number">表 3.100 </span><span class="caption-text">正規表現のオプションの有無の例</span><a class="headerlink" href="#id92" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id91">
+<caption><span class="caption-number">表 3.99 </span><span class="caption-text">正規表現のオプションの有無の例</span><a class="headerlink" href="#id91" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 18.2%" />
 <col style="width: 18.2%" />
@@ -2409,11 +2324,11 @@
 </tr>
 </tbody>
 </table>
-<figure class="align-default" id="id93">
+<figure class="align-default" id="id92">
 <a class="reference internal image-reference" href="../../_images/labeling_regexp.png"><img alt="正規表現を使用する場合の設定" src="../../_images/labeling_regexp.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 3.105 </span><span class="caption-text">正規表現を使用する場合の設定</span><a class="headerlink" href="#id93" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 3.105 </span><span class="caption-text">正規表現を使用する場合の設定</span><a class="headerlink" href="#id92" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2462,8 +2377,8 @@
 <div class="line-block">
 <div class="line">検索方法に関しては以下の通りです。</div>
 </div>
-<table class="docutils align-left" id="id94">
-<caption><span class="caption-number">表 3.101 </span><span class="caption-text">イベント履歴画面 検索方法一覧</span><a class="headerlink" href="#id94" title="Link to this table">¶</a></caption>
+<table class="docutils align-left" id="id93">
+<caption><span class="caption-number">表 3.100 </span><span class="caption-text">イベント履歴画面 検索方法一覧</span><a class="headerlink" href="#id93" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 22.2%" />
