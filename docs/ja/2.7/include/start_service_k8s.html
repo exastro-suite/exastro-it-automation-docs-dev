@@ -197,13 +197,6 @@
 <div class="line-block">
 <div class="line">上記で起動した対象の Pod 数が元に戻り、次の例外を除いてすべて <kbd class="kbd docutils literal notranslate">READY</kbd> になっていることを確認します。</div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<div class="line-block">
-<div class="line">以下のリソースについては <kbd class="kbd docutils literal notranslate">READY</kbd> が 0/(Pod数)のままとなります。</div>
-<div class="line">- deployment.apps/ita-by-conductor-regularly</div>
-</div>
-</div>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">コマンド</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>get<span class="w"> </span>deploy,statefulset<span class="w"> </span>-n<span class="w"> </span>exastro
