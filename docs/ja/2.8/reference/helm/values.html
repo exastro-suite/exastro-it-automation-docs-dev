@@ -3616,7 +3616,7 @@
 </section>
 <section id="ita-migration">
 <h3>ita-migration<a class="headerlink" href="#ita-migration" title="Link to this heading">¶</a></h3>
-<table class="filter-table docutils align-left" id="id51">
+<span id="helm-option-ita-migration"></span><table class="filter-table docutils align-left" id="id51">
 <caption><span class="caption-number">表 255 </span><span class="caption-text">ita-migration における Values 一覧</span><a class="headerlink" href="#id51" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 31.2%" />
@@ -3641,6 +3641,66 @@
 <td><p>Exastro 共通基盤で公開する内部の API エンドポイントで利用するポート番号(TCP)</p></td>
 <td><p>不可</p></td>
 <td><p>&quot;8000&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.SYSTEM_ANSIBLE_EXECUTION_LIMIT</p></td>
+<td><p>Exastro 共通基盤のリソース既定値用の初期値(システム全体のメAnsible driver の Movement 最大実行数の既定値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;25&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_ANSIBLE_EXECUTION_LIMIT_DEFAULT</p></td>
+<td><p>Exastro 共通基盤のリソース既定値用の初期値(Ansible driver の Movement 最大実行数の既定値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;25&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_ANSIBLE_EXECUTION_LIMIT_MAX</p></td>
+<td><p>Exastro 共通基盤のリソース最大値用の初期値(Ansible driver の Movement 最大実行数の最大値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;100&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnvORG_ANSIBLE_EXECUTION_LIMIT_DESCRIPTION</p></td>
+<td><p>Exastro 共通基盤のリソース説明用の初期値(Ansible driver の Movement 最大実行数の説明)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;Maximum number of movement executions for organization default&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_COMMON_UPLOAD_FILE_LIMIT_DEFAULT</p></td>
+<td><p>Exastro 共通基盤のリソース既定値用の初期値(アップロード可能なファイルサイズの既定値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;104857600&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_COMMON_UPLOAD_FILE_LIMIT_MAX</p></td>
+<td><p>Exastro 共通基盤のリソース最大値用の初期値(アップロード可能なファイルサイズの最大値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;107374182400&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_COMMON_UPLOAD_FILE_LIMIT_DESCRIPTION</p></td>
+<td><p>Exastro 共通基盤のリソース説明用の初期値(アップロード可能なファイルサイズの説明)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;Maximum byte size of upload file for organization default&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnv.SYSTEM_MENU_EXPORT_IMPORT_BUFFER_SIZE</p></td>
+<td><p>Exastro 共通基盤のリソース既定値用の初期値(システム全体のメニューエクスポート/インポートのバッファサイズの既定値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;10000&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.SYSTEM_MENU_EXPORT_IMPORT_BUFFER_SIZE_DESCRIPTION</p></td>
+<td><p>Exastro 共通基盤のリソース説明用の初期値(システム全体のメニューエクスポート/インポートのバッファサイズの説明)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;Maximum buffer size of menu Export/import for System default (Used for DB fetch size, file stream read size)&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_MENU_EXPORT_IMPORT_BUFFER_SIZE_DEFAULT</p></td>
+<td><p>Exastro 共通基盤のリソース既定値用の初期値(メニューエクスポート/インポートのバッファサイズの既定値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;1000&quot;</p></td>
+</tr>
+<tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_MENU_EXPORT_IMPORT_BUFFER_SIZE_MAX</p></td>
+<td><p>Exastro 共通基盤のリソース最大値用の初期値(メニューエクスポート/インポートのバッファサイズの最大値)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;10000&quot;</p></td>
+</tr>
+<tr class="row-odd"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_MENU_EXPORT_IMPORT_BUFFER_SIZE_DESCRIPTION</p></td>
+<td><p>Exastro 共通基盤のリソース説明用の初期値(メニューエクスポート/インポートのバッファサイズの説明)</p></td>
+<td><p>不可</p></td>
+<td><p>&quot;Maximum buffer size of menu Export/import for Organization default (Used for DB fetch size, file stream read size)&quot;</p></td>
 </tr>
 <tr class="row-even"><td><p>exastro-it-automation.ita-migration.extraEnv.ORG_COMMON_MAINTENANCE_RECORDS_LIMIT_DEFAULT</p></td>
 <td><p>Exastro 共通基盤のリソース既定値用の初期値(メンテナンス時のレコード処理件数の既定値)</p></td>

@@ -4659,6 +4659,18 @@ http://172.16.20.xxx:30080
 </pre></div>
 </div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<div class="line-block">
+<div class="line"><cite>exastro-platform.mongo.enabled: true</cite> で構築を行った環境で helmリポジトリのCHART VERSIONを「1.7.3以前」から「1.7.4以後」に更新を行うと、<a class="reference internal" href="#ita-upgrade"><span class="std std-ref">アップグレード実施</span></a> で <strong class="command">helm upgrade</strong> を実行した際に下記エラーが発生する事象が確認されています。</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Error:<span class="w"> </span>UPGRADE<span class="w"> </span>FAILED:<span class="w"> </span>cannot<span class="w"> </span>patch<span class="w"> </span><span class="s2">&quot;mongo&quot;</span><span class="w"> </span>with<span class="w"> </span>kind<span class="w"> </span>StatefulSet:<span class="w"> </span>StatefulSet.apps<span class="w"> </span><span class="s2">&quot;mongo&quot;</span><span class="w"> </span>is<span class="w"> </span>invalid:<span class="w"> </span>spec:<span class="w"> </span>Forbidden:<span class="w"> </span>updates<span class="w"> </span>to<span class="w"> </span>statefulset<span class="w"> </span>spec<span class="w"> </span><span class="k">for</span><span class="w"> </span>fields<span class="w"> </span>other<span class="w"> </span>than<span class="w"> </span><span class="s1">&#39;replicas&#39;</span>,<span class="w"> </span><span class="s1">&#39;ordinals&#39;</span>,<span class="w"> </span><span class="s1">&#39;template&#39;</span>,<span class="w"> </span><span class="s1">&#39;updateStrategy&#39;</span>,<span class="w"> </span><span class="s1">&#39;persistentVolumeClaimRetentionPolicy&#39;</span><span class="w"> </span>and<span class="w"> </span><span class="s1">&#39;minReadySeconds&#39;</span><span class="w"> </span>are<span class="w"> </span>forbidden
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">この場合は、一度 <strong class="command">kubectl -n exastro delete statefulset mongo</strong> を実行してから <strong class="command">helm upgrade</strong> を実行して下さい。</div>
+</div>
+</div>
 </section>
 <section id="id24">
 <h4>デフォルト設定値の更新の確認<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h4>
