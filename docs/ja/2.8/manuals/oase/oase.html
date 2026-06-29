@@ -246,7 +246,7 @@
 <li><a class="reference internal" href="#filter-search-method">検索方法</a><ul>
 <li><a class="reference internal" href="#id31">ユニーク</a></li>
 <li><a class="reference internal" href="#id32">キューイング</a></li>
-<li><a class="reference internal" href="#id33">グルーピング</a></li>
+<li><a class="reference internal" href="#id33">グルーピング（期間延長あり／期間延長なし）</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id34">フィルター画面</a></li>
@@ -1451,7 +1451,7 @@
 <section id="filter-search-method">
 <span id="id30"></span><h4>検索方法<a class="headerlink" href="#filter-search-method" title="Link to this heading">¶</a></h4>
 <div class="line-block">
-<div class="line">フィルターの検索方法は、ユニーク、キューイング、グルーピングの3種類があります。</div>
+<div class="line">フィルターの検索方法は、ユニーク、キューイング、グルーピング（期間延長あり）、グルーピング（期間延長なし）の4種類があります。</div>
 </div>
 <section id="id31">
 <h5>ユニーク<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h5>
@@ -1479,11 +1479,13 @@
 </figure>
 </section>
 <section id="id33">
-<h5>グルーピング<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h5>
+<h5>グルーピング（期間延長あり／期間延長なし）<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h5>
 <div class="line-block">
 <div class="line">同一属性（ラベルのキーと値の組み合わせが同じ）をもち、連続的に発生しているイベントを同一グループとみなし、グループ単位で評価を行います。</div>
 <div class="line">複数のイベントが同じグループにグルーピングされた場合、先頭のイベントを使用し、その他のイベントは無視されます。</div>
 <div class="line">イベントフロー画面には、先頭イベントのみ表示されます。</div>
+<div class="line">「期間延長あり」では、グルーピングされるイベントが発生するたびに先頭イベントのTTLが延長されます。</div>
+<div class="line">「期間延長なし」では、先頭イベントのTTL内、または個別に指定した期間内でグルーピングが行われます。</div>
 </div>
 <figure class="align-default" id="id81">
 <img alt="../../_images/filter_grouping.png" src="../../_images/filter_grouping.png" />
@@ -1502,10 +1504,10 @@
 <div class="line">グルーピングのフィルターでは指定したラベルの値とTTLでグループ化され、グループ毎に１回だけアクションが実行されます。</div>
 </div>
 <div class="line-block">
-<div class="line">グルーピングのイメージは以下です。</div>
+<div class="line">グルーピング（期間延長あり／期間延長なし）それぞれのイメージは以下です。</div>
 </div>
 <figure class="align-default" id="id83">
-<a class="reference internal image-reference" href="../../_images/filter_grouping_image.png"><img alt="../../_images/filter_grouping_image.png" src="../../_images/filter_grouping_image.png" style="width: 900px;" />
+<a class="reference internal image-reference" href="../../_images/filter_grouping_image.svg"><img alt="../../_images/filter_grouping_image.svg" src="../../_images/filter_grouping_image.svg" style="width: 900px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 3.97 </span><span class="caption-text">グルーピングイメージ</span><a class="headerlink" href="#id83" title="Link to this image">¶</a></p>
@@ -1522,7 +1524,7 @@
 </li>
 </ol>
 <figure class="align-default" id="id84">
-<a class="reference internal image-reference" href="../../_images/filter_create_menu_v2-4.png"><img alt="フィルター画面" src="../../_images/filter_create_menu_v2-4.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/filter_create_menu_v2-8.png"><img alt="フィルター画面" src="../../_images/filter_create_menu_v2-8.png" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 3.98 </span><span class="caption-text">フィルター画面</span><a class="headerlink" href="#id84" title="Link to this image">¶</a></p>
@@ -1579,7 +1581,7 @@
 <div class="line">検索方法を選択します。</div>
 <div class="line">ユニーク：一意のイベントの抽出しか許可しません。複数イベントがフィルター条件に一致した場合、一致したイベントすべてを未知のイベントとして処理します。</div>
 <div class="line">キューイング：一意のイベントを抽出しますが、複数イベントがフィルター条件に一致した場合、一番古いイベントを使用します。ルールに複数回マッチする可能性があるため、ご注意ください。</div>
-<div class="line">グルーピング：グルーピング条件で指定したラベルと条件に該当するイベントをグルーピングします。フィルター条件を指定することも可能です。</div>
+<div class="line">グルーピング：フィルター条件に合致したイベントの中から、グルーピング条件で指定したラベルと条件に該当するイベントをそれぞれグルーピングします。イベントがグルーピングされるごとに先頭イベントの期間が延長される「期間延長あり」と、先頭イベントのTTL内でグルーピングされる「期間延長なし」を選択できます。</div>
 </div>
 </td>
 <td><p>〇</p></td>
@@ -1592,7 +1594,7 @@
 <div class="line">ラベル作成で登録したラベルキーまたは「_exastro_host」が選択できます。</div>
 </div>
 </td>
-<td><p>○（グルーピングの場合）</p></td>
+<td><p>○（グルーピング（期間延長あり／期間延長なし）の場合）</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
@@ -1603,11 +1605,25 @@
 <div class="line">以外を対象とする：ラベル（グルーピング対象）で選択した項目以外の値がすべて一致する場合に同グループとしてグルーピングされます。</div>
 </div>
 </td>
-<td><p>○（グルーピングの場合）</p></td>
+<td><p>○（グルーピング（期間延長あり／期間延長なし）の場合）</p></td>
 <td><p>リスト選択</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td><p>備考</p></td>
+<tr class="row-even"><td><p>期間（グルーピング対象）</p></td>
+<td><div class="line-block">
+<div class="line">検索方法で「グルーピング（期間延長なし）」を選択したときに、先頭イベントのTTLとは別に、グルーピングを行う対象の期間を指定したい場合に入力してください。</div>
+</div>
+</td>
+<td><p>ー</p></td>
+<td><p>手動入力</p></td>
+<td><div class="line-block">
+<div class="line">数値（秒）</div>
+<div class="line">最小値：10</div>
+<div class="line">最大値：2147483647</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>備考</p></td>
 <td><p>自由記述欄。レコードの廃止・復活時にも記載可能。</p></td>
 <td><p>ー</p></td>
 <td><p>手動入力</p></td>
