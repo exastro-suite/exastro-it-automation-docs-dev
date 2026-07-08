@@ -854,7 +854,7 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <div class="line">また、ITAに登録したWorkspaceをTerraformへの連携（登録/更新/削除）とリソース削除（terraform destroy）を実行することができます。</div>
 </div>
 <figure class="align-default" id="id27">
-<a class="reference internal image-reference" href="../../_images/workspace_list_menu1.png"><img alt="サブメニュー画面（Workspace管理）" src="../../_images/workspace_list_menu1.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/workspace_list_menu_v2-8.png"><img alt="サブメニュー画面（Workspace管理）" src="../../_images/workspace_list_menu_v2-8.png" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 2.39 </span><span class="caption-text">サブメニュー画面（Workspace管理）</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
@@ -865,7 +865,7 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <div class="line"><span class="guilabel">＋ 登録</span> ボタンより、Workspace情報の登録を行います。</div>
 </div>
 <figure class="align-default" id="id28">
-<a class="reference internal image-reference" href="../../_images/workspace_list_register1.gif"><img alt="登録画面（Workspace管理）" src="../../_images/workspace_list_register1.gif" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/workspace_list_register_v2-8.gif"><img alt="登録画面（Workspace管理）" src="../../_images/workspace_list_register_v2-8.gif" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 2.40 </span><span class="caption-text">登録画面（Workspace管理）</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
@@ -883,7 +883,7 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <div class="line">また、選択したOrganizationがTerraformに連携（登録）されていない場合も同様のメッセージが表示されます。</div>
 </div>
 <figure class="align-default" id="id29">
-<a class="reference internal image-reference" href="../../_images/workspace_list_terraform_link.gif"><img alt="Terraform連携（Workspace管理）" src="../../_images/workspace_list_terraform_link.gif" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/workspace_list_terraform_link_v2-8.gif"><img alt="Terraform連携（Workspace管理）" src="../../_images/workspace_list_terraform_link_v2-8.gif" style="width: 800px;" />
 </a>
 <figcaption>
 <p><span class="caption-number">図 2.41 </span><span class="caption-text">Terraform連携（Workspace管理）</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
@@ -923,7 +923,15 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <td><p>リスト選択</p></td>
 <td><p>最大長40バイト</p></td>
 </tr>
-<tr class="row-odd"><td colspan="3"><p>Workspace名</p></td>
+<tr class="row-odd"><td colspan="3"><p>Project名</p></td>
+<td><p>Projectの名前を入力します。</p>
+<p>空欄の場合「Default Project」に紐づきます。</p>
+</td>
+<td><p>ー</p></td>
+<td><p>手動入力</p></td>
+<td><p>最大長40バイト</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>Workspace名</p></td>
 <td><p>Workspaceの名前を入力します。</p>
 <p>半角英数字と記号 _ -（アンダーバーとハイフン）のみ利用可能です。</p>
 </td>
@@ -931,13 +939,13 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <td><p>手動入力</p></td>
 <td><p>最大長90バイト</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>Terraform version</p></td>
+<tr class="row-odd"><td colspan="3"><p>Terraform version</p></td>
 <td><p>Terraformのバージョンを入力します。空欄の場合は連携（登録）時に最新のバージョンが自動的に適用されます。</p></td>
 <td><p>○</p></td>
 <td><p>手動入力</p></td>
 <td><p>最大長128バイト</p></td>
 </tr>
-<tr class="row-odd"><td rowspan="4"><p>Terraform連携</p></td>
+<tr class="row-even"><td rowspan="4"><p>Terraform連携</p></td>
 <td colspan="2"><p>状態チェック</p></td>
 <td><p>対象のWorkspaceと連携先Terraformとの連携状態を。チェックします。</p>
 <p>ボタン押下後、ポップアップメッセージにて状態が表示されます。</p>
@@ -946,19 +954,19 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <td><p>ボタン</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>登録</p></td>
+<tr class="row-odd"><td colspan="2"><p>登録</p></td>
 <td><p>連携先TerraformへWorkspaceの登録を実行するボタンです。</p></td>
 <td><p>ー</p></td>
 <td><p>ボタン</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-odd"><td colspan="2"><p>更新</p></td>
+<tr class="row-even"><td colspan="2"><p>更新</p></td>
 <td><p>連携先Terraformに登録済みのWorkspaceに対し、Terraform versionに変更があった場合に更新を実行するボタンです。</p></td>
 <td><p>ー</p></td>
 <td><p>ボタン</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td colspan="2"><p>削除</p></td>
+<tr class="row-odd"><td colspan="2"><p>削除</p></td>
 <td><p>連携先Terraformに登録済みのWorkspaceの削除を実行するボタンです。</p>
 <p>※Workspaceを削除するとリソースの削除は実行することができません。削除したWorkspaceは元に戻すことができません。</p>
 </td>
@@ -966,7 +974,7 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <td><p>ボタン</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-odd"><td><p>作業実行</p></td>
+<tr class="row-even"><td><p>作業実行</p></td>
 <td colspan="2"><p>リソース削除</p></td>
 <td><p>Workspaceごとに構成・管理されたリソースの削除を実行するボタンです。</p>
 <p>クリックすると確認ダイアログが表示され[OK]をクリックすると「<a class="reference internal" href="#terraform-cloud-ep-check-operation-status"><span class="std std-ref">作業状態確認</span></a>」に遷移し、対象のWorkspaceごとに構成・管理されたリソースの削除が実行されます。</p>
@@ -975,7 +983,7 @@ ITAがプロキシ環境下にある場合、Terraformまでの疎通のため�
 <td><p>ボタン</p></td>
 <td><p>ー</p></td>
 </tr>
-<tr class="row-even"><td colspan="3"><p>備考</p></td>
+<tr class="row-odd"><td colspan="3"><p>備考</p></td>
 <td><p>自由記述欄です。</p></td>
 <td><p>ー</p></td>
 <td><p>手動入力</p></td>
