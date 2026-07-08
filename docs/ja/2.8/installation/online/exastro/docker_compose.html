@@ -526,6 +526,17 @@ Generate<span class="w"> </span>.env<span class="w"> </span>file<span class="w">
 </div>
 <div class="line-block">
 <div class="line">詳細な設定を編集する場合は、 <strong class="command">n</strong> もしくは <strong class="command">no</strong> と入力し、以降の処理をスキップします。</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Podman の場合は <code class="file docutils literal notranslate"><span class="pre">~/exastro-docker-compose/.env</span></code> にプロキシ設定の記載が必要です。</p>
+<p>プロキシ設定のコメントアウトを解除し、記載されているサンプル値を、必ず環境に合わせて修正してください。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># HTTP_PROXY=http://proxy.example.com:8080</span>
+<span class="c1"># HTTPS_PROXY=https://proxy.example.com:8443</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
 <div class="line">そのまま Exastro システムのコンテナ群を起動する場合は、 <strong class="command">y</strong> もしくは <strong class="command">yes</strong> と入力します。</div>
 <div class="line">Exastro システムのデプロイには数分～数十分程度の時間が掛かります。(通信環境やサーバースペックによって状況は異なります。)</div>
 </div>
