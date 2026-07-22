@@ -222,8 +222,8 @@ Ansible作業時にカスタマイズを施したイメージを使用する例
    [user01@ita-sv ~]$ docker images | grep exastro-ansible-agent-custom
    exastro-ansible-agent-custom                      devel    18493d96333g   12 hours ago   953MB
  
-| なお、Kubenetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、
-| Kubenetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。
+| なお、Kubernetesではタグ名が「latest」又は「none」であるとローカルイメージを使用しないため、
+| Kubernetesで使用する場合はこの時点でタグ名を「latest」又は「none」以外としておくことを推奨します。
 | （参考：https://kubernetes.io/docs/concepts/containers/images/#imagepullpolicy-defaulting）
 
 .. code-block:: console
@@ -305,7 +305,7 @@ docker-compose版
 
 
 
-Kubenetes版
+Kubernetes版
 ~~~~~~~~~~~
 
 | 予め、クラスタ内の全てのノードに対して :file:`/tmp/custom-docker-image.tar.gz` を転送します。

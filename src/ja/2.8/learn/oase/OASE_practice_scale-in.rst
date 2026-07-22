@@ -14,8 +14,8 @@
    :header-rows: 1
 
    * - 通知内容
-     - ２台稼働時にリクエスト数が閾値内に回復した場合
-     - ３台稼働時にリクエスト数が閾値内に回復した場合
+     - 2台稼働時にリクエスト数が閾値内に回復した場合
+     - 3台稼働時にリクエスト数が閾値内に回復した場合
    * - :kbd:`件名`
      - :kbd:`[info] Requests: Threshold recovery`
      - :kbd:`[info] Requests: Threshold recovery`

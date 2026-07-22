@@ -155,11 +155,11 @@ Ansible Automation Controller の登録
              | ※ 認証方式が鍵認証（鍵交換済み）に設定する為に必要な公開鍵ファイルの配布
              | ・Ansible Core の場合
              | ansible がインストールされているサーバーの実行ユーザー「Ansible 共通コンソール=>インターフェース情報に設定されている実行ユーザー」から作業対象ホストに ssh 接続します。
-             | 実行ユーザーの公開鍵ファイルをログイン先ユーザーの authorized_keys にコピーして下さい。
+             | 実行ユーザーの公開鍵ファイルをログイン先ユーザーの authorized_keys にコピーしてください。
              |
              | ・ Ansible Automation Controller の場合
              | Ansible Automation Controller の awx ユーザーから作業対象ホストに ssh 接続しています。
-             | awx ユーザーの公開鍵ファイルをログイン先ユーザーの authorized_keys にコピーして下さい。ブラウザより Ansible Automation Controller にログインし、「設定」→「ジョブ」→「分離されたジョブに公開するパス」に「/var/lib/awx/.ssh/」を設定します。
+             | awx ユーザーの公開鍵ファイルをログイン先ユーザーの authorized_keys にコピーしてください。ブラウザより Ansible Automation Controller にログインし、「設定」→「ジョブ」→「分離されたジョブに公開するパス」に「/var/lib/awx/.ssh/」を設定します。
 
          .. raw:: html
 
@@ -510,7 +510,7 @@ Ansible Automation Contoller 連携の確認
 Ansible Automation Controller 登録を再実行する場合
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-| Ansible Automation Controller 登録の再実行する場合は、設定ファイルを編集後、再度スクリプトを実行して下さい。
+| Ansible Automation Controller 登録の再実行する場合は、設定ファイルを編集後、再度スクリプトを実行してください。
 
 .. code-block:: bash
    :caption: コマンド

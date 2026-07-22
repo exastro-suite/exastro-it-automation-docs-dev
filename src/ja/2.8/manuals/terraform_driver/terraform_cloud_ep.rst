@@ -421,7 +421,7 @@ Organization管理
    | OrganizationがTerraformに連携（登録）されていない状態で作業実行した場合、\ **作業実行は想定外エラーとなります**\ 。
 
    | 「6.2.1インターフェース情報」で登録した「Hostname」および「UserToken」に誤りがあると、Terraformとの連携が失敗し、連携状態に以下のメッセージが表示されます。
-   | 『Terraformとの接続に失敗しました。インターフェース情報を確認して下さい。』
+   | 『Terraformとの接続に失敗しました。インターフェース情報を確認してください。』
 
    .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/organization_list_terraform_link.gif
       :width: 800px
@@ -510,7 +510,7 @@ Workspace管理
    | WorkspaceがTerraformに連携（登録）されていない状態で作業実行した場合、\ **作業実行は想定外エラーとなります**\ 。
 
    | 「6.2.1インターフェース情報」で登録した「Hostname」および「UserToken」に誤りがあると、Terraformとの連携が失敗し、連携状態に以下のメッセージが表示されます。
-   | 『Terraformとの接続に失敗しました。インターフェース情報を確認して下さい。』
+   | 『Terraformとの接続に失敗しました。インターフェース情報を確認してください。』
    | また、選択したOrganizationがTerraformに連携（登録）されていない場合も同様のメッセージが表示されます。
 
    .. figure:: /images/ja/terraform_cloud_ep_driver/operation_method_explanation/workspace_list_terraform_link_v2-8.gif

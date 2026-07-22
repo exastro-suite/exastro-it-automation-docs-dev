@@ -435,7 +435,7 @@ Helm リポジトリの登録
           | データベースのデータを永続化するために利用するストレージを指定します
 
           .. warning::
-             | MongoDBコンテナを利用しない場合、:command:`exastro-platform.mongo.enabled` をfalseに指定して下さい。
+             | MongoDBコンテナを利用しない場合、:command:`exastro-platform.mongo.enabled` をfalseに指定してください。
 
           .. include:: ../../../include/helm_option_mongo.rst
 
@@ -1207,7 +1207,7 @@ Helm リポジトリの更新
 
      Error: UPGRADE FAILED: cannot patch "mongo" with kind StatefulSet: StatefulSet.apps "mongo" is invalid: spec: Forbidden: updates to statefulset spec for fields other than 'replicas', 'ordinals', 'template', 'updateStrategy', 'persistentVolumeClaimRetentionPolicy' and 'minReadySeconds' are forbidden
 
-  | この場合は、一度 :command:`kubectl -n exastro delete statefulset mongo` を実行してから :command:`helm upgrade` を実行して下さい。
+  | この場合は、一度 :command:`kubectl -n exastro delete statefulset mongo` を実行してから :command:`helm upgrade` を実行してください。
 
 デフォルト設定値の更新の確認
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

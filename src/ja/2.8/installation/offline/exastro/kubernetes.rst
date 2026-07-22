@@ -349,7 +349,7 @@ Exastro on Kubernetes - Offline
     | データベースのデータを永続化するために利用するストレージを指定します
 
     .. warning::
-       | MongoDBコンテナを利用しない場合、:command:`exastro-platform.mongo.enabled` をfalseに指定して下さい。
+       | MongoDBコンテナを利用しない場合、:command:`exastro-platform.mongo.enabled` をfalseに指定してください。
 
     .. include:: ../../../include/helm_option_mongo.rst
 
