@@ -1260,7 +1260,7 @@ Movement-Module紐付
    | 「パラメータ確認」ボタンをクリックすると、投入するパラメータの値を確認できます。Terraform PlanおよびTerraform Applyは実行されません。
 
 .. tip:: | **Outputブロックについて**
-   | Outputブロックを含むModule素材を利用した作業ががConductorから実行された場合、Outputブロックに書かれた内容がConductor作業ディレクトリパスにjson形式ファイルで保存されます。
+   | Outputブロックを含むModule素材を利用した作業がConductorから実行された場合、Outputブロックに書かれた内容がConductor作業ディレクトリパスにjson形式ファイルで保存されます。
    | このファイルを使用することにより、同一Conductorの別のMovementでTerraformが出力した値を使用することができます。
 
    | **ファイルパス**
