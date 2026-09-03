@@ -227,14 +227,14 @@ exastro-it-automation:
 <span class="w"> </span> # 中略
 <span class="w"> </span> ita-api-organization:
 <span class="w"> </span>   extraEnv:
-<span class="w"> </span>     PLATFORM_API_HOST: &quot;platform-api&quot;
-<span class="w"> </span>     PLATFORM_API_PORT: &quot;8000&quot;
-<span class="gi">+     APACHE_TIMEOUT: &quot;600&quot;</span>
-<span class="gi">+     APACHE_MAX_CONNECTIONS_PER_CHILD: &quot;5000&quot;</span>
-<span class="gi">+     WSGI_GRACEFUL_TIMEOUT: &quot;600&quot;</span>
+<span class="w"> </span>     PLATFORM_API_HOST: "platform-api"
+<span class="w"> </span>     PLATFORM_API_PORT: "8000"
+<span class="gi">+     APACHE_TIMEOUT: "600"</span>
+<span class="gi">+     APACHE_MAX_CONNECTIONS_PER_CHILD: "5000"</span>
+<span class="gi">+     WSGI_GRACEFUL_TIMEOUT: "600"</span>
 <span class="w"> </span>   image:
-<span class="w"> </span>     repository: &quot;docker.io/exastro/exastro-it-automation-api-organization&quot;
-<span class="w"> </span>     tag: &quot;&quot;
+<span class="w"> </span>     repository: "docker.io/exastro/exastro-it-automation-api-organization"
+<span class="w"> </span>     tag: ""
 </pre></div>
 </div>
 </section>

@@ -1698,7 +1698,7 @@ Controllerにファイル転送するために必要な情報を管理します�
 </pre></div>
 </div>
 <p>各パラメータ値を変数で記述することも出来ます。</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_become_password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">VAR_passwd</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_become_password</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">VAR_passwd</span><span class="nv"> </span><span class="s">}}'</span>
 </pre></div>
 </div>
 <p>具体値に変数を記述する場合</p>
@@ -2261,7 +2261,7 @@ _
 <div class="line-block">
 <div class="line"><strong>Playbookの記述</strong></div>
 </div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">copy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src=&#39;{{ CPF_hosts }}&#39; dest=/etc/hosts</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">copy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src='{{ CPF_hosts }}' dest=/etc/hosts</span>
 </pre></div>
 </div>
 </li>
@@ -2509,7 +2509,7 @@ _
 <div class="line-block">
 <div class="line"><strong>Playbookの記述</strong></div>
 </div>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">template</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src=&#39;{{ TPF_hosts }}&#39; dest=/etc/hosts</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">template</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">src='{{ TPF_hosts }}' dest=/etc/hosts</span>
 </pre></div>
 </div>
 </li>
@@ -2658,7 +2658,7 @@ _
 <p>未入力の場合は、以下を適用します。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ansible</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 <span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 
@@ -4042,7 +4042,7 @@ _
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ヘッダーセクションのデフォルト値</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">    </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">    </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 <span class="w">    </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 </pre></div>
