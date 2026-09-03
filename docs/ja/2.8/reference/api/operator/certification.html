@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css?v=3f76e5e7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exastro_documents.css?v=826bbf11" />
     <link rel="stylesheet" type="text/css" href="../../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
     <script src="../../../_static/documentation_options.js?v=c033477b"></script>
@@ -72,8 +72,9 @@
         <dd>
           <div>
             <select name="version" style="height: 20px;" onchange="location.href=value;">
-              <option value="../../../../../ja/2.8/reference/api/operator/certification.html" selected>current</option>
-              <option value="../../../../../ja/2.8/reference/api/operator/certification.html" selected>2.8(current)</option>
+              <option value="../../../../../ja/2.9/reference/api/operator/certification.html">current</option>
+              <option value="../../../../../ja/2.9/reference/api/operator/certification.html">2.9(current)</option>
+              <option value="../../../../../ja/2.8/reference/api/operator/certification.html" selected>2.8</option>
               <option value="../../../../../ja/2.7/reference/api/operator/certification.html">2.7</option>
               <option value="../../../../../ja/2.6/reference/api/operator/certification.html">2.6</option>
               <option value="../../../../../ja/2.5/reference/api/operator/certification.html">2.5</option>
@@ -316,13 +317,13 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 
 <span class="c1"># refresh_token払出</span>
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s2">"client_id=_platform-api"</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s2">"client_id=_</span><span class="si">${</span><span class="nv">ORGANIZATION_ID</span><span class="si">}</span><span class="s2">-api"</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s2">"grant_type=password"</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s2">"scope=openid+offline_access"</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s2">"username=</span><span class="si">${</span><span class="nv">USERNAME</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s2">"password=</span><span class="si">${</span><span class="nv">PASSWORD</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s2">"totp=</span><span class="si">${</span><span class="nv">ONETIME_PASSWORD</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
-<span class="s2">"</span><span class="si">${</span><span class="nv">BASEURL</span><span class="si">}</span><span class="s2">/auth/realms/master/protocol/openid-connect/token"</span>
+<span class="s2">"</span><span class="si">${</span><span class="nv">BASEURL</span><span class="si">}</span><span class="s2">/auth/realms/</span><span class="si">${</span><span class="nv">ORGANIZATION_ID</span><span class="si">}</span><span class="s2">/protocol/openid-connect/token"</span>
 </pre></div>
 </div>
 <ul>
@@ -362,10 +363,10 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <span class="c1"># access_token払出</span>
 <span class="nv">ACCESS_TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="se">\</span>
 <span class="w">    </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s2">"client_id=_platform-api"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s2">"client_id=_</span><span class="si">${</span><span class="nv">ORGANIZATION_ID</span><span class="si">}</span><span class="s2">-api"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s2">"grant_type=refresh_token"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s2">"refresh_token=</span><span class="si">${</span><span class="nv">REFRESH_TOKEN</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">"</span><span class="si">${</span><span class="nv">BASEURL</span><span class="si">}</span><span class="s2">/auth/realms/master/protocol/openid-connect/token"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">"</span><span class="si">${</span><span class="nv">BASEURL</span><span class="si">}</span><span class="s2">/auth/realms/</span><span class="si">${</span><span class="nv">ORGANIZATION_ID</span><span class="si">}</span><span class="s2">/protocol/openid-connect/token"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s2">".access_token"</span><span class="w"> </span><span class="se">\</span>
 <span class="k">)</span>
 
