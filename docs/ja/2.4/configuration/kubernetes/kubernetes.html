@@ -598,7 +598,7 @@ SELINUXTYPE=targeted
 </div>
 <div class="literal-block-wrapper docutils container" id="id33">
 <div class="code-block-caption"><span class="caption-number">リスト 2.25 </span><span class="caption-text">コマンド</span><a class="headerlink" href="#id33" title="Link to this code">¶</a></div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory/k8s_cluster/hosts.yml<span class="w"> </span>--become<span class="w"> </span>--become-user<span class="o">=</span>root<span class="w"> </span>cluster.yml<span class="w"> </span>--private-key<span class="o">=</span>~/.ssh/id_rsa<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;download_retries=10&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>~/kubespray_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d%H%M<span class="k">)</span>.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory/k8s_cluster/hosts.yml<span class="w"> </span>--become<span class="w"> </span>--become-user<span class="o">=</span>root<span class="w"> </span>cluster.yml<span class="w"> </span>--private-key<span class="o">=</span>~/.ssh/id_rsa<span class="w"> </span>-e<span class="w"> </span><span class="s2">"download_retries=10"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>~/kubespray_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d%H%M<span class="k">)</span>.log
 </pre></div>
 </div>
 </div>

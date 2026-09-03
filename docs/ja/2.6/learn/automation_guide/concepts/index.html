@@ -259,14 +259,14 @@
 <div class="code-block-caption"><span class="caption-text">再利用可能なパラメータ設計例</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 環境固有の値は外部化</span>
 <span class="nt">web_server</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">webserver_package</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w">    </span><span class="c1"># OS依存</span>
-<span class="w">  </span><span class="nt">service_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">webserver_service</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w">    </span><span class="c1"># OS依存</span>
-<span class="w">  </span><span class="nt">config_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">webserver_config_path</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w">  </span><span class="c1"># OS依存</span>
+<span class="w">  </span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">webserver_package</span><span class="nv"> </span><span class="s">}}"</span><span class="w">    </span><span class="c1"># OS依存</span>
+<span class="w">  </span><span class="nt">service_name</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">webserver_service</span><span class="nv"> </span><span class="s">}}"</span><span class="w">    </span><span class="c1"># OS依存</span>
+<span class="w">  </span><span class="nt">config_dir</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">webserver_config_path</span><span class="nv"> </span><span class="s">}}"</span><span class="w">  </span><span class="c1"># OS依存</span>
 
 <span class="c1"># 共通的な設定は標準化</span>
 <span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ssl_protocols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;TLSv1.2&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;TLSv1.3&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="nt">cipher_suites</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ECDHE+AESGCM:ECDHE+CHACHA20&quot;</span>
+<span class="w">  </span><span class="nt">ssl_protocols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"TLSv1.2"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"TLSv1.3"</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">cipher_suites</span><span class="p">:</span><span class="w"> </span><span class="s">"ECDHE+AESGCM:ECDHE+CHACHA20"</span>
 </pre></div>
 </div>
 </div>

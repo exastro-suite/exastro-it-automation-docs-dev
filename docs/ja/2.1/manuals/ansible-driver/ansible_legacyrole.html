@@ -706,17 +706,17 @@
 <td><p>ITAが自動生成する親Playbookの先頭からrolesセクションまでのセクションを編集します。</p>
 <p>未入力の場合は以下を適用します。</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 <span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 <span class="w">  </span><span class="c1"># winrm接続の場合は become: yesは適用しません。</span>
 </pre></div>
 </div>
 <p>各パラメータ値を変数で記述することも出来ます。</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">become_user</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{△vvv△}}&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">become_user</span><span class="p">:</span><span class="w"> </span><span class="s">'{{△vvv△}}'</span>
 
 <span class="l l-Scalar l-Scalar-Plain">△：半角スペース</span>
-<span class="s">&#39;:シングル・ダブルコーテーションで必ず囲んで下さい。</span>
+<span class="s">':シングル・ダブルコーテーションで必ず囲んで下さい。</span>
 </pre></div>
 </div>
 <p>パラメータ値を変数で記述する場合の詳細は、「 <a class="reference internal" href="ansible_common.html#ansible-common-option-var-listup"><span class="std std-ref">インベントリファイル追加オプションとヘッダセクションのパラメータ値で変数抜出の対象となる変数の種類と書式</span></a> 」を参照してください 。</p>
@@ -2466,7 +2466,7 @@
 <div class="line">▼ヘッダーセクションのデフォルト値</div>
 </div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">remote_user</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
 <span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
 <span class="c1"># winrm接続の場合は「become: yes」は省略されます。</span>

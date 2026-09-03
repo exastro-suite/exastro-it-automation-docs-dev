@@ -224,15 +224,15 @@ exastro-it-automation:
 # 中略
 <span class="w"> </span> ita-api-oase-receiver:
 <span class="w"> </span>   image:
-<span class="w"> </span>     repository: &quot;docker.io/exastro/exastro-it-automation-api-oase-receiver&quot;
-<span class="w"> </span>     tag: &quot;&quot;
+<span class="w"> </span>     repository: "docker.io/exastro/exastro-it-automation-api-oase-receiver"
+<span class="w"> </span>     tag: ""
 <span class="w"> </span>     pullPolicy: IfNotPresent
 <span class="w"> </span>   extraEnv:
-<span class="w"> </span>     LISTEN_PORT: &quot;8000&quot;
-<span class="w"> </span>     PLATFORM_API_HOST: &quot;platform-api&quot;
-<span class="w"> </span>     PLATFORM_API_PORT: &quot;8000&quot;
-<span class="gi">+     OASE_RECEIVER_WSGI_PROCESSES: &quot;7&quot;</span>
-<span class="gi">+     OASE_RECEIVER_WSGI_THREADS: &quot;2&quot;</span>
+<span class="w"> </span>     LISTEN_PORT: "8000"
+<span class="w"> </span>     PLATFORM_API_HOST: "platform-api"
+<span class="w"> </span>     PLATFORM_API_PORT: "8000"
+<span class="gi">+     OASE_RECEIVER_WSGI_PROCESSES: "7"</span>
+<span class="gi">+     OASE_RECEIVER_WSGI_THREADS: "2"</span>
 </pre></div>
 </div>
 <p>Exastroのデフォルト設定はプロセス数2、スレッド数8です。この設定では最大2コアまでしか使えませんが、プロセス数を7に増やすことで7コアを並列活用でき、CPUバウンドなラベル付与処理の高速化が期待できます。</p>
