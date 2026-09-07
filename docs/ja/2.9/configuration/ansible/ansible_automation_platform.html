@@ -925,13 +925,14 @@
 <td></td>
 <td></td>
 <td></td>
-<td></td>
+<td><p>△</p></td>
 <td><p>○</p></td>
 </tr>
 </tbody>
 </table>
 <div class="line-block">
 <div class="line">〇: 動作確認済み</div>
+<div class="line">△: 動作確認は未実施だが動作する想定</div>
 </div>
 </section>
 <section id="red-hat-ansible-automation-platform-managed-service">
@@ -980,7 +981,7 @@
 <a class="reference internal image-reference" href="../../_images/playbook_link_between_aap_and_container.drawio.png"><img alt="ITAとAnsible Automation Platform2.xのPlaybook連携図" src="../../_images/playbook_link_between_aap_and_container.drawio.png" style="width: 600px;" />
 </a>
 </figure>
-<p>ITAとAnsible Automatio Platform2.x間のPlaybook連携図</p>
+<p>ITAとAnsible Automation Platform2.x間のPlaybook連携図</p>
 <ul class="simple">
 <li><p>① Playbook 一式を抽出する</p></li>
 <li><p>② Playbook 一式を Ansible Automation Controller と連携する Gitリポジトリを作成</p></li>
@@ -992,7 +993,7 @@
 <a class="reference internal image-reference" href="../../_images/playbook_link_between_aaponcloud_and_container.drawio.png"><img alt="ITAとAnsible Automation Platform(PULL型)のPlaybook連携図" src="../../_images/playbook_link_between_aaponcloud_and_container.drawio.png" style="width: 600px;" />
 </a>
 </figure>
-<p>ITAとAnsible Automatio Platfor(Cloud)間のPlaybook連携図</p>
+<p>ITAとAnsible Automation Platform(Cloud)間のPlaybook連携図</p>
 <ul class="simple">
 <li><p>① Playbook 一式を抽出する</p></li>
 <li><p>② Playbook 一式を Ansible Automation Platform と連携する Gitリポジトリを作成</p></li>
@@ -1402,7 +1403,7 @@
 <section id="platform-ansible-execution-environment">
 <span id="id19"></span><h3><span class="section-number">3.7.2. </span>インスタンスを組み込む<a class="headerlink" href="#platform-ansible-execution-environment" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">インスタンスであるAnsible Execution Environment (以下、Ansible ee とも表記) を組み込んてください。</div>
+<div class="line">インスタンスであるAnsible Execution Environment (以下、Ansible ee とも表記) を組み込んでください。</div>
 </div>
 </section>
 <section id="id20">
@@ -1539,7 +1540,7 @@
 <ul class="simple">
 <li><p>Execution NodeからPlatform Gatewayへのアウトバウンド通信を許可</p></li>
 <li><p>ITAからAAPへのSSH接続が不要</p></li>
-<li><p>Execution NodeからITA APIへのアウトバウンド通信通信[HTTP(S)]を許可</p></li>
+<li><p>Execution NodeからITA APIへのアウトバウンド通信[HTTP(S)]を許可</p></li>
 <li><p>AAPからGitLabへの通信を許可</p></li>
 </ul>
 <div class="admonition note">

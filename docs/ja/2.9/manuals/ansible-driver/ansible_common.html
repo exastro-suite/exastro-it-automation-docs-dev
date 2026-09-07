@@ -343,7 +343,7 @@
 <section id="ansible-core">
 <h3><span class="section-number">1.2.1. </span>Ansible Coreについて<a class="headerlink" href="#ansible-core" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">Ansible Coreとは、多数の構築管理対象に対して、アプリーケーション/システムのデプロイ作業を容易にするPF構築自動化ツールです。</div>
+<div class="line">Ansible Coreとは、多数の構築管理対象に対して、アプリケーション/システムのデプロイ作業を容易にするPF構築自動化ツールです。</div>
 <div class="line">Ansible Coreは、PlaybookというYAML形式のテキストファイルに定型処理をタスクとして記述し、それをAnsible Coreに実行させることにより、さまざまな処理を実現できます。</div>
 <div class="line">タスクはモジュールと呼ばれる処理プログラムと紐付いており、さまざまな機器に対する制御を行うことができます。</div>
 <div class="line">Ansible Coreの詳細情報については、Ansible公式マニュアルを参照してください。</div>
@@ -660,7 +660,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Movemebt ID</p></td>
+<tr class="row-even"><td><p>Movement ID</p></td>
 <td><p>__movement_id__</p></td>
 </tr>
 </tbody>
@@ -1744,7 +1744,7 @@
 <li><div class="line-block">
 <div class="line">ssh</div>
 <div class="line"><span class="menuselection">認証方式</span> はパスワード認証（winrm）以外を選択
-してださい。</div>
+してください。</div>
 </div>
 </li>
 <li><div class="line-block">
@@ -3396,7 +3396,7 @@ Platform Gateway/Execution Node(Hybrid Node)のホスト名(またはIPアドレ
 <a class="reference internal image-reference" href="../../_images/execution_environment_definition_template_list.png"><img alt="サブメニュー画面（実行環境定義テンプレート管理）" src="../../_images/execution_environment_definition_template_list.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 1.101 </span><span class="caption-text">サブメニュー画面（実行環境定義テンプレート管理管理）</span><a class="headerlink" href="#id85" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 1.101 </span><span class="caption-text">サブメニュー画面（実行環境定義テンプレート管理）</span><a class="headerlink" href="#id85" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -3404,10 +3404,10 @@ Platform Gateway/Execution Node(Hybrid Node)のホスト名(またはIPアドレ
 <div class="line"><span class="guilabel">登録</span> ボタンより、実行環境定義テンプレート管理の登録を行います。</div>
 </div>
 <figure class="align-default" id="id86">
-<a class="reference internal image-reference" href="../../_images/execution_environment_definition_template_list.gif"><img alt="登録画面（実行環境定義テンプレート管理管理）" src="../../_images/execution_environment_definition_template_list.gif" style="width: 800px;" />
+<a class="reference internal image-reference" href="../../_images/execution_environment_definition_template_list.gif"><img alt="登録画面（実行環境定義テンプレート管理）" src="../../_images/execution_environment_definition_template_list.gif" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">図 1.102 </span><span class="caption-text">登録画面（実行環境定義テンプレート管理管理）</span><a class="headerlink" href="#id86" title="Link to this image">¶</a></p>
+<p><span class="caption-number">図 1.102 </span><span class="caption-text">登録画面（実行環境定義テンプレート管理）</span><a class="headerlink" href="#id86" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -3540,7 +3540,7 @@ Platform Gateway/Execution Node(Hybrid Node)のホスト名(またはIPアドレ
 <li><div class="line-block">
 <div class="line">Manual</div>
 <div class="line">「Manual」を選択した場合には、ansible-builderで実行環境（コンテナ）をbuildしません。</div>
-<div class="line">ITA外でbulidした実行環境（コンテナイメージ）を作業実行前にAnsible Execution Agent内にロードしておく必要があれます。</div>
+<div class="line">ITA外でbuildした実行環境（コンテナイメージ）を作業実行前にAnsible Execution Agent内にロードしておく必要があります。</div>
 </div>
 </li>
 </ul>
@@ -4085,6 +4085,36 @@ Platform Gateway/Execution Node(Hybrid Node)のホスト名(またはIPアドレ
 </ol>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line"><strong>実行環境定義ファイルのPythonをpython3.11に変更し、ローカル実行する場合の注意事項</strong></div>
+<div class="line">テンプレートファイルのPythonをpython3.11に更新する場合は、<span class="menuselection">Ansible共通 ▶ 機器一覧</span> に登録されている</div>
+<div class="line">ローカル実行用の機器「localhost」の <span class="menuselection">インベントリファイル追加オプション</span> の <code class="docutils literal notranslate"><span class="pre">ansible_python_interpreter</span></code> の値も、</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/usr/bin/python3</span></code> から <code class="docutils literal notranslate"><span class="pre">/usr/bin/python3.11</span></code> へ合わせて更新してください。</div>
+</div>
+<p>e.g.) テンプレートファイルで「python3.11」を指定した場合</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 実行環境定義テンプレート管理に登録するテンプレートファイルの記述例（一部抜粋）</span>
+<span class="c1"># （記載省略）</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># （記載省略）</span>
+<span class="w">  </span><span class="nt">python_interpreter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">package_system</span><span class="p">:</span><span class="w"> </span><span class="s">"python3.11"</span>
+<span class="w">    </span><span class="nt">python_path</span><span class="p">:</span><span class="w"> </span><span class="s">"/usr/bin/python3.11"</span>
+
+<span class="nt">additional_build_steps</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">append_base</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RUN /usr/bin/python3.11 -m pip install --upgrade pip</span>
+
+<span class="c1"># （記載省略）</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 機器一覧の機器「localhost」のインベントリファイル追加オプションの記述例</span>
+<span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/bin/python3.11</span>
+<span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="backyard">
 <span id="ansible-common-backyard-content"></span><h3><span class="section-number">1.6.2. </span>BackYardコンテンツ<a class="headerlink" href="#backyard" title="Link to this heading">¶</a></h3>

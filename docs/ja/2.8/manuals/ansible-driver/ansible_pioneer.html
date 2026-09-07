@@ -491,7 +491,7 @@
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p>代入値自動登録設定</p></td>
-<td><p>パラメータシートに登録されているオぺレーションとホスト毎の項目値を紐付けるMovementと変数を管理します。</p></td>
+<td><p>パラメータシートに登録されているオペレーションとホスト毎の項目値を紐付けるMovementと変数を管理します。</p></td>
 </tr>
 <tr class="row-even"><td><p>7</p></td>
 <td><p>作業実行</p></td>
@@ -756,7 +756,7 @@
 <td><p>手動入力</p></td>
 <td><p>最大長255バイト</p></td>
 </tr>
-<tr class="row-even"><td rowspan="3"><p>機種別</p></td>
+<tr class="row-even"><td rowspan="3"><p>機器種別</p></td>
 <td><p>SV</p></td>
 <td><p>サーバ機器の場合「True」を選択します。</p></td>
 <td><p>ー</p></td>
@@ -1686,7 +1686,7 @@
 </li>
 <li><div class="line-block">
 <div class="line"><strong>実行ログ表示</strong></div>
-<div class="line">Ansible Automation Controllerで実行した場合、作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグルーブ</span> の項目値でグループ化された作業対象の単位で対話ファイルが実行され、ansibleの実行ログが分割されます。</div>
+<div class="line">Ansible Automation Controllerで実行した場合、作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグループ</span> の項目値でグループ化された作業対象の単位で対話ファイルが実行され、ansibleの実行ログが分割されます。</div>
 <div class="line">さらに、 <span class="menuselection">Ansible共通 ▶ インターフェース情報</span> の <span class="menuselection">オプションパラメータ</span> でジョブスライス数を指定することによりグループ化された作業対象をさらにジョブスライス数で分割しplaybookが実行され、ansibleの実行ログも分割されます。</div>
 <div class="line">実行ログが分割された場合、実行ログがTabで分割表示され、表示したい実行ログを選択する事ができます。</div>
 </div>
@@ -1709,7 +1709,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>グループ番号</p></td>
-<td><p>作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグルーブ</span> の項目値でグルーブ化した 1 からの通番です。</p></td>
+<td><p>作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグループ</span> の項目値でグループ化した 1 からの通番です。</p></td>
 </tr>
 <tr class="row-odd"><td><p>通番</p></td>
 <td><div class="line-block">
@@ -2898,7 +2898,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <span class="w">  </span><span class="c1"># サービスのステータスを退避（stdout）します。</span>
 <span class="w">  </span><span class="c1"># 標準出力（stdout）の内容に、item.1がある場合、正となります。</span>
 <span class="w">  </span><span class="c1"># 例えば、VAR_service_status_listの具体値をrunningと設定し、サービスが起動している場合、</span>
-<span class="w">  </span><span class="c1"># 「Active: active （running）」のrunnigが一致するので正となります。（次のループに移ります）</span>
+<span class="w">  </span><span class="c1"># 「Active: active （running）」のrunningが一致するので正となります。（次のループに移ります）</span>
 <span class="w">  </span><span class="c1"># そうでない場合は、異常と判断し、対話ファイルは異常終了します。</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">'systemctl</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">item.0</span><span class="nv"> </span><span class="s">}}'</span>
 <span class="w">    </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}@{{</span><span class="nv"> </span><span class="s">__inventory_hostname__</span><span class="nv"> </span><span class="s">}}'</span>
@@ -3116,7 +3116,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <h4>stateモジュールとcommandモジュールの使用時の注意事項<a class="headerlink" href="#statecommand" title="Link to this heading">¶</a></h4>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">promptパラメータに正規表で後方一致「.*」を記述した場合</div>
+<div class="line">promptパラメータに正規表現で後方一致「.*」を記述した場合</div>
 <div class="line">stateモジュールとcommandモジュールは、コマンドを投入後、promptパラメータで指定されたコマンドプロンプトより前のデータを標準出力として扱います。</div>
 <div class="line">後方一致「.*」を記述すると、実行したコマンドの結果（標準出力）が空となります。</div>
 <div class="line">後方一致の正規表現は使用しないでください。</div>
@@ -3127,7 +3127,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 </div>
 </li>
 </ul>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo 'saple data'</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo 'sample data'</span>
 <span class="w">  </span><span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">'\.\*{{</span><span class="nv"> </span><span class="s">__loginuser__</span><span class="nv"> </span><span class="s">}}@{{</span><span class="nv"> </span><span class="s">__inventory_hostname__</span><span class="nv"> </span><span class="s">}}'</span>
 <span class="w">  </span><span class="nt">stdout_file</span><span class="p">:</span><span class="w"> </span><span class="s">'{{</span><span class="nv"> </span><span class="s">__workflowdir__</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">__inventory_hostname__</span><span class="nv"> </span><span class="s">}}/hosts'</span>
 </pre></div>
@@ -3491,7 +3491,7 @@ systemctl<span class="w"> </span>start<span class="w"> </span>mysql
 <th class="head"><p>記録内容</p></th>
 <th class="head"><p>Ansible Coreの場合</p></th>
 <th class="head"><p>Ansible Automation Controllerの場合</p></th>
-<th class="head"><p>AAnsible Execution Agentの場合</p></th>
+<th class="head"><p>Ansible Execution Agentの場合</p></th>
 </tr>
 </thead>
 <tbody>

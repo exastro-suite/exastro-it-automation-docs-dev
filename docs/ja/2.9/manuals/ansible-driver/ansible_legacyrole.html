@@ -463,7 +463,7 @@
 </tr>
 <tr class="row-even"><td><p>5</p></td>
 <td><p>代入値自動登録設定</p></td>
-<td><p>パラメータシートに登録されているオぺレーションとホスト毎の項目値を紐付けるMovementと変数を管理します。</p></td>
+<td><p>パラメータシートに登録されているオペレーションとホスト毎の項目値を紐付けるMovementと変数を管理します。</p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p>作業実行</p></td>
@@ -2068,7 +2068,7 @@
 </li>
 <li><div class="line-block">
 <div class="line"><strong>実行ログ表示</strong></div>
-<div class="line">Ansible Automation Controllerで実行した場合、作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグルーブ</span> の項目値でグループ化された作業対象の単位でPlaybookが実行され、ansibleの実行ログが分割されます。</div>
+<div class="line">Ansible Automation Controllerで実行した場合、作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグループ</span> の項目値でグループ化された作業対象の単位でPlaybookが実行され、ansibleの実行ログが分割されます。</div>
 <div class="line">さらに、 <span class="menuselection">Ansible共通 ▶ インターフェース情報</span> か <span class="menuselection">Ansible-LegacyRole ▶ Movement一覧</span> の <span class="menuselection">オプションパラメータ</span> でジョブスライス数を指定することによりグループ化された作業対象をさらにジョブスライス数で分割しplaybookが実行され、ansibleの実行ログも分割されます。</div>
 <div class="line">実行ログが分割された場合、実行ログがTabで分割表示され、表示したい実行ログを選択する事ができます。</div>
 </div>
@@ -2091,7 +2091,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>グループ番号</p></td>
-<td><p>作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグルーブ</span> の項目値でグルーブ化した 1 からの通番です。</p></td>
+<td><p>作業対象の <span class="menuselection">Ansible共通 ▶ 機器一覧</span> の <span class="menuselection">ユーザ</span> ・ <span class="menuselection">パスワード</span> ・ <span class="menuselection">ssh秘密鍵ファイル</span> ・ <span class="menuselection">パスフレーズ</span> ・ <span class="menuselection">接続タイプ</span> ・ <span class="menuselection">インスタンスグループ</span> の項目値でグループ化した 1 からの通番です。</p></td>
 </tr>
 <tr class="row-odd"><td><p>通番</p></td>
 <td><div class="line-block">
@@ -2106,7 +2106,7 @@
 <p class="admonition-title">注釈</p>
 <div class="line-block">
 <div class="line">実行エンジンで「Ansible Automation Platform(Cloud)」を指定している場合、ITA固有の資材連携のタスクも表示されます。</div>
-<div class="line">ITA固有の資材連携については、、 <a class="reference internal" href="../../configuration/ansible/ansible_automation_platform.html#about-ansible-automation-platform-cloud"><span class="std std-ref">Ansible Automation Platform (Cloud)について</span></a> を参照してください。</div>
+<div class="line">ITA固有の資材連携については、 <a class="reference internal" href="../../configuration/ansible/ansible_automation_platform.html#about-ansible-automation-platform-cloud"><span class="std std-ref">Ansible Automation Platform (Cloud)について</span></a> を参照してください。</div>
 </div>
 </div>
 </li>
@@ -2598,11 +2598,11 @@
 <section id="playbook">
 <h4>マスターPlaybook<a class="headerlink" href="#playbook" title="Link to this heading">¶</a></h4>
 <div class="line-block">
-<div class="line">ITAで作成するマスターPlaybookはへッダーセクションとrolesセクションで構成されます。</div>
+<div class="line">ITAで作成するマスターPlaybookはヘッダーセクションとrolesセクションで構成されます。</div>
 </div>
 <ol class="arabic">
 <li><div class="line-block">
-<div class="line">へッダーセクション</div>
+<div class="line">ヘッダーセクション</div>
 <div class="line">ヘッダーセクションは、デフォルト値が決まっていますが、 <span class="menuselection">Ansible-LegacyRole ▶ Movement一覧</span> の <span class="menuselection">ヘッダーセクション</span> で変更することが出来ます。</div>
 </div>
 <div class="line-block">
@@ -3146,7 +3146,7 @@
 <th class="head"><p>記録内容</p></th>
 <th class="head"><p>Ansible Coreの場合</p></th>
 <th class="head"><p>Ansible Automation Controllerの場合</p></th>
-<th class="head"><p>AAnsible Execution Agentの場合</p></th>
+<th class="head"><p>Ansible Execution Agentの場合</p></th>
 </tr>
 </thead>
 <tbody>
