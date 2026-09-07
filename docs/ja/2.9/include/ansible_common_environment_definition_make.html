@@ -307,6 +307,36 @@
 </ol>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<div class="line-block">
+<div class="line"><strong>実行環境定義ファイルのPythonをpython3.11に変更し、ローカル実行する場合の注意事項</strong></div>
+<div class="line">テンプレートファイルのPythonをpython3.11に更新する場合は、<span class="menuselection">Ansible共通 ▶ 機器一覧</span> に登録されている</div>
+<div class="line">ローカル実行用の機器「localhost」の <span class="menuselection">インベントリファイル追加オプション</span> の <code class="docutils literal notranslate"><span class="pre">ansible_python_interpreter</span></code> の値も、</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/usr/bin/python3</span></code> から <code class="docutils literal notranslate"><span class="pre">/usr/bin/python3.11</span></code> へ合わせて更新してください。</div>
+</div>
+<p>e.g.) テンプレートファイルで「python3.11」を指定した場合</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 実行環境定義テンプレート管理に登録するテンプレートファイルの記述例（一部抜粋）</span>
+<span class="c1"># （記載省略）</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># （記載省略）</span>
+<span class="w">  </span><span class="nt">python_interpreter</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">package_system</span><span class="p">:</span><span class="w"> </span><span class="s">"python3.11"</span>
+<span class="w">    </span><span class="nt">python_path</span><span class="p">:</span><span class="w"> </span><span class="s">"/usr/bin/python3.11"</span>
+
+<span class="nt">additional_build_steps</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">append_base</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RUN /usr/bin/python3.11 -m pip install --upgrade pip</span>
+
+<span class="c1"># （記載省略）</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># 機器一覧の機器「localhost」のインベントリファイル追加オプションの記述例</span>
+<span class="nt">ansible_python_interpreter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/bin/python3.11</span>
+<span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</pre></div>
+</div>
+</div>
 
 
 </div>

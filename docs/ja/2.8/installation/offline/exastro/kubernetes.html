@@ -2274,7 +2274,7 @@ EXTERNAL_URL_MNG:<span class="w"> </span><span class="s2">"http://xx.xx.xx.xx:30
 <tr class="row-even"><td><p>global.gitlabDefinition.secret.GITLAB_ROOT_TOKEN</p></td>
 <td><p>GitLab の root 権限アカウントのアクセストークン</p></td>
 <td><p>必須</p></td>
-<td><p>アクセエストークン(平文)</p></td>
+<td><p>アクセストークン(平文)</p></td>
 </tr>
 </tbody>
 </table>
@@ -3795,7 +3795,7 @@ ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory.yaml
 <section id="kubespray">
 <h3>⑬kubesprayのインストール<a class="headerlink" href="#kubespray" title="Link to this heading">¶</a></h3>
 <div class="line-block">
-<div class="line">kubenetesクラスタの構築で使用するファイルはNginxコンテナを介して提供します。</div>
+<div class="line">Kubernetesクラスタの構築で使用するファイルはNginxコンテナを介して提供します。</div>
 <div class="line">/tmp/workに展開するoffline-filesとnginxコンテナの/usr/share/nginx/html/downloadをマウントします。</div>
 <div class="line">以下の手順をAnsible実行サーバで実施します。</div>
 </div>
@@ -4282,12 +4282,12 @@ kubectl<span class="w"> </span>delete<span class="w"> </span>pv<span class="w"> 
 <span class="c1">#podが削除されたことを確認します</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>exastro
 <span class="c1">#永続ボリュームが削除されたことを確認します</span>
-kibectl<span class="w"> </span>get<span class="w"> </span>pv
+kubectl<span class="w"> </span>get<span class="w"> </span>pv
 </pre></div>
 </div>
 </div>
 <div class="line-block">
-<div class="line">kubenetesの削除を行います。kubespyayのインストール時にエラーが発生した場合は以下の手順のみ実行します。</div>
+<div class="line">Kubernetesの削除を行います。kubesprayのインストール時にエラーが発生した場合は以下の手順のみ実行します。</div>
 <div class="line">完了するまでに数十分程度の時間がかかります。(通信環境やサーバースペックによって状況は異なります。)</div>
 <div class="line">使用するreset.ymlはgit cloneで取得したkubesprayに含まれているため、作成する必要はありません。</div>
 <div class="line">完了後、Kubesparayを実行してKubernetesクラスター環境へKubernetesをインストールする手順から再実行します。</div>
