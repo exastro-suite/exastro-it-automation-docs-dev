@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fe63c2af" />
     <link rel="stylesheet" type="text/css" href="../../_static/option.css?v=49ab891d" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
     <link rel="stylesheet" type="text/css" href="../../_static/exastro_documents.css?v=826bbf11" />
     <link rel="stylesheet" type="text/css" href="../../_static/swagger/swagger-ui.css?v=ab82c586" />
     
@@ -31,6 +32,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=3e58b9f8"></script>
     <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="../../_static/tabs.js?v=3030b3cb"></script>
     <script src="../../_static/jquery-3.6.3.min.js?v=25455f10"></script>
     <script src="../../_static/exastro_documents.js?v=ff50fb31"></script>
     <script src="../../_static/swagger/swagger-ui-bundle.js?v=ec73a32a"></script>
@@ -127,6 +129,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id2">2.2. システム要件</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id3">2.2.1. サーバー要件</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id4">2.2.2. 通信要件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rpm">2.2.3. RPMパッケージ一覧</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#id5">2.3. 動作確認済み実績</a></li>
@@ -169,6 +172,7 @@
 <li><a class="reference internal" href="#id2">2.2. システム要件</a><ul>
 <li><a class="reference internal" href="#id3">2.2.1. サーバー要件</a></li>
 <li><a class="reference internal" href="#id4">2.2.2. 通信要件</a></li>
+<li><a class="reference internal" href="#rpm">2.2.3. RPMパッケージ一覧</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id5">2.3. 動作確認済み実績</a></li>
@@ -334,14 +338,165 @@
 </tbody>
 </table>
 </section>
+<section id="rpm">
+<h3><span class="section-number">2.2.3. </span>RPMパッケージ一覧<a class="headerlink" href="#rpm" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">以下は、Exastro IT Automation を Docker もしくは Podman 環境にインストールする際に必要なRPMパッケージ一覧となります。</div>
+<div class="line">オフライン環境でのインストールの場合、各パッケージのインストールが必要となります。</div>
+<div class="line">詳細については <a class="reference internal" href="../../installation/offline/exastro/docker_compose.html"><span class="doc">Exastro on Docker Compose - Offline</span></a> を参照してください。</div>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-cG9kbWFu" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-cG9kbWFu" name="cG9kbWFu" role="tab" tabindex="0">podman</button><button aria-controls="panel-0-ZG9ja2Vy" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-ZG9ja2Vy" name="ZG9ja2Vy" role="tab" tabindex="-1">docker</button></div><div aria-labelledby="tab-0-cG9kbWFu" class="sphinx-tabs-panel group-tab" id="panel-0-cG9kbWFu" name="cG9kbWFu" role="tabpanel" tabindex="0"><table class="docutils align-default" id="id9">
+<caption><span class="caption-number">表 2.5 </span><span class="caption-text">Red Hat Enterprise Linux</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 9.9%" />
+<col style="width: 71.2%" />
+<col style="width: 6.3%" />
+<col style="width: 6.3%" />
+<col style="width: 6.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パッケージ名</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>RHEL8</p></th>
+<th class="head"><p>RHEL9</p></th>
+<th class="head"><p>RHEL10</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>podman</p></td>
+<td><p>podmanエンジン</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>podman-docker</p></td>
+<td><p>Docker互換コマンドパッケージ</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>git</p></td>
+<td><p>ソースコード管理、バージョン管理</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>container-selinux</p></td>
+<td><p>コンテナ実行時のSELinuxポリシー</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>createrepo</p></td>
+<td><p>ローカルリポジトリ（オフライン作業時に必要）</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-number">表 2.6 </span><span class="caption-text">AlmaLinux</span><a class="headerlink" href="#id10" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 9.9%" />
+<col style="width: 74.3%" />
+<col style="width: 7.9%" />
+<col style="width: 7.9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パッケージ名</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>AlmaLinux 8</p></th>
+<th class="head"><p>AlmaLinux 9</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>podman</p></td>
+<td><p>podmanエンジン</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>podman-docker</p></td>
+<td><p>Docker互換コマンドパッケージ</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>git</p></td>
+<td><p>ソースコード管理、バージョン管理</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>container-selinux</p></td>
+<td><p>コンテナ実行時のSELinuxポリシー</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>createrepo</p></td>
+<td><p>ローカルリポジトリ（オフライン作業時に必要）</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-ZG9ja2Vy" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-ZG9ja2Vy" name="ZG9ja2Vy" role="tabpanel" tabindex="0"><table class="docutils align-left" id="id11">
+<caption><span class="caption-number">表 2.7 </span><span class="caption-text">AlmaLinux</span><a class="headerlink" href="#id11" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 9.9%" />
+<col style="width: 74.3%" />
+<col style="width: 7.9%" />
+<col style="width: 7.9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>パッケージ名</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>AlmaLinux 8</p></th>
+<th class="head"><p>AlmaLinux 9</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>docker-ce</p></td>
+<td><p>Dockerエンジン</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>docker-ce-cli</p></td>
+<td><p>Dockerコマンドラインインターフェース</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>containerd.io</p></td>
+<td><p>Dockerのコンテナランタイム</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>git</p></td>
+<td><p>ソースコード管理、バージョン管理</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-even"><td><p>container-selinux</p></td>
+<td><p>コンテナ実行時のSELinuxポリシー</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+<tr class="row-odd"><td><p>createrepo</p></td>
+<td><p>ローカルリポジトリ（オフライン作業時に必要）</p></td>
+<td><p>〇</p></td>
+<td><p>〇</p></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
 </section>
 <section id="id5">
 <h2><span class="section-number">2.3. </span>動作確認済み実績<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">以下は、動作確認済みのオペレーティングシステムとコンテナプラットフォームのバージョンとなります。</div>
 </div>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-number">表 2.5 </span><span class="caption-text">動作確認実績</span><a class="headerlink" href="#id9" title="Link to this table">¶</a></caption>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-number">表 2.8 </span><span class="caption-text">動作確認実績</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 29.4%" />
 <col style="width: 23.5%" />
