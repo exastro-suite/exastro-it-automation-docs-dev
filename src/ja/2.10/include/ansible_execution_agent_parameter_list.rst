@@ -142,3 +142,9 @@
      - 可
      - 2.7.0
      -
+   * - AGENT_SSL_VERIFY_ENABLED
+     - Exastro IT Automation への通信で、SSL証明書を検証するかを制御できます。
+     - FALSE
+     - 可
+     - 2.10.1
+     -
