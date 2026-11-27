@@ -529,11 +529,64 @@ GitLab 連携設定
    :caption: exastro.yaml
    :language: yaml
 
-.. _installation_kubernetes_proxy_settings:
-
-
 ..  include:: ../../../include/aap_cloud_gitlab.rst
 
+.. _installation_kubernetes_ssl_verify:
+
+外部通信の SSL 証明書検証の設定
+-------------------------------
+
+.. list-table:: 外部通信の SSL 証明書検証のオプションパラメータ
+   :widths: 25 25 10 20
+   :header-rows: 1
+   :align: left
+   :class: filter-table
+
+   * - パラメータ
+     - 説明
+     - 変更
+     - デフォルト値・選択可能な設定値
+   * - exastro-it-automation.<コンテナ名>.extraEnv.ANSIBLE_AAP_SSL_VERIFY_ENABLED
+     - | Ansible Automation Platform との通信時の SSL 証明書の検証有無。
+       | 対象コンテナ：
+       |   ita-api-organization
+       |   ita-by-ansible-execute
+       |   ita-by-ansible-towermaster-sync
+       |   ita-by-conductor-synchronize
+     - 可
+     - | :program:`"FALSE"` (デフォルト): 検証しない
+       | :program:`"TRUE"`: 検証する
+   * - exastro-it-automation.<コンテナ名>.extraEnv.TERRAFORM_SSL_VERIFY_ENABLED
+     - | HCP Terraform との通信時の SSL 証明書の検証有無。
+       | 対象コンテナ：
+       |   ita-api-organization
+       |   ita-by-conductor-synchronize
+       |   ita-by-excel-export-import
+       |   ita-by-terraform-cloud-ep-execute
+     - 可
+     - | :program:`"FALSE"` (デフォルト): 検証しない
+       | :program:`"TRUE"`: 検証する
+   * - exastro-it-automation.<コンテナ名>.extraEnv.CONDUCTOR_NOTICE_SSL_VERIFY_ENABLED
+     - | Conductor の通知先との通信時の SSL 証明書の検証有無。
+       | 対象コンテナ：
+       |   ita-api-organization
+       |   ita-by-conductor-synchronize
+     - 可
+     - | :program:`"FALSE"` (デフォルト): 検証しない
+       | :program:`"TRUE"`: 検証する
+   * - exastro-platform.platform-job.extraEnv.JOB_NOTIFICATION_STARTTLS_SSL_VERIFY_ENABLED
+     - | 通知 Job の SMTP (STARTTLS) 通信時の SSL 証明書の検証有無。
+     - 可
+     - | :program:`"FALSE"` (デフォルト): 検証しない
+       | :program:`"TRUE"`: 検証する
+
+| 設定する場合は、使用する環境変数ごとに、「対象コンテナ」に記載したすべてのコンテナの :kbd:`extraEnv` に同じ値を設定します。
+
+.. warning::
+   | 本設定は Ver.2.10.1 以降で設定できます。
+   | "TRUE" を設定すると、SSL 証明書の検証に失敗した通信はエラーになります。
+
+.. _installation_kubernetes_proxy_settings:
 
 Proxy設定
 ---------
