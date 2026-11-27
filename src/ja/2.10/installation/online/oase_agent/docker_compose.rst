@@ -183,6 +183,14 @@ OASE Agent on Docker Compose - Online
      | ※EXASTRO_REFRESH_TOKENを使わない場合（非推奨）
    - 可
    - Ch@ngeMe
+ * - AGENT_SSL_VERIFY_ENABLED
+   - Exastro IT Automation への通信で、SSL証明書を検証するか
+   - 可
+   - FALSE
+ * - EVENT_COLLECTION_SSL_VERIFY_ENABLED
+   - イベント収集先への通信で、SSL証明書を検証するか
+   - 可
+   - FALSE
  * - EVENT_COLLECTION_SETTINGS_NAMES
    - Exastro IT Automation のOASE管理 イベント収集 で作成した イベント収集設定名
    - 必須
