@@ -85,6 +85,15 @@ Amazon Bedrock
    * - AWS Secret Access Key
      - | AWSにて払い出したシークレットアクセスキー
 
+.. note::
+   | Amazon Bedrockのモデルによっては（Anthropic Claude Fable等）、AWS側で「データ保持」を有効にする設定がされていないと、AIアシスタントの利用時に以下のようなAPIエラーが発生します。
+   | 事前にAWSのアカウント管理者にて、データ保持を有効にする設定を確認・実施してください。設定の詳細はAWSのドキュメント等でご確認ください。
+
+   .. code-block:: text
+      :caption: APIエラー例
+
+      AIサービスAPIエラー(ValidationException): data retention mode 'default' is not available for this model
+
 
 Amazon Bedrock (Login Cache)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -160,3 +169,4 @@ Amazon Bedrock (Login Cache)
    .. figure:: /images/ja/ai_assistant/settings/ai-service-setting-model-selected.png
       :width: 972px
       :alt: AIサービス設定_モデル選択済み画面
+
