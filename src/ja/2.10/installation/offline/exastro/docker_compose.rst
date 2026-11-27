@@ -1312,10 +1312,3 @@ Ansible-Core を利用しない設定
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../../../include/docker_compose_ansible_core_no_socket.rst
-
-| 設定を反映するために、setup.sh を実行します。
-
-.. code-block:: bash
-   :caption: コマンド
-
-   cd ~/exastro-docker-compose && sh ./setup.sh install
