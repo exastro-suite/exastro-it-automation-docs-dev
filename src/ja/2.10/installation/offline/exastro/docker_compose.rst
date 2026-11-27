@@ -1303,3 +1303,12 @@ Exastro on Docker Compose - Offline
 
 | アップグレード前に行ったメンテナンスモードを解除します。
 | メンテナンスモードの解除の手順は :doc:`../../../manuals/maintenance/maintenance_mode` を参照してください。
+
+
+付録
+====
+
+Ansible-Core を利用しない設定
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: ../../../include/docker_compose_ansible_core_no_socket.rst

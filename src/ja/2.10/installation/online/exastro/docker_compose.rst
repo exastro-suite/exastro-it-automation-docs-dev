@@ -464,3 +464,14 @@ volumeを削除
    cd ~/exastro-docker-compose
 
    git checkout .volumes
+
+
+付録
+====
+
+.. _docker_compose_ansible_core_socket:
+
+Ansible-Core を利用しない設定
+-----------------------------
+
+.. include:: ../../../include/docker_compose_ansible_core_no_socket.rst
