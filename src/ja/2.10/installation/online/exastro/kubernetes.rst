@@ -546,31 +546,34 @@ GitLab 連携設定
      - 説明
      - 変更
      - デフォルト値・選択可能な設定値
-   * - exastro-it-automation.<コンテナ名>.extraEnv.ANSIBLE_AAP_SSL_VERIFY_ENABLED
-     - | Ansible Automation Platform との通信時の SSL 証明書の検証有無。
+   * - | exastro-it-automation.<コンテナ名>.extraEnv.ANSIBLE_AAP_SSL_VERIFY_ENABLED
+       |
        | 対象コンテナ：
        |   ita-api-organization
        |   ita-by-ansible-execute
        |   ita-by-ansible-towermaster-sync
        |   ita-by-conductor-synchronize
+     - | Ansible Automation Platform との通信時の SSL 証明書の検証有無。
      - 可
      - | :program:`"FALSE"` (デフォルト): 検証しない
        | :program:`"TRUE"`: 検証する
-   * - exastro-it-automation.<コンテナ名>.extraEnv.TERRAFORM_SSL_VERIFY_ENABLED
-     - | HCP Terraform との通信時の SSL 証明書の検証有無。
+   * - | exastro-it-automation.<コンテナ名>.extraEnv.TERRAFORM_SSL_VERIFY_ENABLED
+       |
        | 対象コンテナ：
        |   ita-api-organization
        |   ita-by-conductor-synchronize
        |   ita-by-excel-export-import
        |   ita-by-terraform-cloud-ep-execute
+     - | HCP Terraform との通信時の SSL 証明書の検証有無。
      - 可
      - | :program:`"FALSE"` (デフォルト): 検証しない
        | :program:`"TRUE"`: 検証する
-   * - exastro-it-automation.<コンテナ名>.extraEnv.CONDUCTOR_NOTICE_SSL_VERIFY_ENABLED
-     - | Conductor の通知先との通信時の SSL 証明書の検証有無。
+   * - | exastro-it-automation.<コンテナ名>.extraEnv.CONDUCTOR_NOTICE_SSL_VERIFY_ENABLED
+       |
        | 対象コンテナ：
        |   ita-api-organization
        |   ita-by-conductor-synchronize
+     - | Conductor の通知先との通信時の SSL 証明書の検証有無。
      - 可
      - | :program:`"FALSE"` (デフォルト): 検証しない
        | :program:`"TRUE"`: 検証する
